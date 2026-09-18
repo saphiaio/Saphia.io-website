@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tea, ΣΟΦΙΑ</title>
+<meta name="description" content="Tea: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.bowl .v{font-family:var(--mono);font-size:34px;font-weight:500;color:#faf7f0}
+.bowl .l{font-size:14px;font-style:italic;margin-top:6px;line-height:1.4}
+.leaves .v{font-family:var(--mono);font-size:20px;font-weight:500;color:#3f6b47}
+.leaves .l{font-size:13px;color:#6f6a62;font-style:italic;line-height:1.35}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap;color:#3f6b47}
+.bars{margin:14px 0 26px;font-family:var(--mono);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:110px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:12px;background:#dcd4c6;position:relative;border-radius:2px}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#3f6b47,#8c4a2f);border-radius:2px}
+.bars .v{text-align:right;color:#141412}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;border:1px solid #dcd4c6;border-top:3px solid #3f6b47;padding:14px 16px}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:500;color:#3f6b47}
+.card .l{font-size:13px;color:#6f6a62;font-style:italic}
+.era{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:11px 0;border-bottom:1px dotted #dcd4c6;max-width:78ch}
+.era .y{font-family:var(--mono);font-weight:500;color:#3f6b47;font-size:13px;padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.era{grid-template-columns:1fr;gap:2px}
+.bars .r{grid-template-columns:90px 1fr 100px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Tea</p>
+  <h1>Tea</h1>
+  <p class="lede">The world's most consumed manufactured drink after water: seven million tonnes a year, more than half of it Chinese, priced at commodity auctions in Mombasa and Kolkata, and, at the top, a Japanese shade-grown powder whose producer price rose 2.6-fold in a single year. This page covers the overview: production and its concentration, the auction system, the export trade, and the matcha shortage as the clearest case of a luxury tier decoupling from its commodity base. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">7.05 m t</div><div class="l">World production 2024; China 3.74 m t, India 1.28 m t, 78% together <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">1.94 m t</div><div class="l">Exports 2024 (preliminary ITC), 27.6% of the crop <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">13 m</div><div class="l">People whose living depends on tea, per FAO <span class="t">Reported</span><sup class="r"><a href="#s4">4</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Bulk auction grades flat while the matcha and Uji tencha tier runs short; a two-speed market.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>China · India · Kenya · Sri Lanka · Japan</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>China · India · Europe · Pakistan · United States</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low; Uji tencha High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Production and concentration</a></li><li><a href="#s-ii"><span>II</span>Categories and where value sits</a></li><li><a href="#s-iii"><span>III</span>Trade and the auction system</a></li><li><a href="#s-iv"><span>IV</span>The matcha shortage</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Production and concentration</h2><p class="sub">Output has nearly doubled in twenty years, and the doubling is almost all China.</p></div>
+  
+  <div class="bars">
+    <div class="r"><span>China</span><div class="bar"><i style="width:100%"></i></div><span class="v">3.74 m t · 53%</span></div>
+    <div class="r"><span>India</span><div class="bar"><i style="width:34%"></i></div><span class="v">1.28 m t · 18%</span></div>
+    <div class="r"><span>Kenya</span><div class="bar"><i style="width:16%"></i></div><span class="v">c.0.60 m t · 8.5%</span></div>
+    <div class="r"><span>Türkiye</span><div class="bar"><i style="width:8%"></i></div><span class="v">4th</span></div>
+    <div class="r"><span>Sri Lanka</span><div class="bar"><i style="width:7%"></i></div><span class="v">5th · 256 kt (2022)</span></div>
+    <div class="r"><span>Japan</span><div class="bar"><i style="width:2%"></i></div><span class="v">74 kt</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--mute)">2024 data; Kenya's tonnage is derived from its 8.5% share, and the Sri Lankan figure is FAO 2022. <span class="t">Derived</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
+  <div class="tw"><table>
+    <tr><th>Metric</th><th class="n">2006</th><th class="n">2024</th><th>Note</th></tr>
+    <tr><td>World production</td><td class="n">3.66 m t</td><td class="n">7.05 m t</td><td>+6.8% in 2024 alone (from 6.6 m t); China +12% <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
+    <tr><td>China + India share</td><td class="n">58%</td><td class="n">78%</td><td>Concentration has intensified as China expands every year <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Countries producing &gt;100 kt</td><td class="n">8</td><td class="n">7</td><td>Japan has dropped out; Vietnam and Indonesia remain <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>India</td><td class="n">,</td><td class="n">−6.1%</td><td>Assam shortened season and reduced yields in 2024 <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Bangladesh / Argentina</td><td class="n">,</td><td class="n">−9.6% / +19.1%</td><td>Civil unrest; recovery of a US black-tea supplier <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+  </table></div>
+  <div class="note warn">Discrepancy logged: FAO's finalised world figure for 2023 is given as 6.604 m t by one compiler and 6.7 m t by another; the 2024 estimates of 7.05 m t (Tea &amp; Coffee Trade Journal) and 7.1 m t (Firsd Tea) agree within rounding. China's share is "over 50%" (FAO-based), 53% (Firsd) and "over 60%" is not supported by any institutional source.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a> <a href="#s4">4</a></sup> <span class="c c-m">Med</span></div>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Categories and where value sits</h2><p class="sub">One plant, six processing routes, three orders of magnitude in price.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Category</th><th>Processing</th><th>Benchmark origins</th><th>Market position</th></tr>
+    <tr><td>Black (CTC and orthodox)</td><td>Full oxidation; CTC (cut-tear-curl) for teabags, orthodox whole leaf</td><td>Kenya, Assam, Sri Lanka, Türkiye</td><td>Bulk of exports; auction-priced; Mombasa handles &gt;500 kt a year<sup class="r"><a href="#s5">5</a></sup></td></tr>
+    <tr><td>Green</td><td>Unoxidised; steamed (Japan) or pan-fired (China)</td><td>China (Longjing), Japan (Sencha), Vietnam</td><td>20% of exports; China 309 kt and Vietnam 61 kt of 386 kt in 2023<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Oolong</td><td>Partial oxidation</td><td>Fujian, Taiwan</td><td>Premium Chinese domestic and diaspora markets</td></tr>
+    <tr><td>Dark / post-fermented (Pu-erh)</td><td>Microbial ageing; compressed bricks and cakes</td><td>Yunnan</td><td>Promoted for health and ageing; a driver of Chinese domestic consumption growth per FAO<sup class="r"><a href="#s3">3</a></sup></td></tr>
+    <tr><td>Matcha (tencha ground)</td><td>Shade-grown, steamed, de-stemmed, stone-milled</td><td>Uji (Kyoto), Nishio (Aichi), Kagoshima, Shizuoka</td><td>The luxury tier; see Section IV<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>White</td><td>Minimal processing</td><td>Fujian</td><td>Niche</td></tr>
+  </table></div>
+  <p>Kyoto producer prices in 2025 illustrate the spread inside a single prefecture: tencha for matcha averaged ¥14,141/kg against ¥8,447 for Gyokuro, ¥4,482 for Sencha and ¥1,225 for Bancha, a factor of more than eleven from the bottom grade to the top.<sup class="r"><a href="#s7">7</a></sup> <span class="c c-h">High</span> The world's tea market was valued at c.US$25.6 bn in 2024 by one research house; the figure is unverified and shown for orientation only.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-l">Low</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Trade and the auction system</h2><p class="sub">Exporters need the world; the world's largest producer barely exports.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Flow</th><th class="n">Volume</th><th>Note</th></tr>
+    <tr><td>World exports 2024</td><td class="n">1.94 m t</td><td>Kenya, China, India, Sri Lanka, Vietnam the top five <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Kenya exports 2024</td><td class="n">594.5 kt</td><td>KSh 181 bn (c.US$1.35 bn); largest exporter <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Sri Lanka exports 2024</td><td class="n">,</td><td>US$1.45 bn; c.1 m people employed; tea on c.4% of land area <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Top importers 2023</td><td class="n">,</td><td>Pakistan 236 kt; Russia 129 kt; USA 104 kt; Egypt 100 kt; UK 84 kt; Morocco 62 kt <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Japan green-tea exports FY2025</td><td class="n">13,125 t</td><td>+42% by volume; value roughly doubled to ¥84.7 bn; Japanese imports of foreign green tea +82% to backfill shelves <span class="c c-m">Med</span><sup class="r"><a href="#s8">8</a></sup></td></tr>
+  </table></div>
+  <h3>The auction floor</h3>
+  <p>Black tea is priced at producer-country auctions, Mombasa (the world's largest, over 500 kt a year), Kolkata, Guwahati, Colombo, where brokers sell graded lots to blenders and packers. In 2024 the International Tea Committee reported Mombasa heavily glutted with unsold, "unfresh" teas passing auction after auction, while African import markets (Egypt −16%, Morocco −27%) contracted; producing countries have responded by promoting domestic consumption to rebalance supply and demand.<sup class="r"><a href="#s5">5</a></sup> <span class="c c-h">High</span> The FAO expects Kenya to keep its export leadership over the decade and India to overtake Sri Lanka as the second black-tea exporter.<sup class="r"><a href="#s3">3</a></sup></p>
+  <div class="note">Diamond parallel: the Mombasa auction is a rough tender for a perishable, graded lots, sealed bids, a handful of large buyers, and a producer base of smallholders who take the price they are given. The unsold-lot problem of 2024 is the same signal as unsold sight boxes: the intermediary has stopped absorbing inventory. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>The matcha shortage</h2><p class="sub">A luxury tier decoupling from its commodity base, in real time.</p></div>
+  
+  <div class="cards">
+    <div class="card"><div class="v">+169%</div><div class="l">Kyoto first-harvest tencha auction average, ¥5,402/kg (2024) → ¥14,541/kg (2025), per Global Japanese Tea Association <span class="c c-m">Med</span><sup class="r"><a href="#s9">9</a></sup></div></div>
+    <div class="card"><div class="v">¥43,330 /kg</div><div class="l">Premium Uji tencha auction price 2025, +116%; peak lots +265% <span class="c c-m">Med</span><sup class="r"><a href="#s9">9</a></sup></div></div>
+    <div class="card"><div class="v">4–5 years</div><div class="l">For new tea plants to reach tencha production, no supply response before c.2030 <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a> <a href="#s10">10</a></sup></div></div>
+  </div>
+  <div class="era"><div class="y">2000–20</div><div class="t">Japan loses 53,000 tea farmers to retirement; production falls to 74,000 t by 2024.<sup class="r"><a href="#s6">6</a> <a href="#s1">1</a></sup></div></div>
+  <div class="era"><div class="y">2024</div><div class="t">Record heat during the spring shading window damages Uji tencha quality and volume; the highest grades lose c.40% of yield across 2024–25.<sup class="r"><a href="#s6">6</a> <a href="#s11">11</a></sup></div></div>
+  <div class="era"><div class="y">Late 2024</div><div class="t">Social-media-driven global demand meets depleted reserves; the Global Japanese Tea Association calls it the first matcha shortage in history.<sup class="r"><a href="#s10">10</a></sup></div></div>
+  <div class="era"><div class="y">May 2025</div><div class="t">Kyoto opening tencha auction average ¥8,235/kg, 1.7× the prior year and above the 2016 record; Kyoto-region volume reported down c.25%.<sup class="r"><a href="#s10">10</a> <a href="#s9">9</a></sup></div></div>
+  <div class="era"><div class="y">2025</div><div class="t">Kyoto producer price for tencha averages ¥14,141/kg, 2.6× the previous year; a 15% US tariff on Japanese imports adds to café costs; wait times stretch to six months; scalpers and relabelled lower grades appear; tins rationed to one per customer in Tokyo.<sup class="r"><a href="#s7">7</a> <a href="#s12">12</a> <a href="#s10">10</a></sup></div></div>
+  <div class="era"><div class="y">2026</div><div class="t">First-flush auctions confirm the squeeze: Kyoto tencha from ¥8,235 to c.¥13,972/kg, national aggregate c.¥14,541, Kagoshima c.¥19,000; a Shizuoka top lot at ¥1.18 m/kg; Kagoshima's opening auction the highest since 1989. Uji reports one of its strongest harvests in decades, and prices do not fall.<sup class="r"><a href="#s8">8</a> <a href="#s13">13</a></sup></div></div>
+  <p>The supply response is a conversion, not a planting: Shizuoka's Ashikubo cooperative switched a sencha line to tencha in late 2025 for ¥200 m after tencha sold for c.¥3,800/kg against c.¥300 for its sencha, more than ten times.<sup class="r"><a href="#s8">8</a></sup> Ippodo expects more capacity to shift to matcha in 2026, which will tighten sencha and bancha in turn.<sup class="r"><a href="#s7">7</a></sup> Kagoshima has become the B2B standard for high-quality, cost-efficient matcha, while Uji remains the prestige tier; direct exporters undercut traditional distributors materially.<sup class="r"><a href="#s11">11</a></sup> <span class="c c-m">Med</span></p>
+  <div class="note warn">Discrepancy logged: the 2025 Kyoto first-harvest average is ¥14,541/kg in GJTA reporting and ¥14,141/kg in Ippodo's JA Kyoto figure; the 2025 opening average is ¥8,235. These are different aggregates (season average, producer price, opening auction) and are shown with their labels rather than reconciled. All are dated observations, not current prices.<sup class="r"><a href="#s9">9</a> <a href="#s7">7</a> <a href="#s10">10</a></sup> <span class="c c-m">Med</span></div>
+  <div class="note">Integrity note: the 2024–25 squeeze drew counterfeit Uji-origin labels, sencha powder sold as matcha, and aged stock relabelled as current harvest; genuine stone-milled ceremonial tencha cannot be produced profitably below roughly US$30/kg, so offers below that are either Chinese-origin or not tencha.<sup class="r"><a href="#s11">11</a></sup> <span class="c c-m">Med</span>, a trade source with an interest; the price floor is its claim.</div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>World production and trade</td><td>FAO Intergovernmental Group on Tea; International Tea Committee annual bulletin</td><td>Concentration; export share of crop</td></tr>
+    <tr><td>Mombasa and Kolkata auction averages and unsold percentages</td><td>East African Tea Trade Association; Tea Board of India, weekly</td><td>Commodity-tier health; glut signals</td></tr>
+    <tr><td>Kyoto, Shizuoka and Kagoshima tencha auctions</td><td>JA Kyoto / JA Zen-Noh; Global Japanese Tea Association, May–August</td><td>The luxury tier; whether 2025 levels hold</td></tr>
+    <tr><td>Japanese green-tea exports and imports</td><td>Ministry of Finance trade statistics, monthly</td><td>Export pull and domestic backfill</td></tr>
+    <tr><td>Tencha line conversions and plantings</td><td>MAFF; prefectural cooperatives</td><td>Supply response with a five-year lag</td></tr>
+    <tr><td>US tariff on Japanese goods</td><td>USTR</td><td>Landed cost in the largest matcha export market</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Trade-journal compilations of FAO and ITC data are primary for the commodity tier; Japanese tea merchants and associations for matcha, marked Med where they are interested parties.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Tea &amp; Coffee Trade Journal</b>, "The 2025 Global Tea Report", 22 May 2025, 2024 production 7.05 m t; China 3.74 m t, India 1.28 m t, 78%; 2006 comparison (3.66 m t, 58%); seven countries above 100 kt; Japan 74 kt; ITC exports 1.94 m t (27.6%); top importers 2023; green-tea exports 385,760 t.</li>
+    <li id="s2"><b>Firsd Tea</b>, "2025 China Tea Report: Production", 14 Jul 2025, world +6.8% from 6.6 to 7.1 m t; China 53%, +12%; India 18.2%, −6.1%; Kenya 8.5%; Türkiye fourth; Bangladesh −9.6%; Argentina +19.1%.</li>
+    <li id="s3"><b>FAO</b>, Intergovernmental Group on Tea, CCP:TE/24/2, Jan 2024, India 1.37 m t (2022); Kenya 542,561 t and Sri Lanka 255,973 t (2022); Pu-erh and domestic consumption; decade outlook for exporters.</li>
+    <li id="s4"><b>DevelopmentAid</b>, "World's largest tea-producing countries", 27 Jun 2025, China over 50% in 2024; Kenya exports 594,500 t, KSh 181 bn (US$1.35 bn); Sri Lanka exports US$1.45 bn, c.1 m employed, c.4% of land; FAO 13 m livelihoods; US$25.6 bn market estimate (Research and Markets). <span class="c c-m">Med</span></li>
+    <li id="s5"><b>Tea &amp; Coffee Trade Journal</b>, "The Global Tea Report 2024", 16 May 2024, Mombasa over 500 kt a year, glutted with unsold teas; African import declines; domestic-consumption promotion.</li>
+    <li id="s6"><b>One with Tea</b>, "The 2026 Matcha Shortage Explained", Apr 2026, 2024 heatwaves; 53,000 farmers lost 2000–2020; 4–5 year plant maturity; regional concentration; 2026 auction figures. Merchant. <span class="c c-m">Med</span></li>
+    <li id="s7"><b>Ippodo Tea</b>, "Important Notice: Industry Supply Shortages", 19 Feb 2026, Kyoto producer prices 2025 by category (¥14,141 tencha, ¥8,447 Gyokuro, ¥4,482 Sencha, ¥1,225 Bancha); 2.6× rise; expected capacity shift. Merchant. <span class="c c-m">Med</span></li>
+    <li id="s8"><b>Genie Super</b>, "Japan's 2026 Matcha Shortage: Will Prices Keep Rising?", 31 Jul 2026, 2026 auction range; Shizuoka ¥1.18 m/kg lot; Kagoshima highest since 1989; FY2025 exports 13,125 t (+42%), ¥84.7 bn, imports +82% (Japan Times / MoF); Ashikubo conversion. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>One with Tea</b>, "Matcha Industry 2026: Record Auctions &amp; the Shortage", 10 Aug 2026, ¥5,402 → ¥14,541/kg (+169%) per GJTA; premium Uji ¥43,330 (+116%), peaks +265%; Kyoto volume c.−25% (trade-reported). <span class="c c-m">Med</span></li>
+    <li id="s10"><b>Maison Koko</b>, "Matcha Shortage 2026", 24 Jun 2026, GJTA "first shortage in history"; May 2025 opening ¥8,235/kg, 1.7×, above 2016 record; five-year lag; Kyoto c.a quarter of tencha; one-tin limits in Tokyo. <span class="c c-m">Med</span></li>
+    <li id="s11"><b>First Agri B2B</b>, "Matcha Wholesale Pricing 2026", Sep 2026, 40% yield decline in top Uji grades 2024–25; Kagoshima as B2B standard; direct-export pricing; counterfeit and relabelling patterns; US$30/kg floor claim. Exporter. <span class="c c-m">Med</span></li>
+    <li id="s12"><b>Supply Chain Dive</b>, "A matcha shortage is coming for social media's latest obsession", 3 Oct 2025, Kyoto tencha trading prices +265% 2024–25 (ITC citing JA Kyoto); 15% US tariff; six-month waits; scalpers.</li>
+    <li id="s13"><b>Vision Times</b>, "Japan's Matcha Crisis", 12 Feb 2026, 170% price surge in 2025; rationing by established gardens. <span class="c c-m">Med</span></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

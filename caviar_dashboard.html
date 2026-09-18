@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caviar, ΣΟΦΙΑ</title>
+<meta name="description" content="Caviar: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.pearls .v{font-family:var(--mono);font-size:19px;font-weight:500;color:#141412}
+.pearls .l{font-size:12.5px;color:#6f6a62;font-style:italic;line-height:1.35}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap;color:#141412}
+.era{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:11px 0;border-bottom:1px dotted #dcd4c6;max-width:78ch}
+.era .y{font-family:var(--mono);font-weight:500;color:#a8825a;font-size:13px;padding-top:2px}
+.era .t{font-size:15px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+.bars{margin:14px 0 26px;font-family:var(--mono);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:130px 1fr 110px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#dcd4c6;border-radius:5px;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#6f6a62,#141412);border-radius:5px}
+.bars .v{text-align:right;color:#141412}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;border:1px solid #dcd4c6;border-radius:14px;padding:14px 16px}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:500;color:#141412}
+.card .l{font-size:13px;color:#6f6a62;font-style:italic}
+@media(max-width:820px){
+.cards{grid-template-columns:1fr}
+.era{grid-template-columns:1fr;gap:2px}
+.bars .r{grid-template-columns:100px 1fr 90px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Caviar</p>
+  <h1>Caviar</h1>
+  <p class="lede">Thirty years ago caviar was a wild Caspian fishery. Today it is an aquaculture product, more than nine-tenths of it farmed, a third or more of it Chinese, with supply now exceeding demand and wholesale prices falling, while the illegal wild trade persists on the Danube and in every market where a tin can be relabelled. This page covers species, the wild-to-farmed transition, production by country, trade, integrity and the Gulf's own experiment in desert aquaculture.</p>
+  <div class="figures"><div><div class="v">380 t</div><div class="l">Global caviar production, 2018, last comprehensive estimate <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">31,800 t</div><div class="l">Peak wild sturgeon catch, 1977 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">121,875 t</div><div class="l">China's farmed sturgeon biomass, 2021, c.84% of world <span class="t">Reported</span><sup class="r"><a href="#s4">4</a> <a href="#s3">3</a></sup></div></div><div><div class="v">50%</div><div class="l">Share of Lower-Danube caviar and meat samples found illegal, 2023 study <span class="t">Reported</span><sup class="r"><a href="#s10">10</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Farmed supply expansion pushing prices down since the late 2010s; wild product effectively off-market.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>China · Italy · France · Russia · Iran</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>European Union (France) · United States · Japan · Gulf</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium–High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low (farmed); High (wild)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Species and product</a></li><li><a href="#s-ii"><span>II</span>From wild fishery to aquaculture</a></li><li><a href="#s-iii"><span>III</span>Production by country</a></li><li><a href="#s-iv"><span>IV</span>Trade and demand</a></li><li><a href="#s-v"><span>V</span>Integrity: labelling and fraud</a></li><li><a href="#s-vi"><span>VI</span>Gulf angle</a></li><li><a href="#s-vii"><span>VII</span>Indicators to monitor</a></li><li><a href="#s-viii"><span>VIII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Species and product</h2><p class="sub">Caviar is sturgeon roe; everything else is "caviar substitute" by law in the EU and elsewhere.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Trade name</th><th>Species</th><th>Origin / status</th><th>Note</th></tr>
+    <tr><td>Beluga</td><td><i>Huso huso</i></td><td>Caspian, Black Sea, Danube; wild trade effectively closed</td><td>The most prized; up to twenty years to mature; US wild-import ban since 2005<sup class="r"><a href="#s1">1</a> <a href="#s16">16</a></sup></td></tr>
+    <tr><td>Kaluga</td><td><i>Huso dauricus</i></td><td>Amur basin; farmed in China, often as Kaluga–Amur hybrid</td><td>Beluga-like large grain; the basis of China's premium tier<sup class="r"><a href="#s1">1</a> <a href="#s7">7</a></sup></td></tr>
+    <tr><td>Osetra (Russian)</td><td><i>Acipenser gueldenstaedtii</i></td><td>Caspian, Danube; widely farmed</td><td>Second in the classical hierarchy<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Sevruga (stellate)</td><td><i>Acipenser stellatus</i></td><td>Caspian, Danube</td><td>Small grain, strong flavour<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Siberian</td><td><i>Acipenser baerii</i></td><td>The workhorse of European and Gulf farms</td><td>Matures in 6–8 years in captivity versus 11–20 in the wild<sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>White sturgeon</td><td><i>Acipenser transmontanus</i></td><td>North America (California, Idaho); Italy</td><td>The bulk of farmed volume in the US and Italy<sup class="r"><a href="#s1">1</a> <a href="#s8">8</a></sup></td></tr>
+    <tr><td>Sterlet; Adriatic; Amur</td><td><i>A. ruthenus; A. naccarii; A. schrenckii</i></td><td>Danube; Po; Amur</td><td>Sterlet the most abundant Danube species in illegal samples; Adriatic farmed in Italy to conserve the species<sup class="r"><a href="#s10">10</a> <a href="#s8">8</a></sup></td></tr>
+  </table></div>
+  <div class="cards">
+    <div class="card"><div class="v">8–10 yrs</div><div class="l">Typical time for farmed females to reach maturity; the female is traditionally slaughtered for the eggs <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></div></div>
+    <div class="card"><div class="v">20 : 1</div><div class="l">Tonnes of sturgeon meat produced per tonne of caviar, a farm is a meat business first <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div class="card"><div class="v">€300–500 /kg</div><div class="l">Wholesale range by species, origin and volume, as stated by EUMOFA in 2021, historical reference, not a current price <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></div></div>
+  </div>
+  <p>Farm economics follow from the biology. A decade of feeding before the first harvest means the capital cost sits in the female broodstock; meat from males and culled fish carries the farm until then, and the EU unit value of sturgeon meat has been sliding, from €8.56/kg in 2016 to €7.74/kg in 2020.<sup class="r"><a href="#s3">3</a></sup> Retail Beluga has been quoted at up to €600 per 100 g in CITES guidance, an order of magnitude above wholesale.<sup class="r"><a href="#s14">14</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>From wild fishery to aquaculture</h2><p class="sub">The regulatory history is the market history.</p></div>
+  
+  <div class="era"><div class="y">1977</div><div class="t">Peak recorded wild sturgeon catch, 31,800 t, almost all Caspian.<sup class="r"><a href="#s1">1</a></sup></div></div>
+  <div class="era"><div class="y">1984</div><div class="t">First FAO-recorded aquaculture harvest, 150 t.<sup class="r"><a href="#s1">1</a></sup></div></div>
+  <div class="era"><div class="y">1991 onward</div><div class="t">Collapse of the Soviet Union removes fisheries control on the Caspian; poaching and unregulated export follow.<sup class="r"><a href="#s15">15</a></sup></div></div>
+  <div class="era"><div class="y">1998</div><div class="t">All previously unlisted sturgeon and paddlefish species placed on CITES Appendix II; international trade requires permits.<sup class="r"><a href="#s15">15</a> <a href="#s13">13</a></sup></div></div>
+  <div class="era"><div class="y">2000</div><div class="t">CoP11 (Gigiri) recommends a universal caviar-labelling system to identify legal product in trade.<sup class="r"><a href="#s15">15</a></sup></div></div>
+  <div class="era"><div class="y">2001–02</div><div class="t">CITES suspends Caspian exports for nine months over poaching; trade resumes in March 2002 under annual quotas the range states must agree jointly.<sup class="r"><a href="#s13">13</a> <a href="#s17">17</a></sup></div></div>
+  <div class="era"><div class="y">2002–03</div><div class="t">World farmed sturgeon 4,100 t in 2002, half in Russia; China reports over 9,000 t in 2003 and the curve turns vertical.<sup class="r"><a href="#s3">3</a></sup></div></div>
+  <div class="era"><div class="y">2004–05</div><div class="t">CITES refuses most Caspian quotas for 2004; the US Fish and Wildlife Service lists beluga as threatened and bans wild beluga imports from 2005.<sup class="r"><a href="#s17">17</a> <a href="#s16">16</a></sup></div></div>
+  <div class="era"><div class="y">2006–07</div><div class="t">Romania is the first of several states to ban sturgeon fishing in the Danube and Black Sea; CITES again permits limited quotas in 2007 subject to stock surveys and regional strategy.<sup class="r"><a href="#s1">1</a> <a href="#s13">13</a></sup></div></div>
+  <div class="era"><div class="y">2008</div><div class="t">EU wildlife-trade regulation requires licensed processing and repackaging plants to keep records of caviar imported, exported, produced and stored.<sup class="r"><a href="#s18">18</a></sup></div></div>
+  <div class="era"><div class="y">2015–18</div><div class="t">Farmed sturgeon biomass peaks at c.129,600 t (2015) then settles around 102,000–115,000 t; global caviar output estimated at 380 t in 2018.<sup class="r"><a href="#s5">5</a> <a href="#s1">1</a></sup></div></div>
+  <div class="era"><div class="y">2021–25</div><div class="t">China alone reports 121,875 t of sturgeon; researchers describe a market in which supply has overtaken demand and wholesale prices have fallen.<sup class="r"><a href="#s4">4</a></sup></div></div>
+  <div class="note">Diamond parallel: a wild resource whose scarcity created the luxury, replaced within two decades by a cultivated product with identical chemistry. The industry's response, origin labelling, species certification, a premium for "Caspian" or "Beluga" names, mirrors the natural-versus-lab-grown defence, with one difference: here the cultivated product is the legal one and the wild one is the contraband. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Production by country</h2><p class="sub">Reliable data stop in 2018–2021; later figures are vendor estimates.</p></div>
+  
+  <h3>Farmed sturgeon biomass, 2021 (FAO via peer-reviewed LCA)</h3>
+  <div class="bars">
+    <div class="r"><span>China</span><div class="bar"><i style="width:100%"></i></div><span class="v">121,875 t</span></div>
+    <div class="r"><span>Armenia</span><div class="bar"><i style="width:4.8%"></i></div><span class="v">5,900 t</span></div>
+    <div class="r"><span>Russia</span><div class="bar"><i style="width:4.1%"></i></div><span class="v">5,047 t</span></div>
+    <div class="r"><span>Iran</span><div class="bar"><i style="width:2.6%"></i></div><span class="v">3,145 t</span></div>
+    <div class="r"><span>Vietnam</span><div class="bar"><i style="width:2.2%"></i></div><span class="v">2,660 t</span></div>
+    <div class="r"><span>Italy</span><div class="bar"><i style="width:1%"></i></div><span class="v">1,257 t</span></div>
+  </div>
+  <p>Most Chinese sturgeon is eaten as meat; caviar is a by-product of a meat industry rather than the reverse. China nonetheless supplies at least a third of world caviar volume and is the main supplier to the EU.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+  <h3>Caviar output</h3>
+  <div class="tw"><table>
+    <tr><th>Producer</th><th class="n">Tonnes</th><th>Year</th><th>Source & confidence</th></tr>
+    <tr><td>World</td><td class="n">380</td><td>2018</td><td>EUMOFA estimate <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>EU-27 (Italy, France, Poland, Germany = 84%)</td><td class="n">164</td><td>2018</td><td>FEAP; +12% on 145.8 t in 2017 <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Italy</td><td class="n">65</td><td>2023</td><td>Italian aquaculture statistics <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>United States</td><td class="n">18</td><td>2018</td><td>Exports 39% to Japan, 27% Canada, 22% EU <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>China</td><td class="n">c.130 (one-third of 380)</td><td>2018</td><td>Derived from EUMOFA share <span class="t">Derived</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>China</td><td class="n">200 / 260</td><td>2024</td><td>Two trade sources; 260 t stated as 35% of world, implying c.740 t global, unreconciled with 2018 baseline <span class="c c-l">Low</span><sup class="r"><a href="#s6">6</a> <a href="#s7">7</a></sup></td></tr>
+    <tr><td>Kaluga Queen (Hangzhou Qiandaohu Xunlong)</td><td class="n">60</td><td>c.2017–18</td><td>Company claim, repeated by Time and Wikipedia; largest single producer; 84% of output to the EU per a 2026 report <span class="c c-m">Med</span><sup class="r"><a href="#s8">8</a> <a href="#s7">7</a></sup></td></tr>
+    <tr><td>Vietnam, single farm</td><td class="n">50 (target 2028)</td><td>2025 commissioning</td><td>1 million fish capacity claimed <span class="c c-l">Low</span><sup class="r"><a href="#s7">7</a></sup></td></tr>
+  </table></div>
+  <div class="note warn">Discrepancy logged: retail and vendor sources state that China produces "over half" or "over 60%" of world caviar; EUMOFA (2021) and the 2025 LCA paper put the share at "around one third" or "at least one third". The lower, institutional figure is used here. All post-2021 tonnages should be treated as unverified until FAO or EUMOFA publish an update.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a> <a href="#s9">9</a></sup></div>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>Trade and demand</h2><p class="sub">A small market by volume, France at its centre, prices drifting down.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Metric</th><th class="n">Value</th><th>Note</th></tr>
+    <tr><td>France apparent consumption</td><td class="n">57.9 t</td><td>Largest in the EU; Germany 25.7 t, Spain 9.3 t <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Intra-EU trade</td><td class="n">37.4 → 61.6 → 48.4 t</td><td>2014 → 2018 → 2020 <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>US export unit value</td><td class="n">€303 → €188 /kg</td><td>2014 → 2020: the clearest published evidence of price erosion <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Other principal consumers</td><td class="n">,</td><td>US, Japan, Russia, China, Canada, Switzerland, UK, UAE, Singapore, Australia <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Global market value</td><td class="n">c.$1.5 bn (2024)</td><td>Retailer-cited estimate; basis unstated <span class="c c-l">Low</span><sup class="r"><a href="#s9">9</a></sup></td></tr>
+  </table></div>
+  <p>The structural story is oversupply. Sturgeon planted in the early 2010s, in China above all, matured into a market whose demand had not grown at the same rate; the 2025 LCA study states plainly that supply surpasses demand and wholesale prices have decreased, even as caviar remains a luxury at retail.<sup class="r"><a href="#s4">4</a></sup> The margin has therefore migrated to branding, retail and hospitality, the Petrossian, Prunier and Kaluga Queen tins, rather than to the farm. Chinese producers that began as anonymous OEM suppliers to French, Swiss and American brands now sell under their own labels.<sup class="r"><a href="#s6">6</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Integrity: labelling and fraud</h2><p class="sub">The only luxury food with a mandatory international chain-of-custody label, and evidence that it is routinely defeated.</p></div>
+  
+  <h3>The CITES label</h3>
+  <p>Every primary container of caviar in international trade must carry a non-reusable label with a standard species code, the source code (W wild, C captive-bred, F born in captivity to wild parents), the ISO country code of origin, the harvest year, the processing-plant registration code and the lot number; repackaging adds the plant code of the repackager and the re-export certificate number.<sup class="r"><a href="#s14">14</a> <a href="#s18">18</a></sup> Roe from non-listed fish is outside the system, and in the EU the word "caviar" is legally restricted to sturgeon and paddlefish.<sup class="r"><a href="#s14">14</a></sup> <span class="c c-h">High</span></p>
+  <h3>What genetic testing found</h3>
+  <div class="tw"><table>
+    <tr><th>Study</th><th class="n">Samples</th><th>Finding</th></tr>
+    <tr><td>Lower Danube (Bulgaria, Romania, Serbia, Ukraine), <i>Current Biology</i> 2023</td><td class="n">149</td><td>21% of illegal wild-caught origin; 11.4% sold in violation of CITES and EU rules (four without labels, eleven mislabelled by species or country); 32% consumer deception; higher-value species declared in 24 cases; one "sterlet" was a Chinese <i>schrenckii × dauricus</i> hybrid; three "sturgeon soups" were Nile perch and catfish<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup> <span class="c c-h">High</span></td></tr>
+    <tr><td>Bulgaria and Romania, <i>J. Applied Ichthyology</i> 2015</td><td class="n">27</td><td>High share mislabelled or unlabelled; sold as wild Danube; at least one "upgraded" to a pricier species<sup class="r"><a href="#s12">12</a></sup> <span class="c c-h">High</span></td></tr>
+  </table></div>
+  <p>Only DNA and stable-isotope analysis revealed the false declarations; the label alone did not.<sup class="r"><a href="#s10">10</a></sup> The Danube is the last European river with functional populations of beluga, Russian, stellate and sterlet sturgeon, and the study's authors note that a high proportion of poached product originates inside EU and accession states rather than in the developing world.<sup class="r"><a href="#s10">10</a></sup></p>
+  <div class="note warn">Compliance reading: the CITES caviar label is structurally identical to a Kimberley Process certificate, it certifies the paperwork of the exporter, not the contents of the tin. The 2023 study is the caviar equivalent of a DNA-verified mine-of-origin audit, and it found half the sampled product non-compliant in the one region where wild stock still exists. For an importer, the control that works is laboratory verification of species and wild/farmed origin on a sampling basis, not label inspection. <span class="c c-m">Med</span></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Gulf angle</h2><p class="sub">Consumer market, and one of the world's largest indoor farms, built in Abu Dhabi.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Item</th><th>Detail</th><th>Confidence</th></tr>
+    <tr><td>Emirates AquaTech, Mussafah, Abu Dhabi</td><td>56,000 m² indoor recirculating farm; operations from 2013; formerly The Royal Caviar Company; total project cost reported at $115 m; capacity 35 t caviar and 500–700 t sturgeon meat a year; Siberian sturgeon; Yasa brand launched at Emirates Palace under the patronage of Sheikh Hamed bin Zayed; first UAE-hatched sturgeon eggs in late 2013<sup class="r"><a href="#s19">19</a> <a href="#s20">20</a> <a href="#s21">21</a> <a href="#s22">22</a></sup></td><td><span class="c c-h">High</span> for the facts as reported 2013–2019</td></tr>
+    <tr><td>Scale in context</td><td>At 35 t the stated capacity would have been c.9% of 2018 world output and larger than the entire US industry (18 t)<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td><td><span class="t">Derived</span></td></tr>
+    <tr><td>Current status</td><td>Latest primary reporting found is a 2019 retail launch at Mushrif Mall; production achieved against the 35 t target, and whether the facility operates today, could not be verified from public sources for this page</td><td><span class="c c-l">Low</span></td></tr>
+    <tr><td>Demand</td><td>The UAE appears in EUMOFA's list of principal caviar-consuming countries outside the EU<sup class="r"><a href="#s2">2</a></sup></td><td><span class="c c-h">High</span></td></tr>
+  </table></div>
+  <div class="note">The Abu Dhabi farm proved the technical case, a full-cycle sturgeon operation in a 50 °C climate, at exactly the moment Chinese volume began pushing wholesale prices down. The lesson for any Gulf agri-luxury venture, saffron included, is that closed-system production competes on cost against open-water Asian scale only where the brand, not the farm, captures the margin. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Farmed sturgeon and caviar production by country</td><td>FAO FishStat, annual; EUMOFA caviar reports, periodic</td><td>Replaces the 2018–2021 anchors; resolves the China-share discrepancy</td></tr>
+    <tr><td>EU caviar import and intra-EU trade volumes and unit values</td><td>Eurostat COMEXT, monthly</td><td>Price erosion and Chinese share of EU supply</td></tr>
+    <tr><td>CITES export quotas and Review of Significant Trade</td><td>CITES Secretariat, annual; CoP and Animals Committee documents</td><td>Whether any wild Caspian or Danube trade reopens</td></tr>
+    <tr><td>Forensic market surveys</td><td>Leibniz IZW / WWF / WSCS publications</td><td>Fraud rate in wild-range markets</td></tr>
+    <tr><td>Sturgeon meat prices</td><td>EU aquaculture statistics</td><td>Farm viability during the decade before first harvest</td></tr>
+    <tr><td>Gulf aquaculture licensing and disclosures</td><td>ADAFSA / UAE Ministry of Climate Change and Environment</td><td>Status of the Abu Dhabi facility and any successor projects</td></tr>
+  </table></div>
+</section>
+<section id="s-viii">
+  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. EUMOFA (the EU market observatory) and FAO are the primary statistical sources; vendor and retailer figures are marked Low.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>EUMOFA</b>, "The Caviar Market, 2021 Edition" (production, trade and consumption in and outside the EU), 380 t global caviar 2018; 115,168 t farmed sturgeon; 1977 peak catch 31,800 t; 1984 first aquaculture 150 t; EU 164 t 2018 (FEAP), top four producers 84%; intra-EU trade 2014–2020; China c.one-third of caviar and main EU supplier; 2006 Romanian ban; species hierarchy.</li>
+    <li id="s2"><b>SeafoodSource</b>, "EUMOFA report on global caviar market finds EU consumption increased", apparent consumption France 57.9 t, Germany 25.7 t, Spain 9.3 t; other consumers including the UAE; US 1,166 t sturgeon and 18 t caviar 2018 with export destinations; US export price €303 (2014) to €188 (2020); Siberian maturity in captivity.</li>
+    <li id="s3"><b>EUMOFA</b>, "Sturgeon meat and other by-products of caviar" (2023), 20 t meat per t caviar; 8–10 years to maturity; Italy 1,051 t sturgeon 2020; world 4,100 t in 2002, China &gt;9,000 t in 2003; China 84% of sturgeon 2020; EU meat unit values 2016–2020.</li>
+    <li id="s4"><b>Aquaculture</b> (ScienceDirect), "Environmental performance of sturgeon caviar production. An LCA study on luxury food", 2025, 2021 biomass by country (FAO 2024); China at least one-third of caviar; Italy 65 t 2023; €300–500/kg wholesale (EUMOFA 2021); supply exceeding demand and falling wholesale prices; Bronzi et al. citations.</li>
+    <li id="s5"><b>Bronzi, Chebanov, Michaels, Wei, Rosenthal, Gessner</b>, "Sturgeon meat and caviar production: Global update 2017", <i>Journal of Applied Ichthyology</i> 35 (2019), biomass peak 129,608 t (2015), 119,979 t (2016), 102,327 t (2017).</li>
+    <li id="s6"><b>Chinascope</b>, "China Becomes World's Leading Caviar Exporter", 6 Jan 2026, 200 t Chinese production 2024; Kaluga Queen's move from OEM supply to own-label. <span class="c c-l">Low</span></li>
+    <li id="s7"><b>Mordor Intelligence</b>, Caviar Market report, Mar 2026, 260 t / 35% (2024); Kaluga Queen 84% to EU; Vietnam farm; farm-roe 92.82% of volume. Market-research vendor. <span class="c c-l">Low</span></li>
+    <li id="s8"><b>Time</b>, "China's Farmed Caviar Poised for Global Recognition", and <b>Wikipedia</b>, "Kaluga Queen", 60 t annual output claim; 30,000 sturgeon on Qiandao Lake; 21 of 26 Paris three-star restaurants; founded 2003. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>Caviar Skazka</b>, "Caviar by the Numbers", May 2025, c.$1.5 bn market 2024; "over 60%" China claim. Retailer. <span class="c c-l">Low</span></li>
+    <li id="s10"><b>Ludwig, Jahrl, Congiu, Gessner, Friedrich, Lieckfeldt, Peng, Boner</b>, "Poaching and illegal trade of Danube sturgeons", <i>Current Biology</i> 33(22), 20 Nov 2023, 149 samples; 21% wild; 11.4% CITES/EU violations; 32% consumer deception; label and species findings.</li>
+    <li id="s11"><b>Down To Earth</b>, "New study reveals sturgeon caviar sourced from illegal trade, labelled to mislead", Apr 2024, and <b>Leibniz IZW</b> press release, 20 Nov 2023, hybrid "sterlet" sample; Nile perch and catfish "sturgeon soup"; 1998 listing and 2000 labelling context; "half illegal" headline finding.</li>
+    <li id="s12"><b>ScienceDaily / Leibniz IZW and WWF Austria</b>, "Fake caviar from Bulgaria and Romania", Jul 2015, 27 samples; mislabelling and unlabelled product; WSCS commentary.</li>
+    <li id="s13"><b>UN News</b>, "Bring on the beluga: UN-backed body lifts ban on finest caviar", 6 Feb 2007, 1990s listing; 2001 temporary ban; quotas 2002–05; joint-quota rules; Animals Committee review.</li>
+    <li id="s14"><b>CITES Secretariat</b>, "Universal Caviar Labelling Requirements" (leaflet), label elements; Appendix II; Beluga retail up to €600/100 g; "caviar" restricted to sturgeon and paddlefish roe; substitutes outside CITES.</li>
+    <li id="s15"><b>CITES</b>, "Sturgeons" programme page, post-Soviet Caspian situation; CoP11 (Gigiri, 2000) labelling recommendation; Resolution Conf. 12.7; Review of Significant Trade.</li>
+    <li id="s16"><b>Caviar Guide</b>, "Caviar Legality and International Rules", May 2026, US wild beluga import ban since 2005; beluga maturity up to twenty years. Secondary. <span class="c c-m">Med</span></li>
+    <li id="s17"><b>NBC News / AP</b>, "Halt to Caspian caviar trade ordered" and "U.S. delays move on beluga caviar imports", 2004–05, CITES refusal of 2004 quotas; nine-month 2001 suspension and March 2002 resumption; USFWS threatened listing; beluga populations down 90% in twenty years.</li>
+    <li id="s18"><b>Danube Sturgeons / WWF</b>, "Sturgeons and Caviar: the basics of the legal caviar trade and caviar labelling" (brochure), EU Regulation 865/2006 Art. 57 and 66(7) as amended by 100/2008; plant record-keeping; Resolution Conf. 12.7 (Rev. CoP17) annexes.</li>
+    <li id="s19"><b>The National</b>, "Care for some caviar produced in Abu Dhabi?", 56,000 m² Mussafah farm; 35 t / 700 t capacity; $115 m cost; formerly The Royal Caviar Company; chairman Mohammed Al Dhaheri.</li>
+    <li id="s20"><b>The Fish Site</b>, "World's Most Technologically Advanced Aqua-Farm Launched in Abu Dhabi", Yasa launch at Emirates Palace under Sheikh Hamed bin Zayed; Siberian caviar year-round; and "Emirates AquaTech Caviar Farm Debuts New Outlet at The Market", 2019, Mushrif Mall retail launch.</li>
+    <li id="s21"><b>MEED</b>, "Fish farming in the desert", Jan 2015, and UAE Innovation Project of the Year entry, operations from 2013; 35 t caviar and 500 t meat capacity; ADFCA distinguished facility 2014.</li>
+    <li id="s22"><b>ABC News (Australia)</b>, "UAE is home to the world's largest caviar factory", Apr 2016, over $100 m invested; "inching closer" to 35 t; co-founder Ahmed Al Dhaheri; and <b>The National</b>, "Abu Dhabi's resurgence of sturgeon", first UAE-hatched eggs, late 2013.</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

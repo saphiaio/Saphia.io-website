@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6}
+body{margin:0;background:transparent}
+a{color:#141412;text-decoration:none}
+</style>
+</helmet>
+<div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;color:#141412;padding:40px clamp(20px,4vw,32px) 96px;max-width:1440px;margin:0 auto">
+
+  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.28em;color:#6f6a62;text-transform:uppercase;margin-bottom:14px">Preview</div>
+  <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:32px;font-weight:400;margin:0 0 40px">ΣΟΦΙΑ, site as it stands</h1>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:36px">
+    <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="9">
+      <a href="{{ pg.file }}" style="display:block;min-width:0" style-hover="opacity:.9">
+        <div style="border:1px solid #dcd4c6;background:#fff;height:260px;overflow:hidden;position:relative">
+          <iframe src="{{ pg.file }}" style="width:1400px;height:1400px;border:0;transform:scale(0.28);transform-origin:top left;pointer-events:none" tabindex="-1" aria-hidden="true"></iframe>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;gap:12px">
+          <div style="font-family:'EB Garamond',Georgia,serif;font-size:18px">{{ pg.title }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:#6f6a62;white-space:nowrap">{{ pg.file }}</div>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      pages: [
+        { title: "Home", file: "Saphia Home.dc.html" },
+        { title: "Markets", file: "Saphia Markets.dc.html" },
+        { title: "Methodology", file: "Saphia Methodology.dc.html" },
+        { title: "About", file: "Saphia About.dc.html" },
+        { title: "Contact", file: "contact.html" },
+        { title: "Sector template", file: "Saphia Sector Template.dc.html" },
+        { title: "Natural Diamonds", file: "natural_diamonds_dashboard.html" },
+        { title: "Lab-Grown Diamonds", file: "lab_grown_diamonds_dashboard.html" },
+        { title: "Coloured Gemstones", file: "coloured_gemstones_dashboard.html" },
+        { title: "Pearls", file: "pearls_dashboard.html" },
+        { title: "Oil & Gas", file: "oil_gas_dashboard.html" },
+        { title: "Port", file: "port_dashboard.html" },
+        { title: "Gold", file: "gold_dashboard.html" },
+        { title: "Silver", file: "silver_dashboard.html" },
+        { title: "Platinum Group Metals", file: "pgm_dashboard.html" },
+        { title: "Copper", file: "copper_dashboard.html" },
+        { title: "Rare Earths", file: "rare_earths_dashboard.html" },
+        { title: "Vanilla", file: "vanilla_dashboard.html" },
+        { title: "Frankincense", file: "frankincense_dashboard.html" },
+        { title: "Saffron", file: "saffron_dashboard.html" },
+        { title: "Oud", file: "oud_dashboard.html" },
+        { title: "Fine Wine", file: "fine_wine_dashboard.html" },
+        { title: "Scotch Whisky", file: "scotch_whisky_dashboard.html" },
+        { title: "Cigars", file: "cigars_dashboard.html" },
+        { title: "Watches", file: "watches_dashboard.html" },
+        { title: "Art", file: "art_dashboard.html" },
+        { title: "Classic Cars", file: "classic_cars_dashboard.html" },
+        { title: "Coffee", file: "coffee_dashboard.html" },
+        { title: "Tea", file: "tea_dashboard.html" },
+        { title: "Cocoa", file: "cocoa_dashboard.html" },
+        { title: "Olive Oil", file: "olive_oil_dashboard.html" },
+        { title: "Mānuka Honey", file: "manuka_honey_dashboard.html" },
+        { title: "Dates", file: "dates_dashboard.html" },
+        { title: "Caviar", file: "caviar_dashboard.html" },
+        { title: "Truffles", file: "truffles_dashboard.html" },
+        { title: "Bluefin Tuna", file: "bluefin_tuna_dashboard.html" },
+        { title: "Wagyu", file: "wagyu_dashboard.html" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

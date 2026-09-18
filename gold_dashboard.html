@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gold, ΣΟΦΙΑ</title>
+<meta name="description" content="Gold: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.strip .v{font-family:var(--mono);font-size:22px;color:#8c4a2f;font-weight:500}
+.strip .l{font-size:13px;color:#6f6a62;margin-top:2px}
+td.n{font-family:var(--mono);text-align:right;color:#8c4a2f;white-space:nowrap}
+th.n{text-align:right}
+tr.tot td{border-top:1px solid #3f6470;color:#141412}
+/* callouts */
+.ledger{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#dcd4c6;border:1px solid #dcd4c6;margin:18px 0 28px}
+.ledger>div{background:#faf7f0;padding:18px 20px}
+.ledger .v{font-family:var(--mono);font-size:26px;color:#8c4a2f;font-weight:500}
+.ledger .l{font-size:14px;color:#6f6a62}
+/* bar */
+.bars{margin:16px 0 26px;max-width:640px}
+.bars .row{display:grid;grid-template-columns:150px 1fr 90px;gap:12px;align-items:center;margin:6px 0;font-size:14px}
+.bars .bar{height:10px;background:#dcd4c6;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#3f6470,#8c4a2f)}
+.bars .val{font-family:var(--mono);font-size:12px;text-align:right;color:#8c4a2f}
+@media(max-width:860px){
+.ledger{grid-template-columns:1fr}
+.bars .row{grid-template-columns:110px 1fr 70px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Gold</p>
+  <h1>Gold</h1>
+  <p class="lede">The monetary metal in the year after its parabolic run: record official-sector buying, a peak near $5,600 in January 2026, and the first correction of the cycle. Dubai's position as the second hub after Switzerland is examined alongside its sourcing-integrity exposure.</p>
+  <div class="figures"><div><div class="v">3,672 t</div><div class="l">Mine production 2025, record subject to revision <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$5,597–5,602</div><div class="l">All-time high, 28–29 Jan 2026 <span class="t">Reported</span><sup class="r"><a href="#s7">7</a></sup></div></div><div><div class="v">5,002 t</div><div class="l">Total supply 2025, record <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">863 t</div><div class="l">Central-bank net buying 2025 <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 15 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>First correction of the cycle after the January 2026 record; the official sector remains the marginal bid.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>China · Russia · Australia · Canada · Ghana</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>China · India · Switzerland (refining) · Dubai · London</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium, refining (mine Low)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale B <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium (doré origin)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Price regime</a></li><li><a href="#s-ii"><span>II</span>Supply</a></li><li><a href="#s-iii"><span>III</span>Official sector</a></li><li><a href="#s-iv"><span>IV</span>Private demand</a></li><li><a href="#s-v"><span>V</span>Dubai as a hub</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Price regime</h2><p class="sub">From $2,600 after the November 2024 US election to a peak above $5,500 fourteen months later. No spot price is carried here; this page records the regime, not the tick.</p></div>
+  
+  <div class="ledger">
+    <div><div class="v">+64%</div><div class="l">Calendar 2025 gain, largest since 1979 <span class="c c-h">High</span><sup class="r"><a href="#s8">8</a></sup></div></div>
+    <div><div class="v">$3,431</div><div class="l">2025 average price; 53 all-time highs during the year <span class="c c-m">Med</span><sup class="r"><a href="#s15">15</a></sup></div></div>
+    <div><div class="v">$4,506</div><div class="l">LBMA average Q2 2026, +37% y/y <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></div></div>
+    <div><div class="v">+44%</div><div class="l">Rise in the annual average price, 2025 vs 2024 <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
+  </div>
+  <p>The record print is reported as $5,602.22 on 28 January 2026 by one dealer source and $5,597.23 on 29 January by another; the difference is intraday versus close and is immaterial to the analysis.<sup class="r"><a href="#s7">7</a></sup> The metal then retraced through 2026 as rate expectations shifted; the LBMA average for Q2 2026 was $4,506, still 37% above the same quarter of 2025.<sup class="r"><a href="#s4">4</a></sup></p>
+  <p>The short-run driver is monetary: non-yielding bullion is mechanically penalised when real yields rise and rewarded when they fall. The structural driver is the official sector (Section III), which has continued to buy through both halves of the cycle. Reading the two apart is the core analytical task for this market.</p>
+  <h3>Sell-side forecasts made in early 2026 <span class="t">Forecast</span></h3>
+  <table>
+    <tr><th>House</th><th class="n">End-2026 target ($/oz)</th><th>Note</th></tr>
+    <tr><td>J.P. Morgan</td><td class="n">6,300</td><td>Also forecast &gt;800 t central-bank purchases<sup class="r"><a href="#s9">9</a></sup></td></tr>
+    <tr><td>UBS</td><td class="n">6,200</td><td rowspan="3">Reported February 2026<sup class="r"><a href="#s9">9</a></sup></td></tr>
+    <tr><td>Deutsche Bank</td><td class="n">6,000</td></tr>
+    <tr><td>Société Générale</td><td class="n">6,000</td></tr>
+    <tr><td>HSBC</td><td class="n">4,450</td><td>2026 range $3,950–5,050; average $4,587<sup class="r"><a href="#s8">8</a></sup></td></tr>
+  </table>
+  <div class="note">Forecasts are recorded here as statements of house view on the date made and are not updated. Their value is as a record of consensus at the top of the cycle, against which the eventual outcome can be measured. <span class="c c-h">High</span></div>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Supply</h2><p class="sub">Record total supply, but mine output barely responds to price.</p></div>
+  
+  <table>
+    <tr><th>Component 2025</th><th class="n">Tonnes</th><th class="n">Share</th><th>Note</th></tr>
+    <tr><td>Mine production</td><td class="n">3,672</td><td class="n">73%</td><td>+1% y/y; marginally above the 2018 record of 3,663 t, subject to revision <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Recycled gold</td><td class="n">1,404</td><td class="n">28%</td><td>+3% despite a 44% rise in average price <span class="c c-m">Med</span><sup class="r"><a href="#s1">1</a> <a href="#s14">14</a></sup></td></tr>
+    <tr><td>Net producer hedging</td><td class="n">negative</td><td class="n">,</td><td>Outstanding hedge book fell significantly <span class="c c-m">Med</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr class="tot"><td>Total supply</td><td class="n">5,002</td><td class="n">100%</td><td>Highest in WGC series back to 1970 <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+  </table>
+  <p style="font-size:14px;color:#6f6a62">Shares are derived and do not sum to exactly 100% because net hedging is a negative line. <span class="t">Derived</span></p>
+  <h3>Mine production by country, 2025 <span class="t">Estimate</span></h3>
+  <div class="bars">
+    <div class="row"><span>China</span><div class="bar"><i style="width:100%"></i></div><span class="val">380 t</span></div>
+    <div class="row"><span>Russia</span><div class="bar"><i style="width:87%"></i></div><span class="val">330 t</span></div>
+    <div class="row"><span>Australia</span><div class="bar"><i style="width:75%"></i></div><span class="val">284 t</span></div>
+  </div>
+  <p>China is around 10% of global output per the World Gold Council.<sup class="r"><a href="#s13">13</a></sup> The country figures above are from a secondary compilation of WGC data and carry <span class="c c-m">Med</span> confidence.<sup class="r"><a href="#s14">14</a></sup> Africa as a region is reported at 1,010 t, led by Ghana, Mali and South Africa, the origin belt that feeds Dubai's refineries (Section V).<sup class="r"><a href="#s14">14</a></sup></p>
+  <h3>The recycling anomaly</h3>
+  <p>Scrap normally responds to price. In 2025 it rose only 3% against a 44% price increase because behaviour diverged by region: developed markets (US, Europe, Japan) sold, while India, the Middle East and South-East Asia held back; among emerging markets only China increased recycling.<sup class="r"><a href="#s1">1</a></sup> Total above-ground stock is estimated at 219,891 t, the true reserve, since gold is not consumed.<sup class="r"><a href="#s13">13</a></sup></p>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Official sector</h2><p class="sub">Central banks have become the marginal buyer that does not sell into strength.</p></div>
+  
+  <table>
+    <tr><th>Period</th><th class="n">Net purchases (t)</th><th>Detail</th></tr>
+    <tr><td>2022–2024</td><td class="n">&gt;1,000 each yr</td><td>Three consecutive years above 1,000 t <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>2025</td><td class="n">863</td><td>Poland largest buyer for second year (102 t, reserves to 550 t); Q4 230 t <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Q1 2026</td><td class="n">244</td><td>WGC GDT, 29 Apr 2026; +3% y/y; $37bn, record quarterly value <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></td></tr>
+    <tr><td>Q2 2026</td><td class="n">289</td><td>Highest Q2 on record; Poland and China led <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>2026 full year</td><td class="n">c.850</td><td>WGC forecast (January); J.P. Morgan c.755 <span class="t">Forecast</span><sup class="r"><a href="#s6">6</a></sup></td></tr>
+  </table>
+  <div class="note warn">Discrepancy logged: the secondary source reporting Q2 at 289 t also states Q1 was "revised to 57 t", which conflicts with the 244 t published by the WGC in April.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup> The most plausible reconciliation is that 57 t is the publicly reported component only (the WGC separately publishes reported-only monthly statistics, 51 t in June 2026<sup class="r"><a href="#s3">3</a></sup>), while 244 t includes estimated unreported buying. Treat Q1/Q2 2026 quarterly figures as <span class="c c-m">Med</span> until the WGC Q2 tables are checked directly.</div>
+  <p>Buyer breadth is the structural change: Kazakhstan set an annual record, Brazil returned after four years, and Guatemala, Indonesia and Malaysia entered or re-entered.<sup class="r"><a href="#s6">6</a></sup> Net sellers in mid-2026 were Russia and Turkey.<sup class="r"><a href="#s3">3</a></sup> The Central Bank of the UAE is described as actively diversifying its reserve mix, but no tonnage is disclosed in the sources reviewed.<sup class="r"><a href="#s6">6</a></sup> <span class="c c-l">Low</span></p>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>Private demand</h2><p class="sub">Bars and coins strong, ETFs bleeding in the US, jewellery volumes crushed by price.</p></div>
+  
+  <div class="ledger">
+    <div><div class="v">1,269 t</div><div class="l">Total demand incl. OTC, Q2 2026, flat y/y <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div><div class="v">$380 bn</div><div class="l">H1 2026 demand value, record; 2,522 t, +2% <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div><div class="v">801 t</div><div class="l">Gold ETF inflows 2025, second-strongest year <span class="c c-m">Med</span><sup class="r"><a href="#s14">14</a></sup></div></div>
+    <div><div class="v">−50%</div><div class="l">Fall in the dollar's gold purchasing power, Jan 2025–Jan 2026 <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
+  </div>
+  <p>The Q2 2026 composition is instructive for jewellery businesses: US-listed ETFs recorded sharp, quarter-end-concentrated outflows; bar and coin demand rose year on year but moderated from an elevated Q1; jewellery demand stayed subdued in volume as affordability collapsed.<sup class="r"><a href="#s3">3</a></sup> This is the same input-cost inversion flagged in the lab-grown diamonds page, the metal setting is now a larger share of a finished piece's cost than the stone in many mass-market categories. <span class="c c-m">Med</span></p>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Dubai as a hub</h2><p class="sub">Second only to Switzerland by trade value, and the destination for most West African doré.</p></div>
+  
+  <table>
+    <tr><th>Metric</th><th class="n">Value</th><th>Source & confidence</th></tr>
+    <tr><td>UAE total gold trade</td><td class="n">&gt;$120 bn</td><td>DMCC chairman at DPMC; +36% y/y; overtook the UK for second place. Year of the figure not stated in the secondary report. <span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
+    <tr><td>Share via DMCC / DGCX</td><td class="n">c.45%</td><td>Same address <span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
+    <tr><td>DMCC precious metals, stones & diamonds members</td><td class="n">&gt;2,500</td><td>DMCC 2025 fact sheet <span class="c c-h">High</span><sup class="r"><a href="#s11">11</a></sup></td></tr>
+    <tr><td>Annual physical imports</td><td class="n">c.600–800 t</td><td>Trade estimate; exports of similar scale; storage undisclosed <span class="c c-l">Low</span><sup class="r"><a href="#s12">12</a></sup></td></tr>
+    <tr><td>Refineries suspended, early 2025</td><td class="n">32</td><td>Ministry of Economy, three months, 256 AML violations <span class="c c-m">Med</span><sup class="r"><a href="#s16">16</a></sup></td></tr>
+  </table>
+  <h3>Sourcing integrity, the MLRO view</h3>
+  <p>The structural loophole is origin attribution: gold is treated as originating where it enters the international market, not where it was mined.<sup class="r"><a href="#s16">16</a></sup> Dubai refinery capacities of 50–350 t per plant give ample throughput for artisanal doré from Sudan, the Sahel and the Great Lakes, which is why the 2023 due-diligence rules and the 2025 suspensions matter reputationally.<sup class="r"><a href="#s16">16</a></sup> DMCC's responsible-sourcing rules align with OECD guidance and require enhanced declarations for conflict-affected and high-risk areas such as Mali.<sup class="r"><a href="#s17">17</a></sup> <span class="c c-m">Med</span></p>
+  <div class="note">Analytical parallel: the Kimberley Process has the same origin-laundering weakness, certification attaches to the parcel at first export, not to the mine. The gold trade's answer (LBMA Good Delivery plus refinery-level audits) is closer to what the diamond industry is attempting with source-verification programmes. Both regimes are only as good as the audit of the first-mile aggregator. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Central-bank net purchases</td><td>WGC Gold Demand Trends, quarterly; WGC monthly reported statistics</td><td>Whether the structural buyer is still absorbing supply; resolves reported-vs-estimated discrepancies</td></tr>
+    <tr><td>Gold ETF flows by region</td><td>WGC ETF flows, monthly</td><td>Western investment sentiment; US outflows have offset official buying in 2026</td></tr>
+    <tr><td>Jewellery demand, volume vs value</td><td>WGC, quarterly</td><td>Whether Gulf and Indian retail is losing units or only margin at high prices</td></tr>
+    <tr><td>Mine production and revisions</td><td>WGC / Metals Focus, annual with restatements</td><td>Whether 2025 was in fact a record year</td></tr>
+    <tr><td>Real yields and policy-rate path</td><td>US Treasury / FOMC</td><td>Dominant short-run price driver</td></tr>
+    <tr><td>UAE refinery enforcement</td><td>Ministry of Economy and DMCC notices; LBMA Good Delivery list</td><td>Dubai's standing with international counterparties</td></tr>
+  </table>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Primary sources preferred; secondary reports of primary data carry Med confidence unless the primary was checked.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>World Gold Council</b>, Gold Demand Trends Full Year 2025, Supply, 29 Jan 2026. gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/supply</li>
+    <li id="s2"><b>World Gold Council</b>, Gold Demand Trends Full Year 2025, Central Banks, 29 Jan 2026. gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/central-banks</li>
+    <li id="s3"><b>World Gold Council</b>, Gold Demand Trends Q2 2026 landing page, 5 Aug 2026; and Central bank gold statistics: June 2026 (M. Salim), Aug 2026. gold.org</li>
+    <li id="s4"><b>Bajaj Broking</b>, "Central Banks Buy Record Gold in Q2 2026", 11 Aug 2026, secondary report of WGC GDT Q2 2026. Contains the Q1 "57 t revised" statement flagged in Section III.</li>
+    <li id="s5"><b>Discovery Alert</b>, "Why Central Banks Are Buying Gold at Record Prices in 2026", 14 May 2026, and <b>Advantage Gold</b>, 7 May 2026, secondary reports of WGC GDT Q1 2026 (244 t; $37bn).</li>
+    <li id="s6"><b>Mining.com</b>, "Central banks' gold buying momentum carries into 2026", 24 Mar 2026; <b>ISA Bullion</b>, 29 May 2026 (J.P. Morgan 755 t; Kazakhstan, Brazil, UAE CBUAE diversification); <b>Goldinvest.de</b>, 28 Apr 2026 (Guatemala, Indonesia, Malaysia).</li>
+    <li id="s7"><b>Forbes Advisor</b>, Gold Price Today, 10 Sep 2026 ($5,597.23 on 29 Jan 2026); <b>APMEX</b>, Gold Price ($5,602.22 on 28 Jan 2026). Both retained; see Section I.</li>
+    <li id="s8"><b>Reuters via Business Standard</b>, "Gold could touch $5,000 an ounce in first half of 2026: HSBC", 8 Jan 2026, 2025 gain of 64%, largest since 1979; HSBC range and average.</li>
+    <li id="s9"><b>Men's Journal via AOL</b>, "JP Morgan Predicts Gold Price Will Reach $6,300 by End of 2026", 4 Feb 2026, also Deutsche, UBS, SocGen, Morgan Stanley, Goldman, Citi targets. <span class="c c-m">Med</span></li>
+    <li id="s10"><b>The Dubai Life</b>, "The Gold Industry in the United Arab Emirates in 2025", reporting Ahmed Bin Sulayem's DPMC remarks (>$120bn, +36%, 45% via DMCC/DGCX, trade tripled over five years). Reference year of the $120bn figure not stated. <span class="c c-m">Med</span></li>
+    <li id="s11"><b>DMCC</b>, Business Fact Sheet, Gold and Precious Metals, 2025 edition (2,500+ members; DGCX first gold futures 2005; Tradeflow).</li>
+    <li id="s12"><b>Goldify</b>, "How Dubai Became One of the World's Biggest Gold Hubs", 17 Jun 2026, 600–800 t import estimate; no VAT on investment-grade gold; 21k Gulf standard. <span class="c c-l">Low</span></li>
+    <li id="s13"><b>World Gold Council</b>, "Are we running out of gold?" (J. Reade, R. Jia), Mar 2026, 219,891 t above ground (Metals Focus end-2025); and WGC production-by-country page (China c.10%), Jun 2026.</li>
+    <li id="s14"><b>VT Markets</b>, "Gold Supply by Country 2026", 12 Feb 2026, secondary compilation of WGC data: China 380 t, Russia 330 t, Australia 284 t; recycled 1,404 t; Africa 1,010 t; ETF 801 t. <span class="c c-m">Med</span></li>
+    <li id="s15"><b>Mining Visuals</b>, "Gold Production 2025", $3,431 average, 53 record highs; mine output +1% (citing WGC). <span class="c c-m">Med</span></li>
+    <li id="s16"><b>Vitta (Medium)</b>, "The Shadow Gold Trade", 13 Jun 2025, 32 refineries suspended early 2025, 256 violations; refinery capacities 50–350 t; origin-attribution loophole; Jan 2023 due-diligence regulation. Secondary; suspension event corroborated by contemporaneous press. <span class="c c-m">Med</span></li>
+    <li id="s17"><b>Zaara Consulting</b>, "How to Import Gold from Africa to UAE", 24 Jun 2026, DMCC Rules for Risk-Based Due Diligence, OECD alignment, Mali enhanced declarations. <span class="c c-m">Med</span></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6}
+body{margin:0;background:transparent;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.56  0 0 0 0 0.47  0 0 0 0.42 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");background-size:260px 260px}
+a{color:#141412;text-decoration:none}
+a:hover{color:#a8825a}
+</style>
+</helmet>
+<div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;color:#141412;padding:40px 24px;max-width:1000px;margin:0 auto">
+
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;padding-bottom:10px;border-bottom:1px solid #141412">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.32em;text-transform:uppercase">Market Snapshot</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;color:#6f6a62;text-transform:uppercase">Data as of {{ dataAsOf }}</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 48px">
+    <div style="padding:20px 0 18px;border-bottom:1px solid #dcd4c6;min-width:0">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase;margin-bottom:8px">Price regime</div>
+      <div style="font-family:'EB Garamond',Georgia,serif;font-size:21px;line-height:1.35;text-wrap:pretty">{{ priceRegime }}</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 40px;min-width:0">
+      <div style="padding:20px 0 18px;border-bottom:1px solid #dcd4c6;min-width:0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase;margin-bottom:8px">Primary origins</div>
+        <div style="font-size:15px;line-height:1.5">{{ origins }}</div>
+      </div>
+      <div style="padding:20px 0 18px;border-bottom:1px solid #dcd4c6;min-width:0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase;margin-bottom:8px">Principal markets</div>
+        <div style="font-size:15px;line-height:1.5">{{ markets }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0 40px">
+    <sc-for list="{{ rated }}" as="f" hint-placeholder-count="4">
+      <div style="padding:22px 0 20px;border-bottom:1px solid #dcd4c6;min-width:0">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase">{{ f.label }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:#6f6a62;border:1px solid #dcd4c6;padding:2px 6px;white-space:nowrap">{{ f.confidence }}</div>
+        </div>
+        <div style="font-family:'EB Garamond',Georgia,serif;font-size:30px;line-height:1;margin-bottom:12px">{{ f.value }}</div>
+        <div style="display:flex;gap:4px;margin-bottom:12px">
+          <sc-for list="{{ f.bands }}" as="b" hint-placeholder-count="3">
+            <div style="{{ b.style }}"></div>
+          </sc-for>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;color:#6f6a62;line-height:1.7;text-transform:uppercase">
+          <a href="{{ f.scaleHref }}" style="color:#6f6a62;border-bottom:1px solid #dcd4c6" style-hover="color:#141412;border-bottom:1px solid #a8825a">{{ f.scale }}</a>
+          <span style="margin:0 6px;color:#dcd4c6">/</span>
+          <a href="{{ f.evidenceHref }}" style="color:#6f6a62;border-bottom:1px solid #dcd4c6" style-hover="color:#141412;border-bottom:1px solid #a8825a">{{ f.evidence }}</a>
+        </div>
+        <div style="font-size:13px;color:#6f6a62;line-height:1.55;margin-top:10px;text-wrap:pretty">{{ f.note }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;padding-top:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:#6f6a62;text-transform:uppercase">
+    <div>Ratings are claims, held to the same standard as any other claim</div>
+    <a href="Saphia Methodology.dc.html#scales" style="color:#6f6a62;border-bottom:1px solid #a8825a" style-hover="color:#141412">Rating scales →</a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:560},&quot;dataAsOf&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;16 Sep 2026&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;priceRegime&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Elevated and central-bank led since 2022; official-sector buying has replaced jewellery as the marginal bid.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;origins&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;China · Russia · Australia · Canada · Ghana&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;markets&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;London · Zurich · Shanghai · Dubai · New York&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;supplyConcentration&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;],&quot;default&quot;:&quot;Low&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;},&quot;supplyConfidence&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;High&quot;,&quot;Med&quot;,&quot;Low&quot;,&quot;Hyp&quot;],&quot;default&quot;:&quot;High&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;},&quot;liquidity&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;],&quot;default&quot;:&quot;High&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;},&quot;liquidityConfidence&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;High&quot;,&quot;Med&quot;,&quot;Low&quot;,&quot;Hyp&quot;],&quot;default&quot;:&quot;High&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;},&quot;scarcity&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;],&quot;default&quot;:&quot;Low&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;},&quot;scarcityConfidence&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;High&quot;,&quot;Med&quot;,&quot;Low&quot;,&quot;Hyp&quot;],&quot;default&quot;:&quot;High&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;},&quot;provenanceRisk&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;],&quot;default&quot;:&quot;Medium&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;},&quot;provenanceConfidence&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;High&quot;,&quot;Med&quot;,&quot;Low&quot;,&quot;Hyp&quot;],&quot;default&quot;:&quot;Med&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ratings&quot;}}">
+class Component extends DCLogic {
+  band(level, i) {
+    const active = i < level;
+    return "flex:1;height:3px;background:" + (active ? "#a8825a" : "#dcd4c6");
+  }
+  field(label, value, scale, scaleId, confidence, evidence, evidenceHref, note) {
+    const level = { Low: 1, Medium: 2, High: 3 }[String(value).split(" ")[0]] || 0;
+    return {
+      label, value, confidence, note,
+      scale: "Scale " + scaleId,
+      scaleHref: "Saphia Methodology.dc.html#scale-" + scaleId.toLowerCase(),
+      evidence, evidenceHref,
+      bands: [0, 1, 2].map(i => ({ style: this.band(level, i) }))
+    };
+  }
+  renderVals() {
+    const p = this.props;
+    return {
+      dataAsOf: p.dataAsOf ?? "16 Sep 2026",
+      priceRegime: p.priceRegime ?? "Elevated and central-bank led since 2022; official-sector buying has replaced jewellery as the marginal bid.",
+      origins: p.origins ?? "China · Russia · Australia · Canada · Ghana",
+      markets: p.markets ?? "London · Zurich · Shanghai · Dubai · New York",
+      rated: [
+        this.field("Supply concentration", p.supplyConcentration ?? "Low", "A", "A",
+          p.supplyConfidence ?? "High", "§ II Supply", "#s-ii",
+          "Rated on mining; refining alone would rate Medium on four Swiss houses."),
+        this.field("Liquidity", p.liquidity ?? "High", "B", "B",
+          p.liquidityConfidence ?? "High", "§ IV Trade", "#s-iv",
+          "Daily reference price; good delivery bars clear same-day."),
+        this.field("Scarcity", p.scarcity ?? "Low", "C", "C",
+          p.scarcityConfidence ?? "High", "§ III Stock", "#s-iii",
+          "Above-ground stock dwarfs annual mine supply; nothing is consumed."),
+        this.field("Provenance risk", p.provenanceRisk ?? "Medium", "D", "D",
+          p.provenanceConfidence ?? "Med", "§ VI Provenance", "#s-vi",
+          "Doré origin is attested by paperwork, not by assay at the point of trade.")
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

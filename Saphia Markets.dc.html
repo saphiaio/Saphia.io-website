@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6 radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.55),rgba(255,255,255,0) 60%) no-repeat;scroll-behavior:smooth}
+body{margin:0;background:transparent;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.56  0 0 0 0 0.47  0 0 0 0.42 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");background-size:260px 260px}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 55%,rgba(90,70,45,.07) 100%)}
+a{color:#141412;text-decoration:none}
+button{font-family:'JetBrains Mono',monospace}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+<div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#141412;max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 96px">
+
+  <nav style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;padding-top:32px">
+    <a href="Saphia Home.dc.html" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#6f6a62;margin-top:3px">SCARCE ASSETS INTELLIGENCE</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px">
+      <a href="Saphia Home.dc.html" style="color:#6f6a62" style-hover="color:#141412">Home</a>
+      <a href="Saphia About.dc.html" style="color:#6f6a62" style-hover="color:#141412">About</a>
+      <a href="Saphia Methodology.dc.html" style="color:#6f6a62" style-hover="color:#141412">Methodology</a>
+      <a href="Saphia Markets.dc.html" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Markets</a>
+      <a href="contact.html" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
+    </div>
+  </nav>
+
+  <header style="padding:64px 0 40px;border-bottom:1px solid #dcd4c6">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.28em;color:#6f6a62;text-transform:uppercase;margin-bottom:14px">Markets</div>
+    <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(30px,4.6vw,44px);font-weight:400;margin:0;line-height:1.15">Every sector, one method.</h1>
+  </header>
+
+  <div style="display:flex;flex-wrap:nowrap;overflow-x:auto;gap:10px;padding:28px 0;border-bottom:1px solid #dcd4c6;scrollbar-width:thin" role="group" aria-label="Filter by family">
+    <sc-for list="{{ families }}" as="fam" hint-placeholder-count="8">
+      <button onClick="{{ fam.onClick }}" style="{{ fam.style }}">{{ fam.name }}</button>
+    </sc-for>
+  </div>
+
+  <div style="padding-top:16px">
+    <sc-if value="{{ showLatest }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:44px 0;border-bottom:1px solid #dcd4c6">
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;font-weight:500;margin:0 0 24px;color:#a8825a;text-transform:uppercase">Latest Intelligence</h2>
+        <sc-for list="{{ latest }}" as="item" hint-placeholder-count="3">
+          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 24px;padding:16px 0;border-bottom:1px solid #dcd4c6">
+            <div style="flex:0 0 160px;font-weight:500;font-size:15px">{{ item.name }}</div>
+            <div style="flex:1 1 300px;min-width:0;font-size:15px"><a href="{{ item.href }}" style="border-bottom:1px solid transparent" style-hover="border-bottom:1px solid #141412">{{ item.text }} <span style="color:#a8825a">→</span></a></div>
+            <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62">16 SEP 2026</div>
+          </div>
+        </sc-for>
+      </section>
+    </sc-if>
+    <sc-for list="{{ visibleFamilies }}" as="fam" hint-placeholder-count="7">
+      <section style="padding:44px 0;border-bottom:1px solid #dcd4c6">
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;font-weight:500;margin:0 0 24px;color:#141412;text-transform:uppercase"><span style="color:#a8825a;margin-right:10px">{{ fam.num }}</span>{{ fam.name }}</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px 32px">
+          <sc-for list="{{ fam.sectors }}" as="sec" hint-placeholder-count="4">
+            <a href="{{ sec.href }}" style="min-width:0;display:block;padding-bottom:18px;border-bottom:1px solid #dcd4c6" style-hover="border-bottom:1px solid #a8825a">
+              <div style="font-family:'EB Garamond',Georgia,serif;font-size:22px;margin-bottom:6px">{{ sec.name }}</div>
+              <div style="font-size:14px;color:#6f6a62;line-height:1.5;margin-bottom:10px;text-wrap:pretty">{{ sec.desc }}</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#6f6a62;text-transform:uppercase">Data as of {{ sec.date }}</div>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+  </div>
+
+  <footer style="margin-top:48px;padding-top:24px;border-top:1px solid #dcd4c6;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 32px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase">
+    <div style="font-family:'EB Garamond',Georgia,serif;font-size:20px;letter-spacing:.14em;color:#141412;text-transform:none">ΣΟΦΙΑ</div>
+    <div>Scarce assets. One perspective.</div>
+  </footer>
+
+  <div style="position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:{{ ctlOpacity }};pointer-events:{{ ctlPointer }};transition:opacity .2s">
+    <button type="button" onClick="{{ scrollUp }}" disabled="{{ atTop }}" aria-label="Previous section" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid #dcd4c6;background:#faf7f0;color:#7d5f3f;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1;cursor:pointer;padding:0;opacity:{{ atTopOpacity }}">↑</button>
+    <button type="button" onClick="{{ scrollDown }}" disabled="{{ atBottom }}" aria-label="Next section" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid #dcd4c6;background:#faf7f0;color:#7d5f3f;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1;cursor:pointer;padding:0;opacity:{{ atBottomOpacity }}">↓</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: "All", scrollY: 0, atTop: true, atBottom: false };
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const y = window.scrollY;
+      this.setState({
+        scrollY: y,
+        atTop: y <= 8,
+        atBottom: (window.innerHeight + y) >= document.body.scrollHeight - 4
+      });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    window.addEventListener("resize", this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._onScroll);
+    window.removeEventListener("resize", this._onScroll);
+  }
+  sectionStops() {
+    const list = [document.body];
+    document.querySelectorAll("section").forEach(s => { if (!list.includes(s)) list.push(s); });
+    return list;
+  }
+  sectionTops() {
+    return this.sectionStops()
+      .map(el => el === document.body ? 0 : (el.getBoundingClientRect().top + window.scrollY - 70))
+      .sort((a, b) => a - b);
+  }
+  scrollDir(dir) {
+    const y = window.scrollY, t = this.sectionTops();
+    let target = null;
+    if (dir > 0) { for (const v of t) { if (v > y + 8) { target = v; break; } } if (target === null) target = document.body.scrollHeight; }
+    else { for (let i = t.length - 1; i >= 0; i--) { if (t[i] < y - 8) { target = t[i]; break; } } if (target === null) target = 0; }
+    window.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+  }
+
+  data() {
+    return [
+      { name: "Gems & Jewellery", sectors: [
+        ["Natural Diamonds", "natural_diamonds_dashboard.html", "Rough distribution concentrated at the sight; polished trades globally."],
+        ["Lab-Grown Diamonds", "lab_grown_diamonds_dashboard.html", "Production cost has fallen faster than retail price has followed."],
+        ["Coloured Gemstones", "coloured_gemstones_dashboard.html", "No single exchange; origin and treatment drive most of the value."],
+        ["Pearls", "pearls_dashboard.html", "Natural pearls are a rounding error beside cultured production."]
+      ]},
+      { name: "Metals, Energy & Strategic Materials", sectors: [
+        ["Gold", "gold_dashboard.html", "Central-bank buying has replaced jewellery as the marginal bid."],
+        ["Silver", "silver_dashboard.html", "Industrial demand from solar now rivals investment demand."],
+        ["Platinum Group Metals", "pgm_dashboard.html", "South African supply concentration sits against thin above-ground stock."],
+        ["Copper", "copper_dashboard.html", "Refining, not mining, is where price power actually sits."],
+        ["Rare Earths", "rare_earths_dashboard.html", "China's separation share dwarfs its mining share."],
+        ["Oil & Gas", "oil_gas_dashboard.html", "OPEC+ spare capacity is the real supply variable, not reserves."]
+      ]},
+      { name: "Cellar & Collectibles", sectors: [
+        ["Fine Wine", "fine_wine_dashboard.html", "Liquidity concentrates in a small band of Bordeaux and Burgundy names."],
+        ["Port", "port_dashboard.html", "The benefício and two family groups set the terms of trade."],
+        ["Scotch Whisky", "scotch_whisky_dashboard.html", "Casks and bottles are different markets with different liquidity."],
+        ["Cigars", "cigars_dashboard.html", "Habanos S.A.'s monopoly sets the ceiling on Cuban supply."],
+        ["Watches", "watches_dashboard.html", "Waitlists at the manufacturer create the secondary premium."],
+        ["Art", "art_dashboard.html", "Private sales are unrated; auction is the only visible liquidity."],
+        ["Classic Cars", "classic_cars_dashboard.html", "The apex and the base of the market barely correlate."]
+      ]},
+      { name: "Aromatics", sectors: [
+        ["Saffron", "saffron_dashboard.html", "Iranian harvest volatility sets the world price."],
+        ["Oud", "oud_dashboard.html", "Wild agarwood and plantation oil are priced on different planets."],
+        ["Vanilla", "vanilla_dashboard.html", "Madagascar's harvest cycle drives multi-year price swings."],
+        ["Frankincense", "frankincense_dashboard.html", "Boswellia papyrifera populations are declining across its range."]
+      ]},
+      { name: "Crops", sectors: [
+        ["Coffee", "coffee_dashboard.html", "Geisha lots trade at a multiple of commodity Arabica."],
+        ["Tea", "tea_dashboard.html", "Uji tencha and bulk leaf share a name and nothing else."],
+        ["Cocoa", "cocoa_dashboard.html", "Two marketing boards set farmgate price for most of world supply."],
+        ["Olive Oil", "olive_oil_dashboard.html", "Mediterranean drought has repeatedly moved the world price."],
+        ["Mānuka Honey", "manuka_honey_dashboard.html", "Certification outside New Zealand does not test what it claims."],
+        ["Dates", "dates_dashboard.html", "Ajwa carries a religious premium the market data does not explain."]
+      ]},
+      { name: "Rare Foods", sectors: [
+        ["Caviar", "caviar_dashboard.html", "Wild sturgeon roe is nearly extinct as a legal category."],
+        ["Truffles", "truffles_dashboard.html", "White truffle supply is wild-foraged and cannot be farmed at scale."],
+        ["Bluefin Tuna", "bluefin_tuna_dashboard.html", "Ōma-caught fish trade at a premium ranched tuna cannot reach."],
+        ["Wagyu", "wagyu_dashboard.html", "Genetic lineage, not geography alone, sets the grading ceiling."]
+      ]}
+    ];
+  }
+
+  latest() {
+    return [
+      ["Cigars", "cigars_dashboard.html#s-iii", "Sanctions on Habanos S.A.'s co-owner reach the German distributor; the Festival is cancelled"],
+      ["Copper", "copper_dashboard.html#s-i", "Forecast surplus becomes a 150–400 kt deficit after Grasberg; the US tariffs its own supply"],
+      ["Rare Earths", "rare_earths_dashboard.html", "China's separation-stage grip proves harder to route around than its mine share suggests"]
+    ];
+  }
+
+  onSelect(name) { this.setState({ filter: name }); }
+
+  renderVals() {
+    const all = this.data();
+    const filter = this.state.filter;
+    const names = ["All", ...all.map(f => f.name), "Latest Intelligence"];
+    const families = names.map(name => ({
+      name,
+      onClick: () => this.onSelect(name),
+      style: "flex:0 0 auto;white-space:nowrap;padding:9px 16px;border:1px solid " + (filter === name ? "#141412" : (name === "Latest Intelligence" ? "#a8825a" : "#dcd4c6")) +
+        ";background:" + (filter === name ? "#141412" : "transparent") +
+        ";color:" + (filter === name ? "#f4efe6" : (name === "Latest Intelligence" ? "#a8825a" : "#6f6a62")) +
+        ";font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer"
+    }));
+    const visibleFamilies = all
+      .filter(f => filter === "All" || f.name === filter)
+      .map((f, i) => ({
+        name: f.name,
+        num: String(all.indexOf(f) + 1).padStart(2, "0"),
+        sectors: f.sectors.map(([name, href, desc]) => ({ name, href, desc, date: "16 Sep 2026" }))
+      }));
+    const showLatest = filter === "Latest Intelligence";
+    const latest = this.latest().map(([name, href, text]) => ({ name, href, text }));
+    const on = this.state.scrollY > 260;
+    return {
+      families, visibleFamilies, showLatest, latest,
+      ctlOpacity: on ? 1 : 0, ctlPointer: on ? "auto" : "none",
+      atTop: this.state.atTop, atBottom: this.state.atBottom,
+      atTopOpacity: this.state.atTop ? 0.32 : 1, atBottomOpacity: this.state.atBottom ? 0.32 : 1,
+      scrollUp: () => this.scrollDir(-1), scrollDown: () => this.scrollDir(1)
+    };
+  }
+}
+</script>
+</body>
+</html>

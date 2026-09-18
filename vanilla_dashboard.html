@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanilla, ΣΟΦΙΑ</title>
+<meta name="description" content="Vanilla: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+main,aside,.rail,.page>*,.mn>*{min-width:0}
+/* body with margin notes */
+.mn{display:grid;grid-template-columns:1fr 180px;gap:28px;align-items:start}
+.mn aside{font-size:13px;color:#8c4a2f;border-left:1px solid #a8825a;padding-left:14px;font-style:italic;line-height:1.5}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap}
+/* cycle chart (SVG) */
+.cycle{margin:16px 0 26px;background:#faf7f0;border:1px solid #a8825a;padding:16px}
+.cycle svg{width:100%;height:auto;display:block}
+.cycle .cap{font-family:var(--mono);font-size:11px;color:#8c4a2f;margin-top:6px}
+.plate{background:#faf7f0;border:1px solid #a8825a;padding:14px 18px;margin:18px 0;max-width:70ch}
+.plate.o{border-color:#a8825a}
+@media(max-width:900px){
+.mn{grid-template-columns:1fr}
+.mn aside{border-left:0;border-top:1px solid #a8825a;padding:10px 0 0}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Vanilla</p>
+  <h1>Vanilla</h1>
+  <p class="lede">The world's second most expensive spice after saffron is trading at inflation-adjusted lows: a $600/kg peak in 2018, a floor price abolished in 2023, and a 2026 Madagascar crop large enough to keep it there. Structural overproduction meets a customer base that reformulated away and has not come back.</p>
+  <div class="figures"><div><div class="v">$15 / $25 / $50</div><div class="l">Trade reference $/kg, cuts / long red / gourmet black, 2026 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">3,000–3,500 t</div><div class="l">Aust & Hachmann projection, 2026 Madagascar crop <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">c.$600</div><div class="l">2018 peak, $/kg cured, briefly above silver by weight <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 15 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Third regime in twelve years: post-2019 slump, with a Madagascar floor price below the cost of labour.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Madagascar · Indonesia · Papua New Guinea · Uganda</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>United States · France · Germany · Japan</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+  </dl>
+  <p class="snap-note" style="margin-top:16px">Scarcity pulled to Low by synthetic vanillin at scale.</p>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>The cycle</a></li><li><a href="#s-ii"><span>II</span>Origin concentration</a></li><li><a href="#s-iii"><span>III</span>Cost of production & the farm-gate</a></li><li><a href="#s-iv"><span>IV</span>Substitution & the synthetic ceiling</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>The cycle</h2><p class="sub">Three price regimes in twelve years.</p></div>
+  
+  <div class="cycle">
+    <svg viewBox="0 0 720 220" role="img" aria-label="Indicative Madagascar export price per kilogram 2014 to 2026">
+      <line x1="50" y1="180" x2="700" y2="180" stroke="#8c4a2f" stroke-width="1"/>
+      <line x1="50" y1="20" x2="50" y2="180" stroke="#8c4a2f" stroke-width="1"/>
+      <text x="8" y="184" font-family="Inconsolata" font-size="11" fill="#8c4a2f">$0</text>
+      <text x="8" y="104" font-family="Inconsolata" font-size="11" fill="#8c4a2f">$300</text>
+      <text x="8" y="24" font-family="Inconsolata" font-size="11" fill="#8c4a2f">$600</text>
+      <polyline points="70,168 150,150 230,40 310,60 390,110 470,124 550,170 630,172 700,174" fill="none" stroke="#a8825a" stroke-width="2.5"/>
+      <circle cx="230" cy="40" r="4" fill="#7f7a70" stroke="#a8825a"/>
+      <circle cx="470" cy="124" r="4" fill="#7f7a70" stroke="#a8825a"/>
+      <circle cx="700" cy="174" r="4" fill="#7f7a70" stroke="#a8825a"/>
+      <text x="70" y="198" font-family="Inconsolata" font-size="11" fill="#8c4a2f">2014</text>
+      <text x="220" y="198" font-family="Inconsolata" font-size="11" fill="#8c4a2f">2018</text>
+      <text x="380" y="198" font-family="Inconsolata" font-size="11" fill="#8c4a2f">2021</text>
+      <text x="460" y="198" font-family="Inconsolata" font-size="11" fill="#8c4a2f">2023</text>
+      <text x="690" y="198" font-family="Inconsolata" font-size="11" fill="#8c4a2f">2026</text>
+      <text x="240" y="44" font-family="Lora" font-style="italic" font-size="12" fill="#7d5f3f">c.$600 peak</text>
+      <text x="480" y="120" font-family="Lora" font-style="italic" font-size="12" fill="#7d5f3f">$250 floor removed</text>
+      <text x="560" y="160" font-family="Lora" font-style="italic" font-size="12" fill="#7d5f3f">$15–50 references</text>
+    </svg>
+    <div class="cap">Indicative path, not a series. Anchors: $35–65 (2014), $500–800 (2018), $244.81 export unit value (2021), $250 floor removed (Apr/May 2023), $15–50 references (2026). <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s8">8</a></sup></div>
+  </div>
+  <div class="mn">
+    <div>
+      <table>
+        <tr><th>Regime</th><th>Period</th><th class="n">Price, $/kg cured</th><th>Mechanism</th></tr>
+        <tr><td>Pre-boom</td><td>2014</td><td class="n">35–65</td><td>Balanced market <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+        <tr><td>Squeeze</td><td>2016–2019</td><td class="n">500–800</td><td>Cyclone losses, speculative hoarding, early "vacuum-packed" harvesting <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+        <tr><td>Managed decline</td><td>Jul 2020–Apr 2023</td><td class="n">250 floor</td><td>State minimum export price; unsold stock accumulated in farmer and collector hands <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></td></tr>
+        <tr><td>Overproduction</td><td>2023–present</td><td class="n">c.40 avg; 10–50</td><td>Floor abolished; export revenue −64% by mid-2024 despite volumes nearly doubling <span class="c c-m">Med</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+      </table>
+      <p>Vines take about three years to bear, so plantings made into the 2018 boom matured exactly as high prices pushed food companies to substitutes. The market then fell for five consecutive years.<sup class="r"><a href="#s2">2</a></sup> Some distressed 2026 lots traded at $10–16/kg, and the trade references of $15/$25/$50 have never been formalised by decree.<sup class="r"><a href="#s1">1</a></sup></p>
+    </div>
+    <aside>Discrepancy: one price-index vendor reports Madagascar averaging USD 200/kg in Q1 2026.<sup class="r"><a href="#s9">9</a></sup> This is inconsistent with every trade-house and origin source and appears to be a modelled retail or extract-equivalent series. Excluded from the analysis; retained in sources for transparency. <span class="c c-l">Low</span></aside>
+  </div>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Origin concentration</h2><p class="sub">Madagascar's share depends on whether you count green pods or cured exports.</p></div>
+  
+  <div class="mn">
+    <div>
+      <table>
+        <tr><th>Origin</th><th class="n">2023 raw output (t)</th><th class="n">Share</th><th>Character</th></tr>
+        <tr><td>Madagascar</td><td class="n">3,113</td><td class="n">41.9%</td><td>Bourbon; SAVA "Vanilla Triangle" (Sambava, Antalaha, Vohémar, Andapa) <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+        <tr><td>Indonesia</td><td class="n">c.1,836</td><td class="n">24.7%</td><td>Woody, smoky; processed-product grades; cheapest tracked origin <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a> <a href="#s9">9</a></sup></td></tr>
+        <tr><td>Uganda</td><td class="n">,</td><td class="n">,</td><td>Two harvests a year; high vanillin content; inventory flexibility for buyers <span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
+        <tr><td>Others (PNG, Comoros, India, Mexico, Tahiti)</td><td class="n">,</td><td class="n">,</td><td>Niche flavour profiles; Tahitian is a different species (V. tahitensis)</td></tr>
+        <tr><td>World</td><td class="n">7,433</td><td class="n">100%</td><td>FAO-derived; raw (green) basis <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+      </table>
+      <p>Widely repeated claims that Madagascar supplies "80% of the world's vanilla" refer to cured, export-grade beans in the international market, not green output.<sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup> Madagascar's cured exports were 1,454 t (2019) and 1,724 t (2020), with the USA (810 t), France (339 t) and Germany (234 t) as principal destinations.<sup class="r"><a href="#s7">7</a></sup> The 41.9% and 80% figures are therefore both defensible but measure different things. <span class="c c-h">High</span></p>
+    </div>
+    <aside>Curing ratio: roughly 5–6 kg of green pods yield 1 kg cured, so a 3,000–3,500 t green crop implies c.550–700 t cured, but sources do not state their basis consistently. Treat all tonnages as basis-uncertain. <span class="c c-x">Hyp</span></aside>
+  </div>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Cost of production & the farm-gate</h2><p class="sub">Hand pollination, months of curing, and a floor price that no longer covers labour.</p></div>
+  
+  <div class="mn">
+    <div>
+      <table>
+        <tr><th>Reference point</th><th class="n">Value</th><th>Note</th></tr>
+        <tr><td>Green vanilla floor, June 2026</td><td class="n">10,000 Ariary/kg</td><td>Council of Ministers; pods &gt;13 cm; c.US$2.34/kg <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+        <tr><td>Previous green floor</td><td class="n">75,000 Ariary/kg</td><td>c.US$18, the floor has fallen 87% in Ariary terms <span class="t">Derived</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+        <tr><td>Implied export "cost price", 2023</td><td class="n">$140–150/kg</td><td>Trade estimate when the $250 floor was replaced by a ban on selling below cost <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a></sup></td></tr>
+        <tr><td>2026 gourmet black reference</td><td class="n">$50/kg</td><td>Roughly one-third of the 2023 cost estimate <span class="t">Derived</span></td></tr>
+      </table>
+      <p>Each flower is pollinated by hand in a window of hours; cured beans pass through a multi-month Bourbon process (blanching, sweating, drying, conditioning). Around 65% of natural demand has historically been met from north-eastern Madagascar, where the price cycle sets local fortunes.<sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup> At current farm-gate levels the trade's own question has inverted: not how high prices can go, but whether they are too low to keep growers in vanilla.<sup class="r"><a href="#s6">6</a></sup></p>
+    </div>
+    <aside>Saffron parallel: both crops are labour-priced, not land-priced. The saffron page found stigma-picking labour to be the binding cost; here it is pollination and curing labour. Neither can mechanise, so both are exposed to rural wage inflation even in a price trough.</aside>
+  </div>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>Substitution & the synthetic ceiling</h2><p class="sub">Natural bean extract is a rounding error in the flavour market.</p></div>
+  
+  <div class="mn">
+    <div>
+      <table>
+        <tr><th>Route</th><th>Description</th><th>Position</th></tr>
+        <tr><td>Natural bean extract</td><td>c.1% of global vanilla flavour volume; extraction yields 0.2–0.3% vanillin per kg of beans</td><td>Premium; clean-label claims <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a> <a href="#s11">11</a></sup></td></tr>
+        <tr><td>Synthetic vanillin (guaiacol, lignin)</td><td>Bulk of the market; consistent chemistry</td><td>Commodity <span class="c c-h">High</span><sup class="r"><a href="#s12">12</a></sup></td></tr>
+        <tr><td>Bio-vanillin (eugenol / fermentation)</td><td>Clove-oil oxidation at 65–80% conversion; fermentation routes can qualify as "natural" in some jurisdictions</td><td>Narrowing the gap with bean extract <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a> <a href="#s11">11</a></sup></td></tr>
+      </table>
+      <p>Reformulation is the asymmetric risk: sharp price increases have repeatedly caused manufacturers to accelerate substitution, permanently reducing bean demand, which is why the 2018 spike was self-destructive for the category.<sup class="r"><a href="#s4">4</a></sup> One market-research house values the vanilla-extract segment at USD 5.6 bn (2025); the figure is not reconcilable with bean tonnages and is <span class="c c-l">Low</span> confidence.<sup class="r"><a href="#s13">13</a></sup></p>
+      <div class="plate o">Lab-grown diamond parallel: a synthetic with identical functional chemistry and a fraction of the cost, held back only by labelling ("natural") and by consumer perception of the 200-plus minor aroma compounds that vanillin alone lacks.<sup class="r"><a href="#s13">13</a></sup> The category's defence is provenance and sensory complexity, not price. <span class="c c-x">Hyp</span></div>
+    </div>
+    <aside>US retail for whole Grade A beans in August 2026 was roughly $97–225 per pound depending on origin, an order of magnitude above export references, illustrating where margin now sits in the chain.<sup class="r"><a href="#s2">2</a></sup></aside>
+  </div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Campaign opening decree and floor prices</td><td>Madagascar Council of Ministers, annually May–July</td><td>Whether the state is defending farm-gate incomes or liberalising further</td></tr>
+    <tr><td>Crop-size projections</td><td>Aust &amp; Hachmann and other trade-house reports, semi-annual</td><td>Tests competing tonnage estimates; flowering reports give a one-year lead</td></tr>
+    <tr><td>Cyclone season</td><td>Météo Madagascar, November–April</td><td>The only mechanism that has historically reset the cycle upward</td></tr>
+    <tr><td>Export volumes and unit values</td><td>INSTAT / customs, annual</td><td>Reconciles green-crop estimates with cured exports</td></tr>
+    <tr><td>Uganda harvests</td><td>June and December seasons</td><td>Main alternative origin for buyers de-risking Madagascar</td></tr>
+    <tr><td>Regulatory scope</td><td>EU Commission guidance on deforestation and residue rules</td><td>Whether agroforestry sourcing is caught indirectly</td></tr>
+  </table>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Rio Times</b>, "Madagascar Economy Reels as Vanilla Collapses and Ambatovy Halts Again", Sep 2026, green floor 10,000 Ariary (c.$2.34); prior 75,000 Ariary (c.$18); $250 floor removed May 2023; export revenue −64% by mid-2024; Biovanilla c.$40 average and 4,500 t estimate; Aust & Hachmann 3,000–3,500 t; $15/$25/$50 references; distressed $10–16; 2018 peak near $600.</li>
+    <li id="s2"><b>Amadeus Vanilla Beans</b>, "Vanilla Bean Prices 2026 | Farm-Direct Market Report", 10 Aug 2026, 2014 $35–65; 2018 $500–800; April 2023 floor cancellation; three-year vine lag; US retail $97–225/lb. Merchant source. <span class="c c-m">Med</span></li>
+    <li id="s3"><b>Mintec</b>, "Madagascar lifts minimum export price on vanilla", 2023, $250 floor in place since July 2020; cost-price rule; trade estimate $140–150/kg.</li>
+    <li id="s4"><b>Ken Research</b>, Global Vanilla Market report, Aug 2026, 7,433 t raw 2023; Madagascar 3,113 t (41.9%); Indonesia 24.7%; substitution dynamics; Uganda two seasons. <span class="c c-m">Med</span></li>
+    <li id="s5"><b>FoodUnfolded</b>, "Vanilla Beans | The Cost of Production", natural extract c.1% of flavour market; c.65% of natural demand from north-eastern Madagascar (2020 projection).</li>
+    <li id="s6"><b>Afri Exports</b>, "Vanilla Price Trends 2026: After the Boom", 9 Jul 2026; <b>Bloomberg</b>, "The Volatile Economics of Natural Vanilla in Madagascar", Dec 2019 (80%+ share of cured production; cheap labour as driver).</li>
+    <li id="s7"><b>Capmad</b> citing INSTAT, 1,454 t (2019), 1,724 t (2020); USA 810 t, France 339 t, Germany 234 t; competitors &lt;500 t combined.</li>
+    <li id="s8"><b>Selina Wamucii</b>, Madagascar export unit values $428.31 (2017), $305.37 (2020), $244.81 (2021). Trade-data aggregator; used only for the 2021 anchor. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>Expert Market Research</b>, Vanilla Price Trend 2026, USD 200/kg Madagascar Q1 2026; USD 142/kg Indonesia. Retained to document the discrepancy in Section I. <span class="c c-l">Low</span></li>
+    <li id="s10"><b>Vanillia</b>, "What are the main vanilla-producing countries?", Jul 2025, Vanilla Triangle; Uganda high vanillin, twice-yearly harvest.</li>
+    <li id="s11"><b>Business Research Insights</b>, Natural Vanillin Market, extraction yield 0.2–0.3%; eugenol route 65–80% conversion; Madagascar 2,400 t (2023, different basis from source 4). <span class="c c-l">Low</span></li>
+    <li id="s12"><b>Borregaard</b>, "Your guide to vanilla vs. vanillin", producer literature on synthetic and bio-vanillin. Interested party.</li>
+    <li id="s13"><b>Future Market Insights</b>, Vanilla Extract Market, Mar 2026, USD 5.60 bn (2025); 200+ aroma compounds claim. <span class="c c-l">Low</span></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

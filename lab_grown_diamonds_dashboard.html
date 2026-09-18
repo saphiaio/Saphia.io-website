@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab-Grown Diamonds, ΣΟΦΙΑ</title>
+<meta name="description" content="Lab-Grown Diamonds: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+/* Make .conf badges flow naturally in metric .value flex container */
+  .metric .value .conf{margin-left:8px;align-self:center}
+/* ===== Price tracker table ===== */
+  .price-tracker{width:100%;border-collapse:collapse;margin-top:14px;font-size:12px}
+.price-tracker thead th{text-align:left;padding:10px 12px;background:#faf7f0;border-bottom:2px solid var(--ink);font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#6f6a62}
+.price-tracker thead th.r, .price-tracker tbody td.r{text-align:right}
+.price-tracker tbody td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.price-tracker tbody tr:last-child td{border-bottom:none}
+.price-tracker tbody tr:hover{background:#faf7f0}
+.price-tracker .size-tag{font-weight:600;color:var(--ink)}
+.price-tracker .method-tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:2px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase}
+.price-tracker .method-hpht{color:var(--mute);background:rgba(90,75,138, 0.1)}
+.price-tracker .method-cvd{color:var(--mute);background:rgba(90,75,138, 0.1)}
+.price-tracker .price-wholesale{color:var(--mute);font-weight:600}
+.price-tracker .price-retail{color:var(--ink);font-weight:600}
+.price-tracker .markup{color:#6f6a62;font-size:11px}
+/* ===== Risk dashboard grid ===== */
+  .risk-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:14px;margin-top:14px}
+.risk-card{padding:16px 18px;background:#faf7f0;border:1px solid var(--line);border-top:3px solid #6f6a62}
+.risk-card.risk-high{border-top-color:var(--line)}
+.risk-card.risk-elevated{border-top-color:var(--line)}
+.risk-card.risk-moderate{border-top-color:var(--line)}
+.risk-card.risk-low{border-top-color:var(--line)}
+.risk-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.risk-name{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:0.01em}
+.risk-level{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase}
+.risk-card.risk-high     .risk-level{color:var(--mute)}
+.risk-card.risk-elevated .risk-level{color:var(--mute)}
+.risk-card.risk-moderate .risk-level{color:var(--mute)}
+.risk-card.risk-low      .risk-level{color:var(--mute)}
+.risk-body{font-size:11.5px;color:#6f6a62;line-height:1.6;margin-bottom:10px}
+.risk-meter{height:5px;background:var(--line);border-radius:2px;overflow:hidden;margin-top:8px}
+.risk-meter-fill{height:100%;border-radius:2px}
+.risk-card.risk-high     .risk-meter-fill{background:var(--surface);width:90%}
+.risk-card.risk-elevated .risk-meter-fill{background:var(--surface);width:70%}
+.risk-card.risk-moderate .risk-meter-fill{background:var(--surface);width:50%}
+.risk-card.risk-low      .risk-meter-fill{background:var(--surface);width:25%}
+/* ===== Producer-capacity map ===== */
+  .producer-map{margin-top:14px;background:var(--paper);border:1px solid var(--line);padding:18px 22px}
+.producer-map svg{width:100%;height:auto;display:block;max-width:700px;margin:0 auto}
+.map-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:10.5px;color:#6f6a62}
+.map-legend span{display:inline-flex;align-items:center;gap:6px}
+.map-legend .ml-dot{display:inline-block;width:9px;height:9px;border-radius:50%}
+/* ===== Margin waterfall ===== */
+  .waterfall{width:100%;max-width:760px;margin:18px auto 0}
+.waterfall svg{width:100%;height:auto;display:block}
+/* ===== Spread chart styling (uses SVG inline) ===== */
+  .spread-chart{width:100%;max-width:740px;margin:14px auto 0}
+.spread-chart svg{width:100%;height:auto;display:block}
+/* ===== Data-Lab section base ===== */
+  .section-datalab .panel{margin-bottom:22px}
+.section-datalab .panel:last-child{margin-bottom:0}
+.section-blue    .panel-head .tag-line{color:var(--mute)}
+.section-violet  .panel-head .tag-line{color:var(--mute)}
+.section-crimson .panel-head .tag-line{color:var(--mute)}
+.section-orange  .panel-head .tag-line{color:var(--mute)}
+.section-teal    .panel-head .tag-line{color:var(--mute)}
+.section-rose    .panel-head .tag-line{color:var(--mute)}
+.section-forest  .panel-head .tag-line{color:var(--mute)}
+/* ===== Metrics ===== */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px}
+.metric{padding:16px 18px;background:#faf7f0;border:1px solid var(--line)}
+.metric .label{font-size:10px;color:#6f6a62;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px}
+.metric .value{font-size:24px;font-weight:600;letter-spacing:-0.01em;color:var(--ink);line-height:1.1}
+.metric .value .unit{font-size:11px;font-weight:400;color:#6f6a62;margin-left:6px;letter-spacing:0.04em}
+.metric .change{margin-top:8px;font-size:11px;color:#6f6a62;line-height:1.5}
+.section-blue    .metric.tinted .value{color:var(--mute)}
+.section-violet  .metric.tinted .value{color:var(--mute)}
+.section-crimson .metric.tinted .value{color:var(--mute)}
+.section-orange  .metric.tinted .value{color:var(--mute)}
+.section-teal    .metric.tinted .value{color:var(--mute)}
+.section-rose    .metric.tinted .value{color:var(--mute)}
+.section-forest  .metric.tinted .value{color:var(--mute)}
+.country{font-weight:600;letter-spacing:0.02em}
+/* ===== Stone-card / Method-card style ===== */
+  .stone-grid{display:grid;gap:14px}
+.stone-grid.cols-2{grid-template-columns:repeat(auto-fit, minmax(360px, 1fr))}
+.stone-grid.cols-3{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))}
+.stone-grid.cols-4{grid-template-columns:repeat(auto-fit, minmax(220px, 1fr))}
+.stone-card{padding:18px 20px;background:#faf7f0;border:1px solid var(--line);border-top:3px solid var(--line)}
+.stone-name{font-size:15px;font-weight:600;letter-spacing:0.01em;margin-bottom:4px}
+.stone-tag{font-size:10px;color:#6f6a62;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.stone-stat{display:flex;justify-content:space-between;gap:14px;font-size:11px;margin-bottom:7px;line-height:1.55}
+.stone-stat .k{color:#6f6a62;flex-shrink:0;min-width:80px}
+.stone-stat .v{text-align:right;color:var(--ink)}
+.stone-stat{flex-direction:column;gap:2px}
+.stone-stat .v{text-align:left}
+.stone-card{max-width:100%;box-sizing:border-box}
+.stone-grid,.stone-grid.cols-2,.stone-grid.cols-3{grid-template-columns:minmax(0,1fr) !important}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Lab-Grown Diamonds</p>
+  <h1>Lab-Grown Diamonds</h1>
+  <p class="lede">A market whose defining event is a price collapse: wholesale values falling toward the cost of production while the retail margin, not the stone, carries the economics. HPHT and CVD production, geography, certification and the tariff layer.</p>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of Jul 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Wholesale prices in a multi-year decline toward cost of production; the retail margin, not the stone, is now the economics.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>India (Surat) · China (Henan) · United States · Singapore</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>United States · India · China</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#sec-3" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#sec-4" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#sec-2" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#sec-4" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#sec-1"><span>I</span>Market at a Glance</a></li><li><a href="#sec-2"><span>II</span>Production Methods · HPHT vs CVD</a></li><li><a href="#sec-3"><span>III</span>Production Geography</a></li><li><a href="#sec-4"><span>IV</span>Price Collapse · "The Great Correction"</a></li><li><a href="#sec-5"><span>V</span>The Major Producers</a></li><li><a href="#sec-6"><span>VI</span>Retailers · Brands · The De Beers Endgame</a></li><li><a href="#sec-7"><span>VII</span>Outlook · Industrial &amp; Semiconductor Future</a></li><li><a href="#sec-8"><span>VIII</span>Data Lab</a></li><li><a href="#sources"><span>IX</span>Sources</a></li></ol>
+</nav>
+
+<section id="sec-1"><div class="sechead"><h2><em>I</em>Market at a Glance</h2><p class="sub">Sources · Statista · Allied Market Research · GIA · Edahn Golan · Zimnisky · De Beers</p></div><div class="section-blue">
+    <div class="metrics">
+      <div class="metric tinted">
+        <div class="label">Global LGD market 2025</div>
+        <div class="value">$27–30bn<span class="unit">est.</span><span class="c c-l">Low</span></div>
+        <div class="change">$27.24bn (Univdatos 2024) · $29.46–29.73bn (Fortune Business Insights / Precedence 2025). Estimates vary by analyst, paid market reports diverge by ±10%.<sup class="r"><a href="#s1">1</a></sup></div>
+      </div>
+      <div class="metric tinted">
+        <div class="label">LGD share of US diamond demand 2025</div>
+        <div class="value">25%<span class="unit">by value</span><span class="c c-h">High</span></div>
+        <div class="change">De Beers: natural 75% / LGD 25% of overall US diamond demand by value. At US independent jewellers specifically, LGD is only 15%.<sup class="r"><a href="#s19">19</a></sup> Global estimates (Statista 21%+, Zimnisky ~20%) are less well evidenced.<sup class="r"><a href="#s2">2</a></sup></div>
+      </div>
+      <div class="metric tinted">
+        <div class="label">Global LGD production 2023</div>
+        <div class="value">9M+<span class="unit">carats</span><span class="c c-h">High</span></div>
+        <div class="change">▲ 9× from ~1M ct in 2010 · production capacity rose 54% from 2022-2024. GIA G&amp;G Summer 2024 citing GJEPC.<sup class="r"><a href="#s3">3</a></sup></div>
+      </div>
+      <div class="metric tinted">
+        <div class="label">2025-2034 CAGR forecast</div>
+        <div class="value">~12–14%<span class="unit">p.a.</span><span class="c c-x">Hyp</span></div>
+        <div class="change">Precedence Research: 13.87% · Fortune Business Insights: 13.42%. Forecast not observed. Note the tension: unit volumes are growing fast while per-carat value falls, so value-based CAGRs of this size require industrial demand to carry the growth.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s20">20</a></sup></div>
+      </div>
+    </div>
+
+    <!-- Why it matters panel -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Why It Matters · The Structural Story</h2>
+        <div class="tag-line">A wholly new sector challenging a 75-year-old De Beers model</div>
+      </div>
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">Lab-grown diamonds (LGD) are <strong style="color: var(--ink);">chemically, optically, and physically identical to mined diamonds</strong>, distinguishable only by specialised gemological equipment. They emerged commercially in the early 2010s and have since reshaped the global diamond market in a span shorter than any precedent in luxury.</p>
+        <p style="margin-bottom: 12px;">Two narratives run in parallel: <strong style="color: var(--mute);">explosive market-share gains</strong> (from ~1% of diamond jewellery value in 2016 to ~20% in 2025), and <strong style="color: var(--mute);">a near-total wholesale price collapse</strong> (peak wholesale $4,000+/ct in 2018 to <strong>~$100/ct by Jun 2026</strong> per De Beers, a 93% decline since 2020, and 96% since Edahn Golan began tracking in Jul 2018).<sup class="r"><a href="#s4">4</a></sup><sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s20">20</a></sup> Both are true simultaneously, and the tension between them defines the sector.</p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">The 2026 inflection.</strong> For the first time the collapse is visibly decelerating. Edahn Golan&rsquo;s Q2 2026 list shows the index down 13% year-on-year, but <strong style="color: var(--mute);">1-carat round wholesale prices actually rose 1%</strong>, rough LGD prices moved higher (Chinese producers +30%, Diamond Foundry +25%), and US specialty-retail LGD jewellery sales grew 24% in the quarter on higher unit volumes. Golan&rsquo;s reading is that the market is beginning to stabilise across the whole chain, from production through to retail. Whether that is a genuine floor or a pause in a consolidating market is the open question of 2026.<sup class="r"><a href="#s20">20</a></sup></p>
+        <p>The sector's structural divide: <strong style="color: var(--ink);">~80% of LGD output is fashion/jewellery</strong>, the rest <strong style="color: var(--ink);">industrial</strong> (cutting tools, semiconductors, quantum-computing substrates, thermal management). Industrial demand is growing fastest in value terms over the next decade.<sup class="r"><a href="#s5">5</a></sup></p>
+      </div>
+    </div>
+
+    <!-- LGD vs Natural -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>LGD vs Natural · The Defining Differences</h2>
+        <div class="tag-line">Same atoms, different economics</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>Lab-Grown</th>
+            <th>Natural</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country">Chemical composition</span></td>
+            <td>Pure carbon · identical to natural</td>
+            <td>Pure carbon</td>
+          </tr>
+          <tr>
+            <td><span class="country">Time to form</span></td>
+            <td>Days to weeks (HPHT) · weeks to months (CVD)<sup class="r"><a href="#s6">6</a></sup></td>
+            <td>1–3 billion years</td>
+          </tr>
+          <tr>
+            <td><span class="country">Production volume</span></td>
+            <td>~9M carats gem-quality (2023)<sup class="r"><a href="#s3">3</a></sup> · rising</td>
+            <td>~100M carats rough (2025), down from a 2017 peak of ~150M<sup class="r"><a href="#s19">19</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country">Avg US spend per stone (2025)</span></td>
+            <td>$2,786<sup class="r"><a href="#s19">19</a></sup></td>
+            <td>$4,063<sup class="r"><a href="#s19">19</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country">Resale value</span></td>
+            <td>Near zero, wholesale price falls year-on-year</td>
+            <td>Variable, secondary market exists</td>
+          </tr>
+          <tr>
+            <td><span class="country">Identification</span></td>
+            <td>Distinguishable only by spectroscopy/UV imaging at lab level</td>
+            <td>Distinguishable from LGD only by same testing</td>
+          </tr>
+          <tr>
+            <td><span class="country">Primary geography</span></td>
+            <td>China (HPHT melee), India (CVD), USA &amp; Singapore (CVD)<sup class="r"><a href="#s3">3</a></sup></td>
+            <td>Russia, Botswana, Canada, DRC, South Africa</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============== SECTION II, PRODUCTION METHODS (violet accent) ============== -->
+  </section>
+<section id="sec-2"><div class="sechead"><h2><em>II</em>Production Methods · HPHT vs CVD</h2><p class="sub">Two technologies · different size sweet spots · different geographies</p></div><div class="section-violet">
+
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Two Production Methods</h2>
+        <div class="tag-line">HPHT replicates Earth's mantle · CVD grows atom-by-atom from plasma <span class="c c-h">High</span></div>
+      </div>
+
+      <div class="stone-grid cols-2">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">HPHT · High-Pressure High-Temperature</div>
+          <div class="stone-tag">Original method · 1950s · mimics natural conditions</div>
+          <div class="stone-stat"><span class="k">Process</span><span class="v">Carbon source + metal catalyst exposed to ~1,500°C and 5–6 GPa pressure in a press<sup class="r"><a href="#s6">6</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Growth time</span><span class="v">Days to weeks per stone<sup class="r"><a href="#s6">6</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Stone characteristics</span><span class="v">Often shows metallic inclusions (catalyst residue) · cuboctahedral crystal habit</span></div>
+          <div class="stone-stat"><span class="k">Sweet-spot sizes</span><span class="v">Melee (small) to ~1.5 ct polished · increasingly competitive at larger sizes<sup class="r"><a href="#s7">7</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Cost</span><span class="v">Lowest per-carat production cost · dominates small-stone segment<sup class="r"><a href="#s4">4</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Geography</span><span class="v">Dominant in China · Zhengzhou Sino-Crystal, Zhongnan Diamond, Henan Huanghe Whirlwind<sup class="r"><a href="#s3">3</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">CVD · Chemical Vapour Deposition</div>
+          <div class="stone-tag">Newer method · 1980s onward · atom-by-atom growth</div>
+          <div class="stone-stat"><span class="k">Process</span><span class="v">Methane/hydrogen plasma at low pressure deposits carbon onto seed crystal in vacuum chamber</span></div>
+          <div class="stone-stat"><span class="k">Growth time</span><span class="v">Weeks to months · 75.33 ct Surat "JCK 2024" crystal reportedly took 9 months<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Stone characteristics</span><span class="v">High-purity Type IIa diamond · often colourless / near-colourless · fewer inclusions</span></div>
+          <div class="stone-stat"><span class="k">Sweet-spot sizes</span><span class="v">1 ct and above · increasingly used for 2-4 ct stones</span></div>
+          <div class="stone-stat"><span class="k">Cost</span><span class="v">Higher than HPHT but uses less energy and is faster than HPHT for larger stones<sup class="r"><a href="#s9">9</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Geography</span><span class="v">Dominant in India (Surat) and USA · ~8,000–10,000 CVD reactors in India<sup class="r"><a href="#s10">10</a></sup></span></div>
+        </div>
+
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:18px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">The two-method market split.</strong> CVD held ~45% of the LGD market in 2024 (Fortune Business Insights) and is projected to grow at the highest CAGR. HPHT remains dominant for melee/small-stone production (≤1 ct), where its lower energy cost per stone wins; CVD wins for the larger, higher-clarity, near-colourless segments. As of late 2024, <strong style="color: var(--ink);">HPHT became meaningful in 1-ct polished goods</strong> as growers learned to scale up. The methods are converging on overlap zones. Edahn Golan&rsquo;s Q2 2026 methodology note confirms the current split: <strong style="color: var(--ink);">most LGD of 2 carats and above is CVD-grown</strong>, while smaller goods include both, with HPHT typically trading at a discount to CVD at the same size.<sup class="r"><a href="#s7">7</a></sup><sup class="r"><a href="#s20">20</a></sup>
+      </div>
+    </div>
+
+    <!-- Methods comparison table -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Method Comparison · Like-for-Like</h2>
+        <div class="tag-line">Where each method wins <span class="c c-h">High</span></div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>HPHT</th>
+            <th>CVD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country">First commercialised</span></td>
+            <td>1954 (General Electric)</td>
+            <td>1980s (research) · 2000s (commercial)</td>
+          </tr>
+          <tr>
+            <td><span class="country">Operating conditions</span></td>
+            <td>~1,500°C, 5–6 GPa</td>
+            <td>~800–1,200°C, low pressure (vacuum)</td>
+          </tr>
+          <tr>
+            <td><span class="country">Crystal habit</span></td>
+            <td>Cuboctahedral (mixed faces)</td>
+            <td>Cuboid / tabular plates</td>
+          </tr>
+          <tr>
+            <td><span class="country">Typical inclusions</span></td>
+            <td>Metallic catalyst residues</td>
+            <td>Often inclusion-free Type IIa</td>
+          </tr>
+          <tr>
+            <td><span class="country">Best for</span></td>
+            <td>Melee · industrial · small fancy colours</td>
+            <td>Large colourless · scientific / semiconductor substrate</td>
+          </tr>
+          <tr>
+            <td><span class="country">Largest known stone (faceted)</span></td>
+            <td>10.02 ct E-color VS1 emerald cut (illustrated in GIA G&amp;G Summer 2024)<sup class="r"><a href="#s3">3</a></sup></td>
+            <td>75.33 ct square emerald cut (Surat producer, JCK Las Vegas 2024)<sup class="r"><a href="#s8">8</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country">Geography of dominance</span></td>
+            <td>China · government &amp; private state-funded</td>
+            <td>India (Surat) · USA · Singapore</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============== SECTION III, PRODUCTION GEOGRAPHY (crimson accent) ============== -->
+  </section>
+<section id="sec-3"><div class="sechead"><h2><em>III</em>Production Geography</h2><p class="sub">Four countries · ~72% of gem-quality output · India now the swing producer</p></div><div class="section-crimson">
+
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Dominant Producer Countries</h2>
+        <div class="tag-line">China · India · USA · Singapore, ~6.5M of ~9M carats gem-quality in 2023 <span class="c c-h">High</span></div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7; margin-bottom: 18px;">
+        Per <strong style="color: var(--ink);">GIA Gems &amp; Gemology Summer 2024</strong> (citing GJEPC data): <strong style="color: var(--mute);">China leads with ~3M carats (mostly HPHT)</strong>, <strong style="color: var(--mute);">India follows with ~1.5M carats (mostly CVD)</strong>, with the <strong style="color: var(--mute);">USA and Singapore joint-third at ~1M carats each (both CVD)</strong>. Against total 2023 gem-quality output of over 9M carats, these four account for roughly <strong>72%</strong>, the balance is spread across smaller growers and unattributed output.<sup class="r"><a href="#s3">3</a></sup>
+        <br/><br/>
+        <strong style="color: var(--ink);">This 2023 snapshot is now the oldest data on the dashboard.</strong> The direction of travel since is unambiguous: India&rsquo;s reactor base has roughly doubled, Kira alone added 1,400 reactors in one announcement, and by March 2026 lab-grown diamonds overtook natural diamonds in India&rsquo;s monthly export volumes for the first time. Treat the country shares below as a structural baseline, not a current reading.<sup class="r"><a href="#s23">23</a></sup>
+      </div>
+
+      <div class="stone-grid cols-3">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">China</div>
+          <div class="stone-tag">Largest producer · HPHT melee specialist · ~40% gem-quality share</div>
+          <div class="stone-stat"><span class="k">Production 2023</span><span class="v">~3M carats (GJEPC)<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Method dominance</span><span class="v">HPHT (overwhelming), also growing CVD<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Major hubs</span><span class="v">Henan Province · Zhengzhou · Hubei</span></div>
+          <div class="stone-stat"><span class="k">Production model</span><span class="v">Mix of state-funded &amp; private mass-production · industrial &amp; gem</span></div>
+          <div class="stone-stat"><span class="k">Key producers</span><span class="v">Zhengzhou Sino-Crystal · Zhongnan Diamond · Henan Huanghe Whirlwind<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Strategic position</span><span class="v">Dominates industrial &amp; abrasives globally · supplies most of world's diamond melee</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">India</div>
+          <div class="stone-tag">Fastest-growing · CVD dominance · Surat ecosystem</div>
+          <div class="stone-stat"><span class="k">Production 2023</span><span class="v">~1.5M carats (GJEPC)<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Method dominance</span><span class="v">CVD (overwhelming) followed by HPHT<sup class="r"><a href="#s10">10</a></sup></span></div>
+          <div class="stone-stat"><span class="k">CVD reactor base</span><span class="v">~8,000–10,000 reactors (industry estimate) · up from 4,000–5,000 two-three years prior<sup class="r"><a href="#s10">10</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Surat concentration</span><span class="v">World leader in CVD diamond growing + diamond cutting/polishing<sup class="r"><a href="#s10">10</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Polished LGD exports FY26</span><span class="v">$1.13bn · <strong>&#9660; 10.55% YoY</strong> by value despite higher shipment volumes, GJEPC attributes the fall to ongoing price correction<sup class="r"><a href="#s23">23</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Volume crossover</span><span class="v">Mar 2026: LGD 1.3M ct vs natural 1.2M ct (51% of export volume) · Apr 2026: 1.4M vs 1.3M (50.4%), first sustained crossover<sup class="r"><a href="#s23">23</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Government support</span><span class="v">Union Budget 2023 designated LGD a green-economy focus area · LGD-seed import duty exemption ran to 31 Mar 2026, extension and PLI-scheme inclusion both sought by industry<sup class="r"><a href="#s23">23</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">United States</div>
+          <div class="stone-tag">Premium CVD · technology &amp; brand-led</div>
+          <div class="stone-stat"><span class="k">Production 2023</span><span class="v">~1M carats (GJEPC)<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Method dominance</span><span class="v">CVD (overwhelming), quality-focused<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Production model</span><span class="v">Smaller number of larger, more capital-intensive facilities than India</span></div>
+          <div class="stone-stat"><span class="k">Major brand presence</span><span class="v">Element Six (De Beers' synthetic arm, now industrial-only); Diamond Foundry (San Francisco); WD Lab Grown Diamonds; Pure Grown Diamonds</span></div>
+          <div class="stone-stat"><span class="k">Tariff position</span><span class="v">US-polished stones carry no import duty, a structural advantage created in 2025-26 that did not exist when this industry took shape<sup class="r"><a href="#s22">22</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Largest consumer market</span><span class="v">USA &amp; China &amp; India together = 72% of global LGD demand<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Industrial linkage</span><span class="v">Strong R&amp;D in semiconductor &amp; quantum applications</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Production geography table -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Production by Country &amp; Method (2023)</h2>
+        <div class="tag-line">GJEPC / GIA Summer 2024 Gems &amp; Gemology <span class="c c-h">High</span></div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Gem-quality 2023</th>
+            <th>Dominant method</th>
+            <th class="r">Share of ~9M ct global</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">China</span></td>
+            <td>~3M carats</td>
+            <td>HPHT</td>
+            <td class="r"><strong style="color: var(--mute);">~33%</strong><sup class="r"><a href="#s3">3</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">India</span></td>
+            <td>~1.5M carats</td>
+            <td>CVD</td>
+            <td class="r"><strong style="color: var(--mute);">~17%</strong><sup class="r"><a href="#s3">3</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">USA</span></td>
+            <td>~1M carats</td>
+            <td>CVD</td>
+            <td class="r"><strong style="color: var(--mute);">~11%</strong><sup class="r"><a href="#s3">3</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Singapore</span></td>
+            <td>~1M carats</td>
+            <td>CVD</td>
+            <td class="r"><strong style="color: var(--mute);">~11%</strong><sup class="r"><a href="#s3">3</a></sup></td>
+          </tr>
+          <tr style="background: #faf7f0;">
+            <td><span class="country"><strong>Four-country total</strong></span></td>
+            <td><strong>~6.5M carats</strong></td>
+            <td>&mdash;</td>
+            <td class="r"><strong>~72%</strong></td>
+          </tr>
+          <tr>
+            <td><span class="country">Asia-Pacific (whole)</span></td>
+            <td>34.54% of global LGD market (2025)</td>
+            <td>HPHT + CVD</td>
+            <td class="r" style="color: #6f6a62;">$10.18bn (Fortune)<sup class="r"><a href="#s1">1</a></sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============ Producer-Capacity Map ============ -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Producer-Capacity &amp; Trading-Hub Map</h2>
+        <div class="tag-line">Where LGD is grown · where it is traded · where it is consumed <span class="c c-m">Med</span></div>
+      </div>
+
+      <div class="producer-map">
+        <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg">
+          <!-- Simplified world basemap: continent outlines as soft shapes -->
+          <!-- North America -->
+          <path d="M 60 90 Q 100 70 140 90 L 165 110 L 180 140 L 175 175 L 160 200 L 130 215 L 100 210 L 75 195 L 55 165 L 50 130 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+          <!-- South America -->
+          <path d="M 145 215 L 165 240 L 170 280 L 160 320 L 145 340 L 135 330 L 130 300 L 130 260 L 135 230 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+          <!-- Europe -->
+          <path d="M 320 90 L 360 80 L 380 95 L 390 115 L 380 135 L 360 145 L 335 150 L 315 140 L 310 115 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+          <!-- Africa -->
+          <path d="M 335 160 L 380 165 L 395 200 L 400 240 L 385 285 L 365 310 L 345 305 L 325 280 L 320 240 L 325 200 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+          <!-- Asia (large block) -->
+          <path d="M 405 90 L 470 80 L 540 85 L 590 100 L 615 125 L 620 160 L 605 180 L 580 195 L 540 200 L 495 195 L 460 180 L 425 160 L 405 130 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+          <!-- India sub-block -->
+          <path d="M 470 175 L 495 175 L 510 195 L 505 220 L 490 240 L 475 235 L 465 215 L 465 195 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+          <!-- SE Asia / Indonesia -->
+          <path d="M 555 215 L 595 220 L 610 230 L 600 245 L 580 250 L 560 245 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+          <!-- Australia -->
+          <path d="M 580 270 L 625 270 L 645 285 L 640 305 L 610 315 L 580 310 L 570 290 Z"
+                fill="#e9e1d1" stroke="#dcd4c6" stroke-width="1"/>
+
+          <!-- ====== Trade-flow connection lines (drawn under markers) ====== -->
+          <!-- China → Hong Kong (trading) -->
+          <path d="M 555 145 Q 565 175 565 200" fill="none" stroke="#9b4a22" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.55"/>
+          <!-- India (Surat) → Dubai (UAE trading) -->
+          <path d="M 485 200 Q 460 200 435 200" fill="none" stroke="#9b4a22" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.55"/>
+          <!-- India (Surat) → New York (retail) -->
+          <path d="M 485 200 Q 350 130 130 145" fill="none" stroke="#5a4b8a" stroke-width="1.4" opacity="0.55"/>
+          <!-- China → New York -->
+          <path d="M 555 145 Q 380 120 130 145" fill="none" stroke="#5a4b8a" stroke-width="1.4" opacity="0.55"/>
+          <!-- USA → Singapore (CVD) -->
+          <path d="M 130 145 Q 400 295 565 220" fill="none" stroke="#5a4b8a" stroke-width="1" opacity="0.6" stroke-dasharray="2,4"/>
+
+          <!-- ====== Production hubs (filled circles, size = capacity) ====== -->
+
+          <!-- China: ~3M ct HPHT, largest -->
+          <circle cx="555" cy="145" r="22" fill="#5a4b8a" fill-opacity="0.25" stroke="#5a4b8a" stroke-width="1.4"/>
+          <circle cx="555" cy="145" r="6" fill="#5a4b8a"/>
+          <text x="555" y="121" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#141412" text-anchor="middle">CHINA</text>
+          <text x="555" y="166" font-family="JetBrains Mono, monospace" font-size="10" fill="#5a4b8a" text-anchor="middle" font-weight="600">~3M ct · HPHT</text>
+
+          <!-- India (Surat): ~1.5M ct CVD -->
+          <circle cx="485" cy="200" r="17" fill="#5a4b8a" fill-opacity="0.25" stroke="#5a4b8a" stroke-width="1.4"/>
+          <circle cx="485" cy="200" r="5" fill="#5a4b8a"/>
+          <text x="485" y="176" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#141412" text-anchor="middle">INDIA · SURAT</text>
+          <text x="485" y="222" font-family="JetBrains Mono, monospace" font-size="10" fill="#5a4b8a" text-anchor="middle" font-weight="600">~1.5M ct · CVD</text>
+
+          <!-- USA: ~1M ct CVD -->
+          <circle cx="130" cy="145" r="15" fill="#5a4b8a" fill-opacity="0.25" stroke="#5a4b8a" stroke-width="1.4"/>
+          <circle cx="130" cy="145" r="4" fill="#5a4b8a"/>
+          <text x="130" y="121" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#141412" text-anchor="middle">USA</text>
+          <text x="130" y="167" font-family="JetBrains Mono, monospace" font-size="10" fill="#5a4b8a" text-anchor="middle" font-weight="600">~1M ct · CVD</text>
+
+          <!-- Singapore: ~1M ct CVD -->
+          <circle cx="565" cy="220" r="13" fill="#5a4b8a" fill-opacity="0.25" stroke="#5a4b8a" stroke-width="1.4"/>
+          <circle cx="565" cy="220" r="4" fill="#5a4b8a"/>
+          <text x="565" y="246" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="middle">SINGAPORE</text>
+          <text x="565" y="258" font-family="JetBrains Mono, monospace" font-size="10" fill="#5a4b8a" text-anchor="middle" font-weight="600">~1M ct · CVD</text>
+
+          <!-- ====== Trading hubs (open squares · different glyph) ====== -->
+
+          <!-- UAE / Dubai (trading) -->
+          <rect x="425" y="190" width="20" height="20" fill="none" stroke="#9b4a22" stroke-width="1.6"/>
+          <circle cx="435" cy="200" r="3" fill="#9b4a22"/>
+          <text x="435" y="184" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="middle">DUBAI</text>
+          <text x="435" y="222" font-family="JetBrains Mono, monospace" font-size="10" fill="#9b4a22" text-anchor="middle" font-weight="600">trading hub</text>
+
+          <!-- Hong Kong (trading + show) -->
+          <rect x="555" y="195" width="20" height="20" fill="none" stroke="#9b4a22" stroke-width="1.6"/>
+          <circle cx="565" cy="205" r="3" fill="#9b4a22"/>
+          <text x="630" y="208" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="end">HONG KONG</text>
+          <text x="630" y="220" font-family="JetBrains Mono, monospace" font-size="10" fill="#9b4a22" text-anchor="end" font-weight="600">trading hub</text>
+
+          <!-- ====== Consumer markets (smaller dots, ink colour) ====== -->
+          <!-- USA also consumer largest market -->
+          <text x="105" y="155" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end" font-style="italic">+ largest consumer</text>
+
+          <!-- China consumer -->
+          <text x="600" y="158" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="start" font-style="italic">+ 2nd consumer</text>
+
+          <!-- India consumer -->
+          <text x="520" y="208" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="start" font-style="italic">+ 3rd consumer</text>
+
+          <!-- Header strip -->
+          <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#6f6a62" letter-spacing="1.5">GLOBAL LGD PRODUCTION &amp; TRADING FLOWS</text>
+          <line x1="0" y1="22" x2="700" y2="22" stroke="#dcd4c6" stroke-width="1"/>
+
+          <!-- Footer caption -->
+          <text x="0" y="350" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">
+            Circle size ∝ production volume · Square = trading hub · Lines = major bilateral trade flows
+          </text>
+        </svg>
+
+        <div class="map-legend">
+          <span><span class="ml-dot" style="background:#7d5f3f;"></span>HPHT production (China-dominant)</span>
+          <span><span class="ml-dot" style="background:#7d5f3f;"></span>CVD production (India · USA · Singapore)</span>
+          <span><span class="ml-dot" style="background:#7d5f3f;"></span>Trading hub (Dubai · Hong Kong)</span>
+          <span style="color: #6f6a62; font-style: italic;">USA · China · India = ~72% of global LGD demand</span>
+        </div>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:14px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">Trade-flow logic.</strong> The flows run in both directions, and the 2026 data makes the pattern concrete. India is largely self-sufficient in growing but still imports rough: Edahn Golan reports that <strong style="color: var(--ink);">rough LGD entering India in 2026 averages $15 per carat</strong>, sourced mainly from <strong style="color: var(--ink);">China</strong> (HPHT, used for 1.50 ct and smaller goods) and <strong style="color: var(--ink);">Dubai</strong> (CVD traded through the local diamond centre). Polished output then ships west to the US and Europe, or through Dubai and Hong Kong for re-export. Chinese HPHT melee historically flows to Hong Kong for sorting, then to Bangkok or Surat for setting. The producer landscape is concentrated in four countries; the trading and finishing landscape spans roughly ten hubs.<sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s23">23</a></sup>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SECTION IV, PRICE COLLAPSE (orange accent) ============== -->
+  </section>
+<section id="sec-4"><div class="sechead"><h2><em>IV</em>Price Collapse · "The Great Correction"</h2><p class="sub">93% wholesale decline 2020→2026 per De Beers · decline now decelerating</p></div><div class="section-orange">
+
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Greatest Price Correction in Modern Jewellery</h2>
+        <div class="tag-line">From $4,000+/ct in 2018 to ~$100/ct wholesale by Jun 2026 (De Beers), and the first signs of a floor</div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric tinted">
+          <div class="label">Peak wholesale price 2018</div>
+          <div class="value">$4,000+<span class="unit">per ct</span><span class="c c-m">Med</span></div>
+          <div class="change">Cited by multiple analysts as peak before oversupply correction.<sup class="r"><a href="#s11">11</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Wholesale price Jun 2026</div>
+          <div class="value">~$100<span class="unit">per ct</span><span class="c c-h">High</span></div>
+          <div class="change">De Beers Diamond Report (Jun 2026): ▼ 93% since 2020. The report&rsquo;s own chart plots the 2026 point at <strong>$91/ct</strong>; ~$100 is the headline rounding.<sup class="r"><a href="#s19">19</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Wholesale decline since 2020</div>
+          <div class="value">▼ 93%<span class="unit">cumulative</span><span class="c c-h">High</span></div>
+          <div class="change">De Beers, citing the Edahn Golan Wholesale Price List. Golan&rsquo;s own index is ▼ 96% since inception in Jul 2018, the two are consistent, measured from different base years.<sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s20">20</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Avg LGD retail 2026</div>
+          <div class="value">~$964<span class="unit">per ct</span><span class="c c-h">High</span></div>
+          <div class="change">De Beers Synthetic Diamond Online Retail Index (Jun 2026) · implies markup of ~1,000% over the $91/ct wholesale point on the same chart.<sup class="r"><a href="#s19">19</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Q2 2026 wholesale YoY</div>
+          <div class="value">▼ 13%<span class="unit">index</span><span class="c c-m">Med</span></div>
+          <div class="change">Edahn Golan Q2 2026 list. But the average conceals a split: <strong>1-ct rounds rose 1%</strong>, 1.50–1.99 ct fell 11%, 2 ct fell 20%. Large stones are taking the pain.<sup class="r"><a href="#s20">20</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Rough LGD price move</div>
+          <div class="value">▲ 25–30%<span class="unit">recent</span><span class="c c-m">Med</span></div>
+          <div class="change">Chinese producers raised rough prices at least 30%, Diamond Foundry ~25%, mid-2026. Golan reads these as opportunistic moves in a consolidating market, not demand-led.<sup class="r"><a href="#s20">20</a></sup></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price decline timeline chart -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Wholesale Price Trajectory</h2>
+        <div class="tag-line">Per-carat wholesale price · 1–3 ct round · indicative range <span class="c c-m">Med</span></div>
+      </div>
+
+      <!-- Three-zone bar chart - REVISED for no overlap:
+           Zone A (x=0-195)    Year + subtitle (wider for longer labels)
+           Zone B (x=205-520)  Bar (315px wide = $4,000 scale, 1px = $12.70)
+           Zone C (x=540-700)  Price label (right-aligned)
+           Row spacing 70px to accommodate two-line subtitles -->
+      <svg viewBox="0 0 700 530" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+
+        <!-- Headers -->
+        <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" letter-spacing="1.5">YEAR · MARKET STAGE</text>
+        <text x="205" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" letter-spacing="1.5">RELATIVE VALUE</text>
+        <text x="700" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" font-weight="600" text-anchor="end" letter-spacing="1.5">WHOLESALE USD/CT</text>
+        <line x1="0" y1="22" x2="700" y2="22" stroke="#dcd4c6" stroke-width="1"/>
+
+        <!-- ROW 1 · 2018: $4,000/ct = bar 315px (max scale) -->
+        <text x="0" y="55" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" fill="#a8825a">2018</text>
+        <text x="0" y="71" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">Peak · early adopter</text>
+        <text x="0" y="85" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">pricing</text>
+        <rect x="205" y="55" width="315" height="22" fill="#a8825a"/>
+        <text x="700" y="72" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">~$4,000</text>
+
+        <!-- ROW 2 · 2020: ~$2,500/ct = bar 197px -->
+        <text x="0" y="125" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" fill="#a8825a">2020</text>
+        <text x="0" y="141" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">Early scaling</text>
+        <text x="0" y="155" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">COVID disruption</text>
+        <rect x="205" y="125" width="197" height="22" fill="#a8825a" fill-opacity="0.85"/>
+        <text x="700" y="142" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">~$2,500</text>
+
+        <!-- ROW 3 · 2022: ~$1,400/ct = bar 110px -->
+        <text x="0" y="195" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" fill="#a8825a">2022</text>
+        <text x="0" y="211" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">Market $12bn</text>
+        <text x="0" y="225" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">Pandora launches</text>
+        <rect x="205" y="195" width="110" height="22" fill="#a8825a" fill-opacity="0.75"/>
+        <text x="700" y="212" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">~$1,400</text>
+
+        <!-- ROW 4 · 2023: ~$580/ct = bar 46px -->
+        <text x="0" y="265" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" fill="#a8825a">2023</text>
+        <text x="0" y="281" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">58% YoY drop</text>
+        <text x="0" y="295" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">"The Zimnisky year"</text>
+        <rect x="205" y="265" width="46" height="22" fill="#a8825a" fill-opacity="0.65"/>
+        <text x="700" y="282" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">~$580</text>
+
+        <!-- ROW 5 · 2024 Q2: ~$280/ct = bar 22px -->
+        <text x="0" y="335" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" fill="#a8825a">2024 Q2</text>
+        <text x="0" y="351" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">Oversupply peak</text>
+        <text x="0" y="365" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">1-3 ct range</text>
+        <rect x="205" y="335" width="22" height="22" fill="#a8825a" fill-opacity="0.55"/>
+        <text x="700" y="352" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">~$280</text>
+
+        <!-- ROW 6 · 2026 Jun: ~$100/ct per De Beers = bar 8px -->
+        <text x="0" y="405" font-family="JetBrains Mono, monospace" font-size="14" font-weight="600" fill="#a8825a">2026 Jun</text>
+        <text x="0" y="421" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">93% below 2020 · decline</text>
+        <text x="0" y="435" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">decelerating · De Beers</text>
+        <rect x="205" y="405" width="8" height="22" fill="#a8825a" fill-opacity="0.4"/>
+        <text x="700" y="422" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">~$100</text>
+
+        <!-- Scale axis (spans Zone B only) -->
+        <line x1="205" y1="455" x2="520" y2="455" stroke="#141412" stroke-width="1"/>
+        <line x1="205" y1="451" x2="205" y2="459" stroke="#141412" stroke-width="1"/>
+        <line x1="284" y1="451" x2="284" y2="459" stroke="#6f6a62" stroke-width="1"/>
+        <line x1="362" y1="451" x2="362" y2="459" stroke="#6f6a62" stroke-width="1"/>
+        <line x1="441" y1="451" x2="441" y2="459" stroke="#6f6a62" stroke-width="1"/>
+        <line x1="520" y1="451" x2="520" y2="459" stroke="#141412" stroke-width="1"/>
+        <text x="205" y="475" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="start">$0</text>
+        <text x="284" y="475" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">$1k</text>
+        <text x="362" y="475" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">$2k</text>
+        <text x="441" y="475" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">$3k</text>
+        <text x="520" y="475" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$4k+</text>
+
+        <!-- Callout -->
+        <rect x="0" y="490" width="700" height="34" fill="none" stroke="#a8825a" stroke-width="1"/>
+        <text x="14" y="504" font-family="JetBrains Mono, monospace" font-size="10" fill="#141412">
+          <tspan font-weight="600" fill="#a8825a">Sources:</tspan> Paul Zimnisky · Edahn Golan · CaratX · De Beers Diamond Report (Jun 2026).
+        </text>
+        <text x="14" y="518" font-family="JetBrains Mono, monospace" font-size="10" fill="#141412">
+          Indicative wholesale ranges for 1–3 ct rounds.
+        </text>
+
+      </svg>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:14px; line-height:1.65;">
+        Wholesale prices fell at quarterly rates of 5–10% throughout the late 2010s and early 2020s. By <strong style="color: var(--ink);">Q2 2025</strong> the quarter-on-quarter decline was 4.7%, the smallest since the category emerged.<sup class="r"><a href="#s4">4</a></sup> The De Beers Diamond Report (Jun 2026) put the market average at <strong>~$100/ct</strong>, 93% below 2020.<sup class="r"><a href="#s19">19</a></sup>
+        <br/><br/>
+        <strong style="color: var(--ink);">The Q2 2026 list changes the shape of this story.</strong> The headline is still negative, the index fell 13% year-on-year, but the composition has inverted. Wholesale prices for <strong style="color: var(--mute);">1-carat rounds rose 1%</strong>, while 1.50–1.99 ct fell 11% and 2 ct fell 20%. The steepest falls are now in the larger stones that historically carried the highest wholesale margins, precisely because they are most exposed to retail and consumer pressure. Simultaneously, rough prices moved <em>up</em>: Chinese producers raised prices by at least 30% and Diamond Foundry by around 25%. Golan reads these as opportunistic moves in a consolidating market rather than demand-led, but the direction is new. His conclusion: the market &ldquo;appears to be stabilizing from production through retail.&rdquo;<sup class="r"><a href="#s20">20</a></sup>
+        <br/><br/>
+        <strong style="color: var(--ink);">A caution on reading a floor into this.</strong> Demand for 1-carat stones has <em>weakened</em> as 2- and 3-carat goods became affordable, yet 1-carat wholesale prices firmed anyway, the opposite of what price theory predicts. The category has repeatedly defied conventional supply-demand behaviour, so a single quarter of firming should not be over-read.<sup class="r"><a href="#s20">20</a></sup>
+      </div>
+    </div>
+
+    <!-- Retailer margins -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>The Retailer Margin Story</h2>
+        <div class="tag-line">Wholesale falls faster than retail, margins expanding <span class="c c-m">Med</span></div>
+      </div>
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">A defining feature of the LGD market is the <strong style="color: var(--ink);">divergence between wholesale and retail price trajectories</strong>. While wholesale prices fell ~93% since 2020 per De Beers (Jun 2026), to ~$100/ct, retail prices have fallen far more gradually, leaving retailers with sharply expanding margins.</p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--mute);">Average US retailer gross margins: ~74%</strong> for 1-3 ct rounds, up nearly 8 percentage points year-on-year as of mid-2025. Typical retail markup on loose LGD: <strong style="color: var(--mute);">250–300%</strong>.<sup class="r"><a href="#s11">11</a></sup></p>
+        <p style="margin-bottom: 12px;">This is a transient dynamic, when wholesale prices floor, retail will follow. But for now, falling wholesale + sticky retail = best-in-luxury margin profile.</p>
+        <p><strong style="color: var(--ink);">The 2026 consumer constraint.</strong> Tenoris point-of-sale data shows US specialty retailers&rsquo; LGD jewellery sales up <strong style="color: var(--mute);">24% in Q2 2026</strong>, with revenue growth accompanied by higher unit sales. But average spend per unit has stayed within a narrow band for eighteen months. Consumers are buying <em>more</em> lab-grown jewellery at the <em>same</em> total budget, they are converting price declines into carat weight and piece count, not into higher spend. That caps the revenue upside from further price cuts and is the mechanism behind De Beers&rsquo; gross-profit warning.<sup class="r"><a href="#s20">20</a></sup><sup class="r"><a href="#s19">19</a></sup></p>
+      </div>
+    </div>
+
+    <!-- ============ NEW: De Beers DAS 2025 US LGD Consumer Profile ============ -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>US LGD Consumer Profile · De Beers DAS 2025</h2>
+        <div class="tag-line">18,500 women aged 18–74 · published June 2026 <span class="c c-h">High</span></div>
+      </div>
+
+      <div style="font-size: 12.5px; color: #6f6a62; line-height: 1.7; margin-bottom: 14px;">
+        For the first time, De Beers has published detailed LGD consumer data alongside its natural-diamond data, making this the highest-confidence US LGD consumer profile yet published. Key findings substantially refine the picture of who buys LGD and at what price points.<sup class="r"><a href="#s19">19</a></sup>
+      </div>
+
+      <div class="metrics">
+        <div class="metric tinted">
+          <div class="label">LGD acquisition rate 2025</div>
+          <div class="value">9%<span class="unit">on par w/ natural</span><span class="c c-h">High</span></div>
+          <div class="change">US women aged 18-74 acquiring LGD in 2025, equal to natural acquisition rate (9%), but desirability remains lower than natural.<sup class="r"><a href="#s19">19</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Avg LGD price per piece</div>
+          <div class="value">$2,786<span class="unit">USD</span><span class="c c-h">High</span></div>
+          <div class="change">vs $4,063 for natural · LGD prices average 31% lower than natural per De Beers DAS 2025.<sup class="r"><a href="#s19">19</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">LGD purchases under $1,000</div>
+          <div class="value">48%<span class="unit">of LGD</span><span class="c c-h">High</span></div>
+          <div class="change">vs 34% for natural, LGD skews to lower price points, dominant in budget/entry-level.<sup class="r"><a href="#s19">19</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">US Independent jeweller mix 2025</div>
+          <div class="value">15%<span class="unit">LGD share</span><span class="c c-h">High</span></div>
+          <div class="change">85% natural · 15% LGD by value at US indep. jewellers · Edge + Tenoris POS Q1 2026.<sup class="r"><a href="#s19">19</a></sup></div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11.5px; color: #6f6a62; margin-top: 14px; line-height: 1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">The retail dynamics inflection.</strong> Two key De Beers findings reshape the LGD-vs-natural framing: (1) <strong>3-carat consumer ceiling</strong>, POS data across 950 US independent jewellers shows LGD engagement-ring sales drop off sharply above 3ct ("consumers may feel LGD looks too big"). (2) <strong>Gross profit inversion</strong>, since 2022, absolute gross profit per stone has shifted back to natural diamonds. A 3ct LGD's gross profit is now <em>below</em> that of a 1-1.5ct natural diamond. Combined, these suggest LGD's substitution pressure on natural may have a natural upper bound at the 3ct size threshold, and retailer economics are starting to favour selling natural again at mid-size points.<sup class="r"><a href="#s19">19</a></sup>
+      </div>
+    </div>
+
+    <!-- ============ Certification regime change ============ -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>The Certification Break · GIA Splits the Grading Systems</h2>
+        <div class="tag-line">From 1 Oct 2025, GIA no longer grades LGD on the 4Cs <span class="c c-h">High</span></div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7; margin-bottom: 16px;">
+        <p style="margin-bottom: 12px;">Announced June 2025 and effective <strong style="color: var(--ink);">1 October 2025</strong>, GIA stopped applying the colour and clarity nomenclature it created for natural diamonds to lab-grown stones. D-to-Z lab-grown diamonds submitted to GIA now receive a <strong style="color: var(--ink);">Laboratory-Grown Diamond Quality Assessment</strong> describing them as <strong style="color: var(--mute);">&ldquo;Premium&rdquo;</strong> or <strong style="color: var(--mute);">&ldquo;Standard&rdquo;</strong> on a combined view of clarity, colour and cut. Stones failing the minimum criteria receive no designation at all.<sup class="r"><a href="#s21">21</a></sup></p>
+        <p style="margin-bottom: 12px;">GIA&rsquo;s stated rationale, per EVP and chief research officer Tom Moses: more than <strong style="color: var(--ink);">95% of lab-grown diamonds entering the market fall into a very narrow range of colour and clarity</strong>, making the natural-diamond continuum an inappropriate descriptive tool for a manufactured product.<sup class="r"><a href="#s21">21</a></sup></p>
+        <p>This is the <strong>third</strong> system GIA has used for lab-grown stones: broad categories from 2006, full 4Cs nomenclature from 2020, and now descriptive tiers. Through all three, GIA never became the lab of choice for the category &mdash; it grades <strong style="color: var(--ink);">fewer than 5%</strong> of lab-grown diamonds on the market, with IGI dominating instead.<sup class="r"><a href="#s21">21</a></sup></p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric tinted">
+          <div class="label">New assessment fee</div>
+          <div class="value">$15<span class="unit">per carat</span><span class="c c-h">High</span></div>
+          <div class="change">Minimum fee $15 · minimum submission size 0.15 ct · $5 evaluation fee for stones below the assessment threshold.<sup class="r"><a href="#s21">21</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">GIA share of LGD grading</div>
+          <div class="value">&lt;5%<span class="unit">of market</span><span class="c c-h">High</span></div>
+          <div class="change">Per then-CEO Susan Jacques: &ldquo;At [current lab-grown] prices, certification doesn&rsquo;t really make sense any longer.&rdquo; IGI is the volume lab for LGD.<sup class="r"><a href="#s21">21</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Grading tiers</div>
+          <div class="value">2<span class="unit">Premium / Standard</span><span class="c c-h">High</span></div>
+          <div class="change">Replaces D&ndash;Z colour and FL&ndash;I clarity scales for LGD. Girdle laser-inscribed &ldquo;Laboratory-Grown&rdquo; plus assessment number.<sup class="r"><a href="#s21">21</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Effective date</div>
+          <div class="value">1 Oct<span class="unit">2025</span><span class="c c-h">High</span></div>
+          <div class="change">Prior GIA D-to-Z lab-grown services available until 30 Sep 2025. Pre-cutover reports remain in circulation on the secondary market.<sup class="r"><a href="#s21">21</a></sup></div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:16px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">Why this matters more than it looks.</strong> Grading nomenclature is the substrate on which price comparison rests. Once lab-grown stones stop carrying G/VS-style grades, direct like-for-like price comparison against natural diamonds becomes materially harder for consumers &mdash; which is precisely the outcome the natural-diamond side has been seeking. Note the practical consequence for this dashboard and for the trade generally: <em>the wholesale and retail price series below are quoted in G/VS terms because they are built on IGI-certified goods, which retain the 4Cs.</em> GIA-assessed stones from October 2025 onward are not directly comparable to them. Two grading languages now coexist in one market.<sup class="r"><a href="#s21">21</a></sup>
+      </div>
+    </div>
+
+    <!-- ============ Tariffs ============ -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Trade Policy · The Tariff Layer</h2>
+        <div class="tag-line">US duties on Indian goods 2025&ndash;26 · and the asymmetry that disadvantages LGD <span class="c c-m">Med</span></div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7; margin-bottom: 16px;">
+        Because roughly 90% of the world&rsquo;s diamonds are cut and polished in India, and tariffs attach to where goods are <em>substantially transformed</em>, US trade policy toward India became a first-order variable for LGD pricing during 2025&ndash;26. The rate has moved repeatedly.<sup class="r"><a href="#s22">22</a></sup>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Development</th>
+            <th class="r">US reciprocal rate on Indian goods</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country">2 Apr 2025</span></td>
+            <td>Reciprocal tariff announced under EO 14257</td>
+            <td class="r">26%</td>
+          </tr>
+          <tr>
+            <td><span class="country">9 Apr 2025</span></td>
+            <td>90-day suspension; baseline retained</td>
+            <td class="r">10%</td>
+          </tr>
+          <tr>
+            <td><span class="country">27 Aug 2025</span></td>
+            <td>Additional 25% penalty tied to Russian oil purchases</td>
+            <td class="r"><strong style="color: var(--mute);">50%</strong></td>
+          </tr>
+          <tr>
+            <td><span class="country">7 Feb 2026</span></td>
+            <td>Executive order removes the 25% oil penalty; US&ndash;India interim-agreement framework announced</td>
+            <td class="r">25%</td>
+          </tr>
+          <tr>
+            <td><span class="country">On conclusion of interim agreement</span></td>
+            <td>Reciprocal rate falls to 18%; loose natural diamonds and coloured gems go to zero</td>
+            <td class="r"><strong style="color: var(--mute);">18%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:16px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">The asymmetry.</strong> The tariff relief for gems and diamonds flows through <strong>Annex III</strong>, which is limited to natural products that cannot be produced in the United States. <strong style="color: var(--mute);">Loose lab-grown diamonds are not in Annex III.</strong> On the GJEPC&rsquo;s reading, once the interim agreement is concluded, loose natural diamonds cut in India enter the US at <strong>0%</strong> while loose lab-grown diamonds carry <strong>18%</strong> (without the additional 6% MFN duty that applies to finished jewellery). If that holds, US trade policy will have created a structural cost advantage for natural diamonds over lab-grown that did not exist before 2025 &mdash; a policy tailwind for the natural side that is entirely separate from consumer preference. Jewellery cast in the United States remains US-origin under substantial-transformation doctrine and duty-free even where the stones are set in India.<sup class="r"><a href="#s22">22</a></sup>
+        <br/><br/>
+        <em>Status caveat:</em> the framework was announced 6 February 2026 and the zero-rate for natural gems is contingent on the interim agreement being concluded. Confirm the current effective rate against the Jewelers Vigilance Committee tariff tracker or GJEPC guidance before relying on it commercially.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============== SECTION V, PRODUCERS (teal accent) ============== -->
+  </section>
+<section id="sec-5"><div class="sechead"><h2><em>V</em>The Major Producers</h2><p class="sub">Kira (India) · Chinese state-funded HPHT giants · Element Six · independents</p></div><div class="section-teal">
+
+    <!-- Kira lead panel -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Kira Diam · The World's Largest LGD Producer</h2>
+        <div class="tag-line">India's flagship CVD producer · part of Kiran family group <span class="c c-h">High</span></div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7; margin-bottom: 18px;">
+        <p style="margin-bottom: 12px;">Kira Diam LLP, part of the <strong style="color: var(--ink);">Kiran family</strong> (one of India's largest diamond groups, ~40-year heritage), announced in September 2025 the expansion of its production capacity to <strong style="color: var(--ink);">4,000 CVD reactors</strong> at its 1 million sq ft Surat facility, cementing its position as the world's largest grower of lab-grown diamonds.<sup class="r"><a href="#s12">12</a></sup></p>
+        <p>Founder Vallabhbhai Lakhani's motto: <em>"Har ghar hira, har ghar Kira"</em> ("A diamond in every household"). Vertically integrated: growing, cutting, polishing, jewellery manufacturing.</p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric tinted">
+          <div class="label">CVD reactors (Sept 2025)</div>
+          <div class="value">4,000<span class="unit">reactors</span><span class="c c-h">High</span></div>
+          <div class="change">Expanded from 2,600 in single announcement · official Kira press release Sept 2025<sup class="r"><a href="#s12">12</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Monthly polished output</div>
+          <div class="value">250,000<span class="unit">carats</span><span class="c c-h">High</span></div>
+          <div class="change">~3M ct annualised, matches all of China 2023 · issuer disclosure<sup class="r"><a href="#s12">12</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Surat facility</div>
+          <div class="value">1M sq ft<span class="unit">~93,000 m²</span><span class="c c-h">High</span></div>
+          <div class="change">75 MW solar (planned 150 MW) · 10,000+ artisan employees · issuer disclosure<sup class="r"><a href="#s12">12</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Global partners</div>
+          <div class="value">4,700+<span class="unit">B2B clients</span><span class="c c-h">High</span></div>
+          <div class="change">Offices in Mumbai · Surat · Hong Kong · New York · SMETA &amp; SEDEX certified<sup class="r"><a href="#s12">12</a></sup></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other producers -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Other Major Producers</h2>
+        <div class="tag-line">Chinese HPHT giants · Element Six (industrial) · USA independents · Indian challengers</div>
+      </div>
+
+      <div class="stone-grid cols-2">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Zhengzhou Sino-Crystal Diamond</div>
+          <div class="stone-tag">China · HPHT · listed (SZSE: 300064)</div>
+          <div class="stone-stat"><span class="k">Established</span><span class="v">2004 · Henan Province</span></div>
+          <div class="stone-stat"><span class="k">Specialism</span><span class="v">HPHT mass production · industrial &amp; gem-quality melee</span></div>
+          <div class="stone-stat"><span class="k">Identified by GIA</span><span class="v">As one of three "market leaders in China" for HPHT mass production<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Position</span><span class="v">One of the largest producers globally by volume of small-stone HPHT</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Zhongnan Diamond Co.</div>
+          <div class="stone-tag">China · HPHT · state-funded heritage</div>
+          <div class="stone-stat"><span class="k">Position</span><span class="v">One of the three GIA-named "market leaders in China" for HPHT mass production<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Output</span><span class="v">Specialises in mass production of melee-size goods and diamond grits/powders for abrasives<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Dual market</span><span class="v">Industrial abrasive + gem-quality LGD</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Henan Huanghe Whirlwind</div>
+          <div class="stone-tag">China · HPHT · listed (SSE: 600172)</div>
+          <div class="stone-stat"><span class="k">Founded</span><span class="v">1965, long heritage in industrial superhard materials</span></div>
+          <div class="stone-stat"><span class="k">Position</span><span class="v">Third of GIA's named "market leaders in China" for HPHT mass production<sup class="r"><a href="#s3">3</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Specialism</span><span class="v">Synthetic diamond + cubic boron nitride · diversified hard-materials player</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Element Six</div>
+          <div class="stone-tag">De Beers Group · industrial-only as of 2025</div>
+          <div class="stone-stat"><span class="k">Parent</span><span class="v">De Beers Group (which is itself part of Anglo American, currently for sale)</span></div>
+          <div class="stone-stat"><span class="k">Heritage</span><span class="v">Originally supplied Lightbox jewellery brand · now industrial-focus only<sup class="r"><a href="#s13">13</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Strategic shift</span><span class="v">After Lightbox shutdown announced May 2025, Element Six "will now focus solely on industrial applications"<sup class="r"><a href="#s13">13</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Applications</span><span class="v">Cutting tools, electronics, quantum substrates, thermal management</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Diamond Foundry</div>
+          <div class="stone-tag">USA (San Francisco) · CVD · venture-backed</div>
+          <div class="stone-stat"><span class="k">Founded</span><span class="v">2012 by R. Martin Roscheisen with engineers from his prior solar venture Nanosolar · Leonardo DiCaprio is an early investor, not a founder<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Method</span><span class="v">CVD · plasma-reactor based · zero-emissions positioning</span></div>
+          <div class="stone-stat"><span class="k">Manufacturing</span><span class="v">Washington State facility · Trujillo (Cáceres), Spain foundry begun 2023 with €80M in EU grants, targeted at 20M ct/yr of rough at full build<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Positioning</span><span class="v">B2B + B2C (Vrai consumer brand) · premium price tier</span></div>
+          <div class="stone-stat"><span class="k">2026 pricing move</span><span class="v">Raised rough prices ~25% in mid-2026, alongside a 30%+ increase from Chinese producers, read by analysts as consolidation-driven<sup class="r"><a href="#s20">20</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Other Indian challengers</div>
+          <div class="stone-tag">Surat ecosystem · 15-20 significant CVD growers</div>
+          <div class="stone-stat"><span class="k">Reactor base</span><span class="v">Surat has 15-20 significant CVD growers with 50-500 reactors each<sup class="r"><a href="#s10">10</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Notable names</span><span class="v">Bhanderi Lab Grown Diamonds · ABD Diamonds (Ahmedabad &amp; Surat) · Goldiam International · Real Illusion (Jaipur, 80 reactors) · Lumex DMCC · Meraya</span></div>
+          <div class="stone-stat"><span class="k">Average reactor</span><span class="v">~125 carats/month output · ~$175,000 capital cost · most common = Japan's Seki reactor<sup class="r"><a href="#s10">10</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Industry shift</span><span class="v">~90% of natural-diamond cutters in India now also handle LGD<sup class="r"><a href="#s10">10</a></sup></span></div>
+        </div>
+
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:18px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">The producer-side oversupply problem.</strong> The combined effect of Kira's 4,000-reactor expansion, China's continued HPHT mass-production, and the broader Surat ecosystem (8,000–10,000 reactors) creates structural oversupply relative to consumer-jewellery demand. This is the underlying mechanism behind the 93% wholesale price collapse since 2020 (De Beers, Jun 2026), too many factories chasing a smaller jewellery market than the early 2020s growth projections suggested.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s19">19</a></sup>
+        <br/><br/>
+        <strong style="color: var(--ink);">The counter-signal to watch.</strong> Mid-2026 rough price increases from Chinese growers (+30%) and Diamond Foundry (+25%) are the first evidence of producers exercising pricing power rather than absorbing it. Read charitably, capacity is consolidating and marginal growers are exiting. Read sceptically, these are opportunistic increases against elevated retail inventory, and will not hold. Either way, it is the first data point in six years that does not fit the pure-oversupply story.<sup class="r"><a href="#s20">20</a></sup>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SECTION VI, RETAILERS (rose accent) ============== -->
+  </section>
+<section id="sec-6"><div class="sechead"><h2><em>VI</em>Retailers · Brands · The De Beers Endgame</h2><p class="sub">Pandora · Brilliant Earth · Signet · Lightbox&rsquo;s closure and the sale of De Beers</p></div><div class="section-rose">
+
+    <!-- Lightbox shutdown lead panel -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Lightbox Shutdown · May 2025</h2>
+        <div class="tag-line">De Beers reverses its own seven-year LGD jewellery bet <span class="c c-h">High</span></div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">In May 2025, <strong style="color: var(--ink);">De Beers Group announced the shutdown of Lightbox</strong>, its lab-grown diamond consumer-jewellery brand launched in 2018. The decision marked the dramatic reversal of De Beers' seven-year experiment in synthetic-diamond consumer retail.<sup class="r"><a href="#s13">13</a></sup></p>
+        <p style="margin-bottom: 12px;">The official rationale, per De Beers' statement: <em>"The persistently declining value of lab-grown diamonds in jewellery underscores the growing differentiation between these factory-made products and natural diamonds."</em> The shutdown is part of De Beers' "Origins Strategy" (introduced May 2024), focused on natural-diamond marketing.<sup class="r"><a href="#s13">13</a></sup></p>
+        <p style="margin-bottom: 12px;">Element Six, De Beers' synthetic diamond arm that once supplied Lightbox, now <strong style="color: var(--mute);">focuses solely on industrial applications</strong>, a decisive bifurcation: <strong style="color: var(--ink);">LGD for industry, natural diamonds for jewellery</strong>.<sup class="r"><a href="#s13">13</a></sup></p>
+        <p><strong style="color: var(--ink);">The sale, as at July 2026.</strong> Anglo American announced its intention to divest De Beers in May 2024. On <strong style="color: var(--mute);">17 July 2026</strong>, Botswana&rsquo;s minister for the state president told lawmakers that Anglo had selected the <strong style="color: var(--ink);">Global Diamond Consortium</strong> &mdash; led by former De Beers chief executive Gareth Penny, with Qatari investment backing &mdash; as preferred bidder from three contenders. Botswana holds 15% of De Beers and retains pre-emption rights it may exercise alone, with a third party, or alongside the preferred bidder; it is working with advisers on the optimal structure. Conclusion is targeted for <strong>Q4 2026</strong>, subject to conditions including Botswana government approval.<sup class="r"><a href="#s24">24</a></sup></p>
+      </div>
+    </div>
+
+    <!-- De Beers financial deterioration -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>What LGD Did to De Beers · The Numbers</h2>
+        <div class="tag-line">Anglo American disclosures 2022 &rarr; H1 2026 <span class="c c-h">High</span></div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric tinted">
+          <div class="label">De Beers revenue</div>
+          <div class="value">$6.6 &rarr; $3.5bn<span class="unit">2022 &rarr; 2025</span><span class="c c-h">High</span></div>
+          <div class="change">Roughly a halving in three years. Production fell from 35M to 21.7M carats over the same period.<sup class="r"><a href="#s24">24</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">H1 2026 consolidated revenue</div>
+          <div class="value">$1.31bn<span class="unit">▼ 23% YoY</span><span class="c c-h">High</span></div>
+          <div class="change">Despite consolidated sales volume rising 13% to 12.4M ct, a mix shift into lower-value goods. Anglo flagged a likely H1 loss at De Beers.<sup class="r"><a href="#s24">24</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Avg realised price H1 2026</div>
+          <div class="value">$105<span class="unit">per ct</span><span class="c c-h">High</span></div>
+          <div class="change">▼ 32% YoY, reflecting sales mix plus a 16% fall in the average rough-price index. Excludes the price reduction implemented at the July 2026 sight.<sup class="r"><a href="#s24">24</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Global rough production 2025</div>
+          <div class="value">~100M<span class="unit">carats</span><span class="c c-h">High</span></div>
+          <div class="change">Down from a 2017 peak of ~150M ct. De Beers projects further decline to ~96M ct by 2030.<sup class="r"><a href="#s19">19</a></sup></div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:16px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">Where LGD actually bites.</strong> Anglo American&rsquo;s own July 2026 statement is precise about the mechanism: lab-grown diamonds &ldquo;continued to impact demand for lower-value natural diamonds&rdquo;, adding pressure in the more price-sensitive categories, while firmer pricing at the higher-value end held the overall average price index broadly stable. De Beers&rsquo; consumer data locates the same boundary from the demand side: natural diamonds in the <strong style="color: var(--ink);">0.3&ndash;1 carat range</strong> are most affected, because that is where retail prices are closest to like-for-like and lab-grown offers a visibly larger stone. Above roughly one carat, natural sales at US independent jewellers actually returned to growth &mdash; up 4% year-on-year in Q4 2025 and 9% in Q1 2026. <em>The substitution is real but size-bounded at both ends: capped below by natural&rsquo;s retreat from small goods, and above by the 3-carat consumer ceiling.</em><sup class="r"><a href="#s24">24</a></sup><sup class="r"><a href="#s19">19</a></sup>
+      </div>
+    </div>
+
+    <!-- Pandora and Brilliant Earth cards -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>The Listed Retail Bellwethers</h2>
+        <div class="tag-line">Pandora · Brilliant Earth · Signet, the three public read-throughs on LGD demand <span class="c c-h">High</span></div>
+      </div>
+
+      <div class="stone-grid cols-3">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Pandora</div>
+          <div class="stone-tag">CPSE: PNDORA · Founded 1982 · Copenhagen, Denmark</div>
+          <div class="stone-stat"><span class="k">LGD launch</span><span class="v">Pandora Brilliance (UK 2022) · US 2023</span></div>
+          <div class="stone-stat"><span class="k">LGD revenue 2024</span><span class="v">DKK 315M (~$42M) · ▲ 43% YoY comps · ~1% of group revenue<sup class="r"><a href="#s15">15</a></sup></span></div>
+          <div class="stone-stat"><span class="k">LGD Q1 2026</span><span class="v"><strong>DKK 75M (~$11.8M) · like-for-like ▼ 15% YoY</strong>, still ~1% of total sales. Q3 2025 had been +17% / +19% LFL, so this is a sharp reversal<sup class="r"><a href="#s25">25</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Group Q1 2026</span><span class="v">DKK 7.12bn (~$1.1bn) · ▼ 3% at actual FX, ▲ 2% organic · N. America LFL ▼ 2% · FY guidance −1% to +2% organic<sup class="r"><a href="#s25">25</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Walked-back forecast</span><span class="v">Originally targeted DKK 1bn ($139M) LGD revenue by 2026, walked back in 2024 results. On the Q1 2026 run-rate the business is tracking near DKK 300M<sup class="r"><a href="#s15">15</a></sup><sup class="r"><a href="#s25">25</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Collections</span><span class="v">Brilliance · Nova · Era · Talisman · across US, UK, Australia, Canada, Mexico, Brazil · group store count 2,796</span></div>
+          <div class="stone-stat"><span class="k">Carbon labelling</span><span class="v">From 2026, Pandora will label the carbon footprint of every LGD piece for comparison against mined, see the Carbon &amp; Energy Claims risk card for the caveat<sup class="r"><a href="#s25">25</a></sup></span></div>
+          <div class="stone-stat"><span class="k">CEO commentary</span><span class="v">Berta de Pablos-Barbier (CEO since 2025): "Pandora is about being accessible, and being accessible is also about being transparent." The company says it "over indexed" on its playful aesthetic and is rebalancing<sup class="r"><a href="#s25">25</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Brilliant Earth</div>
+          <div class="stone-tag">NASDAQ: BRLT · Founded 2005 · San Francisco</div>
+          <div class="stone-stat"><span class="k">Heritage</span><span class="v">LGD pioneer (offered them since 2012) · also sells natural &amp; recycled diamonds</span></div>
+          <div class="stone-stat"><span class="k">FY2025 revenue</span><span class="v"><strong>$437.5M · ▲ 3.6% YoY</strong> · Q4 $124.4M was the highest quarterly net sales in company history<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">FY2025 profitability</span><span class="v">Gross margin 57.5% · adjusted EBITDA $12M (2.7% margin) · total orders ▲ 13%, repeat orders ▲ 13%<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Q1 2026</span><span class="v">Net sales $99.5M ▲ 6% · fine-jewellery bookings ▲ 33% · but gross margin fell 430bps to 54.3% and adjusted EBITDA was <strong>−$4.7M</strong><sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">The margin story</span><span class="v">Pressure is coming from <strong>gold and platinum prices near record highs plus tariffs</strong>, not from diamond costs. The stone is now the cheap input; the metal is the expensive one<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Model</span><span class="v">Asset-light make-to-order · inventory turns 4.1× · virtual inventory of natural and lab-grown stones keeps balance-sheet inventory low<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Strategy</span><span class="v">Diversifying out of bridal into fine jewellery · 42 showrooms · first flagship opened Beverly Hills 2026, two more showrooms planned<sup class="r"><a href="#s26">26</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Signet Jewelers</div>
+          <div class="stone-tag">NYSE: SIG · world&rsquo;s largest diamond jewellery retailer · 2,582 stores</div>
+          <div class="stone-stat"><span class="k">LGD share FY2026</span><span class="v"><strong>27% of merchandise sales</strong> were lab-grown diamond products, per the FY2026 Form 10-K (year ended 31 Jan 2026). Bridal jewellery was 49% of merchandise sales<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">LGD penetration</span><span class="v">Under 50% in bridal · LGD fashion grew to just over 20% during the holiday period, from ~15% earlier in the year<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">LGD pricing view</span><span class="v">Management described lab-grown pricing as stable with "not a lot of volatility", corroborating the Q2 2026 wholesale deceleration from the retail side<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Market position</span><span class="v">Estimated 8.5% share of the $63bn 2025 US jewellery and watch market · merchandise AUR ▲ 7% for the full year<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Restructuring FY2027</span><span class="v">~100 store closures · JamesAllen.com sunset into Blue Nile · Rocksbox folded into Kay · focus on Kay, Zales, Jared<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Strategic signal</span><span class="v"><strong>Blue Nile is being repositioned as a premium natural-diamond brand</strong>, the clearest instance yet of a mass retailer segmenting its banners by stone origin<sup class="r"><a href="#s27">27</a></sup></span></div>
+        </div>
+
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:18px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">Three different answers to the same question.</strong> Pandora treats LGD as a growth adjacency and it has stalled at ~1% of revenue with Q1 2026 comps down 15%. Brilliant Earth treats it as core inventory and is growing revenue while margin is squeezed by <em>metal</em> prices, not stones. Signet treats it as a mix lever, 27% of merchandise sales, deployed deliberately to offset gold and tariff costs, while simultaneously repositioning Blue Nile as natural-only. The common thread across all three: <strong style="color: var(--ink);">in 2026 the binding constraint on jewellery economics is the price of gold and platinum, not the price of diamonds.</strong><sup class="r"><a href="#s25">25</a></sup><sup class="r"><a href="#s26">26</a></sup><sup class="r"><a href="#s27">27</a></sup>
+      </div>
+    </div>
+
+    <!-- Other LGD retail context -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Broader Retail Adoption</h2>
+        <div class="tag-line">LGD as the default engagement-ring stone</div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7;">
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">Engagement rings have shifted dramatically.</strong> The average centre-diamond size in lab-grown engagement rings increased from <strong style="color: var(--mute);">1.31 carats in 2019 to 2.45 carats by 2025</strong>, as LGD price collapse let consumers buy nearly double the carat weight for the same budget.<sup class="r"><a href="#s4">4</a></sup></p>
+        <p style="margin-bottom: 12px;">Other major retailers offering LGD lines: <strong style="color: var(--ink);">Helzberg Diamonds</strong> (since 2017), <strong style="color: var(--ink);">Vrai</strong> (Diamond Foundry's consumer arm), <strong style="color: var(--ink);">Signet Jewelers</strong> brands (Kay, Zales, Jared), <strong style="color: var(--ink);">Grown Brilliance</strong> (launched 2021, tracking toward ~$150M in 2025 revenue), and a long list of independents. <strong style="color: var(--mute);">Blue Nile has moved the other way</strong>, Signet is repositioning it as a premium natural-diamond brand, and it should no longer be counted as an LGD-forward retailer.<sup class="r"><a href="#s27">27</a></sup></p>
+        <p style="margin-bottom: 12px;">Luxury house holdouts: <strong style="color: var(--ink);">Tiffany &amp; Co., Cartier, Van Cleef &amp; Arpels, Bulgari, Harry Winston, Graff</strong>, all continue to use exclusively natural diamonds in fine jewellery, mirroring De Beers' "natural-only" Origins Strategy and Element Six's industrial-only pivot.</p>
+        <p style="margin-bottom: 12px;">The price gap that defines the choice for consumers: a Tiffany tennis bracelet runs north of $20,000; a comparable Brilliant Earth lab-grown equivalent retails for ~$3,450, an ~83% difference.<sup class="r"><a href="#s16">16</a></sup></p>
+        <p><strong style="color: var(--ink);">Where the category actually sits in 2026.</strong> De Beers&rsquo; own segmentation is the cleanest available read. Lab-grown accounts for <strong style="color: var(--mute);">25% of overall US diamond demand by value</strong> but only <strong style="color: var(--mute);">15% at independent jewellers</strong>, who represent 56% of the sector. LGD acquisition rates have reached parity with natural at 9% of US women aged 18&ndash;74, but <em>desirability</em> remains lower, and 48% of lab-grown purchases fall under $1,000 against 34% of natural. The category has won volume and entry-level share; it has not yet won preference.<sup class="r"><a href="#s19">19</a></sup></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SECTION VII, OUTLOOK (forest accent) ============== -->
+  </section>
+<section id="sec-7"><div class="sechead"><h2><em>VII</em>Outlook · Industrial &amp; Semiconductor Future</h2><p class="sub">Where LGD goes next · beyond jewellery into electronics &amp; quantum</p></div><div class="section-forest">
+
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Industrial Pivot</h2>
+        <div class="tag-line">As jewellery prices floor, industrial diamond demand grows fastest <span class="c c-m">Med</span></div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7; margin-bottom: 18px;">
+        <p style="margin-bottom: 12px;">As gem-quality wholesale prices approach the production-cost floor, the <strong style="color: var(--ink);">industrial applications segment</strong> becomes the LGD industry's most attractive long-term growth vector. Industrial-grade lab-grown diamonds (for electronics, optics, heat dissipation, semiconductors) expanded ~33% in 2024 across major industrial verticals.<sup class="r"><a href="#s5">5</a></sup></p>
+        <p>Element Six's May 2025 pivot to industrial-only positioning is the clearest market signal: <strong style="color: var(--mute);">the smart money sees industrial as where LGD value moves next</strong>. De Beers/Element Six's expertise on the industrial side now becomes pure-play.</p>
+      </div>
+
+      <div class="stone-grid cols-4">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Cutting Tools</div>
+          <div class="stone-tag">Largest existing industrial market</div>
+          <div class="stone-stat"><span class="k">Use case</span><span class="v">Hardest material, diamond grit for cutting, grinding, polishing</span></div>
+          <div class="stone-stat"><span class="k">End markets</span><span class="v">Construction, machining, glass cutting, stone cutting</span></div>
+          <div class="stone-stat"><span class="k">Production type</span><span class="v">HPHT melee &amp; powders (Chinese specialism)</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Semiconductors</div>
+          <div class="stone-tag">Fastest-growing segment</div>
+          <div class="stone-stat"><span class="k">Use case</span><span class="v">High-voltage / high-power chips · superior thermal conductivity vs silicon</span></div>
+          <div class="stone-stat"><span class="k">Specific applications</span><span class="v">Power electronics, RF amplifiers, 5G/6G infrastructure</span></div>
+          <div class="stone-stat"><span class="k">Forecast 2029</span><span class="v">CVD LGD market $19.99bn by 2029 at 9.7% CAGR, driven heavily by electronics &amp; semiconductors<sup class="r"><a href="#s17">17</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Quantum Computing</div>
+          <div class="stone-tag">Frontier application</div>
+          <div class="stone-stat"><span class="k">Use case</span><span class="v">Nitrogen-vacancy (NV) centres in diamond serve as qubits</span></div>
+          <div class="stone-stat"><span class="k">Producers</span><span class="v">Element Six is the largest commercial supplier · plus specialised CVD growers</span></div>
+          <div class="stone-stat"><span class="k">Status</span><span class="v">Pre-commercial · R&amp;D-driven · high-value low-volume</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Optics &amp; Thermal</div>
+          <div class="stone-tag">Specialty applications</div>
+          <div class="stone-stat"><span class="k">Use case</span><span class="v">Diamond windows for high-power lasers · thermal heat-spreaders</span></div>
+          <div class="stone-stat"><span class="k">Markets</span><span class="v">Defence, scientific instruments, fiber-optic communications</span></div>
+          <div class="stone-stat"><span class="k">Producer type</span><span class="v">Specialty CVD growers including Element Six, Diamond Foundry, others</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Structural trends -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Structural Trends Shaping 2026–2035</h2>
+        <div class="tag-line">Five forces · where LGD goes next <span class="c c-x">Hyp</span></div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric tinted">
+          <div class="label">2025 → 2035 market</div>
+          <div class="value">$29 → $109bn<span class="c c-x">Hyp</span></div>
+          <div class="change">Precedence Research projection · 13.87% CAGR · forecast not observed<sup class="r"><a href="#s1">1</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Industrial expansion 2024</div>
+          <div class="value">▲ 33%<span class="unit">YoY</span><span class="c c-l">Low</span></div>
+          <div class="change">Across 16 major industrial end-use verticals · paid market reports<sup class="r"><a href="#s5">5</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">2024 global trade volume</div>
+          <div class="value">▲ 38%<span class="unit">YoY</span><span class="c c-l">Low</span></div>
+          <div class="change">110+ jewellery brands now offer LGD collections · paid market reports<sup class="r"><a href="#s5">5</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Online customised LGD</div>
+          <div class="value">~48%<span class="unit">of e-comm</span><span class="c c-l">Low</span></div>
+          <div class="change">Estimated share of online jewellery purchases · paid market reports<sup class="r"><a href="#s5">5</a></sup></div>
+        </div>
+      </div>
+
+      <div style="font-size: 13px; color: #6f6a62; line-height: 1.7; margin-top: 20px;">
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">1 · The natural / lab bifurcation accelerates.</strong> De Beers' explicit "Origins Strategy" and the Lightbox shutdown crystallised the industry split: <em>natural diamonds for marketed luxury jewellery, lab-grown for industrial and entry-tier fashion</em>. Major luxury houses (Tiffany, Cartier, Van Cleef, Bulgari, Harry Winston, Graff) have all stayed natural-only. Pandora, Brilliant Earth, and a growing list of mid-market brands have committed to LGD.</p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">2 · Industrial value capture.</strong> As gem-quality LGD wholesale prices approach the cost floor, industrial applications (cutting tools, semiconductors, optics, quantum) become the segment where value accrues fastest. Element Six's pivot is the leading indicator.<sup class="r"><a href="#s13">13</a></sup></p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">3 · India consolidates as the global CVD capital, and crosses over.</strong> The 8,000&ndash;10,000 CVD reactor base (vs ~4,000&ndash;5,000 two to three years ago) plus Kira&rsquo;s 4,000-reactor facility positions India to overtake China as the largest gem-quality producer this decade. The crossover already happened in exports: in <strong style="color: var(--mute);">March 2026, lab-grown diamonds were 51% of India&rsquo;s diamond export volume</strong> (1.3M ct vs 1.2M ct natural), repeating at 50.4% in April. But the value picture is the opposite &mdash; FY26 polished LGD export value fell 10.55% to $1.13bn on <em>higher</em> volumes. India is winning share of a shrinking-value pool.<sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s23">23</a></sup></p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">4 · Nomenclature and certification become the battleground.</strong> GIA&rsquo;s October 2025 split of the grading systems, De Beers&rsquo; consistent use of &ldquo;synthetic lab-grown diamond&rdquo;, and Wærness&rsquo; call for governments and industry bodies to enforce nomenclature regulation all point the same way. The contest is shifting from price to <em>categorisation</em> &mdash; and categorisation determines whether the two products remain comparable at point of sale.<sup class="r"><a href="#s21">21</a></sup><sup class="r"><a href="#s19">19</a></sup></p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">5 · Trade policy becomes a pricing variable.</strong> If the US&ndash;India interim agreement concludes as framed, loose natural diamonds cut in India enter the US duty-free while loose lab-grown carries 18%, because Annex III covers only natural products that cannot be made domestically. A tariff differential of that size, applied to a category whose whole proposition is price, is a material structural headwind that no consumer-preference model captures.<sup class="r"><a href="#s22">22</a></sup></p>
+        <p><strong style="color: var(--ink);">AI in manufacturing &amp; grading.</strong> Manufacturers in the US and India are implementing AI-driven quality control for defect detection, and AI recommendation engines now feature in major LGD e-commerce platforms. Note the double edge De Beers identifies: the same AI that optimises growth cycles also gives consumers instant like-for-like price comparison, which is expected to <em>compress</em> retail margins.<sup class="r"><a href="#s18">18</a></sup><sup class="r"><a href="#s19">19</a></sup></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============== SECTION VIII, DATA LAB (steel accent) ============== -->
+  </section>
+<section id="sec-8"><div class="sechead"><h2><em>VIII</em>Data Lab</h2><p class="sub">Price tracker · Natural-vs-Lab spread · Retailer waterfall · Risk dashboard</p></div><div class="section-datalab">
+
+    <!-- ============ Price Tracker · Wholesale & Retail by Size & Method ============ -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Price Tracker · Wholesale &amp; Retail by Size &amp; Method</h2>
+        <div class="tag-line">Edahn Golan Q2 2025 wholesale list · Q1 2026 retail comparators · USD per carat <span class="c c-m">Med</span> <span class="c c-l">Low</span> on currency</div>
+      </div>
+
+      <div style="font-size: 12.5px; color: #6f6a62; line-height: 1.7; margin-bottom: 12px;">
+        Wholesale prices reflect the Edahn Golan Q2 2025 LGD Wholesale Price List (round, IGI-certified, G/VS quality; cash transactions in Mumbai and Surat, excluding shipping, insurance and import duties). Retail prices reflect typical online quality-tier averages during Q1 2026. Markups vary widely, D/VVS stones command notable premiums.
+        <br/><br/>
+        <strong style="color: var(--mute);">Read this table as structure, not as a live quote.</strong> The wholesale column is a year old and the market has moved unevenly since: per the Q2 2026 list, 1-carat wholesale is up 1% year-on-year while 2-carat is down 20%, so the size ladder below has compressed. Independently, the StoneAlgo online index put May 2026 averages at roughly $564/ct for 1 ct and $1,265/ct for 2 ct, well below the retail figures here, because online marketplace pricing sits materially under bricks-and-mortar. Treat the <strong>markup ratios and the LGD-vs-natural discounts</strong> as the durable signal, and the absolute dollars as indicative.<sup class="r"><a href="#s4">4</a></sup><sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s20">20</a></sup>
+      </div>
+
+      <table class="price-tracker">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Method</th>
+            <th class="r">Wholesale<br/>$/ct</th>
+            <th class="r">Retail<br/>$/ct</th>
+            <th class="r">Retail markup</th>
+            <th class="r">Natural retail*<br/>$/ct (comparable)</th>
+            <th class="r">LGD discount<br/>vs natural</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="size-tag">1 ct</span></td>
+            <td><span class="method-tag method-hpht">HPHT</span></td>
+            <td class="r price-wholesale">~$85</td>
+            <td class="r price-retail">~$759</td>
+            <td class="r markup">~9×</td>
+            <td class="r">~$4,200</td>
+            <td class="r" style="color: var(--mute); font-weight: 600;">▼ 82%</td>
+          </tr>
+          <tr>
+            <td><span class="size-tag">1 ct</span></td>
+            <td><span class="method-tag method-cvd">CVD</span></td>
+            <td class="r price-wholesale">~$105</td>
+            <td class="r price-retail">~$855</td>
+            <td class="r markup">~8×</td>
+            <td class="r">~$4,200</td>
+            <td class="r" style="color: var(--mute); font-weight: 600;">▼ 80%</td>
+          </tr>
+          <tr>
+            <td><span class="size-tag">2 ct</span></td>
+            <td><span class="method-tag method-hpht">HPHT</span></td>
+            <td class="r price-wholesale">~$170</td>
+            <td class="r price-retail">~$1,200</td>
+            <td class="r markup">~7×</td>
+            <td class="r">~$14,000</td>
+            <td class="r" style="color: var(--mute); font-weight: 600;">▼ 91%</td>
+          </tr>
+          <tr>
+            <td><span class="size-tag">2 ct</span></td>
+            <td><span class="method-tag method-cvd">CVD</span></td>
+            <td class="r price-wholesale">~$210</td>
+            <td class="r price-retail">~$1,400</td>
+            <td class="r markup">~7×</td>
+            <td class="r">~$14,000</td>
+            <td class="r" style="color: var(--mute); font-weight: 600;">▼ 90%</td>
+          </tr>
+          <tr>
+            <td><span class="size-tag">3 ct</span></td>
+            <td><span class="method-tag method-cvd">CVD</span></td>
+            <td class="r price-wholesale">~$420</td>
+            <td class="r price-retail">~$2,800</td>
+            <td class="r markup">~7×</td>
+            <td class="r">~$28,000</td>
+            <td class="r" style="color: var(--mute); font-weight: 600;">▼ 90%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:12px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">Read carefully.</strong> Most LGD ≥2 carats are CVD-grown, HPHT historically scales poorly past 1.5 ct, though that gap has been closing as HPHT producers improve. Edahn Golan notes that HPHT and CVD stones at the same size now trade at roughly similar wholesale levels, with CVD commanding a small premium for top quality. <strong style="color: var(--mute);">Retail markups of 7–9× wholesale are standard</strong>, generating gross margins of ~74%, among the highest in any jewellery category. De Beers&rsquo; market-wide figures imply a wider ratio still (~$964 retail against ~$91 wholesale, i.e. ~1,000%), because its retail index and Golan&rsquo;s wholesale list are built on different baskets. * Natural retail benchmarks reflect average G/VS quality round 1-, 2- and 3-ct stones from BriteCo / StoneAlgo 2025-26 indexes.<sup class="r"><a href="#s4">4</a></sup><sup class="r"><a href="#s19">19</a></sup>
+      </div>
+    </div>
+
+    <!-- ============ Natural-vs-Lab Spread Chart ============ -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Natural-vs-Lab Spread · The Widening Price Gap</h2>
+        <div class="tag-line">Retail $/ct difference by carat size · 2018 → 2025 <span class="c c-m">Med</span></div>
+      </div>
+
+      <div style="font-size: 12.5px; color: #6f6a62; line-height: 1.7; margin-bottom: 8px;">
+        The price gap between natural and lab-grown diamonds has <strong style="color: var(--ink);">widened dramatically</strong> in absolute terms even as both have declined. In 2018, a 1-ct natural retailed at ~$5,500 while a comparable LGD was ~$4,000, a 27% discount. By 2025, the same 1-ct natural is ~$4,200 while the LGD is ~$855, an 80% discount. The percentage gap has tripled; the absolute gap is ~$3,345.
+      </div>
+
+      <div class="spread-chart">
+        <svg viewBox="0 0 740 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- Headers -->
+          <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" letter-spacing="1.5" font-weight="600">RETAIL $/CT · 1 CARAT ROUND · NATURAL vs LGD</text>
+          <line x1="0" y1="22" x2="740" y2="22" stroke="#dcd4c6" stroke-width="1"/>
+
+          <!-- Chart inner area: x=40-680, y=40-310 -->
+          <!-- Y-axis grid lines -->
+          <line x1="40" y1="60"  x2="680" y2="60"  stroke="#dcd4c6" stroke-width="1"/>
+          <line x1="40" y1="115" x2="680" y2="115" stroke="#dcd4c6" stroke-width="1"/>
+          <line x1="40" y1="170" x2="680" y2="170" stroke="#dcd4c6" stroke-width="1"/>
+          <line x1="40" y1="225" x2="680" y2="225" stroke="#dcd4c6" stroke-width="1"/>
+          <line x1="40" y1="280" x2="680" y2="280" stroke="#141412" stroke-width="1"/>
+
+          <!-- Y-axis labels: 0 to $6000 -->
+          <text x="35" y="63"  font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$6k</text>
+          <text x="35" y="118" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$4.5k</text>
+          <text x="35" y="173" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$3k</text>
+          <text x="35" y="228" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$1.5k</text>
+          <text x="35" y="283" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$0</text>
+
+          <!-- X-axis year labels: 2018, 2020, 2022, 2024, 2025 -->
+          <text x="100" y="298" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">2018</text>
+          <text x="245" y="298" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">2020</text>
+          <text x="390" y="298" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">2022</text>
+          <text x="535" y="298" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">2024</text>
+          <text x="615" y="298" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">2025</text>
+
+          <!-- Natural diamond retail $/ct trajectory (1ct):
+               2018: ~$5,500 → 2020: $5,200 → 2022: $4,800 → 2024: $4,400 → 2025: $4,200
+               Scale: $6000 = y=60, $0 = y=280, 1 unit = (280-60)/6000 = 0.0367
+               Coord y = 280 - (val/6000) * 220 -->
+          <path d="M 100 78 L 245 89 L 390 104 L 535 119 L 615 126"
+                fill="none" stroke="#3f6b47" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Natural area shading -->
+          <path d="M 100 78 L 245 89 L 390 104 L 535 119 L 615 126 L 615 280 L 100 280 Z"
+                fill="#3f6b47" fill-opacity="0.07"/>
+          <!-- Natural data points -->
+          <circle cx="100" cy="78" r="3.5" fill="#3f6b47"/>
+          <circle cx="245" cy="89" r="3.5" fill="#3f6b47"/>
+          <circle cx="390" cy="104" r="3.5" fill="#3f6b47"/>
+          <circle cx="535" cy="119" r="3.5" fill="#3f6b47"/>
+          <circle cx="615" cy="126" r="3.5" fill="#3f6b47"/>
+          <text x="618" y="124" font-family="JetBrains Mono, monospace" font-size="10" fill="#3f6b47" font-weight="600">$4,200</text>
+
+          <!-- LGD retail $/ct trajectory (1ct):
+               2018: ~$4,000 → 2020: $2,500 → 2022: $1,400 → 2024: $1,100 → 2025: $855 -->
+          <path d="M 100 133 L 245 188 L 390 229 L 535 240 L 615 249"
+                fill="none" stroke="#5a4b8a" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- LGD data points -->
+          <circle cx="100" cy="133" r="3.5" fill="#5a4b8a"/>
+          <circle cx="245" cy="188" r="3.5" fill="#5a4b8a"/>
+          <circle cx="390" cy="229" r="3.5" fill="#5a4b8a"/>
+          <circle cx="535" cy="240" r="3.5" fill="#5a4b8a"/>
+          <circle cx="615" cy="249" r="3.5" fill="#5a4b8a"/>
+          <text x="618" y="247" font-family="JetBrains Mono, monospace" font-size="10" fill="#5a4b8a" font-weight="600">$855</text>
+
+          <!-- Spread shading between the two lines -->
+          <path d="M 100 78 L 245 89 L 390 104 L 535 119 L 615 126 L 615 249 L 535 240 L 390 229 L 245 188 L 100 133 Z"
+                fill="#a8825a" fill-opacity="0.08"/>
+
+          <!-- 2018 spread label -->
+          <line x1="100" y1="78" x2="100" y2="133" stroke="#a8825a" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="110" y="108" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" font-weight="600">$1,500</text>
+          <text x="110" y="120" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" font-style="italic">spread ▼27%</text>
+
+          <!-- 2025 spread label -->
+          <line x1="615" y1="126" x2="615" y2="249" stroke="#a8825a" stroke-width="1" stroke-dasharray="2,2"/>
+          <text x="555" y="180" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" font-weight="600">$3,345</text>
+          <text x="555" y="192" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" font-style="italic">spread ▼80%</text>
+
+          <!-- Legend -->
+          <rect x="40" y="325" width="660" height="42" fill="none" stroke="#dcd4c6" stroke-width="1"/>
+          <circle cx="60" cy="338" r="4" fill="#3f6b47"/>
+          <text x="72" y="342" font-family="JetBrains Mono, monospace" font-size="10" fill="#141412">Natural diamond retail $/ct (1ct round, G/VS)</text>
+          <circle cx="60" cy="358" r="4" fill="#5a4b8a"/>
+          <text x="72" y="362" font-family="JetBrains Mono, monospace" font-size="10" fill="#141412">Lab-grown diamond retail $/ct (1ct round, G/VS)</text>
+          <text x="370" y="342" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" font-weight="600">Orange shading = price spread</text>
+          <text x="370" y="358" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62">Spread widening = LGD economics decoupling from natural</text>
+        </svg>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:12px; line-height:1.65;">
+        <strong style="color: var(--ink);">What's happening.</strong> Natural prices fell ~24% from 2018 peaks. LGD prices fell ~78%. Both are down, but LGD has fallen ~3× faster in percentage terms. The result: the price gap has widened from $1,500 to $3,345 in absolute dollar terms. <strong style="color: var(--mute);">This is the structural argument for De Beers' Origins Strategy</strong>, natural diamonds are becoming defined by what they are <em>not</em> (cheap), while LGD is becoming a separate fashion category in its own right. Sources: BriteCo, StoneAlgo, Brilliant Earth, Edahn Golan, Mavilo, Washington Diamond 2025-26 listings.<sup class="r"><a href="#s4">4</a></sup> <em>Series ends at 2025; the 2026 points are not yet on a comparable basis because GIA&rsquo;s October 2025 grading change means &ldquo;G/VS lab-grown&rdquo; is no longer a universally issued grade.</em><sup class="r"><a href="#s21">21</a></sup>
+      </div>
+    </div>
+
+    <!-- ============ Retailer Margin Waterfall ============ -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Retailer Margin Waterfall · 1ct LGD at US Retail</h2>
+        <div class="tag-line">Wholesale cost → certification → setting → retail price → gross margin <span class="c c-m">Med</span></div>
+      </div>
+
+      <div style="font-size: 12.5px; color: #6f6a62; line-height: 1.7; margin-bottom: 12px;">
+        Worked example: a 1-carat, round, G/VS, IGI-certified CVD lab-grown diamond. Wholesale acquisition cost per Edahn Golan Q2 2025 wholesale list; certification, setting, and retail markup per US jeweller industry averages.<sup class="r"><a href="#s4">4</a></sup>
+      </div>
+
+      <div class="waterfall">
+        <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
+          <!-- Headers -->
+          <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" letter-spacing="1.5" font-weight="600">1-CT G/VS CVD LGD · US RETAIL PRICE STACK</text>
+          <line x1="0" y1="22" x2="760" y2="22" stroke="#dcd4c6" stroke-width="1"/>
+
+          <!-- Y-axis: $0 to $1000.  y=290 = 0, y=40 = $1000 -->
+          <line x1="80" y1="40" x2="80" y2="290" stroke="#6f6a62" stroke-width="1"/>
+          <line x1="80" y1="290" x2="720" y2="290" stroke="#141412" stroke-width="1"/>
+
+          <!-- Y-axis ticks -->
+          <text x="75" y="294" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$0</text>
+          <text x="75" y="231" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$250</text>
+          <text x="75" y="169" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$500</text>
+          <text x="75" y="106" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$750</text>
+          <text x="75" y="43" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="end">$1,000</text>
+
+          <!-- Stage 1: Wholesale cost $105 = 26px tall (1px = $4) -->
+          <!-- Bar from y=264 to y=290 -->
+          <rect x="100" y="264" width="80" height="26" fill="#a8825a"/>
+          <text x="140" y="280" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#e9e1d1" text-anchor="middle">$105</text>
+          <text x="140" y="310" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="middle">Wholesale</text>
+          <text x="140" y="322" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">cost</text>
+          <text x="140" y="334" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">(IGI-cert CVD)</text>
+
+          <!-- Connector line -->
+          <line x1="180" y1="264" x2="220" y2="259" stroke="#6f6a62" stroke-width="1" stroke-dasharray="2,2"/>
+
+          <!-- Stage 2: +Certification $20, incremental bar atop. Total now $125 = 31px tall. Bar y=259 to y=290 -->
+          <rect x="220" y="264" width="80" height="26" fill="#a8825a" fill-opacity="0.7"/>
+          <rect x="220" y="259" width="80" height="5" fill="#5a4b8a"/>
+          <text x="260" y="252" font-family="JetBrains Mono, monospace" font-size="10" fill="#5a4b8a" text-anchor="middle" font-weight="600">+$20</text>
+          <text x="260" y="310" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="middle">+ Cert</text>
+          <text x="260" y="322" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">grading</text>
+          <text x="260" y="334" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">(IGI/GIA)</text>
+
+          <!-- Connector -->
+          <line x1="300" y1="259" x2="340" y2="240" stroke="#6f6a62" stroke-width="1" stroke-dasharray="2,2"/>
+
+          <!-- Stage 3: +Setting/labour $75, atop. Total now $200 = 50px. Bar y=240 to y=290 -->
+          <rect x="340" y="264" width="80" height="26" fill="#a8825a" fill-opacity="0.5"/>
+          <rect x="340" y="259" width="80" height="5" fill="#5a4b8a" fill-opacity="0.7"/>
+          <rect x="340" y="240" width="80" height="19" fill="#3f6b47"/>
+          <text x="380" y="253" font-family="JetBrains Mono, monospace" font-size="10" fill="#3f6b47" text-anchor="middle" font-weight="600">+$75</text>
+          <text x="380" y="310" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="middle">+ Setting</text>
+          <text x="380" y="322" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">labour</text>
+          <text x="380" y="334" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">(jeweller)</text>
+
+          <!-- Connector -->
+          <line x1="420" y1="240" x2="460" y2="76" stroke="#6f6a62" stroke-width="1" stroke-dasharray="2,2"/>
+
+          <!-- Stage 4: +Retail markup (gross margin slab). Retail = $855. Bar y=76 to y=290. Slab from $200 → $855 = 164px tall.
+               Retail price y=76 (from $1000 at y=40, so $855 = 40 + (1000-855)/1000*250 = 40 + 36.25 = ~76) -->
+          <rect x="460" y="264" width="80" height="26" fill="#a8825a" fill-opacity="0.3"/>
+          <rect x="460" y="259" width="80" height="5" fill="#5a4b8a" fill-opacity="0.4"/>
+          <rect x="460" y="240" width="80" height="19" fill="#3f6b47" fill-opacity="0.4"/>
+          <rect x="460" y="76" width="80" height="164" fill="#9b4a22"/>
+          <text x="500" y="160" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#e9e1d1" text-anchor="middle">+$655</text>
+          <text x="500" y="175" font-family="JetBrains Mono, monospace" font-size="10" fill="#e9e1d1" text-anchor="middle">(76.6% gross</text>
+          <text x="500" y="186" font-family="JetBrains Mono, monospace" font-size="10" fill="#e9e1d1" text-anchor="middle">margin)</text>
+          <text x="500" y="310" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="middle">+ Retail</text>
+          <text x="500" y="322" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">markup</text>
+          <text x="500" y="334" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">(gross margin)</text>
+
+          <!-- Connector -->
+          <line x1="540" y1="76" x2="580" y2="76" stroke="#6f6a62" stroke-width="1" stroke-dasharray="2,2"/>
+
+          <!-- Stage 5: Retail price total $855, final bar -->
+          <rect x="580" y="76" width="80" height="214" fill="none" stroke="#141412" stroke-width="1.5"/>
+          <rect x="580" y="264" width="80" height="26" fill="#a8825a" fill-opacity="0.3"/>
+          <rect x="580" y="259" width="80" height="5" fill="#5a4b8a" fill-opacity="0.4"/>
+          <rect x="580" y="240" width="80" height="19" fill="#3f6b47" fill-opacity="0.4"/>
+          <rect x="580" y="76" width="80" height="164" fill="#9b4a22" fill-opacity="0.4"/>
+          <text x="620" y="64" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="middle">$855</text>
+          <text x="620" y="310" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="#141412" text-anchor="middle">= Retail</text>
+          <text x="620" y="322" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">price</text>
+          <text x="620" y="334" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f6a62" text-anchor="middle">(loose 1ct)</text>
+        </svg>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 18px;">
+        <div style="padding: 12px; background: #faf7f0; border-left: 3px solid var(--mute);">
+          <div style="font-size: 10px; color: #6f6a62; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px;">Wholesale</div>
+          <div style="font-size: 20px; font-weight: 600; color: var(--mute);">$105</div>
+          <div style="font-size: 10px; color: #6f6a62; margin-top: 2px;">12.3% of retail</div>
+        </div>
+        <div style="padding: 12px; background: #faf7f0; border-left: 3px solid var(--mute);">
+          <div style="font-size: 10px; color: #6f6a62; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px;">Certification</div>
+          <div style="font-size: 20px; font-weight: 600; color: var(--mute);">$20</div>
+          <div style="font-size: 10px; color: #6f6a62; margin-top: 2px;">2.3% of retail</div>
+        </div>
+        <div style="padding: 12px; background: #faf7f0; border-left: 3px solid var(--mute);">
+          <div style="font-size: 10px; color: #6f6a62; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px;">Setting</div>
+          <div style="font-size: 20px; font-weight: 600; color: var(--mute);">$75</div>
+          <div style="font-size: 10px; color: #6f6a62; margin-top: 2px;">8.8% of retail</div>
+        </div>
+        <div style="padding: 12px; background: #faf7f0; border-left: 3px solid var(--mute);">
+          <div style="font-size: 10px; color: #6f6a62; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px;">Gross margin</div>
+          <div style="font-size: 20px; font-weight: 600; color: var(--mute);">$655</div>
+          <div style="font-size: 10px; color: #6f6a62; margin-top: 2px;">76.6% of retail</div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:14px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">The takeaway.</strong> ~88% of the retail price is captured by certification, setting and retailer gross margin, only ~12% is actual stone cost. This is why retailers have been so reluctant to drop retail prices as wholesale collapsed: <em>their costs are mostly fixed (labour, certification, store rent), and the stone is now the cheapest line item</em>. Per Edahn Golan: average US retailer gross margin on 1-3 ct rounds reached <strong>~74% in Q2 2025</strong>, up ~8 pp YoY. This is unsustainable, at some point retail will reset downward, or LGDs become a near-zero-margin commodity category. <em>Costs and shares above are illustrative middle-market averages; high-end jewellers and online vendors vary considerably.</em> Two 2026 adjustments to bear in mind: certification economics have shifted (GIA&rsquo;s lab-grown assessment is priced at $15/ct, and GIA grades under 5% of the category), and for goods entering the US from India a tariff line of up to 18% now sits between wholesale and retail that this waterfall does not show.<sup class="r"><a href="#s4">4</a></sup><sup class="r"><a href="#s21">21</a></sup><sup class="r"><a href="#s22">22</a></sup>
+      </div>
+    </div>
+
+    <!-- ============ Risk Dashboard ============ -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Risk Dashboard · Eight Forces to Watch</h2>
+        <div class="tag-line">Categorised risk profile · ratings reflect analyst consensus, not market probability <span class="c c-m">Med</span></div>
+      </div>
+
+      <div style="font-size: 12.5px; color: #6f6a62; line-height: 1.7; margin-bottom: 12px;">
+        Each risk is rated by combining observed market signals with disclosed industry concerns. Ratings are qualitative assessments, not probabilistic forecasts; readers should treat the meter widths as relative-severity heuristics, not precise probabilities.
+      </div>
+
+      <div class="risk-grid">
+        <div class="risk-card risk-high">
+          <div class="risk-head">
+            <div class="risk-name">Oversupply</div>
+            <div class="risk-level">HIGH</div>
+          </div>
+          <div class="risk-body">
+            8,000–10,000 CVD reactors in India alone, plus Kira's 4,000-reactor expansion (Sept 2025), plus continued Chinese HPHT mass-production. Combined capacity far exceeds gem-jewellery demand at sustainable prices. This is the mechanism behind the wholesale collapse, <strong>93% since 2020</strong> per De Beers, now ~$100/ct.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s19">19</a></sup>
+            <br/><br/>
+            <strong>2026 counter-signal:</strong> the Q2 2026 wholesale decline slowed to 13% YoY, 1-ct rounds firmed, and rough prices rose 25–30% as Chinese growers and Diamond Foundry pushed increases. Consolidation may be starting to clear excess capacity. Rating held at HIGH because one quarter is not a trend and retail inventory remains elevated.<sup class="r"><a href="#s20">20</a></sup>
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+
+        <div class="risk-card risk-elevated">
+          <div class="risk-head">
+            <div class="risk-name">Resale Value</div>
+            <div class="risk-level">ELEVATED</div>
+          </div>
+          <div class="risk-body">
+            LGD secondary market is effectively zero. Buy-back offers from major retailers typically 5-15% of original retail. Wholesale price falls year-on-year mean today's stone is worth less every quarter. Pandora/Brilliant Earth do not offer buy-back programmes for LGD. Lifetime trade-in / upgrade schemes (offered by some retailers) are partial mitigants but still loss-making for consumers.
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+
+        <div class="risk-card risk-elevated">
+          <div class="risk-head">
+            <div class="risk-name">Disclosure</div>
+            <div class="risk-level">ELEVATED</div>
+          </div>
+          <div class="risk-body">
+            FTC requires disclosure of lab-grown origin in US; enforcement of misrepresentation as natural is uneven. India's GJEPC enforces seal-of-origin standards. Smaller players (eBay, Etsy, Alibaba) routinely mislabel LGD as natural, particularly melee where individual testing is uneconomic. GIA &amp; IGI laser-inscribe certified stones; smaller stones often uncertified, increasing fraud risk. <strong>From 1 Oct 2025 GIA no longer issues 4Cs grades for lab-grown</strong>, using Premium/Standard descriptors instead, while IGI, which grades the overwhelming majority of the category, retains the 4Cs. Two grading languages now coexist, and pre-October GIA lab-grown reports with D&ndash;Z grades remain in circulation. Comparison risk is rising even as identification risk falls.<sup class="r"><a href="#s21">21</a></sup>
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+
+        <div class="risk-card risk-moderate">
+          <div class="risk-head">
+            <div class="risk-name">Consumer Confidence</div>
+            <div class="risk-level">MODERATE</div>
+          </div>
+          <div class="risk-body">
+            LGD adoption is still rising in volume, Signet's FY2026 10-K puts lab-grown at <strong>27% of merchandise sales</strong>, with bridal penetration under 50% and fashion just over 20% at holiday. US acquisition rates reached parity with natural at 9%. But De Beers' Diamond Acquisition Study finds <strong>desirability remains lower than natural</strong>, and 48% of LGD purchases fall under $1,000 against 34% of natural. Risk: the category is winning entry-level volume while losing the preference contest, which caps how far up the price ladder it can travel.<sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s27">27</a></sup><sup class="r"><a href="#s13">13</a></sup>
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+
+        <div class="risk-card risk-moderate">
+          <div class="risk-head">
+            <div class="risk-name">Regulation</div>
+            <div class="risk-level">MODERATE</div>
+          </div>
+          <div class="risk-body">
+            US FTC 2018 jewellery guides clarified LGD = "diamond" with required origin disclosure. India's LGD-seed import duty exemption ran to 31 Mar 2026, with extension and PLI-scheme inclusion both sought. EU has no specific LGD framework.
+            <br/><br/>
+            <strong>Now the live vector is trade policy, not disclosure.</strong> US duties on Indian goods swung from 26% to 10% to 50% and back to 25% between April 2025 and February 2026. Under the announced framework, loose natural diamonds go to zero while <strong>loose lab-grown carries 18%</strong>, because Annex III relief covers only natural products that cannot be produced domestically. De Beers' chief economist is also publicly urging governments to tighten nomenclature regulation. Rated MODERATE only because the interim agreement is not yet concluded.<sup class="r"><a href="#s22">22</a></sup><sup class="r"><a href="#s19">19</a></sup>
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+
+        <div class="risk-card risk-elevated">
+          <div class="risk-head">
+            <div class="risk-name">Carbon &amp; Energy Claims</div>
+            <div class="risk-level">ELEVATED</div>
+          </div>
+          <div class="risk-body">
+            Marketing routinely positions LGD as more sustainable than mined. Reality: depending on grid mix, 1ct LGD requires ~250-750 kWh, Chinese HPHT (coal-heavy grid) carries higher embedded carbon than some natural diamonds. Diamond Foundry, Pandora, and a handful of others use 100% renewable energy; the vast majority of producers do not.
+            <br/><br/>
+            <strong>The 2026 test case.</strong> Pandora will label the carbon footprint of every LGD piece, claiming emissions <strong>90% lower</strong> than a mined diamond of the same size. The comparison rests on a 2019 study commissioned by the Diamond Producers Association, now seven years old, and one that the US National Advertising Division found faulty for insufficient data. A leading LGD retailer building consumer-facing environmental claims on a contested benchmark is exactly the exposure this risk describes, and it raises the rating rather than lowering it.<sup class="r"><a href="#s25">25</a></sup>
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+
+        <div class="risk-card risk-elevated">
+          <div class="risk-head">
+            <div class="risk-name">Input-Cost Inversion</div>
+            <div class="risk-level">ELEVATED</div>
+          </div>
+          <div class="risk-body">
+            A risk that did not exist when this category formed: <strong>the stone is no longer the expensive part of the piece</strong>. Brilliant Earth's Q1 2026 gross margin fell 430bps year-on-year to 54.3%, driven by record gold and platinum prices plus tariffs, not by diamond costs. Signet is deliberately increasing LGD mix partly to offset metal inflation, and Pandora is moving to platinum-plating to manage silver and gold volatility. For an LGD-centric retailer, further falls in diamond prices no longer meaningfully improve the cost base, while metal and duty inflation continue to erode it.<sup class="r"><a href="#s26">26</a></sup><sup class="r"><a href="#s27">27</a></sup><sup class="r"><a href="#s25">25</a></sup>
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+
+        <div class="risk-card risk-high">
+          <div class="risk-head">
+            <div class="risk-name">Size Ceiling &amp; Margin Compression</div>
+            <div class="risk-level">HIGH</div>
+          </div>
+          <div class="risk-body">
+            <strong>New finding from De Beers (Jun 2026):</strong> POS data across 950 US independent jewellers shows the <strong>3-carat threshold is a consumer ceiling</strong> for LGD engagement rings, "consumers may feel a synthetic lab-grown diamond looks too big". Since 2022, absolute gross profit per stone has shifted back to natural, <strong>a 3ct LGD's gross profit is now below that of a 1-1.5ct natural diamond</strong>. As retail prices continue to decline, retailers cannot upsell to larger sizes to maintain gross profits. Wærness (De Beers Chief Economist): <em>"I do not believe that retail mark-ups of around 1,000% will persist for a significant period."</em><sup class="r"><a href="#s19">19</a></sup>
+          </div>
+          <div class="risk-meter"><div class="risk-meter-fill"></div></div>
+        </div>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#6f6a62; margin-top:16px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">How to read this dashboard.</strong> The most acute near-term risk for LGD investors and producers is <strong style="color: var(--mute);">oversupply</strong>, observable in the 93% wholesale price collapse 2020-2026 per De Beers. The most acute consumer-side risk is <strong style="color: var(--mute);">resale value</strong>, since buyers may not realise until they try to sell that their stone has near-zero secondary value. <strong style="color: var(--mute);">Size Ceiling &amp; Margin Compression</strong> is the newest identified structural risk (De Beers Jun 2026): the 3ct consumer ceiling caps the upsell-to-larger strategy retailers have used to maintain gross profits, while gross profit per stone has already inverted in favour of natural at the 1-1.5ct vs 3ct comparison. Carbon-claim risk is rising as producers begin making consumer-facing footprint claims on contested benchmarks. Two forces are newly added or newly weighted in this edition: <strong style="color: var(--mute);">Input-Cost Inversion</strong>, because gold and platinum, not diamonds, now set the margin, and <strong style="color: var(--mute);">trade policy</strong>, folded into Regulation, because the announced US&ndash;India framework would tariff lab-grown at 18% while natural goes to zero. <em>Risk ratings are qualitative analyst assessments and should not be read as quantitative probability estimates.</em>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============== SOURCES ============== -->
+  </section>
+<section id="sources"><div class="sechead"><h2><em>IX</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src"><li id="s1"><strong>Global LGD market size 2025 estimates, Precedence Research, Fortune Business Insights, Univdatos, Allied Market Research.</strong> Estimates vary by methodology. Precedence Research: $29.73bn in 2025, projected $108.98bn by 2035, 13.87% CAGR. Fortune Business Insights: $29.46bn in 2025, $91.85bn by 2034, 13.42% CAGR. Univdatos: $27.24bn (2024), 11.77% CAGR through 2033. Allied Market Research: $24.0bn (2022) → $59.2bn (2032). Asia-Pacific accounted for $10.18bn in 2025 (34.54% of global). <a href="https://www.precedenceresearch.com/lab-grown-diamonds-market" target="_blank">precedenceresearch.com</a> · <a href="https://www.fortunebusinessinsights.com/lab-grown-diamond-market-110569" target="_blank">fortunebusinessinsights.com</a> · <a href="https://univdatos.com/reports/lab-grown-diamonds-market" target="_blank">univdatos.com</a></li><li id="s2"><strong>LGD share of total diamond market, Statista, Paul Zimnisky industry analyst.</strong> Statista reports LGD market share expected to exceed 21% of the entire diamond market in 2025. Industry analyst Paul Zimnisky originally estimated LGD jewellery accounted for ~3.4% of the global diamond jewellery market by value in 2018; forecast 7.5% in 2021, 11.5% by 2025; in January 2024 revised the 2025 projection to ~20%. <a href="https://www.statista.com/topics/7108/lab-grown-diamond-industry/" target="_blank">statista.com</a> · <a href="https://www.gia.edu/gems-gemology/summer-2024-gia-update-on-laboratory-grown-diamonds" target="_blank">gia.edu (GIA G&amp;G Summer 2024 citing Zimnisky)</a></li><li id="s3"><strong>Production geography 2023, GIA Gems &amp; Gemology Summer 2024 "Laboratory-Grown Diamonds: An Update on Identification and Products Evaluated at GIA"; Gem &amp; Jewellery Export Promotion Council (GJEPC).</strong> "China led the way with approximately <strong>3 million carats</strong> (mostly grown using HPHT), followed by India with about <strong>1.5 million carats</strong> (mostly CVD) and the United States with about <strong>1 million carats</strong> (CVD)." HPHT-grown diamonds are market leaders in China, including mass production by Zhengzhou Sino-Crystal Diamond Co., Zhongnan Diamond Co., and Henan Huanghe Whirlwind Co., both private and government-funded. India has ~4,000–6,000 CVD reactors based in Surat (Gujarat), also the world's leading diamond cutting/polishing centre. The largest known faceted CVD diamond is a 75.33 ct square emerald cut displayed at JCK Las Vegas 2024 (Surat producer, ~9-month growth time). Singapore and USA share third position at ~1M carats each per GJEPC. Global production: ~1M carats in 2010 → over 9M carats by 2023. <a href="https://www.gia.edu/gems-gemology/summer-2024-gia-update-on-laboratory-grown-diamonds" target="_blank">gia.edu (G&amp;G Summer 2024)</a> · <a href="https://www.gia.edu/gia-news-research/gems-gemology-summary-latest-research-lab-grown-diamonds" target="_blank">gia.edu (research summary)</a> · <a href="https://www.alliedmarketresearch.com/lab-grown-diamonds-market-A13694" target="_blank">alliedmarketresearch.com (citing GJEPC)</a></li><li id="s4"><strong>2025 LGD price collapse &amp; engagement-ring size shift, Edahn Golan diamond analyst (Q4 2025 LGD Wholesale Price List); Statista; Goodstone analysis.</strong> Edahn Golan: in 2025 wholesale prices fell 26% YoY, marking the slowest pace of quarterly decline since the category emerged. Quarter-on-quarter Q2 2025 fell just 4.7%, the smallest decline since LGD first entered the market. "Select stones traded for $80 to $105 per carat by mid-2025." HPHT production "dominates polished lab-grown diamonds of one carat and below, and is becoming increasingly common in the 1.50-carat range." Statista: the retail price of one-carat LGD stood at ~$855 USD in 2025 (vs natural ~$4,200), ~76% decrease vs 2018. Avg lab-grown engagement-ring centre diamond increased from <strong>1.31 carats (2019) to 2.45 carats (2025)</strong>. Wholesale fell sharper than retail because retailers expanded markups; typical retail markup on loose LGD: 250-300%; avg US retailer gross margins ~73-74% for 1-3 ct rounds. <a href="https://www.edahngolan.com/lab-grown-diamond-wholesale-prices-2025/" target="_blank">edahngolan.com</a> · <a href="https://www.goodstoneinc.com/blogs/news/lab-grown-diamond-prices-over-time" target="_blank">goodstoneinc.com</a> · <a href="https://www.statista.com/topics/7108/lab-grown-diamond-industry/" target="_blank">statista.com</a></li><li id="s5"><strong>Industrial &amp; structural trends 2024-2026, Market Reports World, SkyQuest, CaratX market analysis.</strong> USA, China and India together = 72% of global LGD demand. Production capacity increased 54% from 2022 to 2024 (new CVD &amp; HPHT facilities). Industrial-grade LGD (electronics, optics, heat dissipation, semiconductors) expanded by 33% in 2024 across 16 major industrial end-use verticals. Global LGD trade volumes rose 38% in 2024. 110+ jewellery brands now offer LGD collections, increasing market penetration by 43%. Customised LGD jewellery accounts for ~48% of online jewellery purchases. Manufacturers increased HPHT investments 45%, CVD reactors 52% in 2023-2024. <a href="https://www.marketreportsworld.com/market-reports/lab-grown-diamond-market-14721966" target="_blank">marketreportsworld.com</a> · <a href="https://www.skyquestt.com/report/lab-grown-diamond-market" target="_blank">skyquestt.com</a></li><li id="s6"><strong>HPHT method &amp; growth time fundamentals, GIA "An Introduction to Synthetic Gem Materials"; ICIA; industry references.</strong> HPHT mimics the natural conditions under which diamonds form deep in Earth's mantle: ~1,500°C and 5-6 GPa pressure applied to a carbon source with metal catalyst. Growth time days to weeks per stone. Most common for small/melee-size stones and industrial diamond. HPHT was the original method commercialised by General Electric in 1954 with the Verneuil-style press. Diamonds achieve high quality in just a few months (CVD) or days/weeks (HPHT) vs natural diamond formation over 1-3 billion years. <a href="https://www.gia.edu/gem-synthetic" target="_blank">gia.edu</a> · <a href="https://www.donghaicrystal.org/lab-grown-rubies-sapphires-and-emeralds/" target="_blank">ICIA reference</a></li><li id="s7"><strong>HPHT becoming meaningful in 1-ct polished, Edahn Golan analysis Q4 2025.</strong> "Today, HPHT production dominates polished lab-grown diamonds of one carat and below, and it is becoming increasingly common in the 1.50-carat range as well. As HPHT rough continues to grow in size, it is likely to start influencing prices for larger polished stones too. That shift, however, is gradual. HPHT first took hold in the smallest sizes and only became a meaningful source for one-carat polished goods about a year ago." Fortune Business Insights: CVD segment held 45% market share in 2024; CVD set to grow at highest CAGR going forward. <a href="https://www.edahngolan.com/lab-grown-diamond-wholesale-prices-2025/" target="_blank">edahngolan.com</a> · <a href="https://www.fortunebusinessinsights.com/lab-grown-diamond-market-110569" target="_blank">fortunebusinessinsights.com</a></li><li id="s8"><strong>Largest known faceted CVD &amp; HPHT diamonds, GIA Gems &amp; Gemology Summer 2024 + GIA Research overview.</strong> Largest known faceted CVD diamond: <strong>75.33 ct square emerald cut</strong>, produced by a Surat (India) company, displayed at 2024 JCK Las Vegas show, original crystal reportedly took 9 months to grow. Largest HPHT illustrated in GIA G&amp;G Summer 2024: 10.02 ct E-color VS1 emerald cut. Diamonds in G&amp;G figure: 1.24 ct CVD plate (8.41 × 8.60 × 1.26 mm) was manufactured by GIA at its New Jersey research facility. <a href="https://www.gia.edu/gems-gemology/summer-2024-gia-update-on-laboratory-grown-diamonds" target="_blank">gia.edu (G&amp;G Summer 2024)</a> · <a href="https://www.gia.edu/gia-news-research/gems-gemology-summary-latest-research-lab-grown-diamonds" target="_blank">gia.edu (research summary)</a></li><li id="s9"><strong>CVD energy &amp; speed advantage, Fortune Business Insights LGD report.</strong> "The CVD segment will grow at the highest CAGR in the coming years as manufacturers increasingly prefer the CVD process for developing laboratory grown diamonds as it uses less energy and is faster than the HPHT method [at larger sizes]. The development of CVD diamonds in wide colour varieties will further support the growth of the segment. This segment gained 45% of the market share in 2024." <a href="https://www.fortunebusinessinsights.com/lab-grown-diamond-market-110569" target="_blank">fortunebusinessinsights.com</a></li><li id="s10"><strong>India's CVD reactor base, National Jeweler "Indian Lab-Grown Diamond Manufacturers Keep Growing"; National Jeweler "India: An Emerging Source for Lab-Grown Diamonds"; GJEPC Solitaire trade press.</strong> Industry estimate: India has between <strong>8,000 to 10,000 reactors</strong>, predominantly CVD, double the 4,000-5,000 estimated 2-3 years prior. ~90% of companies that previously only cut natural diamonds have entered the LGD space. Earlier (2017-2019) estimates: Abhishek Saraiya (Meraya): ~2,500 active reactors in India. Vishal Mehta (Lumex DMCC): "Surat has 15 to 20 significant CVD growers with an installed base of 50 to 500 reactors." Typical reactor: ~125 carats/month output, ~$175,000 cost, most commonly Japan's Seki reactor. India produces ~25% of global LGD via HPHT (China Daily citing report); India's polished LGD exports growing ~55% yearly, ~6.2% of natural polished diamond export value (GJEPC). <a href="https://nationaljeweler.com/articles/12769-indian-lab-grown-diamond-manufacturers-keep-growing" target="_blank">nationaljeweler.com (Indian Growers)</a> · <a href="https://nationaljeweler.com/articles/10703-india-an-emerging-source-for-lab-grown-diamonds-jewelry" target="_blank">nationaljeweler.com (Emerging Source)</a> · <a href="https://www.alliedmarketresearch.com/lab-grown-diamonds-market-A13694" target="_blank">alliedmarketresearch.com (citing GJEPC)</a></li><li id="s11"><strong>Price collapse trajectory 2018-2025, CaratX "Lab-Grown Diamonds 2025: A Detailed Analysis"; Paul Zimnisky analyst commentary; Accio business analysis.</strong> "From peak prices exceeding $4,000 per carat in 2018, the market experienced a near-total collapse, with prices plummeting approximately <strong>96%</strong> to stabilise around <strong>$168 per carat by early 2025</strong>." Often termed "The Great Correction." Per Zimnisky, market saw a 58% drop in wholesale prices in 2023 alone; 1-3 ct stones mid-2025 down over 40% YoY. Accio: Q2 2025 wholesale declined 6.7% QoQ and 42% YoY for 1-3 ct range; three-carat rounds saw wholesale price slashed by more than 50% YoY; online LGD prices down 23% from previous year. US retailers maintained gross margins ~74% for 1-3 ct rounds (up ~8% YoY). Current inventory ~4-6 weeks forward demand, "healthy figure that allows for product variety without creating distressed selling pressure." <a href="https://caratx.com/blog-post/lab-grown-diamonds-2025-a-detailed-analysis-of-the-new-market-equilibrium" target="_blank">caratx.com (Detailed Analysis)</a> · <a href="https://caratx.com/blog-post/lab-grown-diamonds-in-2025-navigating-the-oversupply-crisis-to-unlock-new-global-opportunities" target="_blank">caratx.com (Oversupply Crisis)</a> · <a href="https://www.accio.com/business/lab-diamond-price-trend" target="_blank">accio.com</a></li><li id="s12"><strong>Kira Diam expansion to 4,000 CVD reactors, Kira official press release Sept 24, 2025; GJEPC Solitaire magazine; LGD Times; OpenPR.</strong> Kira (part of Kiran family) announced major expansion of production capacity from 2,600 to 4,000 CVD reactors, cementing position as the world's largest grower of lab-grown diamonds. Output: more than <strong>250,000 polished carats per month</strong>. 1 million sq ft Surat facility powered by 75 MW solar (planned 150 MW). Vertically integrated: growing, cutting, polishing, jewellery manufacturing, employs 10,000+ artisans. 4,700+ B2B partners worldwide; offices in Mumbai, Surat, Hong Kong, New York. SMETA and SEDEX certified. Founder Vallabhbhai Lakhani's motto: "Har ghar hira, har ghar Kira" (a diamond in every household). Rajesh Lakhani (Founding Partner): "Reaching 4,000 reactors is more than a capacity milestone, it is a statement of India's leadership in the global lab-grown diamond industry." <a href="https://gjepc.org/news_detail.php?news=kira-expands-to-4-000-reactors-becomes-world-s-largest-lab-grown-diamond-producer-1" target="_blank">gjepc.org</a> · <a href="https://www.openpr.com/news/4198028/kira-official-press-release-landmark-expansion-4-000" target="_blank">openpr.com (Kira press release)</a> · <a href="https://lgdtimes.com/2025/10/04/kira-expands-to-4000-cvd-reactors-cementing-indias-global-leadership-in-lab-grown-diamonds/" target="_blank">lgdtimes.com</a></li><li id="s13"><strong>De Beers Lightbox shutdown May 2025, JCK, Mining-Technology, Mining.com; De Beers official statement.</strong> "De Beers, the world's largest diamond producer by value, plans to shut down its lab-grown diamond jewellery brand Lightbox, marking a retreat from synthetic gems sold to consumers." Seven years after introduction. Statement: "The persistently declining value of lab-grown diamonds in jewellery underscores the growing differentiation between these factory-made products and natural diamonds." Part of De Beers' "Origins Strategy" introduced May 2024, focus on natural diamonds. Decision reflects "return to the strategy behind its iconic 'Diamonds are Forever' slogan." Element Six, De Beers' synthetic diamond arm that once supplied Lightbox, "will now focus solely on industrial applications." Parent Anglo American (LON: AAL) put De Beers up for sale in 2024, broader restructuring context. <a href="https://www.jckonline.com/editorial-article/de-beers-shutting-lightbox/" target="_blank">jckonline.com</a> · <a href="https://www.mining.com/de-beers-to-shut-down-lab-grown-diamond-brand-lightbox/" target="_blank">mining.com</a> · <a href="https://www.mining-technology.com/news/de-beers-lightbox/" target="_blank">mining-technology.com</a></li><li id="s14"><strong>Oversupply problem analysis, CaratX 2025 reports; consistent industry analyst commentary.</strong> The structural oversupply story: 8,000-10,000 CVD reactors in India plus China's HPHT mass-production plus Kira's 4,000-reactor expansion creates capacity far in excess of consumer jewellery demand at sustainable prices. Edahn Golan: "Production volume is a main factor" in the price collapse. CaratX: For many businesses, particularly small and medium-sized [LGD producers], the price collapse has compressed margins severely. The mechanism: too many factories chasing what turned out to be a smaller jewellery market than the early 2020s growth projections suggested. <a href="https://caratx.com/blog-post/lab-grown-diamonds-in-2025-navigating-the-oversupply-crisis-to-unlock-new-global-opportunities" target="_blank">caratx.com</a></li><li id="s15"><strong>Pandora LGD results 2024, JCK "Pandora Posts Strong Results, Slows Lab-Grown Rollout"; Glossy magazine.</strong> Pandora's lab-grown collection showed 43% comp increase in 2024; LGD business now stands at <strong>DKK 315 million (~$42M)</strong>. Pandora "walked back its forecast that lab-grown sales will reach 1 billion krone ($139 million) by 2026, saying in a statement that 'the global rollout will proceed at a slower pace than originally anticipated.'" CEO Alexander Lacik: "a prerequisite for this business proposition to be interesting is that a certain level of base awareness must exist with consumers." Pandora's organic sales rose 13% in 2024 overall; US sales up 13% with comps up 9%. LGD collections (Brilliance, Nova, Era, Talisman) in 70+ stores across US, Canada, UK, Australia, Mexico, Brazil. ~60% renewable energy production + 40% offset; targeting 100% recycled gold by 2025. <a href="https://www.jckonline.com/editorial-article/pandora-strong-results-lab-grown/" target="_blank">jckonline.com</a> · <a href="https://www.glossy.co/fashion/pandora-expands-lab-grown-diamond-business-and-international-footprint/" target="_blank">glossy.co</a></li><li id="s16"><strong>Tiffany vs Brilliant Earth pricing comparison, CNN / Business of Fashion "How 2023 Became the Year of the Lab-Grown Diamond."</strong> "A Tiffany tennis bracelet runs north of $20,000, while a bracelet containing similar, lab-grown carats from Brilliant Earth is $3,450." Industry analyst Paul Zimnisky: sales of LGD have increased from under $1bn in 2016 to just under $12bn in 2022. Lab-grown sales shot up 38% from 2021 to 2022. Per diamond research firm Edahn Golan, LGD represented just over 17% of the overall diamond market in 2022. Today, more high-end companies are beginning to inch into the lab-grown market, though luxury houses Tiffany, Cartier, Van Cleef, Bulgari, Harry Winston, Graff continue using exclusively natural diamonds in fine jewellery. <a href="https://www.cnn.com/style/lab-grown-diamonds-popularity-2023-bof/index.html" target="_blank">cnn.com</a> · <a href="https://www.businessoffashion.com/articles/marketing-pr/how-2023-became-the-year-of-lab-grown-diamonds/" target="_blank">businessoffashion.com</a></li><li id="s17"><strong>CVD LGD industrial / semiconductor outlook, The Business Research Company "CVD Lab-Grown Diamonds Global Market Report."</strong> Global CVD Lab-Grown Diamonds market size expected to reach <strong>$19.99 billion by 2029 at 9.7% CAGR</strong>, with electronics and semiconductors booms sparking growth in CVD LGD market. CVD positioning especially strong because of high thermal conductivity (superior to silicon for power electronics), wide-bandgap semiconductor applications, and use in 5G/6G infrastructure. By 2030, market revenue of LGD produced with the CVD method will amount to $30.1 billion (Statista). <a href="https://www.thebusinessresearchcompany.com/report/cvd-lab-grown-diamonds-global-market-report" target="_blank">thebusinessresearchcompany.com</a> · <a href="https://www.statista.com/topics/7108/lab-grown-diamond-industry/" target="_blank">statista.com</a></li><li id="s18"><strong>AI-driven LGD manufacturing &amp; grading, SkyQuest LGD Market Report 2024-2025.</strong> "From 2024 to 2025, several leading manufacturers, including those based in the U.S. and India, started implementing AI-driven quality control systems, that employ computer vision to check diamonds for defects much more precisely than conventional gemologists. Furthermore, AI-powered recommendation engines have begun to be used by luxury retailers and e-commerce sites to make lab-grown diamond suggestions based on consumer preferences, financial constraints, and even special occasions." AI-integrated systems in diamond cultivation analyse real-time data (temperature, pressure variations, crystal growth patterns) during CVD and HPHT processes to optimise growth cycles and improve diamond clarity and yield. <a href="https://www.skyquestt.com/report/lab-grown-diamond-market" target="_blank">skyquestt.com</a></li><li id="s19"><strong>De Beers Group, The Diamond Report, June 2026 (Al Cook CEO, Eirik Wærness Chief Economist).</strong> <strong>Primary high-confidence source for LGD retail dynamics and consumer behaviour.</strong> Inaugural edition of De Beers' new flagship industry report drawing on the 2025 biannual US Diamond Acquisition Study (18,500 women aged 18-74) plus De Beers Global Markets &amp; Price Analytics. Key LGD findings cited on this dashboard: (1) <em>LGD wholesale prices declined 93% since 2020</em>; now averaging <strong>~$100/ct</strong> wholesale vs <strong>~$964/ct retail (1ct)</strong> = ~1,000% markup. (2) Synthetic Diamond Online Retail Index + Tenoris POS data: retail prices "have adjusted more slowly than wholesale, currently resulting in attractive margins, however, increasing supply, competition, AI-powered price comparison and low barriers to entry are expected to accelerate retail price declines, as well as potentially affecting margins and profits." (3) <em>3-carat consumer ceiling:</em> point-of-sale data across 950 US independent jewellers shows LGD engagement-ring sales drop off sharply above 3ct, "consumers may feel a synthetic lab-grown diamond looks too big". $5K-10K LGD pieces sold Y/Y: 2022 -3%, 2023 -26%, 2024 -10%, <strong>2025 +66%</strong> (mid-band recovery). (4) <em>Gross profit inversion since 2022:</em> 3ct LGD gross profit per stone now <em>below</em> 1-1.5ct natural diamond gross profit. (5) <em>US Diamond Acquisition Study 2025, LGD findings:</em> LGD acquisition rate 9% (now on par with natural in acquisition, but lower in desirability); avg LGD price $2,786 vs natural $4,063; <strong>48% of LGD purchases under $1,000 vs 34% of natural</strong>. (6) <em>US independent-jeweller value mix 2025:</em> Natural 85% / LGD 15% (Edge + Tenoris combined POS Q1 2026). Broader US diamond market 2025: Natural 75% / LGD 25%. (7) <em>Wærness commentary:</em> "I see a product you can sell online with very low barriers to entry, and do not believe that retail mark-ups of around 1,000% will persist for a significant period. Competitive dynamics will work through the system, margins can be expected to decrease and retailers may have to change direction to sustain long-term gross profits." <a href="https://www.debeersgroup.com/the-group/our-stories/the-diamond-report" target="_blank">debeersgroup.com</a></li><li id="s20"><strong>Wholesale price direction 2026 &mdash; Edahn Golan Diamond Research, "After a 96% Decline, What's Next for Lab-Grown Diamond Prices? The Q2 2026 LGD Wholesale Price List" (7 July 2026).</strong> <strong>Primary high-confidence source for current wholesale pricing.</strong> The LGD Wholesale Price Index fell <strong>13% year on year</strong> in Q2 2026 and is <strong>down 96% since tracking began in July 2018</strong>. The average conceals a divergence: wholesale prices for <strong>1-carat rounds rose 1%</strong>, while 1.50&ndash;1.99 ct fell 11% and 2 ct fell 20% &mdash; the steepest declines now falling on larger stones that historically carried the highest wholesale margins. Rough prices moved the other way: Chinese producers raised prices by at least 30% and Diamond Foundry by around 25%, which Golan characterises as opportunistic behaviour in a consolidating market rather than a demand response, notable against declining polished retail prices and elevated retail inventory. Tenoris point-of-sale data shows US specialty retailers' lab-grown jewellery sales <strong>up 24% in Q2 2026</strong> with growth accompanied by higher unit sales, while average spend per unit has held within a narrow band for eighteen months &mdash; consumers buying more at the same budget. Golan also notes the category's departure from conventional price theory: demand for 1-carat stones softened as larger goods became affordable, yet 1-carat prices firmed. His conclusion is that the market <em>appears to be stabilising</em> from production through to retail. Methodology: cash transactions in Mumbai and Surat for IGI-certified goods, excluding shipping, insurance and import duties; list launched October 2018; most goods of 2 ct and above are CVD, smaller goods mix CVD and HPHT with HPHT trading at a discount. <a href="https://www.edahngolan.com/after-a-96-decline-whats-next-for-lgd-prices/" target="_blank">edahngolan.com</a></li><li id="s21"><strong>GIA grading regime change &mdash; GIA press releases (2 June 2025 and 26 August 2025); JCK; National Jeweler.</strong> GIA launched revised evaluation services for D-to-Z laboratory-grown diamonds on <strong>1 October 2025</strong>, discontinuing the colour and clarity nomenclature developed for natural diamonds. The GIA Laboratory-Grown Diamond Quality Assessment describes stones as <strong>"Premium" or "Standard"</strong> on an overall assessment of clarity, colour and cut; submissions failing the minimum criteria receive no designation. Fee US$15 per carat with a US$15 minimum, US$5 evaluation fee for stones below the threshold, minimum submission size 0.15 ct; each stone's girdle is laser-inscribed with the term Laboratory-Grown plus the assessment number. Prior services remained available until 30 September 2025. Rationale per Tom Moses, GIA EVP and chief research and laboratory officer: more than <strong>95% of laboratory-grown diamonds entering the market fall into a very narrow range</strong> of colour and clarity, making the natural-diamond continuum inappropriate for a manufactured product. President and CEO Pritesh Patel framed it as declining to use natural-diamond nomenclature for a manufactured product. This is GIA's third system for the category: general categories from 2006, full 4Cs from 2020, descriptive tiers from 2025; the word "synthetic" was removed from reports in 2019. GIA has never been the category's volume lab &mdash; then-CEO Susan Jacques stated it grades <strong>fewer than 5%</strong> of lab-grown diamonds on the market, observing that at current prices certification largely stops making economic sense. <a href="https://www.gia.edu/gia-news-press/updated-laboratory-grown-diamond-services-to-launch-october-1" target="_blank">gia.edu</a> &middot; <a href="https://www.jckonline.com/editorial-article/gia-changes-lab-grown-grading/" target="_blank">jckonline.com</a> &middot; <a href="https://nationaljeweler.com/articles/13980-gia-reverting-to-more-general-terminology-for-lab-grown-diamonds" target="_blank">nationaljeweler.com</a></li><li id="s22"><strong>US&ndash;India tariffs and the Annex III asymmetry &mdash; White House US&ndash;India Joint Statement (6 Feb 2026); JCK; GJEPC; KPMG TaxNewsFlash.</strong> Timeline of the US reciprocal tariff on Indian goods: 26% announced 2 April 2025 under Executive Order 14257; suspended to a 10% baseline on 9 April 2025; an additional 25% penalty tied to Russian oil purchases took the total to <strong>50% from 27 August 2025</strong>; an executive order signed 6 February 2026 removed the 25% penalty effective 7 February 2026, alongside a joint statement announcing a framework for an interim trade agreement. Under that framework the US will apply an <strong>18% reciprocal rate</strong> to a range of Indian goods and, <em>subject to successful conclusion of the Interim Agreement</em>, remove tariffs on goods identified in the Annex to EO 14346, including gems and diamonds. Per GJEPC guidance reported by JCK: because tariffs attach where goods are substantially transformed, and India cuts and polishes the large majority of the world's diamonds, this determines landed cost for most US-bound stones. Current rate effective 7 February 2026 on Indian jewellery: 31% (25% reciprocal plus 6% MFN). After the interim agreement: jewellery 24% (18% plus 6% MFN); loose natural diamonds and coloured gems fall to zero. <strong>Loose lab-grown diamonds are not included in Annex III</strong>, which is limited to natural products that cannot be produced in the United States; on GJEPC's reading they will carry the 18% reciprocal rate without the additional 6% MFN duty. Jewellery cast in the United States is treated as US-origin under the substantial-transformation doctrine and remains duty-free even where stones are set in India. Signing timing was uncertain at publication; the Jewelers Vigilance Committee maintains a tariff tracker. <a href="https://www.whitehouse.gov/briefings-statements/2026/02/united-states-india-joint-statement" target="_blank">whitehouse.gov</a> &middot; <a href="https://www.jckonline.com/editorial-article/u-s-tariffs-indian-diamonds-gems/" target="_blank">jckonline.com</a> &middot; <a href="https://kpmg.com/us/en/taxnewsflash/news/2026/02/united-states-removes-tariffs-imports-india.html" target="_blank">kpmg.com</a></li><li id="s23"><strong>India export data FY2025-26 &mdash; GJEPC monthly and quarterly trade reports, via Edahn Golan, JCK and Business Standard.</strong> GJEPC data shows India's polished lab-grown diamond exports fell <strong>10.55% year on year to $1.13 billion in FY26</strong>, even as shipment volumes increased; the council attributes the decline to ongoing price correction in the segment. On volume, lab-grown crossed over natural for the first time on a sustained basis: gross loose LGD exports reached <strong>1.3 million carats in March 2026 against 1.2 million carats of natural (51% of volume)</strong>, and 1.4 million versus 1.3 million in April 2026 (50.4%). Golan notes an earlier 56% reading in April 2025 was distorted by tariff-driven front-running, and that LGD share of export volume had already reached 45% in January 2025, so the 2026 figures represent more durable change. GJEPC began publishing carat-volume breakdowns alongside value in its monthly reports, enabling this comparison. The data also shows the average value of rough lab-grown diamonds imported by Indian manufacturers at <strong>$15 per carat in 2026</strong>, sourced mainly from China (HPHT, used for 1.50 ct and smaller goods) and Dubai (CVD traded through the local diamond centre), with India otherwise largely self-sufficient in production. On policy, the customs-duty exemption on LGD seed imports ran to 31 March 2026, with industry seeking both an extension and inclusion of LGD manufacturing under the Production Linked Incentive scheme. <a href="https://www.edahngolan.com/india-lab-grown-diamond-exports-exceed-natural/" target="_blank">edahngolan.com</a> &middot; <a href="https://www.jckonline.com/editorial-article/indias-lab-grown-diamond-exports-surpass-naturals-by-volume/" target="_blank">jckonline.com</a> &middot; <a href="https://gjepc.org/solitaire/union-budget-2026-policies-to-sparkle-indias-gems-jewellery-sector/" target="_blank">gjepc.org</a></li><li id="s24"><strong>De Beers ownership and financial position &mdash; Bloomberg/Reuters (17 July 2026); Rapaport; JCK; Anglo American production reports; Luxury Tribune.</strong> Anglo American announced its intention to divest De Beers in May 2024. On <strong>17 July 2026</strong>, Botswana's minister for the state president and defence, Moeti Mohwasa, told lawmakers that Anglo had selected the <strong>Global Diamond Consortium</strong> as preferred bidder from three contenders; the group is led by former De Beers chief executive <strong>Gareth Penny</strong>, now chair of asset manager Ninety One, with Qatari investment backing and involvement from Israeli businessman Nir Livnat. Botswana holds a <strong>15% stake</strong> and states it has freedom to proceed alongside the preferred bidder as partner or to exercise pre-emption rights alone or with a third party; it is working with financial advisers on the optimal deal structure. The transaction is expected to conclude by <strong>Q4 2026</strong>, subject to conditions including Botswana government approval. On financial deterioration: De Beers revenue fell from roughly $6.6 billion in 2022 to $3.5 billion in 2025, with production down from 35 to 21.7 million carats. For H1 2026, Anglo American reported consolidated revenue down <strong>23% to $1.31 billion</strong> despite consolidated sales volume rising 13% to 12.4 million carats and total sales volume rising 20% to 14.8 million carats, reflecting a higher proportion of lower-value goods; the average consolidated selling price fell <strong>32% to $105 per carat</strong> on mix plus a 16% decline in the average rough-price index, and Anglo flagged that De Beers would likely post a first-half loss. Anglo's stated assessment of the lab-grown effect: synthetics continued to weigh on demand for lower-value natural diamonds and added pressure in more price-sensitive categories, while stronger pricing for higher-value goods supported a stable overall index. <a href="https://rapaport.com/news/anglo-american-flags-first-half-loss-at-de-beers/" target="_blank">rapaport.com</a> &middot; <a href="https://www.bloomberg.com/news/articles/2026-07-17/anglo-has-chosen-a-preferred-bidder-for-de-beers-botswana-says" target="_blank">bloomberg.com</a> &middot; <a href="https://www.jckonline.com/editorial-article/anglo-american-de-beers-1q-2026/" target="_blank">jckonline.com</a></li><li id="s25"><strong>Pandora Q1 2026 results and carbon labelling &mdash; National Jeweler, "Pandora to Add Carbon Footprint Info to Lab-Grown Diamonds" (6 May 2026); Pandora Q1 2026 results release.</strong> Pandora's lab-grown diamond jewellery generated <strong>DKK 75 million (~$11.8 million) in Q1 2026</strong>, roughly 1% of total sales, with like-for-like growth <strong>down 15% year on year</strong> &mdash; a double-digit decline the company acknowledged and is responding to by changing how it markets the category. Group Q1 2026 revenue was DKK 7.12 billion (~$1.1 billion), down 3% at actual exchange rates and up 2% organically, with like-for-like flat and North America down 2% on weaker consumer sentiment among lower- and middle-income shoppers. Store count 2,796, of which 2,178 are Pandora-operated. Full-year guidance maintained at &minus;1% to +2% organic growth with EBIT margin of 21&ndash;22%. Chief executive <strong>Berta de Pablos-Barbier</strong> announced on the earnings call that Pandora will add carbon-footprint labelling to its lab-grown diamonds so consumers can compare climate impact against mined stones, stating that Pandora's lab-grown diamonds carry emissions 90% lower than a mined diamond of the same size. Important caveat reported by National Jeweler: while Pandora commissioned its own third-party study, the 90% comparison is benchmarked to a 2019 study commissioned by the Diamond Producers Association (now the Natural Diamond Council) &mdash; a study now seven years old which, per Rob Bates of The Jewelry Wire, the US National Advertising Division deemed faulty for insufficient data. Separately, Pandora is moving to platinum-plated jewellery to manage silver and gold price volatility, targeting at least 50% of relevant silver jewellery converted by 2027. <a href="https://nationaljeweler.com/articles/14941-pandora-to-add-carbon-footprint-info-to-lab-grown-diamonds" target="_blank">nationaljeweler.com</a></li><li id="s26"><strong>Brilliant Earth FY2025 and Q1 2026 &mdash; Brilliant Earth Group, Inc. (Nasdaq: BRLT) earnings releases, 5 March 2026 and 6 May 2026; SEC Form 8-K filings; Q4 2025 and Q1 2026 earnings calls.</strong> Full-year 2025 net sales of <strong>$437.5 million, up 3.6%</strong>, with Q4 net sales of $124.4 million (up 4.1%) the highest quarterly figure in company history. Full-year gross margin 57.5%; Q4 gross margin 55.9%, down 370 basis points year on year on significantly higher metal prices and tariff headwinds. Full-year adjusted EBITDA $12 million (2.7% margin), Q4 $4.2 million (3.3%). Total orders up 6.5% in the quarter and 13% for the year; repeat orders up 15% in the quarter and 13% for the year. Q1 2026: net sales <strong>$99.5 million, up 6%</strong>, at the high end of guidance and above consensus, with total orders and average order value each up 3% and average selling price up across the assortment; fine-jewellery bookings up 33%. Gross margin compressed <strong>430 basis points to 54.3%</strong> from 58.6%, attributed to historically high precious-metal prices and tariff impacts rather than diamond costs; adjusted EBITDA was <strong>negative $4.7 million</strong> (&minus;4.7% margin) against positive $1.1 million in Q1 2025, reflecting Q1 seasonality. Operating model is asset-light and make-to-order with inventory turns of 4.1&times; and a virtual inventory of natural and lab-grown stones. The company operates 42 showrooms, opened its first flagship in Beverly Hills in Q1 2026 and expects two further showrooms in 2026. Founded 2005, offering lab-grown diamonds since 2012. <a href="https://investors.brilliantearth.com/news-releases/news-release-details/brilliant-earth-reports-record-quarterly-net-sales" target="_blank">investors.brilliantearth.com</a> &middot; <a href="https://www.sec.gov/Archives/edgar/data/0001866757/000162828026031258/brlt-1q26earningsrelease.htm" target="_blank">sec.gov (Q1 2026 8-K)</a></li><li id="s27"><strong>Signet Jewelers FY2026 &mdash; Signet Jewelers Limited (NYSE: SIG) Annual Report on Form 10-K for fiscal 2026 (52 weeks ended 31 January 2026); Q4 FY2026 earnings call, 19 March 2026; National Jeweler.</strong> Signet describes itself as the largest specialty jewellery retailer in the US, operating <strong>2,582 stores</strong> with an estimated <strong>8.5% share of the $63 billion 2025 US jewellery and watch market</strong>. Bridal jewellery represented <strong>49% of merchandise sales</strong> and <strong>lab-grown diamond products 27% of merchandise sales</strong>. On the Q4 call, management said lab-grown penetration was under 50% in bridal while lab-grown fashion grew to just over 20% during the holiday period, up from roughly 15% earlier in the year, and characterised lab-grown pricing as stable without much volatility. Merchandise average unit retail rose approximately 5% in Q4 and 7% for the full year, with growth in both bridal and fashion. Operating income rose to $393.1 million (5.8% of sales) from $110.7 million (1.7%). Chief executive J.K. Symancyk framed the year as delivering at the high end of guidance against unprecedented tariffs, record gold costs and a measured consumer. Under the Grow Brand Love strategy, Signet will prioritise Kay, Zales and Jared, close approximately 100 stores in fiscal 2027, sunset the standalone JamesAllen.com site into Blue Nile during Q2 FY2027, fold Rocksbox into Kay, and <strong>reposition Blue Nile as a premium natural-diamond brand</strong>. FY2027 guidance: total revenue $6.6&ndash;6.9 billion, comparable sales &minus;1.25% to +2.5%. Chief operating and financial officer Joan Hilson identified increased lab-grown diamond mix as one of the levers for mitigating tariff and commodity headwinds. <a href="https://www.stocktitan.net/sec-filings/SIG/10-k-signet-jewelers-ltd-files-annual-report-2f20552203bf.html" target="_blank">stocktitan.net (FY2026 10-K)</a> &middot; <a href="https://nationaljeweler.com/articles/14798-signet-jewelers-to-close-100-stores-shutter-james-allen-banner" target="_blank">nationaljeweler.com</a></li><li id="s28"><strong>Diamond Foundry corporate facts &mdash; Optica speaker biography; Axios; company disclosures.</strong> <em>Correction to earlier editions of this dashboard, which attributed the company's founding to "Wadhwa Diamonds + Leonardo DiCaprio". That attribution was incorrect.</em> Diamond Foundry was founded in <strong>2012 by R. Martin Roscheisen</strong>, together with a group of engineers from Nanosolar, the solar technology company he founded in 2002 and led until 2010. Roscheisen holds a PhD from Stanford and remains chief executive. Leonardo DiCaprio is an early investor and public backer of the company, not a founder. The company operates a CVD production facility in Washington State and began construction of a foundry at Trujillo in Cáceres, Spain, in 2023, supported by &euro;80 million in European Union grants and sited near a solar farm, with second and third construction stages planned from 2026; at full build the Spanish plant was targeted at 20 million carats of rough per year. Vrai is the group's direct-to-consumer jewellery brand. In mid-2026 Diamond Foundry raised rough prices by approximately 25%. <a href="https://www.optica.org/events/industry_events/2026/global_photonics_economic_forum/speakers/r_martin_roscheisen/" target="_blank">optica.org</a> &middot; <a href="https://www.axios.com/pro/retail-deals/2023/07/13/vrai-financing-lab-grown-diamond-foundry" target="_blank">axios.com</a></li></ol></section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+<script>
+(function(){document.querySelectorAll('table').forEach(function(t){if(t.parentNode&&t.parentNode.classList&&t.parentNode.classList.contains('tw'))return;var w=document.createElement('div');w.className='tw';t.parentNode.insertBefore(w,t);w.appendChild(t);});})();
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6 radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.55),rgba(255,255,255,0) 60%) no-repeat;scroll-behavior:smooth}
+body{margin:0;background:transparent;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.56  0 0 0 0 0.47  0 0 0 0.42 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");background-size:260px 260px}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 55%,rgba(90,70,45,.07) 100%)}
+a{color:#141412;text-decoration:none}
+table{border-collapse:collapse;width:100%}
+ol{padding-left:20px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+<div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#141412;max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 96px">
+
+  <nav style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;padding-top:32px">
+    <a href="Saphia Home.dc.html" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#6f6a62;margin-top:3px">SCARCE ASSETS INTELLIGENCE</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px">
+      <a href="Saphia Home.dc.html" style="color:#6f6a62" style-hover="color:#141412">Home</a>
+      <a href="Saphia About.dc.html" style="color:#6f6a62" style-hover="color:#141412">About</a>
+      <a href="Saphia Methodology.dc.html" style="color:#6f6a62" style-hover="color:#141412">Methodology</a>
+      <a href="Saphia Markets.dc.html" style="color:#6f6a62" style-hover="color:#141412">Markets</a>
+      <a href="contact.html" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
+    </div>
+  </nav>
+
+  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:#6f6a62;text-transform:uppercase;padding-top:56px">
+    <a href="Saphia Markets.dc.html" style="color:#6f6a62" style-hover="color:#141412">Markets</a> / {{ sectorName }}
+  </div>
+  <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(34px,5.6vw,56px);font-weight:400;margin:14px 0 8px;line-height:1.1">{{ sectorName }}</h1>
+  <p style="font-family:'EB Garamond',Georgia,serif;font-style:italic;font-size:19px;color:#6f6a62;margin:0 0 40px;max-width:64ch">{{ positioning }}</p>
+
+  <dc-import name="Market Snapshot" data-as-of="{{ dataAsOf }}" price-regime="{{ priceRegime }}" origins="{{ origins }}" markets="{{ markets }}" supply-concentration="{{ supplyConcentration }}" supply-confidence="{{ supplyConfidence }}" liquidity="{{ liquidity }}" liquidity-confidence="{{ liquidityConfidence }}" scarcity="{{ scarcity }}" scarcity-confidence="{{ scarcityConfidence }}" provenance-risk="{{ provenanceRisk }}" provenance-confidence="{{ provenanceConfidence }}" style="margin:0 -24px 8px" hint-size="100%,560px"></dc-import>
+
+  <div style="padding:48px 0;border-top:1px solid #dcd4c6;margin-top:40px;color:#6f6a62">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:16px">Dashboard body</div>
+    <p style="max-width:64ch">The full sector dashboard, Roman-numeral sections (Supply, Demand, Trade, Price formation, Provenance, Sources), the sector's own palette and layout motif, floating prev/next/top controls, mounts here. Drop the dashboard's own markup in place of this placeholder; the chrome above and below stays constant.</p>
+  </div>
+
+  <section style="padding:40px 0;border-top:1px solid #dcd4c6">
+    <h2 style="font-family:'EB Garamond',Georgia,serif;font-size:24px;font-weight:400;margin:0 0 20px">Sources</h2>
+    <ol style="font-size:14px;color:#6f6a62;line-height:1.8;max-width:72ch">
+      <sc-for list="{{ sources }}" as="src" hint-placeholder-count="3">
+        <li id="{{ src.id }}">{{ src.text }}</li>
+      </sc-for>
+    </ol>
+  </section>
+
+  <footer style="margin-top:48px;padding-top:24px;border-top:1px solid #dcd4c6;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 32px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase">
+    <div style="font-family:'EB Garamond',Georgia,serif;font-size:20px;letter-spacing:.14em;color:#141412;text-transform:none">ΣΟΦΙΑ</div>
+    <div>Scarce assets. One perspective.</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1120},&quot;sectorName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Fine Wine&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;positioning&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;A market where liquidity concentrates in a small band of Bordeaux and Burgundy names.&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    return {
+      sectorName: p.sectorName ?? "Fine Wine",
+      positioning: p.positioning ?? "A market where liquidity concentrates in a small band of Bordeaux and Burgundy names.",
+      dataAsOf: p.dataAsOf ?? "16 Sep 2026",
+      priceRegime: p.priceRegime ?? "Softening since the 2022 peak; en primeur volumes down across three consecutive vintages.",
+      origins: p.origins ?? "Bordeaux · Burgundy · Champagne · Tuscany · Napa Valley",
+      markets: p.markets ?? "London (Liv-ex) · Hong Kong · New York · Geneva",
+      supplyConcentration: p.supplyConcentration ?? "Low",
+      supplyConfidence: p.supplyConfidence ?? "High",
+      liquidity: p.liquidity ?? "Medium",
+      liquidityConfidence: p.liquidityConfidence ?? "High",
+      scarcity: p.scarcity ?? "Medium",
+      scarcityConfidence: p.scarcityConfidence ?? "High",
+      provenanceRisk: p.provenanceRisk ?? "Medium",
+      provenanceConfidence: p.provenanceConfidence ?? "High",
+      sources: p.sources ?? [
+        { id: "src-1", text: "Liv-ex, Fine Wine 1000 index and trading data, accessed Sep 2026." },
+        { id: "src-2", text: "Decanter, en primeur volume reporting, 2023–2026 vintages." },
+        { id: "src-3", text: "Comité Champagne, shipment statistics 2025." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#f4efe6">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<rect width="200" height="200" fill="#f4efe6"/>
+<text x="100" y="112" font-family="Georgia,serif" font-size="56" fill="#141412" text-anchor="middle">Σ</text>
+</svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6 radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.55),rgba(255,255,255,0) 60%) no-repeat;scroll-behavior:smooth}
+body{margin:0;background:transparent;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.56  0 0 0 0 0.47  0 0 0 0.42 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");background-size:260px 260px}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 55%,rgba(90,70,45,.07) 100%)}
+a{color:#141412;text-decoration:none}
+table{border-collapse:collapse;width:100%}
+th{text-align:left}
+tbody tr:hover td,table tr:hover td{background:#efe8d8}
+table tr td,table tr th{transition:background .1s}
+a:focus-visible{outline:2px solid #a8825a;outline-offset:2px;border-radius:1px}
+@media(max-width:900px){
+  div[style*="grid-template-columns:1fr 2.2fr"]{grid-template-columns:1fr!important;gap:20px!important}
+  nav[aria-label="Methodology contents"]{position:static!important;max-height:none!important}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+<div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.65;color:#141412;max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 96px">
+
+  <nav style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;padding-top:32px">
+    <a href="Saphia Home.dc.html" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#6f6a62;margin-top:3px">SCARCE ASSETS INTELLIGENCE</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px">
+      <a href="Saphia Home.dc.html" style="color:#6f6a62" style-hover="color:#141412">Home</a>
+      <a href="Saphia About.dc.html" style="color:#6f6a62" style-hover="color:#141412">About</a>
+      <a href="Saphia Methodology.dc.html" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Methodology</a>
+      <a href="Saphia Markets.dc.html" style="color:#6f6a62" style-hover="color:#141412">Markets</a>
+      <a href="contact.html" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
+    </div>
+  </nav>
+
+  <div style="display:grid;grid-template-columns:1fr 2.2fr;gap:56px;align-items:start;margin:64px 0 8px">
+    <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(28px,4.4vw,40px);font-weight:400;margin:0;line-height:1.08">Methodology</h1>
+    <div>
+      <p style="color:#6f6a62;margin:0;max-width:72ch;font-size:17px;text-wrap:pretty">ΣΟΦΙΑ analyses markets that have almost nothing in common. Gold has an exchange, a daily fix and a century of audited statistics; oud has no benchmark, no production figure and no grading authority. A method that only works where the data is good isn't much of a method. This page sets out how both are analysed, and everything between them, in a way a reader can check.</p>
+      <div style="width:56px;height:2px;background:#a8825a;margin:20px 0 0"></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 2.2fr;gap:56px;align-items:start;margin-top:48px">
+    <nav aria-label="Methodology contents" style="position:sticky;top:32px;display:flex;flex-direction:column;gap:2px;padding-bottom:40px;max-height:calc(100vh - 64px);overflow-y:auto">
+      <sc-for list="{{ toc }}" as="item" hint-placeholder-count="9">
+        <a href="{{ item.href }}" style="{{ item.style }};transition:color .15s,border-color .15s" style-hover="color:#141412">{{ item.label }}</a>
+      </sc-for>
+    </nav>
+    <div>
+
+  <h2 id="sequence" style="font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:400;margin:0 0 12px">The analytical sequence</h2>
+  <p style="max-width:64ch">Every sector is examined through the same seven questions, in the same order.</p>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412;letter-spacing:.04em">&nbsp;</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412;letter-spacing:.04em">Question</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412;letter-spacing:.04em">What it establishes</th></tr>
+    <sc-for list="{{ sequence }}" as="row" hint-placeholder-count="7">
+      <tr><td style="font-weight:500;white-space:nowrap;padding:9px 10px;border-bottom:1px solid #dcd4c6;vertical-align:top">{{ row.n }}</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6;vertical-align:top;font-weight:500">{{ row.q }}</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6;vertical-align:top">{{ row.d }}</td></tr>
+    </sc-for>
+  </table></div>
+  <p style="max-width:64ch">The sequence is the product. A reader who understands the rare-earth separation bottleneck can read the Port benefício, the Habanos monopoly and the De Beers sight as versions of one mechanism: a controlled stage that concentrates pricing power away from the producer. Those parallels are drawn on the pages and always tagged as inference.</p>
+  <h3 style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Two formats</h3>
+  <p style="max-width:64ch">Markets differ in what can be known about them. A <em>data-driven</em> page is used where a statistical body publishes a series; an <em>overview</em> page where the market is defined by institutions, history and custom. The format changes the layout, never the sequence, the evidence rules or the standard of proof.</p>
+
+  <h2 id="appears" style="font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:400;margin:56px 0 12px">What may appear on a page</h2>
+  <h3 style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Cited or absent</h3>
+  <p style="max-width:64ch">Every number on a page links to a source in the list below it, and every source in that list is used somewhere in the text. If a figure matters but we can't find a reliable source for it, we say so and leave it out rather than guess. Telling you what we don't know is still useful; a number with no source behind it isn't.</p>
+  <h3 style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Source hierarchy</h3>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Standing</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Sources</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6;vertical-align:top">Preferred</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Statistical agencies, regulators and central banks, trade bodies publishing their own data, company filings, peer-reviewed research</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6;vertical-align:top">Used with attribution</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Trade press reporting primary data; auction-house results</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6;vertical-align:top">Marked, never headlined</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Market-research vendor sizing, merchant price guides, industry-funded bodies where the funder has an interest in the conclusion</td></tr>
+  </table></div>
+  <h3 style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Prices</h3>
+  <p style="max-width:64ch">No live prices or index levels. ΣΟΦΙΑ pages are static and would be wrong within days. Historical points appear with their dates and remain as history; forecasts are recorded as a named house's view at the date made and are never quietly updated, because a forecast that was wrong is more informative than one silently corrected.</p>
+  <h3 style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Discrepancies</h3>
+  <p style="max-width:64ch">Where credible sources conflict, both figures are shown, the one used is stated with the reason, and the confidence is tagged. Silent reconciliation is not permitted. In several markets the disagreement is the finding: the World Platinum Investment Council's own 2025 platinum deficit moved from 966 koz to 692 koz to 1,082 koz across three quarterly reports, and a reader who sees only the final number learns less than one who sees the path.</p>
+
+  <h2 id="tags" style="font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:400;margin:56px 0 12px">Tags</h2>
+  <h3 style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Confidence, how far the claim can be trusted</h3>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Tag</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Basis</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">High</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Primary or institutional source, checked against at least one independent statement</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Med</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Secondary report of primary data, or a single institutional source not independently confirmed</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Low</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Vendor, retailer, advocacy or single trade source; shown for orientation, not for reliance</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Hyp</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">ΣΟΦΙΑ's own inference or cross-market parallel; not a fact about the world</td></tr>
+  </table></div>
+  <h3 style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Data label, how the number was made</h3>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Label</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Meaning</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Reported</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Stated by the cited source</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Derived</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Calculated by ΣΟΦΙΑ from reported figures; the calculation is shown</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Estimate</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">An approximation, by the source or by ΣΟΦΙΑ, with its basis stated</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Forecast</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Forward-looking, recorded with its date and author</td></tr>
+  </table></div>
+
+  <h2 id="scales" style="font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:400;margin:56px 0 12px">The Market Snapshot</h2>
+  <p style="max-width:64ch">A compact block at the head of each sector page. Eight fields, four of them rated; each rating carries a confidence tag and cites the section that evidences it. A rating is a claim, held to the same standard as any other claim.</p>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Field</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Content</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Price regime</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">One dated qualitative line; never a number</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Primary origins</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Three to five places</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Principal markets</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Three to five places</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Supply concentration</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Low / Medium / High, Scale A</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Liquidity</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Low / Medium / High, Scale B</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Scarcity</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Low / Medium / High, Scale C</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Provenance risk</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Low / Medium / High, Scale D</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Data as of</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Compile date</td></tr>
+  </table></div>
+
+  <h3 id="scale-a" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Scale A, Supply concentration</h3>
+  <p style="max-width:64ch">Where the power to set price sits, not where the material comes out of the ground.</p>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Band</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Criterion</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">High</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Top three suppliers or controllers ≥ 75%, or a single supplier or controller ≥ 50%</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Medium</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Top three between 50% and 74%</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Low</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Top three below 50%</td></tr>
+  </table></div>
+  <p style="max-width:64ch">Every market fits into exactly one of these three bands. We rate whichever stage of the chain actually holds the power to set price, wherever that turns out to be, and say plainly which stage that is. Rare earths are rated on separation, not mining, because that's the real bottleneck. Cocoa is rated on two marketing boards, not on the millions of farms behind them. Port is rated on the benefício and two family groups, not on its 19,000 growers.</p>
+
+  <h3 id="scale-b" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Scale B, Liquidity</h3>
+  <p style="max-width:64ch">Whether a standard unit can be turned into money at a price the seller could have known in advance.</p>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Band</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Criterion</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">High</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">An exchange or daily reference price exists and standard units clear daily</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Medium</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">No exchange, but a regular auction, index or dealer market gives price discovery within weeks</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Low</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Private, irregular or ceremonial sales; no reference price</td></tr>
+  </table></div>
+  <p style="max-width:64ch">Liquidity is rated for the market, not the moment. A whisky cask and a bottle of the same whisky rate differently, and the page says which is rated.</p>
+
+  <h3 id="scale-c" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Scale C, Scarcity</h3>
+  <p style="max-width:64ch">Whether supply can respond to price, and how quickly.</p>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Band</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Criterion</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">High</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Supply is fixed or falling and cannot be expanded by investment within five years</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Medium</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Supply responds with a lag of three to five years</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Low</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Supply responds within a year or two, or a substitute exists at scale</td></tr>
+  </table></div>
+  <p style="max-width:64ch">Many of these markets have a scarce apex and an abundant base, wild white truffles against farmed black, Ōma bluefin against ranched, a pure white gyrfalcon against a hybrid. The page rates the apex and says so. Substitution pulls a rating toward Low regardless of what the natural supply does.</p>
+
+  <h3 id="scale-d" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;font-weight:500;margin:32px 0 10px;color:#a8825a;text-transform:uppercase">Scale D, Provenance risk</h3>
+  <p style="max-width:64ch">The chance that origin, species, grade or lineage is misstated, weighed against the strength of the control that would catch it.</p>
+  <div style="overflow-x:auto"><table style="font-size:14.5px;margin:12px 0 24px">
+    <tr><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Band</th><th style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#6f6a62;padding:9px 10px;border-bottom:1px solid #141412">Criterion</th></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">High</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Documented mislabelling above 20% in market studies, or no independent verification exists</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Medium</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">Certification exists but is voluntary, producer-run, or unable to detect substitution</td></tr>
+    <tr><td style="font-weight:500;padding:9px 10px;border-bottom:1px solid #dcd4c6">Low</td><td style="padding:9px 10px;border-bottom:1px solid #dcd4c6">A mandatory, independent, forensic control exists at the point of trade</td></tr>
+  </table></div>
+  <p style="max-width:64ch">The distinction that matters is between certifying paperwork and certifying contents. A CITES caviar label, a Kimberley Process certificate and a phytosanitary certificate all attest that a document was issued; none attests that the tin, the parcel or the box holds what the document describes. A 2023 genetic study of 149 Lower-Danube caviar samples found 21% illegally wild-caught and 32% deceptive to the consumer, every one of them labelled.</p>
+  <div style="border-left:2px solid #a8825a;padding:8px 18px;color:#6f6a62;max-width:64ch;margin:20px 0">No composite score. A composite would require weighting four scales against each other, and no defensible weighting exists across markets as different as copper and truffles. The four ratings are published separately and the reader weighs them.</div>
+
+  <h2 id="refresh" style="font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:400;margin:56px 0 12px">Refresh, correction and versioning</h2>
+  <p style="max-width:64ch"><strong>Data as of.</strong> Every page carries the date its figures were compiled. Nothing on a page is presented as current beyond that date.</p>
+  <p style="max-width:64ch"><strong>Refresh.</strong> A refresh re-verifies figures against current primary sources, updates what has changed with new dates, retains the history, and logs corrections in the relevant source entry. Design and structure are not altered in a refresh.</p>
+  <p style="max-width:64ch"><strong>Ratings.</strong> Snapshot ratings are reviewed at refresh, not between refreshes. A rating that changes carries a note of what changed and why.</p>
+  <p style="max-width:64ch"><strong>Corrections.</strong> Errors are corrected on the page and noted in the source entry, not removed.</p>
+
+  <h2 id="glossary" style="font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:400;margin:56px 0 12px">Glossary</h2>
+  <p style="max-width:64ch">Terms that come up across the dashboards and aren't defined where they appear.</p>
+  <dl style="max-width:74ch;margin:16px 0 0">
+    <sc-for list="{{ glossary }}" as="g" hint-placeholder-count="14">
+      <div style="padding:14px 0;border-bottom:1px solid #dcd4c6">
+        <dt style="font-family:'EB Garamond',Georgia,serif;font-size:17px;margin:0 0 4px">{{ g.t }}</dt>
+        <dd style="margin:0 0 6px;color:#6f6a62;font-size:14.5px;line-height:1.55">{{ g.d }}</dd>
+        <dd style="margin:0;display:flex;flex-wrap:wrap;gap:6px 10px">
+          <sc-for list="{{ g.sectorLinks }}" as="s" hint-placeholder-count="1">
+            <a href="{{ s.href }}" style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a8825a;border-bottom:1px solid #a8825a" style-hover="color:#141412">{{ s.name }} →</a>
+          </sc-for>
+        </dd>
+      </div>
+    </sc-for>
+  </dl>
+
+    </div>
+  </div>
+
+  <footer style="margin-top:96px;padding-top:24px;border-top:1px solid #dcd4c6;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 32px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase">
+    <div style="font-family:'EB Garamond',Georgia,serif;font-size:20px;letter-spacing:.14em;color:#141412;text-transform:none">ΣΟΦΙΑ</div>
+    <div>Scarce assets. One perspective.</div>
+  </footer>
+
+  <div style="position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:{{ ctlOpacity }};pointer-events:{{ ctlPointer }};transition:opacity .2s">
+    <button type="button" onClick="{{ scrollUp }}" disabled="{{ atTop }}" aria-label="Previous section" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid #dcd4c6;background:#faf7f0;color:#7d5f3f;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1;cursor:pointer;padding:0;opacity:{{ atTopOpacity }}">↑</button>
+    <button type="button" onClick="{{ scrollDown }}" disabled="{{ atBottom }}" aria-label="Next section" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid #dcd4c6;background:#faf7f0;color:#7d5f3f;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1;cursor:pointer;padding:0;opacity:{{ atBottomOpacity }}">↓</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { scrollY: 0, atTop: true, atBottom: false, activeId: "sequence" };
+
+  tocIds() { return ["sequence", "appears", "tags", "scales", "scale-a", "scale-b", "scale-c", "scale-d", "refresh", "glossary"]; }
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const y = window.scrollY;
+      let active = this.state.activeId;
+      const ids = this.tocIds();
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top + window.scrollY - 90 <= y) active = id;
+      }
+      this.setState({
+        scrollY: y,
+        atTop: y <= 8,
+        atBottom: (window.innerHeight + y) >= document.body.scrollHeight - 4,
+        activeId: active
+      });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    window.addEventListener("resize", this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._onScroll);
+    window.removeEventListener("resize", this._onScroll);
+  }
+  sectionStops() {
+    const list = [document.body];
+    document.querySelectorAll("h2").forEach(s => { if (!list.includes(s)) list.push(s); });
+    return list;
+  }
+  sectionTops() {
+    return this.sectionStops()
+      .map(el => el === document.body ? 0 : (el.getBoundingClientRect().top + window.scrollY - 70))
+      .sort((a, b) => a - b);
+  }
+  scrollDir(dir) {
+    const y = window.scrollY, t = this.sectionTops();
+    let target = null;
+    if (dir > 0) { for (const v of t) { if (v > y + 8) { target = v; break; } } if (target === null) target = document.body.scrollHeight; }
+    else { for (let i = t.length - 1; i >= 0; i--) { if (t[i] < y - 8) { target = t[i]; break; } } if (target === null) target = 0; }
+    window.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+  }
+
+  tocStyle(id, indent) {
+    const active = this.state.activeId === id;
+    return "font-size:" + (indent ? "12.5px" : "13.5px") + ";padding-left:" + (indent ? "14px" : "0") +
+      ";border-left:2px solid " + (active ? "#a8825a" : "transparent") + ";margin-left:-13px;padding-left:" + (indent ? "27px" : "13px") +
+      ";color:" + (active ? "#141412" : "#6f6a62") + ";font-weight:" + (active ? "500" : "300");
+  }
+
+  renderVals() {
+    const on = this.state.scrollY > 260;
+    const toc = [
+      { id: "sequence", label: "The analytical sequence", indent: false },
+      { id: "appears", label: "What may appear on a page", indent: false },
+      { id: "tags", label: "Tags", indent: false },
+      { id: "scales", label: "The Market Snapshot", indent: false },
+      { id: "scale-a", label: "Scale A, Supply concentration", indent: true },
+      { id: "scale-b", label: "Scale B, Liquidity", indent: true },
+      { id: "scale-c", label: "Scale C, Scarcity", indent: true },
+      { id: "scale-d", label: "Scale D, Provenance risk", indent: true },
+      { id: "refresh", label: "Refresh & versioning", indent: false },
+      { id: "glossary", label: "Glossary", indent: false }
+    ].map(t => ({ ...t, href: "#" + t.id, style: this.tocStyle(t.id, t.indent) }));
+    return {
+      toc,
+      ctlOpacity: on ? 1 : 0, ctlPointer: on ? "auto" : "none",
+      atTop: this.state.atTop, atBottom: this.state.atBottom,
+      atTopOpacity: this.state.atTop ? 0.32 : 1, atBottomOpacity: this.state.atBottom ? 0.32 : 1,
+      scrollUp: () => this.scrollDir(-1), scrollDown: () => this.scrollDir(1),
+      sequence: [
+        { n: 1, q: "Supply", d: "What exists, who has it, and what it costs to bring out" },
+        { n: 2, q: "Demand", d: "Who buys it, for what, and what they would substitute" },
+        { n: 3, q: "Concentration", d: "Where along the chain the power to set price actually sits" },
+        { n: 4, q: "Liquidity", d: "Whether a standard unit can be sold, to whom, at a knowable price" },
+        { n: 5, q: "Scarcity", d: "Whether supply can respond to price, and over what horizon" },
+        { n: 6, q: "Provenance", d: "Whether the thing is what the label says, and who verifies it" },
+        { n: 7, q: "Price formation", d: "How those six combine into the price a buyer pays" }
+      ],
+      glossary: [
+        { t: "Benefício", d: "Port's annual quota: the volume of must the Douro's growers are allowed to fortify into Port rather than sell as ordinary wine, set each year by the IVDP.", sectors: [["Port", "port_dashboard.html"]] },
+        { t: "Sight / sightholder", d: "De Beers' rough-diamond distribution system: a fixed group of buyers (\"sightholders\") receive pre-set boxes of rough at pre-set prices, several times a year.", sectors: [["Natural Diamonds", "natural_diamonds_dashboard.html"]] },
+        { t: "Doré", d: "Unrefined gold-silver bullion straight from a mine, still needing refining before it can be sold as investment-grade metal.", sectors: [["Gold", "gold_dashboard.html"], ["Silver", "silver_dashboard.html"]] },
+        { t: "Good delivery bar", d: "A gold or silver bar meeting the LBMA's standard for weight, purity and refiner accreditation, the form that trades and settles on the London market.", sectors: [["Gold", "gold_dashboard.html"], ["Silver", "silver_dashboard.html"]] },
+        { t: "Kimberley Process certificate", d: "The international scheme certifying a diamond parcel's export paperwork; it attests the paperwork was issued correctly, not that the stones inside match it.", sectors: [["Natural Diamonds", "natural_diamonds_dashboard.html"]] },
+        { t: "CITES permit", d: "A permit under the Convention on International Trade in Endangered Species, required to export or import regulated wildlife products; like the Kimberley Process, it certifies the document, not the contents.", sectors: [["Caviar", "caviar_dashboard.html"], ["Oud", "oud_dashboard.html"]] },
+        { t: "Marketing board", d: "A state or quasi-state body that buys a crop from farmers at a set price and controls its export, common in cocoa and similar commodities.", sectors: [["Cocoa", "cocoa_dashboard.html"]] },
+        { t: "Koz / kt", d: "Thousand troy ounces / thousand metric tonnes, the standard units for reporting metal supply, demand and deficits.", sectors: [["Gold", "gold_dashboard.html"], ["Platinum Group Metals", "pgm_dashboard.html"], ["Copper", "copper_dashboard.html"]] },
+        { t: "Deficit / surplus", d: "Whether a market's supply falls short of or exceeds demand in a given period, the usual measure of whether a shortage is building.", sectors: [["Copper", "copper_dashboard.html"], ["Platinum Group Metals", "pgm_dashboard.html"]] },
+        { t: "Spare capacity", d: "Production a supplier could bring online quickly if needed; large spare capacity caps how far a shortage can push price.", sectors: [["Oil & Gas", "oil_gas_dashboard.html"]] },
+        { t: "En primeur", d: "Wine sold before it's bottled, while still ageing in barrel, standard practice for young Bordeaux.", sectors: [["Fine Wine", "fine_wine_dashboard.html"]] },
+        { t: "Bailment", d: "A legal arrangement where one party holds another's property (like a whisky cask in a warehouse) without owning it, distinct from a financial security and outside financial regulation.", sectors: [["Scotch Whisky", "scotch_whisky_dashboard.html"]] },
+        { t: "Grading authority", d: "A body that formally assesses and certifies a physical good's quality (e.g. gemstone grading labs), giving buyers a shared, checkable standard.", sectors: [["Coloured Gemstones", "coloured_gemstones_dashboard.html"], ["Natural Diamonds", "natural_diamonds_dashboard.html"]] },
+        { t: "Provenance risk", d: "The chance that where or what something claims to be, its origin, species or lineage, is wrong, weighed against how good the check on that claim is.", sectors: [["Caviar", "caviar_dashboard.html"], ["Oud", "oud_dashboard.html"], ["Truffles", "truffles_dashboard.html"]] },
+        { t: "Carat (ct)", d: "The unit of weight for gemstones and pearls, 0.2 grams; not to be confused with karat, which measures gold purity.", sectors: [["Natural Diamonds", "natural_diamonds_dashboard.html"], ["Coloured Gemstones", "coloured_gemstones_dashboard.html"], ["Pearls", "pearls_dashboard.html"]] },
+        { t: "Karat (K)", d: "A measure of gold purity out of 24 parts; 24K is pure gold, 18K is 75% gold. Distinct from carat, the gemstone weight unit.", sectors: [["Gold", "gold_dashboard.html"]] },
+        { t: "Troy ounce (oz t)", d: "The standard weight unit for precious metals, about 31.1 grams, heavier than the everyday (avoirdupois) ounce.", sectors: [["Gold", "gold_dashboard.html"], ["Silver", "silver_dashboard.html"], ["Platinum Group Metals", "pgm_dashboard.html"]] },
+        { t: "Barrel (bbl)", d: "The standard unit for trading crude oil, about 159 litres; a legacy of 19th-century wooden oil barrels.", sectors: [["Oil & Gas", "oil_gas_dashboard.html"]] },
+        { t: "Pipe", d: "Port's traditional cask and trading unit, 550 litres; the benefício quota is measured in pipes.", sectors: [["Port", "port_dashboard.html"]] },
+        { t: "Hogshead", d: "A cask of roughly 225 litres, the standard size for maturing and trading Scotch whisky by the cask.", sectors: [["Scotch Whisky", "scotch_whisky_dashboard.html"]] },
+        { t: "Momme", d: "The traditional Japanese unit for pearl size, based on weight; still used alongside millimetre diameter in grading.", sectors: [["Pearls", "pearls_dashboard.html"]] },
+        { t: "Bag (60 kg)", d: "The standard trading unit for green coffee, fixed at 60 kilograms regardless of origin.", sectors: [["Coffee", "coffee_dashboard.html"]] }
+      ].sort((a, b) => a.t.localeCompare(b.t)).map(g => ({ ...g, sectorLinks: g.sectors.map(([name, href]) => ({ name, href })) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

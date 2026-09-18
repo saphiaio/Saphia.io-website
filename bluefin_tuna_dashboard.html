@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bluefin Tuna, ΣΟΦΙΑ</title>
+<meta name="description" content="Bluefin Tuna: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Bluefin Tuna</p>
+  <h1>Bluefin Tuna</h1>
+  <p class="lede">A wild fish pulled back from collapse by international quota, and then auctioned each New Year at a price that has nothing to do with the fish. Japan grades it by eye on the market floor; the world pays for the landing port. This page covers the ceremony, the stock and quota science, and what separates the ceremonial price from the commercial one. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">¥510.3 m</div><div class="l">First-auction tuna, Toyosu, 5 Jan 2026, record; ¥2.1 m/kg <span class="t">Reported</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></div></div><div><div class="v">+60%</div><div class="l">Pacific bluefin catch limits raised for 2025–26 by the IATTC–WCPFC joint group <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div></div>
+</header>
+
+
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Toyosu first-auction records for Ōma bluefin, against a commercial price that has not followed.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Ōma and Japanese coastal fisheries · Mediterranean ranching · Pacific and Southern stocks</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>Japan · United States · European Union · Hong Kong</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>High (wild Ōma)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale C <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+  </dl>
+  <p class="snap-note" style="margin-top:16px">Rated on the wild Ōma tier; ranched and farmed bluefin are abundant and would rate Low on scarcity.</p>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>The first auction</a></li><li><a href="#s-ii"><span>II</span>Stock and quota</a></li><li><a href="#s-v"><span>III</span>Brand economics compared</a></li><li><a href="#s-vi"><span>IV</span>Indicators to monitor</a></li><li><a href="#sources"><span>V</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>The first auction</h2><p class="sub">A ceremony, not a price.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Year</th><th class="n">Winning bid</th><th>Fish</th><th>Buyer</th></tr>
+    <tr><td>2019</td><td class="n">¥333.6 m</td><td>278 kg, Ōma; first New Year auction after the move from Tsukiji</td><td>Kiyomura (Sushi Zanmai)<sup class="r"><a href="#s2">2</a> <a href="#s4">4</a></sup></td></tr>
+    <tr><td>2020–24</td><td class="n">,</td><td>Yamayuki, buying for the Onodera Group, wins five consecutive years<sup class="r"><a href="#s4">4</a></sup></td><td>Yamayuki / Onodera</td></tr>
+    <tr><td>2025</td><td class="n">¥207 m</td><td>Second-highest on record at the time</td><td>Yamayuki / Onodera<sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>2026</td><td class="n">¥510.3 m</td><td>243 kg (AP, CNN) or 234 kg (Nippon.com), Ōma, Aomori; ¥2.1 m/kg; Yamayuki bid to ¥486 m before Kiyomura raised</td><td>Kiyomura (Sushi Zanmai)<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s4">4</a></sup></td></tr>
+  </table></div>
+  <div class="note warn">Discrepancy logged: the 2026 fish is reported at 243 kg by AP, CNN and SeafoodSource and at 234 kg by Nippon.com; both yield roughly ¥2.1 m/kg. Neither weight is chosen here.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s4">4</a></sup> <span class="c c-m">Med</span></div>
+  <p>The <i>ichiban maguro</i> is a good-luck purchase and a marketing budget: two sushi chains compete for the headline, and the weak yen, inbound tourism and their rivalry have pushed the ceremonial price up while underlying commercial bluefin prices have faced downward pressure as Atlantic quotas rise and farmed volumes grow.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup> Toyosu sells roughly 200 fresh and 1,000 frozen tuna a day; the auction floor is green to show off red flesh.<sup class="r"><a href="#s5">5</a></sup> In 2023 a director of an Ōma fisheries company was convicted of under-reporting catches, a reminder that the brand operates inside a quota system.<sup class="r"><a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
+</section><section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Stock and quota</h2><p class="sub">The fish that came back, and the argument about how fast to catch it again.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Stock</th><th>IUCN 2021 reassessment</th><th>Management</th><th>Note</th></tr>
+    <tr><td>Atlantic bluefin (<i>Thunnus thynnus</i>)</td><td>Endangered → Least Concern</td><td>ICCAT quotas, eastern and western stocks</td><td>Rising quotas on recovering stocks; the western Atlantic / Gulf of Mexico population still depleted<sup class="r"><a href="#s5">5</a></sup></td></tr>
+    <tr><td>Pacific bluefin (<i>T. orientalis</i>)</td><td>Vulnerable → Near Threatened</td><td>IATTC–WCPFC joint working group</td><td>Catch limits raised 60% for 2025 and 2026; no harvest strategy adopted in 2025 despite NGO pressure<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Southern bluefin (<i>T. maccoyii</i>)</td><td>Critically Endangered → Endangered</td><td>CCSBT</td><td>Ranched off Port Lincoln, Australia<sup class="r"><a href="#s5">5</a></sup></td></tr>
+  </table></div>
+  <p>The IUCN's own coordinator cautioned that global improvement can mask depleted regional stocks and does not mean the world should eat more tuna.<sup class="r"><a href="#s5">5</a></sup> The 60% Pacific increase was, in the words of a Pew observer, "concerning to some because it was such a quick change".<sup class="r"><a href="#s3">3</a></sup> Farmed and ranched bluefin, wild juveniles fattened in pens, and in Japan full-cycle aquaculture, now supplies a growing share of the commercial market, decoupling everyday sashimi from the Ōma fish on the auction floor.<sup class="r"><a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
+  <div class="note">Diamond parallel: bluefin is the caviar story in reverse order, quotas first, aquaculture second, with the wild fish retaining the premium because the ceremony demands a wild, line-caught, Ōma-landed animal. Provenance ("Ōma") functions exactly as "Kashmir" or "Golconda" does for a stone: a place-name that multiplies the price of an otherwise gradable commodity. <span class="c c-x">Hyp</span></div>
+</section><section id="s-v">
+  <div class="sechead"><h2><em>III</em>Brand economics compared</h2><p class="sub">What the two markets share, and where they diverge.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Dimension</th><th>Bluefin tuna</th><th>Wagyu</th></tr>
+    <tr><td>Supply control</td><td>International quotas (ICCAT, WCPFC, CCSBT); wild stock plus ranching</td><td>Breed registry and prefectural cooperatives; farmed</td></tr>
+    <tr><td>Grading</td><td>Buyer inspection at auction, colour, texture, fat, tail cut</td><td>JMGA carcass grade; BMS 1–12; brand councils</td></tr>
+    <tr><td>Price discovery</td><td>Daily Toyosu auction; ceremonial New Year bid</td><td>Wholesale carcass auctions; brand premiums on top</td></tr>
+    <tr><td>Provenance marker</td><td>Landing port (Ōma) and method</td><td>Prefecture, strain (Tajima), ten-digit serial</td></tr>
+    <tr><td>Substitute</td><td>Farmed / ranched bluefin; other tunas</td><td>Australian and American wagyu; F1 crossbreds</td></tr>
+    <tr><td>Scarcity signal</td><td>Rising ceremonial price, falling commercial price</td><td>A5 at 75%+ of market: the top grade has stopped being scarce</td></tr>
+  </table></div>
+  <p>In both cases the Japanese system grades rigorously and then lets a place-name or a ceremony carry the luxury premium above the grade. The bluefin premium is defensible because the wild fish is genuinely finite; the wagyu premium is under pressure because the grade it rests on has become the norm.<sup class="r"><a href="#s6">6</a> <a href="#s5">5</a></sup> <span class="c c-x">Hyp</span></p>
+</section><section id="s-vi">
+  <div class="sechead"><h2><em>IV</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Toyosu first-auction result</td><td>Tokyo Metropolitan Central Wholesale Market; press, 5 January</td><td>Ceremonial sentiment and yen effect; not a commercial price</td></tr>
+    <tr><td>Toyosu daily tuna volumes and average prices</td><td>Market statistics, monthly</td><td>Commercial bluefin trend; not carried here</td></tr>
+    <tr><td>Stock assessments and catch limits</td><td>ICCAT (November), WCPFC/IATTC joint working group (annual), CCSBT</td><td>Whether the 60% Pacific increase holds; harvest-strategy adoption</td></tr>
+    <tr><td>IUCN Red List reassessments</td><td>IUCN, periodic</td><td>Conservation status by stock</td></tr>
+    
+    
+    
+  </table></div>
+</section><section id="sources"><div class="sechead"><h2><em>V</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src"><li id="s1"><b>CNN / AP</b>, "Bluefin tuna fetches record $3.2 million at Japan's Toyosu market auction", 5 Jan 2026, ¥510 m; 243 kg; Kiyomura; previous record ¥334 m (2019); Ōma; ¥2.1 m/kg.</li><li id="s2"><b>Nippon.com</b>, "The ¥500-Million Tuna", 20 Jan 2026, ¥510.3 m; 234 kg; previous record ¥333.6 m at the first Toyosu New Year auction in 2019.</li><li id="s3"><b>SeafoodSource</b>, "Top tuna at Toyosu sells for USD 3.2 million", 5 Jan 2026, IATTC–WCPFC joint working group 2024 vote to raise Pacific bluefin catch limits 60% for 2025 and 2026; no harvest strategy adopted in 2025; Pew and ISSF positions.</li><li id="s4"><b>Nippon.com</b>, "Big Spending on a Big Fish", 26 Jan 2026, ¥2.1 m/kg; Yamayuki/Onodera five consecutive wins; 2025 bid ¥207 m; bidding sequence to ¥486 m; 2019 fish 278 kg.</li><li id="s5"><b>Toyosu Fish Market guide</b>, "Bluefin Tuna Auction Record Prices Explained (2026)", IUCN 2021 reassessment by stock (verbatim categories); Beth Polidoro quotation; 2025–26 trend (weak yen, tourism, rivalry vs. commercial pressure); Ōma under-reporting conviction 2023; c.200 fresh and c.1,000 frozen tuna daily; green floor. <span class="c c-m">Med</span></li><li id="s6"><b>Nikkei Asia</b>, "Top-grade A5 wagyu accounts for over 75% of Japan's market, driving exports", 25 Jun 2026, A5 saturation; inflation-hit domestic consumers; export push.</li></ol></section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+</body>
+</html>

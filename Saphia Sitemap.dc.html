@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6}
+body{margin:0;background:transparent}
+a{color:#141412;text-decoration:none}
+</style>
+</helmet>
+<div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;color:#141412;max-width:1120px;margin:0 auto;padding:48px clamp(20px,4vw,32px) 96px">
+
+  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.28em;color:#6f6a62;text-transform:uppercase;margin-bottom:14px">Site map</div>
+  <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:32px;font-weight:400;margin:0 0 40px">ΣΟΦΙΑ, page structure</h1>
+
+  <div style="display:flex;flex-direction:column;gap:0">
+
+    <div style="border:1px solid #141412;padding:16px 20px;max-width:320px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:#6f6a62;text-transform:uppercase;margin-bottom:4px">Home</div>
+      <a href="Saphia Home.dc.html" style="font-family:'EB Garamond',Georgia,serif;font-size:18px">index.html</a>
+    </div>
+
+    <div style="width:1px;height:32px;background:#dcd4c6;margin-left:20px"></div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:24px;position:relative">
+      <div style="width:20px;height:1px;background:#dcd4c6;margin-top:20px"></div>
+
+      <sc-for list="{{ topLevel }}" as="node" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;min-width:220px">
+          <div style="border:1px solid #dcd4c6;padding:16px 20px;background:#fffdf9">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:#6f6a62;text-transform:uppercase;margin-bottom:4px">{{ node.role }}</div>
+            <a href="{{ node.file }}" style="font-family:'EB Garamond',Georgia,serif;font-size:18px" style-hover="color:#a8825a">{{ node.path }}</a>
+            <div style="font-size:12.5px;color:#6f6a62;margin-top:8px;line-height:1.5;max-width:26ch">{{ node.note }}</div>
+          </div>
+
+          <sc-if value="{{ node.hasChildren }}" hint-placeholder-val="{{ false }}">
+            <div style="width:1px;height:28px;background:#dcd4c6;margin-left:20px"></div>
+            <div style="border:1px dashed #a8825a;padding:14px 18px;background:#fffdf9;max-width:280px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:#a8825a;text-transform:uppercase;margin-bottom:6px">{{ node.childLabel }}</div>
+              <a href="{{ node.childFile }}" style="font-family:'EB Garamond',Georgia,serif;font-size:17px" style-hover="color:#a8825a">{{ node.childPath }}</a>
+              <div style="font-size:12px;color:#6f6a62;margin-top:8px;line-height:1.55">{{ node.childNote }}</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:#6f6a62;margin-top:10px;text-transform:uppercase">↳ embeds <a href="Market Snapshot.dc.html" style="border-bottom:1px solid #a8825a" style-hover="color:#a8825a">Market Snapshot.dc.html</a></div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="margin-top:56px;padding-top:24px;border-top:1px solid #dcd4c6;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;color:#6f6a62;line-height:1.9;max-width:70ch">
+    30 standalone dashboards, each with its own Market Snapshot section styled to match Market Snapshot.dc.html. Saphia Sector Template.dc.html remains as a prop-driven preview/starter for sectors not yet built.
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      topLevel: [
+        { role: "Directory", file: "Saphia Markets.dc.html", path: "markets.html", note: "Six families, filterable, links to every sector.", hasChildren: true,
+          childLabel: "× 30 dashboards", childFile: "gold_dashboard.html", childPath: "e.g. gold_dashboard.html, fine_wine_dashboard.html…",
+          childNote: "Built, standalone pages, Gems & Jewellery, Metals & Energy, Cellar & Collectibles, Aromatics, Crops, Rare Foods." },
+        { role: "Reference", file: "Saphia Methodology.dc.html", path: "methodology.html", note: "Sequence, tags & scales, source hierarchy, refresh policy.", hasChildren: false },
+        { role: "Static", file: "Saphia About.dc.html", path: "about.html", note: "What ΣΟΦΙΑ is, the not-advice position.", hasChildren: false },
+        { role: "Static", file: "contact.html", path: "contact.html", note: "Contact details, separate from About.", hasChildren: false }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6 radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.55),rgba(255,255,255,0) 60%) no-repeat;scroll-behavior:smooth}
+body{margin:0;background:transparent;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.56  0 0 0 0 0.47  0 0 0 0.42 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");background-size:260px 260px}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 55%,rgba(90,70,45,.07) 100%)}
+a{color:#141412;text-decoration:none}
+a:hover{color:#141412}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+<div style="box-sizing:border-box;font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.45;color:#141412;max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 8px;min-height:100vh;height:100vh;display:flex;flex-direction:column">
+
+  <nav style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;padding-top:8px">
+    <a href="Saphia Home.dc.html" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
+      <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#6f6a62;margin-top:3px">SCARCE ASSETS INTELLIGENCE</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px">
+      <a href="Saphia Home.dc.html" style="color:#6f6a62" style-hover="color:#141412">Home</a>
+      <a href="Saphia About.dc.html" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">About</a>
+      <a href="Saphia Methodology.dc.html" style="color:#6f6a62" style-hover="color:#141412">Methodology</a>
+      <a href="Saphia Markets.dc.html" style="color:#6f6a62" style-hover="color:#141412">Markets</a>
+      <a href="contact.html" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
+    </div>
+  </nav>
+
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;align-items:center;padding:8px 0;min-height:0;overflow:hidden;font-size:13px;line-height:1.4">
+  <div style="padding-right:40px;border-right:1px solid #dcd4c6">
+  <div style="width:36px;height:2px;background:#a8825a;margin-bottom:14px"></div>
+  <h2 style="font-family:'EB Garamond',Georgia,serif;font-size:22px;font-weight:400;margin:0 0 10px">About</h2>
+  <p style="margin:0 0 8px">ΣΟΦΙΑ publishes cited, confidence-rated intelligence on a wide variety of scarce-asset markets, diamonds, gold, copper, rare earths, fine wine, Scotch whisky, saffron, oud, caviar and others that share almost nothing except how they should be read.</p>
+  <p style="margin:0">The point isn't how many markets we cover. It's that we look at all of them the same way: supply, demand, concentration, liquidity, scarcity, provenance, price formation, the same seven questions in the same order, no matter the market.</p>
+  </div>
+
+  <div style="padding-right:40px;border-right:1px solid #dcd4c6">
+  <div style="width:36px;height:2px;background:#a8825a;margin-bottom:14px"></div>
+  <h2 style="font-family:'EB Garamond',Georgia,serif;font-size:22px;font-weight:400;margin:0 0 10px">How</h2>
+  <p style="margin:0 0 8px">Every quantitative claim is cited. Every rating carries a confidence tag and a link to the evidence behind it. Where sources disagree, both figures are shown and the choice is explained rather than reconciled away. The full method is published, not summarised.</p>
+  <p style="margin:0"><a href="Saphia Methodology.dc.html" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid #a8825a;padding-bottom:2px;color:#141412" style-hover="color:#a8825a">Read the methodology →</a></p>
+  </div>
+
+  <div>
+  <div style="width:36px;height:2px;background:#a8825a;margin-bottom:14px"></div>
+  <h2 style="font-family:'EB Garamond',Georgia,serif;font-size:22px;font-weight:400;margin:0 0 10px">What ΣΟΦΙΑ is not</h2>
+  <p style="margin:0">ΣΟΦΙΑ publishes market intelligence and data. It does not publish investment advice. Nothing on this site is a recommendation to buy, sell or hold anything, and no page carries a live price or index level.</p>
+  </div>
+  </div>
+
+  <footer style="margin-top:0;padding-top:4px;border-top:1px solid #dcd4c6;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 32px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:#6f6a62;text-transform:uppercase;flex:0">
+    <div style="font-family:'EB Garamond',Georgia,serif;font-size:20px;letter-spacing:.14em;color:#141412;text-transform:none">ΣΟΦΙΑ</div>
+    <div>Scarce assets. One perspective.</div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

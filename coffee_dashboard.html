@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffee, ΣΟΦΙΑ</title>
+<meta name="description" content="Coffee: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.score .v{font-family:var(--mono);font-size:20px;font-weight:500;color:#a8825a}
+.score .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap;color:#7d5f3f}
+.bars .v{text-align:right;color:#7d5f3f}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;border:1px solid #dcd4c6;border-top:3px solid #a8825a;border-radius:6px;padding:14px 16px}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:500;color:#7d5f3f}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:820px){
+.cards{grid-template-columns:1fr}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Coffee</p>
+  <h1>Coffee</h1>
+  <p class="lede">The world's most traded soft commodity after a two-year spike that took arabica to an all-time record in October 2025, followed by a 38% fall and two rallies inside 2026. Record production, record consumption, five consecutive years of falling stocks, a 50% US tariff on Brazilian beans, and the consolidation of the roasting industry into two global champions. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">178.8 m bags</div><div class="l">World production 2025/26 forecast, record (USDA, Dec 2025) <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">173.9 m bags</div><div class="l">World consumption 2025/26, record <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">20.1 m bags</div><div class="l">Ending stocks 2025/26, fifth consecutive decline <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$30,204 /kg</div><div class="l">Best of Panama 2025 auction record, Hacienda La Esmeralda Geisha <span class="t">Reported</span><sup class="r"><a href="#s6">6</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 17 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Arabica at historically elevated levels after the 2024–25 supply shocks; tariff and traceability costs layering on.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Brazil · Vietnam · Colombia · Ethiopia · Indonesia</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>European Union · United States · Japan · China</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale B <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low; Geisha High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Supply</a></li><li><a href="#s-ii"><span>II</span>Price history</a></li><li><a href="#s-iii"><span>III</span>Demand and trade structure</a></li><li><a href="#s-iv"><span>IV</span>The specialty tier</a></li><li><a href="#s-v"><span>V</span>Policy and regulation</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Supply</h2><p class="sub">Two species, two countries, one weather system.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>2025/26 (60-kg bags)</th><th class="n">Volume</th><th class="n">Change</th><th>Note</th></tr>
+    <tr><td>World production</td><td class="n">178.8 m</td><td class="n">+2.0%</td><td>USDA December 2025; June forecast was 178.68 m <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
+    <tr><td>of which arabica</td><td class="n">c.97.0 m</td><td class="n">−1.7%</td><td>USDA June 2025 split <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>of which robusta</td><td class="n">c.81.7 m</td><td class="n">+7.9%</td><td>Recovery in Vietnam; record Indonesia and Ethiopia <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a> <a href="#s1">1</a></sup></td></tr>
+    <tr><td>Brazil</td><td class="n">63.0 m</td><td class="n">−3%</td><td>Arabica down 6 m to 38 m on drought and heat in Minas Gerais and São Paulo; robusta/conilon up; USDA Brasília post forecast 65 m in May <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>Vietnam</td><td class="n">c.29.4–31 m</td><td class="n">+6–7%</td><td>Four-year high; largest robusta producer; exports Jan–Oct 2025 +13.4% <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>World exports</td><td class="n">123.8 m</td><td class="n">+1.9%</td><td>Gains in Vietnam, Indonesia, Honduras offset Brazil and Colombia <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
+  </table></div>
+  <div class="note warn">Discrepancy logged: Brazil's 2025 crop is put at 55.2 m bags by Conab (its September 2025 estimate, 35.2 m arabica) and 63–65 m by USDA. Conab counts the calendar-year harvest on a different basis and has historically run below USDA; both are official. USDA figures are used for the world balance.<sup class="r"><a href="#s2">2</a> <a href="#s1">1</a></sup> <span class="c c-m">Med</span></div>
+  <p>Brazil's own semi-annual report describes a 13% fall in arabica against a 19% rise in robusta for 2025/26, with exports forecast down 2.4% to 40.75 m bags but at record value because of high prices; the 2024/25 export figure was revised up to 44.75 m.<sup class="r"><a href="#s4">4</a></sup> Brazil's minimum guaranteed prices for the 2025/26 harvest were set at BRL 662.04 per bag for arabica and BRL 498.79 for robusta.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Price history</h2><p class="sub">Dated observations of the ICE arabica contract; no current value is carried.</p></div>
+  
+  <div class="cards">
+    <div class="card"><div class="v">$4.3795 /lb</div><div class="l">Arabica all-time record, October 2025 <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
+    <div class="card"><div class="v">−37.8%</div><div class="l">Fall to $2.3885/lb on 9 June 2026 <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
+    <div class="card"><div class="v">c.3×</div><div class="l">Rise in the ICO composite indicator over the five years of stock drawdown <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Date</th><th>Event</th><th>Price reaction reported</th></tr>
+    <tr><td>Jan–Aug 2025</td><td>ICE certified stocks fall; Brazilian drought; frosts</td><td>Sustained rally through the year<sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup></td></tr>
+    <tr><td>6 Aug 2025</td><td>US imposes 50% tariff on Brazilian coffee</td><td>Arabica futures up over 30% through August; importers seek other origins; China increases Brazilian purchases<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>Oct 2025</td><td>Record high $4.3795/lb</td><td>ICO composite averages $3.30/lb in November<sup class="r"><a href="#s5">5</a></sup></td></tr>
+    <tr><td>H1 2026</td><td>Record Brazilian 2026/27 crop expected on a strong biennial cycle; Rabobank sees an 8.9 m bag surplus</td><td>Decline to $2.3885/lb by 9 June<sup class="r"><a href="#s7">7</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Jul–Aug 2026</td><td>Harvest quality concerns; Colombian earthquake disruption; ICE certified arabica stocks near a 26-year low</td><td>Rallies to c.$3.20–3.42/lb<sup class="r"><a href="#s5">5</a> <a href="#s7">7</a></sup></td></tr>
+  </table></div>
+  <p>The structural reading is that five years of falling stocks left the market with no buffer, so weather in Brazil and policy in Washington move price directly. Vietnam's recovery supplies robusta, not arabica, which is why the arabica–robusta spread rather than the headline is the number roasters manage.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Demand and trade structure</h2><p class="sub">A concentrated buy-side facing millions of smallholders.</p></div>
+  
+  <p>Fourteen companies, Caravela, ECOM, Export Trading Company, illycaffè, JDE Peet's, Louis Dreyfus, Neumann Kaffee Gruppe, ofi, Sucafina, Sucden Coffee, Taylors of Harrogate, Touton, UCC and Volcafe, described by one trade commentator as "the entire concentrated buy-side of the global green coffee market", signed a joint procurement framework in April 2026 with no minimum price or enforcement mechanism.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-m">Med</span>, single opinionated source; the list of signatories is factual, the characterisation is the author's.</p>
+  <h3>Consolidation of roasting</h3>
+  <div class="tw"><table>
+    <tr><th>Event</th><th>Date</th><th>Detail</th></tr>
+    <tr><td>Keurig Dr Pepper agrees to acquire JDE Peet's</td><td>25 Aug 2025</td><td>All-cash, €31.85 a share, 33% premium; c.$18 bn; JAB-affiliated Acorn Holdings (69% of votes) committed<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup></td></tr>
+    <tr><td>Offer completes</td><td>1 Apr 2026</td><td>96.22% of shares acquired; delisting from Euronext Amsterdam 30 Apr 2026; JDE Peet's 2025 sales €9.9 bn, 21,000 staff<sup class="r"><a href="#s11">11</a></sup></td></tr>
+    <tr><td>Planned separation</td><td>After an interim period</td><td>"Global Coffee Co.", the world's largest pure-play coffee company, c.$16 bn combined sales, split from a North American beverages company; unwinds the 2018 Keurig–Dr Pepper merger<sup class="r"><a href="#s10">10</a> <a href="#s12">12</a></sup></td></tr>
+  </table></div>
+  <p>Consumption reached a forecast record of 173.9 m bags in 2025/26 (+1.3%), and the US remains the largest home-coffee market; Chinese chains such as Luckin expanded into Hong Kong and Malaysia in 2025.<sup class="r"><a href="#s1">1</a> <a href="#s12">12</a></sup> Importers including Starbucks, Hershey and Mondelez warned in 2025 that tariffs would raise prices and pressure volumes.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>The specialty tier</h2><p class="sub">Where coffee behaves like a gemstone.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Best of Panama auction</th><th class="n">Price per kg (green)</th><th>Note</th></tr>
+    <tr><td>2024 record</td><td class="n">c.$13,500</td><td>Previous world record<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>2025, Hacienda La Esmeralda, 98-point lot</td><td class="n">$30,204</td><td>World record; c.$600 per pound green<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>2025, second Esmeralda lot</td><td class="n">$23,608</td><td>Second-highest price on record<sup class="r"><a href="#s6">6</a></sup></td></tr>
+  </table></div>
+  <p>The Geisha varietal, single-farm provenance and competition scoring create a market with no relationship to the ICE contract: scarcity, origin and a grading number set the price, exactly as colour, clarity and certificate do for a stone. The tier is tiny by volume and enormous by margin. <span class="c c-x">Hyp</span></p>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Policy and regulation</h2><p class="sub">Tariffs and traceability.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Measure</th><th>Status</th><th>Effect</th></tr>
+    <tr><td>US 50% tariff on Brazilian coffee</td><td>From 6 Aug 2025</td><td>Largest supplier to the largest consumer; c.30% futures spike; trade diverted <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>US baseline 10% tariff</td><td>2025</td><td>Importers warn of price and volume effects <span class="c c-h">High</span><sup class="r"><a href="#s13">13</a></sup></td></tr>
+    <tr><td>Brazil minimum guaranteed prices</td><td>2025/26 harvest</td><td>BRL 662.04 arabica, BRL 498.79 robusta per bag <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>EU Deforestation Regulation (coffee in scope)</td><td>Implementation timing has shifted; not verified for this page</td><td>Geolocation traceability to plot level for every consignment into the EU <span class="c c-l">Low</span></td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>World supply, demand and stocks</td><td>USDA FAS Coffee: World Markets and Trade, June and December</td><td>The balance; whether stocks rebuild after five years of drawdown</td></tr>
+    <tr><td>Brazil crop estimates</td><td>Conab (four times a year); Safras &amp; Mercado; USDA Brasília GAIN reports</td><td>The swing producer; arabica versus conilon split</td></tr>
+    <tr><td>ICE certified stocks, arabica and robusta</td><td>ICE daily</td><td>Physical tightness that drives spikes</td></tr>
+    <tr><td>ICO composite indicator</td><td>International Coffee Organization, monthly</td><td>Blended price reference; not carried here</td></tr>
+    <tr><td>Weather: La Niña / El Niño and Brazilian flowering (Sep–Nov)</td><td>NOAA; INMET</td><td>Next-crop risk</td></tr>
+    <tr><td>US tariff schedule and EUDR implementation</td><td>USTR; European Commission</td><td>Trade-flow diversion and compliance cost</td></tr>
+    <tr><td>Roaster consolidation and separation</td><td>KDP / Global Coffee Co. filings</td><td>Buy-side concentration</td></tr>
+  </table></div>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. USDA is the primary statistical source; price observations are from market commentary and are dated.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Comunicaffe</b>, "USDA forecasts world coffee production for 2025/26 at an all-time high of 178.8 million bags", 19 Dec 2025, summarising USDA FAS "Coffee: World Markets and Trade", December 2025: production 178.8 m (+2%); consumption 173.9 m (+1.3%); exports 123.8 m; ending stocks 20.1 m, fifth consecutive decline; Brazil 63.0 m with arabica 38.0 m; ICO composite nearly tripled.</li>
+    <li id="s2"><b>Nasdaq / Barchart</b>, "Coffee Prices Supported by Tighter ICE Inventories", 7 Nov 2025, USDA June 2025: 178.68 m; arabica 97.022 m (−1.7%); robusta 81.658 m (+7.9%); Brazil 65 m; Vietnam 31 m; Conab September cut to 55.2 m (arabica 35.2 m); Vietnam exports and 29.4 m forecast; NOAA La Niña probability.</li>
+    <li id="s3"><b>USDA FAS</b>, "Coffee Annual, Brazil" (BR2025-0013), May 2025, 65 m bags; arabica 40.9 m; robusta 24.1 m; exports 41.7 m.</li>
+    <li id="s4"><b>USDA FAS</b>, "Coffee Semi-annual, Brazil" (BR2025-0048), Dec 2025, arabica −13%, robusta +19%; exports 40.75 m at record value; 2024/25 exports 44.75 m; minimum prices BRL 662.04 and 498.79.</li>
+    <li id="s5"><b>Just2Trade</b>, "Coffee price forecast from 2026 to 2030", Sep 2026, record $4.3795/lb Oct 2025; $2.3885 on 9 Jun 2026 (−37.8%); July and August 2026 rallies; ICO $3.30 Nov 2025; certified stocks near 26-year low. Broker commentary; dated observations only. <span class="c c-m">Med</span></li>
+    <li id="s6"><b>World Coffee Beans</b>, "Coffee News August 2025", 12 Sep 2025, 50% US tariff from 6 Aug; futures +30%; Best of Panama records $30,204/kg and $23,608/kg; 2024 record c.$13,500/kg; USDA 178.7 m. <span class="c c-m">Med</span></li>
+    <li id="s7"><b>Trading Economics</b>, Coffee commodity page, 14 Aug 2026, Brazil 2026/27 harvest 97% complete; Rabobank 8.9 m bag surplus; Colombian earthquake; stock replenishment unlikely before November. Used for events, not for price.</li>
+    <li id="s8"><b>Burke Campbell (Substack)</b>, "The Buried Bean, April 2026", list of fourteen signatories to the procurement framework; author's critique. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>Keurig Dr Pepper</b>, press release, 25 Aug 2025, €31.85 per share; 33% premium; Acorn 69%; planned separation into Beverage Co. and Global Coffee Co.</li>
+    <li id="s10"><b>CNBC</b>, "Keurig Dr Pepper to buy Dutch coffee company JDE Peet's in $18 billion deal", 25 Aug 2025, unwinding the 2018 merger; c.$16 bn coffee-company sales; Barclays comment.</li>
+    <li id="s11"><b>Keurig Dr Pepper</b>, "Keurig Dr Pepper Acquires JDE Peet's", 1 Apr 2026, 96.22% acquired; delisting 30 Apr 2026; JDE Peet's €9.9 bn sales, 21,000 employees.</li>
+    <li id="s12"><b>Global Coffee Report</b>, "2025 in review: tariffs, trade, and changes", 15 Jan 2026, KDP–JDE Peet's as the year's largest deal; Luckin expansion; Nescafé US launch.</li>
+    <li id="s13"><b>Barchart</b>, "Coffee prices sharply lower on expectations of robust global supplies", 2025, importer tariff warnings (Starbucks, Hershey, Mondelez); Honduras 5.8 m forecast; Safras and Conab revisions.</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

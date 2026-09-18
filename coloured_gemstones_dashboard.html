@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coloured Gemstones, ΣΟΦΙΑ</title>
+<meta name="description" content="Coloured Gemstones: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.panel-head{margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #a8825a}
+.panel-head h2{font-family:var(--mono);font-size:18px;font-weight:500;letter-spacing:0.02em;text-transform:none;line-height:1.2}
+.panel-head .tag-line{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em;color:#a8825a;margin-top:6px}
+/* Section-tinted panel-head tag-lines */
+  .section-ruby     .panel-head .tag-line{color:var(--mute)}
+.section-sapphire .panel-head .tag-line{color:var(--mute)}
+.section-saffron  .panel-head .tag-line{color:var(--mute)}
+.section-emerald  .panel-head .tag-line{color:var(--mute)}
+.section-amethyst .panel-head .tag-line{color:var(--mute)}
+.section-tourmaline .panel-head .tag-line{color:var(--mute)}
+.section-teal     .panel-head .tag-line{color:var(--mute)}
+/* ===== Metrics grid (key numbers) ===== */
+  .metrics{display:grid;grid-template-columns:repeat(4, 1fr);gap:18px}
+.metric{padding:16px 18px;border:1px solid #a8825a;background:#faf7f0}
+.metric .label{font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:#a8825a;margin-bottom:8px;line-height:1.4}
+.metric .value{font-size:28px;font-weight:600;line-height:1.05;color:#141412}
+.metric .value .unit{font-size:12px;font-weight:400;color:#a8825a;margin-left:6px;text-transform:uppercase;letter-spacing:0.1em}
+.metric .change{font-size:11px;color:#a8825a;margin-top:8px;line-height:1.5}
+/* Section-coloured metric tile values */
+  .section-ruby     .metric.tinted .value{color:var(--mute)}
+.section-sapphire .metric.tinted .value{color:var(--mute)}
+.section-saffron  .metric.tinted .value{color:var(--mute)}
+.section-emerald  .metric.tinted .value{color:var(--mute)}
+.section-amethyst .metric.tinted .value{color:var(--mute)}
+.section-tourmaline .metric.tinted .value{color:var(--mute)}
+.section-teal     .metric.tinted .value{color:var(--mute)}
+/* ===== Stone cards (Big Three / Stone profiles) ===== */
+  .stone-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:20px}
+.stone-grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+.stone-grid.cols-4{grid-template-columns:repeat(4, 1fr)}
+.stone-card{border:1px solid #a8825a;padding:18px 20px;background:#faf7f0;border-top:3px solid #a8825a}
+/* Per-stone accent strip on top */
+  .stone-card.ruby{border-top-color:var(--line)}
+.stone-card.sapphire{border-top-color:var(--line)}
+.stone-card.emerald{border-top-color:var(--line)}
+.stone-card.amethyst{border-top-color:var(--line)}
+.stone-card.amber{border-top-color:var(--line)}
+.stone-card.spinel{border-top-color:#9b4a22}
+.stone-card.tanzanite{border-top-color:#5a4b8a}
+.stone-card.opal{border-top-color:#a8825a}
+.stone-card.aquamarine{border-top-color:#5a4b8a}
+.stone-card.tourmaline{border-top-color:#9b4a22}
+.stone-card.jade{border-top-color:#3f6b47}
+.stone-card.paraiba{border-top-color:#5a4b8a}
+.stone-card.padparadscha{border-top-color:#a8825a}
+.stone-name{font-family:var(--mono);font-size:18px;font-weight:600;color:#141412;margin-bottom:2px;letter-spacing:0.01em}
+.stone-card.ruby     .stone-name{color:var(--mute)}
+.stone-card.sapphire .stone-name{color:var(--mute)}
+.stone-card.emerald  .stone-name{color:var(--mute)}
+.stone-card.amethyst .stone-name{color:var(--mute)}
+.stone-tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:#a8825a;margin-bottom:14px}
+.stone-stat{display:block;padding:7px 0;border-bottom:1px dotted #a8825a}
+.stone-stat:last-child{border-bottom:none}
+.stone-stat .k{display:block;font-size:10.5px;color:#a8825a;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px}
+.stone-stat .v{display:block;font-size:12.5px;color:#141412;text-align:left;line-height:1.45;overflow-wrap:break-word;word-break:normal}
+td .country{font-weight:500;color:#141412}
+@media (max-width: 768px) {
+.metrics{grid-template-columns:1fr 1fr}
+.stone-grid, .stone-grid.cols-3, .stone-grid.cols-4{grid-template-columns:1fr}
+/* Collapsible card behaviour on mobile */
+    .stone-card.mobile-collapsible{cursor:pointer;position:relative;transition:background 0.15s}
+.stone-card.mobile-collapsible::after{content:"+";position:absolute;top:14px;right:14px;width:22px;height:22px;border:1px solid #a8825a;color:#a8825a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:500;line-height:1}
+.stone-card.mobile-collapsible.mobile-expanded::after{content:"−"}
+.stone-card.mobile-collapsible:not(.mobile-expanded) .stone-stat:not(:first-of-type){display:none}
+.stone-card.mobile-collapsible:not(.mobile-expanded) .stone-tag{margin-bottom:4px}
+.stone-card.mobile-collapsible .stone-name{padding-right:32px}
+}
+@media (max-width:520px){
+.metrics{grid-template-columns:1fr !important}
+.metric{min-width:0}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Coloured Gemstones</p>
+  <h1>Coloured Gemstones</h1>
+  <p class="lede">No benchmark, no exchange and no single market size that means anything: ruby, sapphire and emerald priced stone by stone, where origin and treatment decide the number and the laboratory decides the origin.</p>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of Feb 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Origin and treatment premia widening at the top; no benchmark, price set stone by stone at auction and dealer level.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Mozambique · Myanmar · Sri Lanka · Colombia · Zambia</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>Bangkok · Jaipur · Hong Kong · United States · Europe</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium–High, by stone</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#sec-2" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#sec-5" title="Evidence: section § V">/ § V</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-m">Med</span></dt><dd><b>High (top origins)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale C <a href="#sec-2" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-m">Med</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#sec-5" title="Evidence: section § V">/ § V</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#sec-1"><span>I</span>Market at a Glance</a></li><li><a href="#sec-2"><span>II</span>The Big Three</a></li><li><a href="#sec-3"><span>III</span>Supply Chain · Manufacturing &amp; Cutting Centres</a></li><li><a href="#sec-4"><span>IV</span>Stone Profiles · Beyond the Big Three</a></li><li><a href="#sec-5"><span>V</span>Pricing &amp; Treatment</a></li><li><a href="#sec-6"><span>VI</span>Retailers · Luxury Houses</a></li><li><a href="#sec-7"><span>VII</span>Outlook</a></li><li><a href="#sources"><span>VIII</span>Sources</a></li></ol>
+</nav>
+
+<section id="sec-1"><div class="sechead"><h2><em>I</em>Market at a Glance</h2><p class="sub">Sources · USGS · GIA · Gemfields · Industry estimates</p></div><div class="section-ruby">
+    <div class="metrics">
+      <div class="metric tinted">
+        <div class="label">Rough coloured gem trade (mine-gate)</div>
+        <div class="value">~$1.9bn<span class="unit">2025e</span><span class="c c-m">Med</span></div>
+        <div class="change">Wholesale at mine-gate · Future Market Insights estimate · projected $5.7bn by 2035 at 11.3% CAGR.<sup class="r"><a href="#s2">2</a></sup></div>
+      </div>
+      <div class="metric tinted">
+        <div class="label">Coloured gem jewellery retail</div>
+        <div class="value">$2–10bn<span class="unit">2024e</span><span class="c c-l">Low</span></div>
+        <div class="change">Wide range across paid market reports, see methodology note below. Single-figure estimates should be treated with caution.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></div>
+      </div>
+      <div class="metric tinted">
+        <div class="label">Ruby + Sapphire + Emerald share</div>
+        <div class="value">~58%<span class="unit">est. by value</span><span class="c c-m">Med</span></div>
+        <div class="change">The "Big Three" dominate value; semi-precious stones split the rest. GIA &amp; industry estimate, no audited primary source.<sup class="r"><a href="#s3">3</a></sup></div>
+      </div>
+      <div class="metric tinted">
+        <div class="label">2025–2035 CAGR (rough trade)</div>
+        <div class="value">~11%<span class="unit">forecast</span><span class="c c-x">Hyp</span></div>
+        <div class="change">Future Market Insights projection · rough trade only. Forecast not observed, actual growth highly dependent on China demand recovery and US import trajectory.<sup class="r"><a href="#s2">2</a></sup></div>
+      </div>
+    </div>
+
+    <!-- US imports & consumption, its own dedicated panel (USGS = highest confidence in this sector) -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>US Gemstone Imports &amp; Consumption, 2021–2025</h2>
+        <div class="tag-line">USGS Mineral Commodity Summaries 2026 · Released Feb 2026 <span class="c c-h">High</span></div>
+      </div>
+
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7; margin-bottom: 18px;">
+        <p style="margin-bottom: 12px;">The freshest USGS data tells a structurally different story than this dashboard reported in earlier iterations. <strong style="color: var(--ink);">2025 saw a dramatic reversal</strong>: US gemstone imports fell <strong style="color: var(--mute);">44%</strong> year-on-year, and apparent consumption fell <strong style="color: var(--mute);">47%</strong>. The earlier "▲136% 2020–2024" framing for coloured gem imports<sup class="r"><a href="#s4">4</a></sup> has been overtaken by the sharp 2025 contraction.<sup class="r"><a href="#s30">30</a></sup></p>
+        <p>Note: USGS reports total gemstones (diamond + coloured). Diamond accounted for <strong>~79% of 2025 import value</strong> (down from the 2018–22 average of ~89%), suggesting coloured stones held up relatively better than diamonds, but the overall market still contracted sharply.<sup class="r"><a href="#s30">30</a></sup></p>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th class="r">Imports for consumption ($M)</th>
+            <th class="r">Apparent consumption ($M)</th>
+            <th class="r">YoY change (imports)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country">2021</span></td>
+            <td class="r">24,600</td>
+            <td class="r">23,700</td>
+            <td class="r" style="color: #a8825a;">baseline</td>
+          </tr>
+          <tr>
+            <td><span class="country">2022</span></td>
+            <td class="r">28,700</td>
+            <td class="r">26,900</td>
+            <td class="r" style="color: var(--mute);">▲17%</td>
+          </tr>
+          <tr>
+            <td><span class="country">2023</span></td>
+            <td class="r">24,200</td>
+            <td class="r">21,300</td>
+            <td class="r" style="color: var(--mute);">▼16%</td>
+          </tr>
+          <tr>
+            <td><span class="country">2024</span></td>
+            <td class="r">19,600</td>
+            <td class="r">17,600</td>
+            <td class="r" style="color: var(--mute);">▼19%</td>
+          </tr>
+          <tr style="background: rgba(155,74,34, 0.05);">
+            <td><span class="country" style="color: var(--mute);">2025e</span></td>
+            <td class="r"><strong style="color: var(--mute);">11,000</strong></td>
+            <td class="r"><strong style="color: var(--mute);">9,300</strong></td>
+            <td class="r" style="color: var(--mute);"><strong>▼44%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:12px; line-height:1.65;">
+        Source: USGS Mineral Commodity Summaries 2026, Gemstones data sheet (released 6 February 2026).<sup class="r"><a href="#s30">30</a></sup> Figures are total gemstone trade (diamond + coloured). The 2025 figure is USGS's estimate, not yet finalised. The dramatic 2025 decline appears to reflect tariff-related front-loading of imports into 2022–2024, US consumer caution on discretionary luxury, and softer Asia-driven demand. <em>This is the most important data correction since the previous version of this dashboard.</em>
+      </div>
+    </div>
+
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Coloured Gemstones vs Diamonds, Why It Matters</h2>
+        <div class="tag-line">A structurally different market <span class="c c-h">High</span></div>
+      </div>
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">Coloured gemstones operate on fundamentally different structural foundations than diamonds. There is <strong style="color: var(--ink);">no equivalent of De Beers</strong>, no Kimberley Process, no Rapaport price list. Supply is dominated by <strong style="color: var(--ink);">artisanal and small-scale mining (~80% of global supply</strong>), with fewer than 10 commercially significant producers worldwide.<sup class="r"><a href="#s3">3</a></sup></p>
+        <p style="margin-bottom: 12px;">Gemfields is the <strong style="color: var(--ink);">only major publicly-listed pure-play coloured gemstone miner</strong>; everything else is private, state-owned, or artisanal. Pricing is opaque, origin (Burmese vs Mozambican ruby), treatment (heated vs unheated), and certification (GIA, Gübelin, SSEF) drive price differentials of <strong style="color: var(--ink);">2,000% or more</strong> for stones of identical apparent quality.<sup class="r"><a href="#s5">5</a></sup></p>
+        <p>This dashboard reports verified figures where available and labels estimates as estimates. <strong style="color: var(--ink);">Auction data from Sotheby's, Christie's, and Bonhams is the most reliable pricing benchmark; Gemfields filings the most reliable supply data; USGS the most reliable trade-flow data.</strong> Paid market-report figures for total market size are unreliable and should be read as order-of-magnitude estimates only.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Market Size Definitions, Why Single Figures Mislead</h2>
+        <div class="tag-line">Distinct value layers · do not interchange <span class="c c-h">High</span></div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Value definition</th>
+            <th class="r">Estimate</th>
+            <th class="r">Year</th>
+            <th class="r">Source</th>
+            <th class="r">Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country">Rough coloured-gem trade (mine-gate, wholesale)</span></td>
+            <td class="r">~$1.9bn</td>
+            <td class="r">2025e</td>
+            <td class="r">Future Market Insights</td>
+            <td class="r"><span class="c c-m">Med</span></td>
+          </tr>
+          <tr>
+            <td><span class="country">Coloured gem retail jewellery (paid reports, wide range)</span></td>
+            <td class="r">$2.0–9.7bn</td>
+            <td class="r">2024</td>
+            <td class="r">RM, Dataintelo, MarketIntelo</td>
+            <td class="r"><span class="c c-l">Low</span></td>
+          </tr>
+          <tr>
+            <td><span class="country">"All gemstones" market (incl. diamond), common confusion</span></td>
+            <td class="r">~$36bn</td>
+            <td class="r">2025</td>
+            <td class="r">MarketDataForecast</td>
+            <td class="r"><span class="c c-l">Low</span></td>
+          </tr>
+          <tr>
+            <td><span class="country">US apparent gemstone consumption</span></td>
+            <td class="r">$9.3bn</td>
+            <td class="r">2025e</td>
+            <td class="r">USGS MCS 2026</td>
+            <td class="r"><span class="c c-h">High</span></td>
+          </tr>
+          <tr>
+            <td><span class="country">Per-carat auction records (e.g. Sunrise Ruby)</span></td>
+            <td class="r">$1.27M/ct</td>
+            <td class="r">2015</td>
+            <td class="r">Sotheby's Geneva</td>
+            <td class="r"><span class="c c-h">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:12px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">Read this before comparing.</strong> Each row above measures something <em>structurally different</em>: rough mine-gate is what miners earn before cutting; retail is what jewellery sells at consumer level; auction records are headline trophy-stone prices for individual pieces. Paid market reports' "retail jewellery" estimates vary 5× across reputable firms, this dashboard previously used a $33bn figure that was likely an "all gemstones" number mislabelled as "coloured gem retail." We have removed that figure. <strong style="color: var(--ink);">The honest answer is: the coloured-gem retail jewellery market is somewhere between $2bn and $10bn globally, but no figure in that range has the methodological transparency to be cited as authoritative.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SECTION II, THE BIG THREE (sapphire accent) ============== -->
+  </section>
+<section id="sec-2"><div class="sechead"><h2><em>II</em>The Big Three</h2><p class="sub">Ruby · Sapphire · Emerald, origin, value, hallmark</p></div><div class="section-sapphire">
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Big Three in Detail</h2>
+        <div class="tag-line">Origin defines price; treatment determines transparency</div>
+      </div>
+
+      <div class="stone-grid cols-3">
+
+        <!-- RUBY -->
+        <div class="stone-card ruby">
+          <div class="stone-name">Ruby</div>
+          <div class="stone-tag">Corundum · Red</div>
+          <div class="stone-stat"><span class="k">Premier origin</span><span class="v">Mogok, Myanmar<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Modern volume leader</span><span class="v">Mozambique (Montepuez)<sup class="r"><a href="#s7">7</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Auction record</span><span class="v">$30.3M · Sunrise Ruby 25.59 ct (2015)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Per-carat record</span><span class="v">$1,266,901/ct · Sunrise Ruby<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Hallmark colour</span><span class="v">"Pigeon's blood", pure red, faint blue undertone<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Common treatment</span><span class="v">Heat (standard); lead glass filling (controversial)<sup class="r"><a href="#s9">9</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Premium for unheated</span><span class="v">2–5× over heated equivalent<sup class="r"><a href="#s9">9</a></sup></span></div>
+        </div>
+
+        <!-- SAPPHIRE -->
+        <div class="stone-card sapphire">
+          <div class="stone-name">Sapphire</div>
+          <div class="stone-tag">Corundum · Blue (and other colours)</div>
+          <div class="stone-stat"><span class="k">Premier origin (rarest)</span><span class="v">Kashmir, India<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Volume origins</span><span class="v">Sri Lanka, Madagascar, Myanmar, Australia<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Auction record (total)</span><span class="v">$17.3M · Blue Belle of Asia 392.52 ct (2014)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Per-carat record</span><span class="v">$243,703/ct · Jewel of Kashmir 27.68 ct (2015)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Hallmark colour</span><span class="v">Kashmir: velvety "cornflower blue"<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Common treatment</span><span class="v">Heat (industry standard since 1970s)<sup class="r"><a href="#s10">10</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Colour range</span><span class="v">Blue, pink, yellow, padparadscha (pink-orange)<sup class="r"><a href="#s10">10</a></sup></span></div>
+        </div>
+
+        <!-- EMERALD -->
+        <div class="stone-card emerald">
+          <div class="stone-name">Emerald</div>
+          <div class="stone-tag">Beryl · Green</div>
+          <div class="stone-stat"><span class="k">Premier origin (historic)</span><span class="v">Muzo, Colombia<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Modern volume leader</span><span class="v">Zambia (Kagem mine, Gemfields)<sup class="r"><a href="#s7">7</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Auction record</span><span class="v">$5.5M · Rockefeller Emerald (2017)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Hallmark colour</span><span class="v">Colombian: pure spring green, slight blue<sup class="r"><a href="#s5">5</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Common treatment</span><span class="v">Oiling (cedar oil), fills natural fractures<sup class="r"><a href="#s11">11</a></sup></span></div>
+          <div class="stone-stat"><span class="k">"Jardin"</span><span class="v">Emeralds typically have visible inclusions<sup class="r"><a href="#s11">11</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Premium for Colombian</span><span class="v">~30–60% over equivalent Zambian<sup class="r"><a href="#s9">9</a></sup></span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Major coloured-gem mining companies: Gemfields + Fura + Grizzly + Belmont -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Major Coloured-Gem Mining Companies</h2>
+        <div class="tag-line">Two listed pure-plays + two of the world's largest private emerald producers</div>
+      </div>
+
+      <!-- Gemfields sub-card -->
+      <div style="border: 1px solid var(--line); padding: 18px 20px; background: #faf7f0; margin-bottom: 18px;">
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px;">
+          <div style="font-family:var(--mono); font-size: 16px; font-weight: 600; color: var(--mute); letter-spacing: 0.01em;">Gemfields Group</div>
+          <div style="font-family:var(--mono); font-size: 10px; color: #a8825a; letter-spacing: 0.16em; text-transform: uppercase;">LSE: GEM · JSE: GML · Founded 2008</div>
+        </div>
+        <div style="font-family:var(--mono); font-size: 11px; color: #a8825a; text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 14px;">Emerald · Zambia (Kagem 75%) · Ruby · Mozambique (Montepuez 75%)</div>
+
+        <div class="metrics">
+          <div class="metric tinted">
+            <div class="label">Auction revenue 2024</div>
+            <div class="value">$196M<span class="unit">total</span></div>
+            <div class="change">Down from $242M (2023), challenging year.<sup class="r"><a href="#s7">7</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Auction revenue 2025</div>
+            <div class="value">$129M<span class="unit">total</span></div>
+            <div class="change">▼ 34% YoY · Kagem paused Jan→May 2025 (Zambian export duty)<sup class="r"><a href="#s7">7</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Kagem cumulative</div>
+            <div class="value">~$1.15bn<span class="unit">since '09</span></div>
+            <div class="change">53 emerald auctions held since July 2009.<sup class="r"><a href="#s12">12</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">G-Factor (Mozambique 2024)</div>
+            <div class="value">24%<span class="unit">of rev</span></div>
+            <div class="change">Revenue paid to host gov in taxes/dividends.<sup class="r"><a href="#s13">13</a></sup></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fura Gems sub-card -->
+      <div style="border: 1px solid var(--line); padding: 18px 20px; background: #faf7f0;">
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px;">
+          <div style="font-family:var(--mono); font-size: 16px; font-weight: 600; color: var(--mute); letter-spacing: 0.01em;">Fura Gems</div>
+          <div style="font-family:var(--mono); font-size: 10px; color: #a8825a; letter-spacing: 0.16em; text-transform: uppercase;">TSXV: FURA · OTC: FUGMF · Founded Jan 2017</div>
+        </div>
+        <div style="font-family:var(--mono); font-size: 11px; color: #a8825a; text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 14px;">Only miner exploring all three Big Three categories · Emerald · Ruby · Sapphire</div>
+
+        <div class="metrics">
+          <div class="metric tinted">
+            <div class="label">Coscuez Emerald Mine</div>
+            <div class="value">76%<span class="unit">interest</span></div>
+            <div class="change">Boyacá, Colombia · acquired Oct 2017<sup class="r"><a href="#s16">16</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Montepuez ruby licences</div>
+            <div class="value">7<span class="unit">licences</span></div>
+            <div class="change">80% effective interest in 4 (4392L · 3868L · 3869L · 6811L), 100% in 5572L<sup class="r"><a href="#s16">16</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Queensland sapphire mines</div>
+            <div class="value">2<span class="unit">mines</span></div>
+            <div class="change">Great Northern + Capricorn Sapphire · acquired 2020<sup class="r"><a href="#s16">16</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Estrela de Fura</div>
+            <div class="value">$35M<span class="unit">at auction</span></div>
+            <div class="change">55.22 ct polished (from 101 ct rough) · Sotheby's NY June 2023 · most expensive ruby ever sold at auction<sup class="r"><a href="#s17">17</a></sup></div>
+          </div>
+        </div>
+
+        <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:14px; line-height:1.65;">
+          <strong style="color: var(--ink);">Founder</strong> Dev Shetty (former Gemfields executive) · HQ Dubai (Fura Gems Inc. DMCC) · ~1,650 employees worldwide. First auctions: Colombian emerald April 2021, Mozambique ruby Sept 2021, Australian sapphire Nov 2021. 2021 production estimate: 5.5M ct Australian sapphires, 6M ct Mozambican rubies, 300,000 ct Colombian emeralds. Self-positions on <em>transparency, ethical sourcing, blockchain provenance</em>.<sup class="r"><a href="#s16">16</a></sup>
+        </div>
+
+        <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:12px; line-height:1.65; padding: 10px 12px; background: var(--paper); border-left: 2px solid #a8825a;">
+          <strong style="color: var(--ink);">June 2024 leadership change:</strong> Dev Shetty stepped down as CEO to pursue other opportunities. Board of directors assumed primary decision-making role pending new CEO. Senior leadership team continues daily operations in collaboration with the board.<sup class="r"><a href="#s25">25</a></sup>
+        </div>
+
+        <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:12px; line-height:1.65; padding: 12px 14px; background: var(--paper); border-left: 2px solid var(--mute);">
+          <strong style="color: var(--ink);">Ownership chain, verified.</strong> Fura was acquired and taken private by <strong style="color: var(--ink);">Lord of Seven Hills Holdings FZE</strong> ("L7H"), a Fujairah Free Zone Authority-registered UAE holding company, for ~<strong>$40.8M total equity value</strong> in October 2020. L7H built its stake from ~8.5% (pre-2019) → 39.2% (Oct 2019 placement at C$0.25/share) → 51.5% (mid-2020) → 100% (Oct 2020 buyout at C$0.15/share). L7H originally a marketing agent for high-grade manganese ore with a diversified investment portfolio. Per public filings, L7H is controlled jointly by <strong style="color: var(--ink);">Gagan Gupta</strong> (named "controller of L7H" in the 2019 Newswire disclosure) and <strong style="color: var(--ink);">Michael Kuan</strong> (Chairman of Kuan Capital, Shanghai). <strong style="color: var(--ink);">Gaurav Gupta</strong> sits on Fura's board as a director representing the controlling shareholder and has signing authority for L7H. <strong style="color: var(--ink);">Fortuna Holdings</strong> (fortunaholdings.net) is a Dubai-based, MAS-registered single-family office that appears to be a parallel/successor investment vehicle within the same family-office grouping.<sup class="r"><a href="#s25">25</a></sup>
+        </div>
+      </div>
+
+      <!-- Grizzly Mining sub-card -->
+      <div style="border: 1px solid var(--line); padding: 18px 20px; background: #faf7f0; margin-top: 18px;">
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px;">
+          <div style="font-family:var(--mono); font-size: 16px; font-weight: 600; color: var(--mute); letter-spacing: 0.01em;">Grizzly Mining</div>
+          <div style="font-family:var(--mono); font-size: 10px; color: #a8825a; letter-spacing: 0.16em; text-transform: uppercase;">Private · Founded 1997 · Kitwe, Zambia</div>
+        </div>
+        <div style="font-family:var(--mono); font-size: 11px; color: #a8825a; text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 14px;">Emerald · 100% owned flagship Grizzly Mine · Lufwanyama region · Copperbelt Province</div>
+
+        <div class="metrics">
+          <div class="metric tinted">
+            <div class="label">Annual production</div>
+            <div class="value">~60M<span class="unit">ct/year</span></div>
+            <div class="change">From 100% owned flagship mine · Lufwanyama, Zambia<sup class="r"><a href="#s23">23</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Lifetime production</div>
+            <div class="value">170M+<span class="unit">ct to date</span></div>
+            <div class="change">Over 27 years of operation · founded 1997<sup class="r"><a href="#s23">23</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Employees</div>
+            <div class="value">~4,000<span class="unit">jobs</span></div>
+            <div class="change">Built clinic, three high schools, two primary schools in community<sup class="r"><a href="#s23">23</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Nov 2024 auction</div>
+            <div class="value">$22.4M<span class="unit">revenue</span></div>
+            <div class="change">Medium-to-high grade emerald auction · Almas Tower Dubai<sup class="r"><a href="#s23">23</a></sup></div>
+          </div>
+        </div>
+
+        <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:14px; line-height:1.65;">
+          <strong style="color: var(--ink);">Founder &amp; Chairman</strong> Abdoulaye Ndiaye (the "Emerald King"), Senegalese-born, began trading emeralds in Lufwanyama in 1972, acquired the Grizzly mine in 1997. Now qualified gemologist. <strong style="color: var(--ink);">~90% of revenue from high-quality emeralds</strong>, which constitute only a small fraction of physical output. Quarterly auctions held in-country and internationally (Dubai). Together with Gemfields' Kagem, makes <strong style="color: var(--ink);">Zambia the world's largest emerald producer</strong> by volume (overtaking Colombia). Zambian emeralds have a distinctive blue-grey cast and are typically harder and larger than other origins, requiring no enhancement.<sup class="r"><a href="#s23">23</a></sup>
+        </div>
+      </div>
+
+      <!-- Belmont Emeralds sub-card -->
+      <div style="border: 1px solid var(--line); padding: 18px 20px; background: #faf7f0; margin-top: 18px;">
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 4px;">
+          <div style="font-family:var(--mono); font-size: 16px; font-weight: 600; color: var(--mute); letter-spacing: 0.01em;">Belmont Emeralds</div>
+          <div style="font-family:var(--mono); font-size: 10px; color: #a8825a; letter-spacing: 0.16em; text-transform: uppercase;">Private · Operational since 1978 · Itabira, Minas Gerais, Brazil</div>
+        </div>
+        <div style="font-family:var(--mono); font-size: 11px; color: #a8825a; text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 14px;">Emerald · Largest independent emerald miner in Brazil · Ribeiro family-owned</div>
+
+        <div class="metrics">
+          <div class="metric tinted">
+            <div class="label">Annual rough production</div>
+            <div class="value">250,000g<span class="unit">/year</span></div>
+            <div class="change">From 350,000 tonnes soil (1g per 280kg ore)<sup class="r"><a href="#s24">24</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Employees</div>
+            <div class="value">250<span class="unit">people</span></div>
+            <div class="change">Largest independent emerald miner in Brazil<sup class="r"><a href="#s24">24</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Years operational</div>
+            <div class="value">47<span class="unit">since 1978</span></div>
+            <div class="change">Discovered on Ribeiro family cattle ranch<sup class="r"><a href="#s24">24</a></sup></div>
+          </div>
+          <div class="metric tinted">
+            <div class="label">Rough cut at source</div>
+            <div class="value">80%<span class="unit">vertical</span></div>
+            <div class="change">Cut at Belmont's Itabira sorting facility<sup class="r"><a href="#s24">24</a></sup></div>
+          </div>
+        </div>
+
+        <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:14px; line-height:1.65;">
+          <strong style="color: var(--ink);">Director</strong> Marcelo Ribeiro (Ribeiro family). Operational since 1978 when emeralds were first discovered on the family's rural property. Mix of open-pit and underground mining (75m vertical shaft sunk 1998; 50% of production still open-cast). Optical sorting replaced hand-picking from 2004. <strong style="color: var(--ink);">"Only mine in the world that is able to sustainably increase production every year"</strong> per Ribeiro. Markets: US, Europe, Asia, Brazil. Brazilian emeralds known for blue-grey cast, typically harder and larger than other emeralds, requiring no enhancement. Strong mine-to-market provenance positioning. Celebrated 40th anniversary 2018; verified by GIA field-research visit April 2014.<sup class="r"><a href="#s24">24</a></sup>
+        </div>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:18px; line-height:1.65; padding: 12px 14px; background: var(--paper); border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">A note on private dominance.</strong> Gemfields (LSE/JSE listed) is the only major coloured-gem miner with continuous quarterly public reporting; Fura traded briefly as TSXV: FURA but is now effectively private. <strong>Grizzly Mining and Belmont Emeralds</strong>, together with Gemfields and Fura, represent four of the world's most significant coloured-gem miners by formal organisation. Yet only Gemfields publishes audited financial detail; the others release production estimates and auction figures voluntarily. The rest of global supply (Mogok rubies, Colombian Muzo emeralds, Sri Lankan sapphires, etc.) is dominated by <em>artisanal and small-scale mining</em>, making any "global production" figure for coloured gemstones unavoidably an estimate.
+      </div>
+    </div>
+
+    <!-- Geography panel -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Where the Big Three Come From</h2>
+        <div class="tag-line">Origin geography drives price</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Stone</th>
+            <th>Premier origin</th>
+            <th>Volume leader</th>
+            <th>Other meaningful sources</th>
+            <th class="r">Premier premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Ruby</span></td>
+            <td>Mogok, Myanmar</td>
+            <td>Mozambique (Montepuez)</td>
+            <td>Madagascar · Tanzania · Thailand · Sri Lanka<sup class="r"><a href="#s14">14</a></sup></td>
+            <td class="r">2–5× for Mogok unheated<sup class="r"><a href="#s9">9</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Sapphire</span></td>
+            <td>Kashmir (depleted ~1930s)</td>
+            <td>Sri Lanka · Madagascar</td>
+            <td>Myanmar · Australia · Thailand · Montana (US)<sup class="r"><a href="#s14">14</a></sup></td>
+            <td class="r">5–20× for Kashmir<sup class="r"><a href="#s8">8</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Emerald</span></td>
+            <td>Muzo &amp; Chivor, Colombia</td>
+            <td>Zambia (Kagem)</td>
+            <td>Brazil · Ethiopia · Afghanistan · Russia<sup class="r"><a href="#s14">14</a></sup></td>
+            <td class="r">~30–60% for Colombian<sup class="r"><a href="#s9">9</a></sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============== SECTION III, SUPPLY CHAIN · CUTTING CENTRES (saffron accent) ============== -->
+  </section>
+<section id="sec-3"><div class="sechead"><h2><em>III</em>Supply Chain · Manufacturing &amp; Cutting Centres</h2><p class="sub">Where rough becomes finished gem · Thailand · India · Sri Lanka · Germany</p></div><div class="section-saffron">
+
+    <!-- Opening framing -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Coloured-Gem Midstream</h2>
+        <div class="tag-line">Why cutting centres matter as much as mines</div>
+      </div>
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">Unlike diamonds, where <strong style="color: var(--ink);">Surat dominates ~80%+ of global cutting</strong> in a single geographic concentration, the coloured-gem cutting industry is structurally fragmented across <strong style="color: var(--ink);">four specialised centres</strong>, each with deep historical, cultural, and technical specialism.<sup class="r"><a href="#s26">26</a></sup></p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--mute);">Thailand (Bangkok/Chanthaburi)</strong> dominates ruby and sapphire treatment, cutting and trading, particularly the heat-treatment of corundum which transformed lower-grade material into premium product from the 1970s onward.<sup class="r"><a href="#s26">26</a></sup> <strong style="color: var(--mute);">India (Jaipur)</strong> dominates emerald cutting and small-stone calibrated coloured-gem manufacture.<sup class="r"><a href="#s27">27</a></sup> <strong style="color: var(--mute);">Sri Lanka (Ratnapura)</strong> retains the cutting of large, top-quality sapphires (where Bangkok specialises in smaller stones).<sup class="r"><a href="#s28">28</a></sup> <strong style="color: var(--mute);">Idar-Oberstein, Germany</strong> survives as the world's premier centre for high-end carving, fantasy cuts, and one-of-a-kind objets d'art, a niche but valuable corner of the trade.<sup class="r"><a href="#s29">29</a></sup></p>
+        <p>The midstream is where rough gemstones gain most of their value. A piece of rough corundum worth $100/ct uncut can become a $1,000+/ct heated, cut, certified stone, meaning <strong style="color: var(--ink);">cutting centres capture more value than mines</strong> in many cases.</p>
+      </div>
+    </div>
+
+    <!-- Four cutting centre cards -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>The Four Major Cutting Centres</h2>
+        <div class="tag-line">Specialism · scale · employment · global market share</div>
+      </div>
+
+      <div class="stone-grid cols-2">
+
+        <!-- THAILAND -->
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Bangkok &amp; Chanthaburi · Thailand</div>
+          <div class="stone-tag">Ruby · sapphire · heat treatment hub</div>
+          <div class="stone-stat"><span class="k">Industry employment</span><span class="v">~700,000+ people (GIT estimate)<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Chanthaburi share</span><span class="v">80%+ of internationally traded gemstones have undergone enhancement in Chanthaburi (GIT)<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Thailand export share</span><span class="v">80% of Thailand's coloured-gem exports cut/treated in Chanthaburi (Chanthaburi Gem &amp; Jewelry Traders Association)<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Specialism</span><span class="v">Heat treatment of corundum · cutting small to medium sapphires &amp; rubies · world's largest coloured-stone trading hub<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Rough imports from</span><span class="v">Mozambique, Madagascar, Sri Lanka, Kenya, Tanzania, Myanmar, Colombia, Brazil, Afghanistan, Pakistan, Cambodia<sup class="r"><a href="#s26">26</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Trade convention</span><span class="v">"Bangkok handles much of world's rubies for treatment, cutting and polishing", Philippe Ressigeac, GemCloud<sup class="r"><a href="#s26">26</a></sup></span></div>
+        </div>
+
+        <!-- JAIPUR -->
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Jaipur · India</div>
+          <div class="stone-tag">"Pink City" · world's leading emerald cutting centre</div>
+          <div class="stone-stat"><span class="k">Coloured-stone cutting factories</span><span class="v">100+ formal factories plus huge artisan cottage industry (GIA Winter 2016 G&amp;G)<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Tanzanite cutting share</span><span class="v">Jaipur cuts 90% of all tanzanites ≤1 gram (Nirmal Bardiya, RMC)<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">India gemstone exports 2021-22</span><span class="v">$311.45M coloured gemstones (GJEPC)<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Stones processed</span><span class="v">300+ varieties of precious &amp; semi-precious gemstones<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Sitapura SEZ Jaipur</span><span class="v">110.8 acres · 154 units · 11,217 employees<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Rough imports for emerald</span><span class="v">Primarily from Zambia (Gemfields/Grizzly), also Brazil (Bahia)<sup class="r"><a href="#s27">27</a></sup></span></div>
+          <div class="stone-stat"><span class="k">India market projection</span><span class="v">USD $2,180M (2025) → $3,287M (2034) · 4.53% CAGR · emerald 34.7% share (IMARC Group)<sup class="r"><a href="#s27">27</a></sup></span></div>
+        </div>
+
+        <!-- SRI LANKA -->
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Ratnapura · Sri Lanka</div>
+          <div class="stone-tag">"City of Gems" · large sapphires · padparadscha specialist</div>
+          <div class="stone-stat"><span class="k">Annual export earnings</span><span class="v">USD $400M+ · 0.45% of GDP (Ministry of Industries 2024)<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Total gem &amp; jewellery trade</span><span class="v">~Rs.55bn (~USD $550M) annually at export and retail<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Manufacturing units</span><span class="v">~3,000 across the country<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Sapphire share of exports</span><span class="v">~85% · exports 75+ kinds of stones<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Specialism</span><span class="v">Larger sapphires (over Bangkok), padparadscha, star sapphires, cat's eye chrysoberyl<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Trade policy</span><span class="v"><strong style="color: var(--ink);">Export of rough uncut stones prohibited</strong>, mandatory value-add cutting in country<sup class="r"><a href="#s28">28</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Notable find</span><span class="v">"Star of Adam" 1,404 ct blue star sapphire (2015) · valued $300M+<sup class="r"><a href="#s28">28</a></sup></span></div>
+        </div>
+
+        <!-- IDAR-OBERSTEIN -->
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Idar-Oberstein · Germany</div>
+          <div class="stone-tag">500+ years · high-end carving · fantasy cuts</div>
+          <div class="stone-stat"><span class="k">Historical peak</span><span class="v">Late 19th century: processed 80% of world's gemstones<sup class="r"><a href="#s29">29</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Decline</span><span class="v">Two world wars + Asian competition ended "second golden age" by mid-1940s<sup class="r"><a href="#s29">29</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Today's specialism</span><span class="v">High-end precious-stone cutting · cameos · intaglios · sculptures · objets d'art · custom orders<sup class="r"><a href="#s29">29</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Innovation legacy</span><span class="v">Bernd Munsteiner's "Fantasy Cut" (1960s); Tom Munsteiner's 196.17-ct "Apollo" Paraiba, Guinness World Record largest cut Paraíba (2022)<sup class="r"><a href="#s29">29</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Lost segments</span><span class="v">Agate lapidary largely moved to China; quartz cutting moved to Jaipur<sup class="r"><a href="#s29">29</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Trade respect</span><span class="v">"Recut in Germany" / "Made in Germany" remain highly respected labels at top end<sup class="r"><a href="#s29">29</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Notable ateliers</span><span class="v">Atelier Munsteiner · C.F. Arnoldi (est. 1919) · Emil Weis · Henn<sup class="r"><a href="#s29">29</a></sup></span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Comparison table -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Cutting Centre Comparison</h2>
+        <div class="tag-line">Like-for-like positioning across the four centres</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Centre</th>
+            <th>Core specialism</th>
+            <th>Employment</th>
+            <th>Position in value chain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Bangkok / Chanthaburi</span></td>
+            <td>Ruby &amp; sapphire heat treatment + cutting</td>
+            <td>~700,000+</td>
+            <td>Largest coloured-stone hub by volume<sup class="r"><a href="#s26">26</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Jaipur</span></td>
+            <td>Emerald cutting · calibrated stones · 300+ varieties</td>
+            <td>11,000+ in Sitapura SEZ alone</td>
+            <td>Largest emerald cutting hub globally<sup class="r"><a href="#s27">27</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Ratnapura</span></td>
+            <td>Large sapphires · padparadscha · star sapphires</td>
+            <td>Tens of thousands across ~3,000 units</td>
+            <td>Premium-quality sapphire finishing<sup class="r"><a href="#s28">28</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Idar-Oberstein</span></td>
+            <td>High-end carving · fantasy cuts · objets d'art</td>
+            <td>Small-scale ateliers · highly specialised</td>
+            <td>Top-end fine-art &amp; collector niche<sup class="r"><a href="#s29">29</a></sup></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:18px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">Trade flow synthesis.</strong> A typical "Mozambican ruby" journey: <em>mined</em> in Cabo Delgado (Gemfields/Fura) → <em>sold</em> at auction (Singapore/Dubai/Bangkok) → <em>heated &amp; cut</em> in Chanthaburi → <em>certified</em> in Switzerland (Gübelin/SSEF) → <em>set</em> by maison in Geneva/Paris/Rome → <em>retailed</em> in Hong Kong, New York, or the Gulf. A "Zambian emerald" journey: <em>mined</em> at Kagem/Grizzly → <em>auctioned</em> Singapore/Dubai → <em>cut</em> in Jaipur → <em>certified</em> by GIA/Gübelin → <em>set</em> by Bulgari/Cartier → retailed globally. Four geographies, four specialisms, one continuous value chain.
+      </div>
+    </div>
+
+    <!-- February 2025 cooperation MOU note -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>February 2025, India-Thailand Cooperation MOUs</h2>
+        <div class="tag-line">Cutting-centre formalisation continues</div>
+      </div>
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">At the <strong style="color: var(--ink);">Bangkok Gem and Jewelry Fair (February 2025)</strong>, India and Thailand signed three Memorandums of Understanding promoting cooperation in the trade of coloured gemstones, silver jewellery, and gemstone standardisation:</p>
+        <ul style="margin: 0 0 12px 20px; line-height: 1.7;">
+          <li><strong style="color: var(--ink);">Thai Silver Exporters Association ↔ SGJIA</strong></li>
+          <li><strong style="color: var(--ink);">Jewelers Association Jaipur ↔ Chanthaburi Gem &amp; Jewelry Traders Association</strong>, formalising the Jaipur–Chanthaburi axis that already moves billions of dollars of stones bilaterally</li>
+          <li><strong style="color: var(--ink);">GJEPC's IIGJ-RLC ↔ GIT Thailand</strong>, cooperation on gemstone standardisation and testing</li>
+        </ul>
+        <p>These signal continued formal alignment between the world's two largest coloured-gem cutting jurisdictions, opening new bilateral trade corridors and shared standards work.<sup class="r"><a href="#s27">27</a></sup></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============== SECTION IV, STONE PROFILES (emerald accent) ============== -->
+  </section>
+<section id="sec-4"><div class="sechead"><h2><em>IV</em>Stone Profiles · Beyond the Big Three</h2><p class="sub">Specialist gems · Rising stars · Collector favourites</p></div><div class="section-emerald">
+    <div class="note">
+      <div class="panel-head">
+        <h2>The Next Eight, Stones That Define the Rest of the Market</h2>
+        <div class="tag-line">Each with distinct origin, value, and market story</div>
+      </div>
+
+      <div class="stone-grid cols-4">
+
+        <div class="stone-card spinel">
+          <div class="stone-name">Spinel</div>
+          <div class="stone-tag">Spinel · Red &amp; pink</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Mogok (Myanmar), Tanzania (Mahenge)</span></div>
+          <div class="stone-stat"><span class="k">Auction record</span><span class="v">$29,217/ct · Hope Spinel (2015)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">"Hot pink" Mahenge, luminous neon</span></div>
+          <div class="stone-stat"><span class="k">Trade note</span><span class="v">Historically mistaken for ruby; now collector favourite</span></div>
+        </div>
+
+        <div class="stone-card tanzanite">
+          <div class="stone-name">Tanzanite</div>
+          <div class="stone-tag">Zoisite · Blue-violet</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Merelani Hills, Tanzania (sole source globally)</span></div>
+          <div class="stone-stat"><span class="k">Discovery</span><span class="v">1967 · marketed by Tiffany &amp; Co.</span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">Trichroic: blue, violet, burgundy under light</span></div>
+          <div class="stone-stat"><span class="k">Scarcity</span><span class="v">Single ~10km² source · projected depletion in 20–30 yrs</span></div>
+        </div>
+
+        <div class="stone-card paraiba">
+          <div class="stone-name">Paraíba Tourmaline</div>
+          <div class="stone-tag">Tourmaline · Neon blue-green</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Paraíba (Brazil), Mozambique, Nigeria</span></div>
+          <div class="stone-stat"><span class="k">Discovery</span><span class="v">1989, Brazil</span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">Electric "neon" blue (copper-bearing)</span></div>
+          <div class="stone-stat"><span class="k">Price</span><span class="v">Brazilian: $10,000–$50,000+/ct · world's most expensive tourmaline</span></div>
+        </div>
+
+        <div class="stone-card padparadscha">
+          <div class="stone-name">Padparadscha</div>
+          <div class="stone-tag">Corundum · Pink-orange sapphire</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Sri Lanka (classic), Madagascar, Tanzania</span></div>
+          <div class="stone-stat"><span class="k">Auction record</span><span class="v">$97,478/ct · 8.01 ct (Sotheby's 2017)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">"Lotus flower", pink fading to orange</span></div>
+          <div class="stone-stat"><span class="k">Rarity</span><span class="v">One of rarest sapphire varieties</span></div>
+        </div>
+
+        <div class="stone-card jade">
+          <div class="stone-name">Jadeite</div>
+          <div class="stone-tag">Pyroxene · Green</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Myanmar (Uru Valley, world's only commercial source)<sup class="r"><a href="#s15">15</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">"Imperial jade", translucent emerald green</span></div>
+          <div class="stone-stat"><span class="k">Auction record</span><span class="v">$27M · Hutton-Mdivani necklace (2014)</span></div>
+          <div class="stone-stat"><span class="k">Cultural value</span><span class="v">Most valuable stone in Chinese cultural tradition</span></div>
+        </div>
+
+        <div class="stone-card opal">
+          <div class="stone-name">Opal</div>
+          <div class="stone-tag">Hydrated silica · Colour play</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Australia (~95% of black opal), Ethiopia (Welo)</span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">"Play of colour", internal spectral flashes</span></div>
+          <div class="stone-stat"><span class="k">Top variety</span><span class="v">Black opal (Lightning Ridge, NSW): $10,000+/ct</span></div>
+          <div class="stone-stat"><span class="k">Trade note</span><span class="v">Ethiopian Welo opals popularised 2010s, much cheaper</span></div>
+        </div>
+
+        <div class="stone-card aquamarine">
+          <div class="stone-name">Aquamarine</div>
+          <div class="stone-tag">Beryl · Pale blue</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Brazil (Minas Gerais), Pakistan, Madagascar, Mozambique</span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">"Santa Maria" deep blue, most prized colour</span></div>
+          <div class="stone-stat"><span class="k">Price</span><span class="v">Fine: $300–1,000/ct · large clean stones common</span></div>
+          <div class="stone-stat"><span class="k">Trade note</span><span class="v">Heat-treated to remove green undertones</span></div>
+        </div>
+
+        <div class="stone-card amethyst">
+          <div class="stone-name">Amethyst</div>
+          <div class="stone-tag">Quartz · Purple</div>
+          <div class="stone-stat"><span class="k">Origin</span><span class="v">Brazil, Uruguay, Zambia, Russia (Siberian historic)</span></div>
+          <div class="stone-stat"><span class="k">Hallmark</span><span class="v">"Siberian" deep purple with red flashes, premium</span></div>
+          <div class="stone-stat"><span class="k">Price</span><span class="v">$10–100/ct typical · large clean stones widely available</span></div>
+          <div class="stone-stat"><span class="k">Trade note</span><span class="v">Once "precious"; now affordable due to Brazilian abundance</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Closing context panel -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>The Treatment &amp; Certification Question</h2>
+        <div class="tag-line">What separates a fine stone from a great one</div>
+      </div>
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">For coloured stones, <strong style="color: var(--ink);">treatment disclosure is the single largest pricing variable</strong> after origin. Heat treatment of ruby and sapphire is standard and widely accepted; lead-glass filling of low-grade ruby is widely disclosed but heavily discounted; oiling of emeralds is universally accepted; resin-filled emerald is materially less valuable.</p>
+        <p style="margin-bottom: 12px;">Three labs dominate origin and treatment certification: <strong style="color: var(--ink);">GIA</strong> (Gemological Institute of America, broadest reach), <strong style="color: var(--ink);">Gübelin Gem Lab</strong> (Switzerland, premier reputation for ruby and sapphire origin), and <strong style="color: var(--ink);">SSEF</strong> (Swiss Gemmological Institute, coloured stone specialist). A high-value stone without one of these certificates typically trades at a meaningful discount.<sup class="r"><a href="#s10">10</a></sup></p>
+        <p>From January 2026, <strong style="color: var(--ink);">GIA expanded origin-determination services</strong> to include opal, peridot, and demantoid garnet, extending traceability into the wider coloured-stone market.<sup class="r"><a href="#s6">6</a></sup></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SECTION V, PRICING & TREATMENT (amethyst accent) ============== -->
+  </section>
+<section id="sec-5"><div class="sechead"><h2><em>V</em>Pricing &amp; Treatment</h2><p class="sub">Heat · Oil · Origin certification · Auction records</p></div><div class="section-amethyst">
+
+    <!-- Why treatment defines price -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Why Treatment &amp; Origin Define Price</h2>
+        <div class="tag-line">Two stones of identical apparent quality can differ in price by 20×</div>
+      </div>
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7;">
+        <p style="margin-bottom: 12px;">Unlike diamonds, where the 4Cs (carat, clarity, colour, cut) drive ~80% of price, coloured gemstone valuation has <strong style="color: var(--ink);">three independent multipliers</strong> stacked on top of each other: origin, treatment status, and certification.</p>
+        <p style="margin-bottom: 12px;">A 5-carat ruby with "Mogok unheated · Gübelin certificate" routinely sells for <strong style="color: var(--mute);">5–10×</strong> the price of an apparently identical 5-carat ruby with "Mozambique heated · uncertificated." Same colour, same clarity, same cut. The certificate is the asset.<sup class="r"><a href="#s9">9</a></sup></p>
+      </div>
+    </div>
+
+    <!-- Treatment premiums table -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Treatment Premiums &amp; Discounts</h2>
+        <div class="tag-line">Standard industry practice · Lotus Gemology · GIA · AGTA</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Stone</th>
+            <th>Treatment</th>
+            <th>Trade status</th>
+            <th class="r">Price effect</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Ruby</span></td>
+            <td>Heat (only)</td>
+            <td>Industry standard, disclosed</td>
+            <td class="r">Baseline<sup class="r"><a href="#s9">9</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Ruby</span></td>
+            <td>Unheated</td>
+            <td>Premium · highly sought after</td>
+            <td class="r"><strong style="color: var(--mute);">2–5× premium</strong><sup class="r"><a href="#s9">9</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Ruby</span></td>
+            <td>Lead-glass filled ("composite")</td>
+            <td>Disclosed but heavily discounted</td>
+            <td class="r" style="color: #a8825a;">10–30% of natural ruby price<sup class="r"><a href="#s9">9</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Sapphire</span></td>
+            <td>Heat</td>
+            <td>Industry standard since 1970s</td>
+            <td class="r">Baseline<sup class="r"><a href="#s10">10</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Sapphire</span></td>
+            <td>Unheated, Kashmir origin</td>
+            <td>Highest premium of any gemstone</td>
+            <td class="r"><strong style="color: var(--mute);">5–20× premium</strong><sup class="r"><a href="#s8">8</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Sapphire</span></td>
+            <td>Beryllium-diffusion</td>
+            <td>Heavily discounted, disclosed</td>
+            <td class="r" style="color: #a8825a;">25–40% of natural<sup class="r"><a href="#s10">10</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Emerald</span></td>
+            <td>Cedar oil ("Insignificant" GIA grade)</td>
+            <td>Premium · most natural-looking</td>
+            <td class="r"><strong style="color: var(--mute);">+20–40% over typical</strong><sup class="r"><a href="#s11">11</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Emerald</span></td>
+            <td>Cedar oil ("Moderate"/"Significant")</td>
+            <td>Universal &amp; accepted</td>
+            <td class="r">Baseline (most emeralds)<sup class="r"><a href="#s11">11</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country" style="color: var(--mute);">Emerald</span></td>
+            <td>Resin/epoxy fracture filling</td>
+            <td>Disclosed, materially discounted</td>
+            <td class="r" style="color: #a8825a;">30–50% of natural-oiled<sup class="r"><a href="#s11">11</a></sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Certification flow -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>The Three Major Certification Labs</h2>
+        <div class="tag-line">GIA · Gübelin · SSEF, origin and treatment authority</div>
+      </div>
+
+      <div class="stone-grid cols-3">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">GIA</div>
+          <div class="stone-tag">Gemological Institute of America · Carlsbad CA</div>
+          <div class="stone-stat"><span class="k">Founded</span><span class="v">1931</span></div>
+          <div class="stone-stat"><span class="k">Reach</span><span class="v">Broadest globally · most certificates issued</span></div>
+          <div class="stone-stat"><span class="k">Coloured stone scope</span><span class="v">Origin reports for ruby, sapphire, emerald, paraíba, alexandrite + (Jan 2026) opal, peridot, demantoid<sup class="r"><a href="#s6">6</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Reputation</span><span class="v">Most respected for diamond; coloured stone reach growing</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Gübelin</div>
+          <div class="stone-tag">Gübelin Gem Lab · Lucerne, Switzerland</div>
+          <div class="stone-stat"><span class="k">Founded</span><span class="v">1923</span></div>
+          <div class="stone-stat"><span class="k">Specialism</span><span class="v">Ruby and sapphire origin determination, premier worldwide</span></div>
+          <div class="stone-stat"><span class="k">Trade weight</span><span class="v">A Gübelin "Kashmir sapphire" or "Mogok ruby" attestation is the gold standard at top auctions</span></div>
+          <div class="stone-stat"><span class="k">Premium effect</span><span class="v">Stones with Gübelin certificate command material premium vs uncertificated equivalent<sup class="r"><a href="#s10">10</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">SSEF</div>
+          <div class="stone-tag">Swiss Gemmological Institute · Basel</div>
+          <div class="stone-stat"><span class="k">Founded</span><span class="v">1972</span></div>
+          <div class="stone-stat"><span class="k">Specialism</span><span class="v">Coloured stones, pearls, advanced spectroscopy</span></div>
+          <div class="stone-stat"><span class="k">Trade weight</span><span class="v">Frequently paired with Gübelin for highest-value stones</span></div>
+          <div class="stone-stat"><span class="k">Reputation</span><span class="v">Research-led · publishes treatment-detection methodology<sup class="r"><a href="#s10">10</a></sup></span></div>
+        </div>
+
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:18px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">The trade convention.</strong> Top-tier auction lots typically carry certificates from <em>at least two</em> of these three labs, often all three. A stone without any of these certificates trades at a meaningful discount, regardless of apparent quality. For the highest-value stones (>$1M/ct), a Gübelin certificate alone is the de-facto requirement.
+      </div>
+    </div>
+
+    <!-- Auction records visual -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Coloured Gem Auction Records</h2>
+        <div class="tag-line">Per-carat headline prices · the visible tip of the market</div>
+      </div>
+
+      <!-- New layout: 4 fixed zones for clarity, no overlapping text
+           Zone A (x=0-150):    Stone name + subtitle (left)
+           Zone B (x=160-490):  Bar (max 330px wide = $1.27M scale, 1px = $3,841/ct)
+           Zone C (x=500-700):  Price label (right-aligned)
+           Larger row spacing (60px), wider gaps -->
+      <svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+
+        <!-- Column headers -->
+        <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" letter-spacing="1.5">STONE · ORIGIN · YEAR</text>
+        <text x="160" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" letter-spacing="1.5">RELATIVE VALUE</text>
+        <text x="700" y="14" font-family="JetBrains Mono, monospace" font-size="10" fill="#5a4b8a" font-weight="600" text-anchor="end" letter-spacing="1.5">USD / CARAT</text>
+        <line x1="0" y1="22" x2="700" y2="22" stroke="#a8825a" stroke-width="1"/>
+
+        <!-- ROW 1: Sunrise Ruby, $1,266,901/ct (max scale = 330px bar) -->
+        <text x="0" y="50" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" fill="#9b4a22">Sunrise Ruby</text>
+        <text x="0" y="66" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">25.59 ct Burmese</text>
+        <text x="0" y="80" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">Sotheby's Geneva · 2015</text>
+        <rect x="160" y="50" width="330" height="20" fill="#9b4a22"/>
+        <text x="700" y="65" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">$1,266,901</text>
+
+        <!-- ROW 2: Estrela de Fura, ~$615,000/ct (= 48.6% of scale = 160px bar) -->
+        <text x="0" y="120" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" fill="#9b4a22">Estrela de Fura</text>
+        <text x="0" y="136" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">55.22 ct Mozambique</text>
+        <text x="0" y="150" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">Sotheby's NY · 2023</text>
+        <rect x="160" y="120" width="160" height="20" fill="#9b4a22" fill-opacity="0.7"/>
+        <text x="700" y="135" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">~$615,000</text>
+
+        <!-- ROW 3: Jewel of Kashmir, $243,703/ct (= 19.2% = 63px bar) -->
+        <text x="0" y="190" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" fill="#5a4b8a">Jewel of Kashmir</text>
+        <text x="0" y="206" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">27.68 ct Kashmir</text>
+        <text x="0" y="220" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">Sotheby's HK · 2015</text>
+        <rect x="160" y="190" width="63" height="20" fill="#5a4b8a"/>
+        <text x="700" y="205" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">$243,703</text>
+
+        <!-- ROW 4: Padparadscha, $97,478/ct (= 7.7% = 25px bar) -->
+        <text x="0" y="260" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" fill="#a8825a">Padparadscha</text>
+        <text x="0" y="276" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">8.01 ct Sri Lankan</text>
+        <text x="0" y="290" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">Sotheby's · 2017</text>
+        <rect x="160" y="260" width="25" height="20" fill="#a8825a"/>
+        <text x="700" y="275" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">$97,478</text>
+
+        <!-- ROW 5: Hope Spinel, $29,217/ct (= 2.3% = 8px bar) -->
+        <text x="0" y="330" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" fill="#9b4a22">Hope Spinel</text>
+        <text x="0" y="346" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">50.13 ct Mogok</text>
+        <text x="0" y="360" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a">Bonhams · 2015</text>
+        <rect x="160" y="330" width="8" height="20" fill="#9b4a22"/>
+        <text x="700" y="345" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700" fill="#141412" text-anchor="end">$29,217</text>
+
+        <!-- Scale axis (only spans bar zone) -->
+        <line x1="160" y1="384" x2="490" y2="384" stroke="#141412" stroke-width="1"/>
+        <line x1="160" y1="380" x2="160" y2="388" stroke="#141412" stroke-width="1"/>
+        <line x1="225" y1="380" x2="225" y2="388" stroke="#a8825a" stroke-width="1"/>
+        <line x1="290" y1="380" x2="290" y2="388" stroke="#a8825a" stroke-width="1"/>
+        <line x1="355" y1="380" x2="355" y2="388" stroke="#a8825a" stroke-width="1"/>
+        <line x1="425" y1="380" x2="425" y2="388" stroke="#a8825a" stroke-width="1"/>
+        <line x1="490" y1="380" x2="490" y2="388" stroke="#141412" stroke-width="1"/>
+        <text x="160" y="404" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" text-anchor="start">$0</text>
+        <text x="225" y="404" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" text-anchor="middle">$250k</text>
+        <text x="290" y="404" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" text-anchor="middle">$500k</text>
+        <text x="355" y="404" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" text-anchor="middle">$750k</text>
+        <text x="425" y="404" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" text-anchor="middle">$1M</text>
+        <text x="490" y="404" font-family="JetBrains Mono, monospace" font-size="10" fill="#a8825a" text-anchor="end">$1.27M</text>
+
+        <!-- Callout -->
+        <rect x="0" y="426" width="700" height="44" fill="none" stroke="#5a4b8a" stroke-width="1"/>
+        <text x="14" y="446" font-family="JetBrains Mono, monospace" font-size="11" fill="#141412">
+          <tspan font-weight="600" fill="#5a4b8a">Note:</tspan> Sunrise Ruby (2015) remains the most expensive coloured gemstone ever sold by per-carat price.
+        </text>
+        <text x="14" y="461" font-family="JetBrains Mono, monospace" font-size="11" fill="#141412">
+          Estrela de Fura (2023) set the modern Mozambique record at $35M total auction price.
+        </text>
+
+      </svg>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:14px; line-height:1.65;">
+        Auction records compiled from Lotus Gemology (June 2025 update) and Sotheby's/Christie's auction archives. Bars proportional to per-carat price; the Sunrise Ruby remains an outlier, its 2015 record has stood for over a decade.<sup class="r"><a href="#s8">8</a></sup><sup class="r"><a href="#s17">17</a></sup>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SECTION VI, RETAILERS (tourmaline accent) ============== -->
+  </section>
+<section id="sec-6"><div class="sechead"><h2><em>VI</em>Retailers · Luxury Houses</h2><p class="sub">Where coloured gemstones are core, not accessory</p></div><div class="section-tourmaline">
+
+    <!-- Lead Bulgari panel -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Bulgari, The Coloured-Gemstone Maison</h2>
+        <div class="tag-line">Indelibly linked to coloured stones since the 1950s</div>
+      </div>
+
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7; margin-bottom: 18px;">
+        <p style="margin-bottom: 12px;">Bulgari (Bvlgari) pioneered the <strong style="color: var(--ink);">cabochon cut applied to coloured gemstones</strong>, the combination of precious with semi-precious stones, and the modern association of vivid colour with high jewellery. The maison's identity is built on emeralds, rubies, sapphires, tourmalines, and tanzanites, not on diamonds.<sup class="r"><a href="#s18">18</a></sup></p>
+        <p style="margin-bottom: 12px;">Acquired by <strong style="color: var(--ink);">LVMH in 2011</strong> for €4.3bn; today part of LVMH's Watches &amp; Jewellery division (€10.58bn / $11.04bn in 2024). The Bulgari association with Elizabeth Taylor, particularly her Bulgari emeralds from Richard Burton during the 1963 filming of <em>Cleopatra</em>, remains a defining commercial asset of the house.<sup class="r"><a href="#s19">19</a></sup></p>
+        <p>Member of the <strong style="color: var(--ink);">Responsible Jewelry Council (RJC) since 2006</strong>; coloured gemstones added to RJC's revised Code of Practices.<sup class="r"><a href="#s20">20</a></sup></p>
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 4px;">Bulgari Aeterna 140th Anniversary Collection (2024)</div>
+      <div style="font-family:var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--mute); margin-bottom: 14px;">Highest-jewellery showcase pieces</div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Piece</th>
+            <th>Key stones</th>
+            <th class="r">Reported value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="country">Serpenti Aeterna necklace</span></td>
+            <td>Seven pear-shaped diamonds, 140 ct total</td>
+            <td class="r">€40M<sup class="r"><a href="#s19">19</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country">Tubogas Flower of Time necklace</span></td>
+            <td>31.07 ct oval Zambian emerald</td>
+            <td class="r">Not disclosed <sup class="r"><a href="#s19">19</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country">Sapphire Aeterna Waves</span></td>
+            <td>38.93 ct cushion Sri Lankan sapphire + diamonds</td>
+            <td class="r">Not disclosed <sup class="r"><a href="#s19">19</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country">Magnifica Collection (2021)</span></td>
+            <td>Multiple necklaces · ruby, sapphire, emerald centres</td>
+            <td class="r">Several &gt;$5M each<sup class="r"><a href="#s18">18</a></sup></td>
+          </tr>
+          <tr>
+            <td><span class="country">Bulgari brooch (Jan 2026 Sotheby's)</span></td>
+            <td>Cabochon emerald centre, sapphires, diamonds</td>
+            <td class="r">€355,600<sup class="r"><a href="#s18">18</a></sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Other coloured-stone-leading luxury houses -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Other Luxury Houses with Major Coloured-Stone Programmes</h2>
+        <div class="tag-line">Cartier · Van Cleef · Boucheron · Harry Winston · Graff · Mikimoto</div>
+      </div>
+
+      <div class="stone-grid cols-3">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Cartier</div>
+          <div class="stone-tag">Richemont · founded 1847</div>
+          <div class="stone-stat"><span class="k">Coloured stone heritage</span><span class="v">"Tutti Frutti" Art Deco emerald/ruby/sapphire designs (1925)</span></div>
+          <div class="stone-stat"><span class="k">Signature pieces</span><span class="v">Panthère collection (emerald eyes), high-jewellery rubies</span></div>
+          <div class="stone-stat"><span class="k">Parent revenue</span><span class="v">Richemont Jewellery Maisons FY25: €15.33bn ($16.5bn)</span></div>
+          <div class="stone-stat"><span class="k">Trade weight</span><span class="v">Sunrise Ruby (record $30.3M, 2015) was a Cartier ring</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Van Cleef &amp; Arpels</div>
+          <div class="stone-tag">Richemont · founded 1896</div>
+          <div class="stone-stat"><span class="k">Coloured stone heritage</span><span class="v">"Mystery Setting" patented 1933, invisible rubies/sapphires</span></div>
+          <div class="stone-stat"><span class="k">Signature</span><span class="v">Alhambra clovers, Fauna high jewellery</span></div>
+          <div class="stone-stat"><span class="k">CEO of Richemont</span><span class="v">Nicolas Bos (former Van Cleef CEO, appointed June 2024)</span></div>
+          <div class="stone-stat"><span class="k">Stance on LGD</span><span class="v">Natural only · positions on rarity and provenance</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Boucheron</div>
+          <div class="stone-tag">Kering (Pinault) · founded 1858</div>
+          <div class="stone-stat"><span class="k">Coloured stone heritage</span><span class="v">First jeweller on Place Vendôme (1893)</span></div>
+          <div class="stone-stat"><span class="k">Signature</span><span class="v">Question Mark necklace, Serpent Bohème, high-jewellery rubellites</span></div>
+          <div class="stone-stat"><span class="k">Parent group</span><span class="v">Kering Luxury (also Gucci, Saint Laurent)</span></div>
+          <div class="stone-stat"><span class="k">Recent record (2025)</span><span class="v">$12.7M Boucheron ring (fancy-deep-blue diamond + rubies, Christie's)<sup class="r"><a href="#s21">21</a></sup></span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Harry Winston</div>
+          <div class="stone-tag">Swatch Group · founded 1932</div>
+          <div class="stone-stat"><span class="k">Coloured stone heritage</span><span class="v">"King of Diamonds" but holds significant ruby &amp; emerald inventory</span></div>
+          <div class="stone-stat"><span class="k">Notable acquisition</span><span class="v">Bought Rockefeller Emerald for $5.5M (Christie's 2017)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Coloured-stone programme</span><span class="v">Premier &amp; Sunflower collections feature high-quality rubies/sapphires</span></div>
+          <div class="stone-stat"><span class="k">Parent revenue</span><span class="v">Swatch Group Jewellery segment (smaller within Swatch group)</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Graff</div>
+          <div class="stone-tag">Private (Laurence Graff) · founded 1960</div>
+          <div class="stone-stat"><span class="k">Coloured stone heritage</span><span class="v">Strong reputation in fine rubies; sold 8.62 ct Burmese ruby ring for $8.57M (2014)<sup class="r"><a href="#s8">8</a></sup></span></div>
+          <div class="stone-stat"><span class="k">Signature</span><span class="v">Yellow diamond focus, exceptional coloured stones</span></div>
+          <div class="stone-stat"><span class="k">Status</span><span class="v">Privately held · independent of conglomerate</span></div>
+          <div class="stone-stat"><span class="k">Trade position</span><span class="v">Major direct buyer at top-tier coloured-stone auctions</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Mikimoto</div>
+          <div class="stone-tag">Private (Mikimoto family) · founded 1893</div>
+          <div class="stone-stat"><span class="k">Specialism</span><span class="v">Pearls · invented cultured pearl 1893</span></div>
+          <div class="stone-stat"><span class="k">Coloured stone use</span><span class="v">Pearl + emerald, pearl + sapphire signature designs</span></div>
+          <div class="stone-stat"><span class="k">Status</span><span class="v">Japan's premier high jeweller, global presence</span></div>
+          <div class="stone-stat"><span class="k">Trade weight</span><span class="v">Sets the standard for fine pearl + coloured stone combinations</span></div>
+        </div>
+
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:18px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">A reading note on like-for-like.</strong> Unlike diamonds, coloured-gemstone revenue is rarely disclosed separately by these maisons. LVMH reports Watches &amp; Jewellery as one €10.58bn segment; Richemont reports Jewellery Maisons as one €15.33bn segment. Coloured stones are estimated to account for 30–50% of high-jewellery (top-end) revenue at Bulgari, Van Cleef and Cartier, and a smaller share at brands diamond-led brands like Harry Winston. Hard figures are not publicly disclosed.
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SECTION VII, OUTLOOK (teal accent) ============== -->
+  </section>
+<section id="sec-7"><div class="sechead"><h2><em>VII</em>Outlook</h2><p class="sub">Synthetics · ESG · GIA expansion · Generational trends</p></div><div class="section-teal">
+
+    <!-- Synthetic gemstones -->
+    <div class="note">
+      <div class="panel-head">
+        <h2>Lab-Grown / Synthetic Coloured Gemstones</h2>
+        <div class="tag-line">Four production methods · Different quality, different price</div>
+      </div>
+
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7; margin-bottom: 18px;">
+        Synthetic ruby (the first commercially synthesised gemstone) appeared in 1902 via the Verneuil flame-fusion process. Today, four production methods dominate lab-grown coloured stones, each producing visually identical chemical composition to natural stones, but distinguishable under high magnification by inclusion patterns.<sup class="r"><a href="#s22">22</a></sup>
+      </div>
+
+      <div class="stone-grid cols-4">
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Flame Fusion</div>
+          <div class="stone-tag">Verneuil process · 1902</div>
+          <div class="stone-stat"><span class="k">Stones produced</span><span class="v">Ruby, sapphire</span></div>
+          <div class="stone-stat"><span class="k">Time</span><span class="v">Hours per stone</span></div>
+          <div class="stone-stat"><span class="k">Cost</span><span class="v">Lowest</span></div>
+          <div class="stone-stat"><span class="k">Quality</span><span class="v">Glassy · curved growth planes detectable</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Flux Growth</div>
+          <div class="stone-tag">Carroll Chatham · late 1930s</div>
+          <div class="stone-stat"><span class="k">Stones produced</span><span class="v">Emerald (most successful), ruby, alexandrite</span></div>
+          <div class="stone-stat"><span class="k">Time</span><span class="v">Months per crystal</span></div>
+          <div class="stone-stat"><span class="k">Cost</span><span class="v">High</span></div>
+          <div class="stone-stat"><span class="k">Quality</span><span class="v">Excellent · close to natural appearance</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Czochralski</div>
+          <div class="stone-tag">"Crystal pulling" process</div>
+          <div class="stone-stat"><span class="k">Stones produced</span><span class="v">Ruby, sapphire, alexandrite, corundum</span></div>
+          <div class="stone-stat"><span class="k">Time</span><span class="v">Days to weeks</span></div>
+          <div class="stone-stat"><span class="k">Crystal size</span><span class="v">Diameters &gt;2", lengths &gt;40" possible</span></div>
+          <div class="stone-stat"><span class="k">Quality</span><span class="v">High optical homogeneity and purity</span></div>
+        </div>
+
+        <div class="stone-card" style="border-top-color: var(--mute);">
+          <div class="stone-name">Hydrothermal</div>
+          <div class="stone-tag">Closest to natural conditions</div>
+          <div class="stone-stat"><span class="k">Stones produced</span><span class="v">Emerald (best results), ruby, quartz</span></div>
+          <div class="stone-stat"><span class="k">Time</span><span class="v">Slowest · weeks to months</span></div>
+          <div class="stone-stat"><span class="k">Cost</span><span class="v">Highest</span></div>
+          <div class="stone-stat"><span class="k">Quality</span><span class="v">"Best superior" · same optical &amp; physical properties as natural<sup class="r"><a href="#s22">22</a></sup></span></div>
+        </div>
+
+      </div>
+
+      <div style="font-family:var(--mono); font-size: 11px; color:#a8825a; margin-top:18px; line-height:1.65; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);">
+        <strong style="color: var(--ink);">The trade reality.</strong> Unlike lab-grown diamonds (which now command ~14% of US jewellery market value), <em>synthetic coloured gemstones remain a niche</em>. Reasons: (1) coloured stones already cost a fraction of fine diamond at the entry level, less price-arbitrage incentive for synthetic; (2) the natural-stone narrative for ruby, sapphire and emerald is built on <em>origin</em> (Mogok, Kashmir, Muzo), something a lab cannot replicate; (3) consumer awareness of synthetic coloured stones is materially lower than awareness of lab-grown diamonds.
+      </div>
+    </div>
+
+    <!-- ESG and structural trends -->
+    <div style="margin-top: 22px;" class="note">
+      <div class="panel-head">
+        <h2>Structural Trends Shaping 2025–2035</h2>
+        <div class="tag-line">Four forces affecting the next decade · most are hypotheses, not observations</div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric tinted">
+          <div class="label">US gemstone imports 2025</div>
+          <div class="value">▼44%<span class="unit">YoY</span><span class="c c-h">High</span></div>
+          <div class="change">2024 $19.6bn → 2025e $11.0bn. Sharp reversal of earlier multi-year uptrend; reflects tariffs, weaker discretionary demand.<sup class="r"><a href="#s30">30</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">GIA origin scope</div>
+          <div class="value">+3<span class="unit">stones</span><span class="c c-h">High</span></div>
+          <div class="change">From Jan 2026: opal, peridot, demantoid garnet added to origin determination.<sup class="r"><a href="#s6">6</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">Forecast 2024–2032 CAGR</div>
+          <div class="value">~5–6%<span class="unit">p.a.</span><span class="c c-x">Hyp</span></div>
+          <div class="change">Paid-report forecast · not observed. 2025 contraction may force forecasts to be revised down.<sup class="r"><a href="#s2">2</a></sup></div>
+        </div>
+        <div class="metric tinted">
+          <div class="label">2025 → 2035 rough market</div>
+          <div class="value">$1.9 → $5.7bn<span class="c c-x">Hyp</span></div>
+          <div class="change">Future Market Insights projection · 11.3% CAGR. Forecast, not observed.<sup class="r"><a href="#s2">2</a></sup></div>
+        </div>
+      </div>
+
+      <div style="font-size: 13px; color: #a8825a; line-height: 1.7; margin-top: 20px;">
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">1 · Generational substitution from diamonds.</strong> Younger US consumers, particularly Millennials and Gen Z, increasingly choose coloured stones for engagement rings and self-purchase. Sapphire engagement rings have moved from niche to mainstream over the last decade; ruby and emerald are growing similarly. <span class="c c-m">Med</span>, supported by trade press but no audited consumer-survey data.</p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">2 · Origin certification expansion <span class="c c-x">Hyp</span>.</strong> GIA's Jan 2026 expansion to opal, peridot, and demantoid garnet brings scientific provenance to stones previously sold without it. <em>Hypothesis:</em> this could push prices upward for documented top-quality material, though this is the typical pattern observed historically for ruby/sapphire origin certificates, it has not yet been tested for these specific stone categories.<sup class="r"><a href="#s6">6</a></sup></p>
+        <p style="margin-bottom: 12px;"><strong style="color: var(--ink);">3 · Blockchain provenance <span class="c c-x">Hyp</span>.</strong> Fura Gems publicly champions blockchain-backed mine-to-market traceability, the first coloured-gemstone miner to do so at scale. <em>Hypothesis:</em> if this becomes industry-standard, it may compress the price gap between certificated and uncertificated stones. <em>This is an analyst hypothesis only, not yet observed in market prices.</em> Adoption beyond Fura has been limited; consumer awareness of blockchain provenance in jewellery remains low.<sup class="r"><a href="#s16">16</a></sup></p>
+        <p><strong style="color: var(--ink);">4 · RJC standards extension.</strong> The Responsible Jewelry Council has extended its Code of Practices Standard to explicitly cover rubies, emeralds and sapphires. Luxury houses (Bulgari RJC member since 2006) increasingly require certified-sourcing audits from suppliers. <span class="c c-m">Med</span>, verified policy change; market impact still developing.<sup class="r"><a href="#s20">20</a></sup></p>
+        <p style="margin-bottom: 0; margin-top: 14px; padding: 12px 14px; background: #faf7f0; border-left: 2px solid var(--mute);"><strong style="color: var(--ink);">A note on 2025's reversal.</strong> Three of the four forecasts above (CAGR projections, rough-trade growth, certification price effects) are <em>hypotheses or paid-report estimates</em>, not observed trends. The 2025 USGS data point, a 44% drop in US gemstone imports, is the freshest hard observation, and it contradicts the smooth-growth narrative that many of these forecasts assume. Readers should weight near-term forecasts accordingly.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============== SOURCES ============== -->
+  </section>
+<section id="sources"><div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src"><li id="s1"><strong>Data Bridge Market Research, Global Gemstones Market (2024 valuation).</strong> Reports global gemstones market valued at <strong>USD 33.96 billion in 2024</strong>, projected to reach $49.80bn by 2032 (CAGR 4.90%). Segments by precious vs semi-precious, treatment, origin, channel, price range. Includes diamond in broadest sense; coloured-only subset roughly two-thirds of figure. <a href="https://www.databridgemarketresearch.com/reports/global-gemstones-market" target="_blank">databridgemarketresearch.com</a></li><li id="s2"><strong>Future Market Insights, Coloured Gemstone Market 2025-2035.</strong> Projects coloured gemstone wholesale/rough market growing from <strong>USD 1.9 billion (2025) to USD 5.7 billion (2035)</strong>, CAGR 11.3%. 2020-2024 historic CAGR ~4.3% (post-pandemic recovery). Notes that "small-scale mining still accounts for more than 30% of colored gemstone supply" per their definition; other industry estimates put artisanal at 70-80% for many specific stones. <a href="https://www.futuremarketinsights.com/reports/colored-gemstones-market" target="_blank">futuremarketinsights.com</a></li><li id="s3"><strong>National Jeweler · "State of Colored Stones: The Big Three in the Modern World" (2025), citing Gemfields industry research.</strong> Sapphire, ruby and emerald collectively dominate the value of the coloured gemstone segment. Article references Gemfields' published research <em>"Understanding the Global Supply of Emerald, Ruby and Sapphire"</em> (2024) and the 2022 global market analysis. Emerald alone holds ~32% share of the coloured gemstone segment by value (Future Market Insights/Robert Genis). <a href="https://nationaljeweler.com/articles/13928-state-of-colored-stones-the-big-three-in-the-modern-world" target="_blank">nationaljeweler.com</a></li><li id="s4"><strong>USGS, Mineral Commodity Summaries 2024 &amp; 2025, Gemstones data sheets (historical context).</strong> US apparent gemstone consumption 2023: ~<strong>USD 21 billion</strong>, down from $26.2bn in 2022. Imports supply nearly 99% of US domestic gemstone needs. Diamonds historically contribute 89-92% of total US gemstone import value; coloured gemstones ~8-11%. Earlier dashboard iterations cited a "136% rise in coloured gemstone imports 2020-2024", that figure is now superseded by the USGS MCS 2026 release (see [s30]), which shows a sharp 2025 reversal. <em>This source is retained for historical context; for the most current US figures see [s30].</em> <a href="https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-gemstones.pdf" target="_blank">usgs.gov (Gemstones 2025)</a> · <a href="https://pubs.usgs.gov/periodicals/mcs2024/mcs2024-gemstones.pdf" target="_blank">usgs.gov (Gemstones 2024)</a></li><li id="s5"><strong>GIA, Coloured Stone Research, Gem Localities and Formation series.</strong> Authoritative source on the geology and trade history of major coloured gem origins. Fine sapphires in ancient Roman artefacts essentially only from Ceylon (Sri Lanka); fine rubies mostly from Mogok in Burma; emeralds sourced from Egypt until Colombian discovery in the New World. Kashmir produced legendary "velvety cornflower blue" sapphires until effective mine depletion in the 1930s; Mogok rubies remain the gold standard for "pigeon's blood" colour. <a href="https://www.gia.edu/colored-stone-research" target="_blank">gia.edu (Colored Stone Research)</a> · <a href="https://www.gia.edu/gems-gemology/fall-2018-posters-gem-localities-formation" target="_blank">gia.edu (Localities)</a></li><li id="s6"><strong>Future Market Insights, Global Gemstones Market &amp; Industry Analysis 2036.</strong> Reports UK 2024 import value of $92bn (global trading hub aggregate); emeralds hold 32% share of coloured gemstone segment by value. Gemfields August 2025 sold Fabergé for $50M to refocus on core mining. December 2025: <strong>GIA expanded origin-determination services to include opal, peridot, and demantoid garnet starting January 1, 2026</strong>, extending scientific provenance to wider coloured-stone market. <a href="https://www.futuremarketinsights.com/reports/gemstones-market" target="_blank">futuremarketinsights.com</a></li><li id="s7"><strong>Gemfields Group Limited (LSE: GEM, JSE: GML), Operational results 2023, 2024, 2025 trading updates.</strong> Auction revenue 2023: $242M; <strong>2024: $196M</strong>; <strong>2025: $128.5M (down 34% YoY)</strong>. 75%-owned Kagem emerald mine (Zambia) production paused January-May 2025 due to reintroduced 15% Zambian export duty; resumed limited mining May 2025. 75%-owned Montepuez Ruby Mine (Mozambique) second processing plant ($70M capex) completed late 2025; first auction February 2026. Kagem 11,685-ct "Imboo" emerald recovered 2024. <a href="https://www.gemfieldsgroup.com/auction-results-commercial-quality-emeralds-5-12-25/" target="_blank">gemfieldsgroup.com</a> · <a href="https://www.sharecast.com/amp/news/aim-bulletin/gemfields-records-full-year-auction-revenue-of-1285m--21581319.html" target="_blank">sharecast.com</a></li><li id="s8"><strong>Lotus Gemology, Ruby, Sapphire &amp; Spinel Auction Records (updated June 2025); Sotheby's &amp; Christie's auction archives.</strong> Sunrise Ruby (25.59 ct Burmese, Cartier): $32.42M ($1,266,901/ct) at Sotheby's Geneva 12 May 2015, current per-carat and total world ruby auction records. Jewel of Kashmir (27.68 ct): $6.75M ($243,703/ct) at Sotheby's Hong Kong 7 October 2015, per-carat sapphire record. Blue Belle of Asia (392.52 ct Sri Lankan): $17.30M total at Christie's Geneva 11 November 2014, total sapphire record. Padparadscha 8.01 ct: $97,478/ct at Sotheby's 2017. Hope Spinel: $29,217/ct (2015). Rockefeller Emerald: $5.5M at Christie's NY 2017. <a href="https://lotusgemology.com/resources/articles/160-ruby-sapphire-spinel-auction-records-under-the-hammer-lotus-gemology" target="_blank">lotusgemology.com</a></li><li id="s9"><strong>Industry pricing premia, Lotus Gemology, AGTA, GIA, trade publications.</strong> Unheated Mogok ruby trades at 2-5× the price of heated equivalents at high quality levels. Lead-glass filled ruby ("composite ruby") trades at small fraction of natural ruby. Colombian emerald typically commands 30-60% premium over Zambian equivalent at similar grade. Kashmir sapphire commands the highest premium of any gemstone origin, 5-20× over Sri Lankan or Madagascan equivalent at top quality. Sources: Lotus Gemology trade reports, AGTA price guides, GIA auction analysis articles. <a href="https://lotusgemology.com/" target="_blank">lotusgemology.com</a> · <a href="https://www.gia.edu/gems-gemology" target="_blank">gia.edu</a></li><li id="s10"><strong>GIA, Gübelin Gem Lab, SSEF, Treatment disclosure and origin determination protocols.</strong> Heat treatment of corundum (ruby and sapphire) has been the industry standard since the 1970s, disclosed but not heavily price-discounting for sapphire; ruby premium for unheated is substantial. Three labs dominate origin and treatment certification globally: GIA (broadest reach, US-based), Gübelin Gem Lab (Switzerland, premier reputation for ruby/sapphire origin determination), SSEF (Swiss Gemmological Institute, coloured stone specialist). Stones bound for high-end auction typically carry certificates from at least one and frequently all three. <a href="https://www.gia.edu/gem-encyclopedia" target="_blank">gia.edu</a> · <a href="https://www.gubelingemlab.com/" target="_blank">gubelingemlab.com</a> · <a href="https://www.ssef.ch/" target="_blank">ssef.ch</a></li><li id="s11"><strong>GIA, AGTA, Emerald treatment and "jardin" (inclusion) standards.</strong> Emeralds are routinely treated with cedar oil or other clear oils to fill surface-reaching fractures and improve apparent clarity; this is universally accepted in the trade and disclosed at GIA "Insignificant / Minor / Moderate / Significant" levels. Resin-filled or epoxy-treated emeralds are materially less valuable. "Jardin" (French for garden) is the trade term for the network of inclusions typical in emerald, emeralds are graded with the expectation of inclusions, unlike diamonds. <a href="https://www.gia.edu/gem-encyclopedia/emerald-treatments" target="_blank">gia.edu</a></li><li id="s12"><strong>Gemfields Auction Results page, Kagem cumulative figures.</strong> 52 emerald auctions of Kagem gemstones held from July 2009 through August 2025 generated <strong>USD 1,122 million in cumulative revenues</strong>; 53rd auction completed December 2025 took cumulative to $1.147bn. Kagem operations resumed focused mining May 2025; premium emerald recoveries "met expectations" per Gemfields year-end statement. <a href="https://www.gemfieldsgroup.com/auction-results-higher-quality-emeralds-12-9-25/" target="_blank">gemfieldsgroup.com</a></li><li id="s13"><strong>Gemfields G-Factor for Natural Resources reporting 2024.</strong> The G-Factor measures % of mining revenue paid to host governments via primary taxes, royalties and dividends. <strong>Montepuez Ruby Mine returned 24% of 2024 revenue to Mozambique</strong>; Kagem (Zambia) returned only 9% in 2024 due to mid-year operational suspension and weak market conditions. Kagem long-term G-Factor average: ~19%. Montepuez 2015-2024 G-Factor: 25%; Kagem 2015-2024: 20%. Voluntary transparency tool introduced by Gemfields 2021. <a href="https://www.mining.com/gemfields-montepuez-leads-kagem-lags-in-2024-payouts/" target="_blank">mining.com</a></li><li id="s14"><strong>Trade-publication geography, All About Gemstones, Robinson's Jewelers, Precious Earth.</strong> Cross-referenced industry resources on coloured gem origins. Ruby: Myanmar (Mogok, Mong Hsu), Mozambique (Montepuez), Madagascar, Tanzania (Longido, Rukwa), Thailand. Sapphire: Sri Lanka (Ceylon, Ratnapura), Madagascar (Ilakaka), Myanmar, Australia (NSW, Queensland), Montana (US), Kashmir (essentially depleted). Emerald: Colombia (Muzo, Chivor, Coscuez), Zambia (Kagem), Brazil (Bahia, Minas Gerais), Ethiopia (emerged 2016), Afghanistan (Panjshir Valley), Russia (Ural Mountains). <a href="https://enchantedgems.wordpress.com/gem-sources-and-trade/" target="_blank">enchantedgems.wordpress.com</a> · <a href="https://preciousearth.in/blogs/education/gemstone-mines-and-origins" target="_blank">preciousearth.in</a></li><li id="s15"><strong>Jadeite, Geological Survey &amp; trade history.</strong> Myanmar's Uru Valley (Kachin State, northern Myanmar) is the world's only commercial source of <strong>gem-quality jadeite</strong> (one of the two jade minerals; the other, nephrite, is more widely distributed). Imperial jade, translucent, intense emerald green, commands the highest prices of any jade, primarily through Chinese cultural demand. Hutton-Mdivani jadeite necklace sold for $27.4M at Sotheby's Hong Kong 2014. Myanmar jade trade was placed under US sanctions following 2021 military coup. <a href="https://en.wikipedia.org/wiki/Jadeite_jade" target="_blank">en.wikipedia.org</a></li><li id="s16"><strong>Fura Gems Inc. (TSXV: FURA, OTC: FUGMF), company filings, GIA Gems &amp; Gemology, Club of Mozambique trade press.</strong> Founded January 2017, CEO Dev Shetty, HQ Dubai &amp; Toronto. Only mining company in the world exploring all three Big Three categories: <strong>76% interest in Coscuez Emerald Mine (Boyacá, Colombia)</strong> acquired October 2017; <strong>7 ruby mining licences in Montepuez, Mozambique</strong> acquired by October 2019 (80% effective interest in 4 ruby licences 4392L, 3868L, 3869L, 6811L; 100% interest in licence 5572L); <strong>Great Northern Mining and Capricorn Sapphire mines, Queensland Australia</strong> acquired 2020. 2021 production: 5.5M ct Australian sapphires, 6M ct Mozambican rubies, 300,000 ct Colombian emeralds. First auctions: Colombian emerald April 2021, Mozambique ruby September 2021, Australian sapphire November 2021. Long-term loan facility US$21M + US$7.6M ($28.6M aggregate) arranged 2020. Self-positions on transparency, ethical sourcing, blockchain provenance proof. <a href="https://www.furagems.com/who-we-are" target="_blank">furagems.com</a> · <a href="https://www.gia.edu/gems-gemology/fall-2021-gemnews-fura-gems-inaugural-ruby-sale" target="_blank">gia.edu</a> · <a href="https://clubofmozambique.com/news/fura-secures-mireme-approval-for-acquisition-of-ruby-licence-in-mozambique-158494/" target="_blank">clubofmozambique.com</a></li><li id="s17"><strong>Estrela de Fura, Sotheby's New York Magnificent Jewels auction, June 2023.</strong> 55.22-carat polished Mozambican ruby cut from a 101-carat rough recovered at Fura Gems' Mozambique ruby mine in July 2022. Auctioned at Sotheby's NY Magnificent Jewels sale June 2023; described by Sotheby's jewellery specialist Uni Kim as setting a new most-expensive-ruby auction record. The stone underscored Mozambique's emergence as a high-end ruby origin alongside the traditional Burmese Mogok source. <a href="https://gulfnews.com/world/americas/sothebys-to-auction-worlds-largest-ruby-in-new-york-in-june-1.1681794164094" target="_blank">gulfnews.com (Reuters)</a></li><li id="s18"><strong>Bulgari, Sotheby's "Story of Bulgari's Mastery with Coloured Gemstones" &amp; "Icons of Jewelry Design"; Samuelson's Diamonds historical reference.</strong> Bulgari "indelibly linked to emeralds" via Elizabeth Taylor connection during 1963 Cleopatra filming. Pioneered cabochon cut applied to coloured stones, combining precious + semi-precious, and the "rainbow revolution" of the 1970s. Bvlgari's 1960s necklaces showcased pale blue Sri Lankan sapphires with citrines, amethysts, tourmalines. Andy Warhol: "Bulgari jewelry was the eighties." Acquired by LVMH 2011 (€4.3bn). Recent Sotheby's-sold Bulgari emerald/sapphire/diamond brooch: €355,600 (January 2026). Magnifica Collection necklaces priced over $5M each. <a href="https://www.sothebys.com/en/articles/the-story-of-bulgaris-mastery-with-coloured-gemstones" target="_blank">sothebys.com</a> · <a href="https://www.sothebys.com/en/articles/icons-of-jewelry-design-bvlgari" target="_blank">sothebys.com (Icons)</a></li><li id="s19"><strong>Bulgari Aeterna 140th Anniversary Collection (2024), Rapaport, Monochrome Watches, The Jewellery Editor coverage.</strong> Aeterna collection unveiled 2024 marking Bulgari's 140th anniversary. Highlights: <strong>Serpenti Aeterna diamond necklace</strong> valued at €40 million (seven pear-shaped diamonds totalling 140 carats, serpentine baguette-cut diamond design). <strong>Tubogas Flower of Time</strong>, engraved 31.07-carat oval Zambian emerald. <strong>Sapphire Aeterna Waves</strong>, 38.93-carat cushion-cut Sri Lankan sapphire on platinum. <strong>Fuochi D'Artificio High-Jewellery Manchette</strong>, 1,450 hours to create, sapphires/rubellites/mandarin garnets/tanzanites/tsavorites/tourmalines/topazes/amethysts/rubies/emeralds. Sapphire Brocade necklace gemstones took two years to source. <a href="https://www.thejewelleryeditor.com/jewellery/article/millionaire-jewels-bulgari-aeterna-celebrate-140-years-of-the-roman-jeweller/" target="_blank">thejewelleryeditor.com</a> · <a href="https://rapaport.com/magazine-article/bulgaris-most-lavish-high-jewelry-collection-to-date/" target="_blank">rapaport.com</a></li><li id="s20"><strong>Responsible Jewelry Council (RJC) Code of Practices, Lampoon Magazine Bulgari profile.</strong> RJC has worked to improve coloured gemstone supply chain transparency, recently including rubies, emeralds and sapphires explicitly in its revised Code of Practices Standard. <strong>Bulgari has been an RJC member since 2006</strong>. The article notes: "from two billion dollars, if trends continue and strengthen, colored gems could displace diamond's market share and reach ten billion dollars in the next decade." Driven by Millennial/Gen Z conscious-consumer demand for ethical sourcing certification. <a href="https://lampoonmagazine.com/bulgari-gemstones-lucia-silvestri/" target="_blank">lampoonmagazine.com</a></li><li id="s21"><strong>2025 top jewellery auction results, Rapaport "A Glittering Year on the Block."</strong> Christie's took 6 of the top 10 positions in 2025 (vs 9 in 2024). Boucheron ring featuring 6.24-carat fancy-deep-blue diamond + white diamonds + rubies sold for <strong>CHF 10.6M ($12.7M)</strong> at Christie's Geneva 14 May 2025, against CHF 4.5–6.5M presale estimate. The Regent Kashmir Christie's HK 27 May 2025 sale (35.09-ct antique cushion-cut Kashmir sapphire ring with diamond accents): HKD 74.7M ($9.5M). <a href="https://rapaport.com/news/a-glittering-year-at-christies-the-top-auction-jewels-of-2025/" target="_blank">rapaport.com</a></li><li id="s22"><strong>Synthetic / lab-grown coloured gemstone production, GIA "Introduction to Synthetic Gem Materials"; ICIA &amp; trade references.</strong> Four major methods: <strong>Flame Fusion</strong> (Verneuil process, 1902, first commercial synthetic gemstone, used for ruby and sapphire, glassy curved growth planes detectable); <strong>Flux Growth</strong> (Carroll Chatham late 1930s, commercialised flux-grown emerald; months per crystal, high cost, excellent quality); <strong>Czochralski / Crystal Pulling</strong> (large crystals possible, &gt;2" diameter, &gt;40" length, used for ruby, sapphire, alexandrite, corundum); <strong>Hydrothermal</strong> (slowest, most expensive, closest to natural conditions, best for ruby and emerald, "best superior" quality). Synthetic ruby was the first commercial synthetic gem. Synthetic corundum is widely used as alexandrite imitation. Lab-grown coloured stones share virtually all chemical/optical/physical properties of natural counterparts, distinguishable only under high magnification by inclusion patterns. <a href="https://www.gia.edu/gem-synthetic" target="_blank">gia.edu</a></li><li id="s23"><strong>Grizzly Mining Limited, company website, Jewellery Outlook, Mining Review Africa, Forbes Africa profile, The Marque profile of Abdoulaye Ndiaye.</strong> Founded by <strong>Abdoulaye Ndiaye</strong> (Senegalese-born, the "Emerald King") in 1997 after he began trading emeralds in Lufwanyama in 1972 and acquired the mine 25 years later. <strong>100% owned flagship Grizzly Mine</strong> in Lufwanyama region, Copperbelt Province, Zambia. <strong>~60 million carats produced annually</strong>; <strong>170 million+ carats produced lifetime</strong>. ~4,000 employees. Quarterly auctions held in-country and internationally at Almas Tower, Dubai. <strong>Nov 2024 auction generated $22.4M revenue</strong>; earlier auctions ~$19M. <strong>~90% of revenue from high-quality emeralds</strong> which constitute only a small fraction of physical output. Together with Gemfields' Kagem, makes Zambia the world's largest emerald producer by volume (overtaking Colombia). Note: Lev Leviev reportedly bought half of "Grizzly Mine" in 2017 and renamed it Gemcanton; Grizzly Mining LinkedIn/website continues to operate as a separate entity, likely a licence-area carve-out rather than ownership of the parent company. <a href="https://grizzlyemeralds.com/" target="_blank">grizzlyemeralds.com</a> · <a href="https://jewelleryoutlook.com/auctions-grizzly-mining-emerald-auction-fetches-us22-4-million/" target="_blank">jewelleryoutlook.com (Nov 2024 auction)</a> · <a href="https://www.miningreview.com/diamonds-gemstones/grizzly-mining-a-world-class-player-in-emeralds/" target="_blank">miningreview.com</a></li><li id="s24"><strong>Belmont Emeralds (Grupo Belmont), company website, GIA Gems &amp; Gemology field research (Spring 2015 New Production article + 2014 site visit), London DE Brazilian emerald history, Bonas Group profile.</strong> Located in <strong>Itabira region, Minas Gerais, Brazil</strong>; operational since <strong>1978</strong> (started as cattle ranch on Ribeiro family rural property). Owned by Ribeiro family, with <strong>Marcelo Ribeiro</strong> as Director. <strong>Largest independent miner of emeralds in Brazil</strong>; ~250 employees. <strong>~250,000g rough emerald per year from 350,000 tonnes of soil</strong> (1g per 280kg ore). Mix of open-pit and underground (75m vertical shaft from 1998; 50% production still open-cast). Optical sorting replaced hand-picking since 2004. Markets: US, Europe, Asia, Brazil. <strong>80% of rough subsequently cut at Belmont's Itabira sorting facility</strong>. Brazilian emeralds known for blue-grey cast, typically harder and larger than other emeralds, requiring no enhancement. Mine-to-market traceability strongly emphasised. 40th anniversary celebrated 2018. <a href="https://belmontemeralds.com/" target="_blank">belmontemeralds.com</a> · <a href="https://www.gia.edu/gia-news-research/belmont-mine-emeralds-journey-mine-to-market" target="_blank">gia.edu (Mine to Market)</a> · <a href="https://www.gia.edu/gems-gemology/spring-2015-gemnews-brazilian-emerald-from-minas-gerais" target="_blank">gia.edu (G&amp;G Spring 2015)</a> · <a href="https://www.londonde.com/blogs/the-story-of-the-brazilian-emerald/" target="_blank">londonde.com</a></li><li id="s25"><strong>Fura Gems leadership transition &amp; complete ownership chain, JCK, Rapaport, National Jeweler trade press June 2024; SEC filings &amp; press releases 2019-2020; Wildeboer Dellelce (transaction counsel); Private Capital Journal; Crunchbase.</strong> Dev Shetty stepped down as Fura Gems CEO in June 2024 to pursue other opportunities; founded Fura in 2017 after running Montepuez and Kagem mines for Gemfields; instrumental in bringing the <strong>$35M Estrela de Fura</strong> ruby to Sotheby's NY auction June 2023.<br/><br/><strong>Ownership chain (verified):</strong> Fura was taken private in <strong>October 2020 by Lord of Seven Hills Holdings FZE (L7H)</strong>, a Fujairah Free Zone Authority-registered UAE holding company, in an all-cash amalgamation valued at <strong>~$40.8M total equity</strong>. L7H built its position through 2019-2020: ~8.5% pre-2019 → 39.2% in Oct 2019 ($0.25/share private placement) → 51.5% mid-2020 → 100% Oct 2020 (CAD 0.15/share buyout of remaining 48.5%). L7H is "incorporated under the laws of Fujairah Free Zone Authority, UAE"; originally a marketing agent for high-grade manganese ore with a diversified investment portfolio. <strong>Controllers:</strong> <strong>Gagan Gupta</strong> (named as "controller of L7H" in the November 2019 Newswire disclosure) and <strong>Michael Kuan</strong>, Chairman of Kuan Capital, Shanghai (described as controlling L7H per Private Capital Journal 2020). <strong>Gaurav Gupta</strong> serves on Fura's board as a director representing the majority shareholder and has signing authority for L7H. <strong>Fortuna Holdings</strong> (fortunaholdings.net) is a Dubai-based, Monetary Authority of Singapore (MAS)-registered single-family office that appears to be a related or successor investment vehicle of the same family-office grouping. <em>Important clarification: This is NOT "Fortuna Investments" founded by Justus Parmar 2015 in Vancouver (an unrelated Canadian VC firm).</em> <a href="https://www.jckonline.com/editorial-article/fura-gems-dev-shetty-resigns/" target="_blank">jckonline.com (Shetty exit)</a> · <a href="https://privatecapitaljournal.com/uae-registered-lord-of-seven-hills-to-take-fura-gems-private-for-41m/" target="_blank">privatecapitaljournal.com</a> · <a href="https://wildlaw.ca/transactions/lord-of-seven-hills-holdings-fze-completes-40-million-take-private-transaction-of-fura-gems-inc" target="_blank">wildlaw.ca (transaction counsel)</a> · <a href="https://www.newswire.ca/news-releases/lord-of-seven-hills-holdings-fze-announces-investment-in-fura-gems-inc--886768913.html" target="_blank">newswire.ca (Oct 2019)</a> · <a href="https://www.crunchbase.com/organization/fortuna-holdings" target="_blank">crunchbase.com (Fortuna Holdings)</a></li><li id="s26"><strong>Bangkok &amp; Chanthaburi, Thailand, Gem and Jewelry Institute of Thailand (GIT); Chanthaburi Gem and Jewelry Traders Association; Rapaport "Why Bangkok Is the Go-To Spot for Colored Stones" (June 2024); JewelleryNet feature; ICA Congress 2019 Chairman Prida Tiasuwan.</strong> <strong>GIT estimates that more than 80% of gemstones traded internationally, particularly rubies and sapphires, have undergone enhancement in Chanthaburi.</strong> Chanthaburi Gem &amp; Jewelry Traders Association data: 80% of Thailand's coloured gemstone exports are cut and treated in Chanthaburi. Thailand's coloured-gemstone industry employs <strong>more than 700,000 people</strong> (per Central Bank of Sri Lanka document citing GJIT). Thailand imports rough from Mozambique, Colombia, Brazil, China, Madagascar, India, Sri Lanka, Kenya, Tanzania. Philippe Ressigeac (GemCloud): <em>"Bangkok handles much of the world's rubies for treatment, cutting and polishing. Small-sized sapphires are also commonly processed in Bangkok, though single, larger stones often go to Sri Lanka."</em> Sumed Prasongpongchai (Director, GIT): "The pivotal strength of Thailand's gemstone industry lies in gem-cutting and enhancement techniques, particularly the refinement of colored stones through processes like heat treatment for rubies and sapphires." ICA Congress 2019 Chairman Prida Tiasuwan described Bangkok as "the world's largest coloured stone trading and processing hub." Thailand specialises in "lower-quantity but higher-quality products and service" per CBSL Sri Lanka report. <a href="https://rapaport.com/magazine-article/why-bangkok-is-the-go-to-spot-for-colored-stones/" target="_blank">rapaport.com (June 2024)</a> · <a href="https://news.jewellerynet.com/en/jnanews/features/23404/100719-The-Gems-of-Chanthaburi" target="_blank">jewellerynet.com</a> · <a href="https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/Winning_Industries_Gem_and_Jewellery.pdf" target="_blank">cbsl.gov.lk (PDF)</a></li><li id="s27"><strong>Jaipur, India, GIA Gems &amp; Gemology Winter 2016 "Jaipur: The Global Gem and Jewelry Power of the Pink City"; GIA February 2016 "Jaipur, India: The Emerald Cutting and Trading Powerhouse"; IMARC Group India Gemstone Market Report 2026-2034; GJEPC; Rising Rajasthan (state government); IBEF.</strong> GIA Winter 2016 G&amp;G: <strong>"In Jaipur there are at least 100 factories cutting colored gemstones"</strong> plus huge artisan cottage industry on contract basis. Nirmal Bardiya of RMC: <strong>"Jaipur cuts 90% of all tanzanites 1 gram and under"</strong> (confirmed by other sources). India coloured-gemstone exports April 2021-March 2022: <strong>$311.45M</strong> (GJEPC). India gemstone market USD <strong>$2,180.10M (2025) → $3,287.6M (2034), 4.53% CAGR</strong> (IMARC Group); emerald (locally "panna") leads at 34.7% market share 2025 due to cultural/astrological importance. <strong>Rajasthan accounts for 17.5% of India's total gems &amp; jewellery exports</strong>. Sitapura SEZ Jaipur spread across 110.8 acres, houses 154 units generating employment for 11,217 people. "Gem Bourse" planned, expected to create over 100,000 jobs. Jaipur processes 300+ varieties of precious &amp; semi-precious gemstones. Receives emerald rough primarily from Zambia plus Brazil (Bahia). Surat focuses on diamond cutting (>80% of world's diamonds); Jaipur focuses on coloured gems and jewellery manufacturing. <strong>February 2025 Bangkok Gem &amp; Jewelry Fair:</strong> India and Thailand signed 3 MOUs cooperating in coloured-gem trade, silver jewellery, gemstone standardisation, specifically Jewelers Association Jaipur ↔ Chanthaburi Gem &amp; Jewelry Traders Association, and GJEPC's IIGJ-RLC ↔ GIT Thailand. <a href="https://www.gia.edu/gems-gemology/winter-2016-jaipur-india" target="_blank">gia.edu (G&amp;G Winter 2016)</a> · <a href="https://www.gia.edu/gia-news-research/jaipur-india-emerald-cutting-trading-powerhouse" target="_blank">gia.edu (Emerald Powerhouse)</a> · <a href="https://www.imarcgroup.com/india-gemstone-market" target="_blank">imarcgroup.com</a> · <a href="https://rising.rajasthan.gov.in/gems-and-jewellery" target="_blank">rising.rajasthan.gov.in</a></li><li id="s28"><strong>Ratnapura, Sri Lanka, Central Bank of Sri Lanka (CBSL) "Winning Industries Gem and Jewellery" PDF; Sri Lanka Export Development Board; Sri Lanka Gem &amp; Jewellery Association (SLGJA); ScienceDirect academic paper on small-scale gem mining (Sept 2024).</strong> <strong>Industry contributes over USD $400M to nation's export earnings annually, ~0.45% of GDP</strong> (Ministry of Industries, 2024, per ScienceDirect article). Total gem &amp; jewellery trade at export and retail points <strong>~Rs. 55 billion (USD $550M annually)</strong>. <strong>~3,000 manufacturing units around the country</strong>. <strong>70% of Sri Lanka's land mass</strong> is potentially gem-bearing per Prof. C. B. Dissanayake's prospectors' map. <strong>Sapphire varieties = ~85% of export share</strong>; country exports 75+ kinds of stones. Gem mining concentrated in Districts of <strong>Ratnapura, Matale, Badulla, Moneragala</strong>. Specialism: large sapphires (over Bangkok), padparadscha, star sapphires, star rubies, cat's eye chrysoberyl. <strong>Export of rough uncut stones is prohibited</strong> per SLGJA, mandatory value-add cutting in country. "Star of Adam" 1,404 ct blue star sapphire discovered Ratnapura 2015, valued $300M+. Cabinet approval December 2020 for construction of International Gem and Jewellery Trade Centre at Demuwawatha, Ratnapura, to provide export services like Bangkok and Hong Kong. <a href="https://www.cbsl.gov.lk/sites/default/files/cbslweb_documents/Winning_Industries_Gem_and_Jewellery.pdf" target="_blank">cbsl.gov.lk (PDF)</a> · <a href="https://www.srilankabusiness.com/blog/gem-and-jewellery/" target="_blank">srilankabusiness.com</a> · <a href="https://www.slgja.org/mine" target="_blank">slgja.org</a> · <a href="https://www.sciencedirect.com/science/article/abs/pii/S2214790X24001400" target="_blank">sciencedirect.com</a></li><li id="s29"><strong>Idar-Oberstein, Germany, Incolor Magazine No. 52 (Nov 2024) "Idar-Oberstein: Centuries of Excellence" + "The Timeless Art of Gemstone Carving in Idar-Oberstein"; Gemporia; International Gem Society; Imperial Gem Lab blog (visit to Atelier Munsteiner &amp; C.F. Arnoldi); Rubblerockandgem trade history.</strong> 500+ years of gemstone history, originating with agate deposits in Nahe River area in the Hunsrück region. <strong>By late 19th century, processed 80% of world's gemstones</strong> at peak. Two world wars + Asian competition ended "second golden age" by mid-1940s. Today specialises in: high-end precious-stone cutting, fine carving (Steinschneidekunst), cameos, intaglios, small &amp; large sculptures, objets d'art, coats-of-arms carvings, custom orders. <strong>Bernd Munsteiner</strong> (b. 1943) developed the "Fantasy Cut" in the 1960s, focused on depth, texture, capturing light vs traditional brilliance maximisation. <strong>Tom Munsteiner's "Apollo"</strong>, 196.17-ct Paraiba tourmaline, won Guinness World Record for the world's largest cut Paraíba (2022), set in platinum with the Spirit Diamond. Most agate lapidary work has moved to China; quartz cutting to Jaipur. Idar-Oberstein still globally unique for high-end carving. <strong>"Recut in Germany" / "Made in Germany"</strong> remain highly respected labels in international trade circles. Notable ateliers: Atelier Munsteiner, C.F. Arnoldi (est. 1919), Emil Weis, Henn. <a href="https://incolormagazine.com/idar-oberstein-centuries-of-excellence-2/" target="_blank">incolormagazine.com (Centuries of Excellence)</a> · <a href="https://incolormagazine.com/the-timeless-art-of-gemstone-carving-in-idar-oberstein/" target="_blank">incolormagazine.com (Carving)</a> · <a href="https://www.gemporia.com/en-gb/gemology-hub/article/1470/the-story-of-idar-oberstein/" target="_blank">gemporia.com</a> · <a href="https://imperialgemlab.com/blog/idar-oberstein-a-journey-to-the-fabled-gem-cutting-centre/" target="_blank">imperialgemlab.com</a></li><li id="s30"><strong>USGS, Mineral Commodity Summaries 2026, Gemstones data sheet (released 6 February 2026).</strong> <strong>The most material data correction in this dashboard's history.</strong> Prepared by Donald W. Olson, USGS. Five-year salient statistics (US, $M): <em>Imports for consumption:</em> 2021: 24,600 · 2022: 28,700 · 2023: 24,200 · 2024: 19,600 · <strong>2025e: 11,000</strong>. <em>Apparent consumption:</em> 2021: 23,700 · 2022: 26,900 · 2023: 21,300 · 2024: 17,600 · <strong>2025e: 9,300</strong>. <strong>Diamond imports accounted for 79% of the total value of gem imports in 2025</strong>, down from the 2018-22 average of 89%, suggesting coloured stones held up better than diamonds in 2025, but the overall market still contracted sharply. Combined value of US natural &amp; synthetic gemstone domestic output 2025: $47M (down 30% YoY). Net import reliance: 99% of apparent consumption. <em>The 2025 figure is USGS's estimate and may be revised in the MCS 2027 release.</em> <a href="https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-gemstones.pdf" target="_blank">usgs.gov (Gemstones 2026, PDF)</a> · <a href="https://www.usgs.gov/publications/mineral-commodity-summaries-2026" target="_blank">usgs.gov (MCS 2026 landing page)</a></li></ol></section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+<script>
+
+
+(function(){document.querySelectorAll('table').forEach(function(t){if(t.parentNode&&t.parentNode.classList&&t.parentNode.classList.contains('tw'))return;var w=document.createElement('div');w.className='tw';t.parentNode.insertBefore(w,t);w.appendChild(t);});})();
+</script>
+</body>
+</html>

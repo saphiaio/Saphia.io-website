@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rare Earths, ΣΟΦΙΑ</title>
+<meta name="description" content="Rare Earths: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.readout .v{font-family:var(--mono);font-size:20px;font-weight:600;color:#a8825a}
+.readout .l{font-size:12.5px;color:#5a4b8a;margin-top:2px}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap}
+/* concentration bars */
+.conc{margin:14px 0 26px;font-family:var(--mono);font-size:12px}
+.conc .r{display:grid;grid-template-columns:210px 1fr 60px;gap:12px;align-items:center;margin:7px 0}
+.conc .bar{height:12px;background:#5a4b8a;position:relative}
+.conc .bar i{position:absolute;left:0;top:0;bottom:0;background:#3f6470}
+.conc .v{text-align:right;color:#3f6470}
+/* price panel */
+.px{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 24px}
+.px div{background:#faf7f0;border-left:3px solid #a8825a;padding:12px 16px}
+.px .v{font-family:var(--mono);font-size:22px;font-weight:600}
+.px .l{font-size:13px;color:#5a4b8a}
+@media(max-width:860px){
+.px{grid-template-columns:1fr}
+.conc .r{grid-template-columns:130px 1fr 50px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Rare Earths</p>
+  <h1>Rare Earths</h1>
+  <p class="lede">Seventeen elements, one refiner. China mines roughly 70% of the world's rare-earth oxides and separates over 85%, and 98–99% of the heavy elements that make a permanent magnet survive heat. Its 2025–26 export-licensing regime is the most consequential commodity policy of the decade. This page tracks price structure, concentration and the ex-China build-out. No live price is carried.</p>
+  <div class="figures"><div><div class="v">270,000 t</div><div class="l">China mine output 2025, REO, USGS MCS 2026 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$111.5 /kg</div><div class="l">NdPr oxide 2026 high, 25 Feb 2026, confirmed by Lynas <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">$110 /kg</div><div class="l">US DoD 10-year NdPr floor for MP Materials <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 15 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Two-tier market: a Chinese domestic benchmark and a government-floored ex-China premium tier.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>China · Myanmar · United States · Australia</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>China · Japan · United States · European Union</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High, separation (mining lower)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+  </dl>
+  <p class="snap-note" style="margin-top:16px">Rated on separation capacity, not mine share.</p>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Concentration</a></li><li><a href="#s-ii"><span>II</span>Price structure</a></li><li><a href="#s-iii"><span>III</span>Export controls</a></li><li><a href="#s-iv"><span>IV</span>The ex-China build-out</a></li><li><a href="#s-v"><span>V</span>Gulf angle</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Concentration</h2><p class="sub">The mining share understates the problem; the separation share is the one that matters.</p></div>
+  
+  <div class="conc">
+    <div class="r"><span>Mine output (REO), 2024</span><div class="bar"><i style="width:69%"></i></div><span class="v">69%</span></div>
+    <div class="r"><span>Processing / separation</span><div class="bar"><i style="width:85%"></i></div><span class="v">&gt;85%</span></div>
+    <div class="r"><span>Refined NdPr supply</span><div class="bar"><i style="width:92%"></i></div><span class="v">c.92%</span></div>
+    <div class="r"><span>Separated Dy / Tb (heavy)</span><div class="bar"><i style="width:98%"></i></div><span class="v">98–99%</span></div>
+    <div class="r"><span>Sintered NdFeB magnets</span><div class="bar"><i style="width:87%"></i></div><span class="v">85–90%</span></div>
+  </div>
+  <table>
+    <tr><th>Stage</th><th class="n">China share</th><th>Basis</th><th>Confidence</th></tr>
+    <tr><td>Mine production</td><td class="n">69% of 390,000 t</td><td>USGS MCS 2025 (2024 data); 2025 China output 270,000 t per MCS 2026</td><td><span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s7">7</a></sup></td></tr>
+    <tr><td>Processing</td><td class="n">&gt;85%</td><td>USGS, cited by trade press</td><td><span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></td></tr>
+    <tr><td>Refined NdPr</td><td class="n">c.92%</td><td>Industry-analyst estimate</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Heavy REE separation</td><td class="n">91–99%</td><td>Range across two analyst sources</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Magnets</td><td class="n">85–90%</td><td>Allied share &lt;10%</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></td></tr>
+  </table>
+  <p>The heavy-element dependency has a second layer: an estimated 70% of China's own dysprosium and terbium feedstock is ionic-clay ore from Kachin State, Myanmar, so disruption there transmits directly into global heavy prices.<sup class="r"><a href="#s7">7</a></sup> <span class="c c-m">Med</span> Reserves are less concentrated than output, China holds 44 Mt of an estimated global base that also includes Brazil, India, Australia and Vietnam.<sup class="r"><a href="#s1">1</a></sup></p>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Price structure</h2><p class="sub">Two markets: the Chinese domestic benchmark and an ex-China premium tier anchored by a government floor. Historical points only.</p></div>
+  
+  <div class="px">
+    <div><div class="v">$111.5</div><div class="l">NdPr oxide 2026 high, 25 Feb 2026 (SMM), after a Q1 rally of c.105%; consolidated to c.$104 within weeks <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></div></div>
+    <div><div class="v">$110</div><div class="l">Department of Defense floor for MP Materials NdPr, ten years, with profit-sharing above it <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div><div class="v">$184 vs $113</div><div class="l">Neodymium oxide FOB China vs domestic, March 2026, a 63% ex-China premium <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div><div class="v">c.2×</div><div class="l">NdPr price relative to December 2024 <span class="t">Derived</span><span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+  </div>
+  <p>The $110/kg Department of Defense floor for MP Materials (with profit-sharing above it) was set at roughly double 2025 market levels; it now functions as both floor and soft ceiling for Western buyers, who will not pay materially more when contracted supply is available near it.<sup class="r"><a href="#s3">3</a> <a href="#s6">6</a></sup> In Q1 2026 nearly half of MP's revenue reportedly came from the price-protection agreement rather than market sales.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-l">Low</span></p>
+  <div class="note">Rough-diamond parallel: a producer-set price with an offtake guarantee is a sight system with a sovereign as the sightholder. It stabilises the producer and delays price discovery. The natural diamonds page documented what happens when the guaranteed buyer's willingness to hold inventory ends; here the buyer is a defence ministry with no balance-sheet constraint, which makes the floor more durable and the market signal less informative. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Export controls</h2><p class="sub">Licensing as leverage.</p></div>
+  
+  <table>
+    <tr><th>Measure</th><th>Effect reported</th><th>Confidence</th></tr>
+    <tr><td>Chinese export licensing on rare earths, tungsten, antimony (2025–26)</td><td>Price spikes of up to sixfold in affected products; licence approval rates for European firms reported below 25%</td><td><span class="c c-l">Low</span> single secondary source<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>Antimony</td><td>+144% in 2025 amid Chinese controls (USGS MCS 2026 commentary)</td><td><span class="c c-h">High</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
+    <tr><td>US Critical Minerals Ministerial, Feb 2026</td><td>54 nations convened in Washington; plurilateral price-floor concept floated by the Vice-President</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>US 2025 Critical Minerals List</td><td>60 commodities; US 100% import-reliant on 13, &gt;50% on a further 20; copper, silver, uranium, silicon added</td><td><span class="c c-h">High</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
+    <tr><td>Malaysia raw-ore export ban; Gabon manganese ban by 2029</td><td>Resource nationalism spreading beyond China</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
+  </table>
+  <p>China's share of US rare-earth compound imports remains above half, and US imports of separated compounds rose 169% in 2025 even as domestic concentrate output grew 10%, the Mountain Pass model still ships concentrate out and buys separated product back.<sup class="r"><a href="#s10">10</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>The ex-China build-out</h2><p class="sub">Real progress in 2026; still a system under construction.</p></div>
+  
+  <table>
+    <tr><th>Company</th><th>Milestone</th><th>Scale</th><th>Confidence</th></tr>
+    <tr><td>MP Materials (US)</td><td>First US-made magnets shipped, March 2026 (Fort Worth "Independence" plant); Dy/Tb separation at Mountain Pass targeted mid-2026</td><td>c.2,600 tpa separated NdPr actual; DoD equity stake and floor; Apple offtake</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a> <a href="#s8">8</a> <a href="#s9">9</a></sup></td></tr>
+    <tr><td>Lynas (Australia/Malaysia)</td><td>First contracted heavy-rare-earth (Dy/Tb) shipments, 2026; Kalgoorlie and Seadrift, Texas under construction</td><td>c.7 ktpa NdPr-equivalent, targeting 10–12 ktpa</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>USA Rare Earth (US/Brazil)</td><td>c.10% US government stake; combined Serra Verde (Brazil) operation via SPV</td><td>Pre-production</td><td><span class="c c-l">Low</span><sup class="r"><a href="#s9">9</a></sup></td></tr>
+    <tr><td>Energy Fuels (US)</td><td>White Mesa Mill, Utah, uranium mill pivoting to REE separation</td><td>c.850–1,000 tpa NdPr actual; 800–1,200 tpa by 2027</td><td><span class="c c-l">Low</span><sup class="r"><a href="#s8">8</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Noveon Magnetics (US)</td><td>Only US sintered NdFeB producer of note as of early 2026</td><td>,</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s11">11</a></sup></td></tr>
+  </table>
+  <p>Aggregate allied separated NdPr capacity is estimated at 3,500–4,500 tpa against US defence and semiconductor demand alone of 5,000–10,000 tpa REO-equivalent.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-l">Low</span> Bloomberg Intelligence projects China's NdPr share falling from c.90% (2024) to 69% by 2030, while a global NdPr shortfall of up to 36% by 2030 remains possible.<sup class="r"><a href="#s12">12</a></sup> <span class="c c-m">Med</span> Western cost disadvantage is cited at 2–4× ($40–60/kg vs $15–25/kg in China), with 5–7-year facility timelines.<sup class="r"><a href="#s6">6</a></sup> <span class="c c-l">Low</span></p>
+  <div class="note r">Glut risk is real. Several analysts expect a regional surplus of light oxides and magnets by 2027–28 as Vulcan, Neo and others commission, exposing new plants to Chinese price cuts unless floors and offtakes are extended.<sup class="r"><a href="#s5">5</a></sup> The cure for high prices is high prices, the 2011–12 rare-earth bubble ended exactly this way. <span class="c c-m">Med</span></div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Gulf angle</h2><p class="sub">Capital and free-zone infrastructure, not geology.</p></div>
+  
+  <p>The Gulf has negligible rare-earth geology but three relevant assets: sovereign capital able to fund ex-China separation plants at a cost of capital Western juniors cannot match; free-zone trading and vaulting infrastructure already used for gold and diamonds; and neutral-jurisdiction positioning between the US price-floor bloc and Chinese supply. DMCC's Future of Trade 2026 critical-minerals brief explicitly frames refining concentration and export controls as a trade-hub opportunity.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-m">Med</span></p>
+  <p>The plausible Gulf role is the one it plays in gold: a warehousing, tendering and financing centre for separated oxides and magnet alloys, rather than a producer. The tender model from rough diamonds, sealed bids on graded parcels, is directly transferable to a material that currently trades on opaque bilateral contracts and a Shanghai benchmark. <span class="c c-x">Hyp</span></p>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Mine production and reserves</td><td>USGS Mineral Commodity Summaries, February annually</td><td>Replaces the 270,000 t / 390,000 t anchors used here</td></tr>
+    <tr><td>Ex-China separation and magnet output</td><td>MP Materials and Lynas quarterly reports</td><td>Whether allied capacity is closing the 3,500–4,500 tpa gap; share of revenue from price protection</td></tr>
+    <tr><td>Chinese licence approvals</td><td>MOFCOM notices; EU Chamber of Commerce surveys</td><td>The leverage variable; the &lt;25% European figure needs a primary source</td></tr>
+    <tr><td>Myanmar (Kachin) supply</td><td>Chinese customs data; trade press</td><td>The hidden dependency inside China's heavy-REE dominance</td></tr>
+    <tr><td>NdPr and Dy/Tb benchmarks</td><td>Shanghai Metals Market, Asian Metal, daily</td><td>Price; not carried here</td></tr>
+    <tr><td>Western capacity announcements</td><td>Company and government releases</td><td>Glut risk from 2027–28 if floors and offtakes are not extended</td></tr>
+  </table>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. USGS is the primary statistical source; specialist trade sites are used for price and are marked Med unless the figure was independently confirmed.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Investing News Network</b>, "Rare Earths Reserves: Top 7 Countries", 2 Jul 2026, reporting USGS MCS 2026: China 270,000 t (2025); reserves 44 Mt; Myanmar third by output.</li>
+    <li id="s2"><b>USGS</b>, Mineral Commodity Summaries 2025, Rare Earths (D. J. Cordier): global mine production c.390,000 t REO (2024); US 45,000 t concentrate.</li>
+    <li id="s3"><b>Rare-Earth-Mining.com</b>, "Rare Earth Market Outlook March 2026", NdPr $111.5 (25 Feb, confirmed in Lynas half-year results), $103.76 (10 Mar, SMM); DoD $110 floor; MP first magnets; Lynas first HRE; FOB vs domestic Nd oxide spread; USGS &gt;85% processing. <span class="c c-m">Med</span></li>
+    <li id="s4"><b>Rare-Earth-Mining.com</b>, "Rare Earth Market June 2026", NdPr alloy $109.55; Pr/Nd metal prices; Q1 105% rally; China c.92% NdPr, 98–99% Dy/Tb (analyst estimates); DoE $400 m. <span class="c c-m">Med</span></li>
+    <li id="s5"><b>Rare Earth Exchanges</b>, "Beyond Beijing: The Uneasy Rise of Ex-China Rare Earth Supply Chains", 23 Nov 2025, Lynas 7 ktpa; ex-China c.15% NdPr target; magnets 85–90%; HRE 91%; glut risk 2027–28; Energy Fuels 2027 range. <span class="c c-m">Med</span></li>
+    <li id="s6"><b>Informed Clearly</b>, "Rare Earth Reckoning: China's 2026 Export Controls", 27 Apr 2026, Critical Minerals Ministerial (54 nations); sixfold spikes; &lt;25% EU approval; Western cost 2–4×; 5–7-year timelines. <span class="c c-l">Low</span></li>
+    <li id="s7"><b>Rare-Earth-Mining.com</b>, "Rare Earth Producing Countries 2026", China 69% of 390,000 t; Kachin State c.70% of China's HRE feedstock. <span class="c c-m">Med</span></li>
+    <li id="s8"><b>Luminix</b>, "China Rare Earth Export Controls: US Defense & AI Impact 2026", 9 May 2026, allied NdPr capacity 3,500–4,500 tpa; MP c.2,600 tpa; Energy Fuels 850–1,000 tpa; MP Q1 revenue from PPA; F-35 REE content audit. <span class="c c-l">Low</span></li>
+    <li id="s9"><b>FinWiser AI</b>, "Rare Earth Stocks 2026", Sep 2026, DoD floor and equity stake; Apple offtake; USA Rare Earth c.10% government stake and Serra Verde SPV. <span class="c c-l">Low</span></li>
+    <li id="s10"><b>Quest Metals</b>, "US Mineral Supply Chains Remain Exposed to China", 12 Feb 2026, summarising USGS MCS 2026: 60-commodity list; 13 at 100% import reliance; antimony +144%; separated-compound imports +169%; Malaysia and Gabon bans. <span class="c c-m">Med</span></li>
+    <li id="s11"><b>Rare-Earth-Mining.com</b>, "China Rare Earth Export Controls: Essential Buyer Guide", 16 Apr 2026, Lynas as only large-scale ex-China separator; Northlake, Texas magnet plant 2025; Noveon. <span class="c c-m">Med</span></li>
+    <li id="s12"><b>Canadian Mining Report</b>, "Rare Earth Stocks to Watch After China's 45% Price Increase", 14 Apr 2026, Bloomberg Intelligence 90%→69% by 2030; up to 36% shortfall. <span class="c c-m">Med</span></li>
+    <li id="s13"><b>DMCC</b>, Future of Trade 2026, Critical Minerals brief (referenced on dmcc.ae gold ecosystem page). <span class="c c-m">Med</span></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

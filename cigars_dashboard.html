@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cigars, ΣΟΦΙΑ</title>
+<meta name="description" content="Cigars: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.band .medal .v{font-family:var(--mono);font-size:19px;font-weight:600;color:#a8825a}
+.band .medal .l{font-size:12px;color:#a8825a;font-style:italic;line-height:1.35}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap;color:#5c6b45}
+/* ring gauge bars */
+.rings{margin:14px 0 26px;font-family:var(--mono);font-size:12px;max-width:640px}
+.rings .r{display:grid;grid-template-columns:150px 1fr 90px;gap:12px;align-items:center;margin:7px 0}
+.rings .bar{height:12px;background:rgba(168,130,90,.15);position:relative;border-radius:6px}
+.rings .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#3f6470,#5c6b45);border-radius:6px}
+.rings .v{text-align:right;color:#5c6b45}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#a8825a;border-top:3px solid #7f7a70;padding:14px 16px}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:600;color:#5c6b45}
+.card .l{font-size:13px;color:#8c4a2f;font-style:italic}
+.era{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:11px 0;border-bottom:1px dotted rgba(168,130,90,.3);max-width:78ch}
+.era .y{font-family:var(--mono);font-weight:600;color:#5c6b45;font-size:13px;padding-top:2px}
+.era .t{font-size:14.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+@media(max-width:820px){
+.cards{grid-template-columns:1fr}
+.era{grid-template-columns:1fr;gap:2px}
+.rings .r{grid-template-columns:110px 1fr 70px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Cigars</p>
+  <h1>Cigars</h1>
+  <p class="lede">A luxury product rolled by hand in four countries, sold through a state monopoly on one side and a tariff-exposed private industry on the other. This page covers the structure of the trade, Cuba's repricing and supply collapse, the sanctions case that has fractured the world's largest cigar business, US regulation, and the Gulf's position as consumer, distributor and, since 2025, owner. Compiled 16 September 2026. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">$827 m</div><div class="l">Habanos S.A. revenue 2024, record; 2025 not published <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">429.8 m</div><div class="l">Premium handmade cigars imported into the US, 2025 <span class="t">Reported</span><sup class="r"><a href="#s12">12</a></sup></div></div><div><div class="v">50 m</div><div class="l">Cuban cigar exports 2024, vs 93.9 m in 2018 <span class="t">Reported</span><sup class="r"><a href="#s6">6</a></sup></div></div><div><div class="v">28.55%</div><div class="l">Habanos S.A. held indirectly by a US-sanctioned individual <span class="t">Reported</span><sup class="r"><a href="#s19">19</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Habanos at record revenue on lower volume; a levelled boom now absorbing US tariffs.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Cuba · Dominican Republic · Nicaragua · Honduras</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>United States · Spain and Europe · China and Hong Kong · Gulf</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Structure of the trade</a></li><li><a href="#s-ii"><span>II</span>Cuba and Habanos S.A.</a></li><li><a href="#s-iii"><span>III</span>Ownership and sanctions</a></li><li><a href="#s-iv"><span>IV</span>The Big Three and the US market</a></li><li><a href="#s-v"><span>V</span>Regulation</a></li><li><a href="#s-vi"><span>VI</span>Gulf angle</a></li><li><a href="#s-vii"><span>VII</span>Indicators to monitor</a></li><li><a href="#s-viii"><span>VIII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Structure of the trade</h2><p class="sub">Two industries that share a product and almost nothing else.</p></div>
+  
+  <p>The premium cigar world is split by the US embargo. On one side, Cuba: a state monopoly on growing, rolling and export, sold worldwide except in the United States through a 50/50 joint venture, Habanos S.A. On the other, the "Big Three", Nicaragua, the Dominican Republic and Honduras, which between them roll nearly 98% of the handmade cigars imported into the US, the world's largest market.<sup class="r"><a href="#s12">12</a></sup> Nearly all handmade cigars sold in the US are rolled abroad; more than 99% by one industry estimate.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Origin</th><th>Growing regions</th><th>Commercial model</th><th>Scale indicator</th></tr>
+    <tr><td>Cuba</td><td>Pinar del Río (Vuelta Abajo) supplies 60–70% of export leaf; the province's share of national cigar tobacco is put at 70–80%<sup class="r"><a href="#s7">7</a> <a href="#s10">10</a></sup></td><td>State-owned Tabacuba grows and rolls; Habanos S.A. markets and exports; La Casa del Habano franchise retail</td><td>50 m cigars exported 2024; 4,705 specialist points of sale<sup class="r"><a href="#s6">6</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>Nicaragua</td><td>Estelí, Jalapa, Condega</td><td>Private factories (Plasencia, AJ Fernandez, Drew Estate and others); largest exporter by volume</td><td>258.4 m to the US in 2025; c.280–310 m total exports (estimate)<sup class="r"><a href="#s11">11</a> <a href="#s14">14</a></sup></td></tr>
+    <tr><td>Dominican Republic</td><td>Cibao valley; La Romana free zone</td><td>Home of the largest factories and international brands; Tabacalera de García claims 40 m handmade a year</td><td>196 m premium exports 2025; c.40,000 direct jobs; tobacco c.10% of national exports, &gt;$1.385 bn<sup class="r"><a href="#s14">14</a> <a href="#s18">18</a></sup></td></tr>
+    <tr><td>Honduras</td><td>Jamastrán, Copán (Flor de Copán factory)</td><td>Fastest-growing origin; overtook the Dominican Republic in US shipments in Q1 2026</td><td>74.5 m to the US in 2025, +11%<sup class="r"><a href="#s11">11</a> <a href="#s15">15</a></sup></td></tr>
+  </table></div>
+  <div class="note">Diamond parallel: Cuba is the De Beers of this market, a single-origin producer whose brand rests on an appellation (the "Habano" is a Protected Appellation of Origin<sup class="r"><a href="#s1">1</a></sup>), that sets price through a sole distributor, and that has spent the last four years managing scarcity upward while its physical output halves. The Big Three are the rest of the pipeline: private, volume-driven, and exposed to tariffs rather than to a monopoly's pricing decisions. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Cuba and Habanos S.A.</h2><p class="sub">Record revenue on half the volume.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Year</th><th class="n">Habanos revenue ($ m)</th><th class="n">Change</th><th>Note</th></tr>
+    <tr><td>2023</td><td class="n">721</td><td class="n">+31%</td><td>Record at the time<sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>2024</td><td class="n">827</td><td class="n">+14.7% / +16%</td><td>Company states 16%; the arithmetic from $721 m gives 14.7%, discrepancy logged, likely a restated 2023 base <span class="c c-m">Med</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
+    <tr><td>2025</td><td class="n">not published</td><td class="n">,</td><td>Results are presented at the Festival del Habano; the 2026 Festival was postponed on 14 Feb and cancelled in July<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></td></tr>
+  </table></div>
+  <p>Top markets by value in 2024 were China, Spain, Switzerland, the United Kingdom and Germany; Europe took 54% of sales.<sup class="r"><a href="#s3">3</a></sup> China has been the largest market since 2020, and the 2022 price unification used Hong Kong prices as the benchmark.<sup class="r"><a href="#s19">19</a></sup> The retail network stood at 4,705 specialist points of sale at end-2024, including 168 La Casa del Habano franchises and 21 licensed Cohiba Atmosphere lounges.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
+  <h3>Repricing, 2022–2026</h3>
+  <div class="tw"><table>
+    <tr><th>Vitola</th><th class="n">Early 2022</th><th class="n">Early 2026</th><th class="n">Change</th><th>Source</th></tr>
+    <tr><td>Cohiba Behike BHK 52 (per stick)</td><td class="n">c.€55</td><td class="n">c.€230</td><td class="n">c.4×</td><td>Cigar Journal <span class="c c-m">Med</span><sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Cohiba Siglo VI, Spain (per stick)</td><td class="n">c.€38</td><td class="n">c.€105</td><td class="n">+178%</td><td>Cigar Rights of America <span class="c c-m">Med</span><sup class="r"><a href="#s9">9</a></sup></td></tr>
+    <tr><td>Portfolio, spring 2022 announcement</td><td colspan="3" class="n">most brands &lt;20%; Cohiba c.2×; Trinidad c.3×</td><td>halfwheel <span class="c c-h">High</span><sup class="r"><a href="#s19">19</a></sup></td></tr>
+  </table></div>
+  <p>Pre-2020 annual increases averaged roughly 4–7% across the portfolio.<sup class="r"><a href="#s20">20</a></sup> From 2022 Habanos explicitly repositioned Cohiba and Trinidad as international luxury goods rather than expensive cigars; dozens of limited editions now sell above $100 a stick in every market, and the Cohiba Behike BHK 58 announced in 2025 was expected to exceed $400.<sup class="r"><a href="#s2">2</a> <a href="#s7">7</a> <a href="#s19">19</a></sup> Prices are quoted here as dated observations, not current values. <span class="c c-m">Med</span></p>
+  <h3>Physical supply</h3>
+  <div class="cards">
+    <div class="card"><div class="v">93.9 m → 50 m</div><div class="l">Cuban cigar exports 2018 → 2024 (Tabacuba); no 2025 data released <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a></sup></div></div>
+    <div class="card"><div class="v">c.90%</div><div class="l">Pinar del Río curing barns destroyed by Hurricane Ian, Sep 2022, over 10,000 structures <span class="c c-h">High</span><sup class="r"><a href="#s8">8</a></sup></div></div>
+    <div class="card"><div class="v">50%</div><div class="l">Pinar del Río tobacco fields on electrified irrigation, idle during grid collapses <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a> <a href="#s10">10</a></sup></div></div>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Season</th><th class="n">Planted / harvested</th><th>Note</th></tr>
+    <tr><td>2022–23</td><td class="n">5,150 ha vs 11,000 planned</td><td>Post-Ian; wrapper shortage prioritised<sup class="r"><a href="#s8">8</a></sup></td></tr>
+    <tr><td>2024–25</td><td class="n">c.10,378–10,500 ha (Pinar del Río)</td><td>National harvest c.15,000 ha, c.17,000 t leaf; target 20,000 ha next season<sup class="r"><a href="#s10">10</a> <a href="#s21">21</a></sup></td></tr>
+    <tr><td>2025–26</td><td class="n">12,152 ha target missed</td><td>Target already cut in September for rain; 19,000 seedlings lost; drought in the north; energy crisis<sup class="r"><a href="#s6">6</a> <a href="#s10">10</a></sup></td></tr>
+  </table></div>
+  <div class="note warn">Since January 2026 a de facto US oil blockade has cut fuel to the island; the national grid has collapsed three times this year, the Havana factories cannot run reliably, and distributors report diminished or absent shipments.<sup class="r"><a href="#s9">9</a> <a href="#s6">6</a></sup> Industry leaders say the sector needs an 18-month reserve of leaf and finished cigars to protect exports; it does not have one.<sup class="r"><a href="#s21">21</a></sup> The Festival, which generated tens of millions in spending each February and is where results are announced, did not take place in 2026.<sup class="r"><a href="#s5">5</a></sup> <span class="c c-h">High</span></div>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Ownership and sanctions</h2><p class="sub">Who owns the other half of Habanos, and why it matters to a compliance officer.</p></div>
+  
+  <div class="era"><div class="y">2008</div><div class="t">Imperial Tobacco acquires Altadis for €12.6 bn, inheriting the non-Cuban 50% of Habanos S.A. and the world's largest handmade cigar business.<sup class="r"><a href="#s20">20</a></sup></div></div>
+  <div class="era"><div class="y">27 Apr 2020</div><div class="t">Imperial agrees to sell the premium cigar business for €1,225 m: the US arm (Tabacalera USA, Altadis U.S.A., JR Cigar, Casa de Montecristo) to Gemstone Investment Holding for €185 m; the rest of world, 50% of Habanos S.A., 50% of Altabana distribution, stakes in every local Cuban distributor, the Tabacalera de García and Flor de Copán factories, VegaFina, to Allied Cigar Corporation for €1,040 m. Buyers undisclosed.<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a> <a href="#s19">19</a></sup></div></div>
+  <div class="era"><div class="y">Nov 2021 – Jan 2023</div><div class="t">Alvin Chau, the Macau junket operator linked to one of the buyer's shell companies, is arrested and later sentenced to 18 years for illegal gambling and money laundering.<sup class="r"><a href="#s19">19</a></sup></div></div>
+  <div class="era"><div class="y">2022</div><div class="t">Radio Free Asia reports that the main shareholder is Chen Zhi, founder of Cambodia's Prince Group.<sup class="r"><a href="#s19">19</a></sup></div></div>
+  <div class="era"><div class="y">24 Oct 2025</div><div class="t">US Department of Justice unseals an indictment against Chen Zhi for running industrial-scale "pig butchering" fraud from forced-labour compounds; 127,271 bitcoin worth $14.7 bn seized, the largest forfeiture in DoJ history. OFAC sanctions Chen, associates and over 100 entities, including Simply Advanced Limited (BVI), which owns 57.1% of Allied Cigar Fund, hence 28.55% of Habanos S.A.<sup class="r"><a href="#s19">19</a></sup></div></div>
+  <div class="era"><div class="y">Nov–Dec 2025</div><div class="t">Altadis U.S.A. halts purchases from Tabacalera de García and Flor de Copán under US law; c.2,000 Dominican factory jobs at risk; production shifts to AJ Fernandez and Plasencia in Nicaragua. Turmeric Capital, a fund described as connected to a UAE ruling family, emerges as majority owner of Tabacalera USA. Tabacalera confirms Chen as majority shareholder and says minority partners are pursuing his "total dissociation".<sup class="r"><a href="#s19">19</a> <a href="#s22">22</a></sup></div></div>
+  <div class="era"><div class="y">Jan 2026</div><div class="t">Chen Zhi is arrested in Cambodia and transferred to China, where he faces the death penalty. Interpath Advisory is appointed provisional liquidator of 30 BVI companies including Simply Advanced. Sweden cancels the tobacco licence of the Nordic Cuban-cigar distributor.<sup class="r"><a href="#s23">23</a> <a href="#s24">24</a></sup></div></div>
+  <div class="era"><div class="y">Feb–Mar 2026</div><div class="t">Tabacalera S.L.U., the Spanish operating company holding the Habanos stake and both factories, files for pre-insolvency; Spanish press reports the aim of reducing the Hong Kong holding company below 50% and then 20% to escape US and UK sanctions.<sup class="r"><a href="#s25">25</a></sup></div></div>
+  <div class="era"><div class="y">May–Jun 2026</div><div class="t">Hong Kong High Court freezes HK$8.94 bn of Chen-linked assets, including Allied Cigar entities whose main bank accounts are in Hong Kong; a New York bankruptcy judge recognises the BVI liquidation. Any sale of the stake now requires coordinated rulings from BVI, New York and Hong Kong courts.<sup class="r"><a href="#s24">24</a> <a href="#s26">26</a></sup></div></div>
+  <div class="era"><div class="y">Sep 2026</div><div class="t">5th Avenue, the German-Austrian Cuban-cigar distributor (56% owned by the Cuban state and Tabacalera), files for insolvency citing a "compliance and sanctions review affecting one of our shareholders". Habanos S.A. has not publicly commented.<sup class="r"><a href="#s27">27</a></sup></div></div>
+  <h3>Distributions from Tabacalera S.L. to Allied Cigar Corporation</h3>
+  <div class="rings">
+    <div class="r"><span>2021</span><div class="bar"><i style="width:28%"></i></div><span class="v">€19.7 m</span></div>
+    <div class="r"><span>2022</span><div class="bar"><i style="width:48%"></i></div><span class="v">€33.4 m</span></div>
+    <div class="r"><span>2023</span><div class="bar"><i style="width:75%"></i></div><span class="v">€52.6 m</span></div>
+    <div class="r"><span>2024</span><div class="bar"><i style="width:100%"></i></div><span class="v">€70.0 m</span></div>
+  </div>
+  <p>More than €175 m of profit has flowed upward since 2021, the financial counterpart of the 2022 repricing, and the reason the increases are unlikely to reverse whatever happens to the shareholding: the Cuban state's need for hard currency is unchanged.<sup class="r"><a href="#s19">19</a></sup> <span class="c c-h">High</span></p>
+  <div class="note warn">MLRO reading: this is a textbook beneficial-ownership failure. A €1.2 bn luxury asset changed hands in 2020 with the buyers never named; the ownership chain ran BVI → Cayman → Hong Kong → Spain; the ultimate owner was publicly linked to a convicted money launderer within eighteen months and identified by investigative journalism within two years; and the trigger for action was a sanctions designation five years after closing. Every Cuban-cigar distributor worldwide, including the Gulf's, has had a sanctioned person as an indirect shareholder since October 2025, and the exposure only surfaces at the point a bank, licensing authority or counterparty screens the chain.<sup class="r"><a href="#s19">19</a> <a href="#s27">27</a> <a href="#s28">28</a></sup> Bank de-risking (HSBC's reported release of the Asian distributor) preceded the formal designation.<sup class="r"><a href="#s28">28</a></sup> <span class="c c-m">Med</span></div>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>The Big Three and the US market</h2><p class="sub">A boom that levelled rather than crashed, now absorbing tariffs.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Year</th><th class="n">US premium handmade imports (m)</th><th>Note</th></tr>
+    <tr><td>2019</td><td class="n">338</td><td>Pre-pandemic benchmark; 300 m once counted as a good year<sup class="r"><a href="#s12">12</a></sup></td></tr>
+    <tr><td>2021–2024</td><td class="n">&gt;400 each year</td><td>Pandemic-era boom<sup class="r"><a href="#s12">12</a></sup></td></tr>
+    <tr><td>2025</td><td class="n">429.8</td><td>Flat on 2024; fifth consecutive year above 400 m<sup class="r"><a href="#s12">12</a></sup></td></tr>
+    <tr><td>H1 2026</td><td class="n">199.5</td><td>vs 200.5 m in H1 2025, essentially unchanged<sup class="r"><a href="#s12">12</a></sup></td></tr>
+  </table></div>
+  <h3>By origin, 2025 (Cigar Association of America)</h3>
+  <div class="rings">
+    <div class="r"><span>Nicaragua</span><div class="bar"><i style="width:100%"></i></div><span class="v">258.4 m</span></div>
+    <div class="r"><span>Dominican Rep.</span><div class="bar"><i style="width:36%"></i></div><span class="v">93.7 m</span></div>
+    <div class="r"><span>Honduras</span><div class="bar"><i style="width:29%"></i></div><span class="v">74.5 m</span></div>
+  </div>
+  <p>Nicaragua accounts for c.60% of US premium imports; Dominican shipments fell 12% in 2025 and Honduras rose 11%.<sup class="r"><a href="#s11">11</a></sup> In Q1 2026 Honduras (17.2 m) overtook the Dominican Republic (15.6 m) for the first time, a shift industry observers attribute in part to the Tabacalera de García disruption described in Section III.<sup class="r"><a href="#s15">15</a></sup> Through May 2026 total imports were down 2%, with Nicaragua −4%, the Dominican Republic −11% and Honduras +16%.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-h">High</span></p>
+  <h3>Tariffs</h3>
+  <p>Since April 2025 a shifting US tariff regime has targeted exactly the three countries that roll America's cigars. Industry estimates put the cost at $0.50–$2.10 per cigar, or $12.50–$52.50 on a box of 25, in a zero-tobacco-tax state.<sup class="r"><a href="#s13">13</a></sup> Cigars were exempted from increased tariffs on Nicaraguan goods announced in December 2025.<sup class="r"><a href="#s19">19</a></sup> The volume data suggest the market has proven resilient but not unscathed. <span class="c c-m">Med</span></p>
+  <h3>Principal non-Cuban operators named in the sources</h3>
+  <div class="tw"><table>
+    <tr><th>Company</th><th>Base</th><th>Position</th></tr>
+    <tr><td>Tabacalera USA (Altadis U.S.A., JR Cigar, Casa de Montecristo)</td><td>US; majority Turmeric Capital since 2025</td><td>Non-Cuban Montecristo, Romeo y Julieta, H. Upmann, Trinidad; JR believed the second-largest online seller<sup class="r"><a href="#s19">19</a></sup></td></tr>
+    <tr><td>Tabacalera de García</td><td>La Romana, Dominican Republic (Tabacalera S.L.U.)</td><td>Claims 40 m handmade a year, purpose-built for Altadis U.S.A.; lost that client in Nov 2025<sup class="r"><a href="#s19">19</a></sup></td></tr>
+    <tr><td>AJ Fernandez; Plasencia</td><td>Nicaragua</td><td>Absorbing Altadis U.S.A. production<sup class="r"><a href="#s19">19</a></sup></td></tr>
+    <tr><td>Oettinger Davidoff</td><td>Switzerland</td><td>Davidoff, Avo and other brands<sup class="r"><a href="#s13">13</a></sup></td></tr>
+    <tr><td>Drew Estate</td><td>Nicaragua / US</td><td>Liga Privada, Undercrown, Herrera Estelí<sup class="r"><a href="#s13">13</a></sup></td></tr>
+  </table></div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Regulation</h2><p class="sub">The US premium exemption, settled after a decade; excise and bans elsewhere.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Date</th><th>Event</th><th>Effect</th></tr>
+    <tr><td>May 2016</td><td>FDA "Deeming Rule" extends tobacco authority to all cigars<sup class="r"><a href="#s29">29</a></sup></td><td>Warning labels, product review and user fees threatened for handmade cigars</td></tr>
+    <tr><td>9 Aug 2023</td><td>US District Court (DC) vacates the rule "insofar as it applies to premium cigars" as arbitrary and capricious<sup class="r"><a href="#s30">30</a></sup></td><td>First exemption; court adopts an eight-part definition</td></tr>
+    <tr><td>24 Jan 2025</td><td>DC Circuit affirms, remanding only the definition<sup class="r"><a href="#s29">29</a> <a href="#s30">30</a></sup></td><td>Relief applies prospectively</td></tr>
+    <tr><td>15–16 Apr 2026</td><td>Judge Mehta reaffirms the vacatur and retains the original definition, "(hopefully) the final chapter"<sup class="r"><a href="#s31">31</a> <a href="#s32">32</a></sup></td><td>Premium cigars outside FDA's regime; flavoured and machine-made cigars remain inside</td></tr>
+  </table></div>
+  <p>The court's definition includes cigars wrapped in whole tobacco leaf, containing at least 50% long-filler by weight, made only of tobacco, water and vegetable gum with no other additives, and weighing more than six pounds per thousand units.<sup class="r"><a href="#s32">32</a></sup> Elsewhere: the UAE applies a 100% tax on cigars<sup class="r"><a href="#s33">33</a></sup>; Ireland is considering a generational tobacco ban.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Gulf angle</h2><p class="sub">Consumer, distributor and, since 2025, owner.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Layer</th><th>Detail</th><th>Confidence</th></tr>
+    <tr><td>Distribution</td><td>Phoenicia Trading T.A.A. (Cyprus), based in Limassol, is Habanos' exclusive distributor for the Middle East, Africa (excluding Algeria, Morocco and South Africa) and several European territories, covering the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, Oman, Jordan, Lebanon and Iraq<sup class="r"><a href="#s34">34</a></sup></td><td><span class="c c-h">High</span></td></tr>
+    <tr><td>Retail</td><td>La Casa del Habano first opened in the UAE in 1988 under the Baqer Mohebi group; outlets in Abu Dhabi Mall, Dubai (JBR, City Walk), Dubai Duty Free Terminal 1 and a Habanos Specialist at Terminal 3<sup class="r"><a href="#s35">35</a> <a href="#s36">36</a></sup></td><td><span class="c c-h">High</span></td></tr>
+    <tr><td>Market weight</td><td>The UAE was described as 50% of the Gulf cigar market; the Middle East was one pole of a "tri-polar" Habanos market with Europe and Asia before the post-2020 tilt to East Asia<sup class="r"><a href="#s33">33</a> <a href="#s19">19</a></sup></td><td><span class="c c-m">Med</span> (UAE figure is dated)</td></tr>
+    <tr><td>Ownership</td><td>Turmeric Capital, described to trade press as a fund connected to a UAE ruling family, not a sovereign wealth fund, became majority owner of Tabacalera USA in 2025; its founder Ravi Thakran and Palm Sports CEO Fouad Darwish joined the board of the Hong Kong entity above Allied Cigar in August 2025. Rumours of a Middle Eastern buyer for the Habanos stake have circulated since 2020<sup class="r"><a href="#s19">19</a> <a href="#s23">23</a></sup></td><td><span class="c c-m">Med</span></td></tr>
+    <tr><td>Illicit trade</td><td>Counterfeits and parallel imports are a long-standing problem; three UAE shops were closed for selling fakes and Habanos calls cigars Cuba's third-largest foreign-exchange earner after tourism and nickel<sup class="r"><a href="#s33">33</a></sup></td><td><span class="c c-m">Med</span> (dated source)</td></tr>
+  </table></div>
+  <div class="note">For a UAE-licensed business, the compliance question is concrete: the regional distributor and every Casa del Habano franchise sit downstream of a company in which a sanctioned individual holds 28.55% through a chain now under liquidation in three jurisdictions. Screening should trace ownership to Allied Cigar Fund L.P. and Simply Advanced Limited rather than stopping at the Cypriot or UAE operating entity. If a Gulf buyer ultimately acquires the stake, the same chain becomes the due-diligence file. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Habanos S.A. revenue and market ranking</td><td>Festival del Habano press conference, February (when held)</td><td>Whether value growth survives the volume collapse; whether 2025 is ever published</td></tr>
+    <tr><td>Tabacuba export volumes and planted hectares</td><td>Cuban state media (Granma, Guerrillero); harvest season Oct–Mar</td><td>Physical supply; the 18-month reserve</td></tr>
+    <tr><td>Chen Zhi stake proceedings</td><td>Eastern Caribbean Supreme Court, SDNY, Hong Kong High Court; halfwheel and Cigarrvärlden reporting</td><td>Whether a "clean" buyer can acquire 28.55% of Habanos, and who</td></tr>
+    <tr><td>US premium imports by origin</td><td>Cigar Association of America, monthly via Cigar Aficionado</td><td>Demand and the Honduras–Dominican reordering</td></tr>
+    <tr><td>US tariff schedule for Nicaragua, DR and Honduras</td><td>USTR notices</td><td>Landed cost per stick</td></tr>
+    <tr><td>FDA appeal window and any new rulemaking</td><td>Federal Register; Tobacco Law Blog</td><td>Whether the premium exemption holds</td></tr>
+    <tr><td>Distributor licences and bank relationships</td><td>National licensing authorities; insolvency filings (Sweden, Germany, Hong Kong)</td><td>Contagion from the sanctions case through the distribution network</td></tr>
+  </table></div>
+</section>
+<section id="s-viii">
+  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. halfwheel and Cigar Aficionado are the trade's primary reporters; Cuban state figures are used as reported and marked where unverifiable.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Habanos S.A. / PR Newswire</b>, "Corporación Habanos S.A. achieves a record revenue of 827 million dollars in 2024", 24 Feb 2025, revenue, +16%, 27 brands, 130+ territories, Protected Appellation of Origin.</li>
+    <li id="s2"><b>halfwheel</b>, "Habanos S.A. Reports $827 Million in Revenue for 2024, a 14.7 Percent Increase", 25 Feb 2025, arithmetic from $721 m (2023, +31%); Europe over half of sales; Behike BHK 58 pricing expectation.</li>
+    <li id="s3"><b>Prensa Latina</b>, "Habanos S.A. registers record revenues in 2024", 24 Feb 2025, and <b>London Cigar Smoker</b>, "XXV Festival del Habano 2025, The Highlights", 2 Mar 2025, 4,705 points of sale by category; top five markets; Europe 54%.</li>
+    <li id="s4"><b>halfwheel</b>, "Cuba's Festival del Habano XXVI Will be 'Postponed'", 14 Feb 2026, official statement; Tabacuba attributes postponement to intensified US blockade.</li>
+    <li id="s5"><b>halfwheel</b>, "Festival del Habano XXVI Canceled", 20 Jul 2026, and <b>Havana Times</b>, "Cuba Cancels This Year's Habano Cigar Festival", 22 Jul 2026, third outright cancellation in the event's history.</li>
+    <li id="s6"><b>Al Jazeera</b>, "Could the US oil blockade snuff out the Cuban cigar?", 15 Apr 2026, exports 50 m (2024) vs 93.9 m (2018) per Tabacuba; 2025–26 target 12,152 ha missed; 50% electrified irrigation; distributor shipment reports.</li>
+    <li id="s7"><b>Cigar Journal</b>, "Cuba's Cigar Paradox" (P. G. Wynne), Sep 2026, Behike 52 c.€55 to c.€230; c.20,000 ha national plan 2025–26; China first by value; repositioning as luxury goods. <span class="c c-m">Med</span></li>
+    <li id="s8"><b>Cigar Aficionado</b>, "Cuba Faces Smallest Tobacco Crop In History", 4 Apr 2023, and <b>TCH Cigars</b> summary, Hurricane Ian 27 Sep 2022; c.90% of barns, &gt;10,000 structures; 5,150 ha planted vs 11,000 planned.</li>
+    <li id="s9"><b>Cigar Rights of America</b>, "Cuba's Shifting Landscape &amp; Cigars", Sep 2026, oil blockade since Jan 2026; three grid collapses; Siglo VI €38 to €105 (+178%); diplomatic signals. Advocacy body. <span class="c c-m">Med</span></li>
+    <li id="s10"><b>Cigars-connect</b>, "Cuba: 2026 harvest up in the Vuelta Abajo", 17 Mar 2026, 19,000 seedlings lost; Pinar del Río 60–70% of export leaf; c.10,500 ha 2024–25; solar irrigation programme; and <b>Cuba Headlines</b>, Jul 2026 (70–80% share; fuel logistics). <span class="c c-m">Med</span></li>
+    <li id="s11"><b>Cigar Aficionado</b>, "Premium Cigar Imports Flat For 2025", 16 Apr 2026, Nicaragua 258.4 m (+2%), Dominican Republic 93.7 m (−12%), Honduras 74.5 m (+11%); Nicaragua c.60%.</li>
+    <li id="s12"><b>Cigar Aficionado</b>, "Handmade Cigar Imports Hold Steady For First Half Of Year", 14 Sep 2026, H1 2026 199.5 m vs 200.5 m; 2025 total 429.8 m; five years above 400 m; 2019 338 m; Big Three c.98%.</li>
+    <li id="s13"><b>Cigar Rights of America</b>, "Tariffs and Premium Cigar Demand", Sep 2026, and <b>Cigar Aficionado</b>, "Latest Import Figures Show A Flat Market", 28 Jul 2026, tariff cost estimates; through-May 2026 country figures; &gt;99% rolled abroad; Oettinger Davidoff and Drew Estate references; Ireland generational ban. <span class="c c-m">Med</span></li>
+    <li id="s14"><b>Nicotine Insider</b>, "Dominican Exports 196M Premium Cigars in 2025", 28 May 2026, INTABACO figures: c.40,000 jobs, 62% women, c.10% of exports, &gt;$1.385 bn; Nicaragua 280–310 m estimate. <span class="c c-m">Med</span></li>
+    <li id="s15"><b>Cigar Aficionado</b>, "Premium Cigar Imports Down Slightly In First Quarter", 18 May 2026, and <b>Nicotine Insider</b>, "Honduras U.S. Cigar Imports Pass Dominican", 19 May 2026, Q1 2026: 90.9 m total (−3%); Honduras 17.2 m vs DR 15.6 m; Nicaragua 56.8 m (62.5%); Chen Zhi disruption cited.</li>
+    <li id="s16"><b>Imperial Brands plc</b>, "Sale of Worldwide Premium Cigar Business", 27 Apr 2020, €1,225 m; Gemstone €185 m; Allied €1,040 m; 50% stakes in Habanos S.A., Altabana, ICT and Promotora de Cigarros.</li>
+    <li id="s17"><b>Cigar Aficionado</b>, "$1.3 Billion Deal For Imperial's Premium Cigar Business", 4 May 2020, assets in the two tranches; Tabacalera de García as possibly the largest cigar factory in the world.</li>
+    <li id="s18"><b>Cigar Journal</b>, "Who Owns Habanos?", 16 May 2020, deal structure summary.</li>
+    <li id="s19"><b>halfwheel</b>, "American Sanctions Have Torn Apart the World's Largest Premium Cigar Business" (C. Lasseter), 26 Dec 2025, the principal source for Section III: ownership chain, OFAC listing of Simply Advanced Limited, 57.1% / 28.55%, Altadis U.S.A. statements, Turmeric Capital, distributions 2021–24, 2022 repricing detail, Hong Kong price benchmark, Nicaragua tariff exemption for cigars.</li>
+    <li id="s20"><b>TNext Cigar</b>, "Habanos S.A.: Unpacking the 2020 Ownership Change", 11 May 2026, Altadis acquisition 2008 for €12.6 bn; pre-2020 increases 4–7%. <span class="c c-m">Med</span></li>
+    <li id="s21"><b>The Rio Times</b>, "After the Storm: Cuba's Cigar Industry Rebuilds for Global Markets", 11 Aug 2025, 10,378 ha Pinar del Río; 15,000 ha / 17,000 t national; 20,000 ha target; 18-month reserve. <span class="c c-m">Med</span></li>
+    <li id="s22"><b>Cigars-connect</b>, "Cuban cigars: Chen Zhi soon to be 'removed' from Tabacalera shareholding", 16 Dec 2025, Tabacalera confirmation to AFP.</li>
+    <li id="s23"><b>halfwheel</b>, "Chen Zhi, Habanos S.A. Co-Owner, Arrested &amp; Deported to China", 9 Jan 2026, and "…Facing Death Penalty in China", 28 Jul 2026, arrest and transfer; Swedish licence cancellation; Turmeric described as an Asian fund with Gulf ties.</li>
+    <li id="s24"><b>Cigars-connect</b>, "Tabacalera: The Sale of Chen Zhi's Stake Blocked on Three Fronts", 8 Jun 2026, Interpath appointment 9 Jan 2026; BVI limits; Hong Kong freeze HK$8.94 bn on 4 May 2026.</li>
+    <li id="s25"><b>halfwheel</b>, "Tabacalera S.L.U. Turns to Pre-Insolvency Amid Chen Zhi Drama", Mar 2026, El Confidencial on ownership thresholds; Tabacalera S.L.U. holdings.</li>
+    <li id="s26"><b>Nicotine Insider</b>, "Pacific Cigar Company Caught in Chen Zhi Fallout", 22 Jun 2026, SDNY recognition 11 Jun 2026; Pretlove chairing Tabacalera and Allied since February; HSBC de-risking.</li>
+    <li id="s27"><b>halfwheel</b>, "5th Avenue, German Distributor of Cuban Cigars, Files for Insolvency", Sep 2026, 56% state/Tabacalera ownership; retailer letter; Interpath control of stakes; and "It's Time To Talk About the Other Habanos S.A. Shareholder", 14 Sep 2026, three names tied to the 2020 purchase; Borrelli/Glenn proceedings.</li>
+    <li id="s28"><b>Nicotine Insider</b>, as source 26, HSBC release of the Asian distributor prior to designation; invoicing changes. <span class="c c-m">Med</span></li>
+    <li id="s29"><b>Bloomberg Law</b>, "FDA Rule Regulating Premium Cigars Swept Aside by Appeals Court", 24 Jan 2025, 2016 rule; district court 2022/2023; DC Circuit opinion.</li>
+    <li id="s30"><b>US FDA</b>, cigar assessment letters (FY26), text of the 9 Aug 2023 vacatur and the 24 Jan 2025 remand on definition; prospective application.</li>
+    <li id="s31"><b>Tobacco Law Blog</b>, "Federal Court Finalizes Definition of FDA-Exempt Premium Cigars", 23 Apr 2026, 15 Apr 2026 order; eight-part definition; 30-day appeal window.</li>
+    <li id="s32"><b>Cigar Aficionado</b>, "D.C. Justice Rules For Premium Cigars,Again", 16 Apr 2026, definition elements quoted; flavoured and machine-made cigars not exempt; industry reaction.</li>
+    <li id="s33"><b>Gulf News</b>, "Rise in fake cigars worry manufacturers", Habanos VP on counterfeits; UAE 50% of Gulf market; 100% tax; three shops closed; Cuba's third-largest FX earner. Undated archive article; treat figures as historical. <span class="c c-m">Med</span></li>
+    <li id="s34"><b>Habanos S.A.</b>, official distributor directory, Phoenicia Trading T.A.A. (Cyprus) Ltd, Limassol; territories listed.</li>
+    <li id="s35"><b>Baqer Mohebi Establishment</b>, "Tobacco brands", La Casa del Habano in the UAE since 1988; store locations; Le Tabac Exclusivo.</li>
+    <li id="s36"><b>Habano Mag</b>, listings for La Casa del Habano Terminal 1 (Dubai Duty Free), Habanos Specialist Terminal 3, Abu Dhabi Mall and Dubai Mall, distributor attribution to Phoenicia. <span class="c c-m">Med</span></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

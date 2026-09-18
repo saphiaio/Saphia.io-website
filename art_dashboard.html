@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Art, ΣΟΦΙΑ</title>
+<meta name="description" content="Art: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.frame .v{font-family:var(--display);font-size:44px;line-height:1}
+.frame .l{font-size:13px;color:#6f6a62;margin-top:8px}
+.labels .v{font-family:var(--mono);font-size:19px;font-weight:600}
+.labels .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap}
+.bars{margin:14px 0 26px;font-family:var(--mono);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#faf7f0;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:#141412}
+.bars .v{text-align:right}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;padding:14px 16px;border-top:2px solid #141412}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:600}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:100px 1fr 100px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Art</p>
+  <h1>Art</h1>
+  <p class="lede">A $60 billion market that returned to growth in 2025 after two years of contraction, carried by the very top: a single Klimt portrait accounted for a fifth of the largest auction week since 2021, and every one of the year's ten most expensive lots was sold in New York. This page covers the market's size and structure, the 2025 recovery, regional shares, the auction record book and the structural shifts the benchmark report identifies. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">$59.6 bn</div><div class="l">Global art sales 2025, +4%, first growth since 2022, still below the 2022 peak. Art Basel &amp; UBS Global Art Market Report 2026 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 17 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>The trophy segment rewrote the record book in November 2025 while the broad market contracted.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>United States · United Kingdom · France · China (artists and consignors)</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>New York · London · Hong Kong · Paris</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium (auction); Low (private)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale C <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Size and cycle</a></li><li><a href="#s-ii"><span>II</span>Regional shares</a></li><li><a href="#s-iii"><span>III</span>The top end</a></li><li><a href="#s-iv"><span>IV</span>Structure of the trade</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Size and cycle</h2><p class="sub">Arts Economics' estimates, which are the industry's only comprehensive series.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Year</th><th class="n">Global sales</th><th class="n">Change</th><th>Note</th></tr>
+    <tr><td>2022</td><td class="n">peak</td><td class="n">,</td><td>Post-pandemic high<sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>2023</td><td class="n">,</td><td class="n">decline</td><td>First year of contraction<sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>2024</td><td class="n">$57.5 bn</td><td class="n">−12%</td><td>Transactions +3%, more sales at lower values<sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>2025</td><td class="n">$59.6 bn</td><td class="n">+4%</td><td>9% below 2023 and 7% below 2015; confidence returned in H2, strength above $10 m<sup class="r"><a href="#s4">4</a> <a href="#s6">6</a></sup></td></tr>
+  </table></div>
+  <p>Both channels grew: dealers by 2% to $34.8 bn and public auctions by 9% to $20.7 bn, while reported private auction sales fell 4% to just under $4.2 bn as sellers returned to the saleroom.<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup> UBS frames the adjustment against the "Great Wealth Transfer", more than $83 trillion to pass between generations, shifting collecting toward women and younger buyers.<sup class="r"><a href="#s1">1</a></sup> <span class="c c-h">High</span>, these are the report's own estimates; all values are Arts Economics' constructs from surveys and auction data, not observed totals.</p>
+  <div class="note warn">Profitability diverged from sales: despite growth, 38% of dealers and 40% of mid-tier auction houses reported lower profits than the previous year; in the $250,000–500,000 dealer segment, 45% saw margins fall on rising sales. Costs, fairs, travel, regulation, shipping, rose faster than turnover.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-h">High</span></div>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Regional shares</h2><p class="sub">New York for trophies, London stable, China flat.</p></div>
+  
+  <div class="bars">
+    <div class="r"><span>United States</span><div class="bar"><i style="width:100%"></i></div><span class="v">$26.0 bn</span></div>
+    <div class="r"><span>United Kingdom</span><div class="bar"><i style="width:40%"></i></div><span class="v">$10.5 bn</span></div>
+    <div class="r"><span>China</span><div class="bar"><i style="width:33%"></i></div><span class="v">$8.5 bn · 14%</span></div>
+    <div class="r"><span>France</span><div class="bar"><i style="width:17%"></i></div><span class="v">$4.5 bn · +9%</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--mute)">2025 sales by market per the Art Basel &amp; UBS report.<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup></p>
+  <div class="tw"><table>
+    <tr><th>Market</th><th>2025</th><th>Note</th></tr>
+    <tr><td>United States</td><td>$26 bn; public auction sales +20% to just over $7 bn</td><td>All top-10 lots of 2025 sold in New York; dealers +2% with 43% up and 37% down<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>United Kingdom</td><td>$10.5 bn</td><td>Imports +47%, exports −39%, domestic buying up, hub role thinning<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>China (incl. Hong Kong)</td><td>$8.5 bn, +c.1%; third-largest at 14%</td><td>Mainland auctions stronger; Hong Kong weaker on international demand; property downturn weighs on confidence<sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>France; Switzerland; Austria; Spain; South Korea</td><td>+9%; +13%; +13%; +6%; growth</td><td>France above its 2019 level<sup class="r"><a href="#s4">4</a> <a href="#s2">2</a></sup></td></tr>
+    <tr><td>Germany; Italy; Japan</td><td>Slower</td><td>Below-average growth<sup class="r"><a href="#s2">2</a></sup></td></tr>
+  </table></div>
+  <p>The report's geographic finding is that trade is regionalising: for a market built on the free movement of works through London, New York and Hong Kong, rising domestic buying and falling exports suggest some transactions now bypass the traditional hubs.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>The top end</h2><p class="sub">November 2025 in New York rewrote the record book.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Work</th><th>Sale</th><th class="n">Price (with fees)</th><th>Significance</th></tr>
+    <tr><td>Leonardo da Vinci, <i>Salvator Mundi</i></td><td>Christie's New York, Nov 2017</td><td class="n">$450.3 m</td><td>Auction record for any artwork<sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Gustav Klimt, <i>Bildnis Elisabeth Lederer</i> (1914–16)</td><td>Sotheby's New York, 18 Nov 2025, Leonard A. Lauder Collection</td><td class="n">$236.36 m</td><td>Second most expensive work at auction; record for modern art; Sotheby's record; hammer $205 m; more than double Klimt's prior record ($108.4 m, 2023)<sup class="r"><a href="#s5">5</a> <a href="#s7">7</a> <a href="#s8">8</a></sup></td></tr>
+    <tr><td>Andy Warhol, <i>Shot Sage Blue Marilyn</i></td><td>Christie's New York, 2022</td><td class="n">$195.0 m</td><td>Previous modern/contemporary record<sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Pablo Picasso, <i>Les Femmes d'Alger (Version O)</i></td><td>Christie's New York, 2015</td><td class="n">$179.4 m</td><td>Previous modern-art record<sup class="r"><a href="#s9">9</a> <a href="#s7">7</a></sup></td></tr>
+    <tr><td>Klimt, <i>Blumenwiese</i> (1908)</td><td>Sotheby's New York, Nov 2025</td><td class="n">$86 m</td><td>Landscape from the same collection; two landscapes $154.3 m combined<sup class="r"><a href="#s5">5</a> <a href="#s8">8</a></sup></td></tr>
+  </table></div>
+  <div class="cards">
+    <div class="card"><div class="v">$1.17 bn</div><div class="l">Sotheby's New York November 2025 sales, highest series since 2021; the Klimt over 20% of it <span class="c c-h">High</span><sup class="r"><a href="#s5">5</a></sup></div></div>
+    <div class="card"><div class="v">&gt;$2 bn</div><div class="l">Sotheby's, Christie's and Phillips combined in the November week; 16 artist records; 9 of the year's top 10 lots <span class="c c-h">High</span><sup class="r"><a href="#s8">8</a></sup></div></div>
+    <div class="card"><div class="v">$690 m</div><div class="l">Christie's 20th-century sale, +41.9% on the prior November; Weis collection c.a third of it including a $62 m Rothko <span class="c c-h">High</span><sup class="r"><a href="#s10">10</a></sup></div></div>
+  </div>
+  <div class="note warn">Discrepancy logged: Sotheby's states its November New York series at $1.17 bn; a listicle gives "$1.7 bn" for the same sales and "nearly $1 bn" for Christie's Weis collection against Artnet's $690 m for the 20th-century sale that contained it. The auction house's own figure and Artnet's reporting are used.<sup class="r"><a href="#s5">5</a> <a href="#s11">11</a> <a href="#s10">10</a></sup> <span class="c c-h">High</span></div>
+  <p>The Lauder collection, 55 works valued above $400 m, fetched $527.5 m in its evening sale alone; the Klimt drew at least six bidders over twenty minutes from a $130 m opening. Fresh-to-market single-owner collections are what the market is "hungry for", in Artnet's phrase.<sup class="r"><a href="#s9">9</a> <a href="#s7">7</a> <a href="#s10">10</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>Structure of the trade</h2><p class="sub">Two auction houses, thousands of dealers, and the fair as the meeting point.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Channel</th><th>2025 position</th><th>Note</th></tr>
+    <tr><td>Dealers and galleries</td><td>$34.8 bn, 58% of the market</td><td>Fair sales rose to 35% of dealer sales from 31%; in-person engagement returned<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>Public auction</td><td>$20.7 bn, +9%</td><td>Sotheby's, Christie's, Phillips dominate the top; mid-tier houses under margin pressure<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>Private auction-house sales</td><td>c.$4.2 bn, −4%</td><td>Sellers returned to the room as confidence rose<sup class="r"><a href="#s2">2</a> <a href="#s12">12</a></sup></td></tr>
+    <tr><td>Online</td><td>$9.2 bn, 15%</td><td>Down from a 25% pandemic peak; the decline is a rebalancing, not a retreat<sup class="r"><a href="#s3">3</a> <a href="#s12">12</a></sup></td></tr>
+    <tr><td>Fairs</td><td>Art Basel (Basel, Miami, Hong Kong, Paris), Frieze and regional fairs</td><td>Rising participation cost is the dealers' main complaint<sup class="r"><a href="#s3">3</a></sup></td></tr>
+  </table></div>
+  <p>Dealer sentiment for 2026 improved markedly, 43% expected turnover to rise, up from 33% a year earlier, with 38% expecting stability, on the strength of late-2025 fairs and auctions and record highs at the top.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+  <div class="note">Diamond parallel: the art market is the diamond market with the certificate removed. Value rests on attribution, provenance and condition established by experts rather than by a laboratory; the auction houses play the role of the bourse; and the "fresh to market single-owner collection" is the equivalent of an untouched parcel of rough. The difference is liquidity, a Klimt trades once a generation, a D-flawless every week. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Global sales, channel and regional shares</td><td>Art Basel &amp; UBS Global Art Market Report (Arts Economics), March annually</td><td>The benchmark series; revisions to prior years</td></tr>
+    <tr><td>Marquee auction weeks</td><td>Sotheby's, Christie's, Phillips, New York (May, November), London (March, October), Hong Kong (spring, autumn)</td><td>Top-end sentiment; sell-through and bought-in rates</td></tr>
+    <tr><td>Single-owner consignments announced</td><td>Auction-house releases, pre-season</td><td>Supply of trophy material</td></tr>
+    <tr><td>Dealer and fair reports</td><td>Art Basel, Frieze post-fair statements; Artnet and ARTnews reporting</td><td>Mid-market health and fair economics</td></tr>
+    <tr><td>Cross-border shipping and tariff regimes</td><td>USTR; UK and EU customs; Hong Kong policy</td><td>Regionalisation of trade</td></tr>
+    <tr><td>Wealth-transfer and collector surveys</td><td>UBS/Art Basel Survey of Global Collecting, autumn</td><td>Generational demand shift</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Arts Economics' report is the primary source; auction-house and trade-press figures are used for the record book.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Art Basel</b>, "Global sales rise 4% to $59.6 billion in 2025, amid ongoing market recalibration", Mar 2026, headline figures; Paul Donovan and Clare McAndrew statements; Great Wealth Transfer ($83 tn).</li>
+    <li id="s2"><b>UBS</b>, "The Art Basel and UBS Global Art Market Report 2026", dealer $34.8 bn (+2%); public auction $20.7 bn (+9%); private auction c.$4.2 bn (−4%); US $26 bn; UK $10.5 bn; China $8.5 bn; regional performance; 2024 $57.5 bn (−12%) with transactions +3%.</li>
+    <li id="s3"><b>Artlyst</b>, "Art Basel And UBS Global Market Report 2026 Insights", 21 Jun 2026, and <b>MyArtBroker</b>, "Art Basel &amp; UBS Art Market Report 2026: Key Trends", 29 Jun 2026, fair share of dealer sales 31%→35%; online $9.2 bn, 15%, lowest since 2019, 25% peak in 2020; China 14%; France $4.5 bn (+9%); UK imports +47% / exports −39%; profitability findings (38% of dealers, 40% of mid-tier houses, 45% in the $250k–500k segment).</li>
+    <li id="s4"><b>Artinfoland</b>, "The Art Basel &amp; UBS Global Art Market Report 2026", 20 Mar 2026, released 12 Mar 2026; 245 pages; 9% below 2023 and 7% below 2015; dealer sentiment 43%/38%; Hong Kong and mainland dynamics. Secondary. <span class="c c-m">Med</span></li>
+    <li id="s5"><b>Sotheby's</b>, "$236.4 Million Klimt Portrait Sets Records as Sotheby's Inaugurates the Breuer", 22 Nov 2025, $1.17 bn series; Klimt over 20%; landscapes $154.3 m; Agnes Martin $17.6 m; Van Gogh drawing record.</li>
+    <li id="s6"><b>UBS (US)</b>, "Art Basel and UBS Global Art Market Report 2026", 19 Mar 2026, US public auction sales +20% to just over $7 bn; all top-10 lots in New York; US dealers +2% (43% up, 37% down).</li>
+    <li id="s7"><b>The Value</b>, "At US$236.3m, Klimt's Portrait of Elisabeth Lederer becomes the second most expensive work ever auctioned", 19 Nov 2025, all-time ranking with prices; hammer $205 m; provenance; bidding from $130 m.</li>
+    <li id="s8"><b>Artsy</b>, "The 10 Most Expensive Auction Works in 2025", 18 Dec 2025, $236.36 m; November week over $2 bn across three houses; 16 artist records; 9 of top 10 in the autumn; <i>Blumenwiese</i> $86 m.</li>
+    <li id="s9"><b>CNN</b>, "Rare Klimt painting smashes auction records at $236.4 million", 18 Nov 2025, Lauder evening sale $527.5 m against a $400 m estimate; Munch $35.1 m; prior Klimt record $108.4 m; and <b>ARTnews</b>, 19 Nov 2025, Picasso $179.4 m as the prior modern record; 55-work collection.</li>
+    <li id="s10"><b>Artnet News</b>, "Klimt, Kahlo, and a Comeback? New York's Auctions, Recapped", 25 Nov 2025, Christie's $690 m 20th-century sale (+41.9%); Weis collection c.one-third; $62 m Rothko; Katya Kazakina's "hungry for fresh single-owner collections".</li>
+    <li id="s11"><b>Nasdaq</b>, "The Most Expensive Auction Items Sold This Past Year", "$1.7 billion" Sotheby's figure and "nearly $1 billion" Christie's figure; retained to document the discrepancy. <span class="c c-l">Low</span></li>
+    <li id="s12"><b>MyArtBroker</b>, as source 3, sellers returning to auction; online rebalancing interpretation. <span class="c c-m">Med</span></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

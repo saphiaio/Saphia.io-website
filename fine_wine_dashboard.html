@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fine Wine, ΣΟΦΙΑ</title>
+<meta name="description" content="Fine Wine: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.tl .y{font-family:var(--mono);font-size:15px;font-weight:700;color:#a8825a}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap}
+/* era ledger */
+.era{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:12px 0;border-bottom:1px dotted #a8825a;max-width:76ch}
+.era .y{font-family:var(--mono);font-weight:700;color:#a8825a;font-size:14px;padding-top:3px}
+.era .t{font-size:15px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0 26px}
+.card{background:#faf7f0;border:1px solid #a8825a;padding:14px 16px;border-top:3px solid #a8825a}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:700;color:#a8825a}
+.card .l{font-size:13px;color:#6f6a62;font-style:italic}
+.decant.o{border-left-color:#9b4a22}
+@media(max-width:780px){
+.cards{grid-template-columns:1fr}
+.era{grid-template-columns:1fr;gap:2px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Fine Wine</p>
+  <h1>Fine Wine</h1>
+  <p class="lede">How a handful of European regions became the only agricultural product with a global secondary market, an exchange and a fraud jurisprudence of its own. This page explains the structures, classifications, the Place de Bordeaux, the Burgundian climat, the Champagne house, and the market events that shaped them, from 1855 to the post-2022 correction. It carries no prices or index values; those change daily and are available from the sources listed. Compiled 15 September 2026.</p>
+  
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 15 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Secondary market in a post-2022 correction; the en primeur system under strain.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Bordeaux · Burgundy · Champagne · Piedmont and Tuscany · Napa</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>United Kingdom · United States · Hong Kong · Mainland China · Switzerland</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-viii" title="Evidence: section § VIII">/ § VIII</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-vii" title="Evidence: section § VII">/ § VII</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium; top Burgundy High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-viii" title="Evidence: section § VIII">/ § VIII</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>Origins of the trade</a></li><li><a href="#s-ii"><span>II</span>Bordeaux</a></li><li><a href="#s-iii"><span>III</span>Burgundy</a></li><li><a href="#s-iv"><span>IV</span>Champagne</a></li><li><a href="#s-v"><span>V</span>Italy</a></li><li><a href="#s-vi"><span>VI</span>The New World</a></li><li><a href="#s-vii"><span>VII</span>Evolution of the market</a></li><li><a href="#s-viii"><span>VIII</span>How the trade is structured</a></li><li><a href="#s-ix"><span>IX</span>Indicators to monitor</a></li><li><a href="#s-x"><span>X</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>Origins of the trade</h2><p class="sub">Fine wine is an export business first and a farming business second.</p></div>
+  
+  <p>Bordeaux's commercial identity was set by geography. The port on the Gironde allowed wine to be shipped at scale to England from the Middle Ages, and the light, early-drinking red the English called "claret" became the region's first branded export.<sup class="r"><a href="#s1">1</a></sup> In the 17th century Dutch engineers drained the Médoc marshes, exposing the gravel banks on which Cabernet Sauvignon now grows; Dutch traders were also among the first négociants.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup> <span class="c c-h">High</span></p>
+  <p>The intermediary structure followed. In 1680 the role of the Bordeaux broker was formalised under Louis XIV through the Compagnie des Courtiers Gourmets-Piqueurs de Vins, standardising trade practice; over the 18th and 19th centuries the courtier–négociant chain expanded with the region's reputation.<sup class="r"><a href="#s3">3</a></sup> Unlike regions built around small domaines selling locally, Bordeaux entered the modern era with a mature merchant ecosystem and an export culture wired into its identity, which is why, when a ranking was needed in 1855, the Chamber of Commerce could simply ask the brokers.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+  <h3>Milestones in the Bordeaux trade</h3>
+  <div class="tw"><table>
+    <tr><th>Period</th><th>Development</th><th>Effect on the market</th></tr>
+    <tr><td>Middle Ages</td><td>Port of Bordeaux ships light red "claret" to England<sup class="r"><a href="#s1">1</a></sup></td><td>Establishes the export orientation that defines the region</td></tr>
+    <tr><td>17th century</td><td>Dutch engineers drain the Médoc; Dutch traders act as early négociants<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td><td>Creates the gravel vineyards and the merchant class</td></tr>
+    <tr><td>1680</td><td>Courtiers formally recognised under Louis XIV<sup class="r"><a href="#s3">3</a></sup></td><td>Brokerage becomes a licensed profession</td></tr>
+    <tr><td>18 April 1855</td><td>Brokers deliver the Médoc and Sauternes classification for the Exposition Universelle<sup class="r"><a href="#s6">6</a></sup></td><td>A price-based hierarchy becomes permanent</td></tr>
+    <tr><td>After 1855</td><td>Négociants pay for wine in barrel, en primeur<sup class="r"><a href="#s9">9</a></sup></td><td>Château cash flow secured; merchant carries inventory risk</td></tr>
+    <tr><td>1960</td><td>Revision of 1855 attempted and abandoned; Alexis Lichine campaigns for change for thirty years<sup class="r"><a href="#s59">59</a></sup></td><td>The classification's immovability confirmed</td></tr>
+    <tr><td>March 2009</td><td>Liv-ex publishes a modern re-calculation of 1855 using the original price method<sup class="r"><a href="#s59">59</a></sup></td><td>The exchange, not the brokers, now ranks by price</td></tr>
+  </table></div>
+  <div class="note">The recurring pattern across every region in this page: the producer makes the wine, but the market is made by intermediaries, brokers, négociants, merchants, auction houses and, latterly, an exchange. Where those intermediaries are strong (Bordeaux), the market is liquid and the classification is old. Where they were displaced by producer-direct allocation (Burgundy after the 1980s), the market is thin and prices are set by scarcity rather than by trade. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Bordeaux</h2><p class="sub">The classification, the Place and en primeur, a 170-year-old system under modern strain.</p></div>
+  
+  <h3>The 1855 classification</h3>
+  <p>Napoleon III staged the Exposition Universelle in Paris from May to November 1855 and asked for a classification of the Bordeaux wines on display.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup> The Chamber of Commerce passed the task to the brokers, who ranked châteaux by reputation and trading price into five growths for the reds and delivered the list on 18 April 1855, in under two weeks.<sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup> Coverage was confined to the Médoc (Margaux, Saint-Julien, Pauillac, Saint-Estèphe, Haut-Médoc) plus one estate from Graves, Haut-Brion, together with the sweet wines of Sauternes and Barsac.<sup class="r"><a href="#s7">7</a></sup> The Right Bank, Saint-Émilion and Pomerol, was not included and operates under different systems or none.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Change since 1855</th><th>Date</th><th>Note</th></tr>
+    <tr><td>Château Cantemerle added as fifth growth</td><td>1856</td><td>Omitted by accident in the original list<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>Château Mouton Rothschild promoted second to first growth</td><td>21 June 1973</td><td>The only change of rank in the classification's history<sup class="r"><a href="#s6">6</a></sup></td></tr>
+  </table></div>
+  <h3>The 1855 classification in full, red wines (61 châteaux)</h3>
+  <p style="font-size:14px;color:#6f6a62">Modern names; commune in brackets where the AOC differs. Order within each growth follows the brokers' 1855 sequence. Source: Wikipedia transcription of the 1855 list, checked against Stevenson, <i>The Sotheby's Wine Encyclopedia</i>.<sup class="r"><a href="#s59">59</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Growth</th><th>Châteaux</th></tr>
+    <tr><td><b>Premiers crus (5)</b></td><td>Lafite Rothschild (Pauillac) · Latour (Pauillac) · Margaux (Margaux) · Haut-Brion (Pessac, Graves) · Mouton Rothschild (Pauillac, promoted 1973)</td></tr>
+    <tr><td><b>Deuxièmes crus (14)</b></td><td>Rauzan-Ségla (Margaux) · Rauzan-Gassies (Margaux) · Léoville-Las Cases (St-Julien) · Léoville-Poyferré (St-Julien) · Léoville-Barton (St-Julien) · Durfort-Vivens (Margaux) · Gruaud-Larose (St-Julien) · Lascombes (Margaux) · Brane-Cantenac (Cantenac-Margaux) · Pichon Longueville Baron (Pauillac) · Pichon Longueville Comtesse de Lalande (Pauillac) · Ducru-Beaucaillou (St-Julien) · Cos d'Estournel (St-Estèphe) · Montrose (St-Estèphe)</td></tr>
+    <tr><td><b>Troisièmes crus (14)</b></td><td>Kirwan (Cantenac-Margaux) · d'Issan (Cantenac-Margaux) · Lagrange (St-Julien) · Langoa-Barton (St-Julien) · Giscours (Labarde-Margaux) · Malescot St-Exupéry (Margaux) · Cantenac-Brown (Cantenac-Margaux) · Boyd-Cantenac (Margaux) · Palmer (Cantenac-Margaux) · La Lagune (Ludon, Haut-Médoc) · Desmirail (Margaux) · Calon-Ségur (St-Estèphe) · Ferrière (Margaux) · Marquis d'Alesme Becker (Margaux), Dubignon (Margaux) was classified third growth and dissolved in 1960</td></tr>
+    <tr><td><b>Quatrièmes crus (10)</b></td><td>Saint-Pierre (St-Julien) · Talbot (St-Julien) · Branaire-Ducru (St-Julien) · Duhart-Milon (Pauillac) · Pouget (Cantenac-Margaux) · La Tour Carnet (St-Laurent, Haut-Médoc) · Lafon-Rochet (St-Estèphe) · Beychevelle (St-Julien) · Prieuré-Lichine (Cantenac-Margaux) · Marquis de Terme (Margaux)</td></tr>
+    <tr><td><b>Cinquièmes crus (18)</b></td><td>Pontet-Canet (Pauillac) · Batailley (Pauillac) · Haut-Batailley (Pauillac) · Grand-Puy-Lacoste (Pauillac) · Grand-Puy-Ducasse (Pauillac) · Lynch-Bages (Pauillac) · Lynch-Moussas (Pauillac) · Dauzac (Labarde-Margaux) · d'Armailhac (Pauillac) · du Tertre (Arsac-Margaux) · Haut-Bages-Libéral (Pauillac) · Pédesclaux (Pauillac) · Belgrave (St-Laurent, Haut-Médoc) · de Camensac (St-Laurent, Haut-Médoc) · Cos Labory (St-Estèphe) · Clerc-Milon (Pauillac) · Croizet-Bages (Pauillac) · Cantemerle (Macau, Haut-Médoc, added 1856)</td></tr>
+  </table></div>
+  <h3>The 1855 classification, Sauternes and Barsac (27 châteaux)</h3>
+  <div class="tw"><table>
+    <tr><th>Rank</th><th>Châteaux</th></tr>
+    <tr><td><b>Premier cru supérieur (1)</b></td><td>d'Yquem (Sauternes)</td></tr>
+    <tr><td><b>Premiers crus (11)</b></td><td>La Tour Blanche (Bommes) · Lafaurie-Peyraguey (Bommes) · Clos Haut-Peyraguey (Bommes) · de Rayne-Vigneau (Bommes) · Suduiraut (Preignac) · Coutet (Barsac) · Climens (Barsac) · Guiraud (Sauternes) · Rieussec (Fargues) · Rabaud-Promis (Bommes) · Sigalas-Rabaud (Bommes)</td></tr>
+    <tr><td><b>Deuxièmes crus (15)</b></td><td>de Myrat (Barsac) · Doisy-Daëne (Barsac) · Doisy-Dubroca (Barsac) · Doisy-Védrines (Barsac) · d'Arche (Sauternes) · Filhot (Sauternes) · Broustet (Barsac) · Nairac (Barsac) · Caillou (Barsac) · Suau (Barsac) · de Malle (Preignac) · Romer (Fargues) · Romer du Hayot (Fargues) · Lamothe (Sauternes) · Lamothe-Guignard (Sauternes)</td></tr>
+  </table></div>
+  <p style="font-size:14px;color:#6f6a62">Counts reflect subsequent splits of original 1855 entries (Léoville, Pichon Longueville, Batailley, Rabaud, Doisy, Broustet-Nérac, Romer, Lamothe); Pexoto was absorbed into Rabaud-Promis. Vineyard boundaries have changed without reclassification, the ranking attaches to the château name, not to specific parcels.<sup class="r"><a href="#s59">59</a></sup></p>
+  <p>The brokers themselves warned that the list was "a sketch drawn from the very best sources", not an official ranking.<sup class="r"><a href="#s7">7</a></sup> It has nonetheless governed pricing and reputation ever since, precisely because it reduces a complex product to a legible hierarchy that travels faster than nuance.<sup class="r"><a href="#s4">4</a> <a href="#s8">8</a></sup></p>
+  <h3>The Right Bank: Saint-Émilion's revisable classification</h3>
+  <p>Saint-Émilion built the opposite model, a classification first published in 1955 and revised roughly every decade, designed to reward improvement rather than inherited rank.<sup class="r"><a href="#s60">60</a></sup> Pomerol, home of Pétrus and Le Pin, has never had one. <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Edition</th><th>Structure</th><th>Note</th></tr>
+    <tr><td>1955 (first list, 16 June 1955)</td><td>12 Premiers Grands Crus Classés (Ausone and Cheval Blanc as "A"), 63 Grands Crus Classés, 75 estates<sup class="r"><a href="#s60">60</a> <a href="#s61">61</a></sup></td><td>Conceived by the local syndicate in 1930; decree of 7 October 1954</td></tr>
+    <tr><td>2006</td><td>Declared legally invalid after four demoted châteaux alleged conflicts of interest; 1996 list reinstated by decree for the 2006–09 vintages<sup class="r"><a href="#s60">60</a></sup></td><td>Litigation risk inherent in a revisable system</td></tr>
+    <tr><td>2012</td><td>4 "A" (Ausone, Cheval Blanc, Angélus, Pavie), 14 "B", 64 GCC, 82 estates<sup class="r"><a href="#s60">60</a> <a href="#s62">62</a></sup></td><td>Angélus and Pavie promoted to "A"</td></tr>
+    <tr><td>2022 (valid to the 2031 harvest)</td><td>2 "A" (Pavie; Figeac promoted), 12 "B", 71 GCC, 85 estates<sup class="r"><a href="#s60">60</a> <a href="#s63">63</a></sup></td><td>Cheval Blanc and Ausone withdrew July 2021, Angélus January 2022, La Gaffelière June 2022, citing criteria weighted toward marketing and tourism<sup class="r"><a href="#s61">61</a> <a href="#s62">62</a></sup></td></tr>
+  </table></div>
+  <p>The 2022 scoring weighted blind tasting at 50% (twenty vintages for "A" candidates), reputation and market value at 35%, and terroir and viticulture at 15%.<sup class="r"><a href="#s60">60</a></sup> The withdrawal of three of the four top estates demonstrated the limit of any classification: a brand strong enough no longer needs it, and its market value was reported unaffected.<sup class="r"><a href="#s62">62</a></sup> <span class="c c-m">Med</span></p>
+  <h3>The Place de Bordeaux and en primeur</h3>
+  <p>The Place is the network of courtiers and négociants through which classified growths are distributed. Every transaction from a participating château passes through a courtier, whether at en primeur or years later from the château's own stock; the négociant then sells on to importers and merchants worldwide.<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup> En primeur, the sale of wine in barrel, months after harvest and long before bottling, grew out of this system in the period after 1855, when négociants paid châteaux for wine still in cask, giving the estates cash flow in exchange for a discount.<sup class="r"><a href="#s9">9</a></sup> Originally a financing mechanism, it became the marketing event of the fine-wine calendar.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
+  <p>The system's weaknesses are structural: it serves the classified estates and leaves smaller properties outside the distribution network, and it depends on the 1855 names, the first growths above all, for its economics.<sup class="r"><a href="#s2">2</a></sup> When the secondary market trades below release for long enough, the négociants who must take their allocation to preserve access carry the loss; that stress has been the recurring theme of every campaign since the 2010 vintage.</p>
+  <h3>The critic as price-setter</h3>
+  <p>Robert Parker founded The Wine Advocate in 1978, replaced the 20-point scale with a 100-point one, and made his name by calling the 1982 Bordeaux vintage great when contemporaries judged it modest. History vindicated him, and from that point his scores could change the commercial fortunes of estates and regions; he stepped back from the publication in 2012.<sup class="r"><a href="#s10">10</a></sup> The stylistic drift of both Bordeaux and California toward riper, plusher wines is widely attributed to his influence.<sup class="r"><a href="#s11">11</a></sup> <span class="c c-m">Med</span></p>
+  <div class="note o">Bordeaux's share of trade on the Liv-ex exchange fell from more than 70% in the early 2000s to around 35% by 2026 as Burgundy, Champagne and Italy took share.<sup class="r"><a href="#s12">12</a></sup> The region retains unmatched scale and liquidity, "first among equals" rather than fallen empire, but the en primeur mechanism now only works where the release price is a clear discount to available back vintages.<sup class="r"><a href="#s13">13</a> <a href="#s12">12</a></sup> <span class="c c-h">High</span></div>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Burgundy</h2><p class="sub">One grape, one parcel, one vintage, and the smallest production of any great region.</p></div>
+  
+  <div class="era"><div class="y">587</div><div class="t">King Guntram's donation of a vineyard to the Church, the first recorded ecclesiastical viticulture in Burgundy.<sup class="r"><a href="#s14">14</a></sup></div></div>
+  <div class="era"><div class="y">11th–14th c.</div><div class="t">Cistercian and Benedictine monks map the slope parcel by parcel and record that specific sites produce distinct wines; the Cistercians wall Clos de Vougeot in 1336.<sup class="r"><a href="#s14">14</a> <a href="#s15">15</a></sup></div></div>
+  <div class="era"><div class="y">1232</div><div class="t">The Abbey of Saint-Vivant acquires 1.8 hectares in Vosne, the vineyard that becomes Romanée-Conti.<sup class="r"><a href="#s16">16</a></sup></div></div>
+  <div class="era"><div class="y">1789</div><div class="t">The Revolution breaks up Church holdings into private hands; Napoleonic inheritance law then subdivides them across generations until some growers hold only a row or two of a grand cru.<sup class="r"><a href="#s14">14</a></sup></div></div>
+  <div class="era"><div class="y">1935–36</div><div class="t">The AOC framework codifies the existing climat lists without substantially altering boundaries drawn by the monks.<sup class="r"><a href="#s15">15</a> <a href="#s17">17</a></sup></div></div>
+  <div class="era"><div class="y">1980s</div><div class="t">The grower revolution: domaines such as Jayer, Leroy (from 1988), Roumier, Méo-Camuzet, Mugnier and Dujac bottle and sell their own wine, displacing the négociant houses (Bouchard 1731, Latour 1797, Faiveley 1825, Jadot 1859, Drouhin 1880) that had dominated commerce since the 19th century.<sup class="r"><a href="#s18">18</a></sup></div></div>
+  <div class="era"><div class="y">4 July 2015</div><div class="t">The Climats of Burgundy, 1,247 named parcels along a 60 km strip from Dijon to Santenay, inscribed as UNESCO World Heritage.<sup class="r"><a href="#s17">17</a> <a href="#s19">19</a></sup></div></div>
+  <div class="era"><div class="y">Oct 2018</div><div class="t">A bottle of 1945 Domaine de la Romanée-Conti sells at Sotheby's New York for $558,000, the highest auction price for a bottle of wine.<sup class="r"><a href="#s20">20</a></sup></div></div>
+  <h3>Structure</h3>
+  <div class="cards">
+    <div class="card"><div class="v">c.30,000 ha</div><div class="l">Vineyard across 84 AOCs; roughly 60% white, under 30% red, the balance Crémant <span class="c c-h">High</span><sup class="r"><a href="#s17">17</a> <a href="#s18">18</a></sup></div></div>
+    <div class="card"><div class="v">33</div><div class="l">Grands crus, 24 in the Côte de Nuits, 8 in the Côte de Beaune, plus Chablis Grand Cru; c.1.5% of volume <span class="c c-h">High</span><sup class="r"><a href="#s18">18</a></sup></div></div>
+    <div class="card"><div class="v">1.81 ha</div><div class="l">Romanée-Conti, a monopole of DRC producing c.5,000–6,000 bottles a year <span class="c c-h">High</span><sup class="r"><a href="#s15">15</a></sup></div></div>
+  </div>
+  <h3>The 33 grands crus</h3>
+  <p style="font-size:14px;color:#6f6a62">Grand cru vineyards total c.550 ha, about 2% of Burgundy's area excluding Beaujolais, of which 356 ha produce red and 194 ha white; 2010 output was 18,670 hl, or c.2.5 million bottles, just over 1.3% of the region's production.<sup class="r"><a href="#s64">64</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Côte / commune</th><th>Grands crus</th><th>Colour</th></tr>
+    <tr><td>Chablis</td><td>Chablis Grand Cru (seven climats: Blanchot, Bougros, Les Clos, Grenouilles, Preuses, Valmur, Vaudésir)<sup class="r"><a href="#s18">18</a></sup></td><td>White</td></tr>
+    <tr><td>Côte de Nuits, Gevrey-Chambertin (9)</td><td>Chambertin · Chambertin-Clos de Bèze · Chapelle-Chambertin · Charmes-Chambertin · Griotte-Chambertin · Latricières-Chambertin · Mazis-Chambertin · Mazoyères-Chambertin · Ruchottes-Chambertin</td><td>Red</td></tr>
+    <tr><td>Côte de Nuits, Morey-Saint-Denis (4)</td><td>Clos de la Roche · Clos Saint-Denis · Clos des Lambrays · Clos de Tart</td><td>Red</td></tr>
+    <tr><td>Côte de Nuits, Chambolle-Musigny (2)</td><td>Musigny · Bonnes Mares (majority in Chambolle, part in Morey)<sup class="r"><a href="#s64">64</a></sup></td><td>Red (Musigny also white)</td></tr>
+    <tr><td>Côte de Nuits, Vougeot (1)</td><td>Clos de Vougeot (50.6 ha, c.80 owners)<sup class="r"><a href="#s15">15</a> <a href="#s64">64</a></sup></td><td>Red</td></tr>
+    <tr><td>Côte de Nuits, Flagey-Échezeaux (2)</td><td>Échezeaux · Grands Échezeaux</td><td>Red</td></tr>
+    <tr><td>Côte de Nuits, Vosne-Romanée (6)</td><td>Romanée-Conti (1.81 ha, DRC monopole) · La Tâche (DRC monopole) · Richebourg · Romanée-Saint-Vivant · La Romanée · La Grande Rue<sup class="r"><a href="#s15">15</a> <a href="#s65">65</a></sup></td><td>Red</td></tr>
+    <tr><td>Côte de Beaune, Corton hill (3)</td><td>Corton · Corton-Charlemagne · Charlemagne (appellation rarely used); straddle Aloxe-Corton, Ladoix-Serrigny and Pernand-Vergelesses<sup class="r"><a href="#s64">64</a></sup></td><td>Red and white / white</td></tr>
+    <tr><td>Côte de Beaune, Puligny- and Chassagne-Montrachet (5)</td><td>Montrachet · Chevalier-Montrachet · Bâtard-Montrachet · Bienvenues-Bâtard-Montrachet · Criots-Bâtard-Montrachet (Montrachet and Bâtard straddle both communes)<sup class="r"><a href="#s64">64</a></sup></td><td>White</td></tr>
+  </table></div>
+  <p style="font-size:14px;color:#6f6a62">Count: 24 Côte de Nuits + 8 Côte de Beaune + Chablis Grand Cru = 33.<sup class="r"><a href="#s18">18</a></sup> Commune attributions per the Wikipedia/BIVB list.<sup class="r"><a href="#s64">64</a></sup></p>
+  <h3>The commercial hierarchy</h3>
+  <div class="tw"><table>
+    <tr><th>Tier</th><th>Example</th><th>Role</th></tr>
+    <tr><td>Régional</td><td>Bourgogne AOC</td><td>Volume; négociant blends</td></tr>
+    <tr><td>Village</td><td>Gevrey-Chambertin, Pommard</td><td>Commune name; c.1,247 climats sit beneath this level and above it</td></tr>
+    <tr><td>Premier cru</td><td>Gevrey-Chambertin Clos Saint-Jacques, Pommard Les Rugiens</td><td>Named climat on the label; often the best quality-to-price tier<sup class="r"><a href="#s21">21</a></sup></td></tr>
+    <tr><td>Grand cru</td><td>Chambertin, Le Montrachet</td><td>Climat name alone; c.1.3–1.5% of volume<sup class="r"><a href="#s18">18</a> <a href="#s64">64</a></sup></td></tr>
+  </table></div>
+  <h3>Négociant houses and the grower revolution</h3>
+  <div class="tw"><table>
+    <tr><th>House</th><th>Founded</th><th>Position</th></tr>
+    <tr><td>Bouchard Père &amp; Fils</td><td>1731</td><td rowspan="6">Négociant houses dominated Burgundy commerce from the 19th century until the 1980s, buying grapes and wine across the Côte and selling under their own labels; today most combine négoce with substantial domaine holdings<sup class="r"><a href="#s18">18</a> <a href="#s19">19</a></sup></td></tr>
+    <tr><td>Louis Latour</td><td>1797</td></tr>
+    <tr><td>Faiveley</td><td>1825</td></tr>
+    <tr><td>Albert Bichot</td><td>1831</td></tr>
+    <tr><td>Louis Jadot</td><td>1859</td></tr>
+    <tr><td>Joseph Drouhin</td><td>1880</td></tr>
+    <tr><td>Grower domaines (1980s onward)</td><td>,</td><td>Henri Jayer (retired 2001), Lalou Bize-Leroy at Domaine Leroy (from 1988), Roumier, Méo-Camuzet, Mugnier, Dujac and others established estate bottling and direct allocation as the model for the top of the market<sup class="r"><a href="#s18">18</a></sup></td></tr>
+  </table></div>
+  <p>The hierarchy runs régional, village, premier cru, grand cru, and the unit of classification is the climat, a named parcel with registered boundaries, soil, altitude and exposure.<sup class="r"><a href="#s15">15</a></sup> Ownership is fragmented within it: Clos de Vougeot's 50.6 hectares are divided among more than 80 producers across over 100 parcels.<sup class="r"><a href="#s15">15</a></sup> The classification therefore tells a buyer where the grapes grew, not who made the wine; in Burgundy the producer matters as much as the site.<sup class="r"><a href="#s21">21</a></sup> The region is managed by 3,577 estates, 16 co-operatives and 266 trading companies, producing over 200 million bottles a year, half exported.<sup class="r"><a href="#s17">17</a></sup> <span class="c c-h">High</span></p>
+  <div class="note">Burgundy's price behaviour follows from the structure: tiny, fixed supply from the top climats; producer-direct allocation with no Place to absorb inventory; and a global collector base that grew sharply after 2010. It was the region that rose furthest in the 2020–22 boom and fell hardest afterwards.<sup class="r"><a href="#s22">22</a></sup> <span class="c c-m">Med</span></div>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>Champagne</h2><p class="sub">A house-led industry with a volume ceiling and a growing grower segment.</p></div>
+  
+  <p>Champagne is organised around three producer types: the houses (négociant-manipulant), which buy grapes across the appellation and blend; the growers (récoltant-manipulant), who make wine from their own vines; and the co-operatives. Of the 266.1 million bottles shipped in 2025, almost 192 million came from houses and nearly 152 million went abroad.<sup class="r"><a href="#s23">23</a></sup> The appellation's harvest yields cap annual output at roughly 300 million bottles, so growth in the category comes from price, not volume, which is why every house with ambition has pushed into prestige cuvées.<sup class="r"><a href="#s24">24</a> <a href="#s25">25</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Year</th><th class="n">Shipments (m bottles)</th><th>Change</th><th>Note</th></tr>
+    <tr><td>2023</td><td class="n">c.299</td><td>−8.3%</td><td>Post-pandemic normalisation <span class="c c-m">Med</span><sup class="r"><a href="#s23">23</a></sup></td></tr>
+    <tr><td>2024</td><td class="n">271.4</td><td>−9.2%</td><td>France 118.2 m (−7.2%); exports 153.2 m (−10.8%); producers cut the harvest in July after H1 sales fell more than 15% <span class="c c-h">High</span><sup class="r"><a href="#s26">26</a></sup></td></tr>
+    <tr><td>2025</td><td class="n">266.1</td><td>−2.1%</td><td>Exports 152 m; top markets USA 26.5 m, UK 22.7 m, Japan 13.3 m <span class="c c-h">High</span><sup class="r"><a href="#s23">23</a> <a href="#s27">27</a></sup></td></tr>
+  </table></div>
+  <p style="font-size:14px;color:#6f6a62">The 2023 figure is derived from the 2024 total and the reported change. <span class="t">Derived</span></p>
+  <h3>Principal houses</h3>
+  <div class="tw"><table>
+    <tr><th>House</th><th>Founded</th><th>Ownership</th><th>Prestige cuvée</th></tr>
+    <tr><td>Ruinart</td><td>1729 (1 Sep)</td><td>LVMH<sup class="r"><a href="#s66">66</a></sup></td><td>Dom Ruinart<sup class="r"><a href="#s25">25</a></sup></td></tr>
+    <tr><td>Taittinger</td><td>Origins 1734; Taittinger family from 1932</td><td>Family<sup class="r"><a href="#s67">67</a></sup></td><td>Comtes de Champagne<sup class="r"><a href="#s25">25</a></sup></td></tr>
+    <tr><td>Moët &amp; Chandon</td><td>1743</td><td>LVMH<sup class="r"><a href="#s67">67</a> <a href="#s23">23</a></sup></td><td>Dom Pérignon (marketed as a house in its own right)<sup class="r"><a href="#s28">28</a></sup></td></tr>
+    <tr><td>Veuve Clicquot</td><td>1772</td><td>LVMH<sup class="r"><a href="#s68">68</a></sup></td><td>La Grande Dame<sup class="r"><a href="#s25">25</a></sup></td></tr>
+    <tr><td>Louis Roederer</td><td>1776</td><td>Family<sup class="r"><a href="#s67">67</a></sup></td><td>Cristal<sup class="r"><a href="#s25">25</a></sup></td></tr>
+    <tr><td>Bollinger</td><td>1829</td><td>Family<sup class="r"><a href="#s67">67</a></sup></td><td>R.D.<sup class="r"><a href="#s25">25</a></sup></td></tr>
+    <tr><td>Krug</td><td>1843</td><td>LVMH<sup class="r"><a href="#s30">30</a> <a href="#s23">23</a></sup></td><td>Grande Cuvée (multi-vintage); Clos du Mesnil<sup class="r"><a href="#s30">30</a></sup></td></tr>
+    <tr><td>Pol Roger</td><td>19th century</td><td>Family</td><td>Cuvée Sir Winston Churchill<sup class="r"><a href="#s25">25</a></sup></td></tr>
+    <tr><td>Billecart-Salmon</td><td>19th century</td><td>Family<sup class="r"><a href="#s27">27</a></sup></td><td>Cuvée Nicolas François; Louis Blanc de Blancs<sup class="r"><a href="#s25">25</a></sup></td></tr>
+    <tr><td>Salon</td><td>20th century</td><td>Laurent-Perrier group</td><td>Salon (single vintage, tiny volume)<sup class="r"><a href="#s25">25</a></sup></td></tr>
+  </table></div>
+  <p style="font-size:14px;color:#6f6a62">Founding dates shown only where a cited source gives them; Pol Roger, Billecart-Salmon and Salon dates are left approximate rather than asserted. Ownership of Salon is stated from general knowledge and carries <span class="c c-m">Med</span> confidence.</p>
+  <h3>Concentration and the prestige tier</h3>
+  <p>LVMH's Moët Hennessy division, Moët &amp; Chandon, Veuve Clicquot, Dom Pérignon, Ruinart and Krug, accounted for roughly 22% of all Champagne shipments in 2025; Moët &amp; Chandon alone is estimated at around 30 million bottles, close to a tenth of the appellation.<sup class="r"><a href="#s23">23</a> <a href="#s28">28</a></sup> Trade estimates put Dom Pérignon at around 5 million bottles and Krug at 425,000–500,000.<sup class="r"><a href="#s28">28</a></sup> <span class="c c-m">Med</span> The prestige sector was once defined by three brands, Cristal, Krug and Dom Pérignon, but has widened to include cuvées from Roederer, Pol Roger, Taittinger, Billecart-Salmon, Bollinger and Salon, and grand cru grape prices crossed €10 per kilo in 2022, making a luxury-priced cuvée an economic necessity for every house.<sup class="r"><a href="#s29">29</a></sup> Krug's founding principle, from 1843, was a multi-vintage blend rather than a vintage wine.<sup class="r"><a href="#s30">30</a></sup></p>
+  <div class="note">The Champagne market is more polarised than ever: volume is down across the board while recognisable luxury brands and collector cuvées hold or grow.<sup class="r"><a href="#s27">27</a></sup> Grower Champagne, producers such as Egly-Ouriet, has moved upmarket over the past decade and now competes for the same export and fine-dining shelf space as the houses.<sup class="r"><a href="#s24">24</a> <a href="#s31">31</a></sup> <span class="c c-m">Med</span></div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Italy</h2><p class="sub">The Super Tuscan revolt, and the Piedmont and Montalcino apex.</p></div>
+  
+  <p>Italy introduced its DOC appellation system in the 1960s, modelled on the French AOC; Chianti's rules were widely criticised as restrictive, including a ban on 100% Sangiovese.<sup class="r"><a href="#s32">32</a></sup> The response came from the coast. Marchese Mario Incisa della Rocchetta had planted Cabernet Sauvignon at Tenuta San Guido in Bolgheri in 1944, reportedly from Lafite cuttings, and made Sassicaia for private use until his nephew Piero Antinori persuaded him to release the 1968 vintage commercially in 1971.<sup class="r"><a href="#s33">33</a> <a href="#s34">34</a></sup> Because no Bolgheri appellation existed, the wine was labelled vino da tavola.<sup class="r"><a href="#s35">35</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Milestone</th><th>Date</th><th>Significance</th></tr>
+    <tr><td>Sassicaia first commercial release (1968 vintage)</td><td>1971</td><td>Founding Super Tuscan<sup class="r"><a href="#s33">33</a></sup></td></tr>
+    <tr><td>Tignanello first vintage (Antinori, Giacomo Tachis)</td><td>1971</td><td>First Sangiovese aged in barriques; sources variously cite 1970, 1971 and 1975 for the first vintage, 1971 is the majority view<sup class="r"><a href="#s34">34</a> <a href="#s36">36</a> <a href="#s37">37</a></sup> <span class="c c-m">Med</span></td></tr>
+    <tr><td>Decanter blind tasting places Sassicaia above top Bordeaux</td><td>1978</td><td>First international recognition<sup class="r"><a href="#s32">32</a> <a href="#s34">34</a></sup></td></tr>
+    <tr><td>Solaia first vintage</td><td>1978</td><td>Cabernet-led sibling to Tignanello<sup class="r"><a href="#s38">38</a></sup></td></tr>
+    <tr><td>Parker awards 100 points to Sassicaia 1985</td><td>1992</td><td>First perfect Parker score for an Italian wine<sup class="r"><a href="#s34">34</a></sup></td></tr>
+  </table></div>
+  <h3>The founding Super Tuscans</h3>
+  <div class="tw"><table>
+    <tr><th>Wine</th><th>Estate / family</th><th>First vintage</th><th>Blend and note</th></tr>
+    <tr><td>Sassicaia</td><td>Tenuta San Guido, Incisa della Rocchetta (Bolgheri)</td><td>1968 (released 1971)</td><td>c.85% Cabernet Sauvignon, 15% Cabernet Franc; c.180,000 bottles from 75 ha<sup class="r"><a href="#s34">34</a></sup> <span class="c c-m">Med</span></td></tr>
+    <tr><td>Tignanello</td><td>Marchesi Antinori (Chianti Classico zone)</td><td>1971 (disputed)</td><td>Sangiovese-led with Cabernet; first Sangiovese aged in barrique<sup class="r"><a href="#s34">34</a> <a href="#s36">36</a></sup></td></tr>
+    <tr><td>Solaia</td><td>Marchesi Antinori</td><td>1978</td><td>Cabernet-led; 10 ha vineyard; made only in strong years<sup class="r"><a href="#s36">36</a> <a href="#s38">38</a></sup></td></tr>
+    <tr><td>Ornellaia</td><td>Founded by Lodovico Antinori (Bolgheri)</td><td>1980s</td><td>Bordeaux blend; estate adjacent to San Guido<sup class="r"><a href="#s38">38</a></sup></td></tr>
+    <tr><td>Masseto</td><td>Ornellaia estate</td><td>1980s</td><td>Single-vineyard Merlot; Italy's most expensive wine by common repute<sup class="r"><a href="#s38">38</a></sup> <span class="c c-m">Med</span></td></tr>
+  </table></div>
+  <h3>Italy's three apex tiers</h3>
+  <div class="tw"><table>
+    <tr><th>Tier</th><th>Region and grape</th><th>Benchmark producers</th></tr>
+    <tr><td>Super Tuscans</td><td>Bolgheri and Chianti Classico zone; Cabernet, Merlot, Sangiovese; labelled Toscana IGT</td><td>Sassicaia, Solaia, Masseto (top pricing); Tignanello, Ornellaia<sup class="r"><a href="#s39">39</a></sup></td></tr>
+    <tr><td>Barolo and Barbaresco</td><td>Piedmont; Nebbiolo</td><td>Giacomo Conterno, Bruno Giacosa, Bartolo and Giuseppe Mascarello, Cappellano<sup class="r"><a href="#s39">39</a></sup></td></tr>
+    <tr><td>Brunello di Montalcino</td><td>Tuscany; Sangiovese</td><td>Biondi-Santi, Soldera, Salvioni, Casanova di Neri<sup class="r"><a href="#s39">39</a></sup></td></tr>
+  </table></div>
+  <p>The "big five", Sassicaia, Tignanello, Solaia, Ornellaia and Masseto, anchor a category that is a market label rather than a legal designation.<sup class="r"><a href="#s38">38</a> <a href="#s39">39</a></sup> Italy's other apex tiers sit alongside it: Barolo and Barbaresco (Conterno, Giacosa, Mascarello, Cappellano) and Brunello di Montalcino (Biondi-Santi, Soldera, Salvioni).<sup class="r"><a href="#s39">39</a></sup> Over the ten years to end-2025 the Italy 100 index rose by around 61%, second only to Burgundy among the major regional measures.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>The New World</h2><p class="sub">A publicity stunt in 1976 ended France's monopoly on prestige.</p></div>
+  
+  <p>On 24 May 1976 Steven Spurrier and Patricia Gallagher, who ran a Paris wine shop, staged a blind tasting of California against France before nine French judges. Only one journalist attended, George Taber of Time. Château Montelena 1973 Chardonnay won the whites and Stag's Leap Wine Cellars 1973 S.L.V. Cabernet the reds, ahead of Mouton, Montrose and Haut-Brion 1970.<sup class="r"><a href="#s40">40</a> <a href="#s41">41</a> <a href="#s42">42</a></sup> At the 30-year re-enactment in 2006, Ridge Monte Bello 1971 won outright in both London and Napa.<sup class="r"><a href="#s42">42</a></sup> <span class="c c-h">High</span></p>
+  <h3>Judgment of Paris, results, 24 May 1976</h3>
+  <p style="font-size:14px;color:#6f6a62">Average score out of 20 across nine judges. Published averages differ slightly between accounts (Taber's book versus later recalculations); the rank order is consistent. Californian wines marked *.<sup class="r"><a href="#s69">69</a> <a href="#s70">70</a> <a href="#s42">42</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Rank</th><th>White flight (Chardonnay)</th><th class="n">Avg</th><th>Red flight (Cabernet)</th><th class="n">Avg</th></tr>
+    <tr><td>1</td><td>*Chateau Montelena 1973</td><td class="n">14.67</td><td>*Stag's Leap Wine Cellars S.L.V. 1973</td><td class="n">14.14</td></tr>
+    <tr><td>2</td><td>Meursault-Charmes, Roulot 1973</td><td class="n">14.05</td><td>Château Mouton Rothschild 1970</td><td class="n">14.09</td></tr>
+    <tr><td>3</td><td>*Chalone Vineyard 1974</td><td class="n">13.44</td><td>Château Montrose 1970</td><td class="n">13.64</td></tr>
+    <tr><td>4</td><td>*Spring Mountain Vineyard 1973</td><td class="n">11.55</td><td>Château Haut-Brion 1970</td><td class="n">13.23</td></tr>
+    <tr><td>5</td><td>Beaune Clos des Mouches, Drouhin 1973</td><td class="n">11.22</td><td>*Ridge Monte Bello 1971</td><td class="n">12.14</td></tr>
+    <tr><td>6</td><td>*Freemark Abbey 1972</td><td class="n">11.11</td><td>Château Léoville-Las Cases 1971</td><td class="n">11.18</td></tr>
+    <tr><td>7</td><td>Bâtard-Montrachet, Ramonet-Prudhon 1973</td><td class="n">10.44</td><td>*Heitz Martha's Vineyard 1970</td><td class="n">10.36</td></tr>
+    <tr><td>8</td><td>Puligny-Montrachet Les Pucelles, Leflaive 1972</td><td class="n">9.89</td><td>*Clos du Val 1972</td><td class="n">10.14</td></tr>
+    <tr><td>9</td><td>*Veedercrest 1972</td><td class="n">9.78</td><td>*Mayacamas 1971</td><td class="n">9.95</td></tr>
+    <tr><td>10</td><td>*David Bruce 1973</td><td class="n">4.67</td><td>*Freemark Abbey 1969</td><td class="n">9.45</td></tr>
+  </table></div>
+  <p style="font-size:14px;color:#6f6a62">White averages per the Académie du Vin Library account; red averages per Ridge Vineyards. At the 2006 thirty-year re-tasting of the reds, the five Californians took the top five places, led by Monte Bello 1971.<sup class="r"><a href="#s42">42</a></sup></p>
+  <h3>French capital follows</h3>
+  <div class="tw"><table>
+    <tr><th>Venture</th><th>Year</th><th>Partners</th></tr>
+    <tr><td>Opus One (Napa)</td><td>1978</td><td>Baron Philippe de Rothschild (Mouton) and Robert Mondavi<sup class="r"><a href="#s11">11</a></sup></td></tr>
+    <tr><td>Domaine Chandon (Napa)</td><td>1978</td><td>LVMH (Moët &amp; Chandon)<sup class="r"><a href="#s11">11</a></sup></td></tr>
+    <tr><td>Dominus Estate (Napa)</td><td>1983</td><td>Christian Moueix (Pétrus, Ets J-P Moueix)<sup class="r"><a href="#s11">11</a></sup></td></tr>
+  </table></div>
+  <p>The French response was investment: Mouton Rothschild and Robert Mondavi created Opus One in 1978, LVMH founded Domaine Chandon the same year, and Christian Moueix launched Dominus in 1983.<sup class="r"><a href="#s11">11</a></sup> From the mid-1990s a second wave, Screaming Eagle, Harlan, Bryant Family, established the "cult" model: minute production, allocation by mailing list, and validation by critic scores rather than by any classification.<sup class="r"><a href="#s43">43</a></sup> <span class="c c-m">Med</span></p>
+  <div class="note">The New World demonstrated that a fine-wine market can be built without an 1855, a Place or a climat: critic, scarcity and direct allocation are sufficient. That is the same architecture Burgundy adopted after the grower revolution, and it produces the same result, high prices, thin liquidity, and provenance risk concentrated in the secondary market. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Evolution of the market</h2><p class="sub">From merchant lists to an exchange, a Chinese boom, a fraud trial and a correction.</p></div>
+  
+  <div class="era"><div class="y">2000</div><div class="t">Liv-ex, the London International Vintners Exchange, founded by stockbrokers James Miles and Justin Gibbs to bring stock-market transparency to a fragmented trade; the Fine Wine 100 launched December 2003, backdated to July 2001, calculated from mid-prices of real merchant transactions.<sup class="r"><a href="#s44">44</a></sup></div></div>
+  <div class="era"><div class="y">2007–08</div><div class="t">Hong Kong halves its 80% wine duty in 2007 and abolishes it in February 2008, after lobbying led by Henry Tang. Imports rise from $185 m (2007) to $858 m (2010); the territory overtakes London and New York as the largest fine-wine auction market by 2010 and introduces the first storage-accreditation scheme.<sup class="r"><a href="#s45">45</a> <a href="#s46">46</a> <a href="#s47">47</a> <a href="#s48">48</a></sup></div></div>
+  <div class="era"><div class="y">2008–11</div><div class="t">The Lafite era. Château Lafite Rothschild 2000, around £4,500 a case in 2007, trades above £14,000 by 2011; three bottles of 1869 Lafite sell at Sotheby's Hong Kong for HK$1.8 m each. An academic study finds Hong Kong auction prices carried a c.20% premium over other venues across 2008–14.<sup class="r"><a href="#s49">49</a> <a href="#s47">47</a> <a href="#s50">50</a></sup></div></div>
+  <div class="era"><div class="y">2011</div><div class="t">The Bordeaux-led boom peaks; prices turn negative from 2011 and Hong Kong auction results become more volatile.<sup class="r"><a href="#s50">50</a></sup> Jancis Robinson later calls the Hong Kong liberalisation arguably the single most powerful development in the modern history of wine.<sup class="r"><a href="#s51">51</a></sup></div></div>
+  <div class="era"><div class="y">2013–14</div><div class="t">Rudy Kurniawan, once among the most prominent US dealers, convicted in December 2013 of mail and wire fraud for manufacturing counterfeit rare wine at his California home between 2004 and 2012; sentenced in August 2014 to ten years, $20 m forfeiture and $28.4 m restitution, with losses near $30 m to seven victims including William Koch.<sup class="r"><a href="#s52">52</a> <a href="#s53">53</a></sup></div></div>
+  <div class="era"><div class="y">2020–22</div><div class="t">A second boom driven by low interest rates and pandemic-era wealth: Champagne, Burgundy and top Italian wines lead; the Champagne 50 nearly doubles.<sup class="r"><a href="#s22">22</a></sup> The broad Fine Wine 1000 peaks in October 2022.<sup class="r"><a href="#s54">54</a></sup></div></div>
+  <div class="era"><div class="y">2023–25</div><div class="t">Rising rates make cash yields competitive with a non-yielding, storage-cost-bearing asset; the broad market ends 2025 roughly 25–30% below its peak, with Burgundy the hardest hit and Bordeaux back near mid-2010s levels.<sup class="r"><a href="#s54">54</a> <a href="#s55">55</a> <a href="#s56">56</a></sup></div></div>
+  <h3>Auction reference points</h3>
+  <div class="tw"><table>
+    <tr><th>Lot</th><th>Venue and date</th><th class="n">Price</th><th>Significance</th></tr>
+    <tr><td>Château Lafite 1869, three bottles</td><td>Sotheby's Hong Kong, October 2010</td><td class="n">HK$1.8 m each (c.$230,000)</td><td>World record at the time; peak of the Lafite era<sup class="r"><a href="#s47">47</a></sup></td></tr>
+    <tr><td>Château Lafite Rothschild 2000, per case</td><td>Trade, 2007 → 2011</td><td class="n">c.£4,500 → £14,000+</td><td>The boom measured in one wine<sup class="r"><a href="#s49">49</a></sup> <span class="c c-m">Med</span></td></tr>
+    <tr><td>Domaine de la Romanée-Conti 1945, one bottle</td><td>Sotheby's New York, October 2018</td><td class="n">$558,000</td><td>Highest auction price for a single bottle; Burgundy displaces Bordeaux at the top<sup class="r"><a href="#s20">20</a></sup></td></tr>
+  </table></div>
+  <h3>The long view</h3>
+  <p>Point-to-point over the ten years to the end of 2025, a span that includes both the boom and the correction, the Liv-ex 100 rose 34.1%, the Burgundy 100 around 106% and the Italy 100 around 61%, according to the Knight Frank Wealth Report 2026.<sup class="r"><a href="#s13">13</a></sup> Bordeaux underperformed all of them, and its share of exchange trade halved.<sup class="r"><a href="#s12">12</a></sup> Those are historical measurements, not current levels; the indices move monthly and should be read from Liv-ex directly. <span class="c c-h">High</span></p>
+</section>
+<section id="s-viii">
+  <div class="sechead"><h2><em>VIII</em>How the trade is structured</h2><p class="sub">Who sits between the vineyard and the cellar, and where provenance is won or lost.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Layer</th><th>Bordeaux model</th><th>Burgundy / cult model</th><th>Champagne model</th></tr>
+    <tr><td>Primary sale</td><td>Château → courtier → négociant, largely en primeur<sup class="r"><a href="#s2">2</a></sup></td><td>Domaine allocates directly to importers and mailing lists<sup class="r"><a href="#s18">18</a> <a href="#s43">43</a></sup></td><td>House or grower sells finished wine through distributors; prestige cuvées allocated<sup class="r"><a href="#s29">29</a></sup></td></tr>
+    <tr><td>Classification</td><td>1855 (Médoc, Sauternes); separate Saint-Émilion system; none in Pomerol<sup class="r"><a href="#s8">8</a></sup></td><td>Climat-based AOC hierarchy; producer reputation decisive<sup class="r"><a href="#s15">15</a> <a href="#s21">21</a></sup></td><td>Village échelle des crus (grand/premier cru villages); brand dominant</td></tr>
+    <tr><td>Secondary market</td><td>Deep: merchants, exchange, auction<sup class="r"><a href="#s12">12</a></sup></td><td>Thin; auction-led at the top<sup class="r"><a href="#s20">20</a></sup></td><td>Growing since 2020; small index weight<sup class="r"><a href="#s57">57</a></sup></td></tr>
+    <tr><td>Provenance control</td><td>Ex-château releases; in-bond storage; exchange standards</td><td>Highest counterfeit exposure; ex-domaine sales carry a premium<sup class="r"><a href="#s58">58</a></sup></td><td>Disgorgement-date and cellar-release programmes</td></tr>
+  </table></div>
+  <p>Provenance is the market's central risk. A 1982 Lafite with documented history was reported to sell for more than $12,000 a bottle against $500 for one of dubious heritage, and Hong Kong's climate made accredited storage a precondition of the auction boom.<sup class="r"><a href="#s47">47</a></sup> After Kurniawan, auction houses scrutinise old bottles repeatedly and wines sold directly by the producer command rising premiums as the only true guarantee of origin.<sup class="r"><a href="#s58">58</a></sup> Within the broad Liv-ex Fine Wine 1000, launch weights were Bordeaux 500 at 33%, Burgundy 150 at 28%, Italy 100 at 9% and Champagne 50 at only 3%, so a Champagne rally barely registers in the headline while a Bordeaux slump dominates it.<sup class="r"><a href="#s57">57</a></sup> <span class="c c-h">High</span></p>
+  <div class="note o">Rough-diamond parallel: en primeur is a sight system. The producer sets the price, the intermediary is expected to take the allocation to preserve future access, and the merchant carries inventory risk into a secondary market it does not control. Both systems break when the secondary market trades below the primary price for long enough that intermediaries stop absorbing losses, the De Beers sight in 2024–25 and the Bordeaux négoce since the 2010 vintage are the same failure in different products. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-ix">
+  <div class="sechead"><h2><em>IX</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Liv-ex index family</td><td>Liv-ex, monthly (Fine Wine 50 daily)</td><td>Regime and regional rotation; read the sub-indices, not the headline</td></tr>
+    <tr><td>Bid:offer ratio and share of buyer-initiated trades</td><td>Liv-ex quarterly market reports</td><td>Order-book depth leads price</td></tr>
+    <tr><td>Bordeaux en primeur release prices vs back vintages</td><td>Place de Bordeaux, April–June annually</td><td>Whether the primary market is pricing to clear</td></tr>
+    <tr><td>Champagne shipments by producer type and market</td><td>Comité Champagne, January annually</td><td>Volume ceiling and premiumisation</td></tr>
+    <tr><td>Auction results for trophy lots</td><td>Sotheby's, Christie's, Zachys, Acker, sale by sale</td><td>Top-of-market sentiment; provenance premiums</td></tr>
+    <tr><td>Interest-rate path and Asian duty regimes</td><td>Central banks; Hong Kong and Indian customs notices</td><td>The two exogenous drivers that produced both booms</td></tr>
+  </table></div>
+</section>
+<section id="s-x">
+  <div class="sechead"><h2><em>X</em>Sources</h2><p class="sub">Numbered in order of first citation for sources 1–58; sources 59–70 were added in the table revision and are numbered in the order they were added.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Corney &amp; Barrow</b>, "The Origins of Bordeaux Wine", port, claret, Dutch drainage of the Médoc, Place de Bordeaux. Merchant. <span class="c c-m">Med</span></li>
+    <li id="s2"><b>The Wine Cellar Insider</b>, "En Primeur, Negociants, Courtiers, Place de Bordeaux Explained", Dec 2022, courtier role in every transaction; system faults; Dutch as early négociants.</li>
+    <li id="s3"><b>Corney &amp; Barrow</b>, "Understanding Bordeaux's En Primeur System", 1680 recognition of courtiers under Louis XIV; expansion after 1855; en primeur as financing mechanism. <span class="c c-m">Med</span></li>
+    <li id="s4"><b>La Fleur Wines</b>, "The 1855 Bordeaux Classification, Part I", Jan 2026, Exposition dates (15 May–15 Nov 1855); brokers as authors; classification as market interface.</li>
+    <li id="s5"><b>Wikipedia</b>, "Bordeaux Wine Official Classification of 1855", commission by Napoleon III; ranking by reputation and price; five growths.</li>
+    <li id="s6"><b>The Wine Cellar Insider</b>, "1855 Bordeaux Classification of the Medoc, Official History", completed 18 April 1855; Cantemerle 1856; Mouton promoted 21 June 1973.</li>
+    <li id="s7"><b>Grand Cru Liquid Assets</b>, "1855 Bordeaux Classification", Aug 2024, geographic scope, Haut-Brion exception, Sauternes and Barsac, brokers' disclaimer. <span class="c c-m">Med</span></li>
+    <li id="s8"><b>Fine Wine Library</b>, "Bordeaux Classification Explained", Aug 2024, Right Bank exclusion; Saint-Émilion and Pomerol systems. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>VinePair</b>, "Bordeaux, 'En Primeur', and the Irrational Romance of French Wine Tradition", May 2021, origins after 1855; cash-flow-for-discount exchange.</li>
+    <li id="s10"><b>Wine Wins</b>, "The Judgement of Paris, 1976", Parker's founding of The Wine Advocate 1978, 100-point scale, 1982 vintage call, 2012 step-back. <span class="c c-m">Med</span></li>
+    <li id="s11"><b>Baltimore Sun</b>, "Judgment of Paris in 1976 put Napa Valley on the world stage", 12 May 2026, Opus One 1978, Domaine Chandon 1978, Dominus 1983; Parker's stylistic influence.</li>
+    <li id="s12"><b>WineFi</b>, "How to Invest in Bordeaux Wine: 2026 Guide", Jun 2026, Bordeaux share of Liv-ex trade from over 70% to c.35%; en primeur discipline. Investment platform. <span class="c c-m">Med</span></li>
+    <li id="s13"><b>Decanter</b>, "Wine investment: Fine wine market stabilising", 22 Jun 2026, Knight Frank Wealth Report 2026 ten-year figures (Liv-ex 100 +34.1%; Burgundy 100 c.+106%; Italy 100 c.+61%); "first among equals".</li>
+    <li id="s14"><b>WineWiki</b>, "Burgundy Winemaking Traditions", Mar 2026, Guntram 587; Clos de Vougeot 1336; Revolution and Napoleonic subdivision.</li>
+    <li id="s15"><b>WineWiki</b>, "Climat (Burgundy)", May 2026, definition; four-tier hierarchy; Romanée-Conti 1.81 ha and bottle count; Clos de Vougeot 50.6 ha, 80+ producers; 1936 AOC codification.</li>
+    <li id="s16"><b>Wikipedia</b>, "Domaine de la Romanée-Conti", 1232 acquisition of 1.8 ha by the Abbey of Saint-Vivant.</li>
+    <li id="s17"><b>Bourrasse</b>, "Exploring Burgundy's Climats", appellations 1935; UNESCO 4 July 2015; 30,052 ha; 3,577 estates, 16 co-ops, 266 trading companies; 84 AOCs; production split; 200 m bottles, half exported.</li>
+    <li id="s18"><b>WineWiki</b>, "Burgundy (Bourgogne) Wine Region", May 2026, 33 grands crus; grand cru c.1.5% of volume; négociant house founding dates; 1980s grower revolution.</li>
+    <li id="s19"><b>France Today</b>, "Burgundy Climats Mark 10 Years with UNESCO", Jul 2025, 1,247 climats, 140 communes, 60 km Dijon–Santenay; UNESCO citation.</li>
+    <li id="s20"><b>Yearts</b>, "Burgundy Wine Region" (Jul 2026) and <b>SilverKris</b>, 1945 DRC sold at Sotheby's New York, October 2018, for $558,000.</li>
+    <li id="s21"><b>Yearts</b>, as above, "who matters as much as where".</li>
+    <li id="s22"><b>Trading Grapes</b>, "Is Fine Wine Market at Turning Point?", Aug 2025, 2020–22 drivers; Champagne 50 nearly doubled; Burgundy fell hardest. <span class="c c-m">Med</span></li>
+    <li id="s23"><b>12x75</b>, "Most Popular Champagne Brands in 2026", Comité Champagne data: 266.1 m bottles 2025 (−2.1%); −8.3% 2023, −10.2% 2024 (note: Comité itself reports 2024 at −9.2%, source 26); houses c.192 m; exports c.152 m; LVMH c.22%; 2025 top markets. <span class="c c-m">Med</span></li>
+    <li id="s24"><b>Formes de Luxe</b>, "In a fragile market, champagne shakes up tradition", Nov 2024, c.300 m bottle ceiling; premiumisation; growers moving upmarket.</li>
+    <li id="s25"><b>The Drinks Business</b>, "Making a splash", Dec 2022, prestige-cuvée sector expansion; grand cru grapes above €10/kg in 2022; Japan prestige shipments.</li>
+    <li id="s26"><b>Reuters via Malay Mail</b>, "Champagne sales drop in France, US", 19 Jan 2025, Comité Champagne: 271.4 m bottles 2024, −9.2%; France 118.2 m; exports 153.2 m; July harvest cut.</li>
+    <li id="s27"><b>The Drinks Business</b>, "Champagne outlook: collectible cuvées and entry-level delights set to outperform", 6 Mar 2026, 266 m bottles 2025; exports 152 m; polarisation (Billecart-Salmon).</li>
+    <li id="s28"><b>Lea &amp; Sandeman</b>, "Champagne: the jigsaw of the market", May 2023, Moët c.30 m bottles; Dom Pérignon c.5 m; Krug 425–500k; LVMH group c.65–70 m. Merchant estimates. <span class="c c-m">Med</span></li>
+    <li id="s29"><b>The Drinks Business</b>, "Making a splash", as source 25, prestige tier once three brands; current contenders.</li>
+    <li id="s30"><b>VinePair</b>, "14 Essential Bottles of Champagne", Dec 2025, Krug founded 1843; multi-vintage principle.</li>
+    <li id="s31"><b>Global Growth Insights</b>, Champagne Market report, Egly-Ouriet airline partnership 2024. <span class="c c-l">Low</span></li>
+    <li id="s32"><b>Wine Enthusiast</b>, "What's a Super Tuscan and is the Term Still Relevant?", May 2023, DOC system 1960s; Chianti restrictions; Decanter 1978 tasting.</li>
+    <li id="s33"><b>Club Oenologique</b>, "The original Super-Tuscan wines" (Nov 2022) and <b>Best of Wines</b>, "Super Tuscan" (Jul 2026), 1968 vintage; released 1971; Antinori persuasion.</li>
+    <li id="s34"><b>WineWiki</b>, "Toscana IGT", Aug 2026, 1944 planting; 1968/1971; Decanter 1978; Parker 100 points to 1985 Sassicaia in 1992; Tignanello first vintage 1971.</li>
+    <li id="s35"><b>Shades of Grape</b>, "The Original Super Tuscan: The Sassicaia Story", Mar 2024, vino da tavola labelling.</li>
+    <li id="s36"><b>iDealwine</b>, "Super Tuscans: Revolutionising Italy's fine wines", Apr 2025, Tignanello first vintage given as 1970; Solaia details.</li>
+    <li id="s37"><b>Horizon Beverage</b>, "Myth of Super Tuscan Wines", Lafite cuttings 1944; 3,000 bottles of 1968; Tignanello given as 1975; Tachis. <span class="c c-m">Med</span></li>
+    <li id="s38"><b>The Station 100</b>, "Sassicaia", Apr 2021, Solaia 1978; Ornellaia and Masseto; "big five". <span class="c c-m">Med</span></li>
+    <li id="s39"><b>The Luxury Playbook</b>, "Super Tuscan: A Collector's Field Guide", May 2026, category as market label; Piedmont and Brunello apex producers. <span class="c c-m">Med</span></li>
+    <li id="s40"><b>AFAR</b>, "The Famed Judgment of Paris Wine Showdown Is Being Recreated", Spurrier and Gallagher; nine judges; Taber as sole journalist.</li>
+    <li id="s41"><b>Wine Enthusiast</b>, "The Judgment of Paris Turns 40", May 2023, 24 May 1976; Montelena and Stag's Leap 1973.</li>
+    <li id="s42"><b>Ridge Vineyards</b>, "The Judgment of Paris", red-wine scores and order; 2006 re-enactment won by Monte Bello 1971.</li>
+    <li id="s43"><b>Grand Cru Liquid Assets</b>, "California Cult Wines", mid-1990s cult producers; critic-score criterion. Merchant. <span class="c c-m">Med</span></li>
+    <li id="s44"><b>WineWiki</b>, "Liv-ex Fine Wine 100", Mar 2026, founded 2000 by James Miles and Justin Gibbs; index launched Dec 2003, backdated Jul 2001; mid-price methodology.</li>
+    <li id="s45"><b>South China Morning Post</b>, "10 years after wine tax abolished", Nov 2018, 80% duty halved 2007, abolished 2008; storage accreditation; customs facilitation with China 2010/2014.</li>
+    <li id="s46"><b>The Wine Cellar Insider</b>, "China and Bordeaux Wine, The Complete Story", Nov 2017, Henry Tang's role.</li>
+    <li id="s47"><b>Bloomberg via Artron</b>, "Lafite at $230,000 a Bottle Means Boom for Hong Kong Wine Vaults", Jul 2011, imports $185 m (2007) to $858 m (2010); 1869 Lafite HK$1.8 m; provenance price spread; Crown Wine Cellars.</li>
+    <li id="s48"><b>Rue Pinard</b>, "Hong Kong's 2024 Spirits Reform: The 2008 Wine Playbook Tested", May 2026, import growth; largest auction market by 2010. <span class="c c-m">Med</span></li>
+    <li id="s49"><b>Vinverum</b>, "India Could Be the Next Hong Kong", Jan 2026, Lafite 2000 c.£4,500 (2007) to £14,000+ (2011). Investment platform. <span class="c c-m">Med</span></li>
+    <li id="s50"><b>EFMA 2015 conference paper</b>, "Red obsession: the ascent of fine wine in China", Hong Kong premium c.19.7% over 2008–14; post-2011 negative trend; auction volatility.</li>
+    <li id="s51"><b>Jancis Robinson</b>, "HK celebrates 10 duty-free years", assessment of the reform; merchant count growth.</li>
+    <li id="s52"><b>US Attorney's Office, SDNY</b>, press release on Kurniawan sentencing, Aug 2014, conviction Dec 2013; scheme 2004–12; counterfeit laboratory.</li>
+    <li id="s53"><b>NBC News / AP</b>, "Fine-Wine Faker Rudy Kurniawan Gets 10 Years in Prison", Aug 2014, $20 m forfeiture, $28.4 m restitution, c.$30 m losses, seven victims including William Koch.</li>
+    <li id="s54"><b>WineFi</b>, "Is Fine Wine a Good Investment in 2026?", May 2026, Fine Wine 1000 peak October 2022; rates as correction driver. <span class="c c-m">Med</span></li>
+    <li id="s55"><b>Cult Wines</b>, "Fine Wine in 2025", Dec 2025, market 25–30% below peak at end-2025. <span class="c c-m">Med</span></li>
+    <li id="s56"><b>Decanter</b>, "Wine investment: Bordeaux en primeur sales up 'a little'", 8 Jul 2026, Bordeaux 500 back to mid-2016 levels.</li>
+    <li id="s57"><b>Liv-ex</b>, "Liv-ex Fine Wine 1000 indices", sub-index scopes and launch weights.</li>
+    <li id="s58"><b>The Wine Cellar Insider</b>, "Rudy Kurniawan Sentence 10 Years in Prison", Aug 2014, post-fraud auction scrutiny; ex-producer provenance premium.</li>
+    <li id="s59"><b>Wikipedia</b>, "Bordeaux Wine Official Classification of 1855", full list with modern names and communes (citing Stevenson, <i>The Sotheby's Wine Encyclopedia</i>, 4th ed., and Peppercorn, <i>Bordeaux</i>); Dubignon dissolution 1960; 1960 revision attempt and Lichine campaign; Liv-ex re-calculation March 2009; Cru Bourgeois history.</li>
+    <li id="s60"><b>WineWiki</b>, "Saint-Émilion Classification", Mar 2026, 1955 origins; 1955/2012/2022 counts; 2006 invalidation and 1996 reinstatement; 2022 scoring weights and thresholds.</li>
+    <li id="s61"><b>WineWiki</b>, "Saint-Émilion Premier Grand Cru Classé A", Mar 2026, decree 7 Oct 1954, first list 16 Jun 1955; withdrawal dates for Cheval Blanc, Ausone and Angélus.</li>
+    <li id="s62"><b>The Wine Conversation</b>, "Let's Talk About… Saint Emilion", Dec 2024, and <b>Decanter Tours</b>, "A Collector's Guide to the 2022 Classification", Sep 2025, 2012 structure; Figeac promotion; La Gaffelière withdrawal; market value of withdrawn estates. <span class="c c-m">Med</span></li>
+    <li id="s63"><b>The Wine Cellar Insider</b>, "Everything about St. Emilion Classification and 2022 Reclassification", Jul 2026, 2, 12 and 71; mergers into Quintus; Croque Michotte departure.</li>
+    <li id="s64"><b>Wikipedia</b>, "List of Burgundy Grands Crus", 550 ha total, 356 ha red and 194 ha white; 2010 output 18,670 hl / 2.5 m bottles / 1.3% (BIVB); Clos Vougeot c.80 owners; Bonnes Mares, Corton and Montrachet commune notes.</li>
+    <li id="s65"><b>Corney &amp; Barrow</b>, "The Grand Cru Vineyards of Côte de Nuits", La Tâche 6.06 ha and Romanée-Conti 1.81 ha as DRC monopoles; fragmentation of most grands crus. Merchant. <span class="c c-m">Med</span></li>
+    <li id="s66"><b>Wikipedia</b>, "Ruinart (Champagne)" and "Nicolas Irénée Ruinart", founded 1 September 1729; LVMH ownership; 1728 royal decree on bottle transport.</li>
+    <li id="s67"><b>Champagne Club</b>, "Champagne Brands, Guide to Prestigious Houses", Jan 2024, and <b>The People's Gourmet</b>, "10 of the oldest Champagne houses", Jun 2026, founding dates for Moët &amp; Chandon (1743), Louis Roederer (1776), Bollinger (1829), Taittinger (1734 origins); Roederer and Bollinger family ownership. <span class="c c-m">Med</span></li>
+    <li id="s68"><b>Wikipedia</b>, "Veuve Clicquot", founded 1772; parent LVMH.</li>
+    <li id="s69"><b>Académie du Vin Library</b>, "The Judgement of Paris, The Historic 1976 Tasting", Sep 2020, full white and red rankings with average scores.</li>
+    <li id="s70"><b>WineWiki</b>, "Judgment of Paris (1976)", May 2026, wine list for both flights, producers of the French whites, judges, Taber's Time article of 7 July 1976, Montelena 14.67 and Stag's Leap 14.14.</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

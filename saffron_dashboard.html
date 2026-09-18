@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saffron, ΣΟΦΙΑ</title>
+<meta name="description" content="Saffron: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.masthead .wrap{padding-top:38px;padding-bottom:40px}
+.body-col{max-width:68ch}
+.body-col p{margin-bottom:1.1em}
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto;margin:8px 0 14px;border:1px solid #a8825a;border-radius:4px}
+/* ---------- pull / callout ---------- */
+.pull{border-left:3px solid #8c4a2f;padding:6px 0 6px 24px;margin:26px 0;font-family:var(--display);font-size:23px;font-weight:300;line-height:1.35;color:#141412}
+.pull span{color:#a8825a}
+.callout{background:#faf7f0;border:1px solid #a8825a;border-radius:4px;padding:22px 26px;margin:24px 0}
+.callout.crimson{border-left:3px solid #a8825a}
+.callout.crocus{border-left:3px solid var(--line)}
+.callout h4{font-family:var(--display);font-size:20px;font-weight:500;margin-bottom:8px}
+.callout.crocus h4{color:var(--mute)}
+.callout.crimson h4{color:#a8825a}
+.callout p{font-size:15.5px;color:#7d5f3f;margin-bottom:.7em}
+.callout p:last-child{margin-bottom:0}
+/* ---------- bar chart ---------- */
+.chart{margin:18px 0 8px}
+.bar-row{display:grid;grid-template-columns:150px 1fr 88px;align-items:center;gap:14px;padding:7px 0;font-size:14px}
+.bar-row .name{color:#141412;font-weight:500}
+.bar-track{height:20px;background:#a8825a;border-radius:2px;overflow:hidden;border:1px solid #a8825a}
+.bar-fill{height:100%;background:linear-gradient(90deg,#a8825a,var(--crimson-bright));border-radius:2px 0 0 2px}
+.bar-row .val{font-family:var(--mono);font-size:12.5px;color:#7d5f3f;text-align:right}
+/* ---------- two-up grid ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:8px 0 14px}
+.sources .src-note{color:#a8825a;font-style:italic}
+footer .wrap{padding:32px 28px 40px}
+@media(max-width:760px){
+.grid2{grid-template-columns:1fr}
+.bar-row{grid-template-columns:110px 1fr 70px;gap:10px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Saffron</p>
+  <h1>Saffron</h1>
+  <p class="lede">One country grows almost all of it and earns the least from it. A market where the most reliable number is the chemistry, and the price on the label rarely tells you where the crop was cut.</p>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Iranian farm-gate weakness against stable re-export pricing; grade and adulteration set the spread.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Iran (Khorasan) · Afghanistan · Kashmir · Spain · Greece</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>Spain (re-export) · UAE · India · European Union · United States</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-m">Med</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s3" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s4" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s3" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-m">Med</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#s5" title="Evidence: section § V">/ § V</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s1"><span>I</span>The value paradox</a></li><li><a href="#s2"><span>II</span>Why it costs more than gold</a></li><li><a href="#s3"><span>III</span>Where it grows, and what that means</a></li><li><a href="#s4"><span>IV</span>The re-export machine</a></li><li><a href="#s5"><span>V</span>ISO 3632, and its blind spot</a></li><li><a href="#s6"><span>VI</span>From kitchen to capsule</a></li><li><a href="#s7"><span>VII</span>Climate stress meets the fermentation tank</a></li><li><a href="#sources"><span>VIII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s1"><div class="sechead"><h2><em>I</em>The value paradox</h2><p class="sub">Iran grows roughly nine kilos in ten and captures a fraction of what the crop is worth. The margin is taken downstream, by re-packers, relabellers and brand owners far from the field.</p></div>
+
+    <div class="cards">
+      <div>
+        <div class="v">~90%+</div>
+        <div class="l">of world production is Iranian<span class="c c-h">High</span></div>
+      </div>
+      <div>
+        <div class="v">~450–500 t</div>
+        <div class="l">estimated annual world output<span class="c c-m">Med</span></div>
+      </div>
+      <div>
+        <div class="v">~13.6%</div>
+        <div class="l">Iran's average share of the global <em>export</em> market by value<span class="c c-l">Low</span></div>
+      </div>
+      <div>
+        <div class="v">2–3×</div>
+        <div class="l">world "saffron" trade volume vs actual production<span class="c c-l">Low</span></div>
+      </div>
+    </div>
+
+    <div class="body-col">
+      <p>Saffron is the most valuable agricultural commodity on earth by weight, and one of the most opaque. Iran produces the overwhelming majority, estimates cluster at 90% or above, and several 2025 trade sources put it higher still<sup><a href="#c1">1</a></sup><sup><a href="#c2">2</a></sup>. Yet Iranian output is volatile: a record harvest of about 422 tonnes in 2021 collapsed to roughly 272 tonnes in 2022 under prolonged drought, a ~36% fall, before recovering toward the 300-tonne range<sup><a href="#c3">3</a></sup>. World production is usually given as 450–500 tonnes, though this figure is itself an estimate that varies by source and year<sup><a href="#c4">4</a></sup>.</p>
+
+      <p>The paradox sits in the gap between growing and earning. Iran's average official-export price per kilo fell from around $3,000 in 2011 to under $900 by 2023, as the country shifted almost entirely to unbranded bulk shipment, over three-quarters of 2023 exports left in packs above 30g<sup><a href="#c5">5</a></sup>. The same crop, repackaged abroad, is resold at several times that price. On a value-of-trade basis, Iran captures an average of only around 13.6% of the global export market despite producing 80–90% of the physical crop<sup><a href="#c6">6</a></sup>.</p>
+
+      <div class="pull">A country can dominate the <span>harvest</span> and be a minor player in the <span>market</span>, saffron is the clearest example in world trade.</div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>Market size, the same year, wildly different answers (2025)</caption>
+        <thead>
+          <tr><th>Source</th><th class="v">2025 value</th><th class="v">Fwd CAGR</th><th class="v">Conf.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Grand View Research</td><td class="v">$482.4 m</td><td class="v">7.9%</td><td class="v"><span class="c c-m">Med</span></td></tr>
+          <tr><td>Towards FnB</td><td class="v">$482.5 m</td><td class="v">8.0%</td><td class="v"><span class="c c-m">Med</span></td></tr>
+          <tr><td>Polaris Market Research</td><td class="v">$514.1 m</td><td class="v">8.6%</td><td class="v"><span class="c c-m">Med</span></td></tr>
+          <tr><td>DataM Intelligence</td><td class="v">$751.6 m</td><td class="v">6.4%</td><td class="v"><span class="c c-l">Low</span></td></tr>
+          <tr><td>Research &amp; Markets</td><td class="v">$779.1 m</td><td class="v">7.1%</td><td class="v"><span class="c c-l">Low</span></td></tr>
+          <tr><td>Maximize Market Research</td><td class="v">$1.28 bn</td><td class="v">7.3%</td><td class="v"><span class="c c-l">Low</span></td></tr>
+          <tr><td>Mordor Intelligence</td><td class="v">$1.42 bn</td><td class="v">6.4%</td><td class="v"><span class="c c-l">Low</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">A ~3× spread for a single year, before forecasting even begins. Regional-share claims contradict each other just as badly, the same year is variously said to be led by Middle East &amp; Africa, Asia-Pacific or Europe.<sup><a href="#c4">4</a></sup><sup><a href="#c7">7</a></sup> One widely-indexed report states the 2025 market at "$489 billion," a thousand-fold error that has propagated across aggregators, a caution on citing spice market reports uncritically.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <caption>Iranian wholesale price ladder by grade, indicative, Sept 2026</caption>
+        <thead>
+          <tr><th>Grade</th><th>Character</th><th class="v">Per kg (USD)</th><th class="v">Conf.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Super Negin / Negin</td><td>All-red, long tips; highest crocin</td><td class="v">$1,400–3,000</td><td class="v"><span class="c c-l">Low</span></td></tr>
+          <tr><td>Sargol</td><td>Cut red stigma, no style; high colour</td><td class="v">$1,290–1,370</td><td class="v"><span class="c c-l">Low</span></td></tr>
+          <tr><td>Pushal</td><td>Red stigma with some yellow style</td><td class="v">$1,280–1,310</td><td class="v"><span class="c c-l">Low</span></td></tr>
+          <tr><td>Bunch (Dasteh)</td><td>Whole stigma tied in bundles</td><td class="v">$1,050–1,080</td><td class="v"><span class="c c-l">Low</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Grade prices for the <em>same</em> grade diverge two- to threefold across sources, one lists Super Negin near $1,400/kg, another near $3,000/kg, the same week.<sup><a href="#c8">8</a></sup><sup><a href="#c9">9</a></sup> European bulk resale of Iranian or Spanish saffron typically runs €3,000–4,000/kg; premium retail Super Negin reaches $6–12 per gram.<sup><a href="#c9">9</a></sup> All figures Low confidence by nature of the market.</p>
+  </section>
+
+  <!-- ============ II, FLOWER & THREAD ============ -->
+  
+<section id="s2"><div class="sechead"><h2><em>II</em>Why it costs more than gold</h2><p class="sub">Saffron has no "natural versus cultured" divide, every thread on earth comes from the same sterile, cloned crocus. Its price is written entirely in labour.</p></div>
+
+    <div class="cards">
+      <div>
+        <div class="v">3</div>
+        <div class="l">red stigmas per flower, the entire yield<span class="c c-h">High</span></div>
+      </div>
+      <div>
+        <div class="v">~150k</div>
+        <div class="l">flowers hand-picked per kilo of dried saffron<span class="c c-h">High</span></div>
+      </div>
+      <div>
+        <div class="v">~2 wks</div>
+        <div class="l">the entire annual bloom window<span class="c c-h">High</span></div>
+      </div>
+      <div>
+        <div class="v">~70%</div>
+        <div class="l">of production cost is manual labour<span class="c c-m">Med</span></div>
+      </div>
+    </div>
+
+    <div class="body-col">
+      <p><em>Crocus sativus</em> is a sterile triploid, it sets no seed and is propagated only by dividing its corms, so every saffron plant is effectively a clone of the same ancient cultivar. There is no wild harvest, no "natural" grade to command a premium over a farmed one, and no varietal breeding programme in the sense the wine or coffee trades know. The entire quality story is agronomy, origin and handling.</p>
+
+      <p>Each flower yields exactly three crimson stigmas. They must be plucked by hand, flower by flower, at dawn during a bloom that lasts only a fortnight each autumn, picked early because sunlight degrades the volatile aroma compounds. It takes on the order of 150,000–160,000 flowers to produce a single kilogram of dried saffron, and a hectare in full bloom holds roughly 4.5 million flowers<sup><a href="#c10">10</a></sup><sup><a href="#c11">11</a></sup>. Labour is commonly estimated at around 70% of total cost, the reason no amount of mechanisation has ever meaningfully lowered the price<sup><a href="#c10">10</a></sup>.</p>
+
+      <div class="callout crocus">
+        <h4>The three molecules that define the trade</h4>
+        <p>Saffron's value rests on three apocarotenoid compounds, and the same three underlie both its grading and its health claims: <b>crocin</b> (colour and antioxidant strength), <b>picrocrocin</b> (the honey-bitter taste) and <b>safranal</b> (the volatile aroma). Together they make up under about 8% of dry weight, everything the market pays for is concentrated in a trace fraction of a hand-cut thread.<sup><a href="#c12">12</a></sup></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ III, ORIGINS ============ -->
+  
+<section id="s3"><div class="sechead"><h2><em>III</em>Where it grows, and what that means</h2><p class="sub">Origin is to saffron what mine is to a coloured stone: a premium anchored in chemistry, scarcity and reputation, and, in one case, a decline the local government disputes.</p></div>
+
+    <div class="body-col">
+      <p><b>Iran</b> is the floor and the ceiling of the market. Production is concentrated in the eastern Khorasan provinces, Qaen and Torbat-e Heydarieh are the trade's reference towns, and Iranian saffron carries crocin content around 6.8%, the benchmark against which others are measured<sup><a href="#c13">13</a></sup>. Scale, not distinction, is Iran's advantage.</p>
+
+      <p><b>Kashmir</b> is the trade's depleting prestige origin, the Mogok of saffron. Grown almost entirely on the Karewa plateaus around Pampore, at 1,600–1,800m, its crocin runs materially higher than Iran's, about 8.7% by the most-cited measurement, with premium "Mongra" grades claimed far higher still<sup><a href="#c13">13</a></sup><sup><a href="#c14">14</a></sup>. It received a Geographical Indication tag in May 2020, after which farm-gate prices reportedly roughly tripled<sup><a href="#c15">15</a></sup>.</p>
+
+      <div class="callout crimson">
+        <h4>Kashmir's output: a genuine data conflict</h4>
+        <p>Whether Kashmiri saffron is collapsing depends entirely on who you ask. Climate reporting and some federal statistics describe an <em>all-time low</em>, around 2.6 tonnes in 2024, and a ~68% fall over two decades from nearly 16 tonnes in the late 1990s<sup><a href="#c16">16</a></sup><sup><a href="#c17">17</a></sup>. Yet the Jammu &amp; Kashmir Agriculture Production Department, answering its own legislature in 2026, reported production of 19.58 tonnes in 2024–25 and stated there has been <em>no sustained decline</em> in recent years<sup><a href="#c14">14</a></sup>. Both cannot be right. The cultivated area is agreed, broadly stable near 3,715 hectares, down from ~5,700 historically, as is the human stake: around 30,000 families, roughly a third of the pickers women. The tonnage is where the trade's opacity becomes a political fact.</p>
+      </div>
+
+      <p><b>Spain</b> produces very little saffron, well under five tonnes in recent years, and under half a tonne after 2024's poor weather, but occupies an outsized place in the market through re-export and the prestige of its La Mancha PDO<sup><a href="#c18">18</a></sup>. <b>Afghanistan</b> has grown to 20+ tonnes, much of it through opium-to-saffron conversion programmes, and <b>Greece</b>'s Krokos Kozani co-operative holds a respected PDO at around 10 tonnes<sup><a href="#c2">2</a></sup>.</p>
+    </div>
+
+    <div class="chart">
+      <div class="bar-row"><span class="name">Iran</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="v">~300+ t</span></div>
+      <div class="bar-row"><span class="name">India (Kashmir)</span><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><span class="v">2.6–20 t*</span></div>
+      <div class="bar-row"><span class="name">Afghanistan</span><div class="bar-track"><div class="bar-fill" style="width:6.5%"></div></div><span class="v">~20 t</span></div>
+      <div class="bar-row"><span class="name">Spain</span><div class="bar-track"><div class="bar-fill" style="width:1.5%"></div></div><span class="v">&lt;5 t</span></div>
+      <div class="bar-row"><span class="name">Greece</span><div class="bar-track"><div class="bar-fill" style="width:3.2%"></div></div><span class="v">~10 t</span></div>
+    </div>
+    <p class="note">Indicative annual production, most recent estimates <span class="c c-m">Med</span>. *India's figure spans the contested range in the callout above, the bar shows the disputed low. Spain's <em>production</em> is trivial; its <em>exports</em> are anything but (Section IV).</p>
+  </section>
+
+  <!-- ============ IV, SUPPLY CHAIN ============ -->
+  
+<section id="s4"><div class="sechead"><h2><em>IV</em>The re-export machine</h2><p class="sub">The defining feature of the saffron trade is that a great deal of "Spanish" and Gulf saffron was grown in Iran, and the value is captured precisely at the point of relabelling.</p></div>
+
+    <div class="body-col">
+      <p>The arithmetic gives it away. Spain has for years exported far more saffron than it grows, historically on the order of 100–190 tonnes against domestic production of one to five tonnes<sup><a href="#c18">18</a></sup>. In many years, the reported exports attributed to Iran and Spain together exceed total world production, because the same crop is counted once leaving Iran and again leaving Spain. Iranian saffron is imported in bulk, then repackaged, relabelled and re-exported as "packed in Spain," "selected in Spain," or, where enforcement is lax, "produced in Spain"<sup><a href="#c18">18</a></sup>.</p>
+
+      <p>The mechanism does two things for the seller: it strips the Iranian origin that sanctions make commercially awkward, and it attaches a premium the grower never sees. One La Mancha labelling official has described Iranian saffron selling at roughly half the Spanish price at wholesale, while relabelled product commands multiples of the farm-gate figure downstream<sup><a href="#c19">19</a></sup>. La Mancha's PDO and EU labelling rules since 2014 have pushed back, with cease-and-desist actions against false-origin claims, but chemical-fingerprinting studies have still found a large share of "Spanish saffron" products to be relabelled imports<sup><a href="#c20">20</a></sup>.</p>
+
+      <div class="callout crimson">
+        <h4>The Gulf leg, and where it touches this desk</h4>
+        <p>The United Arab Emirates is the trade's second great re-export hub. Iranian saffron enters in bulk, is sorted, packed and re-exported, legitimately as a logistics function, but also, in a 2015 Iranian parliamentary complaint, sold internationally under UAE branding with the Iranian origin obscured<sup><a href="#c21">21</a></sup>. For anyone working in Gulf re-export, saffron is a textbook case of the origin-versus-provenance problem: repacking in a hub does not change where the crop was grown, and the only defence against a mislabelling claim is an unbroken chain of records from lot through processing to final pack.</p>
+      </div>
+
+      <p>Because global "saffron" trade volumes run an estimated two to three times actual world production, some degree of relabelling or dilution is, as one trade analysis put it, a mathematical certainty in unregulated channels<sup><a href="#c20">20</a></sup>. The top destinations for Iran's official exports, Spain, the UAE, China and Afghanistan, are overwhelmingly intermediaries rather than end markets<sup><a href="#c5">5</a></sup>.</p>
+    </div>
+  </section>
+
+  <!-- ============ V, GRADING & ADULTERATION ============ -->
+  
+<section id="s5"><div class="sechead"><h2><em>V</em>ISO 3632, and its blind spot</h2><p class="sub">Saffron has a formal grading standard that plays the role of the 4Cs. Its central weakness is that the official test cannot catch the most common fraud until it is already egregious.</p></div>
+
+    <div class="body-col">
+      <p>Quality is certified internationally under ISO 3632, which grades saffron by spectrophotometric measurement of the same three compounds that define it: crocin for colouring strength (the primary grade driver), picrocrocin for flavour and safranal for aroma<sup><a href="#c12">12</a></sup>. Category I, the top tier, requires a colouring strength above 190; premium Negin and Sargol grades sit well above that. In this sense the standard is saffron's 4Cs: an objective, chemistry-based ladder buyers can specify against.</p>
+
+      <div class="callout crocus">
+        <h4>The finding that reframes the whole market</h4>
+        <p>The official ISO 3632 method, UV-vis spectroscopy plus chromatography for colour and crocin, <b>cannot detect the most common adulterants (safflower, marigold or turmeric) when they are added at below about 20% by weight</b>. This is not a trade rumour; it is a repeatedly documented result in the peer-reviewed analytical-chemistry literature<sup><a href="#c22">22</a></sup>. In plain terms: a batch can be one-fifth cheap plant matter and still pass the world's reference test. The standard even permits up to ~1% foreign material in third-class product by design. Detecting low-level fraud reliably requires DNA barcoding, mass spectrometry or spectral imaging, none of which is standard in routine trade.</p>
+      </div>
+
+      <p>Saffron is among the most frequently adulterated foods on earth. In whole-thread form the fraud is coloured styles or foreign stigmas passed off as red thread; in powder, far more vulnerable, it is turmeric, paprika, safflower, calendula, corn silk, "exhausted" spent saffron, and in the worst cases genotoxic synthetic dyes such as Sudan I–IV and Rhodamine B<sup><a href="#c22">22</a></sup><sup><a href="#c23">23</a></sup>. This is why serious buyers refuse powder outright.</p>
+
+      <div class="grid2">
+        <div class="note">
+          <h4 style="color:var(--mute)">The defensible figure</h4>
+          <p>The EU Joint Research Centre's 2021–22 coordinated food-fraud campaign found roughly <b>11%</b> of sampled saffron in the spices category to be the object of fraud<sup><a href="#c23">23</a></sup>. Official, methodologically transparent. <span class="c c-m">Med</span></p>
+        </div>
+        <div class="note">
+          <h4 style="color:var(--mute)">The trade figures</h4>
+          <p>Sellers and grower unions cite far higher numbers, "over 90% of Spanish exports fraudulent," "over 75% of the global market counterfeit or mislabelled." Directionally telling, but produced by parties with an interest. <span class="c c-l">Low</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VI, DEMAND ============ -->
+  
+<section id="s6"><div class="sechead"><h2><em>VI</em>From kitchen to capsule</h2><p class="sub">Saffron's fastest-growing pull is no longer culinary. Standardised extracts sold on clinical mood and sleep claims are pulling the highest-crocin material out of the food chain.</p></div>
+
+    <div class="body-col">
+      <p>The saffron trade is fragmented among private houses rather than listed majors, Novin, Tarvand, Rowhani and Gohar in Iran; Safinter and Azafranes Manchegos in Spain; the Krokos Kozani co-operative in Greece. There is no pure-play equivalent of a listed gem miner. The structural shift worth watching is on the demand side: the nutraceutical and extract segment.</p>
+
+      <p>A branded, standardised extract, <b>Affron</b>, made by Spain's Pharmactive, has anchored a growing body of clinical evidence for saffron in mood and sleep. The largest trial to date, published in 2025, gave 202 adults with subclinical depression 28mg daily for twelve weeks and found a statistically significant reduction in depressive symptoms versus placebo, with roughly a 53% drop in low-mood scores<sup><a href="#c24">24</a></sup><sup><a href="#c25">25</a></sup>. A meta-analysis across 23 trials supports positive effects on anxiety and depression at 28–30mg/day, with some studies reporting efficacy comparable to standard antidepressants<sup><a href="#c26">26</a></sup>.</p>
+
+      <div class="callout crimson">
+        <h4>Read the evidence with the conflicts in view</h4>
+        <p>Much of the strongest saffron-supplement research is funded by, or run for, nutraceutical companies, and several trials disclose exactly that<sup><a href="#c24">24</a></sup>. The signal is real and replicated, but the sector has a clear commercial incentive to produce it. The market consequence is concrete regardless: pharmaceutical and cosmetic buyers now book high-crocin Mongra and Negin at premiums over the culinary rate, redirecting the best stock away from food<sup><a href="#c27">27</a></sup>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VII, OUTLOOK ============ -->
+  
+<section id="s7"><div class="sechead"><h2><em>VII</em>Climate stress meets the fermentation tank</h2><p class="sub">Two forces will shape the next decade: a growing crop increasingly hostage to weather, and the first serious attempts to make saffron's active compounds without a field at all.</p></div>
+
+    <div class="body-col">
+      <p>The supply side is fragile in a way few commodities are. The crocus corm needs 8–12 weeks of near-freezing soil dormancy to set flower buds; Kashmir's winters have warmed roughly 1.2°C over three decades, and 2024 brought a severe pre-bloom rainfall deficit and harvest losses reported at 50–70% across the Pampore belt<sup><a href="#c28">28</a></sup>. Iran and Spain have faced their own drought-driven tightening. A crop with a two-week window and no seed bank has little buffer against a bad autumn.</p>
+
+      <div class="callout crocus">
+        <h4>The frontier: cellular agriculture</h4>
+        <p>Unlike pearls, saffron's value lives in specific molecules, and those can, in principle, be grown in a bioreactor. <b>Krokos Bio</b> (Davis, California; founded 2024) is using plant cell culture to produce saffron's crocin, picrocrocin and safranal without cultivation, backed by Big Idea Ventures and a $305k NSF SBIR Phase I grant in 2025; it reports producing saffron biomass and extracts and is sampling prospective customers<sup><a href="#c29">29</a></sup>. <b>Ayana Bio</b>, a Ginkgo Bioworks spin-off, is pursuing saffron crocins on the same plant-cell-culture route, with an Israeli fermentation partner<sup><a href="#c30">30</a></sup>. The precedent is real, the cancer drug paclitaxel has been produced this way for years, but low plant-cell productivity remains the hurdle, and none has reached commercial scale.</p>
+      </div>
+
+      <p>The strategic reading is consistent with everything above. Saffron's problems are supply fragility, an opaque chain and value captured away from the grower. Cellular agriculture attacks the first two directly, a consistent, adulteration-free, geography-independent source of the active compounds, while doing nothing for the romance of a hand-cut Kashmiri thread, which is precisely where the culinary premium will retreat and consolidate. The likely future is a split market: bulk actives increasingly contestable by biotech, and a shrinking, GI-protected, provenance-verified top end where origin is the entire product.</p>
+
+      <div class="pull">Saffron is the rare commodity where the cheapest honest kilo and the most expensive one may soon come from a <span>tank</span> and a <span>field</span>, and both will be real.</div>
+    </div>
+  </section>
+
+
+
+<!-- ============ SOURCES ============ -->
+<div class="wrap">
+  
+<section id="sources"><div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src">
+      <li id="c1"><a href="https://www.fao.org/giahs/giahs-around-the-world/iran-qanat-based-saffron-system/en" target="_blank" rel="noopener">FAO GIAHS, Qanat-based Saffron Farming System, Iran</a>. <span class="src-note">Iran &gt;90% of world production.</span></li>
+      <li id="c2"><a href="https://essfeed.com/top-10-saffron-producing-countries-in-the-world/" target="_blank" rel="noopener">Top saffron-producing countries, 2025</a>. <span class="src-note">Country-level production estimates; use with care (trade source).</span></li>
+      <li id="c3"><a href="https://www.marketresearch.com/StatLedger-Market-Research-Consulting-v4317/Iran-Saffron-Trend-Forecast-40576646/" target="_blank" rel="noopener">Iran Saffron Market, StatLedger</a>. <span class="src-note">2021 record 422 t; 2022 fall to 272 t (drought).</span></li>
+      <li id="c4"><a href="https://www.goldensaffron.com/blog/Saffron/saffron-producer-countries" target="_blank" rel="noopener">Golden Saffron, global production ~450–500 t</a>. <span class="src-note">World-output estimate; varies by source.</span></li>
+      <li id="c5"><a href="https://iranopendata.org/en/article/257-iran-saffron-slump-from-world-leader-to-bulk-supplier/" target="_blank" rel="noopener">Iran Open Data, "From World Leader to Bulk Supplier"</a>. <span class="src-note">Export price $3,000→&lt;$900/kg; 77% bulk; top destinations.</span></li>
+      <li id="c6"><a href="https://agris.fao.org/search/en/records/675989f5c7a957febdfb6fa1" target="_blank" rel="noopener">Prioritizing Iran's Saffron Target Markets (AGRIS/FAO)</a>. <span class="src-note">Iran ~13.6% avg export-market share vs &gt;80% production.</span></li>
+      <li id="c7"><a href="https://www.grandviewresearch.com/industry-analysis/saffron-market" target="_blank" rel="noopener">Grand View Research, Saffron Market</a>. <span class="src-note">$482.4 m (2025); Grade I &amp; regional segmentation.</span></li>
+      <li id="c8"><a href="https://www.saffronbest.com/saffron-price-list" target="_blank" rel="noopener">SaffronBest price list, 14 Sep 2026</a>. <span class="src-note">Grade-by-grade per-kg ladder (Negin/Sargol/Pushal/Bunch).</span></li>
+      <li id="c9"><a href="https://www.saffronwell.com/guides/what-is-the-real-price-of-saffron-in-2025/" target="_blank" rel="noopener">SaffronWell, 2025 price guide</a>. <span class="src-note">Super Negin ~$2,900–3,000/kg; EU bulk €3,000–4,000; retail $/g.</span></li>
+      <li id="c10"><a href="https://kashmiril.com/blogs/journal/the-pampore-crisis-why-kashmirs-saffron-farmers-are-leaving" target="_blank" rel="noopener">Kashmiril, the Pampore crisis</a>. <span class="src-note">150k–160k flowers/kg; labour intensity (seller source).</span></li>
+      <li id="c11"><a href="https://kashmiril.com/blogs/journal/why-kashmiri-saffron-price-doubled-in-2025-2026-5-factors" target="_blank" rel="noopener">Kashmiril, 2025–26 price drivers</a>. <span class="src-note">~4.5 m flowers/hectare; demand pressure (seller source).</span></li>
+      <li id="c12"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8230169/" target="_blank" rel="noopener">Untargeted DART-HRMS for saffron authenticity (PMC)</a>. <span class="src-note">ISO 3632-1:2011, crocin/picrocrocin/safranal basis.</span></li>
+      <li id="c13"><a href="https://www.jkpi.org/how-porcupines-climate-change-and-policy-gaps-threaten-kashmirs-golden-crop/" target="_blank" rel="noopener">JKPI, Kashmir's golden crop</a>. <span class="src-note">Pampore crocin 8.72% vs Iran 6.82%; 2024 output 2.6 t; families.</span></li>
+      <li id="c14"><a href="https://kashmirlife.net/kashmirs-saffron-squeeze-vol-18-issue-02-430605/" target="_blank" rel="noopener">Kashmir Life, "Saffron Squeeze"</a>. <span class="src-note">Official J&amp;K Agri Dept data: 19.58 t (2024–25); disputes decline; ~3,715 ha.</span></li>
+      <li id="c15"><a href="https://adnchronicles.org/2024/02/13/kashmirs-incredible-shrinking-saffron-output/" target="_blank" rel="noopener">Asia Democracy Chronicles, shrinking output</a>. <span class="src-note">GI tag (May 2020) and reported ~3× price uplift.</span></li>
+      <li id="c16"><a href="https://www.nationalgeographic.com/environment/article/kashmir-saffron-spice-harvest-climate" target="_blank" rel="noopener">National Geographic, uncertain future of saffron</a>. <span class="src-note">2024–25 "all-time low"; −68% over 20 years.</span></li>
+      <li id="c17"><a href="https://kashmiril.com/blogs/journal/journey-of-kashmiri-saffron-from-pampore-to-kashmiril" target="_blank" rel="noopener">Kashmiril, from Pampore to door</a>. <span class="src-note">~16 t (1990) → 2.6 t; 2024 losses 50–70% (seller source).</span></li>
+      <li id="c18"><a href="https://www.oxfordsymposium.org.uk/wp-content/uploads/2020/06/Shepro.pdf" target="_blank" rel="noopener">Shepro, "The Geopolitics of Saffron" (Oxford Symposium)</a>. <span class="src-note">Spain exports ≈ imports from Iran; relabelling mechanics.</span></li>
+      <li id="c19"><a href="https://persatrading.com/blog/iranian-saffron-and-spanish-saffron/" target="_blank" rel="noopener">Persa Trading, Iranian vs Spanish saffron</a>. <span class="src-note">La Mancha official on price gap; value-capture claim (trade source).</span></li>
+      <li id="c20"><a href="https://kashmiril.com/blogs/journal/saffron-fraud-statistics" target="_blank" rel="noopener">Kashmiril, saffron fraud statistics</a>. <span class="src-note">Valencia fingerprinting; trade volume 2–3× production (seller source, treat as Low).</span></li>
+      <li id="c21"><a href="https://www.rowhanisaffron.com/iranian-saffron-in-the-world-the-uae-offered-saffron/" target="_blank" rel="noopener">Rowhani, Iranian saffron &amp; the UAE</a>. <span class="src-note">2015 parliamentary complaint on UAE-branded Iranian saffron.</span></li>
+      <li id="c22"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12195507/" target="_blank" rel="noopener">DART–QqQ-MS detection of saffron adulterants (PMC)</a>. <span class="src-note">ISO 3632 cannot detect safflower/marigold/turmeric below ~20% w/w.</span></li>
+      <li id="c23"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12195507/" target="_blank" rel="noopener">Ibid., JRC 2021–22 campaign</a>. <span class="src-note">~11% of spice-category saffron subject to fraud; adulterant list.</span></li>
+      <li id="c24"><a href="https://jn.nutrition.org/article/S0022-3166(25)00306-2/abstract" target="_blank" rel="noopener">J. Nutrition (2025), Affron RCT, n=202</a>. <span class="src-note">Largest saffron trial; 28 mg/day; sig. vs placebo; COI disclosed.</span></li>
+      <li id="c25"><a href="https://www.nutraingredients.com/Article/2025/08/01/saffron-extract-mood-boosting-benefits-for-dietary-supplement-formulations/" target="_blank" rel="noopener">NutraIngredients, Affron mood data</a>. <span class="src-note">~53% drop in low-mood symptoms (DASS-21).</span></li>
+      <li id="c26"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9261746/" target="_blank" rel="noopener">Affron in recreationally-active adults (PMC)</a>. <span class="src-note">Meta-analysis of 23 trials; 28–30 mg/day effects.</span></li>
+      <li id="c27"><a href="https://krokos.bio/" target="_blank" rel="noopener">Krokos Bio</a>. <span class="src-note">Prices "routinely exceed $3,000/kg"; supply-outlook framing.</span></li>
+      <li id="c28"><a href="https://kashmiril.com/blogs/journal/kashmiri-saffron-scarcity" target="_blank" rel="noopener">Kashmiril, climate &amp; the corm</a>. <span class="src-note">8–12 wk cold dormancy; +1.2°C/30 yrs (seller source).</span></li>
+      <li id="c29"><a href="https://krokos.bio/blog/krokos-bio-awarded-305k-nsf-sbir-phase-i-grant-to-advance-domestic-saffron-production" target="_blank" rel="noopener">Krokos Bio, NSF SBIR Phase I ($305k)</a>. <span class="src-note">Plant cell culture; biomass/extracts; customer sampling.</span></li>
+      <li id="c30"><a href="https://agfundernews.com/from-taxol-to-cocoa-can-plant-cell-culture-make-the-leap-from-drugs-to-food" target="_blank" rel="noopener">AgFunderNews, plant cell culture for botanicals</a>. <span class="src-note">Ayana Bio saffron crocins; paclitaxel precedent.</span></li>
+    </ol></section></div>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

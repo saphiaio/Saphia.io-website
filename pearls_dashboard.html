@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pearls, ΣΟΦΙΑ</title>
+<meta name="description" content="Pearls: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+/* ---------- typography roles ---------- */
+.mono{font-family:var(--mono);font-feature-settings:"tnum" 1}
+/* ---------- generic blocks ---------- */
+.block{padding:30px 0}
+.block h3{font-size:27px;font-weight:500;margin-bottom:4px}
+.block .sub{font-style:italic;color:#6f6a62;font-size:15px;margin-bottom:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.prose{max-width:760px}
+.prose p{font-size:16.5px}
+.prose.full{max-width:100%}
+.stat .val .u{font-size:15px;color:#6f6a62}
+.stat .yr{font-family:var(--mono);font-size:11px;color:#6f6a62}
+/* tables */
+.tbl-wrap{overflow-x:auto;margin:8px 0;border:1px solid var(--line);border-radius:3px}
+.card .nm{font-family:var(--display);font-size:24px;font-weight:500;line-height:1.05}
+.card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:#a8825a;margin-top:4px;text-transform:uppercase}
+.card .meta-line{font-size:13px;color:#6f6a62;margin-top:2px;font-style:italic}
+.card dd .mono{font-size:13px}
+/* pull / synthesis */
+.synth{border-left:3px solid #a8825a;padding:4px 0 4px 22px;margin:22px 0;font-size:16px;color:#6f6a62}
+.synth b{color:var(--ink);font-weight:600}
+/* auction bar chart */
+.auc{margin:10px 0}
+.auc .row{display:grid;grid-template-columns:200px 1fr 110px;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #dcd4c6}
+.auc .row:last-child{border-bottom:none}
+.auc .who{font-size:14.5px}
+.auc .who small{display:block;color:#6f6a62;font-size:12px;font-style:italic}
+.auc .track{background:#faf7f0;height:18px;border-radius:2px;overflow:hidden;border:1px solid #dcd4c6}
+.auc .fill{height:100%;background:var(--bronze),var(--surface))}
+.auc .amt{font-family:var(--mono);font-size:14px;text-align:right;color:#3f6b47;font-weight:600}
+.auc .scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:#6f6a62;margin-top:6px;padding-left:214px}
+.auc .row{grid-template-columns:120px 1fr;grid-template-areas:"who amt" "track track";gap:6px 12px}
+.auc .who{grid-area:who}
+.auc .amt{grid-area:amt}
+.auc .track{grid-area:track}
+.auc .scale{display:none}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Pearls</p>
+  <h1>Pearls</h1>
+  <p class="lede">The only gem grown by a living animal, and a market where volume and value sit at opposite ends: billions of freshwater pearls against a handful of natural and large South Sea strands.</p>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of Jun 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Volume abundant, value concentrated: natural and large South Sea pearls firm, commodity freshwater flat.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Australia · French Polynesia · Japan · China · Indonesia and the Philippines</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>Hong Kong · Japan · United States · China</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-l">Low</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#sec-6" title="Evidence: section § VI">/ § VI</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-l">Low</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#sec-6" title="Evidence: section § VI">/ § VI</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-l">Low</span></dt><dd><b>Medium; natural High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#sec-4" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-l">Low</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#sec-5" title="Evidence: section § V">/ § V</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#sec-1"><span>I</span>The Volume–Value Paradox</a></li><li><a href="#sec-2"><span>II</span>The Defining Distinction</a></li><li><a href="#sec-3"><span>III</span>Akoya · South Sea · Tahitian · Freshwater</a></li><li><a href="#sec-4"><span>IV</span>Farms, Not Mines</a></li><li><a href="#sec-5"><span>V</span>The Seven Factors · Treatment · Certification</a></li><li><a href="#sec-6"><span>VI</span>The Growers, the Listed Pure-Play, and the Maison</a></li><li><a href="#sec-7"><span>VII</span>A Gem on the Front Line of the Ocean</a></li><li><a href="#sources"><span>VIII</span>Sources</a></li></ol>
+</nav>
+
+<section id="sec-1"><div class="sechead"><h2><em>I</em>The Volume–Value Paradox</h2><p class="sub">Sources · Atlas Pearls · IEOM · academic aquaculture data · paid reports</p></div>
+
+  <div class="cards">
+    <div>
+      <div class="l">Pearl jewellery market (retail, all types)</div>
+      <div class="v">$10–20<span class="u">bn</span></div>
+      <div class="yr">2024e</div>
+      <div class="note">Paid reports diverge from ~$10bn to ~$20bn for the same year, read as order-of-magnitude.<sup><a href="#s1">1</a></sup></div>
+      <span class="c c-l">Low</span>
+    </div>
+    <div>
+      <div class="l">Cultured share of supply (by volume)</div>
+      <div class="v">~95<span class="u">%+</span></div>
+      <div class="yr">est.</div>
+      <div class="note">Natural pearls are a rounding error by volume; cultured pearls have been the market since the mid-20th century.<sup><a href="#s2">2</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+    <div>
+      <div class="l">Chinese freshwater output (by weight)</div>
+      <div class="v">~1,500<span class="u">t/yr</span></div>
+      <div class="yr">recent</div>
+      <div class="note">~95–99% of all freshwater pearls; high-yield, low-value. Global saltwater output is only ~60 t.<sup><a href="#s3">3</a></sup><sup><a href="#s9">9</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+    <div>
+      <div class="l">Natural-pearl auction record</div>
+      <div class="v">$36.2<span class="u">m</span></div>
+      <div class="yr">2018</div>
+      <div class="note">Marie-Antoinette's natural pearl pendant, Sotheby's Geneva, the visible peak of the market.<sup><a href="#s11">11</a></sup></div>
+      <span class="c c-h">High</span>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="prose full">
+      <p>A pearl is the only major gem produced by a living animal, and the only one whose entire commercial supply was reinvented inside a single human lifetime. Before 1900 every pearl on earth was natural, found, not farmed, and prices reflected extreme scarcity. Kokichi Mikimoto's cultured pearl, perfected commercially in the first decade of the 20th century, inverted that world. Today cultured pearls dominate so completely that "pearl market" almost always means the cultured market, while natural pearls survive as a rarefied auction and antique category priced an order of magnitude higher.<sup><a href="#s2">2</a></sup></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Market Size by Definition</h3>
+    <div class="sub"><span>Distinct value layers, do not interchange</span> <span class="c c-m">Med</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <caption>Pearl value layers measure structurally different things</caption>
+        <thead><tr><th>Value definition</th><th class="v">Estimate</th><th class="v">Year</th><th>Basis</th><th class="v">Conf.</th></tr></thead>
+        <tbody>
+          <tr><td>Pearl jewellery market, retail, all types (paid reports, wide range)</td><td class="v">$10–20bn</td><td class="v">2024e</td><td>MRFR, Verified, others</td><td class="v"><span class="c c-l">Low</span></td></tr>
+          <tr><td>French Polynesia raw black-pearl exports (farm-gate, national accounts)</td><td class="v">~$150m</td><td class="v">2023</td><td>IEOM (+182% vs 2022)</td><td class="v"><span class="c c-m">Med</span></td></tr>
+          <tr><td>Atlas Pearls, listed South Sea producer revenue (audited)</td><td class="v">A$28.7m</td><td class="v">FY25</td><td>ASX filing</td><td class="v"><span class="c c-h">High</span></td></tr>
+          <tr><td>Natural-pearl single-jewel auction record</td><td class="v">$36.2m</td><td class="v">2018</td><td>Sotheby's Geneva</td><td class="v"><span class="c c-h">High</span></td></tr>
+          <tr><td>Chinese freshwater output value (high-volume / low-value)</td><td class="v">~$15m+</td><td class="v">est.</td><td>academic estimate*</td><td class="v"><span class="c c-l">Low</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="synth">
+      <b>Read this before comparing.</b> The Chinese freshwater value figure (1,500 tonnes for a low double-digit million-dollar valuation in older academic work) is almost certainly understated today, but the point stands: China produces the overwhelming <b>majority of the world's pearls by weight while earning a small fraction of the value</b>. Japan's marine (Akoya) output has been estimated at over half of global pearl <b>value</b> from a tiny share of volume.<sup><a href="#s3">3</a></sup> Any blended "market size" hides this inversion entirely.
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Why Pearls Are Structurally Unlike Diamonds, or Even Coloured Stones</h3>
+    <div class="sub"><span>No cartel, no price sheet, no fixed supply</span> <span class="c c-h">High</span></div>
+    <div class="prose full">
+      <p>Diamonds have De Beers, the Kimberley Process and Rapaport. Coloured stones at least have Gemfields as a listed bellwether and auction-driven origin premiums. Pearls have neither a dominant miner nor a price list, and their supply is <em>biological</em>: it depends on the survival of millions of molluscs in open water, and can be wiped out in a season by warming, disease or a red tide. That makes pearl pricing uniquely sensitive to three stacked variables, <strong>natural vs cultured origin, pearl type, and treatment status</strong>, explored across the sections below.</p>
+    </div>
+  </div>
+
+
+<!-- ============== II · NATURAL VS CULTURED ============== -->
+<div class="wrap">
+  </div></section>
+<section id="sec-2"><div class="sechead"><h2><em>II</em>The Defining Distinction</h2><p class="sub">Mikimoto · the science of culture · why natural pearls vanished from the market</p></div>
+
+  <div class="block">
+    <div class="prose full">
+      <p>Every pearl is either <strong>natural</strong>, formed without human intervention when an irritant lodges in a wild mollusc, or <strong>cultured</strong>, where a technician deliberately implants a nucleus to start the process. The pearl that results is genuine nacre in both cases; the only difference is how it began. That single distinction is the most consequential fact in the trade, because it drives a price differential of roughly <strong>ten to a hundred times or more</strong> between two pearls of otherwise identical appearance.<sup><a href="#s8">8</a></sup> It is also, by the industry's own admission, the hardest call in gemmology, which is why it can only be settled by laboratory X-ray (see Section V).</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div>
+      <div class="l">First cultured pearl (Mikimoto)</div>
+      <div class="v">1893</div>
+      <div class="yr">hemispherical</div>
+      <div class="note">First fully round cultured pearl ~1905; method patented 1908 amid disputes with Mise &amp; Nishikawa.<sup><a href="#s4">4</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+    <div>
+      <div class="l">Natural : cultured price gap</div>
+      <div class="v">10–100<span class="u">×</span></div>
+      <div class="yr">like-for-like</div>
+      <div class="note">For comparable size and quality; verified natural origin is the asset, not the pearl alone.<sup><a href="#s8">8</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+    <div>
+      <div class="l">Pearls per saltwater oyster</div>
+      <div class="v">1–2</div>
+      <div class="yr">per cycle</div>
+      <div class="note">Akoya/South Sea/Tahitian oysters yield one or a few pearls; freshwater mussels yield many.<sup><a href="#s10">10</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+    <div>
+      <div class="l">Pearls per Chinese freshwater mussel</div>
+      <div class="v">≤ dozens</div>
+      <div class="yr">per cycle</div>
+      <div class="note">Tissue-nucleated, multi-implant mussels are why freshwater volume dwarfs saltwater.<sup><a href="#s10">10</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>How a Cultured Pearl Is Made</h3>
+    <div class="sub"><span>Two methods, two internal structures</span> <span class="c c-m">Med</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="nm">Bead-nucleated</div>
+        <div class="tag">Saltwater, Akoya · South Sea · Tahitian</div>
+        <div class="meta-line">A round shell bead + a graft of mantle tissue is implanted; the mollusc coats the bead in nacre.</div>
+        <div class="foot">The bead is almost always cut from <strong>American freshwater mussel shell</strong> (historically the Mississippi/Tennessee river system), a quiet but critical input the whole saltwater industry depends on. Under X-ray the bead shows as a solid core ringed by a thin nacre shell.<sup><a href="#s7">7</a></sup><sup><a href="#s9">9</a></sup></div>
+      </div>
+      <div class="card">
+        <div class="nm">Tissue-nucleated</div>
+        <div class="tag">Freshwater, China · "non-beaded"</div>
+        <div class="meta-line">Only a small piece of mantle tissue is implanted; the pearl is solid nacre throughout.</div>
+        <div class="foot">No bead means many pearls per mussel and full-nacre bodies, but rarely perfectly round. Bead-nucleated freshwater "Edison" pearls now reach 9–20 mm. X-ray shows curved or folded cavity structures rather than a solid core.<sup><a href="#s7">7</a></sup></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Mikimoto and the Death of Natural Pearling</h3>
+    <div class="sub"><span>How one Japanese entrepreneur rewrote the entire market</span> <span class="c c-m">Med</span></div>
+    <div class="prose full">
+      <p>Kokichi Mikimoto (1858–1954), a noodle-seller's son turned pearl buyer on Japan's Shima Peninsula, watched the native Akoya beds being fished to depletion and set out to grow pearls deliberately. After roughly a decade of failures, including a red-tide that wiped out his stock in 1892, he harvested a hemispherical cultured pearl in July 1893, achieving the far harder fully round pearl around 1905. The bead-and-tissue method was developed in parallel by Tatsuhei Mise and Tokichi Nishikawa; Mikimoto incorporated and patented it in his own name in 1908.<sup><a href="#s4">4</a></sup></p>
+      <p>When cultured pearls first reached the London and Paris markets, experienced merchants could not tell them apart from natural pearls, and a 1921 dispute over whether they were "real" ended in the French courts ruling in Mikimoto's favour, cementing both his reputation and the legitimacy of the cultured pearl.<sup><a href="#s4">4</a></sup> The commercial consequence was total: by mid-century the great natural-pearl fisheries of the Persian Gulf and Gulf of Mannar had collapsed, and the cultured Akoya became the global standard for fine pearl jewellery. Natural pearls did not disappear, they retreated to the auction room.</p>
+    </div>
+    <div class="synth">
+      <b>The keshi complication.</b> Non-beaded cultured pearls that form accidentally during culturing, known as <b>keshi</b>, are solid nacre and can closely mimic natural pearls under casual inspection. As volumes rise they trouble the trade, because misidentification as natural would erode the rarity premium that defines the natural category.<sup><a href="#s7">7</a></sup>
+    </div>
+  </div>
+
+
+<!-- ============== III · FOUR TYPES ============== -->
+<div class="wrap">
+  </div></section>
+<section id="sec-3"><div class="sechead"><h2><em>III</em>Akoya · South Sea · Tahitian · Freshwater</h2><p class="sub">Type is set by the mollusc, and largely determines size, colour and value</p></div>
+
+  <div class="block">
+    <div class="prose full">
+      <p>A pearl's "type" refers to the mollusc that grew it, not whether it is natural or cultured.<sup><a href="#s5">5</a></sup> Four types account for essentially the whole commercial market, three saltwater and one freshwater, and they form a clear value ladder, with the largest, rarest oysters at the top.</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="nm">Akoya</div>
+      <div class="tag">Pinctada fucata · saltwater</div>
+      <div class="meta-line">Japan &amp; China · the classic round white pearl Mikimoto made famous</div>
+      <dl>
+        <dt>Size</dt><dd>2–10 mm <span class="mono">(7 typ.)</span></dd>
+        <dt>Colour</dt><dd>White / cream, rose or silver overtone</dd>
+        <dt>Cultivation</dt><dd>~10–14 months</dd>
+        <dt>Signature</dt><dd>Highest lustre</dd>
+      </dl>
+      <div class="foot">Cold water builds tight nacre, giving Akoya the sharpest mirror-like lustre of any type. Small oysters take small bead nuclei, so roundness is the norm. Most Akoya are bleached and toned ("pinked") as standard.<sup><a href="#s5">5</a></sup><sup><a href="#s13">13</a></sup></div>
+    </div>
+    <div class="card">
+      <div class="nm">South Sea</div>
+      <div class="tag">Pinctada maxima · saltwater</div>
+      <div class="meta-line">Australia (white/silver) · Indonesia &amp; Philippines (golden), the most valuable type</div>
+      <dl>
+        <dt>Size</dt><dd>8–18 mm+</dd>
+        <dt>Colour</dt><dd>White, silver, golden</dd>
+        <dt>Cultivation</dt><dd>~2–4 years</dd>
+        <dt>Signature</dt><dd>Largest · thickest nacre</dd>
+      </dl>
+      <div class="foot">Grown in the largest pearl oyster, the <em>Pinctada maxima</em>. Australian white South Sea pearls with fine natural orient are produced almost exclusively from Australia's wild-oyster fishery; golden pearls come chiefly from gold-lipped oysters in Indonesia and the Philippines.<sup><a href="#s5">5</a></sup><sup><a href="#s12">12</a></sup></div>
+    </div>
+    <div class="card">
+      <div class="nm">Tahitian</div>
+      <div class="tag">Pinctada margaritifera · saltwater</div>
+      <div class="meta-line">French Polynesia (~95%) · the only naturally dark cultured pearl</div>
+      <dl>
+        <dt>Size</dt><dd>8–16 mm</dd>
+        <dt>Colour</dt><dd>Grey → black; peacock, green, aubergine</dd>
+        <dt>Cultivation</dt><dd>~18–24 months</dd>
+        <dt>Signature</dt><dd>Natural dark body colour</dd>
+      </dl>
+      <div class="foot">The black-lipped oyster yields France's only gem. "Black" understates a range from charcoal to peacock green and aubergine; the most prized "peacock" overtone commands a premium. Assembling a matched natural-colour strand can take years.<sup><a href="#s5">5</a></sup><sup><a href="#s6">6</a></sup></div>
+    </div>
+    <div class="card">
+      <div class="nm">Freshwater</div>
+      <div class="tag">Hyriopsis spp. · freshwater mussel</div>
+      <div class="meta-line">China (~99%) · the volume engine of the entire market</div>
+      <dl>
+        <dt>Size</dt><dd>2–15 mm</dd>
+        <dt>Colour</dt><dd>White, pink, lavender, peach (often dyed)</dd>
+        <dt>Cultivation</dt><dd>~2–5 years</dd>
+        <dt>Signature</dt><dd>Most affordable · most varied</dd>
+      </dl>
+      <div class="foot">Grown in triangle-shell mussels in lakes and managed ponds, mostly in Zhejiang, Jiangsu and Jiangxi. Multiple, usually tissue-nucleated, pearls per mussel make freshwater the high-volume, low-cost staple of the market.<sup><a href="#s3">3</a></sup><sup><a href="#s9">9</a></sup></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>The Four Types, Side by Side</h3>
+    <div class="sub"><span>Like-for-like positioning</span> <span class="c c-m">Med</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <caption>Type is set by the mollusc; value rises with oyster size and rarity</caption>
+        <thead><tr><th>Type</th><th>Mollusc</th><th>Origin</th><th class="v">Size</th><th>Value position</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Akoya</strong></td><td>P. fucata</td><td>Japan · China</td><td class="v">2–10 mm</td><td>Mid, prized for lustre &amp; roundness</td></tr>
+          <tr><td><strong>South Sea</strong></td><td>P. maxima</td><td>Australia · Indonesia · Philippines</td><td class="v">8–18 mm+</td><td><strong>Highest</strong>, largest, thickest nacre</td></tr>
+          <tr><td><strong>Tahitian</strong></td><td>P. margaritifera</td><td>French Polynesia</td><td class="v">8–16 mm</td><td>High, rarity of fine dark colour</td></tr>
+          <tr><td><strong>Freshwater</strong></td><td>Hyriopsis</td><td>China</td><td class="v">2–15 mm</td><td>Entry, volume staple; top "Edison" rising</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+<!-- ============== IV · PRODUCTION GEOGRAPHY ============== -->
+<div class="wrap">
+  </div></section>
+<section id="sec-4"><div class="sechead"><h2><em>IV</em>Farms, Not Mines</h2><p class="sub">Where pearls are grown, and why the map of volume is the inverse of the map of value</p></div>
+
+  <div class="block">
+    <div class="prose full">
+      <p>Where coloured gemstones have cutting centres, pearls have farming regions, and the geography is starkly split. <strong>China grows the overwhelming majority of the world's pearls by weight</strong> (freshwater); a handful of saltwater nations grow a tiny fraction of the volume but capture most of the value.<sup><a href="#s3">3</a></sup><sup><a href="#s9">9</a></sup> A single statistic captures it: Australian production is on the order of <strong>0.1% of global pearl output by weight but over 20% by value.</strong><sup><a href="#s12">12</a></sup></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Estimated Annual Production by Region</h3>
+    <div class="sub"><span>Tonnages are estimates, definitions and sources vary</span> <span class="c c-m">Med</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <caption>Volume concentrates in China; value concentrates in saltwater nations</caption>
+        <thead><tr><th>Region</th><th>Type</th><th>Mollusc</th><th class="v">Output (approx.)</th><th>Position</th></tr></thead>
+        <tbody>
+          <tr><td><strong>China</strong></td><td>Freshwater</td><td>Hyriopsis</td><td class="v">~1,500 t/yr</td><td>~95–99% of freshwater; volume leader</td></tr>
+          <tr><td><strong>Japan</strong></td><td>Akoya (saltwater)</td><td>P. fucata</td><td class="v">~20–25 t/yr</td><td>~90% of Akoya; down from ~70 t historically</td></tr>
+          <tr><td><strong>French Polynesia</strong></td><td>Tahitian (saltwater)</td><td>P. margaritifera</td><td class="v">~13–15 t/yr</td><td>~95–99% of black pearls</td></tr>
+          <tr><td><strong>Australia</strong></td><td>South Sea (saltwater)</td><td>P. maxima</td><td class="v">~ a few t/yr</td><td>White South Sea; only major wild-oyster fishery</td></tr>
+          <tr><td><strong>Indonesia · Philippines · Myanmar</strong></td><td>South Sea (saltwater)</td><td>P. maxima</td><td class="v">~12 t/yr (combined white-lipped)</td><td>Indonesia ~45% of white-lipped output</td></tr>
+          <tr><td colspan="5" style="font-style:italic;color:#6f6a62;font-size:13px">Global saltwater output is on the order of ~60 t/yr in total, against ~1,500 t of freshwater.<sup><a href="#s3">3</a></sup><sup><a href="#s9">9</a></sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>The Regional Stories That Matter</h3>
+    <div class="sub"><span>Processing power, wild oysters, and a cautionary tale</span> <span class="c c-m">Med</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="nm">Japan, Kobe &amp; the Akoya nerve centre</div>
+        <div class="tag">Processing &amp; trade hub</div>
+        <div class="foot">Japan invented modern pearl culture and still sets the global quality bar. Kobe is the trading and processing capital, long handling the bulk of Japan's pearl exports, and much Chinese-grown Akoya is shipped to Japan for processing and finishing before export.<sup><a href="#s9">9</a></sup></div>
+      </div>
+      <div class="card">
+        <div class="nm">Australia, the last wild fishery</div>
+        <div class="tag">Quota-managed · MSC-certified</div>
+        <div class="foot">Almost uniquely, Australia still cultures from <strong>wild-collected</strong> P. maxima oysters under a government quota; every other country uses hatchery stock. Its pearl fishery was the world's first to earn Marine Stewardship Council sustainability certification.<sup><a href="#s12">12</a></sup></div>
+      </div>
+      <div class="card">
+        <div class="nm">French Polynesia, a national industry</div>
+        <div class="tag">Black pearls as state export</div>
+        <div class="foot">Raw black-pearl exports make up more than half of French Polynesia's local product exports, worth about <strong>US$150m in 2023 (+182% on 2022)</strong> per IEOM, with Hong Kong and Japan taking roughly 92% of shipments.<sup><a href="#s6">6</a></sup></div>
+      </div>
+      <div class="card">
+        <div class="nm">Lake Biwa, what pollution costs</div>
+        <div class="tag">Japan · cautionary tale</div>
+        <div class="foot">Japan's famed freshwater "Biwa pearls" peaked at around six tonnes in 1971, then collapsed as pollution and mollusc depletion ended the industry by the 1980s. Genuine Biwa pearls are now collector's items, a preview of pearls' environmental fragility.<sup><a href="#s9">9</a></sup></div>
+      </div>
+    </div>
+    <div class="synth">
+      <b>A hidden American input.</b> The shell beads at the heart of nearly every bead-nucleated saltwater pearl are cut from US freshwater mussels, historically the Tennessee/Mississippi river system. The world's most glamorous pearls quietly depend on an American river-shell supply chain.<sup><a href="#s9">9</a></sup>
+    </div>
+  </div>
+
+
+<!-- ============== V · QUALITY & VALUE ============== -->
+<div class="wrap">
+  </div></section>
+<section id="sec-5"><div class="sechead"><h2><em>V</em>The Seven Factors · Treatment · Certification</h2><p class="sub">No single dominant criterion, and treatment status that moves price as much as origin</p></div>
+
+  <div class="block">
+    <div class="prose full">
+      <p>Diamonds reduce to four Cs; pearls resist reduction. Because a pearl is organic and no two are alike, GIA codified <strong>seven independent value factors</strong>, first systematised by Richard T. Liddicoat in 1967 and now the trade's common language.<sup><a href="#s13">13</a></sup> No one factor dominates the way carat or colour can for a diamond, though lustre comes closest.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>The GIA 7 Pearl Value Factors</h3>
+    <div class="sub"><span>The pearl analogue of the 4Cs</span> <span class="c c-m">Med</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <caption>Seven factors, evaluated independently, lustre is first among equals</caption>
+        <thead><tr><th>Factor</th><th>What it measures</th><th>What raises value</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Lustre</strong></td><td>Intensity &amp; sharpness of reflected light from the nacre</td><td>Mirror-like, sharp reflections (the single most important quality)</td></tr>
+          <tr><td><strong>Surface</strong></td><td>Freedom from spots, pits and blemishes</td><td>Clean, smooth, unblemished skin</td></tr>
+          <tr><td><strong>Shape</strong></td><td>Roundness or symmetry</td><td>Perfectly round is rarest; symmetric drops also prized</td></tr>
+          <tr><td><strong>Colour</strong></td><td>Body colour + overtone + orient</td><td>Even saturation; rare natural colours (golden, peacock)</td></tr>
+          <tr><td><strong>Nacre</strong></td><td>Thickness &amp; continuity of the nacre coat</td><td>Thick, uninterrupted nacre, also drives durability</td></tr>
+          <tr><td><strong>Size</strong></td><td>Diameter in millimetres</td><td>Larger, all else equal, but never at lustre's expense</td></tr>
+          <tr><td><strong>Matching</strong></td><td>Uniformity across a strand or pair</td><td>Consistent size, colour and lustre across the piece</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="synth">
+      A pearl of modest size with <b>exceptional lustre will out-value a larger pearl of mediocre lustre</b> every time. Grading shorthand varies, the descriptive GIA system, the trade's A–AAA scales, and Japan's "Hanadama" top-Akoya certificate are not interchangeable, so the system behind any grade matters as much as the grade itself.<sup><a href="#s13">13</a></sup>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Treatment &amp; Disclosure</h3>
+    <div class="sub"><span>Almost all pearls are processed, but heavy treatment is discounted</span> <span class="c c-m">Med</span></div>
+    <div class="prose full">
+      <p>As with heat in sapphire or oil in emerald, treatment is a major pricing variable for pearls, and the trade norm is that nearly every pearl is processed to <em>some</em> degree, from a simple clean-and-polish upward. The line that matters is between routine, accepted refinement and heavy enhancement that must be disclosed and is materially discounted.<sup><a href="#s13">13</a></sup></p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <caption>Treatment status drives price, disclosure is the trade's obligation</caption>
+        <thead><tr><th>Treatment</th><th>What it does</th><th>Trade status &amp; price effect</th></tr></thead>
+        <tbody>
+          <tr><td>Cleaning / polishing</td><td>Removes organic residue; light buff</td><td>Universal &amp; accepted, baseline</td></tr>
+          <tr><td>Bleaching</td><td>Whitens &amp; evens colour (most Akoya, much freshwater)</td><td>Routine; over-bleaching can weaken thin nacre</td></tr>
+          <tr><td>Toning / "pinking"</td><td>Adds rose overtone to Akoya</td><td>Standard refinement; "no toning" lots command a premium</td></tr>
+          <tr><td>"Maeshori" luster treatment</td><td>Thermal heat-then-cool to lift lustre</td><td>Common but secretive; disclosure inconsistent</td></tr>
+          <tr><td>Dyeing</td><td>Adds colour, golden, "chocolate", black</td><td>Disclosed but discounted; most "chocolate" pearls are dyed</td></tr>
+          <tr><td>Irradiation</td><td>Gamma rays darken nucleus/nacre (esp. freshwater)</td><td>Disclosed &amp; discounted</td></tr>
+          <tr><td>Filling / coating</td><td>Epoxy fills, or surface coating for lustre</td><td>Coating is frowned upon, can chip; materially discounted</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="synth">
+      The valuation principle mirrors coloured stones: <b>natural-colour, minimally-treated pearls carry the premium</b>, top "Hanadama" Akoya, natural-colour Tahitian and South Sea, while dyed, irradiated or filled pearls trade at a discount and must be disclosed. Treatment is often impossible to see; a laboratory report is the only reliable check.<sup><a href="#s13">13</a></sup>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>The Laboratories, and the X-ray That Decides Everything</h3>
+    <div class="sub"><span>Natural-versus-cultured is the trade's hardest call</span> <span class="c c-h">High</span></div>
+    <div class="prose full">
+      <p>Because the natural/cultured distinction carries a 10–100× price gap and cannot be made by eye, it is settled by <strong>X-radiography</strong>, now augmented by <strong>X-ray computed microtomography (μ-CT)</strong>. A natural pearl shows concentric growth rings with no solid core; a bead-nucleated pearl shows a solid bead ringed by nacre; a tissue-nucleated pearl shows curved or folded internal cavities. Fluorescence and Raman / UV-Vis-NIR spectroscopy further separate natural from treated colour.<sup><a href="#s7">7</a></sup></p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="nm">SSEF</div>
+        <div class="tag">Basel, Switzerland</div>
+        <div class="meta-line">Widely regarded as the leading lab for natural-pearl identification</div>
+        <div class="foot">Extensive reference collection and μ-CT capability; the reference for many high-value natural-pearl determinations. A pearl specialist beyond corundum and emerald.<sup><a href="#s7">7</a></sup></div>
+      </div>
+      <div class="card">
+        <div class="nm">Gübelin Gem Lab</div>
+        <div class="tag">Lucerne, Switzerland</div>
+        <div class="meta-line">Comparable authority and a long high-value track record</div>
+        <div class="foot">Frequently paired with SSEF on the most important pearls; research-led, with equivalent μ-CT and spectroscopic capability.<sup><a href="#s7">7</a></sup></div>
+      </div>
+      <div class="card">
+        <div class="nm">GIA</div>
+        <div class="tag">Carlsbad &amp; New York</div>
+        <div class="meta-line">Broadest reach; standard in the American trade</div>
+        <div class="foot">Digital X-radiography plus its 7-Factor classification and dedicated Pearl Identification &amp; Classification reports; codifier of the modern grading language.<sup><a href="#s7">7</a></sup><sup><a href="#s13">13</a></sup></div>
+      </div>
+      <div class="card">
+        <div class="nm">The trade convention</div>
+        <div class="tag">Why the paper matters</div>
+        <div class="foot">For any pearl whose value depends on natural origin, the laboratory report <em>is</em> the asset. Without it, a pearl trades as cultured regardless of how it looks, exactly as an uncertificated Kashmir sapphire trades down.<sup><a href="#s8">8</a></sup></div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ============== VI · PRODUCERS & HOUSES ============== -->
+<div class="wrap">
+  </div></section>
+<section id="sec-6"><div class="sechead"><h2><em>VI</em>The Growers, the Listed Pure-Play, and the Maison</h2><p class="sub">Paspaley · Robert Wan · Atlas Pearls · Mikimoto, plus the auction record</p></div>
+
+  <div class="block">
+    <div class="prose full">
+      <p>The pearl industry's "miners" are family dynasties and a single listed company. Where Gemfields is the one quoted pure-play in coloured stones, <strong>Atlas Pearls is its pearl equivalent</strong>, the only meaningfully-listed producer, and therefore the sector's one window onto audited numbers.</p>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="nm">Paspaley</div>
+      <div class="tag">Australia · private · founded 1930s</div>
+      <div class="meta-line">World's leading producer of white South Sea pearls</div>
+      <dl>
+        <dt>Pearl farms</dt><dd>~20 <span class="mono">(2,500 km coast)</span></dd>
+        <dt>Share of Aus. South Sea</dt><dd>~70–80%</dd>
+        <dt>Wild-oyster quota</dt><dd>~300–400k/yr</dd>
+        <dt>Sustainability</dt><dd>MSC-certified</dd>
+      </dl>
+      <div class="foot">Began as natural-pearl fishers, pivoted to South Sea culture from the 1950s. The world's largest fisher of wild pearl oysters and the last to depend on them, still surfacing exceptional natural pearls today.<sup><a href="#s12">12</a></sup></div>
+    </div>
+    <div class="card">
+      <div class="nm">Robert Wan</div>
+      <div class="tag">French Polynesia · private · since 1973</div>
+      <div class="meta-line">"The Emperor of Tahitian Pearls"</div>
+      <dl>
+        <dt>Islands / farms</dt><dd>3 islands · 6 farms</dd>
+        <dt>Market position</dt><dd>Dominant since late 1980s</dd>
+        <dt>First buyer (1977)</dt><dd>Mikimoto</dd>
+        <dt>Museum</dt><dd>Papeete <span class="mono">(only pearl museum)</span></dd>
+      </dl>
+      <div class="foot">Built the global black-pearl market almost single-handedly, elevating the Tahitian pearl to fine-gem status, including funding GIA's Robert Wan Educational Wing. France's only gem owes its prominence largely to him.<sup><a href="#s6">6</a></sup></div>
+    </div>
+    <div class="card">
+      <div class="nm">Atlas Pearls</div>
+      <div class="tag">ASX:ATP · listed · since 1987</div>
+      <div class="meta-line">The sector's only listed pure-play, South Sea, Indonesia</div>
+      <dl>
+        <dt>Farms</dt><dd>8 (Indonesia)</dd>
+        <dt>FY25 harvest</dt><dd>621,458 pearls</dd>
+        <dt>FY25 revenue</dt><dd>A$28.7m</dd>
+        <dt>1H FY26 revenue</dt><dd>A$13.6m <span class="mono">(▼27%)</span></dd>
+      </dl>
+      <div class="foot">White &amp; silver South Sea, ~1,200 employees. FY25 prices were stable; first-half FY26 swung to a loss on a 27% revenue fall, a reminder that even the listed name is small and cyclical.<sup><a href="#s14">14</a></sup></div>
+    </div>
+    <div class="card">
+      <div class="nm">Mikimoto</div>
+      <div class="tag">Japan · private · founded 1893</div>
+      <div class="meta-line">The house that made the cultured pearl a luxury</div>
+      <dl>
+        <dt>Heritage</dt><dd>130+ years</dd>
+        <dt>Model</dt><dd>Vertically integrated</dd>
+        <dt>Standard-setter</dt><dd>Cultured Akoya</dd>
+        <dt>Founder</dt><dd>Kokichi Mikimoto</dd>
+      </dl>
+      <div class="foot">Uniquely runs the full chain from seed-pearl culture to finished jewellery. Established the cultured Akoya as the international benchmark, and still buys, grades and sets at a scale few specialist houses match.<sup><a href="#s4">4</a></sup></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>Natural-Pearl Auction Records</h3>
+    <div class="sub"><span>The visible tip of the market, provenance multiplies value</span> <span class="c c-h">High</span></div>
+    <div class="auc">
+      <div class="row">
+        <div class="who">Marie-Antoinette pendant<small>natural pearl &amp; diamond · Sotheby's Geneva 2018</small></div>
+        <div class="track"><div class="fill" style="width:100%"></div></div>
+        <div class="amt">$36.2m</div>
+      </div>
+      <div class="row">
+        <div class="who">La Peregrina<small>16th-c. pear pearl, Cartier mount · Christie's NY 2011</small></div>
+        <div class="track"><div class="fill" style="width:32.7%"></div></div>
+        <div class="amt">$11.8m</div>
+      </div>
+      <div class="row">
+        <div class="who">The Baroda Pearls<small>natural pearl necklace · Christie's NY 2007</small></div>
+        <div class="track"><div class="fill" style="width:19.6%"></div></div>
+        <div class="amt">$7.1m</div>
+      </div>
+      <div class="row">
+        <div class="who">Paspaley natural pearl earrings<small>natural drop pearls · Christie's Geneva</small></div>
+        <div class="track"><div class="fill" style="width:9.8%"></div></div>
+        <div class="amt">$3.5m</div>
+      </div>
+      <div class="row">
+        <div class="who">Lollobrigida pearl pendants<small>natural baroque pair · Sotheby's Geneva 2013</small></div>
+        <div class="track"><div class="fill" style="width:6.6%"></div></div>
+        <div class="amt">$2.4m</div>
+      </div>
+      <div class="scale"><span>$0</span><span>$12m</span><span>$24m</span><span>$36m</span></div>
+    </div>
+    <div class="prose full" style="margin-top:14px">
+      <p>The Marie-Antoinette pendant sold for roughly eighteen times its high estimate in 2018, eclipsing La Peregrina's 2011 record, itself bought by Richard Burton for Elizabeth Taylor in 1969 for $37,000. Provenance and natural origin, not size alone, drive these prices: each is a natural pearl with a documented royal or celebrity history, the two scarcest attributes in the category.<sup><a href="#s11">11</a></sup><sup><a href="#s12">12</a></sup></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>The House Side, Where Pearls Are Core, Not Accessory</h3>
+    <div class="sub"><span>One maison defined by pearls; others that lean on them</span> <span class="c c-m">Med</span></div>
+    <div class="prose full">
+      <p><strong>Mikimoto</strong> is the only global high-jewellery house built on pearls themselves, supplying the trade as well as its own boutiques. Beyond it, pearls anchor signature work at <strong>Tasaki</strong> (Japan), feature in the historic pearl ropes of <strong>Cartier</strong> and <strong>Van Cleef &amp; Arpels</strong>, and remain a recurring motif at <strong>Chanel</strong>, though, as with coloured stones, none of these houses discloses pearl-specific revenue, so any share estimate is inference rather than fact.<sup><a href="#s4">4</a></sup><sup><a href="#s6">6</a></sup></p>
+    </div>
+  </div>
+
+
+<!-- ============== VII · OUTLOOK ============== -->
+<div class="wrap">
+  </div></section>
+<section id="sec-7"><div class="sechead"><h2><em>VII</em>A Gem on the Front Line of the Ocean</h2><p class="sub">Climate &amp; disease · the "synthetic pearl" myth · demand · sustainability</p></div>
+
+  <div class="cards">
+    <div>
+      <div class="l">Akoya viral disease losses (Japan)</div>
+      <div class="v">&gt;¥30<span class="u">bn</span></div>
+      <div class="yr">annual</div>
+      <div class="note">"Summer atrophy" from a novel birnavirus (PiBV), recurring since 2019 as waters warm past ~20°C.<sup><a href="#s15">15</a></sup></div>
+      <span class="c c-h">High</span>
+    </div>
+    <div>
+      <div class="l">Japan Akoya output vs historical</div>
+      <div class="v">▼ ~65<span class="u">%</span></div>
+      <div class="yr">long-run</div>
+      <div class="note">From ~70 t/yr to ~20–25 t/yr on disease, pollution and ageing oyster stocks.<sup><a href="#s9">9</a></sup><sup><a href="#s15">15</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+    <div>
+      <div class="l">"Synthetic" pearl displacement risk</div>
+      <div class="v">~Nil</div>
+      <div class="yr">structural</div>
+      <div class="note">There is no lab-grown pearl, only imitations. The diamond synthetic story does not apply here.<sup><a href="#s5">5</a></sup></div>
+      <span class="c c-x">Hyp</span>
+    </div>
+    <div>
+      <div class="l">Tahitian export rebound</div>
+      <div class="v">+182<span class="u">%</span></div>
+      <div class="yr">2023</div>
+      <div class="note">French Polynesia raw black-pearl exports vs 2022 (IEOM), volatile, demand-led recovery.<sup><a href="#s6">6</a></sup></div>
+      <span class="c c-m">Med</span>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>1 · Pearls Are the Ocean's Early-Warning Gem</h3>
+    <div class="prose full">
+      <p>No other major gem depends on the health of a living ecosystem. Pearl oysters have a narrow survival envelope, and warming water, ocean acidification, salinity shifts, pollution and disease all hit them directly. Japan's Akoya industry has been repeatedly battered by red tides and, since 2019, by <strong>"summer atrophy"</strong>, mass mortality traced to a newly identified <em>Pinctada</em> birnavirus that strikes when seawater exceeds about 20°C, with losses exceeding ¥30 billion a year.<sup><a href="#s15">15</a></sup> South Sea oysters suffer elevated mortality in El Niño years, and Lake Biwa's earlier collapse shows how fast pollution can end a fishery. The industry's response, selective breeding for disease resistance and lower stocking densities, is real but unproven at scale.<sup><a href="#s15">15</a></sup> <span class="c c-m">Med</span></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>2 · There Is No "Lab-Grown Pearl"</h3>
+    <div class="prose full">
+      <p>This is the sharpest contrast with diamonds and the most misunderstood point in the category. Lab-grown diamonds are chemically identical stones made in a reactor, and they have taken meaningful share. <strong>Pearls have no such analogue.</strong> A cultured pearl is already grown with human help, but inside a real mollusc, as genuine nacre. The only "fake" pearls are <em>imitations</em>, glass, coated shell or "Majorica"-style beads, which no informed buyer confuses with the real thing. There is therefore no synthetic-displacement threat to natural or cultured pearl values; the line the trade polices is natural-vs-cultured and treated-vs-untreated, not real-vs-lab.<sup><a href="#s5">5</a></sup> <span class="c c-x">Hyp</span></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>3 · Demand, Younger Buyers, Men's Jewellery, and the Sustainability Story</h3>
+    <div class="prose full">
+      <p>Pearls have moved from "grandmother's gem" to a contemporary staple, helped by Gen-Z and a fast-growing men's-jewellery segment, and by celebrity and runway visibility. Producers increasingly lead with provenance and sustainability, Australia's MSC-certified wild fishery and Robert Wan's lagoon-stewardship positioning are the clearest examples, framing pearls as a gem "grown by nature" rather than extracted.<sup><a href="#s12">12</a></sup> Whether this translates into durable price growth is a hypothesis, not yet an observed trend, and remains hostage to Chinese demand and to the supply shocks in point 1. <span class="c c-x">Hyp</span></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>4 · The Honest Bottom Line</h3>
+    <div class="prose full">
+      <p>Pearls are a small, opaque, biologically-constrained gem market with no cartel, no price sheet and one listed producer. The two most reliable signals are the <strong>auction record for natural pearls</strong> (rising, provenance-driven) and the <strong>farm-gate and listed-company data for cultured pearls</strong> (volatile, cyclical, environmentally exposed). The single most important structural fact is the one this dashboard opened on: <strong>volume lives in China, value lives in saltwater</strong>, and any figure that blends the two should be treated with suspicion.</p>
+    </div>
+  </div>
+
+
+<!-- ============== SOURCES ============== -->
+<div class="wrap">
+  </div></section>
+<section id="sources"><div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src">
+      <li id="s1"><b>Paid market-report estimates, pearl jewellery / natural &amp; cultured pearls market.</b> Estimates for the same year diverge several-fold: Market Research Future puts the 2024 pearl-jewellery market at ~$20bn (cultured ~$15bn, natural ~$5bn); others land near $10–12bn; Verified Market Reports gives a 2023 cultured:natural value split of ~78:22. Treat as order-of-magnitude only. <a href="https://www.marketresearchfuture.com/reports/pearl-jewellery-market-20290">marketresearchfuture.com</a> · <a href="https://www.verifiedmarketreports.com/product/natural-and-cultured-pearls-market-size-and-forecast/">verifiedmarketreports.com</a></li>
+      <li id="s2"><b>Cultured-pearl dominance &amp; the natural/cultured price gap.</b> Cultured pearls represent the overwhelming majority of supply by volume; natural pearls a small remainder priced far higher. Background on the shift from natural to cultured supply. <a href="https://www.marketgrowthreports.com/market-reports/natural-and-cultured-pearls-market-115429">marketgrowthreports.com</a> · <a href="https://www.thepearlsource.com/natural-pearls">thepearlsource.com</a></li>
+      <li id="s3"><b>Global production volume &amp; the volume–value paradox.</b> Springer (Southgate et al., 2019): average annual Chinese pearl output ~3,540 t (freshwater ~99.5%); Japan ~51.6% of global marine pearl <em>value</em>; average marine output ~23 t Japan, ~18.6 t China, ~12.9 t French Polynesia. Chinese freshwater = high-yield, low-value. <a href="https://link.springer.com/content/pdf/10.1007/978-3-319-96776-9_5.pdf">link.springer.com</a></li>
+      <li id="s4"><b>Mikimoto &amp; the history of the cultured pearl.</b> First hemispherical cultured pearl 1893; first round ~1905; method patented 1908 (parallel work by Mise &amp; Nishikawa); 1921 Paris court case affirming cultured pearls as "real." Akoya oyster Pinctada fucata; vertically integrated house since 1893. <a href="https://www.gia.edu/japanese-cultured-pearls-reading-list">gia.edu</a> · <a href="https://skyjems.ca/pages/encyclopedia-mikimoto">skyjems.ca</a></li>
+      <li id="s5"><b>The four pearl types &amp; "type vs natural/cultured."</b> GIA on cultured-pearl types and characteristics; type is set by the mollusc, not by natural/cultured status. Akoya (P. fucata), South Sea (P. maxima), Tahitian (P. margaritifera), Freshwater (Hyriopsis). <a href="https://www.gia.edu/gia-faq-about-gemstones-cultured-pearl-types-characteristics">gia.edu</a> · <a href="https://www.purepearls.com/pages/pearl-types">purepearls.com</a></li>
+      <li id="s6"><b>Tahitian pearls &amp; French Polynesia exports.</b> Robert Wan's history and dominance; black-lipped oyster; first whole cultured Tahitian pearls early 1960s. IEOM via trade press: raw black-pearl exports >50% of French Polynesia local product exports, ~US$150m in 2023 (+182% vs 2022); Hong Kong + Japan ~92% of exports. <a href="https://en.wikipedia.org/wiki/Robert_Wan">en.wikipedia.org</a> · <a href="https://www.kaori-media.com/posts/robert-wan-a-legacy-of-pearl-excellence-and-a-symbol-of-french-polynesia">kaori-media.com</a></li>
+      <li id="s7"><b>Natural-vs-cultured determination, X-ray &amp; μ-CT.</b> Hänni, Krzemnicki et al. (SSEF / Gems &amp; Gemology, 2010) on X-ray computed microtomography for distinguishing natural, beaded and non-beaded (incl. keshi) cultured pearls; GIA on X-radiography, fluorescence and spectroscopy. <a href="https://www.gia.edu/gems-gemology/summer-2010-pearls-microtomography-krzemnicki">gia.edu</a> · <a href="https://www.gia.edu/gia-news-research/guide-how-gia-analyzes-pearls">gia.edu</a> · <a href="https://www.ssef.ch/x-ray-computed-microtomography-distinguishing-natural-pearls-from-beaded-and-non-beaded-cultured-pearls/">ssef.ch</a></li>
+      <li id="s8"><b>Pearl identification report &amp; the natural-origin premium.</b> The price differential between natural and cultured pearls of comparable specification runs ~10–100×; SSEF and Gübelin are the leading reference labs for high-value natural-pearl determination, GIA the standard in the US trade. <a href="https://skyjems.ca/pages/encyclopedia-pearl-identification-report">skyjems.ca</a></li>
+      <li id="s9"><b>Production geography, Kobe processing, US shell-bead nuclei, Lake Biwa.</b> China ~1,500 t/yr freshwater (~99% of world); global saltwater ~60 t; Japan Akoya from ~70,000 kg to ~20,000 kg/yr; white-lipped South Sea split (Indonesia ~45%, Philippines/Australia ~20% each, Myanmar ~15%); Kobe as processing hub; Tennessee/Mississippi mussel shell as bead nuclei; Lake Biwa "Biwa pearls" peak ~6 t (1971) then collapse. <a href="https://realgaijin.substack.com/p/the-market-for-the-mother-of-all">realgaijin.substack.com</a> · <a href="https://www.pearlswholesaler.com/major-freshwater-pearl-producing-regions/">pearlswholesaler.com</a></li>
+      <li id="s10"><b>Pearls per mollusc.</b> Saltwater oysters (Akoya, South Sea, Tahitian) yield 1–2 (rarely 3–4) pearls per cycle; Chinese freshwater mussels yield up to several dozen, the structural reason freshwater volume dwarfs saltwater. <a href="https://realgaijin.substack.com/p/the-market-for-the-mother-of-all">realgaijin.substack.com</a> · <a href="https://zipdo.co/pearl-industry-statistics/">zipdo.co</a></li>
+      <li id="s11"><b>Natural-pearl auction records.</b> Marie-Antoinette natural pearl pendant $36.2m (Sotheby's Geneva, Nov 2018, ~18× high estimate); La Peregrina $11.8m (Christie's NY, Dec 2011); Baroda Pearls $7.1m (Christie's NY, 2007); Lollobrigida natural baroque pendants $2.4m (Sotheby's Geneva, 2013). <a href="https://thejewelerblog.wordpress.com/2018/11/19/marie-antoinettes-natural-pearl-pendant-crushes-auction-record-as-it-sells-for-36-1-million/">thejewelerblog</a> · <a href="https://www.thejewelleryeditor.com/jewellery/article/natural-pearl-necklaces-earrings-dominate-jewellery-auctions/">thejewelleryeditor.com</a></li>
+      <li id="s12"><b>Paspaley &amp; the Australian wild fishery.</b> World's leading producer of white South Sea pearls; ~20 farms over 2,500 km; ~70–80% of Australian South Sea output; wild-oyster quota ~300–400k/yr; only major wild-oyster fishery; first MSC-certified pearl fishery; Australia ~0.1% of global output by weight but >20% by value; notable Paspaley natural-pearl auction sales. <a href="https://paspaleygroup.com/pearling.html">paspaleygroup.com</a> · <a href="https://wholesale.paspaley.com/pages/about-us">wholesale.paspaley.com</a> · <a href="https://www.msc.org/what-we-are-doing/fishers-stories/the-worlds-first-certified-sustainable-pearl-fishery">msc.org</a></li>
+      <li id="s13"><b>GIA 7 Pearl Value Factors &amp; treatment.</b> Size, shape, colour, lustre, surface, nacre, matching (codified by R. T. Liddicoat, 1967; nacre-classification update 2025); lustre first among equals; treatments, bleaching, toning/pinking, maeshori, dyeing, irradiation, filling, coating, with disclosure norms and discounts; Hanadama as top-Akoya designation. <a href="https://www.gia.edu/gems-gemology/summer-2021-pearl-classification-the-gia-7-pearl-value-factors">gia.edu</a> · <a href="https://www.gemsociety.org/article/pearl-treatments/">gemsociety.org</a></li>
+      <li id="s14"><b>Atlas Pearls (ASX:ATP), the listed pure-play.</b> Annual Report FY25: 621,458 pearls harvested (FY24: 598,324); ~1,200 employees; 8 Indonesian farms; trailing revenue A$28.7m (to 30 Jun 2025). 1H FY26: revenue A$13.6m (▼27% YoY), net loss A$5.23m, loss per share A$0.012. White &amp; silver South Sea producer. <a href="https://announcements.asx.com.au/asxpdf/20250919/pdf/06pf4s9zvg21xw.pdf">ASX FY25 Annual Report</a> · <a href="https://simplywall.st/stocks/au/consumer-durables/asx-atp/atlas-pearls-shares">simplywall.st</a></li>
+      <li id="s15"><b>Pearl-oyster disease &amp; climate exposure.</b> Novel <em>Pinctada</em> birnavirus (PiBV) identified as the agent of Akoya "summer atrophy," recurring since 2019 when seawater exceeds ~20°C; Akoya viral disease losses exceeding ¥30bn/yr; red-tide and warming pressures; selective breeding for disease resistance (survival gains 43.9–80.6% to viral pathogens). Pearl oysters as an ocean early-warning indicator. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11067908/">ncbi.nlm.nih.gov (PiBV)</a> · <a href="https://www.ganoksin.com/article/effects-global-warming-pearl-oysters/">ganoksin.com</a> · <a href="https://www.spf.org/opri/en/newsletter/86_1.html?full=86_1">spf.org / OPRI</a></li>
+    </ol></section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

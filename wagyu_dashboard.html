@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wagyu, ΣΟΦΙΑ</title>
+<meta name="description" content="Wagyu: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Wagyu</p>
+  <h1>Wagyu</h1>
+  <p class="lede">A farmed animal graded so rigorously that the top grade has stopped being scarce: three-quarters of the Japanese market is now A5, and the growth is in export. This page covers the breed registry, the grading regime, the brand councils that sit above it, and the export trade. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">12,628 t</div><div class="l">Japanese beef exports 2025, +17%; Taiwan 21%, US 20%, Hong Kong 17% <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">c.3,000</div><div class="l">Kobe beef cattle certified a year <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div></div>
+</header>
+
+
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Branded premia widening as export volumes grow, while the A5 grade itself loses its scarcity.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Hyōgo (Tajima) · Miyazaki · Kagoshima · Ōita</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>Japan · Taiwan · United States · Hong Kong · Gulf</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+  </dl>
+  <p class="snap-note" style="margin-top:16px">Scarcity is rated on the grade, not the brand: A5 at over three-quarters of the market is not a scarce tier.</p>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-iii"><span>I</span>Breed, grade and brand</a></li><li><a href="#s-iv"><span>II</span>Production and export</a></li><li><a href="#s-v"><span>III</span>Brand economics compared</a></li><li><a href="#s-vi"><span>IV</span>Indicators to monitor</a></li><li><a href="#sources"><span>V</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-iii">
+  <div class="sechead"><h2><em>I</em>Breed, grade and brand</h2><p class="sub">A carcass grading system that became a luxury label.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Layer</th><th>Definition</th><th>Note</th></tr>
+    <tr><td>Breed</td><td>Japanese Black, Japanese Brown (Akaushi), Japanese Shorthorn, Japanese Polled, the only cattle that may be sold as wagyu in Japan; crossbreds excluded</td><td>Registry established 1944; Tajima strain of Japanese Black underlies Kobe and most premium brands<sup class="r"><a href="#s4">4</a> <a href="#s2">2</a></sup></td></tr>
+    <tr><td>Yield grade</td><td>A / B / C, usable meat from the carcass</td><td>Nearly all export-quality wagyu is A<sup class="r"><a href="#s5">5</a></sup></td></tr>
+    <tr><td>Quality grade</td><td>1–5, the lowest score across marbling (BMS), colour, fat quality and texture</td><td>A5 = top of both axes; A5 requires BMS 8–12<sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup></td></tr>
+    <tr><td>BMS (Beef Marbling Standard)</td><td>Japan Meat Grading Association 12-point scale of intramuscular fat</td><td>Pricing steps: BMS 6 c.+40%, BMS 8 c.+80%, BMS 10–12 +150–200% over a BMS 4 reference<sup class="r"><a href="#s5">5</a></sup> <span class="c c-l">Low</span></td></tr>
+    <tr><td>Brand</td><td>Kobe, Matsusaka, Ōmi (the "Sandai Wagyu"), Miyazaki, Hida and other prefectural marks with their own councils, seals and serial numbers</td><td>Kobe: Tajima-gyu steers or heifers from Hyōgo, quality grade 4+, yield A or B, BMS 6+, carcass 230–470 kg; c.3,000 certified a year; under 0.5% of wagyu<sup class="r"><a href="#s2">2</a> <a href="#s7">7</a></sup></td></tr>
+  </table></div>
+  <div class="note warn">Discrepancy logged: a European breeder's guide states that "only about 3% of Japanese wagyu achieves" A5; Nikkei Asia reported in June 2026 that A5 accounts for over 75% of Japan's wagyu market. The Nikkei figure describes the market as of June 2026; the 3% is either historical or wrong. Grade inflation is the story, not scarcity.<sup class="r"><a href="#s6">6</a> <a href="#s8">8</a></sup> <span class="c c-h">High</span></div>
+  <p>Every retail cut carries a seal and a ten-digit traceability number that can be checked on a phone, a provenance system the diamond trade is still building.<sup class="r"><a href="#s2">2</a></sup> Regional cooperatives control breeding, feed and marketing, which sustains the brand mystique but makes quality metrics hard to standardise internationally.<sup class="r"><a href="#s9">9</a></sup> <span class="c c-h">High</span></p>
+</section><section id="s-iv">
+  <div class="sechead"><h2><em>II</em>Production and export</h2><p class="sub">Saturated at home, growing abroad.</p></div>
+  
+  <div class="cards">
+    <div class="note"><div class="v">12,628 t</div><div class="l">Beef exports 2025, +17%, record; Taiwan, US and Hong Kong c.60% <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
+    <div class="note"><div class="v">c.180,000 t</div><div class="l">Wagyu production forecast FY2026 from calf birth projections <span class="c c-m">Med</span><sup class="r"><a href="#s1">1</a></sup></div></div>
+    <div class="note"><div class="v">93%</div><div class="l">Share of wagyu still consumed domestically; large-scale retail c.59% of that <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
+  </div>
+  <div class="bars">
+    <div class="r"><span>Taiwan</span><div class="bar"><i style="width:100%"></i></div><span class="v">21%</span></div>
+    <div class="r"><span>United States</span><div class="bar"><i style="width:95%"></i></div><span class="v">20%</span></div>
+    <div class="r"><span>Hong Kong</span><div class="bar"><i style="width:81%"></i></div><span class="v">17%</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--mute)">Shares of 2025 beef exports per MAFF "Wagyu Supply and Demand Trends" as reported.<sup class="r"><a href="#s1">1</a></sup></p>
+  <p>Japan's export strategy set a target of ¥2 trillion in agricultural exports by 2025 and ¥5 trillion by 2030, with wagyu among the flagship products.<sup class="r"><a href="#s2">2</a></sup> At home, A5 saturates the market as inflation-hit consumers shy away from the most expensive cuts, which is why producers are pushing the top grade into export; pandemic-era inventories have returned to near pre-pandemic levels.<sup class="r"><a href="#s8">8</a> <a href="#s1">1</a></sup> Restaurant wagyu can price at four to ten times USDA Prime, and A4 is the volume workhorse of export at 35–50% below A5; crossbred F1 wagyu trades at a discount regardless of marbling.<sup class="r"><a href="#s9">9</a> <a href="#s5">5</a></sup> <span class="c c-m">Med</span></p>
+  <div class="note warn">Discrepancy logged: the export strategy's second target is quoted as "5 trillion yen by 2025" in one source, which is a typographical error for 2030, the government's published target year. Corrected here.<sup class="r"><a href="#s2">2</a></sup> <span class="c c-m">Med</span></div>
+</section><section id="s-v">
+  <div class="sechead"><h2><em>III</em>Brand economics compared</h2><p class="sub">What the two markets share, and where they diverge.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Dimension</th><th>Bluefin tuna</th><th>Wagyu</th></tr>
+    <tr><td>Supply control</td><td>International quotas (ICCAT, WCPFC, CCSBT); wild stock plus ranching</td><td>Breed registry and prefectural cooperatives; farmed</td></tr>
+    <tr><td>Grading</td><td>Buyer inspection at auction, colour, texture, fat, tail cut</td><td>JMGA carcass grade; BMS 1–12; brand councils</td></tr>
+    <tr><td>Price discovery</td><td>Daily Toyosu auction; ceremonial New Year bid</td><td>Wholesale carcass auctions; brand premiums on top</td></tr>
+    <tr><td>Provenance marker</td><td>Landing port (Ōma) and method</td><td>Prefecture, strain (Tajima), ten-digit serial</td></tr>
+    <tr><td>Substitute</td><td>Farmed / ranched bluefin; other tunas</td><td>Australian and American wagyu; F1 crossbreds</td></tr>
+    <tr><td>Scarcity signal</td><td>Rising ceremonial price, falling commercial price</td><td>A5 at 75%+ of market: the top grade has stopped being scarce</td></tr>
+  </table></div>
+  <p>In both cases the Japanese system grades rigorously and then lets a place-name or a ceremony carry the luxury premium above the grade. The bluefin premium is defensible because the wild fish is genuinely finite; the wagyu premium is under pressure because the grade it rests on has become the norm.<sup class="r"><a href="#s8">8</a> <a href="#s3">3</a></sup> <span class="c c-x">Hyp</span></p>
+</section><section id="s-vi">
+  <div class="sechead"><h2><em>IV</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    
+    
+    
+    
+    <tr><td>Japanese beef exports by destination</td><td>MAFF "Wagyu Supply and Demand Trends"; Ministry of Finance trade data, monthly</td><td>Export growth; Taiwan/US/HK concentration; tariff effects</td></tr>
+    <tr><td>Wagyu carcass grade distribution</td><td>Japan Meat Grading Association, annual</td><td>A5 saturation and grade inflation</td></tr>
+    <tr><td>Kobe and other brand certifications</td><td>Kobe Beef Marketing &amp; Distribution Promotion Association, annual</td><td>Brand-tier scarcity</td></tr>
+  </table></div>
+</section><section id="sources"><div class="sechead"><h2><em>V</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src"><li id="s1"><b>MERXWIRE</b>, "Japan's Wagyu Beef Exports Hit Record High", 31 May 2026, MAFF "Wagyu Supply and Demand Trends": 12,628 t (+17%); Taiwan 21%, US 20%, Hong Kong 17%; FY2026 production c.180,000 t; 93% domestic; retail 59%; inventories normalised. Press-release distribution of MAFF data. <span class="c c-m">Med</span></li><li id="s2"><b>Wagyu International</b>, "Description of the Wagyu industry in Japan", registry 1944; Sandai Wagyu; Tajima-gyu definition; Kobe criteria (quality 4+, yield A/B, BMS 6+, carcass weights); c.3,000 certified a year; ten-digit traceability; export targets (¥2 tn by 2025, ¥5 tn, stated as 2025 in error). <span class="c c-m">Med</span></li><li id="s3"><b>Toyosu Fish Market guide</b>, "Bluefin Tuna Auction Record Prices Explained (2026)", IUCN 2021 reassessment by stock (verbatim categories); Beth Polidoro quotation; 2025–26 trend (weak yen, tourism, rivalry vs. commercial pressure); Ōma under-reporting conviction 2023; c.200 fresh and c.1,000 frozen tuna daily; green floor. <span class="c c-m">Med</span></li><li id="s4"><b>The Meatery</b>, "What Is Wagyu Beef?", 26 Mar 2026, MAFF four-breed rule; crossbreds excluded; Tajima foundation. Retailer. <span class="c c-m">Med</span></li><li id="s5"><b>Imexporta</b>, "Wagyu Price Per Kg: 2025 Global Buyer's Guide", Jan 2025, JMGA yield and quality axes; lowest-score rule; A4 at 35–50% below A5; BMS pricing steps. Exporter. <span class="c c-l">Low</span> for pricing steps.</li><li id="s6"><b>Wagyuhof Genetik</b>, "Wagyu Beef: The Ultimate Guide 2025", Feb 2026, BMS 1–12; A5 requires BMS 8–12; "only about 3%" A5 claim; Kobe c.3,000 a year; 24–36 month raising. Breeder. <span class="c c-l">Low</span> for the 3% figure.</li><li id="s7"><b>The Meatery</b>, "A5 Wagyu: The Complete Guide", 26 Mar 2026, Kobe under 0.5% of wagyu production; Matsusaka virgin-heifer rule; regional profiles. Retailer. <span class="c c-m">Med</span></li><li id="s8"><b>Nikkei Asia</b>, "Top-grade A5 wagyu accounts for over 75% of Japan's market, driving exports", 25 Jun 2026, A5 saturation; inflation-hit domestic consumers; export push.</li><li id="s9"><b>Destination Wagyu</b>, "Wagyu Beef Meat: The Ultimate Guide", 24 Apr 2025, brand stratification; F1 discount; 4–10× USDA Prime in restaurants; prefectural cooperatives and standardisation problem. Trade guide. <span class="c c-m">Med</span></li></ol></section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+</body>
+</html>

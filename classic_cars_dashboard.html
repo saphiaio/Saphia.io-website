@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classic Cars, ΣΟΦΙΑ</title>
+<meta name="description" content="Classic Cars: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.grid .v{font-family:var(--mono);font-size:19px;font-weight:600;color:#141412}
+.grid .l{font-size:13px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap;color:#141412;font-size:14px}
+.bars{margin:14px 0 26px;font-family:var(--mono);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:90px 1fr 140px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:12px;background:#dcd4c6;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#a8825a,#8c4a2f)}
+.bars .v{text-align:right;color:#141412}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;border-top:3px solid #a8825a;padding:14px 16px}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:600;color:#141412}
+.card .l{font-size:13px;color:#6f6a62}
+.era{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:11px 0;border-bottom:1px dotted #dcd4c6;max-width:78ch}
+.era .y{font-family:var(--mono);font-weight:600;color:#8c4a2f;font-size:13px;padding-top:2px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.era{grid-template-columns:1fr;gap:2px}
+.bars .r{grid-template-columns:70px 1fr 120px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Classic Cars</p>
+  <h1>Classic Cars</h1>
+  <p class="lede">A collector market that set an all-time auction record in August 2026, $756 million in one California week, while the cars that built the hobby quietly went unsold. The money moved to modern Ferraris, McLarens and Bugattis; the Duesenbergs and 300 SLs held; the 1950s bread-and-butter classics did not. This page is an overview: the auction calendar and its record book, the generational rotation, the indices that measure it, the marques that matter and the provenance economics underneath. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">$755.6 m</div><div class="l">Monterey Car Week auctions 2026, record; 2025 was $432.8 m <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">€135 m</div><div class="l">1955 Mercedes-Benz 300 SLR Uhlenhaut Coupé, May 2022, most valuable car ever sold <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">+30% / −2%</div><div class="l">Hagerty Supercar Index vs Blue Chip Index, twelve months to Aug 2026 <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">7 of 10</div><div class="l">Top Monterey 2026 lots built in 1985 or later; Ferrari took seven of ten <span class="t">Reported</span><sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 17 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Post-war "boomer" segment softening while modern supercars rise; auction totals flat.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>Italy · Germany · United Kingdom · United States</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>United States (Monterey) · United Kingdom · Continental Europe · Gulf</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-m">Med</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale B <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-m">Med</span></dt><dd><b>High (top); Low (base)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale C <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>The record book</a></li><li><a href="#s-ii"><span>II</span>Monterey Car Week</a></li><li><a href="#s-iii"><span>III</span>The generational rotation</a></li><li><a href="#s-iv"><span>IV</span>Indices and auction houses</a></li><li><a href="#s-v"><span>V</span>Provenance economics</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>The record book</h2><p class="sub">Auction results are the only public prices in a market that trades mostly in private.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Car</th><th>Sale</th><th class="n">Price</th><th>Significance</th></tr>
+    <tr><td>1955 Mercedes-Benz 300 SLR Uhlenhaut Coupé</td><td>RM Sotheby's, Mercedes-Benz Museum, Stuttgart, 5 May 2022 (invitation only)</td><td class="n">€135 m (c.$142–143 m)</td><td>One of two built; doubled the prior record; proceeds to a Mercedes-Benz scholarship fund<sup class="r"><a href="#s2">2</a> <a href="#s6">6</a></sup></td></tr>
+    <tr><td>1954 Mercedes-Benz W 196 R Stromlinienwagen</td><td>RM Sotheby's, Stuttgart, 1 Feb 2025</td><td class="n">€51.2 m (c.$53.9 m)</td><td>Second-highest ever<sup class="r"><a href="#s7">7</a> <a href="#s8">8</a></sup></td></tr>
+    <tr><td>1962 Ferrari 330 LM / 250 GTO</td><td>RM Sotheby's, New York, 13 Nov 2023</td><td class="n">$51.7 m</td><td>Ferrari auction record<sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>1962 Ferrari 250 GTO</td><td>RM Sotheby's, Monterey, 26 Aug 2018</td><td class="n">$48.4 m</td><td>Record until 2022; a 1963 GTO sold privately for c.$70 m the same year<sup class="r"><a href="#s7">7</a> <a href="#s6">6</a></sup></td></tr>
+    <tr><td>1964 Shelby Cobra Daytona Coupé CSX2300</td><td>Gooding Christie's, Monterey, 14 Aug 2026</td><td class="n">$42.9 m</td><td>Record for an American car<sup class="r"><a href="#s7">7</a> <a href="#s1">1</a></sup></td></tr>
+    <tr><td>2026 Ferrari Luce "Tailor Made"</td><td>RM Sotheby's, Monterey, 16 Aug 2026</td><td class="n">$40 m</td><td>A new car at a classic auction; excluded from some week totals<sup class="r"><a href="#s7">7</a> <a href="#s9">9</a></sup></td></tr>
+    <tr><td>1996 McLaren F1 GTR</td><td>Monterey, Aug 2026</td><td class="n">$34.7 m</td><td>Record for a British car<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Ferrari Daytona SP3 (charity)</td><td>Monterey, Aug 2025</td><td class="n">$26 m</td><td>One sale skewed the 2025 total<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup></td></tr>
+  </table></div>
+  <p style="font-size:14px;color:var(--mute)">Dollar equivalents for the two Stuttgart sales are contemporaneous conversions; Wikipedia lists the 2022 sale at US$143 m and Guinness at $142 m.<sup class="r"><a href="#s7">7</a> <a href="#s6">6</a></sup></p>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Monterey Car Week</h2><p class="sub">The week that sets the year's tone.</p></div>
+  
+  <div class="bars">
+    <div class="r"><span>2022</span><div class="bar"><i style="width:62%"></i></div><span class="v">$471.2 m · prior record</span></div>
+    <div class="r"><span>2023</span><div class="bar"><i style="width:52%"></i></div><span class="v">declined</span></div>
+    <div class="r"><span>2024</span><div class="bar"><i style="width:54%"></i></div><span class="v">−3% on 2023</span></div>
+    <div class="r"><span>2025</span><div class="bar"><i style="width:57%"></i></div><span class="v">$432.8 m · +5%</span></div>
+    <div class="r"><span>2026</span><div class="bar"><i style="width:100%"></i></div><span class="v">$755.6 m · +75%</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--mute)">Hagerty totals; 2023 and 2024 bars are indicative of direction only.<sup class="r"><a href="#s1">1</a> <a href="#s10">10</a> <a href="#s12">12</a></sup></p>
+  <div class="note warn">Discrepancy logged: the 2026 total is reported as $755.6 m (Hagerty, through Saturday), $747.9 m (Motorious, running tally to 15 August) and $718.3 m excluding the $40 m Ferrari Luce sale (Magneto, citing Hagerty). Hagerty's pre-sale forecast had been $470–500 m. The headline figure is used; the exclusion of a new car sold at a classic auction is a legitimate alternative reading.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a> <a href="#s9">9</a> <a href="#s3">3</a></sup> <span class="c c-h">High</span></div>
+  <div class="cards">
+    <div class="card"><div class="v">11</div><div class="l">Eight-figure cars in 2026; combined low estimate over $600 m before the first lot <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></div></div>
+    <div class="card"><div class="v">&gt;50%</div><div class="l">Share of 2026 sales from modern supercars <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
+    <div class="card"><div class="v">56%</div><div class="l">Mecum's sell-through, lowest of the week, on c.$104 m; volume and sell-through flat overall <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></div></div>
+  </div>
+  <p>The money came from the cars getting more expensive, not from more cars selling: volume and sell-through were flat, and the increase was carried by an unusually deep bench of seven- and eight-figure consignments.<sup class="r"><a href="#s4">4</a></sup> Beneath the headline, 1950s volume classics, the most numerous consignments, underperformed, and a period-wrecked 1961 Ferrari 250 GT SWB Competizione without its original engine brought $8.09 m, below the Hagerty Price Guide's fair-condition value.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>The generational rotation</h2><p class="sub">"Boomer cars" down, supercars parabolic.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Segment</th><th>Signal, 2025–26</th><th>Source</th></tr>
+    <tr><td>Modern Ferrari halo cars (288 GTO, F40, F50, Enzo)</td><td>Records of $11.6 m, $8.4 m and $14.6 m at Monterey 2026; F50 record was $5.5 m at the start of 2025; allocation strategy for future models adds "strategic demand"</td><td>Hagerty; Motorious<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a></sup></td></tr>
+    <tr><td>Hypercars (Bugatti, Koenigsegg, Pagani, McLaren)</td><td>A 2008 Koenigsegg CCXR bought for $825k in 2015 sold for $3.2 m in 2025; Bonhams' Monterey sales +288% on supercars; McLaren F1 GTR $34.7 m</td><td>Hagerty; Classic Motorsports<sup class="r"><a href="#s10">10</a> <a href="#s13">13</a> <a href="#s1">1</a></sup></td></tr>
+    <tr><td>Traditional blue chips (Enzo-era Ferrari, pre-war, 300 SL)</td><td>Blue Chip Index −2% over twelve months; Enzo-era Ferrari sell-through recovered from 53% (2024) to 60% (2025); Duesenberg and 300 SL still $1 m+; pre-war regained share in 2026</td><td>CNBC/Hagerty<sup class="r"><a href="#s3">3</a> <a href="#s13">13</a> <a href="#s1">1</a></sup></td></tr>
+    <tr><td>1960s American</td><td>Daytona Coupé $42.9 m and Corvette Grand Sport $18.7 m records, but ambitious estimates unmet on ordinary muscle</td><td>Hagerty; Magneto<sup class="r"><a href="#s1">1</a> <a href="#s9">9</a></sup></td></tr>
+    <tr><td>Pre-merger AMG; Bentley R-Type Continental</td><td>Sold below low estimate; the Bentley segment "sliding hard for two quarters"</td><td>Magneto; Motorious<sup class="r"><a href="#s9">9</a> <a href="#s4">4</a></sup></td></tr>
+  </table></div>
+  <p>Some dealers and specialists argue that supercar prices are unsustainable and defy traditional collecting metrics, race history, scarcity, enduring value, global appeal, while the buyers are tech wealth and a younger cohort that did not grow up with the cars the last generation collected.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-m">Med</span></p>
+  <div class="note">Diamond parallel: the Ferrari allocation system, buy the halo car at auction to strengthen your position for the next factory allocation, is a sight system with the customers bidding for future boxes. It makes auction prices partly a fee for access, which is why they can exceed any valuation built on the object alone. When allocation stops mattering, so does that premium. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>Indices and auction houses</h2><p class="sub">Who measures the market, and who runs it.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Instrument</th><th>Publisher</th><th>What it measures</th></tr>
+    <tr><td>Hagerty Market Rating; Blue Chip, Supercar, Ferrari and other indices; Price Guide</td><td>Hagerty (insurer and media group)</td><td>Index families built from auction and private-sale data; the Price Guide gives condition-graded values<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></td></tr>
+    <tr><td>HAGI Top Index</td><td>Historic Automobile Group International</td><td>Rare-classic index used by Knight Frank's Luxury Investment Index; not reproduced here</td></tr>
+    <tr><td>Monterey week totals</td><td>Hagerty running tally across RM Sotheby's, Gooding Christie's, Broad Arrow, Bonhams, Mecum</td><td>The year's benchmark event<sup class="r"><a href="#s4">4</a></sup></td></tr>
+  </table></div>
+  <div class="era"><div class="y">RM Sotheby's</div><div class="t">Sold both Stuttgart records, the 2023 GTO and the 2026 Ferrari Luce; the top of the market.<sup class="r"><a href="#s2">2</a> <a href="#s7">7</a></sup></div></div>
+  <div class="era"><div class="y">Gooding Christie's</div><div class="t">Gooding &amp; Company under Christie's ownership; sold the $42.9 m Daytona Coupé in 2026.<sup class="r"><a href="#s7">7</a></sup></div></div>
+  <div class="era"><div class="y">Broad Arrow</div><div class="t">Hagerty's own auction house, part of the Monterey week.<sup class="r"><a href="#s9">9</a></sup></div></div>
+  <div class="era"><div class="y">Bonhams</div><div class="t">Modern-supercar-heavy Monterey sale; $44.2 m and 96% sell-through in 2025, led by Bugattis.<sup class="r"><a href="#s13">13</a></sup></div></div>
+  <div class="era"><div class="y">Mecum; Barrett-Jackson</div><div class="t">Volume houses; Mecum c.$104 m at Monterey 2026 with the week's lowest sell-through; Barrett-Jackson's chairman sees the generational change "across the board".<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></div></div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Provenance economics</h2><p class="sub">The car is the chassis number; the price is the file.</p></div>
+  
+  <p>The Uhlenhaut Coupé sold for €135 m because it is one of two, was owned by its maker since 1955, and carries an engineer's name and a Nürburgring anecdote; the 250 GT SWB that sold below guide in 2026 was the same model family as cars that make eight figures, minus its original engine and a race history.<sup class="r"><a href="#s2">2</a> <a href="#s4">4</a></sup> Matching numbers, continuous ownership, competition record and factory documentation are the four variables that separate a $1 m car from a $50 m one of the same type, and none can be verified by looking at the car. <span class="c c-m">Med</span></p>
+  <div class="tw"><table>
+    <tr><th>Provenance element</th><th>Effect</th><th>Verification</th></tr>
+    <tr><td>Matching numbers (chassis, engine, gearbox, body)</td><td>Missing original engine sent a 250 GT SWB below fair-condition guide value<sup class="r"><a href="#s4">4</a></sup></td><td>Factory build sheets; marque registries (Ferrari Classiche certification)</td></tr>
+    <tr><td>Competition history</td><td>The 250 GTO and Daytona Coupé premiums rest on it<sup class="r"><a href="#s7">7</a></sup></td><td>Period entry lists, photographs, chassis-specific histories</td></tr>
+    <tr><td>Ownership chain</td><td>Single-owner-from-new or maker-owned cars set records<sup class="r"><a href="#s2">2</a></sup></td><td>Title documents; auction-house due diligence</td></tr>
+    <tr><td>Originality versus restoration</td><td>Concours-winning restoration did not save a Bentley R-Type from a sliding segment<sup class="r"><a href="#s4">4</a></sup></td><td>Marque expert inspection; the auction condition report</td></tr>
+  </table></div>
+  <div class="note warn">Compliance reading: a collector car is a high-value, portable, internationally tradeable asset with opaque private-sale pricing and a documentary provenance chain, the same profile as a rough parcel or a painting. The controls are the same: verify the chassis against the maker's records, verify the seller against the title, and treat a price far above the guide with the same suspicion as one far below. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Monterey, Scottsdale, Amelia Island and Paris/Rétromobile totals and sell-through</td><td>Hagerty running tallies; house releases, January, March, August, February</td><td>The auction cycle; whether flat volume persists</td></tr>
+    <tr><td>Hagerty Market Rating and segment indices</td><td>Hagerty, monthly</td><td>Blue-chip versus supercar rotation; not carried here</td></tr>
+    <tr><td>HAGI Top Index</td><td>HAGI, monthly; Knight Frank annually</td><td>Cross-asset comparison with art, wine, watches</td></tr>
+    <tr><td>Ferrari allocation and limited-series announcements</td><td>Ferrari investor and press releases</td><td>The "strategic demand" premium in halo-car prices</td></tr>
+    <tr><td>Eight-figure private sales reported</td><td>Trade press (Hagerty Insider, Magneto)</td><td>The off-market top end</td></tr>
+    <tr><td>Estimate-to-hammer ratios and no-sales</td><td>Auction results by house</td><td>Reserve discipline; where sellers' expectations exceed buyers'</td></tr>
+  </table></div>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Hagerty and RM Sotheby's are primary for totals and records; trade press for interpretation.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>Hagerty Media</b>, "2026 Monterey Car Week Auctions Shatter Record with $756M in Sales", Aug 2026, $755.6 m vs 2022 record; supercars over half of sales; Ferrari 288 GTO $11.6 m, F40 $8.4 m, F50 $14.6 m; Daytona Coupé $42.9 m; Corvette Grand Sport $18.7 m; McLaren F1 GTR $34.7 m; 1950s underperformance; allocation dynamic.</li>
+    <li id="s2"><b>RM Sotheby's</b>, "The Mercedes-Benz 300 SLR Uhlenhaut Coupé | Auction Details", €135 m on 5 May 2022 at the Mercedes-Benz Museum; one of two; opening bid above the 2018 GTO price; and <b>Mercedes-Benz Group</b>, "The most valuable car in the world", proceeds to the Mercedes-Benz Fund.</li>
+    <li id="s3"><b>CNBC</b>, "Monterey Car Week auctions could hit a record $500 million, with help from younger buyers", 13 Aug 2026, Hagerty forecast $470–500 m; Blue Chip Index −2%, Supercar Index +30% over twelve months; nine of the top ten 2026 auction cars Ferraris; sustainability debate.</li>
+    <li id="s4"><b>Motorious</b>, "Monterey Car Week 2026 Auction Results: $747.9 Million…", Aug 2026, $747.9 m through 15 Aug (+73%); 2022 c.$471 m; 11 eight-figure cars; combined low estimate over $600 m; flat volume and sell-through; 250 GT SWB $8.09 m below guide; Bentley R-Type $1.215 m; Mecum c.$104 m at 56%; F50 $14.575 m and the $5.5 m start-of-2025 record.</li>
+    <li id="s5"><b>Robb Report</b>, "The 10 Most Expensive Cars Sold at Monterey Car Week", Aug 2026, seven of the top ten from 1985 or later (Hagerty data); $755.6 m vs $432.8 m; Craig Jackson quotation.</li>
+    <li id="s6"><b>Guinness World Records</b>, "Why the world's most expensive car cost so much money", 18 Aug 2022, $142 m / £115 m / €135 m; doubled the $70 m private 1963 GTO record (2018); tripled the $48 m 1962 GTO auction record.</li>
+    <li id="s7"><b>Wikipedia</b>, "List of most expensive cars sold at auction", 300 SLR US$143 m (5 May 2022); W 196 R Stromlinienwagen US$53.9 m (1 Feb 2025); 330 LM / 250 GTO US$51.7 m (13 Nov 2023); 250 GTO US$48.4 m (26 Aug 2018); Shelby Daytona CSX2300 US$42.9 m (14 Aug 2026, Gooding Christie's); Ferrari Luce US$40 m (16 Aug 2026).</li>
+    <li id="s8"><b>Passion Asset Advisory</b>, "Most Expensive Cars Ever Sold", 12 Aug 2026, W 196 R at €51.155 m; conversion caveats. Advisory. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>Magneto</b>, "Monterey 2026 auctions deliver record prices and mixed fortunes across Car Week sales", Aug 2026, $718.3 m excluding the Luce (Hagerty); 2025 $432.7 m; 2022 $471.2 m; pre-merger AMG and muscle results; SLS AMG Black Series record; Broad Arrow and Bonhams lots.</li>
+    <li id="s10"><b>Hagerty Media</b>, "2025 Monterey Auction Results: Second-Highest Ever Totals, Modern Supercars Lead", 26 Aug 2025, $432.8 m; ten Ferrari records; Daytona SP3 $26 m for charity; Koenigsegg CCXR $825k → $3.2 m; post-1990 versus Enzo-era $1 m+ counts.</li>
+    <li id="s11"><b>Magneto</b>, "Monterey Car Week Auctions 2025 results: How one sale skews perception", 21 Aug 2025, the SP3 effect; 300 SL and Porsche results at or below estimate; no-sales.</li>
+    <li id="s12"><b>Classic Motorsports</b>, "Monterey Car Week 2025 auction sales: What's hot and what's not", 19 Aug 2025, 2024 down 3%; 2025 +5% to $432.8 m; six of top ten from the 1990s or later; Enzo-era sell-through 53% → 60%.</li>
+    <li id="s13"><b>Classic Motorsports</b>, as source 12, Bonhams $44.2 m (+287.72%), 96% sell-through, Bugatti Divo $8.56 m and Chiron results.</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>

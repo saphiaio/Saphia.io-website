@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platinum Group Metals, ΣΟΦΙΑ</title>
+<meta name="description" content="Platinum Group Metals: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--mono);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents .eyebrow{display:none}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--mono);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--mono);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--mono);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--mono);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--mono);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--mono);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--mono);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--mono);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--mono);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--mono);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--mono);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.metal .v{font-family:var(--mono);font-size:18px;font-weight:600;margin-top:10px}
+.metal .l{font-size:13px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--mono);white-space:nowrap;color:#141412}
+.bars{margin:14px 0 26px;font-family:var(--mono);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 110px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:12px;background:#dcd4c6;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#6f6a62,#141412)}
+.bars .bar i.d{background:linear-gradient(90deg,#9b4a22,#8c4a2f)}
+.bars .v{text-align:right;color:#141412}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card .v{font-family:var(--mono);font-size:22px;font-weight:600;color:#141412}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:90px 1fr 90px}
+}</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="Saphia Home.dc.html">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
+    <ul><li><a href="Saphia Home.dc.html">Home</a></li><li><a href="Saphia About.dc.html">About</a></li><li><a href="Saphia Methodology.dc.html">Methodology</a></li><li><a href="Saphia Markets.dc.html" aria-current="page">Markets</a></li><li><a href="contact.html">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<header class="hero">
+  <p class="eyebrow">Markets · Platinum Group Metals</p>
+  <h1>Platinum Group Metals</h1>
+  <p class="lede">Six metals mined together from two geological provinces, priced apart, and consumed mostly inside exhaust systems. Platinum has run three deepening deficits and a fourth is forecast; palladium is heading for surplus; South Africa's largest producer has been spun out of Anglo American. This page covers the balance, supply concentration, demand by end-use, the corporate map and the assumptions behind the outlook. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">−1,082 koz</div><div class="l">2025 market deficit, the largest in the WPIC series since 2013; third consecutive <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">Surplus from 2027</div><div class="l">WPIC expects deficits to transition to surpluses as recycling rises by over 1.3 Moz a year <span class="t">Forecast</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">South Africa</div><div class="l">Supplies c.70% of platinum, c.35% of palladium and the bulk of rhodium <span class="t">Estimate</span><sup class="r"><a href="#s9">9</a></sup></div></div></div>
+</header>
+
+<!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
+<div class="snap" id="snapshot" aria-label="Market snapshot">
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 17 Sep 2026</span></div>
+  <dl class="snap-top">
+    <div class="snap-row"><dt>Price regime</dt><dd>Platinum in reported deficit for a third year, with the size of the deficit revised at every quarterly report.</dd></div>
+    <div class="snap-row"><dt>Primary origins</dt><dd>South Africa · Russia · Zimbabwe</dd></div>
+    <div class="snap-row"><dt>Principal markets</dt><dd>China · Europe · United States · Japan</dd></div>
+  </dl>
+  <dl class="snap-rated">
+    <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Liquidity<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale B <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
+    <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
+    <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
+  </dl>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="Saphia Methodology.dc.html#tags">Rating scales →</a></div>
+</div>
+
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <ol><li><a href="#s-i"><span>I</span>The platinum balance</a></li><li><a href="#s-ii"><span>II</span>Supply concentration</a></li><li><a href="#s-iii"><span>III</span>Demand by end-use</a></li><li><a href="#s-iv"><span>IV</span>The corporate map</a></li><li><a href="#s-v"><span>V</span>Outlook assumptions</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead"><h2><em>I</em>The platinum balance</h2><p class="sub">World Platinum Investment Council data, prepared by Metals Focus.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Year</th><th class="n">Balance (koz)</th><th>Note</th></tr>
+    <tr><td>2023</td><td class="n">deficit</td><td>First of the run<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>2024</td><td class="n">−921</td><td>Second-largest in the series<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>2025</td><td class="n">−1,082</td><td>Final estimate (Q4 report); supply −1%, demand +1%; price more than doubled during the year<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>2026f</td><td class="n">−297</td><td>Fourth consecutive; revised from −240 (Q1 2026 report); above-ground stocks to 1,747 koz, under three months of demand<sup class="r"><a href="#s3">3</a></sup></td></tr>
+    <tr><td>2026f–2030f</td><td class="n">c.−331 average</td><td>WPIC five-year outlook, mid-2026<sup class="r"><a href="#s2">2</a></sup></td></tr>
+  </table></div>
+  <div class="note r">Discrepancy logged: WPIC's own forecasts for 2025 moved from a 966 koz deficit (Q1 2025 report) to 692 koz with a "broadly balanced" 2026 (Q3 2025 report) to a final 1,082 koz and a renewed 2026 deficit (Q4 2025 and Q1 2026 reports). The swing came from exchange-stock flows into US warehouses on tariff fears and from investment demand, both of which the council itself names as the swing factor.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a> <a href="#s1">1</a> <a href="#s3">3</a></sup> Quarterly WPIC forecasts should be read as a range, not a point. <span class="c c-h">High</span></div>
+  <div class="cards">
+    <div class="note"><div class="v">3,187 koz</div><div class="l">Above-ground stocks forecast for end-2025 in the Q3 report, c.5 months of demand, lowest since 2020 <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
+    <div class="note"><div class="v">1,747 koz</div><div class="l">Above-ground stocks expected end-2026, under three months of cover <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div class="note"><div class="v">+27%</div><div class="l">Bar and coin demand 2026f to 718 koz; total demand −9% to 7,674 koz as 2025's exchange and ETF inflows do not repeat <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+  </div>
+  <p>Above-ground stocks in WPIC's definition exclude ETF holdings, exchange-vault metal and working inventories; they are the residual pool that has financed three years of deficits.<sup class="r"><a href="#s5">5</a></sup> In 2026 industrial demand is expected to rise 9% to c.2.24 Moz, jewellery to fall 12% and investment 54% from a spike year, automotive to ease 2%; supply up c.2%, almost all from recycling (+9%) as higher prices pull scrap.<sup class="r"><a href="#s6">6</a></sup> A market can be in deficit and still see price fall if the investment sleeve shrinks.<sup class="r"><a href="#s6">6</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-ii">
+  <div class="sechead"><h2><em>II</em>Supply concentration</h2><p class="sub">Two countries, deep-level mines, and no growth projects.</p></div>
+  
+  <div class="bars">
+    <div class="r"><span>Pt · South Africa</span><div class="bar"><i style="width:100%"></i></div><span class="v">c.70%</span></div>
+    <div class="r"><span>Pd · South Africa</span><div class="bar"><i style="width:50%"></i></div><span class="v">c.35%</span></div>
+    <div class="r"><span>Pd · Russia</span><div class="bar"><i style="width:57%"></i></div><span class="v">c.40% (est.)</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--mute)">Shares are from a secondary overview consistent with WPIC and Johnson Matthey publications; the Russian palladium share is inferred from Nornickel guidance of c.2.6–2.7 Moz against total palladium supply of c.9.4 Moz. <span class="c c-m">Med</span> <span class="t">Derived</span><sup class="r"><a href="#s9">9</a> <a href="#s8">8</a> <a href="#s7">7</a></sup></p>
+  <div class="tw"><table>
+    <tr><th>Producer</th><th>Base</th><th>Note</th></tr>
+    <tr><td>Valterra Platinum (ex-Anglo American Platinum)</td><td>South Africa, Zimbabwe</td><td>World's largest platinum producer; demerged from Anglo American 31 May 2025; LSE listing 2 June 2025 alongside JSE; Anglo's residual 19.9% placed from September 2025<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a> <a href="#s12">12</a></sup></td></tr>
+    <tr><td>Impala Platinum (Implats)</td><td>South Africa, Zimbabwe (Zimplats), Canada</td><td>Absorbed Royal Bafokeng Platinum 2023–24<sup class="r"><a href="#s13">13</a></sup></td></tr>
+    <tr><td>Sibanye-Stillwater</td><td>South Africa, US (Stillwater)</td><td>c.1.84 Moz 4E South African PGM production 2024; acquired Lonmin 2019<sup class="r"><a href="#s8">8</a> <a href="#s13">13</a></sup></td></tr>
+    <tr><td>Northam Platinum</td><td>South Africa</td><td>Fourth of the Bushveld core<sup class="r"><a href="#s8">8</a></sup></td></tr>
+    <tr><td>Nornickel</td><td>Russia (Norilsk-Talnakh)</td><td>World's largest palladium producer; 2024 guidance c.2.6–2.7 Moz; 2025 output declining on grades<sup class="r"><a href="#s8">8</a> <a href="#s13">13</a></sup></td></tr>
+    <tr><td>Zimbabwe (Great Dyke)</td><td>Zimplats, Unki (Valterra), Mimosa</td><td>National output passed 500 koz<sup class="r"><a href="#s8">8</a></sup></td></tr>
+  </table></div>
+  <p>WPIC's structural view is that deep-level underground mining cannot flex and no large growth projects are being built, so mine supply is constrained through 2029; the only responsive supply is recycling, and autocatalyst recycling economics are driven more by palladium than platinum prices.<sup class="r"><a href="#s7">7</a> <a href="#s4">4</a></sup> Valterra's semi-finished inventories, which boosted 2024 refined output, were depleted by 2025.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead"><h2><em>III</em>Demand by end-use</h2><p class="sub">Autocatalysts, jewellery, industry, hydrogen, and the investment sleeve.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>End-use</th><th>Platinum position</th><th>Palladium position</th></tr>
+    <tr><td>Automotive catalysts</td><td>Long tail; WPIC models 2E automotive demand erosion of only 1.4% CAGR 2023–28 as hybrids persist; reverse substitution Pt-for-Pd possible when platinum trades at a premium<sup class="r"><a href="#s14">14</a> <a href="#s7">7</a></sup></td><td>Dominant use; exposed to the slow electrification of the drivetrain<sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Jewellery</td><td>Recovery in 2025; forecast −12% in 2026 after the price spike<sup class="r"><a href="#s4">4</a> <a href="#s6">6</a></sup></td><td>Minor</td></tr>
+    <tr><td>Industrial (glass, chemicals, medical, electronics)</td><td>+9% to c.2.24 Moz forecast 2026<sup class="r"><a href="#s6">6</a></sup></td><td>Electronics, dental</td></tr>
+    <tr><td>Hydrogen (electrolysers, fuel cells)</td><td>Growth option, downgraded as FCEV share disappoints; Stellantis halted hydrogen programmes<sup class="r"><a href="#s7">7</a></sup></td><td>,</td></tr>
+    <tr><td>Investment (bars, coins, ETFs, exchange stocks)</td><td>The swing factor; 2025 inflows not expected to repeat; bar and coin +27% in 2026f<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></td><td>ETFs and Sprott trust<sup class="r"><a href="#s13">13</a></sup></td></tr>
+  </table></div>
+  <p>The catalyst for 2025's price rise was, in WPIC's words, "arguably geopolitics and US tariffs" on top of the deficits: metal flowed into CME-approved US warehouses on tariff fears, reversed in Q2, and flowed back in Q3.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup> Security of supply became a buying motive in its own right.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-iv">
+  <div class="sechead"><h2><em>IV</em>The corporate map</h2><p class="sub">The 2025 demerger and what it changed.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Date</th><th>Event</th><th>Significance</th></tr>
+    <tr><td>2019</td><td>Sibanye-Stillwater acquires Lonmin</td><td>Previous largest sector restructuring<sup class="r"><a href="#s13">13</a></sup></td></tr>
+    <tr><td>2024</td><td>BHP's failed approach for Anglo American</td><td>Triggers Anglo's portfolio simplification to copper, iron ore and crop nutrients<sup class="r"><a href="#s12">12</a></sup></td></tr>
+    <tr><td>30 Apr 2025</td><td>Shareholders approve demerger of c.51% of Anglo American Platinum</td><td>Clears the path to separation<sup class="r"><a href="#s11">11</a></sup></td></tr>
+    <tr><td>31 May – 2 Jun 2025</td><td>Demerger effective; renamed Valterra Platinum; LSE listing (VALT) alongside JSE</td><td>World's largest integrated PGM producer becomes a pure play<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup></td></tr>
+    <tr><td>3 Sep 2025</td><td>Anglo places its remaining c.52.2 m Valterra shares</td><td>Full separation<sup class="r"><a href="#s10">10</a></sup></td></tr>
+  </table></div>
+  <p>The market read was mixed: cleaner exposure for PGM-focused funds, but a producer without a diversified balance sheet to fund the next capital cycle; separation costs for standalone systems were still flowing through in 2025.<sup class="r"><a href="#s12">12</a> <a href="#s9">9</a></sup> <span class="c c-m">Med</span></p>
+  <div class="note">Diamond parallel: the same Anglo American restructuring that spun out Valterra put De Beers up for sale. Both are single-region, deep-level, labour-intensive South African businesses whose economics were carried for decades inside a diversified parent; both now face the capital markets alone in the same eighteen months. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-v">
+  <div class="sechead"><h2><em>V</em>Outlook assumptions</h2><p class="sub">What the forecasts rest on.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Assumption (WPIC, mid-2026)</th><th>Detail</th><th>Confidence</th></tr>
+    <tr><td>Strait of Hormuz reopens in Q3 2026</td><td>Base case after the Iran war drove inflation and upward revisions to rate expectations in H1 2026, weighing on non-yielding metals<sup class="r"><a href="#s2">2</a></sup></td><td><span class="c c-m">Med</span></td></tr>
+    <tr><td>Platinum deficits average c.331 koz 2026–30</td><td>c.350 koz a year 2027–30 in the January 2026 outlook<sup class="r"><a href="#s2">2</a> <a href="#s15">15</a></sup></td><td><span class="c c-m">Med</span></td></tr>
+    <tr><td>Palladium surpluses from 2027</td><td>Recycling up over 1.3 Moz a year; timing contingent on recycling recovery; total palladium supply 9,414 koz (2024) rising<sup class="r"><a href="#s2">2</a> <a href="#s7">7</a></sup></td><td><span class="c c-m">Med</span></td></tr>
+    <tr><td>No mine-supply growth to 2029</td><td>Structural inflexibility of deep-level mines; no large growth projects<sup class="r"><a href="#s7">7</a></sup></td><td><span class="c c-h">High</span></td></tr>
+    <tr><td>Automotive demand resilient</td><td>2E automotive erosion 1.4% CAGR 2023–28; hybrid growth<sup class="r"><a href="#s14">14</a></sup></td><td><span class="c c-m">Med</span></td></tr>
+  </table></div>
+  <div class="note r">Reader's caution: WPIC is an investment council funded by producers; its analysis is prepared by Metals Focus and is the most complete public dataset, but its purpose is to promote platinum investment. Johnson Matthey's PGM Market Report is the independent cross-check and should be read alongside.<sup class="r"><a href="#s9">9</a></sup></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
+    <tr><td>Platinum and palladium balances</td><td>WPIC Platinum Quarterly (next 9 Sep 2026); WPIC Platinum Essentials; Johnson Matthey PGM Market Report (May, November)</td><td>Deficit size and above-ground-stock cover</td></tr>
+    <tr><td>Exchange stocks</td><td>CME/NYMEX warehouse reports, daily</td><td>Tariff-driven flows that swing the balance</td></tr>
+    <tr><td>Lease rates</td><td>Market data; WPIC commentary (March 2026 noted elevated lease rates)</td><td>Physical tightness</td></tr>
+    <tr><td>Producer output and guidance</td><td>Valterra, Implats, Sibanye-Stillwater, Northam quarterlies; Nornickel quarterly production</td><td>Mine supply; Russian volumes</td></tr>
+    <tr><td>Eskom load-shedding and rand basket price</td><td>Eskom notices; company reports</td><td>South African cost and shaft-closure risk</td></tr>
+    <tr><td>Autocatalyst loadings and hybrid share</td><td>OEM disclosures; WPIC automotive research</td><td>Long-tail demand; Pt-for-Pd substitution</td></tr>
+    <tr><td>US tariff and critical-minerals policy</td><td>USTR; USGS; Department of Energy critical materials list</td><td>Flows into US warehouses; strategic stockpiling</td></tr>
+  </table></div>
+</section>
+<section id="s-vii">
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. WPIC reports are primary for supply and demand; Anglo American and Valterra releases for corporate events.</p></div>
+  
+  <ol class="src">
+    <li id="s1"><b>WPIC</b>, "Platinum Quarterly Q4 2025" (Metals Focus), Mar 2026, 2025 deficit 1,082 koz, largest in the series from 2013; 2024 deficit 921 koz; supply −1%, demand +1%; price more than doubled; Q4 mine supply +6%, recycling +15%.</li>
+    <li id="s2"><b>WPIC</b>, "Platinum Essentials" research page, mid-2026, deficits averaging 331 koz 2026f–2030f; palladium surpluses from 2027f; Iran war, inflation and rate expectations; Strait of Hormuz base case; May 2024 palladium note on recycling +1.3 Moz p.a.; 13 Mar 2026 note on lease rates.</li>
+    <li id="s3"><b>WPIC</b>, "Platinum Quarterly" landing page (Q1 2026 report, May 2026), 2026 deficit 297 koz (from 240); above-ground stocks 1,747 koz, under three months' cover; bar and coin +27% to 718 koz; total demand −9% to 7,674 koz; next report 9 Sep 2026.</li>
+    <li id="s4"><b>WPIC</b>, "Platinum Quarterly Q2 2025", Sep 2025, recycling responsiveness; palladium's weaker outlook; "geopolitics and US tariffs" as catalyst; security of supply; Valterra semi-finished inventories depleted; and "Platinum Quarterly Q1 2025", 966 koz deficit forecast; supply 6,999 koz (−4%); demand 7,965 koz.</li>
+    <li id="s5"><b>WPIC</b>, "Platinum Quarterly Q3 2025", Nov 2025, 692 koz 2025 deficit forecast and 20 koz 2026 surplus; Q3 deficit 179 koz; CME flows; above-ground stocks 3,187 koz, five months' cover; investment as swing factor; definition of above-ground stocks.</li>
+    <li id="s6"><b>Canadian Mining Report</b>, "Platinum Jumps Nearly 4%: Can the Rally Hold?", Sep 2026, WPIC Q1 2026 framing: supply +2%, recycling +9%, demand −9% to c.7.67 Moz, jewellery −12%, investment −54%, industrial +9% to c.2.24 Moz, automotive −2%; 2025 deficit range 1.08–1.19 Moz. Secondary. <span class="c c-m">Med</span></li>
+    <li id="s7"><b>WPIC</b>, "Platinum Essentials, Updated two-to-five-year supply and demand outlook", Sep 2025, palladium surplus by 2027f; recycling upgrades; Stellantis hydrogen halt; Pt-for-Pd reverse substitution; mine-supply inflexibility to 2029; palladium supply 9,414 koz (2024).</li>
+    <li id="s8"><b>DataDeep</b>, "Global Platinum Supply Chain", 21 Jun 2026, Valterra, Implats, Sibanye-Stillwater, Northam as South African core; Sibanye c.1.84 Moz 4E 2024; Nornickel palladium guidance 2.6–2.7 Moz; Zimbabwe over 500 koz. Secondary compilation citing USGS MCS 2026 and company filings. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>Precious Metal Academy</b>, "Platinum &amp; Palladium 2026 Overview", Sep 2026, South Africa c.70% platinum, c.35% palladium, bulk of rhodium; Bushveld operators; Eskom and cost pressures; demerger read-across; WPIC and Johnson Matthey as primary sources. <span class="c c-m">Med</span></li>
+    <li id="s10"><b>Anglo American</b>, "Demerger of Valterra Platinum unlocks inherent value for our stakeholders", 2 Mar 2026, LSE listing 2 Jun 2025; c.19.9% retained; 3 Sep 2025 placing of c.52.2 m shares.</li>
+    <li id="s11"><b>Anglo American</b>, press release, 2 Jun 2025, demerger of c.51%; shareholder approval 30 Apr 2025; effective 31 May 2025; share consolidation 1 Jun 2025.</li>
+    <li id="s12"><b>Mining Indaba</b>, "One year on: How Valterra Platinum has reclaimed the PGM narrative", 2026, BHP approach context; separation costs (CFO Sayurie Naidoo); analyst reaction; VALT ticker.</li>
+    <li id="s13"><b>TrueSource Metals hub</b>, "Platinum, Prices, Production, Reserves, Producers", Jul 2026, RBPlat acquisition by Implats 2023–24; Nornickel 2025 output declining; Sibanye–Lonmin 2019; and <b>Investing News Network</b>, "Top 5 Palladium and Platinum Producers by Country", 28 May 2026, Valterra as largest platinum producer; Sprott and Aberdeen ETFs. <span class="c c-m">Med</span></li>
+    <li id="s14"><b>WPIC</b>, Platinum Essentials on automotive demand, 2E automotive demand erosion of 1.4% CAGR 2023–2028f; price parity argument.</li>
+    <li id="s15"><b>WPIC</b>, "Platinum Essentials, Updated two-to-five-year outlook", Jan 2026 (revised), deficits c.350 koz 2027f–2030f; palladium surpluses over the horizon; Fed independence and rate commentary.</li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <span>Market intelligence · not investment advice</span>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>
