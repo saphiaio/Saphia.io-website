@@ -68,7 +68,7 @@ a:hover{color:#a8825a}
 
   <div style="display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;padding-top:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;color:#6f6a62;text-transform:uppercase">
     <div>Ratings are claims, held to the same standard as any other claim</div>
-    <a href="Saphia Methodology.dc.html#scales" style="color:#6f6a62;border-bottom:1px solid #a8825a" style-hover="color:#141412">Rating scales →</a>
+    <a href="/methodology#scales" style="color:#6f6a62;border-bottom:1px solid #a8825a" style-hover="color:#141412">Rating scales →</a>
   </div>
 
 </div>
@@ -84,7 +84,7 @@ class Component extends DCLogic {
     return {
       label, value, confidence, note,
       scale: "Scale " + scaleId,
-      scaleHref: "Saphia Methodology.dc.html#scale-" + scaleId.toLowerCase(),
+      scaleHref: "/methodology#scale-" + scaleId.toLowerCase(),
       evidence, evidenceHref,
       bands: [0, 1, 2].map(i => ({ style: this.band(level, i) }))
     };

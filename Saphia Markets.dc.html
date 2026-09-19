@@ -24,15 +24,15 @@ button{font-family:'JetBrains Mono',monospace}
 <div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#141412;max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 96px">
 
   <nav style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;padding-top:32px">
-    <a href="Saphia Home.dc.html" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
+    <a href="/home" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
       <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#6f6a62;margin-top:3px">SCARCE ASSETS INTELLIGENCE</span>
     </a>
     <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px">
-      <a href="Saphia Home.dc.html" style="color:#6f6a62" style-hover="color:#141412">Home</a>
-      <a href="Saphia About.dc.html" style="color:#6f6a62" style-hover="color:#141412">About</a>
-      <a href="Saphia Methodology.dc.html" style="color:#6f6a62" style-hover="color:#141412">Methodology</a>
-      <a href="Saphia Markets.dc.html" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Markets</a>
-      <a href="contact.html" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
+      <a href="/home" style="color:#6f6a62" style-hover="color:#141412">Home</a>
+      <a href="/about" style="color:#6f6a62" style-hover="color:#141412">About</a>
+      <a href="/methodology" style="color:#6f6a62" style-hover="color:#141412">Methodology</a>
+      <a href="/markets" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Markets</a>
+      <a href="/contact" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
     </div>
   </nav>
 
@@ -130,56 +130,56 @@ class Component extends DCLogic {
   data() {
     return [
       { name: "Gems & Jewellery", sectors: [
-        ["Natural Diamonds", "natural_diamonds_dashboard.html", "Rough distribution concentrated at the sight; polished trades globally."],
-        ["Lab-Grown Diamonds", "lab_grown_diamonds_dashboard.html", "Production cost has fallen faster than retail price has followed."],
-        ["Coloured Gemstones", "coloured_gemstones_dashboard.html", "No single exchange; origin and treatment drive most of the value."],
-        ["Pearls", "pearls_dashboard.html", "Natural pearls are a rounding error beside cultured production."]
+        ["Natural Diamonds", "/natural-diamonds-dashboard", "Rough distribution concentrated at the sight; polished trades globally."],
+        ["Lab-Grown Diamonds", "/lab-grown-diamonds-dashboard", "Production cost has fallen faster than retail price has followed."],
+        ["Coloured Gemstones", "/coloured-gemstones-dashboard", "No single exchange; origin and treatment drive most of the value."],
+        ["Pearls", "/pearls-dashboard", "Natural pearls are a rounding error beside cultured production."]
       ]},
       { name: "Metals, Energy & Strategic Materials", sectors: [
-        ["Gold", "gold_dashboard.html", "Central-bank buying has replaced jewellery as the marginal bid."],
-        ["Silver", "silver_dashboard.html", "Industrial demand from solar now rivals investment demand."],
-        ["Platinum Group Metals", "pgm_dashboard.html", "South African supply concentration sits against thin above-ground stock."],
-        ["Copper", "copper_dashboard.html", "Refining, not mining, is where price power actually sits."],
-        ["Rare Earths", "rare_earths_dashboard.html", "China's separation share dwarfs its mining share."],
-        ["Oil & Gas", "oil_gas_dashboard.html", "OPEC+ spare capacity is the real supply variable, not reserves."]
+        ["Gold", "/gold-dashboard", "Central-bank buying has replaced jewellery as the marginal bid."],
+        ["Silver", "/silver-dashboard", "Industrial demand from solar now rivals investment demand."],
+        ["Platinum Group Metals", "/pgm-dashboard", "South African supply concentration sits against thin above-ground stock."],
+        ["Copper", "/copper-dashboard", "Refining, not mining, is where price power actually sits."],
+        ["Rare Earths", "/rare-earths-dashboard", "China's separation share dwarfs its mining share."],
+        ["Oil & Gas", "/oil-gas-dashboard", "OPEC+ spare capacity is the real supply variable, not reserves."]
       ]},
       { name: "Cellar & Collectibles", sectors: [
-        ["Fine Wine", "fine_wine_dashboard.html", "Liquidity concentrates in a small band of Bordeaux and Burgundy names."],
-        ["Port", "port_dashboard.html", "The benefício and two family groups set the terms of trade."],
-        ["Scotch Whisky", "scotch_whisky_dashboard.html", "Casks and bottles are different markets with different liquidity."],
-        ["Cigars", "cigars_dashboard.html", "Habanos S.A.'s monopoly sets the ceiling on Cuban supply."],
-        ["Watches", "watches_dashboard.html", "Waitlists at the manufacturer create the secondary premium."],
-        ["Art", "art_dashboard.html", "Private sales are unrated; auction is the only visible liquidity."],
-        ["Classic Cars", "classic_cars_dashboard.html", "The apex and the base of the market barely correlate."]
+        ["Fine Wine", "/fine-wine-dashboard", "Liquidity concentrates in a small band of Bordeaux and Burgundy names."],
+        ["Port", "/port-dashboard", "The benefício and two family groups set the terms of trade."],
+        ["Scotch Whisky", "/scotch-whisky-dashboard", "Casks and bottles are different markets with different liquidity."],
+        ["Cigars", "/cigars-dashboard", "Habanos S.A.'s monopoly sets the ceiling on Cuban supply."],
+        ["Watches", "/watches-dashboard", "Waitlists at the manufacturer create the secondary premium."],
+        ["Art", "/art-dashboard", "Private sales are unrated; auction is the only visible liquidity."],
+        ["Classic Cars", "/classic-cars-dashboard", "The apex and the base of the market barely correlate."]
       ]},
       { name: "Aromatics", sectors: [
-        ["Saffron", "saffron_dashboard.html", "Iranian harvest volatility sets the world price."],
-        ["Oud", "oud_dashboard.html", "Wild agarwood and plantation oil are priced on different planets."],
-        ["Vanilla", "vanilla_dashboard.html", "Madagascar's harvest cycle drives multi-year price swings."],
-        ["Frankincense", "frankincense_dashboard.html", "Boswellia papyrifera populations are declining across its range."]
+        ["Saffron", "/saffron-dashboard", "Iranian harvest volatility sets the world price."],
+        ["Oud", "/oud-dashboard", "Wild agarwood and plantation oil are priced on different planets."],
+        ["Vanilla", "/vanilla-dashboard", "Madagascar's harvest cycle drives multi-year price swings."],
+        ["Frankincense", "/frankincense-dashboard", "Boswellia papyrifera populations are declining across its range."]
       ]},
       { name: "Crops", sectors: [
-        ["Coffee", "coffee_dashboard.html", "Geisha lots trade at a multiple of commodity Arabica."],
-        ["Tea", "tea_dashboard.html", "Uji tencha and bulk leaf share a name and nothing else."],
-        ["Cocoa", "cocoa_dashboard.html", "Two marketing boards set farmgate price for most of world supply."],
-        ["Olive Oil", "olive_oil_dashboard.html", "Mediterranean drought has repeatedly moved the world price."],
-        ["Mānuka Honey", "manuka_honey_dashboard.html", "Certification outside New Zealand does not test what it claims."],
-        ["Dates", "dates_dashboard.html", "Ajwa carries a religious premium the market data does not explain."]
+        ["Coffee", "/coffee-dashboard", "Geisha lots trade at a multiple of commodity Arabica."],
+        ["Tea", "/tea-dashboard", "Uji tencha and bulk leaf share a name and nothing else."],
+        ["Cocoa", "/cocoa-dashboard", "Two marketing boards set farmgate price for most of world supply."],
+        ["Olive Oil", "/olive-oil-dashboard", "Mediterranean drought has repeatedly moved the world price."],
+        ["Mānuka Honey", "/manuka-honey-dashboard", "Certification outside New Zealand does not test what it claims."],
+        ["Dates", "/dates-dashboard", "Ajwa carries a religious premium the market data does not explain."]
       ]},
       { name: "Rare Foods", sectors: [
-        ["Caviar", "caviar_dashboard.html", "Wild sturgeon roe is nearly extinct as a legal category."],
-        ["Truffles", "truffles_dashboard.html", "White truffle supply is wild-foraged and cannot be farmed at scale."],
-        ["Bluefin Tuna", "bluefin_tuna_dashboard.html", "Ōma-caught fish trade at a premium ranched tuna cannot reach."],
-        ["Wagyu", "wagyu_dashboard.html", "Genetic lineage, not geography alone, sets the grading ceiling."]
+        ["Caviar", "/caviar-dashboard", "Wild sturgeon roe is nearly extinct as a legal category."],
+        ["Truffles", "/truffles-dashboard", "White truffle supply is wild-foraged and cannot be farmed at scale."],
+        ["Bluefin Tuna", "/bluefin-tuna-dashboard", "Ōma-caught fish trade at a premium ranched tuna cannot reach."],
+        ["Wagyu", "/wagyu-dashboard", "Genetic lineage, not geography alone, sets the grading ceiling."]
       ]}
     ];
   }
 
   latest() {
     return [
-      ["Cigars", "cigars_dashboard.html#s-iii", "Sanctions on Habanos S.A.'s co-owner reach the German distributor; the Festival is cancelled"],
-      ["Copper", "copper_dashboard.html#s-i", "Forecast surplus becomes a 150–400 kt deficit after Grasberg; the US tariffs its own supply"],
-      ["Rare Earths", "rare_earths_dashboard.html", "China's separation-stage grip proves harder to route around than its mine share suggests"]
+      ["Cigars", "/cigars-dashboard#s-iii", "Sanctions on Habanos S.A.'s co-owner reach the German distributor; the Festival is cancelled"],
+      ["Copper", "/copper-dashboard#s-i", "Forecast surplus becomes a 150–400 kt deficit after Grasberg; the US tariffs its own supply"],
+      ["Rare Earths", "/rare-earths-dashboard", "China's separation-stage grip proves harder to route around than its mine share suggests"]
     ];
   }
 

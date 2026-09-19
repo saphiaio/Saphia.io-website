@@ -38,15 +38,15 @@ a:focus-visible{outline:2px solid #a8825a;outline-offset:2px;border-radius:1px}
 <div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.65;color:#141412;max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 96px">
 
   <nav style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px 32px;padding-top:32px">
-    <a href="Saphia Home.dc.html" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
+    <a href="/home" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
       <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#6f6a62;margin-top:3px">SCARCE ASSETS INTELLIGENCE</span>
     </a>
     <div style="display:flex;flex-wrap:wrap;gap:12px 28px;font-size:14px">
-      <a href="Saphia Home.dc.html" style="color:#6f6a62" style-hover="color:#141412">Home</a>
-      <a href="Saphia About.dc.html" style="color:#6f6a62" style-hover="color:#141412">About</a>
-      <a href="Saphia Methodology.dc.html" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Methodology</a>
-      <a href="Saphia Markets.dc.html" style="color:#6f6a62" style-hover="color:#141412">Markets</a>
-      <a href="contact.html" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
+      <a href="/home" style="color:#6f6a62" style-hover="color:#141412">Home</a>
+      <a href="/about" style="color:#6f6a62" style-hover="color:#141412">About</a>
+      <a href="/methodology" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Methodology</a>
+      <a href="/markets" style="color:#6f6a62" style-hover="color:#141412">Markets</a>
+      <a href="/contact" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
     </div>
   </nav>
 
@@ -288,28 +288,28 @@ class Component extends DCLogic {
         { n: 7, q: "Price formation", d: "How those six combine into the price a buyer pays" }
       ],
       glossary: [
-        { t: "Benefício", d: "Port's annual quota: the volume of must the Douro's growers are allowed to fortify into Port rather than sell as ordinary wine, set each year by the IVDP.", sectors: [["Port", "port_dashboard.html"]] },
-        { t: "Sight / sightholder", d: "De Beers' rough-diamond distribution system: a fixed group of buyers (\"sightholders\") receive pre-set boxes of rough at pre-set prices, several times a year.", sectors: [["Natural Diamonds", "natural_diamonds_dashboard.html"]] },
-        { t: "Doré", d: "Unrefined gold-silver bullion straight from a mine, still needing refining before it can be sold as investment-grade metal.", sectors: [["Gold", "gold_dashboard.html"], ["Silver", "silver_dashboard.html"]] },
-        { t: "Good delivery bar", d: "A gold or silver bar meeting the LBMA's standard for weight, purity and refiner accreditation, the form that trades and settles on the London market.", sectors: [["Gold", "gold_dashboard.html"], ["Silver", "silver_dashboard.html"]] },
-        { t: "Kimberley Process certificate", d: "The international scheme certifying a diamond parcel's export paperwork; it attests the paperwork was issued correctly, not that the stones inside match it.", sectors: [["Natural Diamonds", "natural_diamonds_dashboard.html"]] },
-        { t: "CITES permit", d: "A permit under the Convention on International Trade in Endangered Species, required to export or import regulated wildlife products; like the Kimberley Process, it certifies the document, not the contents.", sectors: [["Caviar", "caviar_dashboard.html"], ["Oud", "oud_dashboard.html"]] },
-        { t: "Marketing board", d: "A state or quasi-state body that buys a crop from farmers at a set price and controls its export, common in cocoa and similar commodities.", sectors: [["Cocoa", "cocoa_dashboard.html"]] },
-        { t: "Koz / kt", d: "Thousand troy ounces / thousand metric tonnes, the standard units for reporting metal supply, demand and deficits.", sectors: [["Gold", "gold_dashboard.html"], ["Platinum Group Metals", "pgm_dashboard.html"], ["Copper", "copper_dashboard.html"]] },
-        { t: "Deficit / surplus", d: "Whether a market's supply falls short of or exceeds demand in a given period, the usual measure of whether a shortage is building.", sectors: [["Copper", "copper_dashboard.html"], ["Platinum Group Metals", "pgm_dashboard.html"]] },
-        { t: "Spare capacity", d: "Production a supplier could bring online quickly if needed; large spare capacity caps how far a shortage can push price.", sectors: [["Oil & Gas", "oil_gas_dashboard.html"]] },
-        { t: "En primeur", d: "Wine sold before it's bottled, while still ageing in barrel, standard practice for young Bordeaux.", sectors: [["Fine Wine", "fine_wine_dashboard.html"]] },
-        { t: "Bailment", d: "A legal arrangement where one party holds another's property (like a whisky cask in a warehouse) without owning it, distinct from a financial security and outside financial regulation.", sectors: [["Scotch Whisky", "scotch_whisky_dashboard.html"]] },
-        { t: "Grading authority", d: "A body that formally assesses and certifies a physical good's quality (e.g. gemstone grading labs), giving buyers a shared, checkable standard.", sectors: [["Coloured Gemstones", "coloured_gemstones_dashboard.html"], ["Natural Diamonds", "natural_diamonds_dashboard.html"]] },
-        { t: "Provenance risk", d: "The chance that where or what something claims to be, its origin, species or lineage, is wrong, weighed against how good the check on that claim is.", sectors: [["Caviar", "caviar_dashboard.html"], ["Oud", "oud_dashboard.html"], ["Truffles", "truffles_dashboard.html"]] },
-        { t: "Carat (ct)", d: "The unit of weight for gemstones and pearls, 0.2 grams; not to be confused with karat, which measures gold purity.", sectors: [["Natural Diamonds", "natural_diamonds_dashboard.html"], ["Coloured Gemstones", "coloured_gemstones_dashboard.html"], ["Pearls", "pearls_dashboard.html"]] },
-        { t: "Karat (K)", d: "A measure of gold purity out of 24 parts; 24K is pure gold, 18K is 75% gold. Distinct from carat, the gemstone weight unit.", sectors: [["Gold", "gold_dashboard.html"]] },
-        { t: "Troy ounce (oz t)", d: "The standard weight unit for precious metals, about 31.1 grams, heavier than the everyday (avoirdupois) ounce.", sectors: [["Gold", "gold_dashboard.html"], ["Silver", "silver_dashboard.html"], ["Platinum Group Metals", "pgm_dashboard.html"]] },
-        { t: "Barrel (bbl)", d: "The standard unit for trading crude oil, about 159 litres; a legacy of 19th-century wooden oil barrels.", sectors: [["Oil & Gas", "oil_gas_dashboard.html"]] },
-        { t: "Pipe", d: "Port's traditional cask and trading unit, 550 litres; the benefício quota is measured in pipes.", sectors: [["Port", "port_dashboard.html"]] },
-        { t: "Hogshead", d: "A cask of roughly 225 litres, the standard size for maturing and trading Scotch whisky by the cask.", sectors: [["Scotch Whisky", "scotch_whisky_dashboard.html"]] },
-        { t: "Momme", d: "The traditional Japanese unit for pearl size, based on weight; still used alongside millimetre diameter in grading.", sectors: [["Pearls", "pearls_dashboard.html"]] },
-        { t: "Bag (60 kg)", d: "The standard trading unit for green coffee, fixed at 60 kilograms regardless of origin.", sectors: [["Coffee", "coffee_dashboard.html"]] }
+        { t: "Benefício", d: "Port's annual quota: the volume of must the Douro's growers are allowed to fortify into Port rather than sell as ordinary wine, set each year by the IVDP.", sectors: [["Port", "/port-dashboard"]] },
+        { t: "Sight / sightholder", d: "De Beers' rough-diamond distribution system: a fixed group of buyers (\"sightholders\") receive pre-set boxes of rough at pre-set prices, several times a year.", sectors: [["Natural Diamonds", "/natural-diamonds-dashboard"]] },
+        { t: "Doré", d: "Unrefined gold-silver bullion straight from a mine, still needing refining before it can be sold as investment-grade metal.", sectors: [["Gold", "/gold-dashboard"], ["Silver", "/silver-dashboard"]] },
+        { t: "Good delivery bar", d: "A gold or silver bar meeting the LBMA's standard for weight, purity and refiner accreditation, the form that trades and settles on the London market.", sectors: [["Gold", "/gold-dashboard"], ["Silver", "/silver-dashboard"]] },
+        { t: "Kimberley Process certificate", d: "The international scheme certifying a diamond parcel's export paperwork; it attests the paperwork was issued correctly, not that the stones inside match it.", sectors: [["Natural Diamonds", "/natural-diamonds-dashboard"]] },
+        { t: "CITES permit", d: "A permit under the Convention on International Trade in Endangered Species, required to export or import regulated wildlife products; like the Kimberley Process, it certifies the document, not the contents.", sectors: [["Caviar", "/caviar-dashboard"], ["Oud", "/oud-dashboard"]] },
+        { t: "Marketing board", d: "A state or quasi-state body that buys a crop from farmers at a set price and controls its export, common in cocoa and similar commodities.", sectors: [["Cocoa", "/cocoa-dashboard"]] },
+        { t: "Koz / kt", d: "Thousand troy ounces / thousand metric tonnes, the standard units for reporting metal supply, demand and deficits.", sectors: [["Gold", "/gold-dashboard"], ["Platinum Group Metals", "/pgm-dashboard"], ["Copper", "/copper-dashboard"]] },
+        { t: "Deficit / surplus", d: "Whether a market's supply falls short of or exceeds demand in a given period, the usual measure of whether a shortage is building.", sectors: [["Copper", "/copper-dashboard"], ["Platinum Group Metals", "/pgm-dashboard"]] },
+        { t: "Spare capacity", d: "Production a supplier could bring online quickly if needed; large spare capacity caps how far a shortage can push price.", sectors: [["Oil & Gas", "/oil-gas-dashboard"]] },
+        { t: "En primeur", d: "Wine sold before it's bottled, while still ageing in barrel, standard practice for young Bordeaux.", sectors: [["Fine Wine", "/fine-wine-dashboard"]] },
+        { t: "Bailment", d: "A legal arrangement where one party holds another's property (like a whisky cask in a warehouse) without owning it, distinct from a financial security and outside financial regulation.", sectors: [["Scotch Whisky", "/scotch-whisky-dashboard"]] },
+        { t: "Grading authority", d: "A body that formally assesses and certifies a physical good's quality (e.g. gemstone grading labs), giving buyers a shared, checkable standard.", sectors: [["Coloured Gemstones", "/coloured-gemstones-dashboard"], ["Natural Diamonds", "/natural-diamonds-dashboard"]] },
+        { t: "Provenance risk", d: "The chance that where or what something claims to be, its origin, species or lineage, is wrong, weighed against how good the check on that claim is.", sectors: [["Caviar", "/caviar-dashboard"], ["Oud", "/oud-dashboard"], ["Truffles", "/truffles-dashboard"]] },
+        { t: "Carat (ct)", d: "The unit of weight for gemstones and pearls, 0.2 grams; not to be confused with karat, which measures gold purity.", sectors: [["Natural Diamonds", "/natural-diamonds-dashboard"], ["Coloured Gemstones", "/coloured-gemstones-dashboard"], ["Pearls", "/pearls-dashboard"]] },
+        { t: "Karat (K)", d: "A measure of gold purity out of 24 parts; 24K is pure gold, 18K is 75% gold. Distinct from carat, the gemstone weight unit.", sectors: [["Gold", "/gold-dashboard"]] },
+        { t: "Troy ounce (oz t)", d: "The standard weight unit for precious metals, about 31.1 grams, heavier than the everyday (avoirdupois) ounce.", sectors: [["Gold", "/gold-dashboard"], ["Silver", "/silver-dashboard"], ["Platinum Group Metals", "/pgm-dashboard"]] },
+        { t: "Barrel (bbl)", d: "The standard unit for trading crude oil, about 159 litres; a legacy of 19th-century wooden oil barrels.", sectors: [["Oil & Gas", "/oil-gas-dashboard"]] },
+        { t: "Pipe", d: "Port's traditional cask and trading unit, 550 litres; the benefício quota is measured in pipes.", sectors: [["Port", "/port-dashboard"]] },
+        { t: "Hogshead", d: "A cask of roughly 225 litres, the standard size for maturing and trading Scotch whisky by the cask.", sectors: [["Scotch Whisky", "/scotch-whisky-dashboard"]] },
+        { t: "Momme", d: "The traditional Japanese unit for pearl size, based on weight; still used alongside millimetre diameter in grading.", sectors: [["Pearls", "/pearls-dashboard"]] },
+        { t: "Bag (60 kg)", d: "The standard trading unit for green coffee, fixed at 60 kilograms regardless of origin.", sectors: [["Coffee", "/coffee-dashboard"]] }
       ].sort((a, b) => a.t.localeCompare(b.t)).map(g => ({ ...g, sectorLinks: g.sectors.map(([name, href]) => ({ name, href })) }))
     };
   }
