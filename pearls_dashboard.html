@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -222,13 +231,14 @@ svg text{font-size:10px}
 .auc .who{grid-area:who}
 .auc .amt{grid-area:amt}
 .auc .track{grid-area:track}
-.auc .scale{display:none}</style>
+.auc .scale{display:none}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -241,11 +251,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of Jun 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Volume abundant, value concentrated: natural and large South Sea pearls firm, commodity freshwater flat.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Australia · French Polynesia · Japan · China · Indonesia and the Philippines</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>Hong Kong · Japan · United States · China</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Re-checked 5 Oct 2026: no new auction, Paspaley or Japanese Akoya production data found since the last update; only retail price guides. Regime and ratings unchanged.</dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-l">Low</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#sec-6" title="Evidence: section § VI">/ § VI</a></span></dd></div>
@@ -253,16 +264,17 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-l">Low</span></dt><dd><b>Medium; natural High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#sec-4" title="Evidence: section § IV">/ § IV</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-l">Low</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#sec-5" title="Evidence: section § V">/ § V</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">PEARLS</p>
   <ol><li><a href="#sec-1"><span>I</span>The Volume–Value Paradox</a></li><li><a href="#sec-2"><span>II</span>The Defining Distinction</a></li><li><a href="#sec-3"><span>III</span>Akoya · South Sea · Tahitian · Freshwater</a></li><li><a href="#sec-4"><span>IV</span>Farms, Not Mines</a></li><li><a href="#sec-5"><span>V</span>The Seven Factors · Treatment · Certification</a></li><li><a href="#sec-6"><span>VI</span>The Growers, the Listed Pure-Play, and the Maison</a></li><li><a href="#sec-7"><span>VII</span>A Gem on the Front Line of the Ocean</a></li><li><a href="#sources"><span>VIII</span>Sources</a></li></ol>
 </nav>
 
-<section id="sec-1"><div class="sechead"><h2><em>I</em>The Volume–Value Paradox</h2><p class="sub">Sources · Atlas Pearls · IEOM · academic aquaculture data · paid reports</p></div>
+<section id="sec-1"><div class="sechead tint"><h2><em>I</em>The Volume–Value Paradox</h2><p class="sub">Sources · Atlas Pearls · IEOM · academic aquaculture data · paid reports</p></div>
 
   <div class="cards">
     <div>
@@ -334,7 +346,7 @@ svg text{font-size:10px}
 <!-- ============== II · NATURAL VS CULTURED ============== -->
 <div class="wrap">
   </div></section>
-<section id="sec-2"><div class="sechead"><h2><em>II</em>The Defining Distinction</h2><p class="sub">Mikimoto · the science of culture · why natural pearls vanished from the market</p></div>
+<section id="sec-2"><div class="sechead tint"><h2><em>II</em>The Defining Distinction</h2><p class="sub">Mikimoto · the science of culture · why natural pearls vanished from the market</p></div>
 
   <div class="block">
     <div class="prose full">
@@ -408,7 +420,7 @@ svg text{font-size:10px}
 <!-- ============== III · FOUR TYPES ============== -->
 <div class="wrap">
   </div></section>
-<section id="sec-3"><div class="sechead"><h2><em>III</em>Akoya · South Sea · Tahitian · Freshwater</h2><p class="sub">Type is set by the mollusc, and largely determines size, colour and value</p></div>
+<section id="sec-3"><div class="sechead tint"><h2><em>III</em>Akoya · South Sea · Tahitian · Freshwater</h2><p class="sub">Type is set by the mollusc, and largely determines size, colour and value</p></div>
 
   <div class="block">
     <div class="prose full">
@@ -488,7 +500,7 @@ svg text{font-size:10px}
 <!-- ============== IV · PRODUCTION GEOGRAPHY ============== -->
 <div class="wrap">
   </div></section>
-<section id="sec-4"><div class="sechead"><h2><em>IV</em>Farms, Not Mines</h2><p class="sub">Where pearls are grown, and why the map of volume is the inverse of the map of value</p></div>
+<section id="sec-4"><div class="sechead tint"><h2><em>IV</em>Farms, Not Mines</h2><p class="sub">Where pearls are grown, and why the map of volume is the inverse of the map of value</p></div>
 
   <div class="block">
     <div class="prose full">
@@ -549,7 +561,7 @@ svg text{font-size:10px}
 <!-- ============== V · QUALITY & VALUE ============== -->
 <div class="wrap">
   </div></section>
-<section id="sec-5"><div class="sechead"><h2><em>V</em>The Seven Factors · Treatment · Certification</h2><p class="sub">No single dominant criterion, and treatment status that moves price as much as origin</p></div>
+<section id="sec-5"><div class="sechead tint"><h2><em>V</em>The Seven Factors · Treatment · Certification</h2><p class="sub">No single dominant criterion, and treatment status that moves price as much as origin</p></div>
 
   <div class="block">
     <div class="prose full">
@@ -643,7 +655,7 @@ svg text{font-size:10px}
 <!-- ============== VI · PRODUCERS & HOUSES ============== -->
 <div class="wrap">
   </div></section>
-<section id="sec-6"><div class="sechead"><h2><em>VI</em>The Growers, the Listed Pure-Play, and the Maison</h2><p class="sub">Paspaley · Robert Wan · Atlas Pearls · Mikimoto, plus the auction record</p></div>
+<section id="sec-6"><div class="sechead tint"><h2><em>VI</em>The Growers, the Listed Pure-Play, and the Maison</h2><p class="sub">Paspaley · Robert Wan · Atlas Pearls · Mikimoto, plus the auction record</p></div>
 
   <div class="block">
     <div class="prose full">
@@ -750,7 +762,7 @@ svg text{font-size:10px}
 <!-- ============== VII · OUTLOOK ============== -->
 <div class="wrap">
   </div></section>
-<section id="sec-7"><div class="sechead"><h2><em>VII</em>A Gem on the Front Line of the Ocean</h2><p class="sub">Climate &amp; disease · the "synthetic pearl" myth · demand · sustainability</p></div>
+<section id="sec-7"><div class="sechead narrative"><h2><em>VII</em>A Gem on the Front Line of the Ocean</h2><p class="sub">Climate &amp; disease · the "synthetic pearl" myth · demand · sustainability</p></div>
 
   <div class="cards">
     <div>
@@ -761,10 +773,17 @@ svg text{font-size:10px}
       <span class="c c-h">High</span>
     </div>
     <div>
-      <div class="l">Japan Akoya output vs historical</div>
-      <div class="v">▼ ~65<span class="u">%</span></div>
+      <div class="l">Japan Akoya output vs peak</div>
+      <div class="v">▼ ~85<span class="u">%</span></div>
       <div class="yr">long-run</div>
-      <div class="note">From ~70 t/yr to ~20–25 t/yr on disease, pollution and ageing oyster stocks.<sup><a href="#s9">9</a></sup><sup><a href="#s15">15</a></sup></div>
+      <div class="note">From ~67 t/yr to under 10 t/yr per the Japan Fisheries Agency; fewer than 600 active farms remain, concentrated in Mie, Ehime and Nagasaki.<sup><a href="#s16">16</a></sup></div>
+      <span class="c c-h">High</span>
+    </div>
+    <div>
+      <div class="l">Akoya wholesale price rise</div>
+      <div class="v">▲ ~80<span class="u">%</span></div>
+      <div class="yr">recent harvests</div>
+      <div class="note">AGTA-reported wholesale increase with no sign of reversal; supply is structurally capped above 9mm by oyster physiology.<sup><a href="#s16">16</a></sup></div>
       <span class="c c-m">Med</span>
     </div>
     <div>
@@ -815,7 +834,7 @@ svg text{font-size:10px}
 <!-- ============== SOURCES ============== -->
 <div class="wrap">
   </div></section>
-<section id="sources"><div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src">
+<section id="sources"><div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><details><summary class="src-toggle">Show 16 sources</summary><ol class="src">
       <li id="s1"><b>Paid market-report estimates, pearl jewellery / natural &amp; cultured pearls market.</b> Estimates for the same year diverge several-fold: Market Research Future puts the 2024 pearl-jewellery market at ~$20bn (cultured ~$15bn, natural ~$5bn); others land near $10–12bn; Verified Market Reports gives a 2023 cultured:natural value split of ~78:22. Treat as order-of-magnitude only. <a href="https://www.marketresearchfuture.com/reports/pearl-jewellery-market-20290">marketresearchfuture.com</a> · <a href="https://www.verifiedmarketreports.com/product/natural-and-cultured-pearls-market-size-and-forecast/">verifiedmarketreports.com</a></li>
       <li id="s2"><b>Cultured-pearl dominance &amp; the natural/cultured price gap.</b> Cultured pearls represent the overwhelming majority of supply by volume; natural pearls a small remainder priced far higher. Background on the shift from natural to cultured supply. <a href="https://www.marketgrowthreports.com/market-reports/natural-and-cultured-pearls-market-115429">marketgrowthreports.com</a> · <a href="https://www.thepearlsource.com/natural-pearls">thepearlsource.com</a></li>
       <li id="s3"><b>Global production volume &amp; the volume–value paradox.</b> Springer (Southgate et al., 2019): average annual Chinese pearl output ~3,540 t (freshwater ~99.5%); Japan ~51.6% of global marine pearl <em>value</em>; average marine output ~23 t Japan, ~18.6 t China, ~12.9 t French Polynesia. Chinese freshwater = high-yield, low-value. <a href="https://link.springer.com/content/pdf/10.1007/978-3-319-96776-9_5.pdf">link.springer.com</a></li>
@@ -830,8 +849,8 @@ svg text{font-size:10px}
       <li id="s12"><b>Paspaley &amp; the Australian wild fishery.</b> World's leading producer of white South Sea pearls; ~20 farms over 2,500 km; ~70–80% of Australian South Sea output; wild-oyster quota ~300–400k/yr; only major wild-oyster fishery; first MSC-certified pearl fishery; Australia ~0.1% of global output by weight but >20% by value; notable Paspaley natural-pearl auction sales. <a href="https://paspaleygroup.com/pearling.html">paspaleygroup.com</a> · <a href="https://wholesale.paspaley.com/pages/about-us">wholesale.paspaley.com</a> · <a href="https://www.msc.org/what-we-are-doing/fishers-stories/the-worlds-first-certified-sustainable-pearl-fishery">msc.org</a></li>
       <li id="s13"><b>GIA 7 Pearl Value Factors &amp; treatment.</b> Size, shape, colour, lustre, surface, nacre, matching (codified by R. T. Liddicoat, 1967; nacre-classification update 2025); lustre first among equals; treatments, bleaching, toning/pinking, maeshori, dyeing, irradiation, filling, coating, with disclosure norms and discounts; Hanadama as top-Akoya designation. <a href="https://www.gia.edu/gems-gemology/summer-2021-pearl-classification-the-gia-7-pearl-value-factors">gia.edu</a> · <a href="https://www.gemsociety.org/article/pearl-treatments/">gemsociety.org</a></li>
       <li id="s14"><b>Atlas Pearls (ASX:ATP), the listed pure-play.</b> Annual Report FY25: 621,458 pearls harvested (FY24: 598,324); ~1,200 employees; 8 Indonesian farms; trailing revenue A$28.7m (to 30 Jun 2025). 1H FY26: revenue A$13.6m (▼27% YoY), net loss A$5.23m, loss per share A$0.012. White &amp; silver South Sea producer. <a href="https://announcements.asx.com.au/asxpdf/20250919/pdf/06pf4s9zvg21xw.pdf">ASX FY25 Annual Report</a> · <a href="https://simplywall.st/stocks/au/consumer-durables/asx-atp/atlas-pearls-shares">simplywall.st</a></li>
-      <li id="s15"><b>Pearl-oyster disease &amp; climate exposure.</b> Novel <em>Pinctada</em> birnavirus (PiBV) identified as the agent of Akoya "summer atrophy," recurring since 2019 when seawater exceeds ~20°C; Akoya viral disease losses exceeding ¥30bn/yr; red-tide and warming pressures; selective breeding for disease resistance (survival gains 43.9–80.6% to viral pathogens). Pearl oysters as an ocean early-warning indicator. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11067908/">ncbi.nlm.nih.gov (PiBV)</a> · <a href="https://www.ganoksin.com/article/effects-global-warming-pearl-oysters/">ganoksin.com</a> · <a href="https://www.spf.org/opri/en/newsletter/86_1.html?full=86_1">spf.org / OPRI</a></li>
-    </ol></section>
+      <li id="s16"><b>Pearls.jp, "Japanese Pearls: A Tokyo Expert's Complete Guide to Akoya"</b> (Jun 2026). Japan Fisheries Agency data: annual Akoya production fallen from ~67 t to under 10 t; fewer than 600 farms remain, concentrated in Mie, Ehime and Nagasaki; AGTA-reported Akoya wholesale prices up ~80% over recent harvests. <a href="https://www.pearls.jp/the-ultimate-guide-to-japanese-pearls/" target="_blank">pearls.jp</a></li><li id="s15"><b>Pearl-oyster disease &amp; climate exposure.</b> Novel <em>Pinctada</em> birnavirus (PiBV) identified as the agent of Akoya "summer atrophy," recurring since 2019 when seawater exceeds ~20°C; Akoya viral disease losses exceeding ¥30bn/yr; red-tide and warming pressures; selective breeding for disease resistance (survival gains 43.9–80.6% to viral pathogens). Pearl oysters as an ocean early-warning indicator. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11067908/">ncbi.nlm.nih.gov (PiBV)</a> · <a href="https://www.ganoksin.com/article/effects-global-warming-pearl-oysters/">ganoksin.com</a> · <a href="https://www.spf.org/opri/en/newsletter/86_1.html?full=86_1">spf.org / OPRI</a></li>
+    </ol></details></section>
 
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>

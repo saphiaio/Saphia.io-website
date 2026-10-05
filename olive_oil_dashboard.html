@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -208,13 +217,14 @@ svg text{font-size:10px}
 @media(max-width:860px){
 .cards{grid-template-columns:1fr}
 .bars .r{grid-template-columns:80px 1fr 110px}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -228,11 +238,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Origin prices retreating from the 2023–24 drought peak as Spanish supply recovers.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Spain · Italy · Greece · Tunisia · Turkey</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>Italy · Spain · United States · Brazil · Japan</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Spanish 2026/27 crop estimates have been cut from up to 1.8 Mt to 1.4–1.5 Mt after a hot, dry summer (42–44°C in Andalusia). Spanish EVOO at origin averaged €4.65/kg on 28 Sep, up 18% in ten days, reversing the summer low near €3.40. October rain now decides the harvest.<sup class="r"><a href="#s9">9</a></sup><sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s11">11</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
@@ -240,17 +251,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">OLIVE OIL</p>
   <ol><li><a href="#s-i"><span>I</span>The crop-year balance</a></li><li><a href="#s-ii"><span>II</span>Price at origin</a></li><li><a href="#s-iii"><span>III</span>Geography of supply</a></li><li><a href="#s-iv"><span>IV</span>The consumption shift</a></li><li><a href="#s-v"><span>V</span>Grades and integrity</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>The crop-year balance</h2><p class="sub">International Olive Council figures; crop years run October to September.</p></div>
+  <div class="sechead tint"><h2><em>I</em>The crop-year balance</h2><p class="sub">International Olive Council figures; crop years run October to September.</p></div>
   
   <div class="tw"><table>
     <tr><th>Crop year</th><th class="n">World production (kt)</th><th class="n">Change</th><th class="n">Consumption (kt)</th><th>Note</th></tr>
@@ -263,7 +275,7 @@ svg text{font-size:10px}
   <p>Global olive oil production has tripled over sixty years, and consumption has nearly doubled since 1990/91, driven by non-IOC and non-EU markets while EU consumption has declined since 2004/05. The 2023/24 price shock is suspected of having caused lasting substitution to other oils in some markets.<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a> <a href="#s7">7</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>Price at origin</h2><p class="sub">Jaén, Bari and Chania producer prices as dated observations.</p></div>
+  <div class="sechead tint"><h2><em>II</em>Price at origin</h2><p class="sub">Jaén, Bari and Chania producer prices as dated observations.</p></div>
   
   <div class="tw"><table>
     <tr><th>Reference</th><th>Date</th><th class="n">Extra virgin, €/100 kg</th><th>Note</th></tr>
@@ -279,7 +291,7 @@ svg text{font-size:10px}
   <div class="note">Diamond parallel: the 2023–25 cycle is a pure inventory story. With Spanish stocks 70,000 t below the long-term average at the end of September 2025, and 880,000 t, nearly 70% of the 2025/26 crop, sold within seven months, the trade has no buffer if the 2026/27 flowering fertility decline of c.37% reported by OliveA is borne out. Scarcity pricing returns the moment a single origin fails.<sup class="r"><a href="#s6">6</a> <a href="#s4">4</a></sup> <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>Geography of supply</h2><p class="sub">Spain is the swing producer; Tunisia is the growth origin.</p></div>
+  <div class="sechead tint"><h2><em>III</em>Geography of supply</h2><p class="sub">Spain is the swing producer; Tunisia is the growth origin.</p></div>
   
   <div class="bars">
     <div class="r"><span>Spain</span><div class="bar"><i style="width:100%"></i></div><span class="v">1,370 kt (2025/26e)</span></div>
@@ -300,7 +312,7 @@ svg text{font-size:10px}
   <p>Tunisia, with c.300,000 mostly small family producers, produced an estimated 400–500 kt in 2024/25 and faces a 25% US country tariff introduced in 2025; EU olive oil into the US faces up to 15% under the US–EU framework, and the US remains structurally import-dependent because Californian output cannot meet demand.<sup class="r"><a href="#s6">6</a> <a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>The consumption shift</h2><p class="sub">Europe drinks less of its own oil; the growth is in the producing countries of the south and east.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>The consumption shift</h2><p class="sub">Europe drinks less of its own oil; the growth is in the producing countries of the south and east.</p></div>
   
   <div class="cards">
     <div class="note"><div class="v">70% → 45%</div><div class="l">EU share of world olive-oil consumption, 2004/05 to recent years <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></div></div>
@@ -310,7 +322,7 @@ svg text{font-size:10px}
   <p>Consumption growth has come from non-IOC members and from IOC members outside the EU, Türkiye's table-olive consumption rose from 110 kt to 395 kt and Algeria's from 14 kt to 267.5 kt over the same period, while EU consumption has trended down for two decades.<sup class="r"><a href="#s3">3</a></sup> The EU still supplies roughly 60% of world production and exports c.787 kt to third countries, so the industry's centre of production and its centre of consumption are diverging.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>Grades and integrity</h2><p class="sub">A product defined by chemistry and taste panels, and one of the most adulterated foods in trade.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Grades and integrity</h2><p class="sub">A product defined by chemistry and taste panels, and one of the most adulterated foods in trade.</p></div>
   
   <div class="tw"><table>
     <tr><th>Grade (IOC standard)</th><th>Definition</th><th>Market role</th></tr>
@@ -324,7 +336,7 @@ svg text{font-size:10px}
   <div class="note">Diamond parallel: "Italian" olive oil is to Spanish and Tunisian bulk what a "Belgian-cut" stone once was to African rough, the label describes where value was added, not where the product came from. The country-of-origin rules that finally forced blend disclosure on EU labels are the equivalent of mine-of-origin certification. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -340,7 +352,7 @@ svg text{font-size:10px}
 <section id="s-vii">
   <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. The International Olive Council is the primary source; trade-house market reports are marked Med.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>International Olive Council</b>, "World Market of Olive Oil and Table Olives, Data From December 2024", Jan 2025, 2023/24 production 2,564 kt (−7%), consumption 2,780 kt (−3%), imports 1,015 kt; Spain 854 kt, Italy 328.5 kt, Portugal 160.9 kt; Jaén €530 (−28.9%), Bari €915 (+1.7%).</li>
     <li id="s2"><b>International Olive Council</b>, "Olive sector statistics, December 2025 and forecasts", Jan 2026, 2024/25 production 3,572 kt (+38%, +983 kt); 2023/24 revised 2,589 kt; 2025/26 estimate 3,440 kt; table olives 2,986 kt (−10%); Jaén €433, Bari €665, Chania €465; production tripled in sixty years.</li>
     <li id="s3"><b>International Olive Council</b>, "Olive sector statistics, January/February 2026", Feb 2026, consumption 3,215 kt (2024/25, +15.3%) and 3,248 kt (2025/26e, +1.0%); EU share 70% to c.45%; Egypt, Algeria, Türkiye table-olive consumption; Jaén €407 (−2.5%), Bari €650 (−30.9%).</li>
@@ -349,7 +361,10 @@ svg text{font-size:10px}
     <li id="s6"><b>Certified Origins</b>, "Olive Oil Market Report, September 2025", Spain 1,419,128 t (+66%); sales 1,526,100 t (+32%); exports 1,025,000 t (+38%); domestic 501,000 t; stocks 290,220 t; UPA "disappointing"; Tunisia 400–500 kt and c.300,000 producers. Trade house. <span class="c c-m">Med</span></li>
     <li id="s7"><b>Artisan Olive Oil Company</b>, "2025/2026 Olive Oil Harvest Forecast", 12 Nov 2025, Greece c.250 kt; Italy possibly c.300 kt; substitution risk after 2023/24 prices. Retailer. <span class="c c-m">Med</span></li>
     <li id="s8"><b>Infoodspro</b>, "Olive Oil 25/26", 18 Dec 2025, European Commission/IOC: 3.44 Mt world; EU 2.06 Mt (−2.6%, 60%); Spain 1.37 Mt (−3.3%); Italy 300 kt (+21%); Greece 220 kt (−12%); Portugal 150 kt (−15%); EU opening stocks 372 kt; consumption 3.069 Mt; EU exports 787 kt.</li>
-  </ol>
+  <li id="s9"><b>Greek City Times, "Greek Olive Oil Prices Fall as 2026 Harvest Begins"</b>, 21 Sep 2026. Spain estimate cut to 1.4–1.5 Mt; Spanish costs €1.70–2/kg. <a href="https://greekcitytimes.com/2026/09/21/greek-olive-oil-prices-2026-harvest" target="_blank">greekcitytimes.com</a> <span class="c c-m">Med</span></li>
+<li id="s10"><b>Oleista, "Olive oil price at origin today"</b>, 28 Sep 2026. Spain EVOO €4.65/kg average, +18% in ten days; virgin €3.31; lampante €3.16. <a href="https://oleista.com/en/prices" target="_blank">oleista.com</a> <span class="c c-m">Med</span></li>
+<li id="s11"><b>Mediterrolio, "Olive Oil Prices 2026"</b>, Aug 2026. Spain cycle low €3.40/kg; €3.45/kg on 6 Aug. <a href="https://www.mediterrolio.com/mediterranean-olive-oil-prices/" target="_blank">mediterrolio.com</a> <span class="c c-l">Low</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">

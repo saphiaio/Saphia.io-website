@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -407,13 +416,14 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
 .dv-scale span{position:absolute;transform:translateX(-50%)}
 .dv-note{font-size:13.5px;color:var(--mute);max-width:74ch;margin-top:14px}
 
+.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
 </style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -423,18 +433,19 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <h1>Oil &amp; Gas</h1>
   <p class="lede">A single-file, static reference on the two fuels that supply well over half the world's primary
        energy: who holds them, who produces and refines them, where they flow, and the state of the market as
-       of late July 2026, a period defined by the Strait of Hormuz disruption. Every figure is date-stamped;
+       of early October 2026, a period defined by the Strait of Hormuz disruption. Every figure is date-stamped;
        sources and vintages are listed at the foot of the page.</p>
   
 </header>
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 24 Jul 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
-    <div class="snap-row"><dt>Price regime</dt><dd>Hormuz disruption turned a price spike into a physical shortage; gas remains three regional prices, not one.</dd></div>
+    <div class="snap-row"><dt>Price regime</dt><dd>Hormuz flows back near pre-war levels, yet physical Brent stays tight: futures ~$101, Dated above $120 as inventories drain.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>United States · Saudi Arabia · Russia · Qatar · Canada</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>China · United States · India · European Union · Japan</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Kpler: Hormuz crude flows topped pre-war levels in late September; Brent still ~$101 on 5 Oct. Dated Brent above $120 signals a physical squeeze. Reuters September poll lifted the 2026 Brent average to $89.05. EIA: global inventories down ~400 mb this year.<sup class="r"><a href="#s8">8</a></sup><sup class="r"><a href="#s9">9</a></sup><sup class="r"><a href="#s10">10</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
@@ -442,23 +453,24 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-xii" title="Evidence: section § XII">/ § XII</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-m">Med</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">OIL &amp; GAS</p>
   <ol><li><a href="#s-i"><span>I</span>Overview</a></li><li><a href="#s-ii"><span>II</span>How we got here</a></li><li><a href="#s-iii"><span>III</span>Who produces it</a></li><li><a href="#s-iv"><span>IV</span>Where it goes</a></li><li><a href="#s-v"><span>V</span>Who refines it</a></li><li><a href="#s-vi"><span>VI</span>The pipeline</a></li><li><a href="#s-vii"><span>VII</span>Pipelines around the strait</a></li><li><a href="#s-viii"><span>VIII</span>Transit corridors</a></li><li><a href="#s-ix"><span>IX</span>Oil price</a></li><li><a href="#s-x"><span>X</span>Gas price, three markets, not one</a></li><li><a href="#s-xi"><span>XI</span>Balance</a></li><li><a href="#s-xii"><span>XII</span>The buffer</a></li><li><a href="#s-xiii"><span>XIII</span>Demand, contested</a></li><li><a href="#s-xiv"><span>XIV</span>How it happened</a></li><li><a href="#sources"><span>XV</span>Sources</a></li></ol>
-</nav><div class="note warn"><span class="k">Scope of this pass</span>Sections III, IX and XI, and the demand-forecast block in XIII, have been verified against primary sources and carry citations, confidence tags and data labels. The remaining sections are not yet sourced to this standard, and their figures should be read as untagged pending that pass. An acknowledged gap is information; an unsourced number presented as sourced is not.</div>
+</nav><div class="note warn"><span class="k">Scope of this pass</span>Sections III, IX and XI, and the demand-forecast block in XIII, have been verified against primary sources; VII, VIII and XII were refreshed with citations in the October 2026 pass. All of these carry citations, confidence tags and data labels. The remaining sections are not yet sourced to this standard, and their figures should be read as untagged pending that pass. An acknowledged gap is information; an unsourced number presented as sourced is not.</div>
 
 <section id="s-i">
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">The industry &middot; 2024&ndash;25 baseline</span><h2><em>I</em>Overview</h2><p class="sub">Together, oil and natural gas supply well over half the world's primary energy, oil about
+      <div class="sechead tint"><span class="unit">The industry &middot; 2024&ndash;25 baseline</span><h2><em>I</em>Overview</h2><p class="sub">Together, oil and natural gas supply well over half the world's primary energy, oil about
        31%, gas about 25%. Both are strikingly concentrated in a few states, and both are, unusually for
        industries of their scale, mostly owned by governments rather than by companies you can buy shares in.
-       Baseline figures are 2024&ndash;25; the market snapshots later in this dashboard are dated to July 2026.</p></div>
+       Baseline figures are 2024&ndash;25; the market sections later in this dashboard were refreshed to early October 2026, except gas prices in § X.</p></div>
     </div>
     
 
@@ -553,7 +565,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">Real US$ / bbl &middot; 2025 dollars &middot; since 1960</span><h2><em>II</em>How we got here</h2><p class="sub">Today's market cannot be read without the institution that made it. Before 1960 seven Western
+      <div class="sechead tint"><span class="unit">Real US$ / bbl &middot; 2025 dollars &middot; since 1960</span><h2><em>II</em>How we got here</h2><p class="sub">Today's market cannot be read without the institution that made it. Before 1960 seven Western
        companies, the "Seven Sisters", controlled over 85% of world reserves and simply <em>posted</em> the
        price of crude. OPEC was founded in Baghdad in September 1960, days after those companies cut the posted
        price a second time, and the following sixty years are the story of pricing power moving from the
@@ -684,7 +696,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">mb/d &middot; crude + condensate, 2025</span><h2><em>III</em>Who produces it</h2><p class="sub">Production is startlingly concentrated: just five countries pump half the world's crude, and
+      <div class="sechead tint"><span class="unit">mb/d &middot; crude + condensate, 2025</span><h2><em>III</em>Who produces it</h2><p class="sub">Production is startlingly concentrated: just five countries pump half the world's crude, and
        the top three, the US, Russia and Saudi Arabia, account for nearly 40% between them. These are 2025
        baseline figures; the 2026 Gulf conflict has since cut Saudi and OPEC output sharply, as the balance
        section shows.</p></div>
@@ -761,7 +773,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">trade flows &middot; oil 2024&ndash;25, LNG 2024</span><h2><em>IV</em>Where it goes</h2><p class="sub">Producing a lot is not the same as selling a lot. The US is the top producer of both fuels but
+      <div class="sechead tint"><span class="unit">trade flows &middot; oil 2024&ndash;25, LNG 2024</span><h2><em>IV</em>Where it goes</h2><p class="sub">Producing a lot is not the same as selling a lot. The US is the top producer of both fuels but
        consumes most of what it lifts; the great export flows run from the Gulf, Russia and West Africa toward
        Asia. The single defining fact of the modern oil <em>and</em> gas trade is that almost every large flow
        now points east.</p></div>
@@ -885,7 +897,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">mb/d &middot; refining capacity, 2025</span><h2><em>V</em>Who refines it</h2><p class="sub">Crude is useless until it is refined, and the refining map is different from the production
+      <div class="sechead tint"><span class="unit">mb/d &middot; refining capacity, 2025</span><h2><em>V</em>Who refines it</h2><p class="sub">Crude is useless until it is refined, and the refining map is different from the production
        map. The centre of gravity has moved decisively to Asia: China and India built vast new capacity while
        Europe and, increasingly, the US rationalise ageing plants. Global capacity is roughly 101 mb/d across
        about 700 refineries.</p></div>
@@ -957,7 +969,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">Value chain &middot; structural</span><h2><em>VI</em>The pipeline</h2><p class="sub">Every barrel makes the same journey in three stages. Locating where the 2026 crisis actually
+      <div class="sechead tint"><span class="unit">Value chain &middot; structural</span><h2><em>VI</em>The pipeline</h2><p class="sub">Every barrel makes the same journey in three stages. Locating where the 2026 crisis actually
        sits in that chain explains why 10 mb/d of spare production capacity has been almost no help at all.</p></div>
     </div>
     
@@ -1015,7 +1027,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">mb/d capacity &middot; as of Jul 2026</span><h2><em>VII</em>Pipelines around the strait</h2><p class="sub">When the sea route closes, the only alternative is overland. A handful of lines can move Gulf
+      <div class="sechead tint"><span class="unit">mb/d capacity &middot; as of Oct 2026</span><h2><em>VII</em>Pipelines around the strait</h2><p class="sub">When the sea route closes, the only alternative is overland. A handful of lines can move Gulf
        crude to terminals outside Hormuz, but nowhere near enough of it.</p></div>
     </div>
     
@@ -1033,9 +1045,9 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
         <tbody>
           <tr>
             <td class="nm">Petroline</td>
-            <td>Abqaiq &rarr; Yanbu, Red Sea. 1,200 km, two lines. Saudi Arabia's designated lifeline, built after the tanker war of the 1980s.</td>
+            <td>Abqaiq &rarr; Yanbu, Red Sea. 1,200 km, two lines. Saudi Arabia's designated lifeline, built after the tanker war of the 1980s. Yanbu loadings rose from ~1 to 4.9 mb/d; a pumping station was hit by drone on 10 Sep 2026.<sup class="r"><a href="#s13">13</a></sup></td>
             <td class="cap">5.0 design<br><span style="color:#6f6a62">7.0 claimed</span></td>
-            <td class="st s-hot">Running hard</td>
+            <td class="st s-bad">Under attack</td>
           </tr>
           <tr>
             <td class="nm">ADCOP</td>
@@ -1067,8 +1079,8 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
 
     <div class="sum">
       <div>
-        <div class="k">Usable bypass today</div>
-        <div class="v v-sea">~7&ndash;9</div>
+        <div class="k">Bypass flow, Aug<sup class="r"><a href="#s12">12</a></sup></div>
+        <div class="v v-sea">5.5</div>
       </div>
       <div>
         <div class="k">Normal Hormuz flow</div>
@@ -1084,8 +1096,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
       The arithmetic does not close. Even with Petroline at its claimed maximum, overland capacity covers well
       under half of normal Hormuz volumes, and Kuwait, Qatar and Bahrain have no bypass at all. There is also a
       second-order problem the conflict has exposed: <b>pipelines end at terminals</b>, and terminals are fixed
-      targets. Yanbu, where Petroline discharges, is precisely the Red Sea port the Houthi blockade is now aimed
-      at, the escape route and the new front are the same place.
+      targets. Bypass exports actually fell 1.9 mb/d to 5.5 mb/d in August, against ~7&ndash;9 of theoretical capacity.<sup class="r"><a href="#s12">12</a></sup> Yanbu, where Petroline discharges, is the Red Sea port the Houthi blockade targets, and in September the Houthis struck the pipeline itself: the escape route and the front line are now the same asset.<sup class="r"><a href="#s13">13</a></sup>
     </div>
   </div>
 </section>
@@ -1093,7 +1104,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">% of normal flow &middot; as of 24 Jul 2026</span><h2><em>VIII</em>Transit corridors</h2><p class="sub">Oil does not have a supply problem so much as a geography problem. Each channel below is
+      <div class="sechead tint"><span class="unit">% of normal flow &middot; as of 5 Oct 2026</span><h2><em>VIII</em>Transit corridors</h2><p class="sub">Oil does not have a supply problem so much as a geography problem. Each channel below is
        drawn at its normal throughput; the filled portion is what is still moving.</p></div>
     </div>
     
@@ -1103,50 +1114,46 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
       <div class="corr-row">
         <div class="corr-top">
           <span class="corr-name">Strait of Hormuz</span>
-          <span class="tag tag-crit">Severely disrupted</span>
+          <span class="tag tag-warn">Recovering, contested</span>
         </div>
-        <div class="chan" role="img" aria-label="Strait of Hormuz operating below 10 percent of normal flow">
-          <i class="f-crit" data-w="9" style="width:9%"></i>
+        <div class="chan" role="img" aria-label="Strait of Hormuz crude flows reported back near pre-war levels in late September">
+          <i class="f-warn" data-w="95" style="width:95%"></i>
           <em style="left:25%"></em><em style="left:50%"></em><em style="left:75%"></em>
         </div>
         <div class="corr-foot">
           <p>Carried 20.3 mb/d of crude in 2024, about a fifth of world petroleum liquids, and roughly
-             130 vessels a day. It also carries ~20% of world LNG, almost all of it Qatari. Transits have fallen
-             below a tenth of the pre-war baseline; most Gulf exporters have no alternative route.</p>
-          <span class="corr-pct">20.3 mb/d oil + ~20% of LNG &nbsp;&rarr;&nbsp; <b>under 10%</b></span>
+             130 vessels a day. It also carries ~20% of world LNG, almost all of it Qatari. Shipments averaged just 7.6 mb/d in August,<sup class="r"><a href="#s12">12</a></sup> but Kpler data show crude flows topped pre-war levels in late September despite continued Iranian attacks on tankers.<sup class="r"><a href="#s8">8</a></sup> One month of recovery data; treat as provisional.</p>
+          <span class="corr-pct">Aug 7.6 mb/d &nbsp;&rarr;&nbsp; <b>~pre-war, late Sep</b></span>
         </div>
       </div>
 
       <div class="corr-row">
         <div class="corr-top">
           <span class="corr-name">Bab el-Mandeb</span>
-          <span class="tag tag-warn">New front opened</span>
+          <span class="tag tag-crit">Blockade enforced</span>
         </div>
-        <div class="chan" role="img" aria-label="Bab el-Mandeb partially disrupted by a declared blockade">
-          <i class="f-warn" data-w="62" style="width:62%"></i>
+        <div class="chan" role="img" aria-label="Bab el-Mandeb heavily disrupted by an enforced Houthi blockade">
+          <i class="f-crit" data-w="45" style="width:45%"></i>
           <em style="left:25%"></em><em style="left:50%"></em><em style="left:75%"></em>
         </div>
         <div class="corr-foot">
-          <p>Houthi forces struck two Saudi tankers on 22 July to enforce a declared blockade of Saudi ports.
-             At least seven vessels have changed course to avoid the strait. This was the workaround route for
-             Saudi crude while Hormuz was shut.</p>
-          <span class="corr-pct">Rerouting underway &nbsp;&rarr;&nbsp; <b>degrading</b></span>
+          <p>The Houthi blockade of Saudi shipping, declared 20 July, is now enforced: a Bahri tanker was hit 63 nm off Yanbu on 24 August,<sup class="r"><a href="#s14">14</a></sup> and the group has taken Mokha and Perim Island in the strait itself.<sup class="r"><a href="#s13">13</a></sup> The workaround route for Saudi crude has become a second chokepoint. Fill is an estimate, not a measured flow.</p>
+          <span class="corr-pct">Blockade enforced &nbsp;&rarr;&nbsp; <b>contested</b></span>
         </div>
       </div>
 
       <div class="corr-row">
         <div class="corr-top">
           <span class="corr-name">Caspian Pipeline Consortium</span>
-          <span class="tag tag-crit">Suspended</span>
+          <span class="tag tag-warn">Restored, at risk</span>
         </div>
-        <div class="chan" role="img" aria-label="Caspian Pipeline Consortium terminal suspended, zero flow">
-          <i class="f-zero" data-w="0" style="width:0%"></i>
+        <div class="chan" role="img" aria-label="Caspian Pipeline Consortium exports restored to about 1.5 to 1.6 million barrels per day">
+          <i class="f-warn" data-w="90" style="width:90%"></i>
           <em style="left:25%"></em><em style="left:50%"></em><em style="left:75%"></em>
         </div>
         <div class="corr-foot">
-          <p>Kazakhstan halted crude exports through the CPC terminal following drone attacks, removing one of
-             the few large non-Gulf barrels that had been cushioning the market.</p>
-          <span class="corr-pct">Exports halted &nbsp;&rarr;&nbsp; <b>0%</b></span>
+          <p>Loadings at Novorossiysk restarted on 27 July after a week-long halt caused by drone strikes. August exports rose 22% to 1.6 mb/d; September was guided to ~1.5 mb/d on field maintenance.<sup class="r"><a href="#s15">15</a></sup> The terminal remains exposed to further Black Sea attacks.</p>
+          <span class="corr-pct">Restarted 27 Jul &nbsp;&rarr;&nbsp; <b>~1.6 mb/d</b></span>
         </div>
       </div>
 
@@ -1157,12 +1164,11 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">Oil &middot; US$ / bbl &middot; 2026</span><h2><em>IX</em>Oil price</h2><p class="sub">Brent monthly average through 2026. July is plotted at the 23 July 2026 spot rather than a
-       month average, because the month was not complete and had moved violently.</p></div>
+      <div class="sechead tint"><span class="unit">Oil &middot; US$ / bbl &middot; 2026</span><h2><em>IX</em>Oil price</h2><p class="sub">Brent monthly average through August 2026 (EIA basis). September is plotted at the late-month spot (~$114&ndash;121) rather than an average. Futures had eased to ~$101 by 5 October.<sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s16">16</a></sup></p></div>
     </div>
     
 
-    <div class="panel pchart"><svg viewBox="0 0 900 340" role="img" aria-label="Brent crude in 2026: about $70 before the war in February, $95 in March, a peak of $117 in April, easing to $107 in May and $85 in June, and $100.70 on 23 July."><line x1="72" y1="278.0" x2="732" y2="278.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="282.0" text-anchor="end">$50</text><line x1="72" y1="216.0" x2="732" y2="216.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="220.0" text-anchor="end">$70</text><line x1="72" y1="154.0" x2="732" y2="154.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="158.0" text-anchor="end">$90</text><line x1="72" y1="92.0" x2="732" y2="92.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="96.0" text-anchor="end">$110</text><line x1="72" y1="30.0" x2="732" y2="30.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="34.0" text-anchor="end">$130</text><line x1="72" y1="216.0" x2="732" y2="216.0" stroke="#3f6470" stroke-width="1.5" stroke-dasharray="6 5"/><text class="avg-t" x="742" y="220.0">Pre-war baseline $70</text><path d="M 72.0,216.0 L 204.0,138.5 L 336.0,70.3 L 468.0,101.3 L 600.0,169.5 L 732.0,120.8" fill="none" stroke="#a8825a" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="72.0" cy="216.0" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="72.0" y="238.0" text-anchor="middle">$70</text><text class="axis" x="72.0" y="304" text-anchor="middle">FEB</text><text class="ev" x="72.0" y="322" text-anchor="middle">pre-war</text><circle cx="204.0" cy="138.5" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="204.0" y="160.5" text-anchor="middle">$95</text><text class="axis" x="204.0" y="304" text-anchor="middle">MAR</text><circle cx="336.0" cy="70.3" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="336.0" y="56.3" text-anchor="middle">$117</text><text class="axis" x="336.0" y="304" text-anchor="middle">APR</text><text class="ev" x="336.0" y="322" text-anchor="middle">peak</text><circle cx="468.0" cy="101.3" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="468.0" y="87.3" text-anchor="middle">$107</text><text class="axis" x="468.0" y="304" text-anchor="middle">MAY</text><circle cx="600.0" cy="169.5" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="600.0" y="191.5" text-anchor="middle">$85</text><text class="axis" x="600.0" y="304" text-anchor="middle">JUN</text><circle cx="732.0" cy="120.8" r="5.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="724.0" y="106.8" text-anchor="end">$100.7</text><text class="axis" x="732.0" y="304" text-anchor="middle">JUL</text><text class="ev" x="732.0" y="322" text-anchor="middle">23 Jul</text></svg>
+    <div class="panel pchart"><svg viewBox="0 0 900 340" role="img" aria-label="Brent crude in 2026: about $70 before the war in February, $95 in March, a peak of $117 in April, $107 in May, $85 in June, $84 in July, $91 in August and about $114 in late September."><line x1="72" y1="278.0" x2="732" y2="278.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="282.0" text-anchor="end">$50</text><line x1="72" y1="216.0" x2="732" y2="216.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="220.0" text-anchor="end">$70</text><line x1="72" y1="154.0" x2="732" y2="154.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="158.0" text-anchor="end">$90</text><line x1="72" y1="92.0" x2="732" y2="92.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="96.0" text-anchor="end">$110</text><line x1="72" y1="30.0" x2="732" y2="30.0" stroke="#dcd4c6" stroke-width="1"/><text class="axis" x="60" y="34.0" text-anchor="end">$130</text><line x1="72" y1="216.0" x2="732" y2="216.0" stroke="#3f6470" stroke-width="1.5" stroke-dasharray="6 5"/><text class="avg-t" x="742" y="220.0">Pre-war baseline $70</text><path d="M 72.0,216.0 L 166.3,138.5 L 260.6,70.3 L 354.9,101.3 L 449.1,169.5 L 543.4,172.6 L 637.7,150.9 L 732.0,79.6" fill="none" stroke="#a8825a" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="72.0" cy="216.0" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="72.0" y="238.0" text-anchor="middle">$70</text><text class="axis" x="72.0" y="304" text-anchor="middle">FEB</text><text class="ev" x="72.0" y="322" text-anchor="middle">pre-war</text><circle cx="166.3" cy="138.5" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="166.3" y="160.5" text-anchor="middle">$95</text><text class="axis" x="166.3" y="304" text-anchor="middle">MAR</text><circle cx="260.6" cy="70.3" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="260.6" y="56.3" text-anchor="middle">$117</text><text class="axis" x="260.6" y="304" text-anchor="middle">APR</text><text class="ev" x="260.6" y="322" text-anchor="middle">peak</text><circle cx="354.9" cy="101.3" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="354.9" y="123.3" text-anchor="middle">$107</text><text class="axis" x="354.9" y="304" text-anchor="middle">MAY</text><circle cx="449.1" cy="169.5" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="449.1" y="191.5" text-anchor="middle">$85</text><text class="axis" x="449.1" y="304" text-anchor="middle">JUN</text><circle cx="543.4" cy="172.6" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="543.4" y="194.6" text-anchor="middle">$84</text><text class="axis" x="543.4" y="304" text-anchor="middle">JUL</text><circle cx="637.7" cy="150.9" r="4.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="637.7" y="172.9" text-anchor="middle">$91</text><text class="axis" x="637.7" y="304" text-anchor="middle">AUG</text><circle cx="732.0" cy="79.6" r="5.5" fill="#a8825a" stroke="#f4efe6" stroke-width="2"/><text class="val" x="724.0" y="65.6" text-anchor="end">$114</text><text class="axis" x="732.0" y="304" text-anchor="middle">SEP</text><text class="ev" x="732.0" y="322" text-anchor="end">late-Sep spot</text></svg>
     </div>
 
     <div class="mgrid" style="margin-top:24px">
@@ -1172,19 +1178,19 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
         <div class="n">Low set 16 Dec 2025, before the conflict began.</div>
       </div>
       <div class="m">
-        <div class="k">Round trip<span class="t">Reported</span><span class="c c-m">Med</span></div>
-        <div class="v v-sulfur">3 weeks</div>
-        <div class="n">Brent fell under $70 on 1 July, then returned above $100 by 23 July.</div>
+        <div class="k">Physical vs futures<sup class="r"><a href="#s17">17</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></div>
+        <div class="v v-sulfur">$120 / $101</div>
+        <div class="n">Dated Brent above $120 while ICE futures slipped to ~$101, early Oct. Physical scarcity, not paper.</div>
       </div>
       <div class="m">
-        <div class="k">EIA 3Q26 forecast<sup class="r"><a href="#s5">5</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
-        <div class="v v-sea">$74</div>
-        <div class="n">Struck 1 July, before hostilities resumed. Already well below spot.</div>
+        <div class="k">EIA 2H26 forecast<sup class="r"><a href="#s10">10</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
+        <div class="v v-sea">~$90</div>
+        <div class="n">September STEO, inputs frozen 3 Sep. Up from $74 for 3Q26 in July; spot has run above it since.</div>
       </div>
       <div class="m">
-        <div class="k">US gasoline, 3Q26<sup class="r"><a href="#s5">5</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
-        <div class="v">$3.80</div>
-        <div class="n">Per gallon, forecast. Down from over $4.20 in the second quarter.</div>
+        <div class="k">Consensus 2026 avg<sup class="r"><a href="#s9">9</a></sup><span class="t">Forecast</span><span class="c c-m">Med</span></div>
+        <div class="v">$89.05</div>
+        <div class="n">Reuters September poll, up from $85.08 in August. Analysts expect Hormuz disruption to persist.</div>
       </div>
     </div>
   </div>
@@ -1193,10 +1199,10 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">Gas &middot; US$ / MMBtu &middot; mid-July 2026</span><h2><em>X</em>Gas price, three markets, not one</h2><p class="sub">The single most important fact about natural gas: unlike oil, it has no world price. Pipeline
+      <div class="sechead tint"><span class="unit">Gas &middot; US$ / MMBtu &middot; mid-July 2026</span><h2><em>X</em>Gas price, three markets, not one</h2><p class="sub">The single most important fact about natural gas: unlike oil, it has no world price. Pipeline
        dependence and the cost of liquefaction split it into three regional markets, Henry Hub (US), TTF
        (Europe) and JKM (Asian spot LNG). The 2026 Hormuz crisis has pulled them violently apart, because Qatar
-      , ~20% of world LNG, ships almost entirely through the strait. Spot levels, week of 13&ndash;17 July 2026.</p></div>
+      , ~20% of world LNG, ships almost entirely through the strait. Spot levels, week of 13&ndash;17 July 2026. <b>Not refreshed in the October pass</b>: no verified current regional prices were found.</p></div>
     </div>
     
 
@@ -1236,7 +1242,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">mb/d &middot; 2025&ndash;27, as of Jul 2026</span><h2><em>XI</em>Balance</h2><p class="sub">Supply has fallen further than demand, which is what turned a price spike into a genuine
+      <div class="sechead tint"><span class="unit">mb/d &middot; 2025&ndash;27, as of Sep 2026</span><h2><em>XI</em>Balance</h2><p class="sub">Supply has fallen further than demand, which is what turned a price spike into a genuine
        shortage. IEA basis. The 2027 figures are forecast and assume flows normalise.</p></div>
     </div>
     
@@ -1266,15 +1272,15 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
           <div>
             <div class="bar">
               <span class="bar-t">SUPPLY</span>
-              <span class="bar-track"><span class="bar-fill f-sup" data-w="44.7" style="width:44.7%"></span></span>
-              <span class="bar-v">102.6</span>
+              <span class="bar-track"><span class="bar-fill f-sup" data-w="33.5" style="width:33.5%"></span></span>
+              <span class="bar-v">100.7</span>
             </div>
             <div class="bar">
               <span class="bar-t">DEMAND</span>
-              <span class="bar-track"><span class="bar-fill f-dem" data-w="50.0" style="width:50.0%"></span></span>
-              <span class="bar-v">103.5</span>
+              <span class="bar-track"><span class="bar-fill f-dem" data-w="41.2" style="width:41.2%"></span></span>
+              <span class="bar-v">~102.0</span>
             </div>
-            <div class="gap-note gap-def">DEFICIT &minus;0.9 &nbsp;&middot;&nbsp; SUPPLY &minus;3.7 Y/Y</div>
+            <div class="gap-note gap-def">DEFICIT ~&minus;1.3 &nbsp;&middot;&nbsp; SUPPLY &minus;5.7 Y/Y</div>
           </div>
         </div>
 
@@ -1283,15 +1289,15 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
           <div>
             <div class="bar">
               <span class="bar-t">SUPPLY</span>
-              <span class="bar-track"><span class="bar-fill f-sup" data-w="88.8" style="width:88.8%"></span></span>
-              <span class="bar-v">110.1</span>
+              <span class="bar-track"><span class="bar-fill f-sup" data-w="80.6" style="width:80.6%"></span></span>
+              <span class="bar-v">~108.7</span>
             </div>
             <div class="bar">
               <span class="bar-t">DEMAND</span>
-              <span class="bar-track"><span class="bar-fill f-dem" data-w="60.6" style="width:60.6%"></span></span>
-              <span class="bar-v">105.3</span>
+              <span class="bar-track"><span class="bar-fill f-dem" data-w="56.5" style="width:56.5%"></span></span>
+              <span class="bar-v">~104.6</span>
             </div>
-            <div class="gap-note gap-sur">SURPLUS +4.8 &nbsp;&middot;&nbsp; A GLUT, IF THE WAR ENDS</div>
+            <div class="gap-note gap-sur">SURPLUS ~+4.1 &nbsp;&middot;&nbsp; A GLUT, IF FLOWS NORMALISE</div>
           </div>
         </div>
 
@@ -1300,33 +1306,33 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
 
     <div class="mgrid" style="margin-top:24px">
       <div class="m">
-        <div class="k">Stock draw since Feb<sup class="r"><a href="#s4">4</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
-        <div class="v v-crude">&minus;3.8</div>
-        <div class="n">mb/d average. 2.4 crude, 1.4 products. Buffers eroding at a record pace.</div>
+        <div class="k">August stock draw<sup class="r"><a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
+        <div class="v v-crude">&minus;3.1</div>
+        <div class="n">mb/d. Inventories are still doing the balancing; the IEA calls buffers shrinking.</div>
       </div>
       <div class="m">
-        <div class="k">May draw<sup class="r"><a href="#s4">4</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></div>
-        <div class="v v-crude">&minus;143</div>
-        <div class="n">mb in a single month, accelerating from 74 mb in April.</div>
+        <div class="k">August supply<sup class="r"><a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
+        <div class="v">100.1</div>
+        <div class="n">mb/d, down 1.6 m/m after the July rebound to 101.5.</div>
       </div>
       <div class="m">
-        <div class="k">June supply<sup class="r"><a href="#s3">3</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
-        <div class="v">98.8</div>
-        <div class="n">mb/d. Rebounded 4.1 m/m on the ceasefire, still 9.4 below pre-war.</div>
+        <div class="k">Gulf shut-in<sup class="r"><a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
+        <div class="v v-crude">&gt;10</div>
+        <div class="n">mb/d of Gulf output still offline in August. Full recovery deferred to 2027.</div>
       </div>
       <div class="m">
-        <div class="k">May trough<sup class="r"><a href="#s3">3</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></div>
-        <div class="v">94.5</div>
-        <div class="n">mb/d, 13.6 below pre-war levels, the low point so far.</div>
+        <div class="k">2026 demand<sup class="r"><a href="#s11">11</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
+        <div class="v">&minus;2.5</div>
+        <div class="n">mb/d y/y, 940 kb/d steeper than in August. Middle distillates and Asian petchem hit hardest.</div>
       </div>
     </div>
   </div>
-<div class="note"><span class="k">Later revision &middot; recorded, not applied</span>This page is compiled to 24 July 2026 and its balance is the IEA's July report<sup class="r"><a href="#s3">3</a></sup>. The August report, published 12 August 2026, cut 2026 supply again to 102 mb/d and demand to &minus;1.6 mb/d y-o-y, with 8.3 mb/d of Gulf output still shut in<sup class="r"><a href="#s7">7</a></sup>. The July figures stand as recorded on the date made; the revision is shown beside them rather than replacing them.<span class="c c-h">High</span></div></section>
+<div class="note"><span class="k">Revision history &middot; superseded figures</span>Balance now uses the IEA's September report.<sup class="r"><a href="#s11">11</a></sup> 2026 demand is derived as the 2025 base less the IEA's &minus;2.5 mb/d; 2027 applies its +8 mb/d supply and +2.6 mb/d demand rebounds. Previously shown (July OMR, as of 24 Jul): 2026 supply 102.6, demand 103.5, deficit &minus;0.9; 2027 supply 110.1, demand 105.3.<sup class="r"><a href="#s3">3</a></sup> August OMR: supply 102 mb/d, demand &minus;1.6 mb/d y/y.<sup class="r"><a href="#s7">7</a></sup><span class="c c-h">High</span></div></section>
 <section id="s-xii">
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">mb/d &middot; as of Mar&ndash;Jul 2026</span><h2><em>XII</em>The buffer</h2><p class="sub">The market's shock absorber is spare capacity. On paper OPEC has roughly 10 mb/d of it.
+      <div class="sechead tint"><span class="unit">mb/d &middot; as of Mar&ndash;Sep 2026</span><h2><em>XII</em>The buffer</h2><p class="sub">The market's shock absorber is spare capacity. On paper OPEC has roughly 10 mb/d of it.
        In practice almost none of it can reach a buyer.</p></div>
     </div>
     
@@ -1359,15 +1365,15 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
           </div>
           <div class="tl-i hot">
             <div class="tl-d">OPEC+</div>
-            <div class="tl-x">Production fell 9.4 mb/d month-on-month in March, to 42.4 mb/d.</div>
+            <div class="tl-x">Production fell 9.4 mb/d month-on-month in March, to 42.4 mb/d. IEA now sees OPEC+ crude averaging 34.5 mb/d in 2026, down 5 mb/d.<sup class="r"><a href="#s12">12</a></sup></div>
           </div>
           <div class="tl-i">
             <div class="tl-d">Non-OPEC+</div>
-            <div class="tl-x">Rising 850 kb/d to 55.9 mb/d in 2026, led by the US, Canada, Brazil, Guyana and Argentina. Not close to filling the hole.</div>
+            <div class="tl-x">The "Americas Quintet" (US, Canada, Brazil, Guyana, Argentina) adds 1.4 mb/d in 2026 and 1 mb/d in 2027. Not close to filling the hole.<sup class="r"><a href="#s11">11</a></sup></div>
           </div>
           <div class="tl-i">
             <div class="tl-d">Iran</div>
-            <div class="tl-x">Still exporting around 1.5 mb/d despite a US naval blockade.</div>
+            <div class="tl-x">Exported around 1.5 mb/d through mid-year despite a US naval blockade; by late September analysts reported cheap Iranian barrels had largely left the market.<sup class="r"><a href="#s9">9</a></sup></div>
           </div>
         </div>
       </div>
@@ -1378,25 +1384,25 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">mb/d &middot; 2026 forecasts</span><h2><em>XIII</em>Demand, contested</h2><p class="sub">Nobody agrees how much demand the shock destroyed. A 3.1 mb/d gap between the highest and
-       lowest 2026 forecasts is extraordinary, larger than the annual output of most producing nations.</p></div>
+      <div class="sechead tint"><span class="unit">mb/d &middot; 2026 forecasts</span><h2><em>XIII</em>Demand, contested</h2><p class="sub">Nobody agrees how much demand the shock destroyed. A ~3.9 mb/d gap between the highest and
+       lowest 2026 forecasts is extraordinary, larger than the annual output of most producing nations. IEA is the September figure; OPEC and EIA are July vintage and not yet re-checked.</p></div>
     </div>
     
 
     <div class="panel">
-      <div class="dv zero-based"><div class="dv-row"><span class="dv-n">OPEC</span><span class="dv-track"><span class="dv-fill" style="width:96.3%"></span></span><span class="dv-v">105.9</span></div><div class="dv-row"><span class="dv-n">IEA</span><span class="dv-track"><span class="dv-fill" style="width:94.1%"></span></span><span class="dv-v">103.5</span></div><div class="dv-row"><span class="dv-n">EIA</span><span class="dv-track"><span class="dv-fill" style="width:93.5%"></span></span><span class="dv-v">102.8</span></div><div class="dv-row dv-axis"><span></span><span class="dv-scale"><span style="left:0.0%">0</span><span style="left:22.7%">25</span><span style="left:45.5%">50</span><span style="left:68.2%">75</span><span style="left:90.9%">100</span></span><span></span></div></div><p class="dv-note">OPEC <sup class="r"><a href="#s6">6</a></sup> IEA <sup class="r"><a href="#s3">3</a></sup> EIA <sup class="r"><a href="#s5">5</a></sup> <span class="t">Forecast</span><span class="c c-m">Med</span><br>Zero-based, mb/d. The three agencies sit within 3.1 mb/d of one another, about 3.0% of world demand, which is the point: they disagree at the margin, not about the level.</p>
+      <div class="dv zero-based"><div class="dv-row"><span class="dv-n">OPEC</span><span class="dv-track"><span class="dv-fill" style="width:96.3%"></span></span><span class="dv-v">105.9</span></div><div class="dv-row"><span class="dv-n">IEA</span><span class="dv-track"><span class="dv-fill" style="width:92.7%"></span></span><span class="dv-v">~102.0</span></div><div class="dv-row"><span class="dv-n">EIA</span><span class="dv-track"><span class="dv-fill" style="width:93.5%"></span></span><span class="dv-v">102.8</span></div><div class="dv-row dv-axis"><span></span><span class="dv-scale"><span style="left:0.0%">0</span><span style="left:22.7%">25</span><span style="left:45.5%">50</span><span style="left:68.2%">75</span><span style="left:90.9%">100</span></span><span></span></div></div><p class="dv-note">OPEC (Jul) <sup class="r"><a href="#s6">6</a></sup> IEA (Sep) <sup class="r"><a href="#s11">11</a></sup> EIA (Jul) <sup class="r"><a href="#s5">5</a></sup> <span class="t">Forecast</span><span class="c c-m">Med</span><br>Zero-based, mb/d. The three agencies sit within ~3.9 mb/d of one another, about 3.7% of world demand, which is the point: they disagree at the margin, not about the level.</p>
     </div>
 
     <div class="mgrid" style="margin-top:24px">
       <div class="m">
-        <div class="k">2Q26 demand</div>
-        <div class="v v-crude">&minus;4.8</div>
-        <div class="n">mb/d year-on-year. Jet fuel and petrochemical feedstock took the worst of it.</div>
+        <div class="k">2Q26 demand<sup class="r"><a href="#s11">11</a></sup></div>
+        <div class="v v-crude">&minus;5.3</div>
+        <div class="n">mb/d year-on-year (IEA, Sep). Jet fuel and petrochemical feedstock took the worst of it.</div>
       </div>
       <div class="m">
-        <div class="k">4Q26 demand</div>
-        <div class="v v-sea">+1.2</div>
-        <div class="n">mb/d. Recovery already underway from the May low.</div>
+        <div class="k">4Q26 demand<sup class="r"><a href="#s11">11</a></sup></div>
+        <div class="v v-sulfur">&minus;2.0</div>
+        <div class="n">mb/d y/y (IEA, Sep), easing from &minus;3.4 in 3Q. Earlier forecasts of 4Q growth have been withdrawn.</div>
       </div>
       <div class="m">
         <div class="k">Refinery runs 2026</div>
@@ -1415,7 +1421,7 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead"><span class="unit">28 Feb &ndash; 24 Jul 2026</span><h2><em>XIV</em>How it happened</h2><p class="sub">The market has now priced this conflict three separate times: the shock, the peace, and the relapse.</p></div>
+      <div class="sechead narrative"><span class="unit">28 Feb &ndash; 5 Oct 2026</span><h2><em>XIV</em>How it happened</h2><p class="sub">The market has now priced this conflict three separate times: the shock, the peace, and the relapse.</p></div>
     </div>
     
 
@@ -1448,10 +1454,36 @@ td.st{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transfo
         <div class="tl-d">24 July</div>
         <div class="tl-x">Brent retreats as much as 4.3% as renewed US tariffs weigh on the demand outlook. <span>The 12th consecutive night of US strikes on Iran is completed.</span></div>
       </div>
+      <div class="tl-i">
+        <div class="tl-d">27 July</div>
+        <div class="tl-x">CPC loadings restart at Novorossiysk after a week-long halt; August exports reach 1.6 mb/d.<sup class="r"><a href="#s15">15</a></sup></div>
+      </div>
+      <div class="tl-i hot">
+        <div class="tl-d">24 August</div>
+        <div class="tl-x">A Bahri tanker is hit by a Houthi missile 63 nm off Yanbu, enforcing the declared blockade of Saudi shipping.<sup class="r"><a href="#s14">14</a></sup> <span>Brent averages $91 in August.</span></div>
+      </div>
+      <div class="tl-i hot">
+        <div class="tl-d">10 &ndash; 11 September</div>
+        <div class="tl-x">A drone strikes a pumping station on Saudi Arabia's East-West pipeline.<sup class="r"><a href="#s13">13</a></sup> The IEA's September report cuts 2026 supply to 100.7 mb/d and defers the Gulf recovery to 2027.<sup class="r"><a href="#s11">11</a></sup></div>
+      </div>
+      <div class="tl-i">
+        <div class="tl-d">Late September &ndash; 5 October</div>
+        <div class="tl-x">Kpler data show Hormuz crude flows back above pre-war levels.<sup class="r"><a href="#s8">8</a></sup> Physical Dated Brent trades above $120 while futures ease to ~$101.<sup class="r"><a href="#s17">17</a></sup> <span>Inventories still falling.</span></div>
+      </div>
     </div>
   </div>
 </section>
-<section id="sources"><div class="sechead"><h2><em>XV</em>Sources</h2><p class="sub">Numbered in order of first citation. Sections III, IX, XI and XIII only; the rest of the page is not yet sourced to this standard.</p></div><ol class="src"><li id="s1"><b>EIA, International Energy Statistics.</b> Crude oil including lease condensate by country, calendar 2025; published as <em>The United States produced more crude oil than any other country in 2025</em>, 9 July 2026. US 13.58, Russia 9.87, Saudi Arabia 9.51 mb/d. <a href="https://www.eia.gov/todayinenergy/detail.php?id=67844" target="_blank" rel="noopener">www.eia.gov/todayinenergy/detail.php?id=67844</a></li><li id="s2"><b>Energy Institute, Statistical Review of World Energy 2025 (74th edition).</b> Published 26 June 2025, covering 2024. World gas production 4,124 bcm; US 1,033, Russia 630, Iran 263, China 248, Qatar ~179.5 bcm. <a href="https://www.energyinst.org/statistical-review" target="_blank" rel="noopener">www.energyinst.org/statistical-review</a></li><li id="s3"><b>IEA, Oil Market Report, July 2026.</b> Published 10 July 2026. 2026 supply on track to fall 3.7 mb/d to 102.6 mb/d; June supply 98.8 mb/d, up 4.1 m/m and 9.4 mb/d below pre-war; 2027 supply +7.5 mb/d if transit recovers. <a href="https://www.iea.org/reports/oil-market-report-july-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-july-2026</a></li><li id="s4"><b>IEA, Oil Market Report, June 2026.</b> Global observed stocks down 3.8 mb/d on average since the start of the war; May draw 143 mb (&minus;4.6 mb/d), preliminary. <a href="https://www.iea.org/reports/oil-market-report-june-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-june-2026</a></li><li id="s5"><b>EIA, Short-Term Energy Outlook.</b> Press release, 7 July 2026. Brent averaged $85/b in June, $22/b below May and $32/b below the April 2026 peak; 3Q26 forecast $74/b; 2027 forecast $65/b. <a href="https://www.eia.gov/pressroom/releases/press590.php" target="_blank" rel="noopener">www.eia.gov/pressroom/releases/press590.php</a></li><li id="s6"><b>OPEC, Monthly Oil Market Report, July 2026.</b> Published 13 July 2026. World oil demand forecast to grow 0.8 mb/d in 2026, revised down from 1.0 mb/d in the June report. <a href="https://publications.opec.org/momr" target="_blank" rel="noopener">publications.opec.org/momr</a></li><li id="s7"><b>IEA, Oil Market Report, August 2026.</b> Published 12 August 2026, after this page's compile date and recorded here as a later revision, not a correction: 2026 supply cut again to 102 mb/d and demand to &minus;1.6 mb/d y-o-y, with 8.3 mb/d of Gulf output still shut in. <a href="https://www.iea.org/reports/oil-market-report-august-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-august-2026</a></li></ol></section>
+<section id="sources"><div class="sechead"><h2><em>XV</em>Sources</h2><p class="sub">Numbered in order of first citation. Sections III, IX, XI and XIII only; the rest of the page is not yet sourced to this standard.</p></div><details><summary class="src-toggle">Show 17 sources</summary><ol class="src"><li id="s1"><b>EIA, International Energy Statistics.</b> Crude oil including lease condensate by country, calendar 2025; published as <em>The United States produced more crude oil than any other country in 2025</em>, 9 July 2026. US 13.58, Russia 9.87, Saudi Arabia 9.51 mb/d. <a href="https://www.eia.gov/todayinenergy/detail.php?id=67844" target="_blank" rel="noopener">www.eia.gov/todayinenergy/detail.php?id=67844</a></li><li id="s2"><b>Energy Institute, Statistical Review of World Energy 2025 (74th edition).</b> Published 26 June 2025, covering 2024. World gas production 4,124 bcm; US 1,033, Russia 630, Iran 263, China 248, Qatar ~179.5 bcm. <a href="https://www.energyinst.org/statistical-review" target="_blank" rel="noopener">www.energyinst.org/statistical-review</a></li><li id="s3"><b>IEA, Oil Market Report, July 2026.</b> Published 10 July 2026. 2026 supply on track to fall 3.7 mb/d to 102.6 mb/d; June supply 98.8 mb/d, up 4.1 m/m and 9.4 mb/d below pre-war; 2027 supply +7.5 mb/d if transit recovers. <a href="https://www.iea.org/reports/oil-market-report-july-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-july-2026</a></li><li id="s4"><b>IEA, Oil Market Report, June 2026.</b> Global observed stocks down 3.8 mb/d on average since the start of the war; May draw 143 mb (&minus;4.6 mb/d), preliminary. <a href="https://www.iea.org/reports/oil-market-report-june-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-june-2026</a></li><li id="s5"><b>EIA, Short-Term Energy Outlook.</b> Press release, 7 July 2026. Brent averaged $85/b in June, $22/b below May and $32/b below the April 2026 peak; 3Q26 forecast $74/b; 2027 forecast $65/b. <a href="https://www.eia.gov/pressroom/releases/press590.php" target="_blank" rel="noopener">www.eia.gov/pressroom/releases/press590.php</a></li><li id="s6"><b>OPEC, Monthly Oil Market Report, July 2026.</b> Published 13 July 2026. World oil demand forecast to grow 0.8 mb/d in 2026, revised down from 1.0 mb/d in the June report. <a href="https://publications.opec.org/momr" target="_blank" rel="noopener">publications.opec.org/momr</a></li><li id="s7"><b>IEA, Oil Market Report, August 2026.</b> Published 12 August 2026, after this page's compile date and recorded here as a later revision, not a correction: 2026 supply cut again to 102 mb/d and demand to &minus;1.6 mb/d y-o-y, with 8.3 mb/d of Gulf output still shut in. <a href="https://www.iea.org/reports/oil-market-report-august-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-august-2026</a></li><li id="s8"><b>Oilprice.com, "Oil Prices Fall as Hormuz Crude Flows Top Pre-War Levels"</b>, 5 Oct 2026. Kpler flow data; Brent ~$101. <a href="https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Fall-as-Hormuz-Crude-Flows-Top-Pre-War-Levels.html" target="_blank">oilprice.com</a> <span class="c c-h">High</span></li>
+<li id="s9"><b>Oilprice.com, "Oil Price Forecasts Jump as Hormuz Disruption Drags On"</b>, Oct 2026. Reuters poll, 2026 Brent average $89.05. <a href="https://oilprice.com/Energy/Oil-Prices/Oil-Price-Forecasts-Jump-as-Hormuz-Disruption-Drags-On.html" target="_blank">oilprice.com</a> <span class="c c-m">Med</span></li>
+<li id="s10"><b>EIA, Short-Term Energy Outlook</b>, 9 Sep 2026. Inventories down ~400 mb; Brent ~$90 in 2H26. <a href="https://www.eia.gov/outlooks/steo/" target="_blank">eia.gov</a> <span class="c c-h">High</span></li>
+<li id="s11"><b>IEA, Oil Market Report, September 2026</b>, 11 Sep 2026. 2026 supply 100.7 mb/d (−5.7 y/y); demand −2.5 mb/d; August output 100.1 mb/d; >10 mb/d Gulf shut in; stocks −3.1 mb/d in August. <a href="https://www.iea.org/reports/oil-market-report-september-2026" target="_blank">iea.org</a> <span class="c c-h">High</span></li>
+<li id="s12"><b>Oil &amp; Gas Journal, "IEA sees oil demand decline deepening…"</b>, 11 Sep 2026. Gulf exports 13 mb/d in August; Hormuz 7.6 mb/d; bypass 5.5 mb/d; OPEC+ crude 34.5 mb/d in 2026. <a href="https://www.ogj.com/general-interest/economics-markets/news/55404447/iea-sees-oil-demand-decline-deepening-as-middle-east-disruptions-persist" target="_blank">ogj.com</a> <span class="c c-h">High</span></li>
+<li id="s13"><b>Africa Center for Strategic Studies, "Houthi Leverage over the Red Sea…"</b>, 22 Sep 2026. Houthis hold Mokha and Perim Island; East-West pipeline attacked in September; Yanbu loadings raised to 4.9 mb/d. <a href="https://africacenter.org/spotlight/2026-houthi-red-sea-threats/" target="_blank">africacenter.org</a> <span class="c c-m">Med</span></li>
+<li id="s14"><b>Euronews, "Houthis claim strike on Saudi tanker…"</b>, 24 Aug 2026. Tanker hit 63 nm west of Yanbu under the declared Saudi blockade. <a href="https://www.euronews.com/2026/08/24/houthis-claim-strike-on-saudi-tanker-in-latest-red-sea-escalation" target="_blank">euronews.com</a> <span class="c c-m">Med</span></li>
+<li id="s15"><b>Pipeline &amp; Gas Journal, "CPC increased oil exports by 22% in August"</b>, 14 Sep 2026. 1.6 mb/d in August after the 27 Jul restart; ~1.5 mb/d expected in September. <a href="https://pgjonline.com/news/2026/september/cpc-increased-oil-exports-by-22-in-august-after-fewer-attacks-on-tankers" target="_blank">pgjonline.com</a> <span class="c c-m">Med</span></li>
+<li id="s16"><b>EIA, Spot Prices: Brent – Europe</b>, Released 30 Sep 2026. Daily Brent spot 113.96–120.92, 23–29 Sep. <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" target="_blank">eia.gov</a> <span class="c c-h">High</span></li>
+<li id="s17"><b>Oilprice.com, "Dated Brent Above $120 Signals a Serious Oil Squeeze"</b>, 2 Oct 2026. Physical Dated above $120 while ICE Brent near $101. <a href="https://oilprice.com/futures/brent/" target="_blank">oilprice.com</a> <span class="c c-m">Med</span></li>
+</ol></details></section>
 
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>

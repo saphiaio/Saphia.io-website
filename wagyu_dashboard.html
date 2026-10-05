@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -191,13 +200,14 @@ svg text{font-size:10px}
   .ctl{right:12px;bottom:12px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
 </style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -211,11 +221,12 @@ svg text{font-size:10px}
 
 
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Branded premia widening as export volumes grow, while the A5 grade itself loses its scarcity.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Hyōgo (Tajima) · Miyazaki · Kagoshima · Ōita</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>Japan · Taiwan · United States · Hong Kong · Gulf</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Re-checked 5 Oct 2026: no new export or price data found since the last update. Ratings unchanged.</dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
@@ -224,17 +235,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
   </dl>
   <p class="snap-note" style="margin-top:16px">Scarcity is rated on the grade, not the brand: A5 at over three-quarters of the market is not a scarce tier.</p>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">WAGYU</p>
   <ol><li><a href="#s-iii"><span>I</span>Breed, grade and brand</a></li><li><a href="#s-iv"><span>II</span>Production and export</a></li><li><a href="#s-v"><span>III</span>Brand economics compared</a></li><li><a href="#s-vi"><span>IV</span>Indicators to monitor</a></li><li><a href="#sources"><span>V</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-iii">
-  <div class="sechead"><h2><em>I</em>Breed, grade and brand</h2><p class="sub">A carcass grading system that became a luxury label.</p></div>
+  <div class="sechead tint"><h2><em>I</em>Breed, grade and brand</h2><p class="sub">A carcass grading system that became a luxury label.</p></div>
   
   <div class="tw"><table>
     <tr><th>Layer</th><th>Definition</th><th>Note</th></tr>
@@ -247,7 +259,7 @@ svg text{font-size:10px}
   <div class="note warn">Discrepancy logged: a European breeder's guide states that "only about 3% of Japanese wagyu achieves" A5; Nikkei Asia reported in June 2026 that A5 accounts for over 75% of Japan's wagyu market. The Nikkei figure describes the market as of June 2026; the 3% is either historical or wrong. Grade inflation is the story, not scarcity.<sup class="r"><a href="#s6">6</a> <a href="#s8">8</a></sup> <span class="c c-h">High</span></div>
   <p>Every retail cut carries a seal and a ten-digit traceability number that can be checked on a phone, a provenance system the diamond trade is still building.<sup class="r"><a href="#s2">2</a></sup> Regional cooperatives control breeding, feed and marketing, which sustains the brand mystique but makes quality metrics hard to standardise internationally.<sup class="r"><a href="#s9">9</a></sup> <span class="c c-h">High</span></p>
 </section><section id="s-iv">
-  <div class="sechead"><h2><em>II</em>Production and export</h2><p class="sub">Saturated at home, growing abroad.</p></div>
+  <div class="sechead tint"><h2><em>II</em>Production and export</h2><p class="sub">Saturated at home, growing abroad.</p></div>
   
   <div class="cards">
     <div class="note"><div class="v">12,628 t</div><div class="l">Beef exports 2025, +17%, record; Taiwan, US and Hong Kong c.60% <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
@@ -263,7 +275,7 @@ svg text{font-size:10px}
   <p>Japan's export strategy set a target of ¥2 trillion in agricultural exports by 2025 and ¥5 trillion by 2030, with wagyu among the flagship products.<sup class="r"><a href="#s2">2</a></sup> At home, A5 saturates the market as inflation-hit consumers shy away from the most expensive cuts, which is why producers are pushing the top grade into export; pandemic-era inventories have returned to near pre-pandemic levels.<sup class="r"><a href="#s8">8</a> <a href="#s1">1</a></sup> Restaurant wagyu can price at four to ten times USDA Prime, and A4 is the volume workhorse of export at 35–50% below A5; crossbred F1 wagyu trades at a discount regardless of marbling.<sup class="r"><a href="#s9">9</a> <a href="#s5">5</a></sup> <span class="c c-m">Med</span></p>
   <div class="note warn">Discrepancy logged: the export strategy's second target is quoted as "5 trillion yen by 2025" in one source, which is a typographical error for 2030, the government's published target year. Corrected here.<sup class="r"><a href="#s2">2</a></sup> <span class="c c-m">Med</span></div>
 </section><section id="s-v">
-  <div class="sechead"><h2><em>III</em>Brand economics compared</h2><p class="sub">What the two markets share, and where they diverge.</p></div>
+  <div class="sechead tint"><h2><em>III</em>Brand economics compared</h2><p class="sub">What the two markets share, and where they diverge.</p></div>
   
   <div class="tw"><table>
     <tr><th>Dimension</th><th>Bluefin tuna</th><th>Wagyu</th></tr>
@@ -276,7 +288,7 @@ svg text{font-size:10px}
   </table></div>
   <p>In both cases the Japanese system grades rigorously and then lets a place-name or a ceremony carry the luxury premium above the grade. The bluefin premium is defensible because the wild fish is genuinely finite; the wagyu premium is under pressure because the grade it rests on has become the norm.<sup class="r"><a href="#s8">8</a> <a href="#s3">3</a></sup> <span class="c c-x">Hyp</span></p>
 </section><section id="s-vi">
-  <div class="sechead"><h2><em>IV</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>IV</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -288,7 +300,7 @@ svg text{font-size:10px}
     <tr><td>Wagyu carcass grade distribution</td><td>Japan Meat Grading Association, annual</td><td>A5 saturation and grade inflation</td></tr>
     <tr><td>Kobe and other brand certifications</td><td>Kobe Beef Marketing &amp; Distribution Promotion Association, annual</td><td>Brand-tier scarcity</td></tr>
   </table></div>
-</section><section id="sources"><div class="sechead"><h2><em>V</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><ol class="src"><li id="s1"><b>MERXWIRE</b>, "Japan's Wagyu Beef Exports Hit Record High", 31 May 2026, MAFF "Wagyu Supply and Demand Trends": 12,628 t (+17%); Taiwan 21%, US 20%, Hong Kong 17%; FY2026 production c.180,000 t; 93% domestic; retail 59%; inventories normalised. Press-release distribution of MAFF data. <span class="c c-m">Med</span></li><li id="s2"><b>Wagyu International</b>, "Description of the Wagyu industry in Japan", registry 1944; Sandai Wagyu; Tajima-gyu definition; Kobe criteria (quality 4+, yield A/B, BMS 6+, carcass weights); c.3,000 certified a year; ten-digit traceability; export targets (¥2 tn by 2025, ¥5 tn, stated as 2025 in error). <span class="c c-m">Med</span></li><li id="s3"><b>Toyosu Fish Market guide</b>, "Bluefin Tuna Auction Record Prices Explained (2026)", IUCN 2021 reassessment by stock (verbatim categories); Beth Polidoro quotation; 2025–26 trend (weak yen, tourism, rivalry vs. commercial pressure); Ōma under-reporting conviction 2023; c.200 fresh and c.1,000 frozen tuna daily; green floor. <span class="c c-m">Med</span></li><li id="s4"><b>The Meatery</b>, "What Is Wagyu Beef?", 26 Mar 2026, MAFF four-breed rule; crossbreds excluded; Tajima foundation. Retailer. <span class="c c-m">Med</span></li><li id="s5"><b>Imexporta</b>, "Wagyu Price Per Kg: 2025 Global Buyer's Guide", Jan 2025, JMGA yield and quality axes; lowest-score rule; A4 at 35–50% below A5; BMS pricing steps. Exporter. <span class="c c-l">Low</span> for pricing steps.</li><li id="s6"><b>Wagyuhof Genetik</b>, "Wagyu Beef: The Ultimate Guide 2025", Feb 2026, BMS 1–12; A5 requires BMS 8–12; "only about 3%" A5 claim; Kobe c.3,000 a year; 24–36 month raising. Breeder. <span class="c c-l">Low</span> for the 3% figure.</li><li id="s7"><b>The Meatery</b>, "A5 Wagyu: The Complete Guide", 26 Mar 2026, Kobe under 0.5% of wagyu production; Matsusaka virgin-heifer rule; regional profiles. Retailer. <span class="c c-m">Med</span></li><li id="s8"><b>Nikkei Asia</b>, "Top-grade A5 wagyu accounts for over 75% of Japan's market, driving exports", 25 Jun 2026, A5 saturation; inflation-hit domestic consumers; export push.</li><li id="s9"><b>Destination Wagyu</b>, "Wagyu Beef Meat: The Ultimate Guide", 24 Apr 2025, brand stratification; F1 discount; 4–10× USDA Prime in restaurants; prefectural cooperatives and standardisation problem. Trade guide. <span class="c c-m">Med</span></li></ol></section>
+</section><section id="sources"><div class="sechead"><h2><em>V</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><details><summary class="src-toggle">Show 9 sources</summary><ol class="src"><li id="s1"><b>MERXWIRE</b>, "Japan's Wagyu Beef Exports Hit Record High", 31 May 2026, MAFF "Wagyu Supply and Demand Trends": 12,628 t (+17%); Taiwan 21%, US 20%, Hong Kong 17%; FY2026 production c.180,000 t; 93% domestic; retail 59%; inventories normalised. Press-release distribution of MAFF data. <span class="c c-m">Med</span></li><li id="s2"><b>Wagyu International</b>, "Description of the Wagyu industry in Japan", registry 1944; Sandai Wagyu; Tajima-gyu definition; Kobe criteria (quality 4+, yield A/B, BMS 6+, carcass weights); c.3,000 certified a year; ten-digit traceability; export targets (¥2 tn by 2025, ¥5 tn, stated as 2025 in error). <span class="c c-m">Med</span></li><li id="s3"><b>Toyosu Fish Market guide</b>, "Bluefin Tuna Auction Record Prices Explained (2026)", IUCN 2021 reassessment by stock (verbatim categories); Beth Polidoro quotation; 2025–26 trend (weak yen, tourism, rivalry vs. commercial pressure); Ōma under-reporting conviction 2023; c.200 fresh and c.1,000 frozen tuna daily; green floor. <span class="c c-m">Med</span></li><li id="s4"><b>The Meatery</b>, "What Is Wagyu Beef?", 26 Mar 2026, MAFF four-breed rule; crossbreds excluded; Tajima foundation. Retailer. <span class="c c-m">Med</span></li><li id="s5"><b>Imexporta</b>, "Wagyu Price Per Kg: 2025 Global Buyer's Guide", Jan 2025, JMGA yield and quality axes; lowest-score rule; A4 at 35–50% below A5; BMS pricing steps. Exporter. <span class="c c-l">Low</span> for pricing steps.</li><li id="s6"><b>Wagyuhof Genetik</b>, "Wagyu Beef: The Ultimate Guide 2025", Feb 2026, BMS 1–12; A5 requires BMS 8–12; "only about 3%" A5 claim; Kobe c.3,000 a year; 24–36 month raising. Breeder. <span class="c c-l">Low</span> for the 3% figure.</li><li id="s7"><b>The Meatery</b>, "A5 Wagyu: The Complete Guide", 26 Mar 2026, Kobe under 0.5% of wagyu production; Matsusaka virgin-heifer rule; regional profiles. Retailer. <span class="c c-m">Med</span></li><li id="s8"><b>Nikkei Asia</b>, "Top-grade A5 wagyu accounts for over 75% of Japan's market, driving exports", 25 Jun 2026, A5 saturation; inflation-hit domestic consumers; export push.</li><li id="s9"><b>Destination Wagyu</b>, "Wagyu Beef Meat: The Ultimate Guide", 24 Apr 2025, brand stratification; F1 discount; 4–10× USDA Prime in restaurants; prefectural cooperatives and standardisation problem. Trade guide. <span class="c c-m">Med</span></li></ol></details></section>
 
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>

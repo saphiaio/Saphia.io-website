@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -212,13 +221,14 @@ svg text{font-size:10px}
 .cards{grid-template-columns:1fr}
 .era{grid-template-columns:1fr;gap:2px}
 .bars .r{grid-template-columns:80px 1fr 100px}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -232,11 +242,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 17 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Collector bottle market correcting, not collapsing; exports flat in value and down in volume.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Scotland (Speyside · Islay · Highlands · Lowlands · Campbeltown)</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>United States · France · Singapore · India · Taiwan</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Tariff-free US access for Scotch was restored on 24 July 2026, ending the 10% levy in place since April 2025 (and the threatened 25% on single malts). The SWA put the cost at close to £20m a month; no post-tariff export data has been published yet.<sup class="r"><a href="#s15">15</a></sup><sup class="r"><a href="#s16">16</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
@@ -244,17 +255,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium; closed distilleries High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>High (casks)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#s-vi" title="Evidence: section § VI">/ § VI</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">SCOTCH WHISKY</p>
   <ol><li><a href="#s-i"><span>I</span>The product and its law</a></li><li><a href="#s-ii"><span>II</span>History of the trade</a></li><li><a href="#s-iii"><span>III</span>Who owns the industry</a></li><li><a href="#s-iv"><span>IV</span>Exports, 2025</a></li><li><a href="#s-v"><span>V</span>The collector market</a></li><li><a href="#s-vi"><span>VI</span>The cask problem</a></li><li><a href="#s-vii"><span>VII</span>Indicators to monitor</a></li><li><a href="#s-viii"><span>VIII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>The product and its law</h2><p class="sub">A geographical indication with a statutory definition.</p></div>
+  <div class="sechead tint"><h2><em>I</em>The product and its law</h2><p class="sub">A geographical indication with a statutory definition.</p></div>
   
   <p>"Scotch Whisky" is a protected term: the spirit must be distilled and matured in Scotland in oak casks for at least three years and bottled at not less than 40% ABV, with the categories, labelling and age-statement rules set by the Scotch Whisky Regulations 2009 and enforced by the Scotch Whisky Association through litigation worldwide.<sup class="r"><a href="#s9">9</a></sup> <span class="c c-m">Med</span>, the regulatory summary is drawn from a law-firm guide; the statutory text should be read directly for any compliance use.</p>
   <div class="tw"><table>
@@ -276,7 +288,7 @@ svg text{font-size:10px}
   <p style="font-size:14px;color:#a8825a">Source is a cask broker's compilation without a stated year; treat as orientation. Owners: William Grant, Pernod Ricard, Edrington, LVMH, Diageo respectively.<sup class="r"><a href="#s10">10</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>History of the trade</h2><p class="sub">Consolidation is the constant.</p></div>
+  <div class="sechead tint"><h2><em>II</em>History of the trade</h2><p class="sub">Consolidation is the constant.</p></div>
   
   <div class="era"><div class="y">1865–77</div><div class="t">Lowland grain distillers form the Scotch Distillers' Association, incorporated in 1877 as The Distillers Company Ltd (DCL), the cartel that shaped the industry for a century.<sup class="r"><a href="#s12">12</a></sup></div></div>
   <div class="era"><div class="y">1885</div><div class="t">Independent blenders including Andrew Usher and William Sanderson found the North British grain distillery in Edinburgh to break DCL's grip on grain supply.<sup class="r"><a href="#s11">11</a></sup></div></div>
@@ -289,7 +301,7 @@ svg text{font-size:10px}
   <div class="era"><div class="y">2024–25</div><div class="t">Exports fall 18% by value in H1 2024; a 10% US tariff from April 2025; distilleries pause production; the BBC exposes cask-investment fraud.<sup class="r"><a href="#s4">4</a> <a href="#s2">2</a> <a href="#s8">8</a></sup></div></div>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>Who owns the industry</h2><p class="sub">A duopoly in blends; a wider field in single malt.</p></div>
+  <div class="sechead tint"><h2><em>III</em>Who owns the industry</h2><p class="sub">A duopoly in blends; a wider field in single malt.</p></div>
   
   <div class="tw"><table>
     <tr><th>Group</th><th>Scotch distilleries and brands</th><th>Position</th></tr>
@@ -302,7 +314,7 @@ svg text{font-size:10px}
   <div class="note">Discrepancy logged: Diageo's distillery count is given as 31 by the company and 29 (malt only) by a broker compilation; its share of Scotch output is "c.40%" (Wikipedia) versus 27% of malt capacity (broker). The figures measure different things, all sites versus malt sites, volume sold versus malt capacity, and are shown side by side rather than reconciled.<sup class="r"><a href="#s13">13</a> <a href="#s10">10</a> <a href="#s14">14</a></sup> <span class="c c-m">Med</span></div>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>Exports, 2025</h2><p class="sub">Flat in value, down in volume, tariff-shaped.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>Exports, 2025</h2><p class="sub">Flat in value, down in volume, tariff-shaped.</p></div>
   
   <div class="cards">
     <div class="card"><div class="v">£5.36 bn</div><div class="l">Total exports, −0.6% on 2024; 43 bottles a second <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></div></div>
@@ -323,7 +335,7 @@ svg text{font-size:10px}
   <p>The SWA attributes the decline to tariffs, UK duty (up more than 17% in three years) and packaging taxes, and softening demand; some distilleries have halted or reduced production and jobs have been lost.<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup> Diageo has paused Teaninich into mid-2026.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>The collector market</h2><p class="sub">Correction, not collapse; provenance is the new premium.</p></div>
+  <div class="sechead tint"><h2><em>V</em>The collector market</h2><p class="sub">Correction, not collapse; provenance is the new premium.</p></div>
   
   <p>Secondary prices for rare bottles rose strongly through the late 2010s into the early 2020s and have since corrected; in 2026 buyers are questioning release prices, auction estimates and cask-ownership claims, and value has concentrated in bottles with clear provenance, limited supply and recognised distillery identity.<sup class="r"><a href="#s6">6</a></sup> Retail sources report fewer unsold auction lots and more selective buying in 2025–26 and cite individual bottles, a 1961 Bowmore 50-year-old, moving from c.$78,000 to c.$101,000 between May 2024 and May 2025.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-m">Med</span>, dealer and investment-platform sources; no independent index is reproduced here.</p>
   <div class="tw"><table>
@@ -335,7 +347,7 @@ svg text{font-size:10px}
   <div class="note">Diamond parallel: distillery-closure scarcity (Brora, Port Ellen, Rosebank) is the industry's "mine closure" narrative, and, as with Argyle pinks, the owner later reopened the source. Scarcity that a producer can reverse is a marketing asset, not a geological fact. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>The cask problem</h2><p class="sub">An unregulated asset sold as an investment.</p></div>
+  <div class="sechead tint"><h2><em>VI</em>The cask problem</h2><p class="sub">An unregulated asset sold as an investment.</p></div>
   
   <p>A BBC investigation in March 2025 exposed cask-investment fraud: companies selling casks that did not exist, were overvalued, or were sold to multiple buyers. The trade's own response noted that cask ownership and fraud prevention fall outside the Scotch Whisky Association's remit, that the Financial Conduct Authority does not regulate cask sales because casks are not financial products, and that virtually no cask brokers are authorised to give regulated investment advice. Fraudulent firms have partnered with reputable brands, distilleries and writers to add legitimacy.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-h">High</span></p>
   <div class="tw"><table>
@@ -348,7 +360,7 @@ svg text{font-size:10px}
   <div class="note warn">Compliance reading: a cask is a bailment, not a security, which is exactly why it escapes financial regulation and why the buyer's only real protection is the warehousekeeper's records. Verify the delivery order with the warehouse, not the broker; treat "guaranteed returns" as a fraud indicator; and note that distillers themselves, not brokers, are the counterparties who set filling prices and control bottling rights. <span class="c c-m">Med</span></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -363,7 +375,7 @@ svg text{font-size:10px}
 <section id="s-viii">
   <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. SWA statistics are primary; broker and investment-platform sources are marked.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 16 sources</summary><ol class="src">
     <li id="s1"><b>Global Drinks Intel</b>, "Export declines continue for scotch whisky in 2025, data", 16 Feb 2026, £5.36 bn, −0.6%; 104.2 m cases, −4.3%; US £933 m; EU £1.5 bn; France £404 m; India £286 m and largest by volume; SWA attribution.</li>
     <li id="s2"><b>Scotch Whisky Association</b>, "2025 export figures", 12 Feb 2026, headline "−1.8% to £5.3 bn"; 1.3 bn bottles; US £971 m → £933 m and 132 m → 120 m bottles; May–Dec −15%/−7%; EU 444 m bottles; France 152 m bottles.</li>
     <li id="s3"><b>Inside the Cask</b>, "Scotch Whisky Exports in 2025 impacted by Tariffs", 23 Feb 2026, Mark Kent quotations; duty +17% in three years; Germany and Spain figures.</li>
@@ -378,7 +390,9 @@ svg text{font-size:10px}
     <li id="s12"><b>Wikipedia</b>, "The Distillers Company", Scotch Distillers' Association 1865; incorporated 1877; Guinness takeover 1986; now Diageo.</li>
     <li id="s13"><b>Mark Littler Ltd</b>, "Who Owns Scotland's Whisky Distilleries? Full 2026 List", 25 Jul 2026, Diageo 31 distilleries; Teaninich pause; Tormore to Elixir 2022; Famous Grouse sale completed July 2025; Suntory Global Spirits rename; Brora, Rosebank and Port Ellen reopened.</li>
     <li id="s14"><b>Wikipedia</b>, "Diageo", distilleries producing 40% of all Scotch whisky; 24+ brands. <span class="c c-m">Med</span></li>
-  </ol>
+  <li id="s15"><b>The Drinks Business, "Spirits industry responds to US lifting tariffs on Scotch"</b>, 24 Jul 2026. Zero-for-zero regime in force; 25% single-malt rise averted. <a href="https://www.thedrinksbusiness.com/2026/07/spirits-industry-responds-to-us-lifting-tariffs-on-scotch/" target="_blank">thedrinksbusiness.com</a> <span class="c c-h">High</span></li>
+<li id="s16"><b>Whisky Torbati, "US Tariff on Scotch Whisky Removed from 24 July 2026"</b>, Sep 2026. Industry losses near £20m per month under the tariff. <a href="https://www.whiskytorbati.it/en/us-tariff-scotch-whisky-removed-2026/" target="_blank">whiskytorbati.it</a> <span class="c c-l">Low</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">

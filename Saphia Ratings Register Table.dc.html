@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+a{color:#141412;text-decoration:none}
+a:hover{color:#7d5f3f}
+button,select{font-family:'JetBrains Mono',monospace}
+</style>
+</helmet>
+<div style="background:#f4efe6;font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:15px;line-height:1.55;color:#141412;min-height:100%">
+  <div style="max-width:{{ maxW }};margin:0 auto;padding:0 {{ padX }} 72px">
+
+    <nav style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 32px;padding-top:32px">
+      <a href="/home" style="font-family:'EB Garamond',Georgia,serif;font-size:28px;letter-spacing:.14em;line-height:1.1">ΣΟΦΙΑ
+        <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.32em;color:#6f6a62;margin-top:3px">SCARCE ASSETS INTELLIGENCE</span>
+      </a>
+      <div style="display:flex;gap:12px 28px;font-size:14px">
+        <a href="/home" style="color:#6f6a62">Home</a>
+        <a href="/about" style="color:#6f6a62">About</a>
+        <a href="/methodology" style="color:#6f6a62">Methodology</a>
+        <a href="/markets" style="color:#6f6a62">Markets</a>
+        <a href="/register" style="border-bottom:1px solid #a8825a;padding-bottom:2px">Σ Rating</a>
+        <a href="/contact" style="color:#6f6a62">Contact</a>
+      </div>
+    </nav>
+
+    <header style="padding:56px 0 28px;border-bottom:1px solid #dcd4c6">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a8825a;margin-bottom:18px">Ratings register</div>
+      <h1 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:{{ h1Size }};line-height:1.05;letter-spacing:-.01em;margin:0 0 18px">Every market, five ratings.</h1>
+      <p style="max-width:64ch;margin:0 0 20px;font-size:16px;color:#141412;text-wrap:pretty">Each market ΣΟΦΙΑ covers is rated on supply concentration, liquidity, scarcity and provenance risk, and graded for investability. The ratings describe how a market is built and how practical it is to hold. They say nothing about where its price is going.</p>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6f6a62;text-transform:uppercase">31 rated markets · Methodology v2.0 · Ratings as of 17 Sep 2026 · <span style="color:#7d5f3f">Σ rating provisional</span></div>
+    </header>
+
+    <section style="display:grid;grid-template-columns:{{ distCols }};gap:24px 28px;padding:28px 0;border-bottom:1px solid #dcd4c6">
+      <sc-for list="{{ dist }}" as="blk" hint-placeholder-count="5">
+        <div style="min-width:0">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#6f6a62;margin-bottom:10px">{{ blk.label }}</div>
+          <div style="display:flex;gap:2px;height:6px">
+            <sc-for list="{{ blk.segs }}" as="s" hint-placeholder-count="3">
+              <div style="flex:{{ s.n }} 0 0;background:{{ s.color }}"></div>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:2px 12px;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#141412">
+            <sc-for list="{{ blk.segs }}" as="s" hint-placeholder-count="3">
+              <span><span style="color:#6f6a62">{{ s.label }}</span> {{ s.n }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <section style="padding:24px 0 8px">
+      <div style="display:flex;flex-wrap:{{ famWrap }};overflow-x:auto;gap:6px;padding-bottom:4px" data-noscroll="1">
+        <sc-for list="{{ fams }}" as="f" hint-placeholder-count="7">
+          <button onClick="{{ f.onClick }}" style="flex:none;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border:1px solid {{ f.bd }};background:{{ f.bg }};color:{{ f.fg }};cursor:pointer;border-radius:0" style-hover="border-color:#141412" style-focus="outline:1px solid #a8825a;outline-offset:2px">{{ f.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ selCols }};gap:12px 16px;margin-top:18px">
+        <sc-for list="{{ selects }}" as="s" hint-placeholder-count="5">
+          <label style="display:flex;flex-direction:column;gap:6px;min-width:0">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:{{ s.labelColor }}">{{ s.label }}</span>
+            <select value="{{ s.value }}" onChange="{{ s.onChange }}" style="font-size:12px;padding:8px 10px;background:#faf7f0;border:1px solid {{ s.bd }};color:#141412;border-radius:0;appearance:auto" style-focus="outline:1px solid #a8825a;outline-offset:1px">
+              <sc-for list="{{ s.opts }}" as="o" hint-placeholder-count="4">
+                <option value="{{ o.v }}">{{ o.l }}</option>
+              </sc-for>
+            </select>
+          </label>
+        </sc-for>
+      </div>
+      <sc-if value="{{ phone }}" hint-placeholder-val="{{ false }}">
+        <label style="display:flex;align-items:center;gap:10px;margin-top:14px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6f6a62">Sort</span>
+          <select value="{{ sortKey }}" onChange="{{ onPhoneSort }}" style="flex:1;font-size:12px;padding:8px 10px;background:#faf7f0;border:1px solid #dcd4c6;border-radius:0">
+            <sc-for list="{{ phoneSortOpts }}" as="o" hint-placeholder-count="4">
+              <option value="{{ o.v }}">{{ o.l }}</option>
+            </sc-for>
+          </select>
+        </label>
+      </sc-if>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6f6a62;text-transform:uppercase">
+        <span><span style="color:#141412">{{ shown }}</span> of 31 markets</span>
+        <sc-if value="{{ hasFilters }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ clearAll }}" style="background:none;border:none;border-bottom:1px solid #a8825a;padding:0 0 1px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#141412;cursor:pointer" style-focus="outline:1px solid #a8825a;outline-offset:3px">Clear filters</button>
+        </sc-if>
+      </div>
+    </section>
+
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <div role="table" aria-label="Ratings register" style="margin-top:16px;border-top:1px solid #141412">
+        <div role="row" style="display:grid;grid-template-columns:{{ gridCols }};align-items:end;border-bottom:1px solid #141412">
+          <sc-for list="{{ heads }}" as="h" hint-placeholder-count="7">
+            <button role="columnheader" aria-sort="{{ h.aria }}" onClick="{{ h.onClick }}" style="order:{{ h.order }};text-align:left;background:{{ h.bg }};border:none;border-left:{{ h.bl }};padding:14px 14px 12px;cursor:pointer;min-width:0;color:#141412" style-hover="color:#7d5f3f" style-focus="outline:1px solid #a8825a;outline-offset:-3px">
+              <span style="display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:{{ h.kColor }}">{{ h.kicker }}</span>
+              <span style="display:flex;gap:6px;align-items:baseline;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:4px">{{ h.label }}<span style="color:#a8825a">{{ h.arrow }}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+          <div>
+            <div role="row" tabIndex="0" style="display:grid;grid-template-columns:{{ gridCols }};border-bottom:1px solid #dcd4c6;background:{{ r.rowBg }}" style-hover="background:rgba(168,130,90,.06)" style-focus="outline:1px solid #a8825a;outline-offset:-1px">
+              <div role="cell" style="order:0;padding:16px 14px 14px 2px;min-width:0">
+                <a href="{{ r.href }}" style="font-family:'EB Garamond',Georgia,serif;font-size:21px;line-height:1.15">{{ r.name }}</a>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62;margin-top:5px">{{ r.family }}</div>
+              </div>
+              <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="4">
+                <div role="cell" style="order:{{ c.order }};padding:18px 14px 14px;min-width:0">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span aria-hidden="true" style="display:flex;gap:2px">
+                      <i style="display:block;width:12px;height:5px;background:{{ c.m1 }}"></i>
+                      <i style="display:block;width:12px;height:5px;background:{{ c.m2 }}"></i>
+                      <i style="display:block;width:12px;height:5px;background:{{ c.m3 }}"></i>
+                    </span>
+                    <span style="font-size:14px;font-weight:400">{{ c.word }}</span>
+                  </div>
+                  <div style="font-size:12px;color:#6f6a62;margin-top:5px;line-height:1.4">{{ c.q }}</div>
+                </div>
+              </sc-for>
+              <div role="cell" style="order:6;padding:18px 14px 14px;min-width:0">
+                <span style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border:1px solid {{ r.evColor }};color:{{ r.evColor }}">{{ r.ev }}</span>
+              </div>
+              <button role="cell" aria-expanded="{{ r.isOpen }}" onClick="{{ r.toggle }}" style="order:{{ eOrder }};text-align:left;background:{{ eBg }};border:none;border-left:{{ eBl }};border-right:{{ eBr }};padding:14px 16px;cursor:pointer;min-width:0;color:#141412" style-hover="background:rgba(168,130,90,.12)" style-focus="outline:1px solid #a8825a;outline-offset:-3px">
+                <span style="display:flex;align-items:baseline;gap:10px">
+                  <span style="font-family:'JetBrains Mono',monospace;font-weight:500;font-size:{{ eCodeSize }};color:#7d5f3f;letter-spacing:.04em">{{ r.e }}</span>
+                  <span style="font-family:{{ eNameFont }};font-size:{{ eNameSize }}">{{ r.eName }}</span>
+                  <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11px;color:#a8825a">{{ r.chev }}</span>
+                </span>
+                <span style="display:block;font-size:12px;color:#6f6a62;margin-top:5px;line-height:1.4">{{ r.rates }}</span>
+              </button>
+            </div>
+            <sc-if value="{{ r.isOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:48px;padding:32px 2px 36px;border-bottom:1px solid #141412;background:#faf7f0">
+                <div style="padding-left:14px">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a8825a">Σ rating · Saphia house rating · Provisional</div>
+                  <div style="display:flex;align-items:baseline;gap:16px;margin-top:16px">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:500;color:#7d5f3f;line-height:1">{{ r.e }}</span>
+                    <span style="font-family:'EB Garamond',Georgia,serif;font-size:30px">{{ r.eName }}</span>
+                  </div>
+                  <p style="margin:16px 0 0;max-width:46ch;text-wrap:pretty">{{ r.eDef }}</p>
+                  <div style="margin-top:20px;padding-top:14px;border-top:1px solid #dcd4c6;display:grid;grid-template-columns:120px 1fr;gap:6px 16px;font-size:14px">
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6f6a62;padding-top:3px">What is rated</span><span>{{ r.rates }}</span>
+                    <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6f6a62;padding-top:3px">Market</span><span>{{ r.name }}</span>
+                  </div>
+                  <p style="margin:18px 0 0;font-size:13px;color:#6f6a62">ΣΟΦΙΑ's own opinion of how practical the asset is to hold. Not a view on return.</p>
+                </div>
+                <div style="padding-right:14px">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#6f6a62"><span>Six factors</span><span style="color:{{ phTagColor }}">{{ phTag }}</span></div>
+                  <div style="margin-top:12px;border-top:1px solid #dcd4c6">
+                    <sc-for list="{{ r.factors }}" as="fc" hint-placeholder-count="6">
+                      <div style="display:grid;grid-template-columns:150px 1fr 48px;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid #dcd4c6">
+                        <span style="font-size:14px">{{ fc.name }}</span>
+                        <span style="display:flex;gap:3px" aria-hidden="true">
+                          <sc-for list="{{ fc.pips }}" as="p" hint-placeholder-count="5">
+                            <i style="display:block;flex:1;height:6px;background:{{ p.c }}"></i>
+                          </sc-for>
+                        </span>
+                        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;text-align:right;color:{{ fc.vColor }}">{{ fc.v }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <sc-if value="{{ subscriber }}" hint-placeholder-val="{{ false }}">
+                    <div style="margin-top:20px">
+                      <p style="margin:0 0 16px;font-size:12px;color:#6f6a62">The grade is a judgement across the six factors, not their average. For futures and listed routes, scores describe the route, not the physical good.</p>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#6f6a62">Rationale <span style="color:#9b4a22">· Draft · source-checked 5 Oct 2026</span></div>
+                      <p style="margin:10px 0 0;color:#45423c;text-wrap:pretty">{{ r.rationale }}</p>
+                      <p style="margin:8px 0 0;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:#6f6a62">CHECKED AGAINST: {{ r.rsrc }}</p>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ locked }}" hint-placeholder-val="{{ true }}">
+                    <p style="margin:20px 0 0;font-size:13px;color:#6f6a62;border-top:1px solid #dcd4c6;padding-top:14px">Factor scores and rationale are available to subscribers.</p>
+                  </sc-if>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ phone }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:12px;border-top:1px solid #141412">
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+          <div tabIndex="0" style="padding:16px 0 14px;border-bottom:1px solid #dcd4c6" style-focus="outline:1px solid #a8825a;outline-offset:2px">
+            <div style="display:flex;align-items:flex-start;gap:12px">
+              <div style="flex:1;min-width:0">
+                <a href="{{ r.href }}" style="font-family:'EB Garamond',Georgia,serif;font-size:20px;line-height:1.15">{{ r.name }}</a>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#6f6a62;margin-top:4px">{{ r.family }}</div>
+              </div>
+              <button onClick="{{ r.toggle }}" aria-expanded="{{ r.isOpen }}" style="flex:none;text-align:right;background:#faf7f0;border:none;border-left:1px solid #a8825a;padding:6px 10px;min-height:44px;cursor:pointer;color:#141412">
+                <span style="display:block;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:500;color:#7d5f3f">{{ r.e }}</span>
+                <span style="display:block;font-size:11px">{{ r.eName }}</span>
+              </button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px">
+              <sc-for list="{{ r.cellsPhone }}" as="c" hint-placeholder-count="4">
+                <div style="min-width:0">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:#6f6a62">{{ c.k }}</div>
+                  <span aria-hidden="true" style="display:flex;gap:2px;margin:5px 0 4px">
+                    <i style="display:block;flex:1;height:4px;background:{{ c.m1 }}"></i>
+                    <i style="display:block;flex:1;height:4px;background:{{ c.m2 }}"></i>
+                    <i style="display:block;flex:1;height:4px;background:{{ c.m3 }}"></i>
+                  </span>
+                  <div style="font-size:12px;font-weight:400">{{ c.short }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:10px">
+              <span style="font-size:12px;color:#6f6a62;min-width:0">Σ rates: {{ r.rates }}</span>
+              <span style="flex:none;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:1px 6px;border:1px solid {{ r.evColor }};color:{{ r.evColor }}">{{ r.ev }}</span>
+            </div>
+            <sc-if value="{{ r.isOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:12px;padding:14px;background:#faf7f0;font-size:13px">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#a8825a">Σ rating · Provisional</div>
+                <p style="margin:8px 0 10px">{{ r.eDef }}</p>
+                <div style="font-size:12px;color:#6f6a62">{{ r.qualLine }}</div>
+                <div style="margin-top:12px;border-top:1px solid #dcd4c6">
+                  <sc-for list="{{ r.factors }}" as="fc" hint-placeholder-count="6">
+                    <div style="display:grid;grid-template-columns:120px 1fr 32px;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #dcd4c6"><span style="font-size:12px">{{ fc.name }}</span><span style="display:flex;gap:2px" aria-hidden="true"><sc-for list="{{ fc.pips }}" as="p" hint-placeholder-count="5"><i style="display:block;flex:1;height:5px;background:{{ p.c }}"></i></sc-for></span><span style="font-family:'JetBrains Mono',monospace;font-size:10px;text-align:right">{{ fc.v }}</span></div>
+                  </sc-for>
+                </div>
+                <p style="margin:10px 0 0;font-size:12px;color:#45423c;text-wrap:pretty">{{ r.rationale }}</p>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:56px 0;border-bottom:1px solid #dcd4c6;text-align:center">
+        <p style="font-family:'EB Garamond',Georgia,serif;font-size:24px;margin:0 0 12px">No market carries that combination of ratings.</p>
+        <button onClick="{{ clearAll }}" style="background:none;border:none;border-bottom:1px solid #a8825a;padding:0 0 1px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;color:#141412">Clear filters</button>
+      </div>
+    </sc-if>
+
+    <section style="display:grid;grid-template-columns:{{ keyCols }};gap:20px 40px;padding:32px 0;border-bottom:1px solid #dcd4c6;font-size:13px;color:#6f6a62">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#141412;margin-bottom:10px">Scales A to D</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <span style="display:flex;align-items:center;gap:10px"><span style="display:flex;gap:2px"><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#7d5f3f"></i></span>High</span>
+          <span style="display:flex;align-items:center;gap:10px"><span style="display:flex;gap:2px"><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#c9b394"></i></span>Medium to High (half-step)</span>
+          <span style="display:flex;align-items:center;gap:10px"><span style="display:flex;gap:2px"><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#dcd4c6"></i></span>Medium</span>
+          <span style="display:flex;align-items:center;gap:10px"><span style="display:flex;gap:2px"><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#dcd4c6"></i><i style="width:12px;height:5px;background:#dcd4c6"></i></span>Low</span>
+        </div>
+        <p style="margin:10px 0 0">Bands describe structure. They are not good or bad.</p>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#141412;margin-bottom:10px">Σ rating · Saphia house rating</div>
+        <p style="margin:0">ΣΟΦΙΑ's own opinion of how practical the asset is to hold. Not a view on return. Σ1 Institutional · Σ2 Accessible · Σ3 Specialist · Σ4 Restricted · Σ5 No route. Where the good cannot be held, the Σ rating covers the most direct route to exposure and names it.</p>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#141412;margin-bottom:10px">Evidence</div>
+        <div style="display:flex;gap:8px;margin-bottom:10px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;padding:2px 7px;border:1px solid #3f6b47;color:#3f6b47">HIGH</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;padding:2px 7px;border:1px solid #8a6a1c;color:#8a6a1c">MED</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;padding:2px 7px;border:1px solid #9b4a22;color:#9b4a22">LOW</span>
+        </div>
+        <p style="margin:0">The standing of the sources behind the ratings, not a view on the market.</p>
+      </div>
+    </section>
+
+    <footer style="padding-top:28px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62">ΣΟΦΙΑ · Scarce assets. One perspective. · Market intelligence, not investment advice</footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:2600},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;a&quot;,&quot;b&quot;],&quot;default&quot;:&quot;b&quot;,&quot;tsType&quot;:&quot;'a'|'b'&quot;},&quot;layout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;desktop&quot;,&quot;phone&quot;],&quot;default&quot;:&quot;desktop&quot;,&quot;tsType&quot;:&quot;'desktop'|'phone'&quot;},&quot;subscriber&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;initFamily&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;All&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;initFilters&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;Record&lt;string,string&gt;&quot;},&quot;initSortKey&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;initSortDir&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;asc&quot;,&quot;desc&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;initOpen&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const RAW = [
+ ["Natural Diamonds","g","natural-diamonds","H","rough distribution; mining Medium","M","","M","large stones High","M","","Med","E3","Polished stones"],
+ ["Lab-Grown Diamonds","g","lab-grown-diamonds","M","","M","","L","","M","","Med","E4","Route: growers and retailers"],
+ ["Coloured Gemstones","g","coloured-gemstones","MH","by stone","L","","H","top origins","H","","Med","E4","Physical stones"],
+ ["Pearls","g","pearls","M","","L","","M","natural High","M","","Low","E4","Physical"],
+ ["Gold","m","gold","M","refining; mine Low","H","","L","","M","doré origin","High","E1","Physical metal"],
+ ["Silver","m","silver","M","","H","","M","","L","","High","E1","Physical metal"],
+ ["Platinum Group Metals","m","pgm","H","","H","","M","","L","","High","E1","Physical metal"],
+ ["Copper","m","copper","H","refining; mine Medium","H","","M","","L","","High","E2","Route: futures"],
+ ["Rare Earths","m","rare-earths","H","separation; mining lower","M","","M","","M","","High","E3","Physical oxides and metals"],
+ ["Oil & Gas","m","oil-gas","M","","H","","L","","L","","Med","E2","Route: futures"],
+ ["Fine Wine","c","fine-wine","L","","M","","M","top Burgundy High","M","","High","E2","Bottles in bond"],
+ ["Port","c","port","H","benefício and two family groups","M","","M","Vintage High","L","","High","E3","Bottles"],
+ ["Scotch Whisky","c","scotch-whisky","H","","M","bottles; casks Low","M","closed distilleries High","H","casks","High","E3","Bottles"],
+ ["Cigars","c","cigars","H","","L","","M","","H","","High","E4","Boxes"],
+ ["Watches","c","watches","H","","M","","L","","M","","High","E3","Physical"],
+ ["Art","c","art","L","","M","auction; private Low","H","","M","","High","E3","Physical"],
+ ["Classic Cars","c","classic-cars","L","","M","","H","top; base Low","M","","Med","E3","Physical"],
+ ["Saffron","a","saffron","H","","L","","M","","H","","Med","E5","Route: none identified"],
+ ["Oud","a","oud","M","","L","","H","wild; plantation Low","H","","High","E4","Wood and oil"],
+ ["Vanilla","a","vanilla","H","","L","","L","","M","","High","E4","Route: flavour houses and exporters"],
+ ["Frankincense","a","frankincense","M","","L","","M","B. papyrifera High","H","","High","E5","Route: none identified"],
+ ["Coffee","r","coffee","M","","H","","L","Geisha High","M","","High","E2","Route: futures"],
+ ["Tea","r","tea","H","","M","","L","Uji tencha High","M","","High","E3","Route: listed plantation companies"],
+ ["Cocoa","r","cocoa","H","marketing boards","H","","L","","M","","High","E2","Route: futures"],
+ ["Olive Oil","r","olive-oil","H","","M","","L","","H","","High","E3","Route: groves and listed producers"],
+ ["Mānuka Honey","r","manuka-honey","H","","L","","M","","M","High outside New Zealand","High","E3","Route: listed producer"],
+ ["Dates","r","dates","M","","L","","L","Ajwa Medium","M","","Med","E4","Route: farms and private operators"],
+ ["Caviar","f","caviar","MH","","L","","L","farmed; wild High","H","","High","E4","Route: sturgeon farms"],
+ ["Truffles","f","truffles","M","","L","white; black Medium","H","white; black Low","H","","Med","E4","Route: truffle orchards"],
+ ["Bluefin Tuna","f","bluefin-tuna","M","","M","","H","wild Ōma","M","","High","E4","Route: ranching and seafood groups"],
+ ["Wagyu","f","wagyu","H","","M","","L","","M","","High","E3","Route: herds, land and listed producers"]
+];
+const FAM = { g:"Gems & Jewellery", m:"Metals, Energy & Strategic Materials", c:"Cellar & Collectibles", a:"Aromatics", r:"Crops", f:"Rare Foods" };
+const FAM_ORDER = ["g","m","c","a","r","f"];
+const WORD = { H:"High", MH:"Medium to High", M:"Medium", L:"Low" };
+const SHORT = { H:"High", MH:"Med–High", M:"Med", L:"Low" };
+const RANK = { L:1, M:2, MH:2.5, H:3 };
+const EN = { E1:"Institutional", E2:"Accessible", E3:"Specialist", E4:"Restricted", E5:"No route" };
+const ED = {
+ E1:"Independent daily valuation, exit within days at low cost, standard custody, established institutional vehicles.",
+ E2:"Regular price discovery and an established route to exposure, with one material limit on custody, cost or access.",
+ E3:"Valued by expert appraisal, exit over months through auction or dealers, material transaction and custody costs.",
+ E4:"Valuation contested, exit uncertain, heavy authentication, title or transfer burdens.",
+ E5:"The good cannot be held and no practical route to exposure has been identified."
+};
+const SCORES = {"Natural Diamonds":[2,2,4,3,3,2],"Lab-Grown Diamonds":[2,1,4,3,2,2],"Coloured Gemstones":[1,2,4,2,2,2],"Pearls":[2,1,3,3,2,2],"Gold":[5,5,5,5,5,4],"Silver":[5,5,4,5,5,5],"Platinum Group Metals":[5,4,4,5,4,5],"Copper":[5,4,5,4,3,5],"Rare Earths":[3,2,3,3,2,4],"Oil & Gas":[5,4,5,4,3,5],"Fine Wine":[4,3,4,4,4,3],"Port":[3,2,4,4,3,3],"Scotch Whisky":[3,2,4,3,3,2],"Cigars":[2,2,2,3,2,2],"Watches":[3,3,4,3,4,2],"Art":[2,2,3,3,3,1],"Classic Cars":[3,3,2,3,3,2],"Saffron":[1,1,1,1,1,2],"Oud":[1,1,3,2,2,1],"Vanilla":[2,2,2,3,2,4],"Frankincense":[1,1,1,1,1,2],"Coffee":[5,4,5,4,3,4],"Tea":[3,3,4,3,3,2],"Cocoa":[5,4,5,4,3,5],"Olive Oil":[3,2,3,3,3,3],"Mānuka Honey":[3,3,4,4,3,2],"Dates":[2,2,3,2,2,3],"Caviar":[2,1,2,2,2,3],"Truffles":[1,1,2,2,2,2],"Bluefin Tuna":[2,2,2,2,2,2],"Wagyu":[3,2,3,3,3,2]};
+const RAT = {"Natural Diamonds":"Polished stones are valued stone by stone against dealer price lists, with no independent daily price. Exit runs through dealers or auction over months at a wide spread. Custody is simple and grading certificates support title; demand rests heavily on the natural premium.","Lab-Grown Diamonds":"Retail and wholesale prices fall year after year, so held stones lose value and resale is close to nil. The practical route is growers and retailers, and few of them are listed or liquid. Custody and title are simple; price discovery and exit are the binding limits.","Coloured Gemstones":"No benchmark exists; each stone is priced by origin, treatment and laboratory report, and reports can disagree. Exit means a specialist auction or a dealer, over months. Title depends on documented origin and treatment disclosure, which is often incomplete.","Pearls":"Natural pearls trade through a handful of auction houses; cultured goods have a thin resale market. Valuation needs laboratory confirmation of natural origin. Exit is slow and selective.","Gold":"The LBMA Gold Price, set twice daily, deep spot and ETF markets, and allocated vault custody make gold the reference institutional holding. Exit takes days at low cost. Doré origin aside, title and transfer are standardised.","Silver":"The LBMA Silver Price, set once daily at noon in London, and liquid ETFs give daily valuation and quick exit. Storage costs more than gold per dollar held because of weight and volume, but custody is standard. Title and transfer are standardised.","Platinum Group Metals":"Platinum and palladium have twice-daily LBMA benchmark auctions, administered by ICE Benchmark Administration since 1 July 2026, plus NYMEX futures and physically backed ETFs. Spot liquidity is thinner than gold or silver, and rhodium has no exchange benchmark. Custody is standard; supply is concentrated in South Africa and Russia.","Copper":"Exposure runs through LME and COMEX futures or ETFs, which are priced continuously and exit within days. Holding through futures carries roll costs and contango risk, the one material limit. Physical cathode is impractical for most portfolios.","Rare Earths":"There is no exchange benchmark. Chinese domestic quotes and the US-floored ex-China tier diverge. Physical oxides and metals can be held, but buyers are few and specialist, and Chinese licensing governs flows. Exit depends on finding an industrial counterparty.","Oil & Gas":"Brent, WTI and Henry Hub futures give continuous pricing and the deepest commodity liquidity available. The route is futures, so roll yield and margin are the limits on holding. Physical barrels or cargoes are not a portfolio asset.","Fine Wine":"Liv-ex mid prices give regular, independent valuation for traded wines. Stock held in bond keeps provenance and avoids duty. Exit through merchants or the exchange takes weeks, and fees on each trade are material.","Port":"Vintage Port trades on a narrow secondary market with occasional auction prices. Bottles keep well in bond, but buyers are concentrated and exit is slow. Provenance is good for shipper-bottled stock.","Scotch Whisky":"Bottles trade at auction with visible prices, but cask valuation is opaque and cask schemes carry real fraud risk. Exit through auction takes months and incurs fees. Title to casks depends on the warehouse keeper's records.","Cigars":"Prices are set by Habanos list prices and grey-market dealers, with little secondary discovery. Boxes need humidity-controlled storage and are vulnerable to counterfeits. Sanctions and US import rules restrict who can buy and sell.","Watches":"Secondary prices are visible through auction results and dealer platforms. Exit within weeks is possible for leading references, slower for others. Custody is simple; authentication and service history decide value.","Art":"Value rests on expert appraisal and a few auction comparables; most works have no recent price. Exit means auction scheduling, guarantees and fees, over months. Title, provenance and attribution carry the largest risk of any market here.","Classic Cars":"Auction results give periodic price points for top models; most cars lack comparables. Storage, insurance and maintenance are costly and specialised. Exit through scheduled auctions takes months.","Saffron":"No practical route to exposure exists: no exchange, no investable vehicle, and the spice degrades in storage. Adulteration is widespread and sanctions affect Iranian supply. Graded Σ5 until a route is identified.","Oud":"Wild agarwood is priced by expert assessment with no benchmark, and CITES permits govern trade. Wood and oil can be stored, but authentication is hard and adulteration common. Exit is private and slow.","Vanilla":"Exporters set prices with no exchange, and cured beans lose quality over time. The most direct route is flavour houses and exporters, few of them pure exposure. Madagascar's regulatory changes add to the uncertainty.","Frankincense":"Resin trades informally through Somaliland and Omani channels with no benchmark or investable vehicle. Supply is under ecological pressure and documentation is thin. Graded Σ5 until a route is identified.","Coffee":"ICE arabica and robusta futures give continuous pricing and quick exit. Roll costs and weather-driven volatility are the limits, and the futures do not track specialty lots. Green coffee itself is not a portfolio holding.","Tea":"No exchange benchmark exists for premium tea; the route is listed plantation companies, which carry broad operating exposure. Auction prices cover bulk grades only. The scarce tier, Uji tencha, cannot be held directly.","Cocoa":"ICE London and New York futures give continuous pricing and liquid exit. Marketing boards in Côte d'Ivoire and Ghana set farm-gate prices and forward-sell the crop, which shapes the futures curve. Roll costs and extreme volatility are the limits.","Olive Oil":"Bulk prices are published weekly but there is no futures market. The route is groves and listed producers, both of which carry operating and weather risk. Oil degrades and cannot be stored long.","Mānuka Honey":"UMF and MGO grading supports valuation, but there is no exchange. The route is listed producers, chiefly in New Zealand. Authentication outside New Zealand remains a material risk.","Dates":"Prices are set by exporters and seasonal contracts with no benchmark. The route is farms and private operators, most of them unlisted. Exit means selling an operating business.","Caviar":"Farmed caviar has transparent wholesale prices that keep falling as Chinese supply grows. The product is perishable, so the route is sturgeon farms. CITES documentation governs trade.","Truffles":"White truffles are priced weekly at Alba and other markets and perish within days. Black truffle orchards first yield five to eight years after planting; white truffle cultivation has produced only small experimental harvests, first recorded in France in 2019. The route is truffle orchards, so exit means selling land.","Bluefin Tuna":"Toyosu auction prices are visible but cover a perishable product. The route is ranching operations and seafood groups, bound by catch quotas set by ICCAT in the Atlantic and by the WCPFC and IATTC in the Pacific. Exit is through corporate equity or private sale.","Wagyu":"Japanese carcass grading supports wholesale price discovery. Since 2020 Japanese law has made unauthorised resale or export of wagyu genetic material a criminal offence, so the breed cannot be replicated abroad from Japanese stock. The route is herds, land and listed producers; exit is slow and needs an operating buyer."};
+const RSRC = {"Gold":"LBMA, Precious Metal Prices","Silver":"LBMA, About LBMA Daily Auction Prices","Platinum Group Metals":"LBMA; ICE, IBA operates LBMA Platinum and Palladium Prices (Jul 2026)","Truffles":"INRAE, controlled production of white truffles (2021); Robin Pépinières, cultivation FAQ","Bluefin Tuna":"SeafoodSource, Toyosu 2026 auction and Pacific bluefin catch limits","Wagyu":"Keisen Associates, Act for Prevention of Unfair Competition Using Livestock Genetic Resources (2020)","Copper":"Copper.com.au weekly brief, Oct 2026","Oil & Gas":"IEA Oil Market Report, Sep 2026","Cocoa":"Reuters via CNBC Africa; Cocoa Intel, Sep 2026","Coffee":"Trading Economics, arabica, Sep 2026","Fine Wine":"Liv-ex indices; The Drinks Business, Sep 2026","Lab-Grown Diamonds":"TheDiamondPrice, Sep 2026","Natural Diamonds":"bne IntelliNews; Discovery Alert, Sep 2026","Rare Earths":"Critical Minerals News; Rare Earth Exchanges, Sep 2026","Vanilla":"Rio Times; Biovanilla, 2026","Saffron":"Kashmir Observer, Jun 2026","Caviar":"Xinhua via People's Daily, Sep 2026","Port":"Vinetur; The Portugal News, Sep–Oct 2026","Scotch Whisky":"The Drinks Business, Jul 2026","Dates":"Mundus Agri; FreshPlaza, 2026","Olive Oil":"Oleista; Greek City Times, Sep 2026","Tea":"One With Tea, citing GJTA, Sep 2026","Coloured Gemstones":"Gemfields auction results, Sep 2026","Watches":"FH via JCK, Sep 2026","Art":"ARTnews, Oct 2026","Classic Cars":"Hagerty, Aug 2026"};
+const FACTORS = ["Valuation","Exit","Custody","Title and transfer","Access","Intangible premium"];
+const SC = ["A","B","C","D"];
+const SC_LABEL = { A:"Supply concentration", B:"Liquidity", C:"Scarcity", D:"Provenance risk" };
+const ON = "#7d5f3f", OFF = "#dcd4c6", HALF = "#c9b394";
+const EVC = { High:"#3f6b47", Med:"#8a6a1c", Low:"#9b4a22" };
+const marks = b => b === "H" ? [ON,ON,ON] : b === "MH" ? [ON,ON,HALF] : b === "M" ? [ON,ON,OFF] : [ON,OFF,OFF];
+const DATA = RAW.map(r => ({ name:r[0], fam:r[1], slug:r[2], A:r[3], Aq:r[4], B:r[5], Bq:r[6], C:r[7], Cq:r[8], D:r[9], Dq:r[10], ev:r[11], E:r[12], rates:r[13] }));
+
+class Component extends DCLogic {
+  state = {};
+  get(k, p, d) { return this.state[k] !== undefined ? this.state[k] : (this.props[p] ?? d); }
+  filters() { return this.state.filters || this.props.initFilters || {}; }
+  sortClick(key) {
+    const k = this.get("sortKey", "initSortKey", ""), dir = this.get("sortDir", "initSortDir", "");
+    if (k !== key) this.setState({ sortKey:key, sortDir:"asc" });
+    else if (dir === "asc") this.setState({ sortDir:"desc" });
+    else this.setState({ sortKey:"", sortDir:"" });
+  }
+  renderVals() {
+    const phone = this.props.layout === "phone";
+    const variant = this.props.variant === "a" ? "a" : "b";
+    const subscriber = this.props.subscriber !== false;
+    const family = this.get("family", "initFamily", "All");
+    const filters = this.filters();
+    const sortKey = this.get("sortKey", "initSortKey", "");
+    const sortDir = this.get("sortDir", "initSortDir", "");
+    const open = this.get("open", "initOpen", null);
+    const famKeyFor = n => Object.keys(FAM).find(k => FAM[k] === n);
+
+    let rows = DATA.filter(d => family === "All" || FAM[d.fam] === family);
+    for (const s of SC) { const v = filters[s]; if (v) rows = rows.filter(d => d[s] === v || (d[s] === "MH" && (v === "H" || v === "M"))); }
+    if (filters.E) rows = rows.filter(d => d.E === filters.E);
+    if (sortKey) {
+      const val = d => sortKey === "name" ? d.name : sortKey === "E" ? +d.E[1] : sortKey === "ev" ? ({High:3,Med:2,Low:1})[d.ev] : RANK[d[sortKey]];
+      rows = [...rows].sort((a, b) => { const x = val(a), y = val(b); const c = typeof x === "string" ? x.localeCompare(y) : x - y; return sortDir === "desc" ? -c : c; });
+    }
+    const hasFilters = family !== "All" || Object.values(filters).some(Boolean);
+
+    const eOrder = variant === "a" ? 7 : 1;
+    const order = { A:2, B:3, C:4, D:5 };
+    
+    const outRows = rows.map(d => {
+      const isOpen = open === d.name;
+      return {
+        name:d.name, family:FAM[d.fam], href:"/" + d.slug + "-dashboard",
+        cells: SC.map(s => { const m = marks(d[s]); return { order:order[s], word:WORD[d[s]], q:d[s + "q"], m1:m[0], m2:m[1], m3:m[2] }; }),
+        cellsPhone: SC.map(s => { const m = marks(d[s]); return { k:s, short:SHORT[d[s]], m1:m[0], m2:m[1], m3:m[2] }; }),
+        qualLine: SC.filter(s => d[s + "q"]).map(s => s + ": " + d[s + "q"]).join(" · "),
+        rationale: RAT[d.name], rsrc: RSRC[d.name] || "Sector dashboard, 5 Oct 2026 update", ev:d.ev, evColor:EVC[d.ev], e:"Σ" + d.E[1], eName:EN[d.E], eDef:ED[d.E], rates:d.rates,
+        isOpen, chev: isOpen ? "–" : "+", rowBg: isOpen ? "#faf7f0" : "transparent",
+        toggle: () => this.setState({ open: isOpen ? "" : d.name }),
+        factors: FACTORS.map((f, i) => {
+          const sc = SCORES[d.name][i];
+          return subscriber
+            ? { name:f, v: sc + "/5", vColor:"#141412", pips:[1,2,3,4,5].map(n => ({ c: n <= sc ? ON : OFF })) }
+            : { name:f, v:"Locked", vColor:"#6f6a62", pips:[1,2,3,4,5].map(() => ({ c:"repeating-linear-gradient(135deg,#dcd4c6 0 3px,#f4efe6 3px 6px)" })) };
+        })
+      };
+    });
+
+    const kick = s => variant === "a" ? (s === "E" ? "Saphia house rating" : "Scale " + s) : (s === "E" ? "Saphia house rating" : "Scale " + s);
+    const mkHead = (key, kicker, label, ord, extra) => ({
+      key, kicker, label, order:ord,
+      arrow: sortKey === key ? (sortDir === "asc" ? "↑" : "↓") : "",
+      aria: sortKey === key ? (sortDir === "asc" ? "ascending" : "descending") : "none",
+      onClick: () => this.sortClick(key), bg:"transparent", bl:"none", kColor:"#6f6a62", ...(extra || {})
+    });
+    const heads = [
+      mkHead("name", "Market", "Family", 0),
+      ...SC.map(s => mkHead(s, kick(s), SC_LABEL[s], order[s])),
+      mkHead("ev", "Sources", "Evidence", 6),
+      mkHead("E", kick("E") + " · Provisional", "Σ rating", eOrder, variant === "a"
+        ? { bg:"#faf7f0", bl:"1px solid #a8825a", kColor:"#a8825a" }
+        : { bg:"transparent", bl:"none", kColor:"#a8825a" })
+    ];
+
+    const fams = ["All", ...FAM_ORDER.map(k => FAM[k])].map(f => {
+      const on = f === family;
+      return { label:f, onClick: () => this.setState({ family:f }), bg: on ? "#141412" : "transparent", fg: on ? "#f4efe6" : "#141412", bd: on ? "#141412" : "#dcd4c6" };
+    });
+    const setF = (s, v) => this.setState({ filters: { ...this.filters(), [s]: v } });
+    const selects = [
+      ...SC.map(s => ({ label: s + " · " + SC_LABEL[s], value: filters[s] || "", opts:[{v:"",l:"Any band"},{v:"H",l:"High"},{v:"M",l:"Medium"},{v:"L",l:"Low"}] })),
+      { s:"E", label:"Σ rating", value: filters.E || "", opts:[{v:"",l:"Any grade"}, ...["E1","E2","E3","E4","E5"].map(e => ({ v:e, l:"Σ" + e[1] + " " + EN[e] }))] }
+    ].map((o, i) => { const s = i < 4 ? SC[i] : "E"; const active = !!filters[s]; return { ...o, onChange: e => setF(s, e.target.value), bd: active ? "#a8825a" : "#dcd4c6", labelColor: active ? "#7d5f3f" : "#6f6a62" }; });
+
+    const count = (s, b) => DATA.filter(d => d[s] === b).length;
+    const dist = [
+      ...SC.map(s => ({ label: s + " · " + SC_LABEL[s], segs: [["H","High",ON],["MH","Medium to High","#9a7a56"],["M","Medium","#bfa37f"],["L","Low",OFF]].map(([b,l,c]) => ({ label:l, n:count(s,b), color:c })).filter(x => x.n) })),
+      { label:"Σ rating (provisional)", segs: ["E1","E2","E3","E4","E5"].map((e, i) => ({ label:"Σ" + e[1], n:count("E", e), color:["#141412","#45423c","#6f6a62","#a39d93","#dcd4c6"][i] })) }
+    ];
+
+    return {
+      phone, desktop: !phone, subscriber, locked: !subscriber,
+      phTag: subscriber ? "Draft scores · provisional · 5 = least burden" : "Subscriber view", phTagColor: subscriber ? "#7d5f3f" : "#6f6a62",
+      maxW: phone ? "390px" : "1312px", padX: phone ? "20px" : "40px", h1Size: phone ? "40px" : "64px",
+      distCols: phone ? "1fr" : "repeat(5,minmax(0,1fr))", selCols: phone ? "1fr 1fr" : "repeat(5,minmax(0,1fr))", keyCols: phone ? "1fr" : "1fr 1.4fr 1fr",
+      famWrap: phone ? "nowrap" : "wrap",
+      gridCols: variant === "a" ? "minmax(0,1.35fr) repeat(4,minmax(0,1fr)) 96px minmax(0,1.3fr)" : "minmax(0,1.35fr) minmax(0,1.35fr) repeat(4,minmax(0,1fr)) 96px",
+      eOrder, eBg: variant === "a" ? "#faf7f0" : "transparent", eBl: variant === "a" ? "1px solid #a8825a" : "none", eBr: variant === "b" ? "3px double #a8825a" : "none",
+      eCodeSize: variant === "a" ? "15px" : "22px", eNameFont: variant === "a" ? "'Inter',sans-serif" : "'EB Garamond',Georgia,serif", eNameSize: variant === "a" ? "14px" : "19px",
+      dist, fams, selects, heads, rows: outRows, shown: rows.length, hasFilters, isEmpty: rows.length === 0,
+      clearAll: () => this.setState({ family:"All", filters:{}, open:"" }),
+      sortKey, phoneSortOpts: [{v:"",l:"Default order"},{v:"name",l:"Market A–Z"},{v:"E",l:"Σ rating"},{v:"A",l:"A Concentration"},{v:"B",l:"B Liquidity"},{v:"C",l:"C Scarcity"},{v:"D",l:"D Provenance risk"}],
+      onPhoneSort: e => this.setState({ sortKey:e.target.value, sortDir: ["A","B","C","D"].includes(e.target.value) ? "desc" : "asc" })
+    };
+  }
+}
+</script>
+</body>
+</html>

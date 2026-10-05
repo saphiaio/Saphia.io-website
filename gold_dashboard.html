@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -178,7 +187,8 @@ svg text{font-size:10px}
 .ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 
 @media(max-width:900px){
-  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:10px}
+  .mast ul{flex-wrap:wrap;gap:10px 16px;font-size:13px;width:100%}
   .hero{padding:44px 0 32px}.hero h1{font-size:46px}
   .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
   .contents ol{grid-template-columns:1fr}
@@ -191,6 +201,14 @@ svg text{font-size:10px}
   .ctl{right:12px;bottom:12px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+@media(max-width:480px){
+  .hero h1{font-size:34px}.hero .lede{font-size:16px}
+  .figures{grid-template-columns:1fr}.figures>div{border-right:0;border-bottom:1px solid var(--rule);padding:14px 0}
+  section h2{font-size:25px}
+  .snap-head{font-size:9px}
+  .bars .row,.bars .r{grid-template-columns:88px 1fr 60px;gap:8px;font-size:12.5px}
+  footer.foot{flex-direction:column;align-items:flex-start}
+}
 
 /* carried from the source page, re-coloured */
 .strip .v{font-family:var(--mono);font-size:22px;color:#8c4a2f;font-weight:500}
@@ -212,13 +230,14 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
 @media(max-width:860px){
 .ledger{grid-template-columns:1fr}
 .bars .row{grid-template-columns:110px 1fr 70px}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -232,11 +251,12 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 15 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
-    <div class="snap-row"><dt>Price regime</dt><dd>First correction of the cycle after the January 2026 record; the official sector remains the marginal bid.</dd></div>
+    <div class="snap-row"><dt>Price regime</dt><dd>Correction deepening: ~$4,140 in early October, 26% below the January record, capped by a 5%+ 10-year yield; central banks still buying.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>China · Russia · Australia · Canada · Ghana</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>China · India · Switzerland (refining) · Dubai · London</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Spot ~$4,140 on 5 Oct, down ~6% on the month. The 10-year Treasury hit a two-decade high near 5.3%, with markets pricing a possible October Fed hike. PBOC added 20 t in August, its strongest month since Oct 2023.<sup class="r"><a href="#s18">18</a></sup><sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s20">20</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium, refining (mine Low)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
@@ -244,17 +264,18 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium (doré origin)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">GOLD</p>
   <ol><li><a href="#s-i"><span>I</span>Price regime</a></li><li><a href="#s-ii"><span>II</span>Supply</a></li><li><a href="#s-iii"><span>III</span>Official sector</a></li><li><a href="#s-iv"><span>IV</span>Private demand</a></li><li><a href="#s-v"><span>V</span>Dubai as a hub</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>Price regime</h2><p class="sub">From $2,600 after the November 2024 US election to a peak above $5,500 fourteen months later. No spot price is carried here; this page records the regime, not the tick.</p></div>
+  <div class="sechead tint"><h2><em>I</em>Price regime</h2><p class="sub">From $2,600 after the November 2024 US election to a peak above $5,500 fourteen months later. No spot price is carried here; this page records the regime, not the tick.</p></div>
   
   <div class="ledger">
     <div><div class="v">+64%</div><div class="l">Calendar 2025 gain, largest since 1979 <span class="c c-h">High</span><sup class="r"><a href="#s8">8</a></sup></div></div>
@@ -263,6 +284,7 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
     <div><div class="v">+44%</div><div class="l">Rise in the annual average price, 2025 vs 2024 <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
   </div>
   <p>The record print is reported as $5,602.22 on 28 January 2026 by one dealer source and $5,597.23 on 29 January by another; the difference is intraday versus close and is immaterial to the analysis.<sup class="r"><a href="#s7">7</a></sup> The metal then retraced through 2026 as rate expectations shifted; the LBMA average for Q2 2026 was $4,506, still 37% above the same quarter of 2025.<sup class="r"><a href="#s4">4</a></sup></p>
+  <p><b>Q3 2026, recorded October.</b> The metal closed July below $4,100, rallied to $4,650&ndash;4,700 in August on record ETF buying and FX-intervention worries, and ended that month near $4,400.<sup class="r"><a href="#s24">24</a></sup> September reversed it: with the US 10-year near a two-decade high of 5.3% and an October Fed hike priced, spot fell about 6% on the month to roughly $4,140 by 5 October, some 26% below the January record.<sup class="r"><a href="#s18">18</a></sup><sup class="r"><a href="#s19">19</a></sup> The two drivers named below pulled in opposite directions within a single quarter. <span class="c c-m">Med</span></p>
   <p>The short-run driver is monetary: non-yielding bullion is mechanically penalised when real yields rise and rewarded when they fall. The structural driver is the official sector (Section III), which has continued to buy through both halves of the cycle. Reading the two apart is the core analytical task for this market.</p>
   <h3>Sell-side forecasts made in early 2026 <span class="t">Forecast</span></h3>
   <table>
@@ -276,7 +298,7 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
   <div class="note">Forecasts are recorded here as statements of house view on the date made and are not updated. Their value is as a record of consensus at the top of the cycle, against which the eventual outcome can be measured. <span class="c c-h">High</span></div>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>Supply</h2><p class="sub">Record total supply, but mine output barely responds to price.</p></div>
+  <div class="sechead tint"><h2><em>II</em>Supply</h2><p class="sub">Record total supply, but mine output barely responds to price.</p></div>
   
   <table>
     <tr><th>Component 2025</th><th class="n">Tonnes</th><th class="n">Share</th><th>Note</th></tr>
@@ -297,7 +319,7 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
   <p>Scrap normally responds to price. In 2025 it rose only 3% against a 44% price increase because behaviour diverged by region: developed markets (US, Europe, Japan) sold, while India, the Middle East and South-East Asia held back; among emerging markets only China increased recycling.<sup class="r"><a href="#s1">1</a></sup> Total above-ground stock is estimated at 219,891 t, the true reserve, since gold is not consumed.<sup class="r"><a href="#s13">13</a></sup></p>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>Official sector</h2><p class="sub">Central banks have become the marginal buyer that does not sell into strength.</p></div>
+  <div class="sechead tint"><h2><em>III</em>Official sector</h2><p class="sub">Central banks have become the marginal buyer that does not sell into strength.</p></div>
   
   <table>
     <tr><th>Period</th><th class="n">Net purchases (t)</th><th>Detail</th></tr>
@@ -305,13 +327,15 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
     <tr><td>2025</td><td class="n">863</td><td>Poland largest buyer for second year (102 t, reserves to 550 t); Q4 230 t <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>Q1 2026</td><td class="n">244</td><td>WGC GDT, 29 Apr 2026; +3% y/y; $37bn, record quarterly value <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></td></tr>
     <tr><td>Q2 2026</td><td class="n">289</td><td>Highest Q2 on record; Poland and China led <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Jul 2026</td><td class="n">23</td><td>Reported; China 20 t, Poland 8 t; Russia top seller (6 t). Reported y-t-d ~130 t vs ~160 t a year earlier <span class="c c-h">High</span><sup class="r"><a href="#s21">21</a></sup></td></tr>
+    <tr><td>Aug 2026 (PBoC)</td><td class="n">20.2</td><td>China alone; largest monthly purchase since Oct 2023. Global August total not yet published <span class="c c-h">High</span><sup class="r"><a href="#s22">22</a></sup></td></tr>
     <tr><td>2026 full year</td><td class="n">c.850</td><td>WGC forecast (January); J.P. Morgan c.755 <span class="t">Forecast</span><sup class="r"><a href="#s6">6</a></sup></td></tr>
   </table>
   <div class="note warn">Discrepancy logged: the secondary source reporting Q2 at 289 t also states Q1 was "revised to 57 t", which conflicts with the 244 t published by the WGC in April.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup> The most plausible reconciliation is that 57 t is the publicly reported component only (the WGC separately publishes reported-only monthly statistics, 51 t in June 2026<sup class="r"><a href="#s3">3</a></sup>), while 244 t includes estimated unreported buying. Treat Q1/Q2 2026 quarterly figures as <span class="c c-m">Med</span> until the WGC Q2 tables are checked directly.</div>
-  <p>Buyer breadth is the structural change: Kazakhstan set an annual record, Brazil returned after four years, and Guatemala, Indonesia and Malaysia entered or re-entered.<sup class="r"><a href="#s6">6</a></sup> Net sellers in mid-2026 were Russia and Turkey.<sup class="r"><a href="#s3">3</a></sup> The Central Bank of the UAE is described as actively diversifying its reserve mix, but no tonnage is disclosed in the sources reviewed.<sup class="r"><a href="#s6">6</a></sup> <span class="c c-l">Low</span></p>
+  <p>Buyer breadth is the structural change: Kazakhstan set an annual record, Brazil returned after four years, and Guatemala, Indonesia and Malaysia entered or re-entered.<sup class="r"><a href="#s6">6</a></sup> Net sellers in mid-2026 were Russia and Turkey;<sup class="r"><a href="#s3">3</a></sup> in July Russia sold 6 t, with Turkey, Jordan and Uzbekistan at 1 t each.<sup class="r"><a href="#s21">21</a></sup> The reported pace is running behind 2025, which puts the c.850 t full-year forecast at risk unless unreported buying is large. The Central Bank of the UAE is described as actively diversifying its reserve mix, but no tonnage is disclosed in the sources reviewed.<sup class="r"><a href="#s6">6</a></sup> <span class="c c-l">Low</span></p>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>Private demand</h2><p class="sub">Bars and coins strong, ETFs bleeding in the US, jewellery volumes crushed by price.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>Private demand</h2><p class="sub">Bars and coins strong, ETF buyers back in force from August, jewellery volumes crushed by price.</p></div>
   
   <div class="ledger">
     <div><div class="v">1,269 t</div><div class="l">Total demand incl. OTC, Q2 2026, flat y/y <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></div></div>
@@ -320,9 +344,10 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
     <div><div class="v">−50%</div><div class="l">Fall in the dollar's gold purchasing power, Jan 2025–Jan 2026 <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
   </div>
   <p>The Q2 2026 composition is instructive for jewellery businesses: US-listed ETFs recorded sharp, quarter-end-concentrated outflows; bar and coin demand rose year on year but moderated from an elevated Q1; jewellery demand stayed subdued in volume as affordability collapsed.<sup class="r"><a href="#s3">3</a></sup> This is the same input-cost inversion flagged in the lab-grown diamonds page, the metal setting is now a larger share of a finished piece's cost than the stone in many mass-market categories. <span class="c c-m">Med</span></p>
+  <p><b>August reversal.</b> Global gold ETFs took in US$18bn in August, the second-largest monthly inflow on record, led by Europe and North America; holdings rose 121 t to a record 4,189 t.<sup class="r"><a href="#s23">23</a></sup> US-listed funds alone added $7.9bn, erasing most of their March&ndash;June redemptions.<sup class="r"><a href="#s24">24</a></sup> September flow data were not yet published at this update; given the price fall, they are the next number to check. <span class="c c-h">High</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>Dubai as a hub</h2><p class="sub">Second only to Switzerland by trade value, and the destination for most West African doré.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Dubai as a hub</h2><p class="sub">Second only to Switzerland by trade value, and the destination for most West African doré.</p></div>
   
   <table>
     <tr><th>Metric</th><th class="n">Value</th><th>Source & confidence</th></tr>
@@ -337,7 +362,7 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
   <div class="note">Analytical parallel: the Kimberley Process has the same origin-laundering weakness, certification attaches to the parcel at first export, not to the mine. The gold trade's answer (LBMA Good Delivery plus refinery-level audits) is closer to what the diamond industry is attempting with source-verification programmes. Both regimes are only as good as the audit of the first-mile aggregator. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -352,7 +377,7 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
 <section id="s-vii">
   <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Primary sources preferred; secondary reports of primary data carry Med confidence unless the primary was checked.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 24 sources</summary><ol class="src">
     <li id="s1"><b>World Gold Council</b>, Gold Demand Trends Full Year 2025, Supply, 29 Jan 2026. gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/supply</li>
     <li id="s2"><b>World Gold Council</b>, Gold Demand Trends Full Year 2025, Central Banks, 29 Jan 2026. gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/central-banks</li>
     <li id="s3"><b>World Gold Council</b>, Gold Demand Trends Q2 2026 landing page, 5 Aug 2026; and Central bank gold statistics: June 2026 (M. Salim), Aug 2026. gold.org</li>
@@ -370,7 +395,14 @@ tr.tot td{border-top:1px solid #3f6470;color:#141412}
     <li id="s15"><b>Mining Visuals</b>, "Gold Production 2025", $3,431 average, 53 record highs; mine output +1% (citing WGC). <span class="c c-m">Med</span></li>
     <li id="s16"><b>Vitta (Medium)</b>, "The Shadow Gold Trade", 13 Jun 2025, 32 refineries suspended early 2025, 256 violations; refinery capacities 50–350 t; origin-attribution loophole; Jan 2023 due-diligence regulation. Secondary; suspension event corroborated by contemporaneous press. <span class="c c-m">Med</span></li>
     <li id="s17"><b>Zaara Consulting</b>, "How to Import Gold from Africa to UAE", 24 Jun 2026, DMCC Rules for Risk-Based Due Diligence, OECD alignment, Mali enhanced declarations. <span class="c c-m">Med</span></li>
-  </ol>
+  <li id="s18"><b>Trading Economics, Gold</b>, 5 Oct 2026. Spot $4,138.78; −6% m/m; record $5,608 Jan 2026. <a href="https://tradingeconomics.com/commodity/gold" target="_blank">tradingeconomics.com</a> <span class="c c-m">Med</span></li>
+<li id="s19"><b>USAGOLD, Daily Gold Price History</b>, 2 Oct 2026. 10-yr yield near 5.3%; October hike odds. <a href="https://www.usagold.com/daily-gold-price-history/" target="_blank">usagold.com</a> <span class="c c-m">Med</span></li>
+<li id="s20"><b>Canadian Mining Report, "Gold Price Forecast October 2026"</b>, Late Sep 2026. PBOC August purchases 20 t, per WGC. <a href="https://www.canadianminingreport.com/blog/gold-price-forecast-could-october-bring-another-major-breakout" target="_blank">canadianminingreport.com</a> <span class="c c-l">Low</span></li>
+<li id="s21"><b>World Gold Council, "Central Bank Gold Statistics: Central banks make positive headlines on gold"</b>, Sep 2026. July net buying 23 t (China 20 t, Poland 8 t); reported y-t-d ~130 t vs ~160 t a year earlier; Russia top seller (6 t). <a href="https://www.gold.org/goldhub/gold-focus/2026/09/central-bank-gold-statistics-central-banks-make-positive-headlines-gold" target="_blank">gold.org</a> <span class="c c-h">High</span></li>
+<li id="s22"><b>Kitco News, "China's central bank buys 20.2 tonnes of gold in August"</b>, 8 Sep 2026. Largest PBoC monthly purchase since October 2023 (SAFE data). <a href="https://www.kitco.com/news/article/2026-09-08/chinas-central-bank-buys-202-tonnes-gold-august-largest-purchase-2023" target="_blank">kitco.com</a> <span class="c c-h">High</span></li>
+<li id="s23"><b>World Gold Council, "Gold ETF Flows: August 2026 — Global demand drives record holdings"</b>, 9 Sep 2026. US$18bn August inflows, second-largest on record; holdings +121 t to record 4,189 t; AUM US$615bn. <a href="https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/09" target="_blank">gold.org</a> <span class="c c-h">High</span></li>
+<li id="s24"><b>State Street Investment Management, Monthly Gold Monitor, September 2026</b>, Price closed July below $4,100, traded $4,650–4,700 in August, ended near $4,400; US-listed ETF inflows $7.9bn in August. <a href="https://www.ssga.com/library-content/products/fund-docs/etfs/us/insights-investment-ideas/monthly-gold-monitor.pdf" target="_blank">ssga.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">

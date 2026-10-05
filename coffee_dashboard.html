@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -203,13 +212,14 @@ svg text{font-size:10px}
 .card .l{font-size:13px;color:#6f6a62}
 @media(max-width:820px){
 .cards{grid-template-columns:1fr}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -223,11 +233,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 17 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Arabica at historically elevated levels after the 2024–25 supply shocks; tariff and traceability costs layering on.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Brazil · Vietnam · Colombia · Ethiopia · Indonesia</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>European Union · United States · Japan · China</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Arabica swung from a June low near $2.39/lb to ~$3.42 in late August on tight ICE stocks and a new US tariff on Brazilian coffee, then eased to ~$2.87 by mid-September as Brazil’s harvest passed 90%. Trade houses forecast a record 2026/27 Brazil crop of 75–76 M bags.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
@@ -235,17 +246,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low; Geisha High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">COFFEE</p>
   <ol><li><a href="#s-i"><span>I</span>Supply</a></li><li><a href="#s-ii"><span>II</span>Price history</a></li><li><a href="#s-iii"><span>III</span>Demand and trade structure</a></li><li><a href="#s-iv"><span>IV</span>The specialty tier</a></li><li><a href="#s-v"><span>V</span>Policy and regulation</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>Supply</h2><p class="sub">Two species, two countries, one weather system.</p></div>
+  <div class="sechead tint"><h2><em>I</em>Supply</h2><p class="sub">Two species, two countries, one weather system.</p></div>
   
   <div class="tw"><table>
     <tr><th>2025/26 (60-kg bags)</th><th class="n">Volume</th><th class="n">Change</th><th>Note</th></tr>
@@ -260,7 +272,7 @@ svg text{font-size:10px}
   <p>Brazil's own semi-annual report describes a 13% fall in arabica against a 19% rise in robusta for 2025/26, with exports forecast down 2.4% to 40.75 m bags but at record value because of high prices; the 2024/25 export figure was revised up to 44.75 m.<sup class="r"><a href="#s4">4</a></sup> Brazil's minimum guaranteed prices for the 2025/26 harvest were set at BRL 662.04 per bag for arabica and BRL 498.79 for robusta.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>Price history</h2><p class="sub">Dated observations of the ICE arabica contract; no current value is carried.</p></div>
+  <div class="sechead tint"><h2><em>II</em>Price history</h2><p class="sub">Dated observations of the ICE arabica contract; no current value is carried.</p></div>
   
   <div class="cards">
     <div class="card"><div class="v">$4.3795 /lb</div><div class="l">Arabica all-time record, October 2025 <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
@@ -278,7 +290,7 @@ svg text{font-size:10px}
   <p>The structural reading is that five years of falling stocks left the market with no buffer, so weather in Brazil and policy in Washington move price directly. Vietnam's recovery supplies robusta, not arabica, which is why the arabica–robusta spread rather than the headline is the number roasters manage.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>Demand and trade structure</h2><p class="sub">A concentrated buy-side facing millions of smallholders.</p></div>
+  <div class="sechead tint"><h2><em>III</em>Demand and trade structure</h2><p class="sub">A concentrated buy-side facing millions of smallholders.</p></div>
   
   <p>Fourteen companies, Caravela, ECOM, Export Trading Company, illycaffè, JDE Peet's, Louis Dreyfus, Neumann Kaffee Gruppe, ofi, Sucafina, Sucden Coffee, Taylors of Harrogate, Touton, UCC and Volcafe, described by one trade commentator as "the entire concentrated buy-side of the global green coffee market", signed a joint procurement framework in April 2026 with no minimum price or enforcement mechanism.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-m">Med</span>, single opinionated source; the list of signatories is factual, the characterisation is the author's.</p>
   <h3>Consolidation of roasting</h3>
@@ -291,7 +303,7 @@ svg text{font-size:10px}
   <p>Consumption reached a forecast record of 173.9 m bags in 2025/26 (+1.3%), and the US remains the largest home-coffee market; Chinese chains such as Luckin expanded into Hong Kong and Malaysia in 2025.<sup class="r"><a href="#s1">1</a> <a href="#s12">12</a></sup> Importers including Starbucks, Hershey and Mondelez warned in 2025 that tariffs would raise prices and pressure volumes.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>The specialty tier</h2><p class="sub">Where coffee behaves like a gemstone.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>The specialty tier</h2><p class="sub">Where coffee behaves like a gemstone.</p></div>
   
   <div class="tw"><table>
     <tr><th>Best of Panama auction</th><th class="n">Price per kg (green)</th><th>Note</th></tr>
@@ -302,7 +314,7 @@ svg text{font-size:10px}
   <p>The Geisha varietal, single-farm provenance and competition scoring create a market with no relationship to the ICE contract: scarcity, origin and a grading number set the price, exactly as colour, clarity and certificate do for a stone. The tier is tiny by volume and enormous by margin. <span class="c c-x">Hyp</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>Policy and regulation</h2><p class="sub">Tariffs and traceability.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Policy and regulation</h2><p class="sub">Tariffs and traceability.</p></div>
   
   <div class="tw"><table>
     <tr><th>Measure</th><th>Status</th><th>Effect</th></tr>
@@ -313,7 +325,7 @@ svg text{font-size:10px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -329,7 +341,7 @@ svg text{font-size:10px}
 <section id="s-vii">
   <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. USDA is the primary statistical source; price observations are from market commentary and are dated.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 15 sources</summary><ol class="src">
     <li id="s1"><b>Comunicaffe</b>, "USDA forecasts world coffee production for 2025/26 at an all-time high of 178.8 million bags", 19 Dec 2025, summarising USDA FAS "Coffee: World Markets and Trade", December 2025: production 178.8 m (+2%); consumption 173.9 m (+1.3%); exports 123.8 m; ending stocks 20.1 m, fifth consecutive decline; Brazil 63.0 m with arabica 38.0 m; ICO composite nearly tripled.</li>
     <li id="s2"><b>Nasdaq / Barchart</b>, "Coffee Prices Supported by Tighter ICE Inventories", 7 Nov 2025, USDA June 2025: 178.68 m; arabica 97.022 m (−1.7%); robusta 81.658 m (+7.9%); Brazil 65 m; Vietnam 31 m; Conab September cut to 55.2 m (arabica 35.2 m); Vietnam exports and 29.4 m forecast; NOAA La Niña probability.</li>
     <li id="s3"><b>USDA FAS</b>, "Coffee Annual, Brazil" (BR2025-0013), May 2025, 65 m bags; arabica 40.9 m; robusta 24.1 m; exports 41.7 m.</li>
@@ -343,7 +355,9 @@ svg text{font-size:10px}
     <li id="s11"><b>Keurig Dr Pepper</b>, "Keurig Dr Pepper Acquires JDE Peet's", 1 Apr 2026, 96.22% acquired; delisting 30 Apr 2026; JDE Peet's €9.9 bn sales, 21,000 employees.</li>
     <li id="s12"><b>Global Coffee Report</b>, "2025 in review: tariffs, trade, and changes", 15 Jan 2026, KDP–JDE Peet's as the year's largest deal; Luckin expansion; Nescafé US launch.</li>
     <li id="s13"><b>Barchart</b>, "Coffee prices sharply lower on expectations of robust global supplies", 2025, importer tariff warnings (Starbucks, Hershey, Mondelez); Honduras 5.8 m forecast; Safras and Conab revisions.</li>
-  </ol>
+  <li id="s14"><b>J2T, "Coffee price forecast from 2026 to 2030"</b>, Sep 2026. June low ~$2.39; late-Aug $3.42; ~$2.87 on 14 Sep. Secondary compilation. <a href="https://j2t.com/solutions/blogview/coffee-price-forecast/" target="_blank">j2t.com</a> <span class="c c-l">Low</span></li>
+<li id="s15"><b>Trading Economics, Arabica coffee news</b>, Aug–Sep 2026. Harvest >90% complete; Marex 75.9 M, StoneX 75.3 M bag Brazil forecasts. <a href="https://tradingeconomics.com/commodity/coffee/news/577922" target="_blank">tradingeconomics.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">

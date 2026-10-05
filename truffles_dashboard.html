@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -206,13 +215,14 @@ svg text{font-size:10px}
 @media(max-width:760px){
 .cards{grid-template-columns:1fr}
 .era{grid-template-columns:1fr;gap:2px}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -226,11 +236,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>White Alba prices set weekly by season and weather; cultivated black supply expanding and softening.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Piedmont (Alba) · Périgord and Provence · Umbria · Spain (Teruel) · Australia</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>Italy · France · United States · Gulf · East Asia</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>The 96th Alba White Truffle Fair opens 10 October and runs to 6 December. No 2026 season prices have been published yet; the regime line stands until the first weekly Alba boards are posted.<sup class="r"><a href="#s12">12</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
@@ -239,17 +250,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-m">Med</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
   </dl>
   <p class="snap-note" style="margin-top:16px">Scarcity is rated on wild white; cultivated black and 2,4-dithiapentane truffle oil pull the base tier to Low.</p>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">TRUFFLES</p>
   <ol><li><a href="#s-i"><span>I</span>Species</a></li><li><a href="#s-ii"><span>II</span>The white truffle market</a></li><li><a href="#s-iii"><span>III</span>The black truffle market</a></li><li><a href="#s-iv"><span>IV</span>Ritual and history</a></li><li><a href="#s-v"><span>V</span>Integrity and substitution</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>Species</h2><p class="sub">The Latin name is the only reliable label.</p></div>
+  <div class="sechead tint"><h2><em>I</em>Species</h2><p class="sub">The Latin name is the only reliable label.</p></div>
   
   <div class="tw"><table>
     <tr><th>Species</th><th>Trade name</th><th>Season</th><th>Origin</th><th>Cultivable?</th></tr>
@@ -262,7 +274,7 @@ svg text{font-size:10px}
   <p>The two commercially important species are separated by one biological fact: <i>melanosporum</i> can be inoculated onto oak and hazel seedlings and farmed, <i>magnatum</i> cannot. Everything else in this market, the price ratio, the auction ritual, the fraud pattern, follows from it.<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>The white truffle market</h2><p class="sub">Wild, perishable, short, and priced by ritual.</p></div>
+  <div class="sechead tint"><h2><em>II</em>The white truffle market</h2><p class="sub">Wild, perishable, short, and priced by ritual.</p></div>
   
   <div class="tw"><table>
     <tr><th>Observation</th><th>Date</th><th class="n">Value</th><th>Source & confidence</th></tr>
@@ -278,7 +290,7 @@ svg text{font-size:10px}
   <p>The Alba fair and its auction, held for more than 90 years, is the price-discovery event for a product with no exchange; bidders join by video from Hong Kong, and the results are reported worldwide. Demand from top restaurants, particularly in Asia, kept rising through the 2025–26 season while Italian volumes fell c.30% on weather, and Istrian hunters attribute shrinking harvests to climate change and deforestation.<sup class="r"><a href="#s10">10</a> <a href="#s3">3</a> <a href="#s4">4</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>The black truffle market</h2><p class="sub">A farmed product with a Saturday wholesale quote.</p></div>
+  <div class="sechead tint"><h2><em>III</em>The black truffle market</h2><p class="sub">A farmed product with a Saturday wholesale quote.</p></div>
   
   <div class="cards">
     <div class="card"><div class="v">€700–1,000/kg</div><div class="l">Richerenches wholesale range in peak season, 2026 guide <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a></sup></div></div>
@@ -289,7 +301,7 @@ svg text{font-size:10px}
   <div class="note">Cultivation has done to the black truffle what aquaculture did to caviar: made it a farm product with a seasonal price curve, while leaving the wild sibling (<i>magnatum</i>, beluga) to carry the mystique and the auction headlines. Spanish plantations in Teruel and Soria and Australian orchards in Manjimup and Tasmania now supply the northern winter and the southern counter-season respectively; verified tonnage by country was not found for this page and is not asserted. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>Ritual and history</h2><p class="sub">How a fungus became a luxury.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>Ritual and history</h2><p class="sub">How a fungus became a luxury.</p></div>
   
   <div class="era"><div class="y">1930s</div><div class="t">The Alba white-truffle fair institutionalises the Piedmont trade; the auction has run for more than 90 years.<sup class="r"><a href="#s10">10</a></sup></div></div>
   <div class="era"><div class="y">2010 &amp; 2014</div><div class="t">Two giant Italian whites sell for a combined $417,200, one of 1.3 kg for $330,000 to a Hong Kong buyer.<sup class="r"><a href="#s9">9</a></sup></div></div>
@@ -300,7 +312,7 @@ svg text{font-size:10px}
   <p>The Hong Kong buyer recurs because the truffle, like the Toyosu tuna or the Behike, is a public act of consumption: the price paid is the product. Export markets named by Istrian and Spanish sellers include the United States, Japan and the United Arab Emirates.<sup class="r"><a href="#s5">5</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>Integrity and substitution</h2><p class="sub">The vanilla problem, with mud on it.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Integrity and substitution</h2><p class="sub">The vanilla problem, with mud on it.</p></div>
   
   <div class="tw"><table>
     <tr><th>Risk</th><th>Mechanism</th><th>Control</th></tr>
@@ -312,7 +324,7 @@ svg text{font-size:10px}
   <p>The market's defence is provenance, not chemistry: aroma compounds can be synthesised and the black species look alike, so the buyer pays for the seller's word and a geographic label. As with vanilla and vanillin, the synthetic has already taken the mass market; the natural product survives on sensory complexity and the story of where it came from.<sup class="r"><a href="#s7">7</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -327,7 +339,7 @@ svg text{font-size:10px}
 <section id="s-vii">
   <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. The Alba auction's official record is primary; merchant guides supply price bands and are marked Med or Low.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 12 sources</summary><ol class="src">
     <li id="s1"><b>Terra Ross</b>, "Truffle Prices 2025: Costs by Species and Season", 20 Jul 2026, €110,000 for a 1.009 kg Alba lot on 9 Nov 2025 classified as a charity-auction result; <i>Tuber borchii</i> marketplace observations; methodology on labels and dates. <span class="c c-m">Med</span></li>
     <li id="s2"><b>Secret Piemonte</b>, "Alba Truffle Auction News 2025", 24 Dec 2025, €1.13 m raised; top lot €110,000; market price €3,400–5,000/kg. <span class="c c-m">Med</span></li>
     <li id="s3"><b>Gourmandise de Luxe</b>, "Truffle Prices per Kilogram 2026", 13 Jul 2026, white €5,000–8,500/kg and auction to €12,000/kg (2026); Italian volume c.−30% in 2025–26; black retail €800–1,500, Richerenches wholesale €700–1,000; seasonal and origin effects. Merchant. <span class="c c-l">Low</span> for price bands, <span class="c c-m">Med</span> for structure.</li>
@@ -339,7 +351,8 @@ svg text{font-size:10px}
     <li id="s9"><b>Truffle &amp; Truffe</b>, "Top 10 Most Expensive Truffles Ever Sold", Mar 2025, 2010 and 2014 lots ($330,000 for 1.3 kg; $87,200); 2018 850 g white c.$200,000; 2018 1.2 kg black $50,000. Merchant listing. <span class="c c-m">Med</span></li>
     <li id="s10"><b>Falstaff</b>, "White truffle auctioned for record €184,000", 2022/23, 13 Nov 2022 Rome auction, 700 g, Hong Kong bidder; top whites c.€3,500/kg and blacks c.€500/kg that year; Alba auction over 90 years.</li>
     <li id="s11"><b>Terra Ross</b>, as source 1, distinction between auction, wholesale and retail observations.</li>
-  </ol>
+  <li id="s12"><b>Secret Piemonte, "The Alba Truffle Fair Guide 2026"</b>, Aug 2026. Fair 10 Oct–6 Dec; 2025 white truffle €3,500–4,000/kg. <a href="https://www.secretpiemonte.com/alba-truffle-fair-guide/" target="_blank">secretpiemonte.com</a> <span class="c c-l">Low</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">

@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -212,13 +221,14 @@ svg text{font-size:10px}
 .cards{grid-template-columns:1fr}
 .era{grid-template-columns:1fr;gap:2px}
 .bars .r{grid-template-columns:60px 1fr 100px}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -232,11 +242,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Grower crisis at the base while Vintage Port at the apex holds; a thin collectible channel.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Douro Valley (Portugal)</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>France · Portugal · United Kingdom · Netherlands · Belgium</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Applications for the €12m Douro support scheme for unharvested grapes opened 28 Sep and close 12 Oct; IVDP inspects plots before payment.<sup class="r"><a href="#s29">29</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>High, benefício and two family groups</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale A <a href="#s-iv" title="Evidence: section § IV">/ § IV</a></span></dd></div>
@@ -245,17 +256,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>Low</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
   </dl>
   <p class="snap-note" style="margin-top:16px">Rated on the quota system, not on the grower base.</p>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">PORT</p>
   <ol><li><a href="#s-i"><span>I</span>What Port is</a></li><li><a href="#s-ii"><span>II</span>History</a></li><li><a href="#s-iii"><span>III</span>The Douro</a></li><li><a href="#s-iv"><span>IV</span>The benefício and the grower crisis</a></li><li><a href="#s-v"><span>V</span>Markets and houses</a></li><li><a href="#s-vi"><span>VI</span>Vintage Port as a collectible</a></li><li><a href="#s-viii"><span>VII</span>Indicators to monitor</a></li><li><a href="#s-ix"><span>VIII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>What Port is</h2><p class="sub">A wine whose fermentation is stopped with grape spirit, then defined by how and how long it is aged.</p></div>
+  <div class="sechead tint"><h2><em>I</em>What Port is</h2><p class="sub">A wine whose fermentation is stopped with grape spirit, then defined by how and how long it is aged.</p></div>
   
   <p>Port is made only in the Douro Demarcated Region from a permitted list of varieties, the five principal reds are Touriga Nacional, Touriga Franca, Tinta Roriz, Tinta Cão and Tinta Barroca, with over eighty others allowed in smaller proportions, and fortified during fermentation with grape spirit (aguardente) that today is sourced mainly from Spain or France, a fact Douro growers now contest.<sup class="r"><a href="#s3">3</a> <a href="#s7">7</a></sup> The Instituto dos Vinhos do Douro e do Porto (IVDP), founded in 1933, certifies every age statement and Vintage declaration and issues the numbered seal that must appear on each bottle.<sup class="r"><a href="#s3">3</a> <a href="#s16">16</a></sup> <span class="c c-h">High</span></p>
   <div class="tw"><table>
@@ -271,7 +283,7 @@ svg text{font-size:10px}
   <p style="font-size:14px;color:#a8825a">Ruby is reported as the largest product segment by one market-research vendor (52.65% in 2025); the figure is unverified and shown for orientation only. <span class="c c-l">Low</span><sup class="r"><a href="#s23">23</a></sup></p>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>History</h2><p class="sub">A trade created by English tariffs and disciplined by a Portuguese minister.</p></div>
+  <div class="sechead tint"><h2><em>II</em>History</h2><p class="sub">A trade created by English tariffs and disciplined by a Portuguese minister.</p></div>
   
   <div class="era"><div class="y">1675</div><div class="t">Earliest known written mention of "Port wine"; English merchants had turned to the Douro during trade conflicts with France.<sup class="r"><a href="#s3">3</a></sup></div></div>
   <div class="era"><div class="y">1692</div><div class="t">Taylor's founded by Job Bearsley, the origin of today's Fladgate Partnership; in 1744 Bartholomew Bearsley acquires the first British-owned Douro estate.<sup class="r"><a href="#s2">2</a> <a href="#s4">4</a></sup></div></div>
@@ -288,7 +300,7 @@ svg text{font-size:10px}
   <div class="note">Discrepancy logged: the last previous consecutive general declarations are given as 1846/1847 by Rupert Symington (Forbes, 2019) and as 1872/1873 by WineWiki. The records differ on what counts as "general"; the dashboard says "over 140 years" and leaves the year open.<sup class="r"><a href="#s19">19</a> <a href="#s17">17</a></sup> <span class="c c-m">Med</span></div>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>The Douro</h2><p class="sub">Steep, fragmented, and yielding among the lowest crops in the world.</p></div>
+  <div class="sechead tint"><h2><em>III</em>The Douro</h2><p class="sub">Steep, fragmented, and yielding among the lowest crops in the world.</p></div>
   
   <div class="cards">
     <div class="card"><div class="v">c.19,000</div><div class="l">Growers farming the region's vineyard, extreme fragmentation <span class="c c-h">High</span><sup class="r"><a href="#s7">7</a></sup></div></div>
@@ -304,7 +316,7 @@ svg text{font-size:10px}
   <p>Two family groups dominate premium Port: Symington Family Estates (Graham's, Dow's, Warre's, Cockburn's, Quinta do Vesuvio) with 26 quintas and 2,255 ha under management, said to account for over a third of premium production; and The Fladgate Partnership (Taylor's, Fonseca, Croft).<sup class="r"><a href="#s16">16</a> <a href="#s3">3</a></sup> Both blend Vintage Port from their own quintas, insulating them from the grape market that the rest of the region depends on. <span class="c c-h">High</span></p>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>The benefício and the grower crisis</h2><p class="sub">A quota system that decides who is paid six times more for the same grapes.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>The benefício and the grower crisis</h2><p class="sub">A quota system that decides who is paid six times more for the same grapes.</p></div>
   
   <p>Each year the IVDP's inter-professional council sets the benefício, the quantity of must that may be turned into Port, and allocates it to growers by vineyard classification. Grapes inside the quota have sold for €900–1,200 per pipe; grapes outside it, destined for Douro DOC still wine, for €150–400.<sup class="r"><a href="#s11">11</a></sup> The allocation is therefore the single most important number in a grower's year, and it has fallen for three consecutive harvests. <span class="c c-h">High</span></p>
   <h3>Benefício, pipes of 550 litres</h3>
@@ -330,7 +342,7 @@ svg text{font-size:10px}
   <div class="note warn">Diamond parallel: the benefício is a producer-side quota with an official allocator, functionally the sight system in reverse. De Beers rationed supply to protect price; the IVDP rations the right to make Port to protect stocks, and the price signal lands on the growers who lose the quota. In both systems the intermediary (négociant or shipping house) holds the inventory and the pricing power, and both broke when demand fell faster than the allocation. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>Markets and houses</h2><p class="sub">A French market, a British name, and French capital in three of the historic houses.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Markets and houses</h2><p class="sub">A French market, a British name, and French capital in three of the historic houses.</p></div>
   
   <h3>Export markets, share of volume (1995–2017 average)</h3>
   <div class="bars">
@@ -354,7 +366,7 @@ svg text{font-size:10px}
   <p style="font-size:14px;color:#a8825a">Volume shares are from a 2013/14 academic thesis (Católica Lisbon) and are indicative only; Symington's premium share is a company statement repeated by WineWiki.<sup class="r"><a href="#s26">26</a> <a href="#s16">16</a> <a href="#s14">14</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Vintage Port as a collectible</h2><p class="sub">A self-restricting declaration code from the 1850s, and the smallest great wine in the world.</p></div>
+  <div class="sechead tint"><h2><em>VI</em>Vintage Port as a collectible</h2><p class="sub">A self-restricting declaration code from the 1850s, and the smallest great wine in the world.</p></div>
   
   <p>Houses declare a Vintage only in years they judge exceptional, roughly two or three a decade, a code Rupert Symington traces to the 1850s, when the trade distinguished very good years from absolutely excellent ones.<sup class="r"><a href="#s19">19</a></sup> Declaration is voluntary per producer; there is no regulatory requirement for a "general" declaration, but the market treats years when most houses declare as the reference vintages.<sup class="r"><a href="#s17">17</a></sup> <span class="c c-h">High</span></p>
   <div class="tw"><table>
@@ -372,7 +384,7 @@ svg text{font-size:10px}
   <div class="note">The collectible layer sits on top of an industry in volume decline: Vintage and aged Tawny are the categories the houses say will grow, and they are precisely the categories blended from house-owned quintas. The grower crisis and the collector market are, in that sense, the same story seen from opposite ends of the valley. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-viii">
-  <div class="sechead"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -387,7 +399,7 @@ svg text{font-size:10px}
 <section id="s-ix">
   <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. Trade press (The Drinks Business, Decanter) and IVDP-derived figures are preferred; house websites are used for their own histories.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 29 sources</summary><ol class="src">
     <li id="s1"><b>Porto Wine Tours</b>, "History of Port Wine: The British Trade Behind It", Sep 2026, Methuen terms; 1756 Companhia and 335 granite pillars; British founding of the houses. <span class="c c-m">Med</span></li>
     <li id="s2"><b>WineWiki</b>, "Ruby Port", Apr 2026, 10 Sep 1756 charter and demarcation; 1703 treaty; Symington's four houses, 26 quintas, 2,255 ha, Cockburn's 2010; Taylor's 1692 and the 1744 Bearsley estate; Six Grapes blending.</li>
     <li id="s3"><b>WineWiki</b>, "Port Wine Wine Region", Apr 2026, 1675 first mention; lodges in Gaia by 1710; 38,000 ha planted; sub-region areas; phylloxera 1863; five principal varieties; IVDP 1933; general declarations list; Symington's premium share claim.</li>
@@ -416,7 +428,8 @@ svg text{font-size:10px}
     <li id="s26"><b>Universidade Católica Portuguesa</b> repository, "Symington Family Estates: how to mitigate buyers' bargaining power?" (thesis), group volume shares adapted from Hamoir (2013/14): La Martiniquaise 20%, Sogrape 16%, Fladgate 14%, Sogevinus 10%. <span class="c c-m">Med</span></li>
     <li id="s27"><b>Vinho Atlas</b>, "Port Wine Vintage Chart, Best Years", May 2026, 2017 critical consensus and 40–50-year horizon; 1963, 1977, 1985; Ramos Pinto 1977 Colheita. Retail guide. <span class="c c-m">Med</span></li>
     <li id="s28"><b>ThePortForum</b>, "2022 Declarations", Sogrape declarations for Ferreira, Sandeman (single quinta) and Offley (full blend), citing Vinho Grandes Escolhas. Enthusiast forum. <span class="c c-m">Med</span></li>
-  </ol>
+  <li id="s29"><b>The Portugal News, "Portugal supports Douro winegrowers"</b>, 4 Oct 2026. Application window 28 Sep–12 Oct; non-repayable grant; IVDP on-site inspection. <a href="https://www.theportugalnews.com/news/2026-10-04/portugal-supports-douro-winegrowers/1095108" target="_blank">theportugalnews.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">

@@ -13,6 +13,8 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 html{background:#f4efe6 radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.55),rgba(255,255,255,0) 60%) no-repeat;scroll-behavior:smooth}
+[data-noscroll]{scrollbar-width:none}
+[data-noscroll]::-webkit-scrollbar{display:none}
 body{margin:0;background:transparent;position:relative}
 body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.62  0 0 0 0 0.56  0 0 0 0 0.47  0 0 0 0.42 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");background-size:260px 260px}
 body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,0) 55%,rgba(90,70,45,.07) 100%)}
@@ -32,6 +34,7 @@ button{font-family:'JetBrains Mono',monospace}
       <a href="/about" style="color:#6f6a62" style-hover="color:#141412">About</a>
       <a href="/methodology" style="color:#6f6a62" style-hover="color:#141412">Methodology</a>
       <a href="/markets" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Markets</a>
+      <a href="/register" style="color:#6f6a62" style-hover="color:#141412">Σ Rating</a>
       <a href="/contact" style="color:#6f6a62" style-hover="color:#141412">Contact</a>
     </div>
   </nav>
@@ -41,40 +44,124 @@ button{font-family:'JetBrains Mono',monospace}
     <h1 style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(30px,4.6vw,44px);font-weight:400;margin:0;line-height:1.15">Every sector, one method.</h1>
   </header>
 
-  <div style="display:flex;flex-wrap:nowrap;overflow-x:auto;gap:10px;padding:28px 0;border-bottom:1px solid #dcd4c6;scrollbar-width:thin" role="group" aria-label="Filter by family">
-    <sc-for list="{{ families }}" as="fam" hint-placeholder-count="8">
-      <button onClick="{{ fam.onClick }}" style="{{ fam.style }}">{{ fam.name }}</button>
+  <div style="display:flex;gap:28px;padding-top:8px;border-bottom:1px solid #dcd4c6" role="group" aria-label="Section">
+    <sc-for list="{{ topTabs }}" as="tt" hint-placeholder-count="2">
+      <button onClick="{{ tt.onClick }}" style="{{ tt.style }}">{{ tt.name }}</button>
     </sc-for>
   </div>
 
+  <sc-if value="{{ showOverview }}" hint-placeholder-val="{{ true }}">
+  <div style="padding-top:20px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;padding-bottom:14px;border-bottom:1px solid #dcd4c6" role="group" aria-label="Filter by family">
+      <sc-for list="{{ families }}" as="fam" hint-placeholder-count="8">
+        <button onClick="{{ fam.onClick }}" style="{{ fam.style }}">{{ fam.name }}</button>
+      </sc-for>
+    </div>
+  </div>
+
   <div style="padding-top:16px">
-    <sc-if value="{{ showLatest }}" hint-placeholder-val="{{ false }}">
-      <section style="padding:44px 0;border-bottom:1px solid #dcd4c6">
-        <h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;font-weight:500;margin:0 0 24px;color:#a8825a;text-transform:uppercase">Latest Intelligence</h2>
-        <sc-for list="{{ latest }}" as="item" hint-placeholder-count="3">
-          <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 24px;padding:16px 0;border-bottom:1px solid #dcd4c6">
-            <div style="flex:0 0 160px;font-weight:500;font-size:15px">{{ item.name }}</div>
-            <div style="flex:1 1 300px;min-width:0;font-size:15px"><a href="{{ item.href }}" style="border-bottom:1px solid transparent" style-hover="border-bottom:1px solid #141412">{{ item.text }} <span style="color:#a8825a">→</span></a></div>
-            <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62">16 SEP 2026</div>
-          </div>
-        </sc-for>
-      </section>
-    </sc-if>
     <sc-for list="{{ visibleFamilies }}" as="fam" hint-placeholder-count="7">
-      <section style="padding:44px 0;border-bottom:1px solid #dcd4c6">
+      <section data-family="{{ fam.name }}" style="padding:44px 0;border-bottom:1px solid #dcd4c6">
         <h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;font-weight:500;margin:0 0 24px;color:#141412;text-transform:uppercase"><span style="color:#a8825a;margin-right:10px">{{ fam.num }}</span>{{ fam.name }}</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px 32px">
           <sc-for list="{{ fam.sectors }}" as="sec" hint-placeholder-count="4">
             <a href="{{ sec.href }}" style="min-width:0;display:block;padding-bottom:18px;border-bottom:1px solid #dcd4c6" style-hover="border-bottom:1px solid #a8825a">
-              <div style="font-family:'EB Garamond',Georgia,serif;font-size:22px;margin-bottom:6px">{{ sec.name }}</div>
-              <div style="font-size:14px;color:#6f6a62;line-height:1.5;margin-bottom:10px;text-wrap:pretty">{{ sec.desc }}</div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:#6f6a62;text-transform:uppercase">Data as of {{ sec.date }}</div>
+              <div style="font-family:'EB Garamond',Georgia,serif;font-size:22px">{{ sec.name }}</div>
             </a>
           </sc-for>
         </div>
       </section>
     </sc-for>
   </div>
+  </sc-if>
+
+  <sc-if value="{{ showCompare }}" hint-placeholder-val="{{ false }}">
+  <section id="compare" style="padding:44px 0;border-bottom:1px solid #dcd4c6">
+    <h2 style="font-family:'EB Garamond',Georgia,serif;font-size:26px;font-weight:400;margin:32px 0 8px">Every rated sector, one view</h2>
+    <p style="max-width:64ch;margin:0 0 20px;color:#6f6a62;font-size:15px">Scales A to D at a glance. The full <a href="/register" style="border-bottom:1px solid #a8825a">Ratings Register</a> adds the Σ rating, filters by family and band, and sorting.</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;min-width:680px;border-collapse:collapse;font-size:14px">
+        <thead>
+          <tr style="border-bottom:1px solid #141412">
+            <th style="text-align:left;padding:0 16px 16px 0;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62;text-transform:uppercase;font-weight:500">Sector</th>
+            <th style="text-align:left;padding:0 16px 16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62;text-transform:uppercase;font-weight:500">Supply concentration</th>
+            <th style="text-align:left;padding:0 16px 16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62;text-transform:uppercase;font-weight:500">Liquidity</th>
+            <th style="text-align:left;padding:0 16px 16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62;text-transform:uppercase;font-weight:500">Scarcity</th>
+            <th style="text-align:left;padding:0 16px 16px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62;text-transform:uppercase;font-weight:500">Provenance risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ compareRows }}" as="row" hint-placeholder-count="30">
+            <tr>
+              <sc-if value="{{ row.isGroup }}" hint-placeholder-val="{{ false }}">
+                <td colspan="4" style="padding:32px 0 10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:#a8825a;text-transform:uppercase">{{ row.name }}</td>
+              </sc-if>
+              <sc-if value="{{ row.isRow }}" hint-placeholder-val="{{ true }}">
+                <td style="padding:14px 16px 14px 0;border-bottom:1px solid #ece6d8"><a href="{{ row.href }}" style="font-family:'EB Garamond',Georgia,serif;font-size:17px;border-bottom:1px solid transparent" style-hover="border-bottom:1px solid #141412">{{ row.name }}</a></td>
+                <td style="padding:14px 16px;border-bottom:1px solid #ece6d8">
+                  <div style="font-family:'EB Garamond',Georgia,serif;font-size:15px;color:#141412;margin-bottom:8px">{{ row.supply }}</div>
+                  <div style="display:flex;gap:3px;max-width:110px">
+                    <span style="height:2px;flex:1;background:{{ row.su1 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.su2 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.su3 }}"></span>
+                  </div>
+                </td>
+                <td style="padding:14px 16px;border-bottom:1px solid #ece6d8">
+                  <div style="font-family:'EB Garamond',Georgia,serif;font-size:15px;color:#141412;margin-bottom:8px">{{ row.liquidity }}</div>
+                  <div style="display:flex;gap:3px;max-width:110px">
+                    <span style="height:2px;flex:1;background:{{ row.lq1 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.lq2 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.lq3 }}"></span>
+                  </div>
+                </td>
+                <td style="padding:14px 16px;border-bottom:1px solid #ece6d8">
+                  <div style="font-family:'EB Garamond',Georgia,serif;font-size:15px;color:#141412;margin-bottom:8px">{{ row.scarcity }}</div>
+                  <div style="display:flex;gap:3px;max-width:110px">
+                    <span style="height:2px;flex:1;background:{{ row.sc1 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.sc2 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.sc3 }}"></span>
+                  </div>
+                </td>
+                <td style="padding:14px 16px;border-bottom:1px solid #ece6d8">
+                  <div style="font-family:'EB Garamond',Georgia,serif;font-size:15px;color:#141412;margin-bottom:8px">{{ row.prov }}</div>
+                  <div style="display:flex;gap:3px;max-width:110px">
+                    <span style="height:2px;flex:1;background:{{ row.pv1 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.pv2 }}"></span>
+                    <span style="height:2px;flex:1;background:{{ row.pv3 }}"></span>
+                  </div>
+                </td>
+              </sc-if>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  </sc-if>
+
+  
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ findResults }}" as="row" hint-placeholder-count="6">
+        <a href="{{ row.href }}" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 20px;padding:16px 0;border-bottom:1px solid #ece6d8;text-decoration:none" style-hover="border-bottom:1px solid #a8825a">
+          <div style="flex:0 0 200px;font-family:'EB Garamond',Georgia,serif;font-size:18px;color:#141412">{{ row.name }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6f6a62;text-transform:uppercase">{{ row.family }}</div>
+          <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:#a8825a">View →</div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+  <section style="padding:44px 0;border-bottom:1px solid #dcd4c6">
+    <h2 style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.24em;font-weight:500;margin:0 0 24px;color:#a8825a;text-transform:uppercase">Latest Intelligence</h2>
+    <sc-for list="{{ latest }}" as="item" hint-placeholder-count="3">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 24px;padding:16px 0;border-bottom:1px solid #dcd4c6">
+        <div style="flex:0 0 160px;font-weight:500;font-size:15px">{{ item.name }}</div>
+        <div style="flex:1 1 300px;min-width:0;font-size:15px"><a href="{{ item.href }}" style="border-bottom:1px solid transparent" style-hover="border-bottom:1px solid #141412">{{ item.text }} <span style="color:#a8825a">→</span></a></div>
+        <div style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:#6f6a62">{{ item.date }}</div>
+      </div>
+    </sc-for>
+  </section>
 
   <footer style="margin-top:48px;padding-top:24px;border-top:1px solid #dcd4c6;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 32px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;color:#6f6a62;text-transform:uppercase">
     <div style="font-family:'EB Garamond',Georgia,serif;font-size:20px;letter-spacing:.14em;color:#141412;text-transform:none">ΣΟΦΙΑ</div>
@@ -90,15 +177,22 @@ button{font-family:'JetBrains Mono',monospace}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { filter: "All", scrollY: 0, atTop: true, atBottom: false };
+  state = { tab: "Overview", filter: "All", search: "", scrollY: 0, atTop: true, atBottom: false, findSupply: "All", findLiquidity: "All", findScarcity: "All", findProv: "All", activeFamily: "" };
 
   componentDidMount() {
     this._onScroll = () => {
       const y = window.scrollY;
+      let activeFamily = this.state.activeFamily;
+      const secs = document.querySelectorAll("section[data-family]");
+      for (const s of secs) {
+        const r = s.getBoundingClientRect();
+        if (r.top <= 140) activeFamily = s.getAttribute("data-family");
+      }
       this.setState({
         scrollY: y,
         atTop: y <= 8,
-        atBottom: (window.innerHeight + y) >= document.body.scrollHeight - 4
+        atBottom: (window.innerHeight + y) >= document.body.scrollHeight - 4,
+        activeFamily
       });
     };
     window.addEventListener("scroll", this._onScroll, { passive: true });
@@ -175,26 +269,105 @@ class Component extends DCLogic {
     ];
   }
 
+  compareData() {
+    // [name, href, price regime, scarcity, provenance risk, date]
+    const level = s => { const w = s.split(/[;(]/)[0].trim(); return w.startsWith("High") ? 3 : w.startsWith("Low") ? 1 : 2; };
+    const bar = n => [1, 2, 3].map(i => i <= n ? "#a8825a" : "#dcd4c6");
+    // [name, href, supply concentration, liquidity, scarcity, provenance risk, date]
+    const groups = [
+      { name: "Gems & Jewellery", rows: [
+        ["Natural Diamonds", "/natural-diamonds-dashboard", "High, rough distribution (mining Medium)", "Medium", "Medium; large stones High", "Medium", "21 Sep 2026"],
+        ["Lab-Grown Diamonds", "/lab-grown-diamonds-dashboard", "Medium", "Medium", "Low", "Medium", "21 Sep 2026"],
+        ["Coloured Gemstones", "/coloured-gemstones-dashboard", "Medium–High, by stone", "Low", "High (top origins)", "High", "21 Sep 2026"],
+        ["Pearls", "/pearls-dashboard", "Medium", "Low", "Medium; natural High", "Medium", "21 Sep 2026"]
+      ]},
+      { name: "Metals, Energy & Strategic Materials", rows: [
+        ["Gold", "/gold-dashboard", "Medium, refining (mine Low)", "High", "Low", "Medium (doré origin)", "15 Sep 2026"],
+        ["Silver", "/silver-dashboard", "Medium", "High", "Medium", "Low", "15 Sep 2026"],
+        ["Platinum Group Metals", "/pgm-dashboard", "High", "High", "Medium", "Low", "17 Sep 2026"],
+        ["Copper", "/copper-dashboard", "High, refining (mine Medium)", "High", "Medium", "Low", "17 Sep 2026"],
+        ["Rare Earths", "/rare-earths-dashboard", "High, separation (mining lower)", "Medium", "Medium", "Medium", "15 Sep 2026"],
+        ["Oil & Gas", "/oil-gas-dashboard", "Medium", "High", "Low", "Low", "24 Jul 2026"]
+      ]},
+      { name: "Cellar & Collectibles", rows: [
+        ["Fine Wine", "/fine-wine-dashboard", "Low", "Medium", "Medium; top Burgundy High", "Medium", "15 Sep 2026"],
+        ["Port", "/port-dashboard", "High, benefício and two family groups", "Medium", "Medium; Vintage High", "Low", "16 Sep 2026"],
+        ["Scotch Whisky", "/scotch-whisky-dashboard", "High", "Medium (bottles); Low (casks)", "Medium; closed distilleries High", "High (casks)", "17 Sep 2026"],
+        ["Cigars", "/cigars-dashboard", "High", "Low", "Medium", "High", "16 Sep 2026"],
+        ["Watches", "/watches-dashboard", "High", "Medium", "Low", "Medium", "17 Sep 2026"],
+        ["Art", "/art-dashboard", "Low", "Medium (auction); Low (private)", "High", "Medium", "17 Sep 2026"],
+        ["Classic Cars", "/classic-cars-dashboard", "Low", "Medium", "High (top); Low (base)", "Medium", "17 Sep 2026"]
+      ]},
+      { name: "Aromatics", rows: [
+        ["Saffron", "/saffron-dashboard", "High", "Low", "Medium", "High", "Sep 2026"],
+        ["Oud", "/oud-dashboard", "Medium", "Low", "High (wild); Low (plantation)", "High", "15 Sep 2026"],
+        ["Vanilla", "/vanilla-dashboard", "High", "Low", "Low", "Medium", "15 Sep 2026"],
+        ["Frankincense", "/frankincense-dashboard", "Medium", "Low", "Medium; B. papyrifera High", "High", "17 Sep 2026"]
+      ]},
+      { name: "Crops", rows: [
+        ["Coffee", "/coffee-dashboard", "Medium", "High", "Low; Geisha High", "Medium", "17 Sep 2026"],
+        ["Tea", "/tea-dashboard", "High", "Medium", "Low; Uji tencha High", "Medium", "16 Sep 2026"],
+        ["Cocoa", "/cocoa-dashboard", "High, marketing boards", "High", "Low", "Medium", "16 Sep 2026"],
+        ["Olive Oil", "/olive-oil-dashboard", "High", "Medium", "Low", "High", "16 Sep 2026"],
+        ["Mānuka Honey", "/manuka-honey-dashboard", "High", "Low", "Medium", "Medium; High outside NZ", "16 Sep 2026"],
+        ["Dates", "/dates-dashboard", "Medium", "Low", "Low; Ajwa Medium", "Medium", "17 Sep 2026"]
+      ]},
+      { name: "Rare Foods", rows: [
+        ["Caviar", "/caviar-dashboard", "Medium–High", "Low", "Low (farmed); High (wild)", "High", "16 Sep 2026"],
+        ["Truffles", "/truffles-dashboard", "Medium", "Low (white); Medium (black)", "High (white); Low (black)", "High", "16 Sep 2026"],
+        ["Bluefin Tuna", "/bluefin-tuna-dashboard", "Medium", "Medium", "High (wild Ōma)", "Medium", "16 Sep 2026"],
+        ["Wagyu", "/wagyu-dashboard", "High", "Medium", "Low", "Medium", "16 Sep 2026"]
+      ]}
+    ];
+    const out = [];
+    groups.forEach(g => {
+      out.push({ isGroup: true, isRow: false, name: g.name });
+      g.rows.forEach(([name, href, supply, liquidity, scarcity, prov, date]) => {
+        const [su1, su2, su3] = bar(level(supply));
+        const [lq1, lq2, lq3] = bar(level(liquidity));
+        const [sc1, sc2, sc3] = bar(level(scarcity));
+        const [pv1, pv2, pv3] = bar(level(prov));
+        out.push({ isGroup: false, isRow: true, name, href, family: g.name, supply, liquidity, scarcity, prov, date, su1, su2, su3, lq1, lq2, lq3, sc1, sc2, sc3, pv1, pv2, pv3,
+          supplyLvl: level(supply), liquidityLvl: level(liquidity), scarcityLvl: level(scarcity), provLvl: level(prov) });
+      });
+    });
+    return out;
+  }
+
   latest() {
     return [
-      ["Cigars", "/cigars-dashboard#s-iii", "Sanctions on Habanos S.A.'s co-owner reach the German distributor; the Festival is cancelled"],
-      ["Copper", "/copper-dashboard#s-i", "Forecast surplus becomes a 150–400 kt deficit after Grasberg; the US tariffs its own supply"],
-      ["Rare Earths", "/rare-earths-dashboard", "China's separation-stage grip proves harder to route around than its mine share suggests"]
+      ["Oil & Gas", "/oil-gas-dashboard#s-viii", "Hormuz flows return to pre-war levels, yet physical Brent trades above $120 as inventories drain", "5 OCT 2026"],
+      ["Natural Diamonds", "/natural-diamonds-dashboard#snapshot", "Botswana signals a bigger De Beers stake as a ~$1bn sale values the company at half its book", "5 OCT 2026"],
+      ["Gold", "/gold-dashboard#s-i", "August's record ETF inflows reverse into a 6% September fall as the 10-year nears 5.3%", "5 OCT 2026"],
+      ["Rare Earths", "/rare-earths-dashboard#s-iii", "The Xi–Trump summit extends the truce but leaves licensing intact; NdPr trades below the US floor", "5 OCT 2026"],
+      ["Tea", "/tea-dashboard#snapshot", "Uji tencha closes a record season at ¥17,250/kg; the matcha squeeze spreads to sencha and gyokuro", "5 OCT 2026"]
     ];
   }
 
   onSelect(name) { this.setState({ filter: name }); }
+  onSelectTab(name) { this.setState({ tab: name }); }
+  onFindChange(key, e) { this.setState({ [key]: e.target.value }); }
+  onSearchChange(e) { this.setState({ search: e.target.value }); }
+  resetFind() { this.setState({ findSupply: "All", findLiquidity: "All", findScarcity: "All", findProv: "All" }); }
 
   renderVals() {
+    const tab = this.state.tab;
+    const topTabs = ["Overview", "Compare"].map(name => ({
+      name,
+      onClick: () => this.onSelectTab(name),
+      style: "padding:14px 0;border:none;border-bottom:2px solid " + (tab === name ? "#141412" : "transparent") +
+        ";background:transparent;color:" + (tab === name ? "#141412" : "#6f6a62") +
+        ";font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer"
+    }));
     const all = this.data();
     const filter = this.state.filter;
-    const names = ["All", ...all.map(f => f.name), "Latest Intelligence"];
+    const names = ["All", ...all.map(f => f.name)];
     const families = names.map(name => ({
       name,
       onClick: () => this.onSelect(name),
-      style: "flex:0 0 auto;white-space:nowrap;padding:9px 16px;border:1px solid " + (filter === name ? "#141412" : (name === "Latest Intelligence" ? "#a8825a" : "#dcd4c6")) +
+      style: "flex:0 0 auto;white-space:nowrap;padding:9px 16px;border:1px solid " + (filter === name ? "#141412" : "#dcd4c6") +
         ";background:" + (filter === name ? "#141412" : "transparent") +
-        ";color:" + (filter === name ? "#f4efe6" : (name === "Latest Intelligence" ? "#a8825a" : "#6f6a62")) +
+        ";color:" + (filter === name ? "#f4efe6" : "#6f6a62") +
         ";font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer"
     }));
     const visibleFamilies = all
@@ -202,13 +375,31 @@ class Component extends DCLogic {
       .map((f, i) => ({
         name: f.name,
         num: String(all.indexOf(f) + 1).padStart(2, "0"),
-        sectors: f.sectors.map(([name, href, desc]) => ({ name, href, desc, date: "16 Sep 2026" }))
+        sectors: f.sectors.map(([name, href, desc]) => ({ name, href, desc }))
       }));
-    const showLatest = filter === "Latest Intelligence";
-    const latest = this.latest().map(([name, href, text]) => ({ name, href, text }));
+    const showActiveFamily = filter === "All" && !!this.state.activeFamily;
+    const latest = this.latest().map(([name, href, text, date]) => ({ name, href, text, date }));
     const on = this.state.scrollY > 260;
+    const lvlNum = v => v === "High" ? 3 : v === "Medium" ? 2 : v === "Low" ? 1 : 0;
+    const fSupply = this.state.findSupply, fLiquidity = this.state.findLiquidity, fScarcity = this.state.findScarcity, fProv = this.state.findProv;
+    const flatRows = this.compareData().filter(r => r.isRow);
+    const findResults = flatRows.filter(r =>
+      (lvlNum(fSupply) === 0 || r.supplyLvl === lvlNum(fSupply)) &&
+      (lvlNum(fLiquidity) === 0 || r.liquidityLvl === lvlNum(fLiquidity)) &&
+      (lvlNum(fScarcity) === 0 || r.scarcityLvl === lvlNum(fScarcity)) &&
+      (lvlNum(fProv) === 0 || r.provLvl === lvlNum(fProv))
+    );
     return {
-      families, visibleFamilies, showLatest, latest,
+      topTabs, showOverview: tab === "Overview", showCompare: tab === "Compare",
+      families, visibleFamilies, latest, compareRows: this.compareData(),
+      showActiveFamily, activeFamilyName: this.state.activeFamily,
+      findSupply: fSupply, findLiquidity: fLiquidity, findScarcity: fScarcity, findProv: fProv,
+      onFindSupply: e => this.onFindChange("findSupply", e),
+      onFindLiquidity: e => this.onFindChange("findLiquidity", e),
+      onFindScarcity: e => this.onFindChange("findScarcity", e),
+      onFindProv: e => this.onFindChange("findProv", e),
+      onFindReset: () => this.resetFind(),
+      findResults, findCount: findResults.length, findEmpty: findResults.length === 0,
       ctlOpacity: on ? 1 : 0, ctlPointer: on ? "auto" : "none",
       atTop: this.state.atTop, atBottom: this.state.atBottom,
       atTopOpacity: this.state.atTop ? 0.32 : 1, atBottomOpacity: this.state.atBottom ? 0.32 : 1,

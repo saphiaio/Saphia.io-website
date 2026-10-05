@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -212,13 +221,14 @@ svg text{font-size:10px}
 .cards{grid-template-columns:1fr}
 .era{grid-template-columns:1fr;gap:2px}
 .bars .r{grid-template-columns:100px 1fr 90px}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -232,11 +242,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 16 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Farmed supply expansion pushing prices down since the late 2010s; wild product effectively off-market.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>China · Italy · France · Russia · Iran</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>European Union (France) · United States · Japan · Gulf</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>Chinese industry data put China at ~60% of global caviar output; a single Hubei farm ships 10,000+ tins a day, and supermarket tins now sell for under ¥200. The price-deflation regime holds; no new US tariff change since the last update.<sup class="r"><a href="#s23">23</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-h">High</span></dt><dd><b>Medium–High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
@@ -244,17 +255,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-h">High</span></dt><dd><b>Low (farmed); High (wild)</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-ii" title="Evidence: section § II">/ § II</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-h">High</span></dt><dd><b>High</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">CAVIAR</p>
   <ol><li><a href="#s-i"><span>I</span>Species and product</a></li><li><a href="#s-ii"><span>II</span>From wild fishery to aquaculture</a></li><li><a href="#s-iii"><span>III</span>Production by country</a></li><li><a href="#s-iv"><span>IV</span>Trade and demand</a></li><li><a href="#s-v"><span>V</span>Integrity: labelling and fraud</a></li><li><a href="#s-vi"><span>VI</span>Gulf angle</a></li><li><a href="#s-vii"><span>VII</span>Indicators to monitor</a></li><li><a href="#s-viii"><span>VIII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>Species and product</h2><p class="sub">Caviar is sturgeon roe; everything else is "caviar substitute" by law in the EU and elsewhere.</p></div>
+  <div class="sechead tint"><h2><em>I</em>Species and product</h2><p class="sub">Caviar is sturgeon roe; everything else is "caviar substitute" by law in the EU and elsewhere.</p></div>
   
   <div class="tw"><table>
     <tr><th>Trade name</th><th>Species</th><th>Origin / status</th><th>Note</th></tr>
@@ -274,7 +286,7 @@ svg text{font-size:10px}
   <p>Farm economics follow from the biology. A decade of feeding before the first harvest means the capital cost sits in the female broodstock; meat from males and culled fish carries the farm until then, and the EU unit value of sturgeon meat has been sliding, from €8.56/kg in 2016 to €7.74/kg in 2020.<sup class="r"><a href="#s3">3</a></sup> Retail Beluga has been quoted at up to €600 per 100 g in CITES guidance, an order of magnitude above wholesale.<sup class="r"><a href="#s14">14</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>From wild fishery to aquaculture</h2><p class="sub">The regulatory history is the market history.</p></div>
+  <div class="sechead tint"><h2><em>II</em>From wild fishery to aquaculture</h2><p class="sub">The regulatory history is the market history.</p></div>
   
   <div class="era"><div class="y">1977</div><div class="t">Peak recorded wild sturgeon catch, 31,800 t, almost all Caspian.<sup class="r"><a href="#s1">1</a></sup></div></div>
   <div class="era"><div class="y">1984</div><div class="t">First FAO-recorded aquaculture harvest, 150 t.<sup class="r"><a href="#s1">1</a></sup></div></div>
@@ -291,7 +303,7 @@ svg text{font-size:10px}
   <div class="note">Diamond parallel: a wild resource whose scarcity created the luxury, replaced within two decades by a cultivated product with identical chemistry. The industry's response, origin labelling, species certification, a premium for "Caspian" or "Beluga" names, mirrors the natural-versus-lab-grown defence, with one difference: here the cultivated product is the legal one and the wild one is the contraband. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>Production by country</h2><p class="sub">Reliable data stop in 2018–2021; later figures are vendor estimates.</p></div>
+  <div class="sechead tint"><h2><em>III</em>Production by country</h2><p class="sub">Reliable data stop in 2018–2021; later figures are vendor estimates.</p></div>
   
   <h3>Farmed sturgeon biomass, 2021 (FAO via peer-reviewed LCA)</h3>
   <div class="bars">
@@ -318,7 +330,7 @@ svg text{font-size:10px}
   <div class="note warn">Discrepancy logged: retail and vendor sources state that China produces "over half" or "over 60%" of world caviar; EUMOFA (2021) and the 2025 LCA paper put the share at "around one third" or "at least one third". The lower, institutional figure is used here. All post-2021 tonnages should be treated as unverified until FAO or EUMOFA publish an update.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a> <a href="#s9">9</a></sup></div>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>Trade and demand</h2><p class="sub">A small market by volume, France at its centre, prices drifting down.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>Trade and demand</h2><p class="sub">A small market by volume, France at its centre, prices drifting down.</p></div>
   
   <div class="tw"><table>
     <tr><th>Metric</th><th class="n">Value</th><th>Note</th></tr>
@@ -331,7 +343,7 @@ svg text{font-size:10px}
   <p>The structural story is oversupply. Sturgeon planted in the early 2010s, in China above all, matured into a market whose demand had not grown at the same rate; the 2025 LCA study states plainly that supply surpasses demand and wholesale prices have decreased, even as caviar remains a luxury at retail.<sup class="r"><a href="#s4">4</a></sup> The margin has therefore migrated to branding, retail and hospitality, the Petrossian, Prunier and Kaluga Queen tins, rather than to the farm. Chinese producers that began as anonymous OEM suppliers to French, Swiss and American brands now sell under their own labels.<sup class="r"><a href="#s6">6</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>Integrity: labelling and fraud</h2><p class="sub">The only luxury food with a mandatory international chain-of-custody label, and evidence that it is routinely defeated.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Integrity: labelling and fraud</h2><p class="sub">The only luxury food with a mandatory international chain-of-custody label, and evidence that it is routinely defeated.</p></div>
   
   <h3>The CITES label</h3>
   <p>Every primary container of caviar in international trade must carry a non-reusable label with a standard species code, the source code (W wild, C captive-bred, F born in captivity to wild parents), the ISO country code of origin, the harvest year, the processing-plant registration code and the lot number; repackaging adds the plant code of the repackager and the re-export certificate number.<sup class="r"><a href="#s14">14</a> <a href="#s18">18</a></sup> Roe from non-listed fish is outside the system, and in the EU the word "caviar" is legally restricted to sturgeon and paddlefish.<sup class="r"><a href="#s14">14</a></sup> <span class="c c-h">High</span></p>
@@ -345,7 +357,7 @@ svg text{font-size:10px}
   <div class="note warn">Compliance reading: the CITES caviar label is structurally identical to a Kimberley Process certificate, it certifies the paperwork of the exporter, not the contents of the tin. The 2023 study is the caviar equivalent of a DNA-verified mine-of-origin audit, and it found half the sampled product non-compliant in the one region where wild stock still exists. For an importer, the control that works is laboratory verification of species and wild/farmed origin on a sampling basis, not label inspection. <span class="c c-m">Med</span></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Gulf angle</h2><p class="sub">Consumer market, and one of the world's largest indoor farms, built in Abu Dhabi.</p></div>
+  <div class="sechead tint"><h2><em>VI</em>Gulf angle</h2><p class="sub">Consumer market, and one of the world's largest indoor farms, built in Abu Dhabi.</p></div>
   
   <div class="tw"><table>
     <tr><th>Item</th><th>Detail</th><th>Confidence</th></tr>
@@ -357,7 +369,7 @@ svg text{font-size:10px}
   <div class="note">The Abu Dhabi farm proved the technical case, a full-cycle sturgeon operation in a 50 °C climate, at exactly the moment Chinese volume began pushing wholesale prices down. The lesson for any Gulf agri-luxury venture, saffron included, is that closed-system production competes on cost against open-water Asian scale only where the brand, not the farm, captures the margin. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -372,7 +384,7 @@ svg text{font-size:10px}
 <section id="s-viii">
   <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. EUMOFA (the EU market observatory) and FAO are the primary statistical sources; vendor and retailer figures are marked Low.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 23 sources</summary><ol class="src">
     <li id="s1"><b>EUMOFA</b>, "The Caviar Market, 2021 Edition" (production, trade and consumption in and outside the EU), 380 t global caviar 2018; 115,168 t farmed sturgeon; 1977 peak catch 31,800 t; 1984 first aquaculture 150 t; EU 164 t 2018 (FEAP), top four producers 84%; intra-EU trade 2014–2020; China c.one-third of caviar and main EU supplier; 2006 Romanian ban; species hierarchy.</li>
     <li id="s2"><b>SeafoodSource</b>, "EUMOFA report on global caviar market finds EU consumption increased", apparent consumption France 57.9 t, Germany 25.7 t, Spain 9.3 t; other consumers including the UAE; US 1,166 t sturgeon and 18 t caviar 2018 with export destinations; US export price €303 (2014) to €188 (2020); Siberian maturity in captivity.</li>
     <li id="s3"><b>EUMOFA</b>, "Sturgeon meat and other by-products of caviar" (2023), 20 t meat per t caviar; 8–10 years to maturity; Italy 1,051 t sturgeon 2020; world 4,100 t in 2002, China &gt;9,000 t in 2003; China 84% of sturgeon 2020; EU meat unit values 2016–2020.</li>
@@ -395,7 +407,8 @@ svg text{font-size:10px}
     <li id="s20"><b>The Fish Site</b>, "World's Most Technologically Advanced Aqua-Farm Launched in Abu Dhabi", Yasa launch at Emirates Palace under Sheikh Hamed bin Zayed; Siberian caviar year-round; and "Emirates AquaTech Caviar Farm Debuts New Outlet at The Market", 2019, Mushrif Mall retail launch.</li>
     <li id="s21"><b>MEED</b>, "Fish farming in the desert", Jan 2015, and UAE Innovation Project of the Year entry, operations from 2013; 35 t caviar and 500 t meat capacity; ADFCA distinguished facility 2014.</li>
     <li id="s22"><b>ABC News (Australia)</b>, "UAE is home to the world's largest caviar factory", Apr 2016, over $100 m invested; "inching closer" to 35 t; co-founder Ahmed Al Dhaheri; and <b>The National</b>, "Abu Dhabi's resurgence of sturgeon", first UAE-hatched eggs, late 2013.</li>
-  </ol>
+  <li id="s23"><b>Xinhua via People’s Daily, "China's farmed caviar eases pressure on wild sturgeon"</b>, 18 Sep 2026. China ~60% of global production; Yidu ships >10,000 tins/day; retail tins <¥200. <a href="https://en.people.cn/n3/2026/0920/c90000-20501712.html" target="_blank">en.people.cn</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">

@@ -2,13 +2,14 @@ repo: saphiaio/Saphia.io-website
 branch: main
 
 ## Last sync
-date: 2026-09-19T20:50:00Z
+date: 2026-10-05T14:00:00Z
 commit: (pending re-upload)
 
 ### Updated in this project
-- Clean URLs: all nav/dashboard links now point to /home, /about, /methodology, /markets, /contact, /<sector>-dashboard instead of raw .html/.dc.html filenames
-- _redirects updated with 200 rewrites mapping each clean path to its real file
-- Initial push of full site: 5 DC pages, 30 sector dashboards, Contact page, support.js
+- All 31 sector dashboards refreshed to 5 Oct 2026 (snapshots; full body updates for oil & gas, diamonds, gold, silver, rare earths, fine wine)
+- New Ratings Register page with the Σ rating (Saphia house rating), served at /register (alias /ratings), with a Register tab in every nav
+- Markets "Latest Intelligence" updated; natural diamonds trade architecture updated
+- Σ Rating page shows six factor scores and rationale for all 31 markets (unlocked); Methodology gains "The Σ rating" section; "Σ Rating" nav tab on every page
 
 ## Screen map
 | Screen | Repo file |
@@ -17,5 +18,9 @@ commit: (pending re-upload)
 | About | Saphia About.dc.html |
 | Methodology | Saphia Methodology.dc.html |
 | Markets | Saphia Markets.dc.html |
+| Ratings Register | Saphia Ratings Register Table.dc.html |
 | Contact | contact.html |
-| Sector dashboards | *_dashboard.html (30 files) |
+| Sector dashboards | *_dashboard.html (31 files) |
+
+## Sync history
+- 2026-09-19: initial push of full site, clean URLs and _redirects

@@ -55,10 +55,12 @@ em{font-style:italic}
 .figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
 
 /* contents */
+.contents .sector-tag{display:none;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
 .contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
 @media(min-width:901px){
-  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0}
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
   .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
   .contents ol{margin:0}
 }
 .contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
@@ -71,6 +73,13 @@ section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:0}
 section h2{font-size:38px;margin:0}
 section h2 em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
 .sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
 .sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
 section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
@@ -207,13 +216,14 @@ svg text{font-size:10px}
 @media(max-width:860px){
 .cards{grid-template-columns:1fr}
 .bars .r{grid-template-columns:90px 1fr 110px}
-}</style>
+}.src-toggle{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+</style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ<small>SCARCE ASSETS INTELLIGENCE</small></a>
-    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/home">Home</a></li><li><a href="/about">About</a></li><li><a href="/methodology">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/register">Σ Rating</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -227,11 +237,12 @@ svg text{font-size:10px}
 
 <!-- Market Snapshot · inserted under ΣΟΦΙΑ Methodology v2.0 (Sep 2026) -->
 <div class="snap" id="snapshot" aria-label="Market snapshot">
-  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 17 Sep 2026</span></div>
+  <div class="snap-head"><span class="snap-title">Market snapshot</span><span class="snap-meta">Data as of 5 Oct 2026</span></div>
   <dl class="snap-top">
     <div class="snap-row"><dt>Price regime</dt><dd>Commodity grades flat and export-led; premium varieties priced by name and origin.</dd></div>
     <div class="snap-row"><dt>Primary origins</dt><dd>Egypt · Saudi Arabia · Iran · Algeria · Iraq</dd></div>
     <div class="snap-row"><dt>Principal markets</dt><dd>India · Morocco · European Union · Gulf · Indonesia</dd></div>
+    <div class="snap-row" style="grid-column: 1 / -1;"><dt>Since last update</dt><dd>The 2026/27 season is opening with a ~3% larger global table-date crop (1.67 Mt, INC). Tunisia is up 14% and Israel down 21%. Saudi exports are forecast above 220,000 t. Commodity and mid-tier Medjool face price pressure from expanding Egyptian supply, while Super Jumbo grades stay firm; Israeli Medjool was €4.39/kg EXW Poland in late July.<sup class="r"><a href="#s16">16</a></sup><sup class="r"><a href="#s17">17</a></sup></dd></div>
   </dl>
   <dl class="snap-rated">
     <div class="snap-row rated"><dt>Supply concentration<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale A <a href="#s-i" title="Evidence: section § I">/ § I</a></span></dd></div>
@@ -239,17 +250,18 @@ svg text{font-size:10px}
     <div class="snap-row rated"><dt>Scarcity<span class="snap-c snap-c-m">Med</span></dt><dd><b>Low; Ajwa Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i></span><span class="snap-scaleline">Scale C <a href="#s-iii" title="Evidence: section § III">/ § III</a></span></dd></div>
     <div class="snap-row rated"><dt>Provenance risk<span class="snap-c snap-c-m">Med</span></dt><dd><b>Medium</b><span class="snap-bar" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i></span><span class="snap-scaleline">Scale D <a href="#s-v" title="Evidence: section § V">/ § V</a></span></dd></div>
   </dl>
-  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><a href="/methodology#tags">Rating scales →</a></div>
+  <div class="snap-foot"><span>Ratings are claims, held to the same standard as any other claim</span><span style="display:flex;gap:16px"><a href="/register">Ratings register →</a><a href="/methodology#scales">Rating scales →</a></span></div>
 </div>
 
 
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
+  <p class="sector-tag">DATES</p>
   <ol><li><a href="#s-i"><span>I</span>Production and concentration</a></li><li><a href="#s-ii"><span>II</span>The export trade</a></li><li><a href="#s-iii"><span>III</span>Varieties and the premium</a></li><li><a href="#s-iv"><span>IV</span>Industry structure</a></li><li><a href="#s-v"><span>V</span>Integrity</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
-  <div class="sechead"><h2><em>I</em>Production and concentration</h2><p class="sub">Two countries, one region, and a ranking that depends on the year and the source.</p></div>
+  <div class="sechead tint"><h2><em>I</em>Production and concentration</h2><p class="sub">Two countries, one region, and a ranking that depends on the year and the source.</p></div>
   
   <div class="bars">
     <div class="r"><span>Egypt</span><div class="bar"><i style="width:100%"></i></div><span class="v">1.87 m t (2023)</span></div>
@@ -273,7 +285,7 @@ svg text{font-size:10px}
   <p>A Springer-published forecast models world output at 10.1–11.0 m t a year through 2028; FAO reported growth of 4.2% between 2024 and 2025 per a trade compilation.<sup class="r"><a href="#s8">8</a> <a href="#s9">9</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-ii">
-  <div class="sechead"><h2><em>II</em>The export trade</h2><p class="sub">The largest producer exports little; the exporters are the branders and the re-exporters.</p></div>
+  <div class="sechead tint"><h2><em>II</em>The export trade</h2><p class="sub">The largest producer exports little; the exporters are the branders and the re-exporters.</p></div>
   
   <div class="cards">
     <div class="note"><div class="v">SAR 1.94 bn</div><div class="l">Saudi exports 2025 (c.$517–533 m), to over 125 countries <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a> <a href="#s4">4</a></sup></div></div>
@@ -291,7 +303,7 @@ svg text{font-size:10px}
   <p>World date exports were c.260 kt in 1961 and passed 400 kt by 1970 and again by 1989–90; the FAO's historical analysis noted that, net of imports, the leading exporters were Iran, Pakistan, Tunisia, Algeria and Saudi Arabia.<sup class="r"><a href="#s10">10</a></sup> Saudi exports have since risen to a scale, over 147 kt and SAR 703 m as early as 2017, 22% of it to the UAE, that has re-ordered the league.<sup class="r"><a href="#s12">12</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-iii">
-  <div class="sechead"><h2><em>III</em>Varieties and the premium</h2><p class="sub">A commodity at the bottom, a religious and gift product at the top.</p></div>
+  <div class="sechead tint"><h2><em>III</em>Varieties and the premium</h2><p class="sub">A commodity at the bottom, a religious and gift product at the top.</p></div>
   
   <div class="tw"><table>
     <tr><th>Variety</th><th>Origin</th><th>Market position</th></tr>
@@ -307,7 +319,7 @@ svg text{font-size:10px}
   <div class="note">Diamond parallel: "Ajwa from Medina" is a provenance claim that multiplies the value of a gradable agricultural product, in the same way "Kashmir" does for a sapphire, and, like a sapphire, the claim is made on a label the buyer cannot verify at the point of sale. The Saudi state's answer is the same as Botswana's: put the brand under public ownership and control the supply chain from tree to tin. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-iv">
-  <div class="sechead"><h2><em>IV</em>Industry structure</h2><p class="sub">State institutions, sovereign capital and a fragmented grower base.</p></div>
+  <div class="sechead tint"><h2><em>IV</em>Industry structure</h2><p class="sub">State institutions, sovereign capital and a fragmented grower base.</p></div>
   
   <div class="tw"><table>
     <tr><th>Actor</th><th>Role</th><th>Note</th></tr>
@@ -320,13 +332,13 @@ svg text{font-size:10px}
   <p>A market-research vendor values the world dates market at $31.4 bn in 2026 rising to $44.1 bn by 2031; the basis is unstated and the figure is shown for orientation only.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-l">Low</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead"><h2><em>V</em>Integrity</h2><p class="sub">A crop sold by variety name and origin, with no grading authority outside the exporting state.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Integrity</h2><p class="sub">A crop sold by variety name and origin, with no grading authority outside the exporting state.</p></div>
   
   <p>The premium tiers are defined by a place-name (Medina, Qassim, Biskra) and a cultivar name that a consumer cannot test. Saudi exporters supply phytosanitary certificates from the Ministry of Environment, Water and Agriculture together with ISO 22000, HACCP and halal certification for container trade, which certify safety and process rather than variety or origin.<sup class="r"><a href="#s14">14</a></sup> No independent audit of variety mislabelling in the international date trade was found for this page, and none is asserted. <span class="c c-m">Med</span></p>
   <div class="note warn">Compliance reading: for a Gulf re-exporter the exposure is origin laundering, bulk Egyptian or Iranian fruit repacked under a Gulf label, which customs data would show as the historical gap between gross and net UAE exports. The control is the same as for gold doré: match declared origin to the import manifest, not to the retail box. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -341,7 +353,7 @@ svg text{font-size:10px}
 <section id="s-vii">
   <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. FAO-derived statistics and Saudi official releases are primary; trade and vendor sources are marked.</p></div>
   
-  <ol class="src">
+  <details><summary class="src-toggle">Show 17 sources</summary><ol class="src">
     <li id="s1"><b>Statista</b>, "The World's Largest Producers of Dates", 28 Feb 2025, FAO 2023: world 9.82 m t; Egypt 1.87 m t; Saudi Arabia 1.64 m t; Algeria 1.32 m t; top eight all MENA.</li>
     <li id="s2"><b>Saudi Press Agency</b>, "Saudi Date Exports Hit Record SAR1.9 Billion in 2025, Up 14.3%", 25 Apr 2026, SAR 1.938 bn; +59.5% since 2021; over 125 countries; Vision 2030 framing.</li>
     <li id="s3"><b>Toucan Trade Group</b>, "Top 10 Dates Exporting Countries in 2025", 10 May 2026, over 9 m t; Egypt consumes its own; Iran largest exporter by volume; Saudi largest by value (>$340 m); UAE third and re-exports; MENA >80% (with source 8). Trader. <span class="c c-m">Med</span></li>
@@ -357,7 +369,9 @@ svg text{font-size:10px}
     <li id="s13"><b>Dates.Business</b>, "Global Date Production by Country 2026", variety origins (Ajwa Medina; Medjool Morocco, US, Israel, Jordan, South Africa; Piarom Hormozgan); premium-variety pricing generalities. <span class="c c-m">Med</span></li>
     <li id="s14"><b>Accio</b>, "Dates Wholesale Price in Saudi Arabia 2025", Apr 2026, export documentation (phytosanitary, ISO 22000, HACCP, halal); Medjool container trade. B2B marketplace. <span class="c c-l">Low</span></li>
     <li id="s15"><b>Arab News</b>, "Saudi date exports surge to near $533 million", Aug 2026, Buraidah International Dates Carnival; SAR 1.938 bn (2025); SAR 1.215 bn (2021).</li>
-  </ol>
+  <li id="s16"><b>Mundus Agri, "Dates: moderate rise in production"</b>, Aug 2026. INC: 2026/27 table-date supply 1.666 Mt (+3%); EU imports 165,865 t at €2.55/kg; Israeli Medjool €4.39/kg EXW. <a href="https://www.mundus-agri.eu/news/dates-moderate-rise-production.n37856.html" target="_blank">mundus-agri.eu</a> <span class="c c-m">Med</span></li>
+<li id="s17"><b>FreshPlaza, "Israeli date exporters focus on premium Medjool as 2026/27 season begins"</b>, Sep 2026. Saudi harvest 1.65 Mt, exports >220,000 t; Tunisia 340,000 t; commodity tiers under Egyptian price pressure. <a href="https://www.freshplaza.com/north-america/article/9870192/israeli-date-exporters-focus-on-premium-medjool-as-2026-27-season-begins/" target="_blank">freshplaza.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 <footer class="foot">
