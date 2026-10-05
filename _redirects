@@ -1,11 +1,12 @@
 /  /Saphia%20Home.dc.html  200
 /home  /Saphia%20Home.dc.html  200
-/about  /Saphia%20About.dc.html  200
-/methodology  /Saphia%20Methodology.dc.html  200
 /markets  /Saphia%20Markets.dc.html  200
+/method  /Saphia%20Method.dc.html  200
 /contact  /contact.html  200
-/register  /Saphia%20Ratings%20Register%20Table.dc.html  200
-/ratings  /Saphia%20Ratings%20Register%20Table.dc.html  200
+/about  /method  301
+/methodology  /method  301
+/register  /markets  301
+/ratings  /markets  301
 /art-dashboard  /art_dashboard.html  200
 /bluefin-tuna-dashboard  /bluefin_tuna_dashboard.html  200
 /caviar-dashboard  /caviar_dashboard.html  200

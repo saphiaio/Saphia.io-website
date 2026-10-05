@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+html{background:#f4efe6;scroll-behavior:smooth}
+body{margin:0;background:#f4efe6}
+a{color:#141412;text-decoration:none}
+a:hover{color:#7d5f3f}
+h2,h3{scroll-margin-top:24px}
+</style>
+</helmet>
+<div style="font-family:'Inter',system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.6;color:#141412;max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 64px;box-sizing:border-box">
+
+  <nav style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px">
+    <a href="/home" style="font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em">ΣΟΦΙΑ</a>
+    <div style="display:flex;gap:28px;color:#6f6a62"><a href="/markets" style="color:#6f6a62" style-hover="color:#141412">Markets</a><a href="/method" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Method</a><a href="/contact" style="color:#6f6a62" style-hover="color:#141412">Contact</a></div>
+  </nav>
+
+  <h1 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(34px,4.6vw,44px);line-height:1.1;margin:clamp(44px,8vw,72px) 0 16px;letter-spacing:-.01em">Method</h1>
+  <p style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(19px,2.4vw,22px);line-height:1.4;margin:0 0 28px;max-width:44ch;text-wrap:pretty">ΣΟΦΙΑ analyses markets that have almost nothing in common. Gold has an exchange, a daily fix and a century of data; saffron has none of these. The method is what makes them comparable.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:6px 22px;font-size:13.5px;color:#6f6a62;padding:0 0 clamp(28px,5vw,48px)">
+    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="9"><a href="{{ t.href }}" style="color:#6f6a62;border-bottom:1px solid #dcd4c6;padding-bottom:1px" style-hover="color:#141412;border-color:#a8825a">{{ t.label }}</a></sc-for>
+  </div>
+
+  <!-- WHO -->
+  <section id="who" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #141412">
+    <h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">Who</h2>
+    <div style="max-width:60ch;text-wrap:pretty"><p style="margin:0 0 12px">ΣΟΦΙΑ publishes cited, confidence-rated intelligence on thirty-one scarce-asset markets: diamonds, gold, copper, rare earths, fine wine, Scotch whisky, saffron, caviar, bluefin tuna and the rest. Every number links to a source. Every page carries the date its figures were compiled.</p><p style="margin:0">The point is not how many markets we cover. It is that we look at all of them the same way: supply, demand, concentration, liquidity, scarcity, provenance and price formation, in the same order, to the same standard of proof, every time.</p></div>
+  </section>
+
+  <!-- SEQUENCE -->
+  <section id="sequence" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6">
+    <div><h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">The analytical sequence</h2><div style="font-size:13px;color:#6f6a62;margin-top:6px">Seven questions, same order</div></div>
+    <div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ sequence }}" as="s" hint-placeholder-count="7">
+          <div style="display:grid;grid-template-columns:{{ rowCols3 }};gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.5"><span style="color:#a8825a">{{ s.n }}</span><span>{{ s.q }}</span><span style="color:#6f6a62">{{ s.d }}</span></div>
+        </sc-for>
+      </div>
+      <p style="margin:18px 0 0;max-width:60ch;text-wrap:pretty">The sequence is the product. A reader who understands the rare-earth separation bottleneck can read the Port benefício, the Habanos monopoly and the De Beers sight as versions of one mechanism: a controlled stage that concentrates pricing power away from the producer. Those parallels are drawn on the pages and always tagged as inference.</p>
+      <p style="margin:14px 0 0;max-width:60ch;font-size:14.5px;color:#6f6a62;text-wrap:pretty"><span style="color:#141412">Two formats.</span> A <em>data-driven</em> page is used where a statistical body publishes a series; an <em>overview</em> page where the market is defined by institutions, history and custom. The format changes the layout, never the sequence, the evidence rules or the standard of proof.</p>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <section id="evidence" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6">
+    <div><h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">Evidence rules</h2><div style="font-size:13px;color:#6f6a62;margin-top:6px">What may appear on a page</div></div>
+    <div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:{{ rowCols }};gap:4px 20px;padding:14px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.55"><span>{{ r.name }}</span><span style="color:#6f6a62;text-wrap:pretty">{{ r.def }}</span></div>
+        </sc-for>
+      </div>
+      <h3 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:18px;margin:28px 0 4px">Source hierarchy</h3>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ hierarchy }}" as="h" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:{{ rowCols }};gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.5"><span>{{ h.name }}</span><span style="color:#6f6a62">{{ h.def }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGS -->
+  <section id="tags" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6">
+    <div><h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">Tags</h2><div style="font-size:13px;color:#6f6a62;margin-top:6px">Every figure carries two</div></div>
+    <div>
+      <h3 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:18px;margin:0 0 4px">Confidence <span style="font-family:'Inter',sans-serif;font-size:13px;color:#6f6a62;margin-left:8px">how far the claim can be trusted</span></h3>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ confidence }}" as="c" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:{{ rowCols }};gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.5;align-items:baseline"><span><span style="display:inline-block;font-size:11px;padding:2px 7px;border:1px solid {{ c.color }};color:{{ c.color }}">{{ c.tag }}</span></span><span style="color:#6f6a62">{{ c.def }}</span></div>
+        </sc-for>
+      </div>
+      <h3 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:18px;margin:28px 0 4px">Data label <span style="font-family:'Inter',sans-serif;font-size:13px;color:#6f6a62;margin-left:8px">how the number was made</span></h3>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ labels }}" as="l" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:{{ rowCols }};gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.5"><span>{{ l.name }}</span><span style="color:#6f6a62">{{ l.def }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCALES -->
+  <section id="scales" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6">
+    <div><h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">How a market is built</h2><div style="font-size:13px;color:#6f6a62;margin-top:6px">Four scales, each Low · Medium · High</div></div>
+    <div>
+      <p style="margin:0 0 20px;max-width:60ch;text-wrap:pretty">Each market page opens with four ratings. Each carries a confidence tag and cites the section that evidences it. A rating is a claim, held to the same standard as any other claim. The scales are criteria-based: anyone applying the thresholds below to the same evidence should reach the same band.</p>
+      <sc-for list="{{ scales }}" as="s" hint-placeholder-count="4">
+        <div id="{{ s.id }}" style="padding:20px 0;border-top:1px solid #e6dfd2">
+          <h3 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:19px;margin:0 0 10px"><span style="color:#a8825a;margin-right:10px">{{ s.letter }}</span>{{ s.name }}</h3>
+          <p style="margin:0 0 14px;max-width:60ch;font-size:15px;color:#45423c;text-wrap:pretty">{{ s.def }}</p>
+          <div style="display:grid;grid-template-columns:{{ bandCols }};gap:10px 16px;font-size:13.5px;line-height:1.45">
+            <div><div style="display:flex;gap:2px;margin-bottom:6px"><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#7d5f3f"></i></div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6f6a62;margin-bottom:3px">High</div>{{ s.high }}</div>
+            <div><div style="display:flex;gap:2px;margin-bottom:6px"><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#dcd4c6"></i></div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6f6a62;margin-bottom:3px">Medium</div>{{ s.med }}</div>
+            <div><div style="display:flex;gap:2px;margin-bottom:6px"><i style="width:12px;height:5px;background:#7d5f3f"></i><i style="width:12px;height:5px;background:#dcd4c6"></i><i style="width:12px;height:5px;background:#dcd4c6"></i></div><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6f6a62;margin-bottom:3px">Low</div>{{ s.low }}</div>
+          </div>
+        </div>
+      </sc-for>
+      <p style="margin:8px 0 0;padding-top:16px;border-top:1px solid #e6dfd2;font-size:14.5px;color:#6f6a62;max-width:60ch;text-wrap:pretty"><span style="color:#141412">No composite score.</span> A composite would require weighting the scales against each other, and no defensible weighting exists across markets as different as copper and truffles. Each rating is published separately and the reader weighs them. Bands describe structure; they are not good or bad.</p>
+    </div>
+  </section>
+
+  <!-- SIGMA -->
+  <section id="sigma" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6">
+    <div><h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">How practical it is to hold</h2><div style="font-size:13px;color:#6f6a62;margin-top:6px">The Σ grade · Saphia house rating · Provisional</div></div>
+    <div>
+      <p style="margin:0 0 12px;max-width:60ch;text-wrap:pretty">The four scales are criteria-based. The Σ grade is different in kind: it is ΣΟΦΙΑ's own opinion of how practical an asset is to hold in a portfolio. It does not rate expected return and says nothing about where a price is going.</p>
+      <p style="margin:0 0 20px;max-width:60ch;font-size:14.5px;color:#6f6a62;text-wrap:pretty"><span style="color:#141412">What is rated.</span> Where the good itself can be held, the grade covers the physical asset. Where it cannot, because it perishes, is unstorable or has no investable form, the grade covers the most direct route to exposure and names it under the grade, for example "Route: futures" or "Route: listed producer". Where no practical route has been identified, the grade is Σ5.</p>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #141412">
+        <sc-for list="{{ grades }}" as="g" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:{{ gradeCols }};gap:4px 20px;padding:14px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.5;align-items:baseline">
+            <span style="font-family:'EB Garamond',Georgia,serif;font-size:26px;color:#7d5f3f;line-height:1">{{ g.g }}</span>
+            <span style="font-family:'EB Garamond',Georgia,serif;font-size:18px">{{ g.label }}</span>
+            <span style="color:#6f6a62;text-wrap:pretty">{{ g.def }}</span>
+            <span style="font-size:13px;color:#6f6a62;text-align:right;white-space:nowrap">{{ g.n }} markets</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <h3 id="sigma-factors" style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:19px;margin:32px 0 8px">Six factors</h3>
+      <p style="margin:0 0 8px;max-width:60ch;font-size:14.5px;color:#6f6a62">Each grade is reached by scoring six factors from 1 to 5, where 5 is the least burden on a holder. For futures and listed routes, the scores describe the route, not the physical good.</p>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ factors }}" as="f" hint-placeholder-count="6">
+          <div style="display:grid;grid-template-columns:{{ factorCols }};gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:14.5px;line-height:1.5">
+            <span style="font-size:15px">{{ f.name }}</span>
+            <span style="color:#6f6a62">{{ f.asks }}</span>
+            <span style="color:#6f6a62"><span style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a8825a;margin-right:6px">Scores 5 when</span>{{ f.five }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:18px 0 0;max-width:60ch;font-size:14.5px;color:#6f6a62;text-wrap:pretty"><span style="color:#141412">Why intangible premium is a factor.</span> A premium can disappear without the asset changing: the carbon in a diamond is the same after lab-grown stones arrive, but the natural premium is not. A premium is set by sentiment, so independent valuation is harder and buyers can be scarce when a holder needs to sell. It concentrates fraud risk, because the larger the premium the greater the reward for faking provenance. And it often depends on others to sustain it, through category marketing, brand systems or a ceremonial market. The factor records that the holder carries that risk. It is not a judgement that the premium is wrong or will fall.</p>
+
+      <h3 id="sigma-rationale" style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:19px;margin:32px 0 8px">Rationale and status</h3>
+      <p style="margin:0 0 12px;max-width:60ch;text-wrap:pretty">The grade is a judgement across the six factors, not their average, and it is never combined with the four scales into a composite. Every grade carries a short written rationale on its market page: how the asset is valued, how a holder exits, what custody and title involve, and what the binding limit on access is. A rationale is held to the same evidence rules as any page: each factual claim is checked against a dated source, the sources are listed beneath it, and the date of the check is shown.</p>
+      <p style="margin:0;max-width:60ch;font-size:14.5px;color:#6f6a62;text-wrap:pretty"><span style="color:#141412">Status.</span> Σ grades, factor scores and rationales are provisional. They are reviewed at each refresh. A grade that changes carries a note of what changed and why.</p>
+    </div>
+  </section>
+
+  <!-- REFRESH -->
+  <section id="refresh" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6">
+    <div><h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">Refresh, correction and versioning</h2></div>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ refresh }}" as="r" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:{{ rowCols }};gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.5"><span>{{ r.name }}</span><span style="color:#6f6a62;text-wrap:pretty">{{ r.def }}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- GLOSSARY -->
+  <section id="glossary" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6">
+    <div><h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">Glossary</h2><div style="font-size:13px;color:#6f6a62;margin-top:6px">Terms used across the market pages</div></div>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ glossary }}" as="g" hint-placeholder-count="10">
+        <div style="display:grid;grid-template-columns:{{ rowCols }};gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:14.5px;line-height:1.5">
+          <span style="font-family:'EB Garamond',Georgia,serif;font-size:17px">{{ g.t }}</span>
+          <span><span style="color:#6f6a62">{{ g.d }}</span> <span style="display:inline-flex;flex-wrap:wrap;gap:4px 12px;margin-left:6px"><sc-for list="{{ g.links }}" as="s" hint-placeholder-count="1"><a href="{{ s.href }}" style="font-size:12.5px;color:#7d5f3f;border-bottom:1px solid #dcd4c6;white-space:nowrap" style-hover="border-color:#a8825a">{{ s.name }}</a></sc-for></span></span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- NOT -->
+  <section id="not" style="display:grid;grid-template-columns:{{ cols }};gap:16px 32px;padding:32px 0;border-top:1px solid #dcd4c6;border-bottom:1px solid #141412">
+    <h2 style="font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:0">What ΣΟΦΙΑ is not</h2>
+    <p style="margin:0;max-width:60ch;text-wrap:pretty">ΣΟΦΙΑ publishes market intelligence and data. It does not publish investment advice, does not accept payment for coverage, and does not carry advertising. Nothing on this site is a recommendation to buy, sell or hold anything, and no page carries a price target.</p>
+  </section>
+
+  <footer style="margin-top:48px;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><span>ΣΟΦΙΑ</span><span>Methodology v2.0 · page revised 5 Oct 2026</span></footer>
+
+  <div style="position:fixed;right:{{ ctlRight }};bottom:{{ ctlRight }};z-index:30;display:flex;flex-direction:column;gap:6px;opacity:{{ ctlOpacity }};pointer-events:{{ ctlPointer }};transition:opacity .2s">
+    <button type="button" onClick="{{ scrollUp }}" disabled="{{ atTop }}" aria-label="Previous section" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #dcd4c6;background:#faf7f0;color:#7d5f3f;font-family:'Inter',sans-serif;font-size:15px;line-height:1;cursor:pointer;padding:0;opacity:{{ atTopOpacity }}" style-hover="border-color:#a8825a;color:#141412">↑</button>
+    <button type="button" onClick="{{ scrollDown }}" disabled="{{ atBottom }}" aria-label="Next section" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #dcd4c6;background:#faf7f0;color:#7d5f3f;font-family:'Inter',sans-serif;font-size:15px;line-height:1;cursor:pointer;padding:0;opacity:{{ atBottomOpacity }}" style-hover="border-color:#a8825a;color:#141412">↓</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { narrow: false, scrollY: 0, atTop: true, atBottom: false };
+  componentDidMount() {
+    this._mq = window.matchMedia("(max-width: 760px)");
+    this._on = () => this.setState({ narrow: this._mq.matches });
+    this._on(); this._mq.addEventListener("change", this._on);
+    this._onScroll = () => {
+      const y = window.scrollY;
+      this.setState({ scrollY: y, atTop: y <= 8, atBottom: (window.innerHeight + y) >= document.body.scrollHeight - 4 });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    window.addEventListener("resize", this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    this._mq && this._mq.removeEventListener("change", this._on);
+    window.removeEventListener("scroll", this._onScroll);
+    window.removeEventListener("resize", this._onScroll);
+  }
+  sectionTops() {
+    const tops = [0];
+    document.querySelectorAll("section[id]").forEach(s => tops.push(s.getBoundingClientRect().top + window.scrollY - 16));
+    return tops.sort((a, b) => a - b);
+  }
+  scrollDir(dir) {
+    const y = window.scrollY, t = this.sectionTops();
+    let target = null;
+    if (dir > 0) { for (const v of t) { if (v > y + 8) { target = v; break; } } if (target === null) target = document.body.scrollHeight; }
+    else { for (let i = t.length - 1; i >= 0; i--) { if (t[i] < y - 8) { target = t[i]; break; } } if (target === null) target = 0; }
+    window.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+  }
+  renderVals() {
+    const nd = a => a.map(([name, def]) => ({ name, def }));
+    const toc = [["who","Who"],["sequence","The sequence"],["evidence","Evidence rules"],["tags","Tags"],["scales","Four scales"],["sigma","The Σ grade"],["refresh","Refresh"],["glossary","Glossary"],["not","What ΣΟΦΙΑ is not"]].map(([id,label]) => ({ href:"#"+id, label }));
+    const sequence = [["Supply","What exists, who has it, and what it costs to bring out"],["Demand","Who buys it, for what, and what they would substitute"],["Concentration","Where along the chain the power to set price actually sits"],["Liquidity","Whether a standard unit can be sold, to whom, at a knowable price"],["Scarcity","Whether supply can respond to price, and over what horizon"],["Provenance","Whether the thing is what the label says, and who verifies it"],["Price formation","How those six combine into the price a buyer pays"]].map(([q,d],i) => ({ n:i+1, q, d }));
+    const rules = nd([
+      ["Cited or absent","Every number on a page links to a source in the list beneath it, and every source in that list is used somewhere in the text. If a figure matters but no reliable source exists, the page says so and leaves it out rather than guess. Telling you what we don't know is still useful; a number with no source behind it isn't."],
+      ["No live prices","ΣΟΦΙΑ pages are static and would be wrong within days. Historical points appear with their dates and remain as history. Forecasts are recorded as a named house's view at the date made and are never quietly updated, because a forecast that was wrong is more informative than one silently corrected."],
+      ["Discrepancies shown","Where credible sources conflict, both figures are shown, the one used is stated with the reason, and the confidence is tagged. Silent reconciliation is not permitted. In several markets the disagreement is the finding: the World Platinum Investment Council's own 2025 platinum deficit moved from 966 koz to 692 koz to 1,082 koz across three quarterly reports, and a reader who sees only the final number learns less than one who sees the path."],
+      ["Inference marked","Cross-market parallels and ΣΟΦΙΑ's own reasoning are always tagged Hyp. They are never presented as facts about the world."]
+    ]);
+    const hierarchy = nd([["Preferred","Statistical agencies, regulators and central banks; trade bodies publishing their own data; company filings; peer-reviewed research"],["Used with attribution","Trade press reporting primary data; auction-house results"],["Marked, never headlined","Market-research vendor sizing, merchant price guides, industry-funded bodies where the funder has an interest in the conclusion"]]);
+    const confidence = [["High","#3f6b47","Primary or institutional source, checked against at least one independent statement"],["Med","#8a6a1c","Secondary report of primary data, or a single institutional source not independently confirmed"],["Low","#9b4a22","Vendor, retailer, advocacy or single trade source; shown for orientation, not for reliance"],["Hyp","#5a4b8a","ΣΟΦΙΑ's own inference or cross-market parallel; not a fact about the world"]].map(([tag,color,def]) => ({ tag, color, def }));
+    const labels = nd([["Reported","Stated by the cited source"],["Derived","Calculated by ΣΟΦΙΑ from reported figures; the calculation is shown"],["Estimate","An approximation, by the source or by ΣΟΦΙΑ, with its basis stated"],["Forecast","Forward-looking, recorded with its date and author"]]);
+    const scales = [
+      { id:"scale-a", letter:"A", name:"Supply concentration", def:"Where the power to set price sits, not where the material comes out of the ground. We rate whichever stage of the chain actually holds that power and say plainly which stage it is. Rare earths are rated on separation, not mining; cocoa on two marketing boards, not millions of farms; Port on the benefício and two family groups, not its 19,000 growers.", high:"Top three ≥ 75%, or one controller ≥ 50%", med:"Top three 50–74%", low:"Top three below 50%" },
+      { id:"scale-b", letter:"B", name:"Liquidity", def:"Whether a standard unit can be turned into money at a price the seller could have known in advance. Liquidity is rated for the market, not the moment. A whisky cask and a bottle of the same whisky rate differently, and the page says which is rated.", high:"Exchange or daily reference price; clears daily", med:"No exchange, but auction, index or dealer discovery within weeks", low:"Private, irregular or ceremonial sales; no reference price" },
+      { id:"scale-c", letter:"C", name:"Scarcity", def:"Whether supply can respond to price, and how quickly. Many of these markets have a scarce apex and an abundant base: wild white truffles against farmed black, Ōma bluefin against ranched. The page rates the apex and says so. Substitution pulls a rating toward Low regardless of what natural supply does.", high:"Fixed or falling; cannot expand within 5 years", med:"Responds with a 3–5 year lag", low:"Responds within 1–2 years, or a substitute exists at scale" },
+      { id:"scale-d", letter:"D", name:"Provenance risk", def:"The chance that origin, species, grade or lineage is misstated, weighed against the strength of the control that would catch it. A CITES caviar label, a Kimberley Process certificate and a phytosanitary certificate all attest that a document was issued; none attests that the tin, the parcel or the box holds what the document describes. A 2023 genetic study of 149 Lower-Danube caviar samples found 21% illegally wild-caught and 32% deceptive to the consumer, every one of them labelled.", high:"Mislabelling above 20% in studies, or no independent check", med:"Certification exists but is voluntary or cannot detect substitution", low:"Mandatory, independent, forensic control at point of trade" }
+    ];
+    const grades = [["Σ1","Institutional","Independent daily valuation, exit within days at low cost, standard custody, established institutional vehicles",3],["Σ2","Accessible","Regular price discovery and an established route to exposure, with one material limit on custody, cost or access",5],["Σ3","Specialist","Valued by expert appraisal, exit over months through auction or dealers, material transaction and custody costs",11],["Σ4","Restricted","Valuation contested, exit uncertain, heavy authentication, title or transfer burdens",10],["Σ5","No route","The good cannot be held and no practical route to exposure has been identified",2]].map(([g,label,def,n]) => ({ g, label, def, n }));
+    const factors = [["Valuation","How independently and how often the asset is priced","an independent benchmark is set at least daily"],["Exit","How quickly, and at what cost, a holder can sell","a standard unit sells within days at a small spread"],["Custody","What storing and insuring the asset requires","standard vaulting or account custody; no decay"],["Title and transfer","How cleanly ownership is proven and passed on","ownership is registered or standardised and moves without re-authentication"],["Access","Whether an investor can buy at all, and through which route","open to any investor through regulated vehicles, without sanctions, licences or allocation"],["Intangible premium","How much of the price rests on brand, story, provenance or rarity narrative","the price is almost entirely the physical good, set by industrial or monetary demand"]].map(([name,asks,five]) => ({ name, asks, five }));
+    const refresh = nd([["Data as of","Every page carries the date its figures were compiled. Nothing on a page is presented as current beyond that date."],["Refresh","A refresh re-verifies figures against current primary sources, updates what has changed with new dates, retains the history, and logs corrections in the relevant source entry. Design and structure are not altered in a refresh."],["Ratings","Snapshot bands and Σ grades are reviewed at refresh, not between refreshes. A rating that changes carries a note of what changed and why."],["Corrections","Errors are corrected on the page and noted in the source entry, not removed."]]);
+    const G = [["Bag (60 kg)","The standard trading unit for green coffee, fixed at 60 kilograms regardless of origin.",[["Coffee","coffee"]]],["Bailment","A legal arrangement where one party holds another's property (such as a whisky cask in a warehouse) without owning it; distinct from a financial security and outside financial regulation.",[["Scotch Whisky","scotch-whisky"]]],["Barrel (bbl)","The standard unit for trading crude oil, about 159 litres.",[["Oil & Gas","oil-gas"]]],["Benefício","Port's annual quota: the volume of must the Douro's growers may fortify into Port rather than sell as ordinary wine, set each year by the IVDP.",[["Port","port"]]],["Carat (ct)","The unit of weight for gemstones and pearls, 0.2 grams; not to be confused with karat, which measures gold purity.",[["Natural Diamonds","natural-diamonds"],["Coloured Gemstones","coloured-gemstones"],["Pearls","pearls"]]],["CITES permit","A permit under the Convention on International Trade in Endangered Species, required to export or import regulated wildlife products; it certifies the document, not the contents.",[["Caviar","caviar"],["Oud","oud"]]],["Deficit / surplus","Whether a market's supply falls short of or exceeds demand in a given period.",[["Copper","copper"],["Platinum Group Metals","pgm"]]],["Doré","Unrefined gold-silver bullion straight from a mine, still needing refining before it can be sold as investment-grade metal.",[["Gold","gold"],["Silver","silver"]]],["En primeur","Wine sold before it is bottled, while still ageing in barrel; standard practice for young Bordeaux.",[["Fine Wine","fine-wine"]]],["Good delivery bar","A gold or silver bar meeting the LBMA's standard for weight, purity and refiner accreditation; the form that trades and settles on the London market.",[["Gold","gold"],["Silver","silver"]]],["Grading authority","A body that formally assesses and certifies a physical good's quality, giving buyers a shared, checkable standard.",[["Coloured Gemstones","coloured-gemstones"],["Natural Diamonds","natural-diamonds"]]],["Hogshead","A cask of roughly 225 litres, the standard size for maturing and trading Scotch whisky by the cask.",[["Scotch Whisky","scotch-whisky"]]],["Karat (K)","A measure of gold purity out of 24 parts; 24K is pure gold, 18K is 75% gold.",[["Gold","gold"]]],["Kimberley Process certificate","The international scheme certifying a diamond parcel's export paperwork; it attests the paperwork was issued correctly, not that the stones inside match it.",[["Natural Diamonds","natural-diamonds"]]],["Koz / kt","Thousand troy ounces / thousand metric tonnes, the standard units for metal supply, demand and deficits.",[["Gold","gold"],["Platinum Group Metals","pgm"],["Copper","copper"]]],["Marketing board","A state or quasi-state body that buys a crop from farmers at a set price and controls its export.",[["Cocoa","cocoa"]]],["Momme","The traditional Japanese unit for pearl size, based on weight; still used alongside millimetre diameter in grading.",[["Pearls","pearls"]]],["Pipe","Port's traditional cask and trading unit, 550 litres; the benefício is measured in pipes.",[["Port","port"]]],["Sight / sightholder","De Beers' rough-diamond distribution system: a fixed group of buyers receive pre-set boxes of rough at pre-set prices, several times a year.",[["Natural Diamonds","natural-diamonds"]]],["Spare capacity","Production a supplier could bring online quickly if needed; large spare capacity caps how far a shortage can push price.",[["Oil & Gas","oil-gas"]]],["Troy ounce (oz t)","The standard weight unit for precious metals, about 31.1 grams; heavier than the everyday ounce.",[["Gold","gold"],["Silver","silver"],["Platinum Group Metals","pgm"]]]];
+    const glossary = G.map(([t,d,links]) => ({ t, d, links: links.map(([name,slug]) => ({ name, href:"/"+slug+"-dashboard" })) }));
+    const n = this.state.narrow;
+    const on = this.state.scrollY > 260;
+    return { toc, sequence, rules, hierarchy, confidence, labels, scales, grades, factors, refresh, glossary,
+      ctlOpacity: on ? 1 : 0, ctlPointer: on ? "auto" : "none", ctlRight: n ? "14px" : "20px",
+      atTop: this.state.atTop, atBottom: this.state.atBottom,
+      atTopOpacity: this.state.atTop ? 0.32 : 1, atBottomOpacity: this.state.atBottom ? 0.32 : 1,
+      scrollUp: () => this.scrollDir(-1), scrollDown: () => this.scrollDir(1),
+      cols: n ? "1fr" : "200px minmax(0,1fr)", rowCols: n ? "1fr" : "180px 1fr", rowCols3: n ? "24px 1fr" : "24px 150px 1fr",
+      bandCols: n ? "1fr" : "repeat(3,minmax(0,1fr))", gradeCols: n ? "48px 1fr" : "48px 130px 1fr auto", factorCols: n ? "1fr" : "150px 1fr 1fr" };
+  }
+}
+</script>
+</body>
+</html>
