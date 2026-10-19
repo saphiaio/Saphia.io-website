@@ -11,6 +11,17 @@
 /ratings  /markets  301
 /art-dashboard  /art_dashboard.html  200
 /old-masters-dashboard  /old_masters_dashboard.html  200
+/rare-books-dashboard  /rare_books_dashboard.html  200
+/signed-jewellery-dashboard  /signed_jewellery_dashboard.html  200
+/jade-dashboard  /jade_dashboard.html  200
+/stamps-dashboard  /stamps_dashboard.html  200
+/coins-dashboard  /coins_dashboard.html  200
+/handbags-dashboard  /handbags_dashboard.html  200
+/parmigiano-dashboard  /parmigiano_dashboard.html  200
+/parmigiano-reggiano-dashboard  /parmigiano-dashboard  301
+/fossils-dashboard  /fossils_dashboard.html  200
+/fossils-meteorites-dashboard  /fossils-dashboard  301
+/uranium-dashboard  /uranium_dashboard.html  200
 /bluefin-tuna-dashboard  /bluefin_tuna_dashboard.html  200
 /caviar-dashboard  /caviar_dashboard.html  200
 /cigars-dashboard  /cigars_dashboard.html  200

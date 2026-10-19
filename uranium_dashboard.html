@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uranium, ΣΟΦΙΑ</title>
+<meta name="description" content="Uranium: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--sans);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents .sector-tag{display:none;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
+  .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--sans);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--sans);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--sans);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--sans);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--sans);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--sans);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.frame .v{font-family:var(--display);font-size:44px;line-height:1}
+.frame .l{font-size:13px;color:#6f6a62;margin-top:8px}
+.labels .v{font-family:var(--sans);font-size:19px;font-weight:600}
+.labels .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--sans);white-space:nowrap}
+.bars{margin:14px 0 26px;font-family:var(--sans);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#faf7f0;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:#141412}
+.bars .v{text-align:right}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;padding:14px 16px;border-top:2px solid #141412}
+.card .v{font-family:var(--sans);font-size:22px;font-weight:600}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:100px 1fr 100px}
+}.src-toggle{cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+
+/* ===== redesign v3 ===== */
+.mast .in{padding:20px 32px}.mast ul{gap:28px}.mark small{display:none}.mark{font-size:26px}
+.eyebrow{letter-spacing:.12em;font-size:11px}th{letter-spacing:.06em;font-size:11px}
+.c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
+.contents .sector-tag{letter-spacing:.08em}
+.brief{padding:64px 0 0}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
+.brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
+.brief h1{font-size:72px;line-height:1;margin:8px 0 0}
+.grade{text-align:right;padding-bottom:6px}
+.grade .g{font-family:var(--display);font-size:36px;color:var(--bronze-lo);line-height:1}
+.grade .n{font-family:var(--display);font-size:22px;margin-left:12px}
+.grade .m{font-size:12.5px;color:var(--mute);margin-top:4px}
+.regime{font-family:var(--display);font-size:24px;line-height:1.4;max-width:40ch;margin:32px 0 0;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 40px;margin-top:40px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.facts>div{min-width:0}
+.facts .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.facts .s{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px}
+.facts .s span:nth-child(odd){color:var(--mute)}
+.brief h2{font-size:24px;margin:44px 0 12px}
+.since{font-size:16.5px;line-height:1.6;max-width:62ch;margin:0}
+.why{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:start}
+.why p{font-size:16px;line-height:1.6;max-width:52ch;margin:0}
+.why .note-r{font-size:13px;color:var(--mute);margin-top:14px}
+.factors{display:flex;flex-direction:column;gap:8px}
+.factors>div{display:grid;grid-template-columns:1fr 70px;align-items:center;gap:12px;font-size:13.5px}
+.factors span{display:flex;gap:3px}
+.factors i{flex:1;height:5px;background:var(--line)}
+.factors i.on{background:var(--bronze-lo)}
+.report{margin-top:56px;border-top:1px solid var(--ink)}
+.report>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:24px}
+.report>summary::-webkit-details-marker{display:none}
+.report>summary small{font-family:var(--sans);font-size:13px;color:var(--mute)}
+.report>summary .cl{display:none}.report[open]>summary .op{display:none}.report[open]>summary .cl{display:inline}
+.report .intro{font-size:18px;color:var(--mute);max-width:66ch;margin:28px 0 0;line-height:1.55}
+.report .figures{margin-top:28px}
+.toc-lite{display:flex;flex-direction:column;font-size:15px}
+.toc-lite a{display:grid;grid-template-columns:36px 1fr;padding:11px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.toc-lite a span{color:var(--bronze)}
+.report[open]~.toc-lite{display:none}
+.ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
+.sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
+.sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
+@media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="/home">ΣΟΦΙΑ</a>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Metals, Energy &amp; Strategic Materials</a></div>
+  <div class="brief-head">
+    <h1>Uranium</h1>
+    <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: physical trust (U3O8 in licensed storage) · 19 Oct 2026</div></div>
+  </div>
+  <p class="regime">Spot has sat at $89–90/lb for three weeks while the long-term contract price holds at $97, its highest since 2007; the physical trust trades at a 13% discount to the uranium it holds.</p>
+  <div class="facts">
+    <div><div class="k">Origins</div>Kazakhstan (c. 40% of mine supply) · Canada · Namibia · Australia · Uzbekistan · Russia (conversion and enrichment)</div>
+    <div><div class="k">Principal markets</div>No exchange; private contracts between utilities, producers and traders, with prices published by UxC and TradeTech; Sprott Physical Uranium Trust (Toronto); Yellow Cake (London); CME futures (thin)</div>
+    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High; Kazatomprom and Cameco; Russia in enrichment</span><span>Liquidity</span><span>Medium; spot thin, term deep</span><span>Scarcity</span><span>Medium; new mines 7–10 years out</span><span>Provenance risk</span><span>Low; licensed custody and material accounting</span></div></div>
+  </div>
+  <h2>Since last update</h2>
+  <p class="since">First entry. Spot $89.90/lb on 17 Oct 2026; TradeTech long-term $97/lb since June, the highest since July 2007; SPUT 81.7 m lb, NAV $21.61, unit price $18.81, a 12.95% discount. Cameco's first-half Canadian production fell 5% on Saskatchewan flooding; Paladin's Langer Heinrich output fell 19% quarter on quarter.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
+  <h2>Why Σ2</h2>
+  <div class="why">
+    <div><p>An individual cannot hold uranium: it is licensed material, stored only at converters' facilities in Canada, France and the United States. But a listed closed-end trust holds 82 million pounds there and prices it daily, so exposure is a brokerage trade with full transparency on what is owned. The grade stops at Σ2 because the trust's unit can trade 10–15% away from the metal it holds, because the published spot price is a consultants' estimate from a thin market, and because the material is subject to export control and, for Russian-origin supply, sanction.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div></div>
+  </div>
+</div>
+
+<details class="report" id="report">
+  <summary>Full report <small>6 sections · 9 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">The only energy commodity whose buyers are a few hundred reactor operators, whose sellers are two companies and a dozen smaller ones, and whose price is not set on any exchange. Uranium does not trade openly; utilities and producers sign private contracts, two consultancies infer a price from what they are told, and a Toronto trust that buys physical pounds has since 2021 been the marginal buyer in the spot market. This page covers the two-price system, supply concentration, the demand case and the contracting cycle, the routes to exposure and what each actually holds, and what to watch. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">$89.90/lb</div><div class="l">Spot U3O8, 17 Oct 2026; range $83–90 since a January spike to $101 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">$97/lb</div><div class="l">TradeTech long-term indicator, unchanged since Jun 2026; highest since Jul 2007<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">81.7 m lb</div><div class="l">U3O8 held by Sprott Physical Uranium Trust, 16 Oct 2026; $7.35 bn; units at a 12.95% discount to NAV<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">−46%</div><div class="l">Spot-market volume since 2021 (102 m lb → 55 m lb) while term contracting rose 62% to 116 m lb<sup class="r"><a href="#s3">3</a></sup></div></div></div>
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <p class="sector-tag">URANIUM</p>
+  <ol><li><a href="#s-i"><span>I</span>Two prices, one of them real</a></li><li><a href="#s-ii"><span>II</span>Supply: five countries, two companies</a></li><li><a href="#s-iii"><span>III</span>Demand and the contracting cycle</a></li><li><a href="#s-iv"><span>IV</span>Routes to exposure</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead tint"><h2><em>I</em>Two prices, one of them real</h2><p class="sub">The headline is the spot price; reactors are fuelled on the term price.</p></div>
+  <p>Uranium has no exchange. UxC and TradeTech publish month-end spot and long-term indicators derived from the transactions reported to them; Cameco republishes the industry average. Spot covers the discretionary, near-term slice of the market, around 55 m lb a year and falling; long-term contracts, 116 m lb in 2025 and rising, are how utilities actually buy, at prices with floors and ceilings that escalate over years. In 2026 the term indicator rose every month to $97/lb while spot posted three down months and settled near $90.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Date</th><th class="n">Spot</th><th class="n">Long-term</th><th>Note</th></tr>
+    <tr><td>Oct 2022</td><td class="n">$52.28</td><td class="n">$51.00</td><td>Cameco industry averages<sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Oct 2023</td><td class="n">$74.38</td><td class="n">$64.00</td><td><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Oct 2024</td><td class="n">$80.50</td><td class="n">$81.50</td><td><sup class="r"><a href="#s4">4</a></sup></td></tr>
+    <tr><td>Oct 2025</td><td class="n">$80.00</td><td class="n">$85.00</td><td>Spot dipped to $77 in a quiet month<sup class="r"><a href="#s4">4</a></sup><sup class="r"><a href="#s5">5</a></sup></td></tr>
+    <tr><td>Dec 2025</td><td class="n">$81.55</td><td class="n">–</td><td>+12% on the year<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>Jan 2026</td><td class="n">$101 (brief)</td><td class="n">–</td><td>Spike and retreat<sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Oct 2026</td><td class="n">$89.90</td><td class="n">$97.00</td><td>Term at an 18-year high<sup class="r"><a href="#s1">1</a></sup></td></tr>
+  </table></div>
+  <div class="note">The spot market is thin enough that one buyer moves it. Sprott's 2.3 m lb purchase at the end of September 2025 took spot to a fifteen-month high; its 8.67 m lb of buying in 2025 was nearly three times 2024. When the trust trades at a discount it cannot issue units and stops buying, and spot drifts. The headline price is partly a measure of fund flows. <span class="c c-h">High</span><sup class="r"><a href="#s5">5</a></sup><sup class="r"><a href="#s6">6</a></sup></div>
+</section>
+<section id="s-ii">
+  <div class="sechead tint"><h2><em>II</em>Supply: five countries, two companies</h2><p class="sub">Mining is concentrated; conversion and enrichment are more so.</p></div>
+  <div class="tw"><table>
+    <tr><th>Stage</th><th>Who</th><th>Note</th></tr>
+    <tr><td>Mining</td><td>Kazatomprom (Kazakhstan, c. 40% of world output, in-situ leach); Cameco (Canada: McArthur River, Cigar Lake; 19.5–21.5 m lb guided for 2026); Orano, CGN, Uranium One, Paladin, BHP Olympic Dam</td><td>Cameco H1 2026 production −5% on Saskatchewan flooding; Langer Heinrich Q3 −19% q/q; Kazatomprom's acid supply and JV allocations constrain its Inkai deliveries<sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Conversion (U3O8 → UF6)</td><td>Cameco (Port Hope), Orano (France), ConverDyn (US), Rosatom</td><td>Four plants worldwide; the physical trusts' uranium is stored here</td></tr>
+    <tr><td>Enrichment</td><td>Rosatom (c. 40% of capacity), Urenco, Orano, CNNC</td><td>US ban on Russian enriched uranium imports from 2028 (waivers to then); the Western bottleneck</td></tr>
+    <tr><td>Secondary supply</td><td>Government stockpiles, underfeeding, reprocessed material</td><td>Shrinking; was a quarter of supply in the 2010s</td></tr>
+  </table></div>
+  <p>New mines take seven to ten years from decision to first production, and the price collapse of 2011–20 stopped most development. Supply responds, but on a timetable longer than any contract cycle, which is why the term price has risen without pause while spot stalls. <span class="c c-m">Med</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead tint"><h2><em>III</em>Demand and the contracting cycle</h2><p class="sub">Reactors are inelastic buyers; the question is when they sign.</p></div>
+  <p>Nuclear fuel is a small share of a reactor's cost, so utilities do not cut consumption when the price rises; they delay signing. The World Nuclear Association projects demand up 28% by 2030 on life extensions, restarts (Japan, Palisades, Three Mile Island 1) and new builds in China, India and the Gulf; data-centre power agreements have added a buyer class that did not exist in 2022. Contracting volumes recovered from 2023, and Sprott's 2026 outlook calls the cycle "re-accelerating" on policy clarity.<sup class="r"><a href="#s5">5</a></sup><sup class="r"><a href="#s8">8</a></sup> <span class="c c-m">Med</span></p>
+  <div class="cards">
+    <div class="card"><div class="v">+28%</div><div class="l">Projected uranium demand growth to 2030, World Nuclear Association <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
+    <div class="card"><div class="v">116 m lb</div><div class="l">Long-term contracting 2025, +62% since 2021 <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div class="card"><div class="v">2028</div><div class="l">US ban on Russian enriched uranium takes full effect <span class="c c-h">High</span></div></div>
+  </div>
+</section>
+<section id="s-iv">
+  <div class="sechead tint"><h2><em>IV</em>Routes to exposure</h2><p class="sub">Nobody holds yellowcake at home; the question is which paper holds it for you.</p></div>
+  <div class="tw"><table>
+    <tr><th>Route</th><th>What you own</th><th>Limit</th></tr>
+    <tr><td>Sprott Physical Uranium Trust (TSX: U.U / U.UN)</td><td>A unit of a closed-end trust holding 81.7 m lb of U3O8 at licensed converters; NAV published daily</td><td>Units trade at a premium or discount to NAV: −12.95% on 16 Oct 2026; the trust buys only at a premium and never sells, so the discount can persist<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Yellow Cake plc (LSE: YCA)</td><td>Physical U3O8 bought from Kazatomprom under a long-term option</td><td>Same discount dynamic; London-listed</td></tr>
+    <tr><td>Producers: Cameco, Kazatomprom GDRs, Paladin, NexGen</td><td>Equity in a miner</td><td>Operational, political and hedging risk; Cameco's contract book caps its upside; Kazatomprom is 75% state-owned</td></tr>
+    <tr><td>ETFs: URA, URNM, URNJ</td><td>Baskets of miners plus a SPUT holding (URA 7.7% SPUT, 23% Cameco)</td><td>Equity beta, not metal<sup class="r"><a href="#s9">9</a></sup></td></tr>
+    <tr><td>CME UxC futures</td><td>Cash-settled contract on the UxC spot indicator</td><td>Thin; no delivery</td></tr>
+    <tr><td>Direct holding</td><td>Not available to individuals; licensed facilities only</td><td>The reason the route, not the metal, is graded</td></tr>
+  </table></div>
+  <div class="note">Parallel to gold ETFs: a trust holding allocated metal in a vault, priced daily. The difference is the discount. A gold ETF arbitrages to NAV because authorised participants can redeem for bars; SPUT has no redemption mechanism, so a 13% gap between the unit and the uranium can sit open for months. The Σ2 grade is for the trust; the metal itself would be Σ5. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-v">
+  <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
+    <tr><td>Spot and long-term indicators</td><td>UxC, TradeTech, weekly and month-end; Cameco republishes</td><td>The two prices; the term price is the one that matters</td></tr>
+    <tr><td>SPUT holdings, NAV and premium/discount</td><td>Sprott, daily</td><td>Whether the marginal spot buyer is active</td></tr>
+    <tr><td>Term contracting volume</td><td>UxC annual; Cameco disclosure</td><td>The utility cycle</td></tr>
+    <tr><td>Kazatomprom and Cameco production guidance</td><td>Quarterly reports</td><td>Primary supply; disruptions at Inkai, McArthur River, Cigar Lake</td></tr>
+    <tr><td>Russian enrichment waivers and sanctions</td><td>US DOE; EU</td><td>The Western fuel bottleneck</td></tr>
+    <tr><td>Reactor restarts, extensions, new-build FIDs and data-centre PPAs</td><td>WNA, IAEA PRIS, utility announcements</td><td>Demand beyond the base case</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
+  <details><summary class="src-toggle">Show 9 sources</summary><ol class="src">
+    <li id="s1"><b>Uranium Unleashed</b>, "The Long-Term Price Hits an 18-Year High", 18 Oct 2026, citing FNArena, TradeTech and Sprott: spot $89.90/lb; long-term $97 since June, highest since Jul 2007; SPUT 81,697,348 lb, NAV $21.61, price $18.81, −12.95%; Langer Heinrich 1.00 m lb Q3. <a href="https://uraniumunleashed.substack.com/p/the-long-term-price-hits-an-18-year" target="_blank">substack.com</a> <span class="c c-m">Med</span></li>
+    <li id="s2"><b>Investing News Network</b>, "Uranium Price Trends: Q3 2026 Review and Forecast", Oct 2026: Q3 high $90.49 (27 Aug); September close $89.50; January spike to $101; $83–90 range; Cameco H1 10.1 m lb (−5%), Key Lake flooding; SPUT 10–12% discount. <a href="https://investingnews.com/uranium-forecast/" target="_blank">investingnews.com</a></li>
+    <li id="s3"><b>The Traders Spread</b>, "Uranium Price Prediction", 28 Aug 2026, citing Cameco/UxC disclosure: spot volume 102.41 m lb (2021) → 55.3 m lb; term contracting +61.6% to 116 m lb; term +7.3% in 2026 with no down month; Cameco 2026 guidance 19.5–21.5 m lb; JV Inkai 10.4 m lb. <a href="https://thetradersspread.com/commodities/uranium-price-prediction-118-bull-68-bear" target="_blank">thetradersspread.com</a> <span class="c c-m">Med</span></li>
+    <li id="s4"><b>Cameco</b>, "Uranium Price": industry-average spot and long-term tables, October values 2022–25; "Uranium does not trade on an open market." <a href="https://www.cameco.com/invest/markets/uranium-price" target="_blank">cameco.com</a></li>
+    <li id="s5"><b>Trading Economics</b>, "Uranium Drops to 1-Month Low", 21 Oct 2025: $77/lb; Sprott 2.3 m lb purchase end-September; Yellow Cake $125 m raise; WNA +28% demand to 2030; Cameco McArthur guidance cut. <a href="https://tradingeconomics.com/commodity/uranium/news/494840" target="_blank">tradingeconomics.com</a></li>
+    <li id="s6"><b>Mining.com</b>, "Sprott kicks off new year with 100,000-lb uranium buy", Jan 2026: holdings 74.9 m lb; 2025 purchases 8.67 m lb v. 3.06 m lb (2024); spot $81.55 year-end, +12%. <a href="https://www.mining.com/sprott-kicks-off-year-with-100000-lb-uranium-buy/" target="_blank">mining.com</a></li>
+    <li id="s7"><b>Kazatomprom</b> and <b>Cameco</b> quarterly reports, 2026: production shares and guidance. Company filings; Kazakhstan's c. 40% share from WNA.</li>
+    <li id="s8"><b>NucNet</b>, "In Bullish Uranium Outlook, Sprott Points to Policy Certainty and Tight Supply", 19 Jan 2026: spot +11.43% in 2025; "re-accelerating contracting cycle". <a href="https://www.nucnet.org/news/in-bullish-uranium-outlook-sprott-points-to-policy-certainty-and-tight-supply-1-1-2026" target="_blank">nucnet.org</a></li>
+    <li id="s9"><b>Global X</b>, URA holdings, 16 Oct 2026: Cameco 23.18%; SPUT 7.68% at $18.79. <a href="https://www.globalxetfs.com/funds/ura" target="_blank">globalxetfs.com</a></li>
+  </ol></details>
+</section>
+
+</details>
+<div class="toc-lite"><a href="#s-i"><span>I</span>Two prices, one of them real</a><a href="#s-ii"><span>II</span>Supply: five countries, two companies</a><a href="#s-iii"><span>III</span>Demand and the contracting cycle</a><a href="#s-iv"><span>IV</span>Routes to exposure</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <a href="/advisers">For advisers and institutions</a>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  var r=document.getElementById('report'); if(!r) return;
+  function openFor(hash){ if(!hash) return; var el=document.querySelector(hash); if(el && r.contains(el)){ r.open=true; } }
+  openFor(location.hash);
+  window.addEventListener('hashchange',function(){openFor(location.hash)});
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+</body>
+</html>

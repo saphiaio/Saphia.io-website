@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handbags, ΣΟΦΙΑ</title>
+<meta name="description" content="Handbags: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--sans);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents .sector-tag{display:none;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
+  .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--sans);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--sans);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--sans);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--sans);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--sans);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--sans);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.frame .v{font-family:var(--display);font-size:44px;line-height:1}
+.frame .l{font-size:13px;color:#6f6a62;margin-top:8px}
+.labels .v{font-family:var(--sans);font-size:19px;font-weight:600}
+.labels .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--sans);white-space:nowrap}
+.bars{margin:14px 0 26px;font-family:var(--sans);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#faf7f0;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:#141412}
+.bars .v{text-align:right}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;padding:14px 16px;border-top:2px solid #141412}
+.card .v{font-family:var(--sans);font-size:22px;font-weight:600}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:100px 1fr 100px}
+}.src-toggle{cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+
+/* ===== redesign v3 ===== */
+.mast .in{padding:20px 32px}.mast ul{gap:28px}.mark small{display:none}.mark{font-size:26px}
+.eyebrow{letter-spacing:.12em;font-size:11px}th{letter-spacing:.06em;font-size:11px}
+.c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
+.contents .sector-tag{letter-spacing:.08em}
+.brief{padding:64px 0 0}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
+.brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
+.brief h1{font-size:72px;line-height:1;margin:8px 0 0}
+.grade{text-align:right;padding-bottom:6px}
+.grade .g{font-family:var(--display);font-size:36px;color:var(--bronze-lo);line-height:1}
+.grade .n{font-family:var(--display);font-size:22px;margin-left:12px}
+.grade .m{font-size:12.5px;color:var(--mute);margin-top:4px}
+.regime{font-family:var(--display);font-size:24px;line-height:1.4;max-width:40ch;margin:32px 0 0;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 40px;margin-top:40px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.facts>div{min-width:0}
+.facts .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.facts .s{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px}
+.facts .s span:nth-child(odd){color:var(--mute)}
+.brief h2{font-size:24px;margin:44px 0 12px}
+.since{font-size:16.5px;line-height:1.6;max-width:62ch;margin:0}
+.why{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:start}
+.why p{font-size:16px;line-height:1.6;max-width:52ch;margin:0}
+.why .note-r{font-size:13px;color:var(--mute);margin-top:14px}
+.factors{display:flex;flex-direction:column;gap:8px}
+.factors>div{display:grid;grid-template-columns:1fr 70px;align-items:center;gap:12px;font-size:13.5px}
+.factors span{display:flex;gap:3px}
+.factors i{flex:1;height:5px;background:var(--line)}
+.factors i.on{background:var(--bronze-lo)}
+.report{margin-top:56px;border-top:1px solid var(--ink)}
+.report>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:24px}
+.report>summary::-webkit-details-marker{display:none}
+.report>summary small{font-family:var(--sans);font-size:13px;color:var(--mute)}
+.report>summary .cl{display:none}.report[open]>summary .op{display:none}.report[open]>summary .cl{display:inline}
+.report .intro{font-size:18px;color:var(--mute);max-width:66ch;margin:28px 0 0;line-height:1.55}
+.report .figures{margin-top:28px}
+.toc-lite{display:flex;flex-direction:column;font-size:15px}
+.toc-lite a{display:grid;grid-template-columns:36px 1fr;padding:11px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.toc-lite a span{color:var(--bronze)}
+.report[open]~.toc-lite{display:none}
+.ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
+.sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
+.sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
+@media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="/home">ΣΟΦΙΑ</a>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Cellar &amp; Collectibles</a></div>
+  <div class="brief-head">
+    <h1>Handbags</h1>
+    <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Hermès Birkin and Kelly, secondary market · 19 Oct 2026</div></div>
+  </div>
+  <p class="regime">The top is detaching from the middle: the original Birkin made $10.1 m and Sotheby's bag sales rose 44% in 2025, while the average Birkin's premium to retail has fallen from 2.2× to 1.4× as pandemic buyers sell into a flooded resale market.</p>
+  <div class="facts">
+    <div><div class="k">Origins</div>Hermès, Paris (Birkin 1984, Kelly 1956, Constance); Chanel (Classic Flap, 2.55) a distant second; everything else trades below retail</div>
+    <div><div class="k">Principal markets</div>Paris, New York, Hong Kong (Sotheby's, Christie's) · Japan (Valuence, Brand Off) · resale platforms (Fashionphile, Rebag, Vestiaire, The RealReal, Saclàb)</div>
+    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High; one house controls new supply by allocation</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Low; artificial, by allocation</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <h2>Since last update</h2>
+  <p class="since">First entry. The Jane Birkin prototype, €8.58 m at Sotheby's Paris on 10 July 2025, set the handbag record by a factor of twenty; a second Birkin-owned bag made $2.9 m in December against a $440,000 high estimate. Sotheby's reports Birkin and Kelly sales up 44% in 2025; Bernstein and Saclàb data show the average premium falling and mid-2026 average resale at €16,290.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
+  <h2>Why Σ3</h2>
+  <div class="why">
+    <div><p>A quota Birkin or Kelly in a liquid configuration has a readier market than almost any collectible: dealers and platforms quote buy prices, Sotheby's runs continuous online sales, and a store-fresh bag clears in weeks. The grade stops at Σ3 because everything that makes the market work is controlled by one company, Hermès, which sets retail prices, decides who may buy, and has no obligation to keep the premium alive; because the premium itself is narrowing; and because the bags are the most counterfeited luxury object on earth.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div></div>
+  </div>
+</div>
+
+<details class="report" id="report">
+  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">The only consumer product that routinely resells above its retail price, and the clearest example on this site of scarcity created by allocation rather than by nature. Hermès makes as many Birkins as it chooses, sells them only to clients it chooses, and the difference between the boutique price and the price a stranger will pay is the market. This page covers how the allocation works, the size and current state of the resale market, the record book, authentication and condition, and what to watch. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">€8.58 m</div><div class="l">The original Birkin (1985), Sotheby's Paris, 10 Jul 2025; $10.1 m; record for any handbag <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">+44%</div><div class="l">Sotheby's Birkin and Kelly sales 2025 v. 2024; average prices up c. 35%; c. $160 m sold since 2021<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">1.4×</div><div class="l">Average Birkin auction premium to retail, late 2025, from 2.2× in 2022 (Bernstein)<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">€16,290</div><div class="l">Average resale of regular-leather Birkin and Kelly, mid-2026, Saclàb Clochette Monitor<sup class="r"><a href="#s3">3</a></sup></div></div></div>
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <p class="sector-tag">HANDBAGS</p>
+  <ol><li><a href="#s-i"><span>I</span>One house, one allocation system</a></li><li><a href="#s-ii"><span>II</span>Size and the 2025–26 cycle</a></li><li><a href="#s-iii"><span>III</span>The record book</a></li><li><a href="#s-iv"><span>IV</span>Authentication and condition</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead tint"><h2><em>I</em>One house, one allocation system</h2><p class="sub">Hermès does not sell a Birkin to a walk-in customer; that is the whole market.</p></div>
+  <p>Hermès produces Birkins and Kellys in its own French workshops, one artisan per bag, and offers them to clients through the boutique at the sales associate's discretion. In practice a "quota bag" (one or two a year per client) follows a history of purchases in other categories, the "pre-spend"; the practice is the subject of a 2024 US class action alleging tying. The result is a retail price well below what the market will pay, and a resale premium that is the difference. Hermès raises retail prices annually, which lifts the resale floor beneath every bag already sold.<sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Tier</th><th>What it is</th><th>Resale position</th></tr>
+    <tr><td>Historic and celebrity pieces</td><td>The original Birkin; bags owned by Jane Birkin, Grace Kelly</td><td>Art-market prices; one or two buyers; unrepeatable<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Exotic and special order</td><td>Himalaya crocodile, diamond hardware, Horseshoe Stamp special orders, Faubourg and Sellier limited pieces</td><td>$100,000–500,000; the previous record ($513,000) was a diamond Himalaya Kelly<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Quota bags, liquid configurations</td><td>Birkin 25/30, Kelly 25/28, Togo or Epsom, black, gold, étoupe; store-fresh</td><td>$28,000–30,000 for a pristine Togo B25; 1.3–2× retail; Kelly Pochette c. 4.5×<sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></td></tr>
+    <tr><td>Quota bags, other</td><td>Larger sizes, unusual colours, used condition</td><td>Near or below retail; the segment where the premium has gone</td></tr>
+    <tr><td>Chanel Classic Flap</td><td>The only other bag with a consistent resale market</td><td>Holds near retail after Chanel's own price rises; rarely above</td></tr>
+    <tr><td>All other houses</td><td>Louis Vuitton, Dior, Gucci, Bottega</td><td>30–70% below retail at resale; consumption, not an asset</td></tr>
+  </table></div>
+</section>
+<section id="s-ii">
+  <div class="sechead tint"><h2><em>II</em>Size and the 2025–26 cycle</h2><p class="sub">The curated top and the average are telling different stories.</p></div>
+  <p>Sotheby's, the venue that sold the original Birkin, reports Birkin and Kelly sales up 44% in 2025 and 55% since 2023, with average selling prices up around 35% in a year and nearly $160 m sold since 2021. Bernstein's measure across all auction Birkins shows the average premium to retail falling from 2.2× in 2022 to about 1.4× in late 2025. Both are right: the auction house measures store-fresh quota bags in liquid configurations; the analyst measures everything, in a secondary market with more supply than at any time as 2021–22 buyers sell and platforms multiply. Saclàb's mid-2026 average of €16,290 for regular-leather bags sits close to current retail.<sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
+  <div class="cards">
+    <div class="card"><div class="v">$13,500</div><div class="l">Birkin 25 Togo retail, 2026, from $10,400 in 2023; each rise lifts the resale floor <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a></sup></div></div>
+    <div class="card"><div class="v">$2.9 m</div><div class="l">Jane Birkin's Black Box Birkin 40 (carried 2003–07), Dec 2025, against a $440,000 high estimate <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></div></div>
+    <div class="card"><div class="v">9</div><div class="l">Bidders for the original Birkin over ten minutes from a €1 m opening; buyer Valuence Japan, a reseller <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s5">5</a></sup></div></div>
+  </div>
+  <div class="note warn">The buyer of the record bag was a dealer, not a collector: Valuence Japan, a Tokyo reseller, which exhibited it in Osaka. As with the 1c Magenta stamp, the top price in the field was paid by the trade for its publicity value. <span class="c c-h">High</span><sup class="r"><a href="#s5">5</a></sup><sup class="r"><a href="#s6">6</a></sup></div>
+</section>
+<section id="s-iii">
+  <div class="sechead tint"><h2><em>III</em>The record book</h2></div>
+  <div class="tw"><table>
+    <tr><th>Bag</th><th>Sale</th><th class="n">Price (with fees)</th><th>Note</th></tr>
+    <tr><td>The original Birkin, black leather, 1985, Jane Birkin's prototype</td><td>Sotheby's Paris, 10 Jul 2025</td><td class="n">€8,582,500 ($10.1 m)</td><td>Hammer €7 m; opened at €1 m; buyer Valuence Japan<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s5">5</a></sup><sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>Jane Birkin's Black Box Birkin 40 (2003–07)</td><td>Dec 2025</td><td class="n">$2.9 m</td><td>High estimate $440,000<sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Hermès White Himalaya Niloticus Crocodile Diamond Retourné Kelly 28</td><td>Christie's Hong Kong, 2021</td><td class="n">$513,040</td><td>Previous record<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Diamond Himalaya Birkin</td><td>Sotheby's, 2022</td><td class="n">&gt;$450,000</td><td><sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Crocodile Birkin</td><td>Christie's, 2021</td><td class="n">c. $390,000</td><td><sup class="r"><a href="#s7">7</a></sup></td></tr>
+  </table></div>
+  <p>Strip out the two Jane Birkin bags and the handbag record is half a million dollars, for a crocodile bag with diamonds whose materials are a large share of the price. The quota-bag market, which is where almost all holders sit, tops out in the low tens of thousands. <span class="c c-m">Med</span></p>
+</section>
+<section id="s-iv">
+  <div class="sechead tint"><h2><em>IV</em>Authentication and condition</h2><p class="sub">The most counterfeited luxury object; the controls are private and fallible.</p></div>
+  <div class="tw"><table>
+    <tr><th>Risk</th><th>Problem</th><th>Control</th></tr>
+    <tr><td>Counterfeits</td><td>"Superfakes" made to a standard that has deceived platform authenticators; a 2024 class action against a major US reseller over fakes sold as genuine</td><td>Blind stamp (year and artisan), hardware, stitching, leather; third-party authenticators (Entrupy, Real Authentication); Hermès itself does not authenticate for the public</td></tr>
+    <tr><td>Condition</td><td>Corners, handles, interior, odour, hardware plating; "store-fresh with plastics" against "used"</td><td>Platform grading scales (none standard); photographs; the discount for wear is steep</td></tr>
+    <tr><td>Provenance and receipts</td><td>Original receipt, box, dust bag, "clochette" and lock add value and support authenticity; receipts are also forged</td><td>Full set expected at the top of the quota market</td></tr>
+    <tr><td>Exotic-skin law</td><td>Crocodile and alligator require CITES documentation to cross borders; some jurisdictions (California, from 2020) restrict sale</td><td>CITES certificate must travel with the bag<sup class="r"><a href="#s8">8</a></sup></td></tr>
+    <tr><td>Platform risk</td><td>Consignment platforms hold the bag and the money; several have failed or been sued</td><td>Sell outright to a dealer, or through an auction house</td></tr>
+  </table></div>
+  <div class="note">Parallel to watches and signed jewellery: a serial system, a house archive and a secondary market organised by the houses' own scarcity. The difference is that Hermès, unlike Patek Philippe or Cartier, offers no extract from the archives and no authentication service, so the entire burden of proof sits with the secondary market. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-v">
+  <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
+    <tr><td>Hermès retail price changes</td><td>Hermès, January; trade reporting</td><td>The resale floor</td></tr>
+    <tr><td>Hermès leather-goods revenue and capacity</td><td>Hermès International results, quarterly; new workshop openings</td><td>Supply: each new workshop adds output</td></tr>
+    <tr><td>Sotheby's and Christie's handbag sale totals and sell-through</td><td>House releases; continuous online sales; Hong Kong and Paris seasons</td><td>Top-end demand</td></tr>
+    <tr><td>Resale premium indices</td><td>Bernstein; Saclàb Clochette Monitor; Rebag Clair report</td><td>The average bag's premium, by model and size</td></tr>
+    <tr><td>Litigation: tying and counterfeiting cases</td><td>US courts; trade press</td><td>Whether the allocation system survives; platform reliability</td></tr>
+    <tr><td>Chinese and Japanese secondary-market demand</td><td>Valuence, Brand Off, Komehyo results</td><td>Where the marginal buyer is</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Reseller blogs are marked Low and used only where they cite named data.</p></div>
+  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+    <li id="s1"><b>Sotheby's</b>, "Jane Birkin's Original Hermès Birkin Bag Shatters Auction Records at $10.1 Million", 10 Jul 2025: €8.6 m; opened €1 m; nine bidders, ten minutes; previous record $513,040 (Himalaya Kelly 28, 2021). <a href="https://www.sothebys.com/en/videos/jane-birkins-original-hermes-birkin-bag-shatters-auction-records-at-10-1-million" target="_blank">sothebys.com</a></li>
+    <li id="s2"><b>Saika Collective</b>, "Birkin Resale Value 2026: What the Data Really Shows", 11 Jul 2026, citing Sotheby's and Bernstein: sales +44% (2025), +55% since 2023; average prices +35%; c. $160 m since 2021; premium 2.2× → 1.4×; Togo B25/30 $28–30,000; Kelly Pochette 4.5×; second Birkin bag $2.9 m v. $440,000. <a href="https://www.saikacollective.com/blogs/saika-luxury-authentication-journal/birkin-resale-value-2026-market-data-this-week-in-luxury" target="_blank">saikacollective.com</a> <span class="c c-m">Med</span></li>
+    <li id="s3"><b>The Luxury Closet</b>, "Resale Value of a Hermès Birkin and Kelly in 2026", 27 May 2026: Saclàb Clochette Monitor €16,290; B25 Togo retail $10,400 (2023) → $13,500 (2026). Reseller source. <a href="https://theluxurycloset.com/blog/2026/05/27/hermes-resale-value-2026-why-birkins-kellys-are-the-worlds-best-wearable-investment/" target="_blank">theluxurycloset.com</a> <span class="c c-l">Low</span></li>
+    <li id="s4"><b>Cavalleri v. Hermès</b>, US District Court, N.D. California, filed Mar 2024: allegations of tying quota-bag access to other purchases. Court filing; used for the allocation description.</li>
+    <li id="s5"><b>France 24 / AFP</b>, "Original Birkin bag sells for record $10 million at Paris auction", 10 Jul 2025: €8.58 m; hammer €7 m; "private collector from Japan"; retail "from around $10,000". <a href="https://www.france24.com/en/france/20250710-herm%C3%A8s-birkin-10-million-paris-auction" target="_blank">france24.com</a></li>
+    <li id="s6"><b>Bloomberg</b>, "Hermès' Original Birkin Bag Sells for $10 Million at Auction", 10 Jul 2025: Valuence Japan identified as buyer; and <b>Guinness World Records</b>, 3 Sep 2026: €8,582,500; Osaka exhibition. <a href="https://www.guinnessworldrecords.com/news/2026/9/original-hermes-birkin-owned-by-actress-its-named-after-sells-for-record-10-million" target="_blank">guinnessworldrecords.com</a></li>
+    <li id="s7"><b>CNN</b>, "Jane Birkin's original Hermès bag sells for $10 million", 10 Jul 2025: Diamond Himalaya Birkin &gt;$450,000 (2022); crocodile Birkin c. $390,000 (2021). <a href="https://www.cnn.com/2025/07/10/style/original-hermes-birkin-sells" target="_blank">cnn.com</a></li>
+    <li id="s8"><b>CITES</b> Appendix II listing of crocodilians; California Penal Code §653o. Statutory; used for the exotic-skin row.</li>
+  </ol></details>
+</section>
+
+</details>
+<div class="toc-lite"><a href="#s-i"><span>I</span>One house, one allocation system</a><a href="#s-ii"><span>II</span>Size and the 2025–26 cycle</a><a href="#s-iii"><span>III</span>The record book</a><a href="#s-iv"><span>IV</span>Authentication and condition</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <a href="/advisers">For advisers and institutions</a>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  var r=document.getElementById('report'); if(!r) return;
+  function openFor(hash){ if(!hash) return; var el=document.querySelector(hash); if(el && r.contains(el)){ r.open=true; } }
+  openFor(location.hash);
+  window.addEventListener('hashchange',function(){openFor(location.hash)});
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+</body>
+</html>
