@@ -76,7 +76,7 @@ class Component extends DCLogic {
     const FAM = { g:"Gems & Jewellery", m:"Metals, Energy & Strategic Materials", c:"Cellar & Collectibles", a:"Aromatics", r:"Crops", f:"Rare Foods" };
     const EN = { E1:"Institutional", E2:"Accessible", E3:"Specialist", E4:"Restricted", E5:"No route" };
     const ED = { E1:"Daily valuation, exit in days, standard custody.", E2:"Regular pricing and an established route, with one material limit.", E3:"Expert appraisal, exit over months, real custody cost.", E4:"Contested valuation, uncertain exit, heavy title burden.", E5:"Cannot be held; no practical route identified." };
-    const data = RAW.map(r => ({ name:r[0], famKey:r[1], fam:FAM[r[1]], E:r[3], g:"Σ" + r[3][1], tileG:"Σ" + r[3][1], label:EN[r[3]], href:"/" + r[2] + "-dashboard" }));
+    const data = RAW.map(r => ({ name:r[0], famKey:r[1], fam:FAM[r[1]], E:r[3], g:"Σ" + r[3][1], tileG:"", label:EN[r[3]], href:"/" + r[2] + "-dashboard" }));
     const view = this.state.view;
     const views = [["family","By family"],["grade","By Σ grade"],["az","A–Z"]].map(([k,label]) => ({ label,
       bg:view === k ? "#141412" : "transparent", fg:view === k ? "#f4efe6" : "#6f6a62", bd:view === k ? "#141412" : "#dcd4c6",
