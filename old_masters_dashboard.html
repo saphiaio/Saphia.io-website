@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Old Masters, ΣΟΦΙΑ</title>
+<meta name="description" content="Old Masters: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--sans);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents .sector-tag{display:none;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
+  .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--sans);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--sans);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--sans);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--sans);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--sans);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--sans);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.frame .v{font-family:var(--display);font-size:44px;line-height:1}
+.frame .l{font-size:13px;color:#6f6a62;margin-top:8px}
+.labels .v{font-family:var(--sans);font-size:19px;font-weight:600}
+.labels .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--sans);white-space:nowrap}
+.bars{margin:14px 0 26px;font-family:var(--sans);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#faf7f0;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:#141412}
+.bars .v{text-align:right}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;padding:14px 16px;border-top:2px solid #141412}
+.card .v{font-family:var(--sans);font-size:22px;font-weight:600}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:100px 1fr 100px}
+}.src-toggle{cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+
+/* ===== redesign v3 ===== */
+.mast .in{padding:20px 32px}.mast ul{gap:28px}.mark small{display:none}.mark{font-size:26px}
+.eyebrow{letter-spacing:.12em;font-size:11px}th{letter-spacing:.06em;font-size:11px}
+.c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
+.contents .sector-tag{letter-spacing:.08em}
+.brief{padding:64px 0 0}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
+.brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
+.brief h1{font-size:72px;line-height:1;margin:8px 0 0}
+.grade{text-align:right;padding-bottom:6px}
+.grade .g{font-family:var(--display);font-size:36px;color:var(--bronze-lo);line-height:1}
+.grade .n{font-family:var(--display);font-size:22px;margin-left:12px}
+.grade .m{font-size:12.5px;color:var(--mute);margin-top:4px}
+.regime{font-family:var(--display);font-size:24px;line-height:1.4;max-width:40ch;margin:32px 0 0;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 40px;margin-top:40px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.facts>div{min-width:0}
+.facts .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.facts .s{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px}
+.facts .s span:nth-child(odd){color:var(--mute)}
+.brief h2{font-size:24px;margin:44px 0 12px}
+.since{font-size:16.5px;line-height:1.6;max-width:62ch;margin:0}
+.why{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:start}
+.why p{font-size:16px;line-height:1.6;max-width:52ch;margin:0}
+.why .note-r{font-size:13px;color:var(--mute);margin-top:14px}
+.factors{display:flex;flex-direction:column;gap:8px}
+.factors>div{display:grid;grid-template-columns:1fr 70px;align-items:center;gap:12px;font-size:13.5px}
+.factors span{display:flex;gap:3px}
+.factors i{flex:1;height:5px;background:var(--line)}
+.factors i.on{background:var(--bronze-lo)}
+.report{margin-top:56px;border-top:1px solid var(--ink)}
+.report>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:24px}
+.report>summary::-webkit-details-marker{display:none}
+.report>summary small{font-family:var(--sans);font-size:13px;color:var(--mute)}
+.report>summary .cl{display:none}.report[open]>summary .op{display:none}.report[open]>summary .cl{display:inline}
+.report .intro{font-size:18px;color:var(--mute);max-width:66ch;margin:28px 0 0;line-height:1.55}
+.report .figures{margin-top:28px}
+.toc-lite{display:flex;flex-direction:column;font-size:15px}
+.toc-lite a{display:grid;grid-template-columns:36px 1fr;padding:11px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.toc-lite a span{color:var(--bronze)}
+.report[open]~.toc-lite{display:none}
+.ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
+.sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
+.sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
+@media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="/home">ΣΟΦΙΑ</a>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Cellar &amp; Collectibles</a></div>
+  <div class="brief-head">
+    <h1>Old Masters</h1>
+    <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Physical · 19 Oct 2026</div></div>
+  </div>
+  <p class="regime">After a fifteen-year low in 2024, the category posted its strongest two seasons in a decade, but only for works with a name, a condition report and no competing attribution.</p>
+  <div class="facts">
+    <div><div class="k">Origins</div>Italy · Netherlands and Flanders · France · Spain · Germany (artists, 1300–1800). Modern and contemporary are covered under <a href="/art-dashboard" style="border-bottom:1px solid var(--bronze)">Art →</a></div>
+    <div><div class="k">Principal markets</div>New York (February) · London (July, December) · Paris · Maastricht (TEFAF, March)</div>
+    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low (fixed, dispersed)</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Very high; finite</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <h2>Since last update</h2>
+  <p class="since">First entry. Sotheby's has announced a $60 m single-owner sale, "Magnum Opus", 600 lots across four sales, 21–23 October 2026 in New York; the result will be the first test of autumn depth after the July London split between trophy lots and unsold middle.<sup class="r"><a href="#s9">9</a></sup></p>
+  <h2>Why Σ3</h2>
+  <div class="why">
+    <div><p>Every work is unique and most have not traded in a generation, so value rests on attribution, condition and a thin set of comparables. Exit is two auction seasons a year or a dealer's private placement, with guarantees now common at the top. Attribution can move a picture by two orders of magnitude in either direction, and export licences can block the sale altogether.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div></div>
+  </div>
+</div>
+
+<details class="report" id="report">
+  <summary>Full report <small>6 sections · 10 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">The smallest of the fine-art auction sectors by value and the only one whose supply is permanently fixed: nothing more will be painted, and every year museums remove works from circulation for good. The 2024 trough was a fifteen-year low; 2025 rose 30% and the first half of 2026 produced record weeks in both New York and London. This page covers the sector's size, the record book, who buys and why, how attribution makes and unmakes value, and what to watch. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">$1.2 bn</div><div class="l">Old Masters auction sales 2025, +30%, 11% of fine-art auction value. Art Basel &amp; UBS Global Art Market Report 2026 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$535 m</div><div class="l">European Old Masters 2025, +38% by value on 6% fewer lots sold<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$30.5 m</div><div class="l">Canaletto, <i>The Bucintoro at the Molo</i>, Christie's New York, 4 Feb 2026; guaranteed; hammer $26 m<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></div></div><div><div class="v">$27.2 m</div><div class="l">Michelangelo foot study, Christie's New York, 5 Feb 2026; record for a work on paper by the artist<sup class="r"><a href="#s4">4</a></sup></div></div></div>
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <p class="sector-tag">OLD MASTERS</p>
+  <ol><li><a href="#s-i"><span>I</span>Size and cycle</a></li><li><a href="#s-ii"><span>II</span>The 2026 seasons</a></li><li><a href="#s-iii"><span>III</span>Attribution and provenance</a></li><li><a href="#s-iv"><span>IV</span>Structure of the trade</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+<section id="s-i">
+  <div class="sechead tint"><h2><em>I</em>Size and cycle</h2><p class="sub">A fixed stock, a shrinking free float, and a price series that moves on a handful of lots.</p></div>
+  <p>Arts Economics defines the sector as artists born between 1250 and 1821, with "European Old Masters" a subset. In 2025 public auction sales in the wider sector reached just under $1.2 bn, up 30%, after a 2024 total that was the lowest in fifteen years. European Old Masters rose 38% to $535 m while the number of lots sold fell 6%: the recovery was in price per lot, not volume.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup> <span class="c c-h">High</span></p>
+  <div class="bars">
+    <div class="r"><span>Postwar</span><div class="bar"><i style="width:100%"></i></div><span class="v">$3.1 bn · 31%</span></div>
+    <div class="r"><span>Modern</span><div class="bar"><i style="width:77%"></i></div><span class="v">$2.4 bn · 24%</span></div>
+    <div class="r"><span>Impressionist</span><div class="bar"><i style="width:61%"></i></div><span class="v">19%</span></div>
+    <div class="r"><span>Contemporary</span><div class="bar"><i style="width:45%"></i></div><span class="v">$1.4 bn · 14%</span></div>
+    <div class="r"><span>Old Masters</span><div class="bar"><i style="width:39%"></i></div><span class="v">$1.2 bn · 11%</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--mute)">Fine-art public auction sales by sector, 2025, share by value.<sup class="r"><a href="#s1">1</a></sup></p>
+  <p>The rotation is the story of the report: contemporary auction sales fell for a fourth consecutive year while Impressionist (+47%) and Old Masters (+30%) recovered. Both heads of department in London describe buyers crossing over from contemporary art and finding Old Masters "comparatively good value"; 23% of lots sold in Sotheby's July evening sale went to collectors new to the category.<sup class="r"><a href="#s2">2</a> <a href="#s7">7</a></sup> <span class="c c-h">High</span></p>
+  <div class="note">Supply is the inverse of every other market on this site. The stock was fixed by 1800; each museum acquisition, bequest or export bar removes a work permanently; and the Antonello da Messina panel withdrawn from Sotheby's February sale and bought by Italy's Ministry of Culture for $14.9 m is a live example. The free float shrinks every year while the money chasing it does not. <span class="c c-x">Hyp</span><sup class="r"><a href="#s5">5</a></sup></div>
+</section>
+<section id="s-ii">
+  <div class="sechead tint"><h2><em>II</em>The 2026 seasons</h2><p class="sub">New York in February and London in July: records at the top, a widening gap below.</p></div>
+  <div class="tw"><table>
+    <tr><th>Work</th><th>Sale</th><th class="n">Price (with fees)</th><th>Significance</th></tr>
+    <tr><td>Canaletto, <i>Venice, the Bucintoro at the Molo on Ascension Day</i> (c.1754)</td><td>Christie's New York, 4 Feb 2026</td><td class="n">$30.5 m</td><td>Hammer $26 m, guaranteed with an irrevocable bid; last of the series in private hands; the artist's record is £31.9 m for a sister view, Christie's London, Jul 2025<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a> <a href="#s6">6</a></sup></td></tr>
+    <tr><td>Michelangelo, study for the foot of the Libyan Sibyl, double-sided</td><td>Christie's New York, 5 Feb 2026</td><td class="n">$27.2 m</td><td>Record for the artist at auction; 45-minute bidding; five-inch sheet<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Rembrandt, drawing of a lion (Kaplan collection)</td><td>Sotheby's New York, Feb 2026</td><td class="n">$18 m</td><td>Record for a Rembrandt drawing; led Sotheby's $94.8 m week, above the $93.1 m high estimate<sup class="r"><a href="#s5">5</a> <a href="#s8">8</a></sup></td></tr>
+    <tr><td>Hamilton Laocoön, bronze after the antique, cast Carbonneaux</td><td>Sotheby's London, 1 Jul 2026</td><td class="n">£13.6 m</td><td>Estimate £2–3 m; second-highest price for a pre-modern sculpture; four bidders over fifteen minutes<sup class="r"><a href="#s6">6</a> <a href="#s7">7</a></sup></td></tr>
+    <tr><td>Thomas Lawrence, <i>Duke of Wellington</i> (1820)</td><td>Christie's London, 30 Jun 2026</td><td class="n">£9.7 m</td><td>Single bidder; four times the artist's previous record, set by the same picture in 2006<sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Rembrandt, <i>Let the Little Children Come to Me</i>, re-attributed</td><td>Sotheby's London, Jul 2026</td><td class="n">£8 m</td><td>Long catalogued as anonymous Dutch; sold after restoration and new attribution<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>Artemisia Gentileschi, self-portrait as St Catherine</td><td>Christie's New York, 4 Feb 2026</td><td class="n">$5.7 m</td><td>Artist record, from $5.25 m (Artcurial, 2019); one of five known self-portraits, three in museums<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Hans Memling, <i>Virgin Mary Nursing the Christ Child</i></td><td>Sotheby's London, 1 Jul 2026</td><td class="n">£3.51 m</td><td>Artist record<sup class="r"><a href="#s6">6</a></sup></td></tr>
+  </table></div>
+  <div class="cards">
+    <div class="card"><div class="v">$110.0 m</div><div class="l">Christie's New York Classics Week, Feb 2026; paintings sale $54.1 m, strongest New York Old Masters sale in a decade, 82–84% sold <span class="c c-h">High</span><sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></div></div>
+    <div class="card"><div class="v">$94.8 m</div><div class="l">Sotheby's first Old Masters week at the Breuer, Feb 2026; both houses report all-time category highs for 2025 <span class="c c-h">High</span><sup class="r"><a href="#s5">5</a> <a href="#s8">8</a></sup></div></div>
+    <div class="card"><div class="v">£76.7 m</div><div class="l">London July evening sales combined: Christie's £38.9 m, 90% sold by lot, its best rate ever; Sotheby's £37.7 m, 78% sold, ten lots unsold <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a> <a href="#s7">7</a> <a href="#s10">10</a></sup></div></div>
+  </div>
+  <p>The July results show the split. Christie's spread value across 39 lots with nothing above £10 m and sold 90%; Sotheby's carried the two headline prices and failed to sell ten lots, including twelve pictures with ambitious estimates that found no bidder. ARTnews' reading is a market "increasingly unforgiving for more ordinary material".<sup class="r"><a href="#s6">6</a> <a href="#s7">7</a></sup> <span class="c c-h">High</span></p>
+  <div class="note warn">Guarantees and single bidders. The Canaletto was guaranteed and backed by an irrevocable bid; eleven of Christie's 37 sold February lots were guaranteed; the Lawrence sold to one bidder. A headline price that is pre-sold or uncontested is a floor set by the house and the consignor, not a market clearing price.<sup class="r"><a href="#s3">3</a> <a href="#s7">7</a></sup> <span class="c c-h">High</span></div>
+</section>
+<section id="s-iii">
+  <div class="sechead tint"><h2><em>III</em>Attribution and provenance</h2><p class="sub">In no other market does a change of label move price by a hundredfold in both directions.</p></div>
+  <p>Three of 2026's headline lots were attribution events. The Michelangelo foot was recently attributed; the £8 m Rembrandt had been catalogued as an anonymous Dutch painter; the Sotheby's London sale also carried a Botticelli "and Associate", the house's own hedge on a £2–3 m estimate. Downgrades run the other way and rarely make the press: a picture reassigned from master to workshop or follower loses most of its value overnight and may be unsaleable at the top houses.<sup class="r"><a href="#s4">4</a> <a href="#s6">6</a></sup> <span class="c c-h">High</span></p>
+  <div class="tw"><table>
+    <tr><th>Catalogue term</th><th>Meaning</th><th>Value effect</th></tr>
+    <tr><td>Named artist</td><td>In the house's opinion, by the artist</td><td>Full value</td></tr>
+    <tr><td>Attributed to</td><td>Probably by the artist, in whole or part</td><td>A fraction, typically a third or less</td></tr>
+    <tr><td>Studio / workshop of</td><td>Made under the artist's supervision</td><td>One to ten per cent</td></tr>
+    <tr><td>Circle of / follower of</td><td>Same period, not the studio</td><td>Decorative value only</td></tr>
+    <tr><td>Manner of / after</td><td>Later imitation or copy</td><td>Decorative value only</td></tr>
+  </table></div>
+  <p style="font-size:14px;color:var(--mute)">Standard auction-house cataloguing conventions; the value bands are ΣΟΦΙΑ's generalisation, not a measured series. <span class="c c-m">Med</span></p>
+  <p>Title is the second risk. Old Master pictures have long chains of ownership through war, revolution and confiscation; restitution claims, Nazi-era provenance gaps and national export controls (Italy's pre-emption of the Antonello, the UK's deferral system) can delay, block or reprice a sale after the hammer. Several lots in February's New York sales were marketed as newly restituted, which is both a supply source and a reminder of the claims that remain.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
+  <div class="note">Diamond parallel: an Old Master is a stone with no laboratory. The certificate is a scholar's opinion, published in a catalogue raisonné or given privately, and it can be withdrawn. The nearest equivalent to a GIA report is a technical examination, infrared reflectography, dendrochronology, pigment analysis, which can rule an attribution out but seldom rules one in. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-iv">
+  <div class="sechead tint"><h2><em>IV</em>Structure of the trade</h2><p class="sub">Two houses, two cities, a few dozen dealers, and a fair.</p></div>
+  <div class="tw"><table>
+    <tr><th>Channel</th><th>Position</th><th>Note</th></tr>
+    <tr><td>Christie's and Sotheby's</td><td>Near-duopoly at the top; dedicated weeks in New York (Feb) and London (Jul, Dec)</td><td>Bonhams, Dorotheum, Lempertz, Artcurial and regional houses below; discoveries often surface there first<sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup></td></tr>
+    <tr><td>Dealers</td><td>Specialist galleries in London, New York, Paris: Colnaghi, Agnews, Daniel Katz, Stephen Ongpin and others</td><td>Private placement to museums and collectors; long holding periods; dealers also underbid and buy at auction<sup class="r"><a href="#s7">7</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>TEFAF Maastricht</td><td>March; the principal fair for the category, vetted</td><td>Museum curators buy here; vetting committees reject attributions, which is a form of market discipline no auction offers</td></tr>
+    <tr><td>Museums and states</td><td>Buyers who never sell</td><td>Italy paid $14.9 m to pre-empt the Antonello; the US National Gallery acquired a Gentileschi in February<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Guarantors and irrevocable bidders</td><td>Third-party capital underwriting top lots</td><td>Eleven of 37 sold lots at Christie's February sale<sup class="r"><a href="#s3">3</a></sup></td></tr>
+  </table></div>
+  <p>Demand has broadened by geography and by age. The Laocoön drew bidders from Asia and Europe; Sotheby's reports a record 4.9 bidders per lot across all categories in the first half of 2026 and the move to the Breuer doubling visitor traffic. Whether crossover contemporary buyers stay once the "good value" argument is exhausted is the open question for 2027.<sup class="r"><a href="#s6">6</a> <a href="#s8">8</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-v">
+  <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
+    <tr><td>Old Masters sector sales and lot counts</td><td>Art Basel &amp; UBS Global Art Market Report (Arts Economics), March annually; section 3.9</td><td>The benchmark series; value against volume</td></tr>
+    <tr><td>New York Masters / Classics Week</td><td>Christie's, Sotheby's, late Jan–early Feb</td><td>Trophy supply and sell-through; share of lots guaranteed</td></tr>
+    <tr><td>London Classic Week</td><td>Christie's, Sotheby's, early July and early December</td><td>Mid-market depth; bought-in rate by estimate band</td></tr>
+    <tr><td>TEFAF Maastricht sales and vetting</td><td>TEFAF, dealer reports, March</td><td>Museum buying; attributions rejected</td></tr>
+    <tr><td>Export licence deferrals and state pre-emptions</td><td>UK Arts Council reviewing committee; Italian and French ministries</td><td>Works leaving the free float; title risk</td></tr>
+    <tr><td>Re-attributions and catalogue raisonné updates</td><td>RKD, Rembrandt Research Project successors, scholarly press; Art History News</td><td>Supply created or destroyed by scholarship</td></tr>
+    <tr><td>Single-owner consignments announced</td><td>Auction-house releases, pre-season</td><td>Fresh-to-market material, the category's scarcest input</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Arts Economics' report is the primary source for sector size; auction-house and trade-press reporting for the record book.</p></div>
+  <details><summary class="src-toggle">Show 10 sources</summary><ol class="src">
+    <li id="s1"><b>Art Basel &amp; UBS</b>, "The Art Basel and UBS Global Art Market Report 2026" (Arts Economics), Mar 2026, section 3.9 and press release: Old Masters just under $1.2 bn (+30%), 11% share; European Old Masters $535 m (+38%), lots −6%; sector shares. <a href="https://theartmarket.artbasel.com/auctions" target="_blank">theartmarket.artbasel.com</a></li>
+    <li id="s2"><b>ARTnews</b>, "Contemporary Art Market Declines for Fourth Straight Year, as Old Masters and Impressionist Works Rebound", Mar 2026; and <b>Barnebys</b>, "6 Key Findings", 2024 as a fifteen-year low. <a href="https://www.artnews.com/art-news/news/contemporary-art-market-cooling-old-masters-report-1234777454/" target="_blank">artnews.com</a></li>
+    <li id="s3"><b>HENI News</b>, "Canaletto Leads Christie's $54.13m Old Masters Auction", 4 Feb 2026: 37 lots sold, 82% sell-through, 11 guaranteed lots, Chardin $2.03 m. <a href="https://heni.com/news/article/christie-s-old-masters-auction-in-new-york-2026-02-04" target="_blank">heni.com</a></li>
+    <li id="s4"><b>The Art Newspaper</b>, "Artemisia Gentileschi, Michelangelo and Rembrandt bring new energy and records to New York's Old Masters sales", 6 Feb 2026: $54.3 m with fees, highest New York total in over a decade; Gentileschi $5.7 m; Canaletto $30.5 m; Michelangelo $27.2 m; NGA acquisition; restituted works. <a href="https://www.theartnewspaper.com/2026/02/06/artemisia-gentileschi-michelangelo-rembrandt-new-york-old-masters-auctions" target="_blank">theartnewspaper.com</a></li>
+    <li id="s5"><b>Panthera / trade summary</b>, Feb 2026: Christie's Classics Week $110,004,491; 45-minute Michelangelo bidding; Antonello da Messina withdrawn and bought by Italy's Ministry of Culture for $14.9 m against a $15 m estimate; Gentileschi prior record $5.25 m (Artcurial 2019); both houses' 2025 category highs; and <b>ARTnews</b>, "'Old Masters Are Back!'", Feb 2026, Christie's week c.$100 m, 84% sold. <span class="c c-m">Med</span></li>
+    <li id="s6"><b>ARTnews</b>, "London Old Masters Sales Reveal a Market Split Between Trophy Works and Everything Else", Jul 2026: Sotheby's £37.8 m; Laocoön £13.62 m; Memling £3.51 m; ten unsold; and <b>Econique</b>, "Record auctions for the Old Masters", Oct 2026: Rembrandt re-attribution £8 m; Canaletto 2025 record £31.9 m. <a href="https://www.artnews.com/art-news/market/london-sothebys-christies-old-masters-sales-1234791036/" target="_blank">artnews.com</a></li>
+    <li id="s7"><b>Apollo</b>, "Old Masters show their muscle in London", Jul 2026: Christie's £38.9 m from 39 lots, 90% sold, highest ever by lot; Lawrence £9.7 m single bidder; crossover buyers; 23% new to category at Sotheby's; Landseer £5.9 m. <a href="https://apollo-magazine.com/sothebys-christies-classic-week-old-master-paintings-sculpture-auctions-2026/" target="_blank">apollo-magazine.com</a></li>
+    <li id="s8"><b>Sotheby's</b>, half-year results 2026, via Artnet News and Artforum, Jul 2026: Old Masters season $94.8 m; Rembrandt drawing $18 m; 4.9 bidders per lot; Breuer visitors doubled; consolidated sales $4.4 bn (+58%). <a href="https://news.artnet.com/market/sothebys-h1-sales-2787726" target="_blank">news.artnet.com</a></li>
+    <li id="s9"><b>Art History News</b> (Bendor Grosvenor, Adam Busiakiewicz), auctions category: Sotheby's "Magnum Opus" $60 m, 600 lots, 21–23 Oct 2026; London evening totals with sell-through. <a href="https://www.arthistorynews.com/categories/auctions" target="_blank">arthistorynews.com</a></li>
+    <li id="s10"><b>Art History News</b>, "Sotheby's London Results", 1 Jul 2026: £37,711,600, 77.78% sold by lot; "Christie's London Results", 30 Jun 2026: £38,940,700, 89.75% sold. The ARTnews £37.8 m and this £37.7 m are the same total rounded differently.</li>
+  </ol></details>
+</section>
+
+</details>
+<div class="toc-lite"><a href="#s-i"><span>I</span>Size and cycle</a><a href="#s-ii"><span>II</span>The 2026 seasons</a><a href="#s-iii"><span>III</span>Attribution and provenance</a><a href="#s-iv"><span>IV</span>Structure of the trade</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <a href="/advisers">For advisers and institutions</a>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  var r=document.getElementById('report'); if(!r) return;
+  function openFor(hash){ if(!hash) return; var el=document.querySelector(hash); if(el && r.contains(el)){ r.open=true; } }
+  openFor(location.hash);
+  window.addEventListener('hashchange',function(){openFor(location.hash)});
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+</body>
+</html>

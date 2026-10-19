@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <title>Markets — ΣΟΦΙΑ</title>
-<meta name="description" content="Thirty-one scarce-asset markets by family, by Σ grade, or A–Z.">
+<meta name="description" content="Thirty-two scarce-asset markets by family, by Σ grade, or A–Z.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@ button{font-family:'Inter',system-ui,sans-serif}
   </sc-for>
 
   <sc-if value="{{ isGrade }}" hint-placeholder-val="{{ true }}"><div style="padding-top:20px;border-top:1px solid #dcd4c6;font-size:13px;color:#6f6a62;max-width:64ch">Σ grades are ΣΟΦΙΑ's opinion of how practical an asset is to hold, from Σ1 Institutional to Σ5 No route. Not a view on return. <a href="/method#sigma" style="border-bottom:1px solid #a8825a">How they're judged →</a></div></sc-if>
-  <footer style="margin-top:48px;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><span>ΣΟΦΙΑ</span><span>Market intelligence, not investment advice</span></footer>
+  <footer style="margin-top:48px;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><span>ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers" style="color:#6f6a62;border-bottom:1px solid #dcd4c6" style-hover="color:#141412;border-color:#a8825a">For advisers and institutions</a></footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
@@ -72,7 +72,7 @@ class Component extends DCLogic {
   }
   componentWillUnmount() { this._mq && this._mq.removeEventListener("change", this._on); }
   renderVals() {
-    const RAW = [["Natural Diamonds","g","natural-diamonds","E3"],["Lab-Grown Diamonds","g","lab-grown-diamonds","E4"],["Coloured Gemstones","g","coloured-gemstones","E4"],["Pearls","g","pearls","E4"],["Gold","m","gold","E1"],["Silver","m","silver","E1"],["Platinum Group Metals","m","pgm","E1"],["Copper","m","copper","E2"],["Rare Earths","m","rare-earths","E3"],["Oil & Gas","m","oil-gas","E2"],["Fine Wine","c","fine-wine","E2"],["Port","c","port","E3"],["Scotch Whisky","c","scotch-whisky","E3"],["Cigars","c","cigars","E4"],["Watches","c","watches","E3"],["Art","c","art","E3"],["Classic Cars","c","classic-cars","E3"],["Saffron","a","saffron","E5"],["Oud","a","oud","E4"],["Vanilla","a","vanilla","E4"],["Frankincense","a","frankincense","E5"],["Coffee","r","coffee","E2"],["Tea","r","tea","E3"],["Cocoa","r","cocoa","E2"],["Olive Oil","r","olive-oil","E3"],["Mānuka Honey","r","manuka-honey","E3"],["Dates","r","dates","E4"],["Caviar","f","caviar","E4"],["Truffles","f","truffles","E4"],["Bluefin Tuna","f","bluefin-tuna","E4"],["Wagyu","f","wagyu","E3"]];
+    const RAW = [["Natural Diamonds","g","natural-diamonds","E3"],["Lab-Grown Diamonds","g","lab-grown-diamonds","E4"],["Coloured Gemstones","g","coloured-gemstones","E4"],["Pearls","g","pearls","E4"],["Gold","m","gold","E1"],["Silver","m","silver","E1"],["Platinum Group Metals","m","pgm","E1"],["Copper","m","copper","E2"],["Rare Earths","m","rare-earths","E3"],["Oil & Gas","m","oil-gas","E2"],["Fine Wine","c","fine-wine","E2"],["Port","c","port","E3"],["Scotch Whisky","c","scotch-whisky","E3"],["Cigars","c","cigars","E4"],["Watches","c","watches","E3"],["Art","c","art","E3"],["Old Masters","c","old-masters","E3"],["Classic Cars","c","classic-cars","E3"],["Saffron","a","saffron","E5"],["Oud","a","oud","E4"],["Vanilla","a","vanilla","E4"],["Frankincense","a","frankincense","E5"],["Coffee","r","coffee","E2"],["Tea","r","tea","E3"],["Cocoa","r","cocoa","E2"],["Olive Oil","r","olive-oil","E3"],["Mānuka Honey","r","manuka-honey","E3"],["Dates","r","dates","E4"],["Caviar","f","caviar","E4"],["Truffles","f","truffles","E4"],["Bluefin Tuna","f","bluefin-tuna","E4"],["Wagyu","f","wagyu","E3"]];
     const FAM = { g:"Gems & Jewellery", m:"Metals, Energy & Strategic Materials", c:"Cellar & Collectibles", a:"Aromatics", r:"Crops", f:"Rare Foods" };
     const EN = { E1:"Institutional", E2:"Accessible", E3:"Specialist", E4:"Restricted", E5:"No route" };
     const ED = { E1:"Daily valuation, exit in days, standard custody.", E2:"Regular pricing and an established route, with one material limit.", E3:"Expert appraisal, exit over months, real custody cost.", E4:"Contested valuation, uncertain exit, heavy title burden.", E5:"Cannot be held; no practical route identified." };
@@ -91,7 +91,7 @@ class Component extends DCLogic {
     } else {
       const az = [...data].sort((a,b) => a.name.localeCompare(b.name));
       groups = [...new Set(az.map(d => d.name[0]))].map(L => ({ hasHead:true, head:L, label:"", def:"", items:az.filter(d => d.name[0] === L).map(m => ({ ...m, sub:m.fam, tileG:"" })) }));
-      note = "All thirty-one markets, alphabetically.";
+      note = "All thirty-two markets, alphabetically.";
     }
     const cols = this.state.narrow ? "1fr" : "200px minmax(0,1fr)";
     return { views, groups, note, cols, isGrade: view === "grade" };
