@@ -23,7 +23,7 @@ button{font-family:'Inter',system-ui,sans-serif}
 
   <nav style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px">
     <a href="/home" style="font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em">ΣΟΦΙΑ</a>
-    <div style="display:flex;gap:28px;color:#6f6a62"><a href="/markets" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Markets</a><a href="/method" style="color:#6f6a62" style-hover="color:#141412">Method</a><a href="/contact" style="color:#6f6a62" style-hover="color:#141412">Contact</a></div>
+    <div style="display:flex;gap:28px;color:#6f6a62"><a href="/method" style="color:#6f6a62" style-hover="color:#141412">Method</a><a href="/markets" style="color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px">Markets</a><a href="/contact" style="color:#6f6a62" style-hover="color:#141412">Contact</a></div>
   </nav>
 
   <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;margin:clamp(40px,7vw,64px) 0 12px">
@@ -46,7 +46,7 @@ button{font-family:'Inter',system-ui,sans-serif}
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px">
         <sc-for list="{{ gg.items }}" as="m" hint-placeholder-count="4">
           <a href="{{ m.href }}" style="display:block;background:#faf7f0;border:1px solid #dcd4c6;padding:16px 16px 14px;min-height:44px" style-hover="border-color:#a8825a">
-            <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-family:'EB Garamond',Georgia,serif;font-size:19px;line-height:1.15">{{ m.name }}</span><span style="font-family:'EB Garamond',Georgia,serif;font-size:15px;color:#7d5f3f">{{ m.g }}</span></div>
+            <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><span style="font-family:'EB Garamond',Georgia,serif;font-size:19px;line-height:1.15">{{ m.name }}</span><span style="font-family:'EB Garamond',Georgia,serif;font-size:15px;color:#7d5f3f">{{ m.tileG }}</span></div>
             <div style="font-size:11.5px;color:#6f6a62;margin-top:6px">{{ m.sub }}</div>
           </a>
         </sc-for>
@@ -54,7 +54,7 @@ button{font-family:'Inter',system-ui,sans-serif}
     </div>
   </sc-for>
 
-  <div style="padding-top:20px;border-top:1px solid #dcd4c6;font-size:13px;color:#6f6a62;max-width:64ch">Σ grades are ΣΟΦΙΑ's opinion of how practical an asset is to hold, from Σ1 Institutional to Σ5 No route. Not a view on return. <a href="/method#sigma" style="border-bottom:1px solid #a8825a">How they're judged →</a></div>
+  <sc-if value="{{ isGrade }}" hint-placeholder-val="{{ true }}"><div style="padding-top:20px;border-top:1px solid #dcd4c6;font-size:13px;color:#6f6a62;max-width:64ch">Σ grades are ΣΟΦΙΑ's opinion of how practical an asset is to hold, from Σ1 Institutional to Σ5 No route. Not a view on return. <a href="/method#sigma" style="border-bottom:1px solid #a8825a">How they're judged →</a></div></sc-if>
   <footer style="margin-top:48px;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><span>ΣΟΦΙΑ</span><span>Market intelligence, not investment advice</span></footer>
 </div>
 </x-dc>
@@ -74,25 +74,25 @@ class Component extends DCLogic {
     const FAM = { g:"Gems & Jewellery", m:"Metals, Energy & Strategic Materials", c:"Cellar & Collectibles", a:"Aromatics", r:"Crops", f:"Rare Foods" };
     const EN = { E1:"Institutional", E2:"Accessible", E3:"Specialist", E4:"Restricted", E5:"No route" };
     const ED = { E1:"Daily valuation, exit in days, standard custody.", E2:"Regular pricing and an established route, with one material limit.", E3:"Expert appraisal, exit over months, real custody cost.", E4:"Contested valuation, uncertain exit, heavy title burden.", E5:"Cannot be held; no practical route identified." };
-    const data = RAW.map(r => ({ name:r[0], famKey:r[1], fam:FAM[r[1]], E:r[3], g:"Σ" + r[3][1], label:EN[r[3]], href:"/" + r[2] + "-dashboard" }));
+    const data = RAW.map(r => ({ name:r[0], famKey:r[1], fam:FAM[r[1]], E:r[3], g:"Σ" + r[3][1], tileG:"Σ" + r[3][1], label:EN[r[3]], href:"/" + r[2] + "-dashboard" }));
     const view = this.state.view;
-    const views = [["grade","By grade"],["family","By family"],["az","A–Z"]].map(([k,label]) => ({ label,
+    const views = [["family","By family"],["grade","By Σ grade"],["az","A–Z"]].map(([k,label]) => ({ label,
       bg:view === k ? "#141412" : "transparent", fg:view === k ? "#f4efe6" : "#6f6a62", bd:view === k ? "#141412" : "#dcd4c6",
       onClick:() => { this.setState({ view:k }); try { history.replaceState(null, "", k === "grade" ? location.pathname : "?view=" + k); } catch (e) {} } }));
     let groups, note;
     if (view === "grade") {
-      groups = ["E1","E2","E3","E4","E5"].map(e => ({ hasHead:true, head:"Σ" + e[1], label:EN[e], def:ED[e], items:data.filter(d => d.E === e).map(m => ({ ...m, sub:m.fam })) }));
+      groups = ["E1","E2","E3","E4","E5"].map(e => ({ hasHead:true, head:"Σ" + e[1], label:EN[e], def:ED[e], items:data.filter(d => d.E === e).map(m => ({ ...m, sub:m.fam, tileG:"" })) }));
       note = "Grouped by Σ grade, from Σ1 Institutional to Σ5 No route.";
     } else if (view === "family") {
-      groups = Object.keys(FAM).map(k => ({ hasHead:false, head:"", label:FAM[k], def:"", items:data.filter(d => d.famKey === k).map(m => ({ ...m, sub:m.label })) }));
-      note = "Grouped by asset family. The Σ grade sits on each tile.";
+      groups = Object.keys(FAM).map(k => ({ hasHead:false, head:"", label:FAM[k], def:"", items:data.filter(d => d.famKey === k).map(m => ({ ...m, sub:"", tileG:"" })) }));
+      note = "Grouped by asset family.";
     } else {
       const az = [...data].sort((a,b) => a.name.localeCompare(b.name));
-      groups = [...new Set(az.map(d => d.name[0]))].map(L => ({ hasHead:true, head:L, label:"", def:"", items:az.filter(d => d.name[0] === L).map(m => ({ ...m, sub:m.fam })) }));
+      groups = [...new Set(az.map(d => d.name[0]))].map(L => ({ hasHead:true, head:L, label:"", def:"", items:az.filter(d => d.name[0] === L).map(m => ({ ...m, sub:m.fam, tileG:"" })) }));
       note = "All thirty-one markets, alphabetically.";
     }
     const cols = this.state.narrow ? "1fr" : "200px minmax(0,1fr)";
-    return { views, groups, note, cols };
+    return { views, groups, note, cols, isGrade: view === "grade" };
   }
 }
 </script>
