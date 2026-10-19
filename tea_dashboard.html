@@ -231,7 +231,7 @@ svg text{font-size:10px}
 .c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
 .contents .sector-tag{letter-spacing:.08em}
 .brief{padding:64px 0 0}
-.brief .crumb{font-size:13px;color:var(--mute)}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
 .brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
 .brief h1{font-size:72px;line-height:1;margin:8px 0 0}
 .grade{text-align:right;padding-bottom:6px}
@@ -268,6 +268,9 @@ svg text{font-size:10px}
 .ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
 .sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
 .sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
 @media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
 </style>
 </head>
@@ -275,13 +278,13 @@ svg text{font-size:10px}
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ</a>
-    <ul><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/method">Method</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
 
 <div class="brief">
-  <div class="crumb">Markets · Crops</div>
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Crops</a></div>
   <div class="brief-head">
     <h1>Tea</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Route: listed plantation companies · 5 Oct 2026</div></div>
@@ -424,8 +427,7 @@ svg text{font-size:10px}
 <div class="toc-lite"><a href="#s-i"><span>I</span>Production and concentration</a><a href="#s-ii"><span>II</span>Categories and where value sits</a><a href="#s-iii"><span>III</span>Trade and the auction system</a><a href="#s-iv"><span>IV</span>The matcha shortage</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
-  <span>Scarce assets. One perspective.</span>
-  <span>Market intelligence · not investment advice</span>
+  <span>Market intelligence, not investment advice</span>
 </footer>
 </div>
 <div class="ctl" id="ctl">

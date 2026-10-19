@@ -225,7 +225,7 @@ svg text{font-size:10px}
 .c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
 .contents .sector-tag{letter-spacing:.08em}
 .brief{padding:64px 0 0}
-.brief .crumb{font-size:13px;color:var(--mute)}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
 .brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
 .brief h1{font-size:72px;line-height:1;margin:8px 0 0}
 .grade{text-align:right;padding-bottom:6px}
@@ -262,6 +262,9 @@ svg text{font-size:10px}
 .ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
 .sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
 .sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
 @media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
 </style>
 </head>
@@ -269,25 +272,25 @@ svg text{font-size:10px}
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ</a>
-    <ul><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/method">Method</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
 
 <div class="brief">
-  <div class="crumb">Markets · Metals, Energy &amp; Strategic Materials</div>
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Metals, Energy &amp; Strategic Materials</a></div>
   <div class="brief-head">
     <h1>Copper</h1>
-    <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: futures · 5 Oct 2026</div></div>
+    <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: futures · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Forecasts moved from surplus to structural deficit within 2025; mine disruption, not demand, is the driver.</p>
+  <p class="regime">ICSG has swung back to a 2026 surplus, yet the price holds within 5% of its September record: the metal is plentiful in the wrong country. Grasberg's full return has slipped to 2028.</p>
   <div class="facts">
     <div><div class="k">Origins</div>Chile · Peru · DR Congo · China · United States</div>
     <div><div class="k">Principal markets</div>China · Europe · United States · Japan</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High, refining (mine Medium)</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Medium</span><span>Provenance risk</span><span>Low</span></div></div>
   </div>
   <h2>Since last update</h2>
-  <p class="since">LME copper set a record cash close of $14,737/t on 8 Sep and ended the week to 2 Oct near $14,250, about 4% below that peak but ~30% up year on year. The COMEX tariff premium has largely deflated; Chinese inventories are low into Golden Week.<sup class="r"><a href="#s17">17</a></sup><sup class="r"><a href="#s18">18</a></sup></p>
+  <p class="since">ICSG's 14 October forecast puts 2026 in a 104 kt surplus and 2027 at 368 kt; its April revision to surplus was missed at launch and the −150 kt headline carried here is corrected below.<sup class="r"><a href="#s19">19</a></sup> LME three-month $14,407.50 on 16 Oct and COMEX $6.56/lb, +32% on the year and ~5% below the 9 Sep record.<sup class="r"><a href="#s23">23</a></sup><sup class="r"><a href="#s22">22</a></sup> The US refined-cathode tariff decision lapsed on 28 Sep with no announcement; the COMEX premium has collapsed from over $3,000/t to ~$310 while US warehouses hold ~70% of visible exchange stock.<sup class="r"><a href="#s28">28</a></sup><sup class="r"><a href="#s29">29</a></sup> Grasberg's mill is at 67%; full capacity is now early 2028.<sup class="r"><a href="#s26">26</a></sup><sup class="r"><a href="#s25">25</a></sup></p>
   <h2>Why Σ2</h2>
   <div class="why">
     <div><p>Exposure runs through LME and COMEX futures or ETFs, which are priced continuously and exit within days. Holding through futures carries roll costs and contango risk, the one material limit. Physical cathode is impractical for most portfolios.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
@@ -296,9 +299,9 @@ svg text{font-size:10px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 18 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
-  <p class="intro">The energy-transition bellwether after a year in which the world's second-largest mine flooded, the forecast surplus became a deficit, the metal set a record, and the United States put a 50% tariff on its own largest import source. This page covers the balance, the disruption ledger, supply and refining concentration, the corporate consolidation and the policy layer. No prices are carried as live values.</p>
-  <div class="figures"><div><div class="v">−150 kt</div><div class="l">ICSG forecast refined deficit 2026, first structural shortage since 2009 <span class="t">Forecast</span><sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></div></div><div><div class="v">c.591 kt</div><div class="l">Copper lost at Grasberg, Sep 2025 to end-2026, more than Collahuasi's 2026 output <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">36%</div><div class="l">Share of world supply from the 20 largest mines, 2025 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">&gt;48%</div><div class="l">China's share of refined production, 2025 (14 Mt) <span class="t">Reported</span><sup class="r"><a href="#s10">10</a></sup></div></div></div>
+  <summary>Full report <small>7 sections · 32 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">The energy-transition bellwether after a year in which the world's second-largest mine flooded, the forecast surplus became a deficit and then a surplus again, the metal set a record, and the United States put a 50% tariff on semi-finished copper while leaving cathode in limbo. This page covers the balance, the disruption ledger, supply and refining concentration, the corporate consolidation and the policy layer. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">+104 kt</div><div class="l">ICSG forecast refined surplus 2026 (14 Oct 2026), from a −150 kt deficit forecast a year earlier; 2027 +368 kt <span class="t">Forecast</span><sup class="r"><a href="#s19">19</a> <a href="#s21">21</a></sup></div></div><div><div class="v">early 2028</div><div class="l">Grasberg full-capacity date, from end-2027; mill at 67% on 2 Oct 2026 <span class="t">Reported</span><sup class="r"><a href="#s25">25</a> <a href="#s26">26</a></sup></div></div><div><div class="v">36%</div><div class="l">Share of world supply from the 20 largest mines, 2025 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">&gt;48%</div><div class="l">China's share of refined production, 2025 (14 Mt) <span class="t">Reported</span><sup class="r"><a href="#s10">10</a></sup></div></div></div>
 
 
 
@@ -311,19 +314,26 @@ svg text{font-size:10px}
 </nav>
 
 <section id="s-i">
-  <div class="sechead tint"><h2><em>I</em>The balance</h2><p class="sub">From comfortable surplus to structural deficit in six months of forecasts.</p></div>
+  <div class="sechead tint"><h2><em>I</em>The balance</h2><p class="sub">Surplus to deficit to surplus in eighteen months of forecasts.</p></div>
   
   <div class="tw"><table>
     <tr><th>Forecaster</th><th>Date</th><th class="n">2026 refined balance</th><th>Note</th></tr>
     <tr><td>ICSG</td><td>Apr 2025</td><td class="n">small surplus</td><td>Softer ex-China demand; improved availability<sup class="r"><a href="#s11">11</a></sup></td></tr>
     <tr><td>Benchmark Mineral Intelligence</td><td>pre-Sep 2025</td><td class="n">−72 kt</td><td>"Relatively balanced"<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
     <tr><td>Benchmark Mineral Intelligence</td><td>Sep–Oct 2025</td><td class="n">c.−400 kt</td><td>After Grasberg; "steep deficit"<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
-    <tr><td>ICSG</td><td>Oct 2025</td><td class="n">−150 kt</td><td>Surplus abandoned; concentrate bottleneck named as the brake<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>ICSG</td><td>Oct 2025</td><td class="n">−150 kt</td><td>2026 surplus of 209 kt abandoned (2025 still a 178 kt surplus); concentrate bottleneck named as the brake<sup class="r"><a href="#s21">21</a> <a href="#s4">4</a></sup></td></tr>
     <tr><td>J.P. Morgan</td><td>Q1 2026</td><td class="n">−330 kt</td><td>Average price forecast $12,075/t (recorded as a house view, not updated)<sup class="r"><a href="#s5">5</a> <a href="#s3">3</a></sup></td></tr>
-    <tr><td>Citi</td><td>Oct 2025</td><td class="n">a further −350 kt in 2027</td><td>Unless prices ration demand<sup class="r"><a href="#s6">6</a></sup></td></tr>
+    <tr><td>ICSG</td><td>Apr 2026</td><td class="n">+96 kt</td><td>Deficit withdrawn; mine growth cut to 1.6% (24.2 Mt) on Grasberg and Kamoa, but usage growth cut harder to 1.6% (28.9 Mt) on the Middle East conflict; refined output 30.4 Mt; 2027 +377 kt<sup class="r"><a href="#s20">20</a></sup></td></tr>
+    <tr><td>Wood Mackenzie</td><td>Aug 2026</td><td class="n">slight surplus</td><td>Supported by US tariff inflows<sup class="r"><a href="#s28">28</a></sup></td></tr>
+    <tr><td>ICSG</td><td>14 Oct 2026</td><td class="n">+104 kt</td><td>Refined output +0.4% 2026, +3.4% 2027 on Indonesian, Indian and EU smelters; usage +1.5% and +2.5%; 2027 +368 kt<sup class="r"><a href="#s19">19</a></sup></td></tr>
+    <tr><td>Citi</td><td>Oct 2025</td><td class="n">a further −350 kt in 2027</td><td>Unless prices ration demand; now contradicted by ICSG's 2027 surplus<sup class="r"><a href="#s6">6</a> <a href="#s19">19</a></sup></td></tr>
   </table></div>
-  <p>A 150–330 kt deficit is only 0.5–1.1% of a c.28.7 Mt refined market, but with inelastic demand the marginal tonne sets the price for the whole market, which is why the metal set an all-time high above $6/lb on COMEX in January 2026 while Chinese demand was described as muted.<sup class="r"><a href="#s5">5</a> <a href="#s10">10</a></sup> <span class="c c-m">Med</span> Chinese smelters, short of concentrate, cut production; one analysis puts the refined deficit above 350 kt if a 20% Chinese cut persists through Q4 2026.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-l">Low</span></p>
-  <div class="note r">Discrepancy logged: Benchmark's "c.591 kt" of lost Grasberg output (Sep 2025–Dec 2026) and Goldman Sachs' "525 kt total mine-supply loss" (c.260 kt 2025, c.270 kt 2026) measure similar things on different bases; Freeport's own guidance cut was 600 million lb (c.272 kt) for 2026 alone, with Q4 2025 sales "insignificant". All three are shown; none is reconciled.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s7">7</a></sup> <span class="c c-m">Med</span></div>
+  <div class="note r">Correction, 19 Oct 2026. From launch to 5 October this page carried ICSG's October 2025 forecast of a 150 kt 2026 deficit, "the first structural shortage since 2009", as current. ICSG had replaced it with a 96 kt surplus in April 2026 and a 104 kt surplus on 14 October. The error was one of timing: a six-month-old forecast was carried past its revision. The headline figure, the table above and the intro are restated; the analyst deficit forecasts below it are retained as dated house views.<sup class="r"><a href="#s20">20</a> <a href="#s19">19</a></sup></div>
+  <p>The paper surplus and the record price coexist because stock is maldistributed, not abundant. Macquarie counts visible stocks up 300 kt in 2026 worldwide, all of it the US build; everywhere else they are down 168 kt.<sup class="r"><a href="#s31">31</a></sup> <span class="c c-m">Med</span> The 2026 benchmark treatment charge settled at $0/t, from $21.25 in 2025, with spot concentrate TCs near −$127/t at end-June: smelters are paying miners for feed, which is why refined output growth is 0.4% while mine output grows 1.6%.<sup class="r"><a href="#s30">30</a> <a href="#s20">20</a></sup> <span class="c c-m">Med</span></p>
+  <p>A 100–370 kt swing either way is under 1.3% of a c.29 Mt refined market, but with inelastic demand the marginal tonne sets the price for the whole market, which is why the metal set records in 2026 while Chinese demand was described as muted.<sup class="r"><a href="#s5">5</a> <a href="#s10">10</a></sup> <span class="c c-m">Med</span> Chinese smelters, short of concentrate, cut production; one analysis puts the refined deficit above 350 kt if a 20% Chinese cut persists through Q4 2026.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-l">Low</span></p>
+  <div class="note r">Discrepancy logged: Benchmark's "c.591 kt" of lost Grasberg output (Sep 2025–Dec 2026) and Goldman Sachs' "525 kt total mine-supply loss" (c.260 kt 2025, c.270 kt 2026) measure similar things on different bases; Freeport's own guidance cut was 600 million lb (c.272 kt) for 2026 alone, with Q4 2025 sales "insignificant". All three are shown; none is reconciled. Benchmark's later figure for 2025 alone is 278 kt, 1.2% of world mine output.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s7">7</a> <a href="#s26">26</a></sup> <span class="c c-m">Med</span></div>
+  <h3>Price, recorded 19 October 2026</h3>
+  <p>LME three-month closed $14,407.50 on 16 October; the LME Official was $14,595.<sup class="r"><a href="#s23">23</a> <a href="#s24">24</a></sup> COMEX $6.56/lb the same day, +31.9% on a year earlier and +15.2% year to date, 4.7% below the $6.89 record of 9 September.<sup class="r"><a href="#s22">22</a></sup> <span class="c c-h">High</span> The LME record cash close remains $14,737 on 8 September.<sup class="r"><a href="#s18">18</a></sup> The 14 October CPI print and renewed rate-hike pricing knocked the metal back mid-month before it firmed on supply risk.<sup class="r"><a href="#s28">28</a></sup> <span class="c c-m">Med</span></p>
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>The 2025 disruption ledger</h2><p class="sub">Why a market of 23 Mt turned on a handful of mines.</p></div>
@@ -331,10 +341,14 @@ svg text{font-size:10px}
   <div class="era"><div class="y">to end-Aug 2025</div><div class="t">c.497 kt of copper already lost to disruptions across the industry, including Kamoa-Kakula (DRC, seismic event) and El Teniente (Chile).<sup class="r"><a href="#s8">8</a> <a href="#s2">2</a></sup></div></div>
   <div class="era"><div class="y">8 Sep 2025</div><div class="t">c.800 kt of wet material flows into multiple levels of the Grasberg Block Cave, Papua, Indonesia; underground operations suspended; two workers confirmed dead and five missing at the time of the force majeure.<sup class="r"><a href="#s1">1</a> <a href="#s8">8</a></sup></div></div>
   <div class="era"><div class="y">24 Sep 2025</div><div class="t">Freeport-McMoRan declares force majeure; LME three-month copper hits $10,364/t (+4% on the day); FCX shares fall 17%, c.$11 bn of market value.<sup class="r"><a href="#s1">1</a> <a href="#s7">7</a></sup></div></div>
-  <div class="era"><div class="y">Sep–Oct 2025</div><div class="t">The Block Cave is c.70% of Grasberg's output; Grasberg loses its concentrate export licence, so the loss falls on the refined market; return to pre-incident rates not expected before 2027; 2026 guidance cut 35%.<sup class="r"><a href="#s3">3</a> <a href="#s1">1</a> <a href="#s6">6</a></sup></div></div>
+  <div class="era"><div class="y">Sep–Oct 2025</div><div class="t">The Block Cave is c.70% of Grasberg's output; Grasberg loses its concentrate export licence, so the loss falls on the refined market; 2026 guidance cut 35%.<sup class="r"><a href="#s3">3</a> <a href="#s1">1</a> <a href="#s6">6</a></sup></div></div>
+  <div class="era"><div class="y">Late Oct 2025</div><div class="t">Unaffected DMLZ and Big Gossan mines restart; Freeport guides 2026 district output of c.1.0 bn lb copper, similar to reduced 2025.<sup class="r"><a href="#s27">27</a></sup></div></div>
   <div class="era"><div class="y">Q4 2025</div><div class="t">Anglo American cuts Chilean guidance to 390–420 kt; Cochilco's Chilean baseline holds near 5.5 Mt, masking mine-level fragility.<sup class="r"><a href="#s5">5</a></sup></div></div>
-  <div class="era"><div class="y">Jan 2026</div><div class="t">All-time high above $6/lb on COMEX.<sup class="r"><a href="#s10">10</a></sup></div></div>
-  <div class="era"><div class="y">Q2 2026</div><div class="t">Grasberg Block Cave restart targeted; J.P. Morgan sees the refined-stock impact peaking in this quarter.<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></div></div>
+  <div class="era"><div class="y">Jan 2026</div><div class="t">All-time high above $6/lb on COMEX; LME three-month intraday record $14,527.50 on 29 Jan.<sup class="r"><a href="#s10">10</a></sup></div></div>
+  <div class="era"><div class="y">End-Mar 2026</div><div class="t">Grasberg Block Cave Production Blocks 2 and 3 begin ramp-up; Block 1S planned Q2 2027, Block 1C by end-2027.<sup class="r"><a href="#s27">27</a></sup></div></div>
+  <div class="era"><div class="y">May 2026</div><div class="t">Freeport Indonesia pushes full capacity to early 2028 from end-2027, citing logistics and ore-handling work; output at 40–50%; targets 65% in H2 2026 and 80% by mid-2027.<sup class="r"><a href="#s25">25</a></sup></div></div>
+  <div class="era"><div class="y">8–9 Sep 2026</div><div class="t">LME record cash close $14,737/t; COMEX record $6.89/lb.<sup class="r"><a href="#s18">18</a> <a href="#s22">22</a></sup></div></div>
+  <div class="era"><div class="y">2 Oct 2026</div><div class="t">Grasberg mill throughput reaches 67%; phased timeline reaffirmed.<sup class="r"><a href="#s26">26</a></sup></div></div>
   <p>The structural point is concentration: the twenty largest mines supply 36% of the world, most are ageing, and no new mine replaces them; Benchmark's phrase is "the sector's dependence on a small group of major mines".<sup class="r"><a href="#s1">1</a> <a href="#s10">10</a></sup> <span class="c c-h">High</span></p>
 </section>
 <section id="s-iii">
@@ -363,45 +377,48 @@ svg text{font-size:10px}
   <div class="tw"><table>
     <tr><th>Event</th><th>Date</th><th>Detail</th></tr>
     <tr><td>BHP's approach for Anglo American fails</td><td>2024</td><td>Anglo pivots to copper, premium iron ore and crop nutrients; demerges platinum, puts De Beers up for sale<sup class="r"><a href="#s14">14</a></sup></td></tr>
-    <tr><td>Anglo American – Teck merger of equals announced</td><td>9 Sep 2025</td><td>To create a top-five global copper producer; shareholders of both approve 9 Dec 2025; major antitrust clearances in hand with China and South Korea pending; close expected within 12–18 months<sup class="r"><a href="#s14">14</a></sup></td></tr>
+    <tr><td>Anglo American – Teck merger of equals announced</td><td>9 Sep 2025</td><td>To create a top-five global copper producer as Anglo Teck plc; shareholders of both approve 9 Dec 2025; Investment Canada approval 15 Dec 2025; final regulatory approval (China SAMR the long pole) and completion expected Sep 2026–Mar 2027; $800m annual synergies; $4.5bn Anglo special dividend on completion<sup class="r"><a href="#s14">14</a> <a href="#s32">32</a></sup></td></tr>
     <tr><td>Teck's Quebrada Blanca ramp</td><td>2025–26</td><td>Q4 2025 output 55 kt; 2026 guidance 455–530 kt; steady state expected end-2026<sup class="r"><a href="#s14">14</a></sup></td></tr>
-    <tr><td>Freeport-McMoRan / PT Freeport Indonesia</td><td>Sep 2025</td><td>Force majeure; 2026 output 600 m lb copper and 560 koz gold below prior guidance<sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Freeport-McMoRan / PT Freeport Indonesia</td><td>Sep 2025–</td><td>Force majeure; 2026 district guidance c.1.0 bn lb copper; full capacity early 2028; 2027–29 average 1.6 bn lb<sup class="r"><a href="#s7">7</a> <a href="#s25">25</a> <a href="#s27">27</a></sup></td></tr>
     <tr><td>Ivanhoe Mines / Zijin, Kamoa-Kakula</td><td>2025</td><td>Africa's growth engine; seismic disruption in 2025<sup class="r"><a href="#s9">9</a> <a href="#s2">2</a></sup></td></tr>
     <tr><td>Codelco</td><td>2025–26</td><td>State producer; Chilean baseline c.5.5 Mt nationally; technology partnership with Microsoft<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></td></tr>
   </table></div>
   <div class="note">Diamond parallel: the same Anglo American restructuring runs through three issues of this series, copper is what Anglo chose, platinum (Valterra) is what it spun out, and De Beers is what it sold. The board's judgement was that a single-commodity electrification metal with a deficit would be valued more highly than a luxury franchise with a substitution problem. <span class="c c-x">Hyp</span></div>
 </section>
 <section id="s-v">
-  <div class="sechead tint"><h2><em>V</em>Policy: tariffs and critical-mineral status</h2><p class="sub">The United States taxes its own supply chain.</p></div>
+  <div class="sechead tint"><h2><em>V</em>Policy: tariffs and critical-mineral status</h2><p class="sub">The United States taxes its semi-finished imports and leaves cathode undecided.</p></div>
   
   <div class="tw"><table>
     <tr><th>Measure</th><th>Detail</th><th>Confidence</th></tr>
-    <tr><td>Section 232 copper tariff, 50%</td><td>Proclamation "Adjusting Imports of Copper into the United States", effective 1 Aug 2025, on cathode, refined copper, alloys and defined downstream products; stacks on the 10% Section 122 baseline and any Section 301 surcharge; FTAs with Chile, Peru and USMCA partners do not exempt it beyond narrow carve-outs; still in force May 2026<sup class="r"><a href="#s12">12</a> <a href="#s15">15</a></sup></td><td><span class="c c-m">Med</span></td></tr>
+    <tr><td>Section 232 copper tariff, 50%</td><td>Proclamation "Adjusting Imports of Copper into the United States", effective 1 Aug 2025, on semi-finished and derivative products (pipe, wire, rod, sheet); refined cathode exempt; stacks on Section 122 and 301 surcharges; FTAs do not exempt it beyond narrow carve-outs<sup class="r"><a href="#s12">12</a> <a href="#s15">15</a> <a href="#s28">28</a></sup></td><td><span class="c c-h">High</span></td></tr>
+    <tr><td>Refined-cathode tariff, phased</td><td>April 2026 proclamation set 15% from Jan 2027 and 30% from Jan 2028, subject to a presidential decision after Commerce's 30 June update; the implied 28 Sep window passed with no announcement; White House said 10 Sep no decision made. Market treating it as a soft no<sup class="r"><a href="#s28">28</a> <a href="#s29">29</a></sup></td><td><span class="c c-m">Med</span></td></tr>
+    <tr><td>US stock build and arbitrage</td><td>US inventories c.1.6 Mt (Goldman mid-year: 1.8 Mt by end-2026), COMEX c.700 kt, c.70% of visible exchange stock; COMEX–LME premium from &gt;$3,000/t (Jul 2025) to c.$310/t<sup class="r"><a href="#s29">29</a> <a href="#s17">17</a></sup></td><td><span class="c c-m">Med</span></td></tr>
     <tr><td>US import sources</td><td>Refined copper imports 2024: Chile 65%, Canada 17%, Mexico 9%, Peru 6% (USGS); Chile c.$4.5 bn of cathode from Codelco, Anglo American Sur, Escondida, Antofagasta<sup class="r"><a href="#s16">16</a> <a href="#s15">15</a></sup></td><td><span class="c c-h">High</span></td></tr>
     <tr><td>US net import reliance</td><td>45% (2024) to an estimated 57% (2025) as domestic mine output fell 9–10% and refined imports hit a record c.1.63–1.70 Mt on tariff front-loading; USGS critical-mineral designation<sup class="r"><a href="#s13">13</a></sup></td><td><span class="c c-m">Med</span></td></tr>
     <tr><td>Chinese export flows</td><td>Refined exports +1,100% year on year in Nov 2025<sup class="r"><a href="#s12">12</a></sup></td><td><span class="c c-m">Med</span></td></tr>
   </table></div>
-  <p>The tariff protects a refining base that is shrinking: domestic refined output fell an estimated 9–10% in 2025 on maintenance and grades, and recycled copper covers roughly 30–35% of US supply.<sup class="r"><a href="#s13">13</a></sup> The policy raises the landed cost of cathode for US fabricators without adding a tonne of domestic supply in the forecast horizon. <span class="c c-m">Med</span></p>
+  <p>The tariff protects a refining base that is shrinking: domestic refined output fell an estimated 9–10% in 2025 on maintenance and grades, and recycled copper covers roughly 30–35% of US supply.<sup class="r"><a href="#s13">13</a></sup> The undecided cathode tariff has done the real work: the threat alone pulled 1.6 Mt into the US, where it sits stranded, while the rest of the world runs on about 300 kt of exchange stock. <span class="c c-m">Med</span></p>
+  <div class="note r">Correction, 19 Oct 2026. The launch text described the 50% Section 232 tariff as applying to "cathode, refined copper, alloys and defined downstream products". Refined cathode has been exempt since the August 2025 proclamation; the 50% rate covers semi-finished and derivative products only. The row is restated and the cathode decision is tracked separately.<sup class="r"><a href="#s28">28</a> <a href="#s29">29</a></sup></div>
 </section>
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
-    <tr><td>Refined market balance</td><td>ICSG monthly bulletin and April/October forecasts</td><td>Deficit size; concentrate-versus-smelter gap</td></tr>
-    <tr><td>Grasberg restart and PTFI guidance</td><td>Freeport-McMoRan quarterlies</td><td>The single largest swing in 2026 supply</td></tr>
+    <tr><td>Refined market balance</td><td>ICSG monthly bulletin and April/October forecasts (latest 14 Oct 2026)</td><td>Deficit or surplus size; concentrate-versus-smelter gap</td></tr>
+    <tr><td>Grasberg restart and PTFI guidance</td><td>Freeport-McMoRan quarterlies (Q3 2026 due late Oct)</td><td>The single largest swing in 2026–27 supply; 65% H2 2026 target</td></tr>
     <tr><td>Exchange stocks (LME, COMEX, SHFE) and tariff-driven arbitrage</td><td>Exchange reports, daily</td><td>Where metal is being pulled; US premium</td></tr>
-    <tr><td>Treatment and refining charges (TC/RCs)</td><td>Annual benchmark and spot, via Fastmarkets/CRU</td><td>Concentrate scarcity; smelter margin squeeze</td></tr>
+    <tr><td>Treatment and refining charges (TC/RCs)</td><td>Annual benchmark and spot, via Fastmarkets/CRU</td><td>Concentrate scarcity; 2026 benchmark $0/t, spot negative</td></tr>
     <tr><td>Chinese refined output, exports and smelter cuts</td><td>NBS; customs data, monthly</td><td>Whether China is a net exporter of cathode</td></tr>
     <tr><td>Chile and Peru production</td><td>Cochilco monthly; Peruvian MINEM</td><td>Base-load supply; grade decline</td></tr>
     <tr><td>Anglo–Teck merger clearances</td><td>Company announcements; Chinese and Korean regulators</td><td>Consolidation of the copper majors</td></tr>
-    <tr><td>US Section 232 scope and exemptions</td><td>USTR / Commerce notices</td><td>Landed cost for US fabricators</td></tr>
+    <tr><td>US Section 232 scope and exemptions</td><td>USTR / Commerce notices; presidential decision on refined cathode</td><td>Landed cost for US fabricators; whether 1.6 Mt of US stock is released</td></tr>
   </table></div>
 </section>
 <section id="s-vii">
   <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. ICSG and USGS are primary; analyst forecasts are recorded as house views at the date made.</p></div>
   
-  <details><summary class="src-toggle">Show 18 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 32 sources</summary><ol class="src">
     <li id="s1"><b>Benchmark Mineral Intelligence</b>, "Grasberg supply shock to plunge refined copper market into deficit in 2026", 26 Sep 2025, c.591 kt lost Sep 2025–Dec 2026; more than Collahuasi's 2026 output; top-20 mines 36% of supply; export-licence loss shifts impact to the refined market; LME $10,364/t on 24 Sep; 800 kt of material; casualties.</li>
     <li id="s2"><b>MetalMiner</b>, "Global Copper Market Deficit Balloons on Grasberg Collapse", 6 Oct 2025, Benchmark deficit revision 72 kt to 400 kt; Goldman Sachs 525 kt loss (260 kt 2025, 270 kt 2026); c.$10,485/t 15-month high; El Teniente disruption.</li>
     <li id="s3"><b>Skillings Mining Intelligence</b>, "Copper Price Forecast 2026: Deficits, Smelting", 12 May 2026, Block Cave c.70% of Grasberg output; closure to at least Q2 2026; J.P. Morgan $12,075/t average and Q2 peak; Chinese smelter cuts; Codelco–Microsoft. <span class="c c-m">Med</span></li>
@@ -420,15 +437,29 @@ svg text{font-size:10px}
     <li id="s16"><b>USGS</b>, Mineral Commodity Summaries 2025, Copper (D. M. Flanagan), US refined-copper import sources: Chile 65%, Canada 17%, Mexico 9%, Peru 6%; refined 88% of unmanufactured imports; 2024 domestic output −3%; Bingham Canyon and Eagle mine issues.</li>
   <li id="s17"><b>Copper.com.au, "Copper Weekly Brief — week ending 2 October 2026"</b>, 2 Oct 2026. LME $14,253.50/t on 1 Oct; ~4% below September record; COMEX–LME gap largely closed. <a href="https://copper.com.au/news/mining/copper-weekly-brief-week-ending-2-october-2026/amp/" target="_blank">copper.com.au</a> <span class="c c-m">Med</span></li>
 <li id="s18"><b>Tacto, "Copper Price Today"</b>, 14 Sep 2026. Record LME cash close $14,737/t on 8 Sep; Section 232 refined-copper decision still open. <a href="https://www.tacto.ai/en/commodities/copper-price" target="_blank">tacto.ai</a> <span class="c c-m">Med</span></li>
+<li id="s19"><b>Mining Weekly (Reuters), "ICSG sees global refined copper surplus widening in 2027"</b>, 14 Oct 2026. 2026 surplus c.104 kt; 2027 368 kt; refined output +0.4% / +3.4%; usage +1.5% / +2.5%; Indonesia, India and EU smelter ramp-ups. <a href="https://www.miningweekly.com/article/icsg-sees-global-refined-copper-surplus-widening-in-2027-2026-10-14" target="_blank">miningweekly.com</a> <span class="c c-h">High</span></li>
+<li id="s20"><b>E&amp;MJ, "ICSG Forecasts Growth in Copper Usage"</b>, May 2026, reporting ICSG Copper Market Forecast 2026/2027 (Apr 2026). 2026 surplus 96 kt, 2027 377 kt; mine growth 2026 cut 2.3% to 1.6% (24.2 Mt), 2027 2.3% (25.8 Mt); refined 30.4 Mt (+0.4%); usage 28.9 Mt (+1.6%, from 2.1%); Grasberg and Kamoa constrained. <a href="https://www.e-mj.com/departments/markets/icsg-forecasts-growth-in-copper-usage/" target="_blank">e-mj.com</a> <span class="c c-h">High</span></li>
+<li id="s21"><b>Mining Weekly, "Copper market expected to be in surplus in 2025 followed by deficit in 2026, ICSG says"</b>, 8 Oct 2025. 2025 surplus c.178 kt; 2026 deficit 150 kt (from 209 kt surplus); refined output +0.9% 2026. <a href="https://www.miningweekly.com/article/copper-market-expected-to-be-in-surplus-in-2025-followed-by-deficit-in-2026-icsg-says-2025-10-08" target="_blank">miningweekly.com</a> <span class="c c-h">High</span></li>
+<li id="s22"><b>Macrotrends, Copper Prices 1959–2026</b>, 16 Oct 2026. COMEX $6.56/lb; +31.9% y/y from $4.97; +15.2% YTD; record $6.89 on 9 Sep 2026. <a href="https://www.macrotrends.net/1476/copper-prices-historical-chart-data" target="_blank">macrotrends.net</a> <span class="c c-m">Med</span></li>
+<li id="s23"><b>LME, LME Copper</b>, data for 16 Oct 2026. Three-month closing price $14,407.50. <a href="https://www.lme.com/metals/non-ferrous/lme-copper" target="_blank">lme.com</a> <span class="c c-h">High</span></li>
+<li id="s24"><b>KME, Metal Prices (LME Officials)</b>, 16 Oct 2026. Copper $14,595/t. <a href="https://www.kme.com/en/services/metal-prices" target="_blank">kme.com</a> <span class="c c-h">High</span></li>
+<li id="s25"><b>Mining.com (Reuters), "Freeport delays Grasberg full restart to early 2028"</b>, May 2026. From end-2027; output 40–50%; 65% H2 2026, 80% mid-2027; logistics and ore-handling work; seven deaths. <a href="https://www.mining.com/freeport-delays-grasberg-full-restart-to-early-2028/" target="_blank">mining.com</a> <span class="c c-h">High</span></li>
+<li id="s26"><b>The Northern Miner, "Freeport's Grasberg copper mill reaches 67% after last year's mudslide"</b>, 2 Oct 2026. BMO: timeline reaffirmed; Benchmark 278 kt lost from 2025 supply, 1.2% of world mine output; 800 kt/yr smelting capacity. <a href="https://www.northernminer.com/news/freeports-grasberg-copper-mill-reaches-67-after-last-years-mudslide/1003895414/" target="_blank">northernminer.com</a> <span class="c c-h">High</span></li>
+<li id="s27"><b>Freeport-McMoRan, Form 8-K Q1 2026 (Exhibit 99.1)</b>, Apr 2026. DMLZ and Big Gossan restarted Oct 2025; Blocks 2 and 3 ramp-up from end-March 2026; Block 1S Q2 2027; Block 1C by end-2027; and Freeport release Nov 2025: 2026 district c.1.0 bn lb copper, 0.9 Moz gold. <a href="https://www.sec.gov/Archives/edgar/data/0000831259/000083125926000021/a1q2026exhibit991.htm" target="_blank">sec.gov</a> <span class="c c-h">High</span></li>
+<li id="s28"><b>Copper.com.au, "Copper Weekly Brief, 15 October 2026"</b>. Cathode tariff-free; April proclamation 15% 2027 / 30% 2028 pending presidential decision after Commerce's 30 June update; 28 Sep window passed; ICSG Oct 2026 and Wood Mackenzie Aug 2026 balances; CPI 14 Oct. <a href="https://copper.com.au/news/mining/copper-weekly-brief-15-october-2026/" target="_blank">copper.com.au</a> <span class="c c-m">Med</span></li>
+<li id="s29"><b>ScrapMonster, "U.S. Copper Stockpile Hits 1.6M Tons"</b>, 15 Oct 2026. COMEX c.70% of visible exchange stock; COMEX+LME+SHFE just over 1 Mt; arbitrage &gt;$3,000/t Jul 2025 to c.$310/t; White House 10 Sep no decision. <a href="https://www.scrapmonster.com/news/copper/u.s.-copper-stockpile-hits-1.6m-tons-2026-10-15/100255" target="_blank">scrapmonster.com</a> <span class="c c-m">Med</span></li>
+<li id="s30"><b>Bloodstone Research, "Copper: The Tariff Trade Deflates"</b>, 9 Oct 2026. 2026 benchmark TC/RC $0/t from $21.25; spot TC c.−$127/t end-June; China social inventory c.100 kt (+27.3 kt); SHFE ¥111,710/t; LME 3M $14,415 on 8 Oct. <a href="https://www.bloodstonecapital.co.uk/research/journal/copper-analysis-2026-10-09" target="_blank">bloodstonecapital.co.uk</a> <span class="c c-m">Med</span></li>
+<li id="s31"><b>Mining.com, "Copper price forecasts lifted for 2026 but tariff 'collapse' still on the table"</b>, 15 Oct 2026, reporting Macquarie. Visible stocks +300 kt in 2026, all US; ex-US −168 kt; "the great copper gamble". <a href="https://www.mining.com/copper-price-forecasts-lifted-for-2026-but-tariff-collapse-still-on-the-table/" target="_blank">mining.com</a> <span class="c c-m">Med</span></li>
+<li id="s32"><b>Anglo American, "Anglo American and Teck announce future Anglo Teck Executive Leadership Team"</b>, 30 Jul 2026. Completion conditional on final regulatory approval, expected Sep 2026–Mar 2027; c.$800m synergies; and AGM address 29 Apr 2026: $4.5bn special dividend on completion; Teck 6-K: Investment Canada approval 15 Dec 2025. <a href="https://www.angloamerican.com/media/press-releases/2026/30-07-2026b" target="_blank">angloamerican.com</a> <span class="c c-h">High</span></li>
 </ol></details>
+  <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime and "Since last update" rewritten. Intro and headline figures: ICSG −150 kt replaced by +104 kt (14 Oct 2026); Grasberg lost-tonnage figure replaced by the 2028 full-capacity date. Section I: ICSG April and October 2026 and Wood Mackenzie rows added; the stale deficit headline corrected in place; stock-maldistribution and TC/RC paragraphs added; price paragraph added. Section II: ledger extended from Oct 2025 to Oct 2026 with the Block Cave restart and the 2028 delay. Section IV: Anglo–Teck and Freeport rows updated. Section V: tariff scope corrected (cathode was never covered by the 50% rate), the pending cathode decision and US stock build added as rows. Section VI: three indicator rows updated. Sources 19–32 added; 41 new sourced figures; two corrections logged.</div>
 </section>
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The balance</a><a href="#s-ii"><span>II</span>The 2025 disruption ledger</a><a href="#s-iii"><span>III</span>Supply and refining</a><a href="#s-iv"><span>IV</span>The corporate map</a><a href="#s-v"><span>V</span>Policy: tariffs and critical-mineral status</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
-  <span>Scarce assets. One perspective.</span>
-  <span>Market intelligence · not investment advice</span>
+  <span>Market intelligence, not investment advice</span>
 </footer>
 </div>
 <div class="ctl" id="ctl">

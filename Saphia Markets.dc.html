@@ -8,6 +8,8 @@
 <body>
 <x-dc>
 <helmet>
+<title>Markets — ΣΟΦΙΑ</title>
+<meta name="description" content="Thirty-one scarce-asset markets by family, by Σ grade, or A–Z.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -60,7 +62,7 @@ button{font-family:'Inter',system-ui,sans-serif}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { view: "grade" };
+  state = { view: "family" };
   componentDidMount() {
     const v = new URLSearchParams(location.search).get("view");
     if (v && ["grade","family","az"].includes(v)) this.setState({ view: v });
@@ -78,7 +80,7 @@ class Component extends DCLogic {
     const view = this.state.view;
     const views = [["family","By family"],["grade","By Σ grade"],["az","A–Z"]].map(([k,label]) => ({ label,
       bg:view === k ? "#141412" : "transparent", fg:view === k ? "#f4efe6" : "#6f6a62", bd:view === k ? "#141412" : "#dcd4c6",
-      onClick:() => { this.setState({ view:k }); try { history.replaceState(null, "", k === "grade" ? location.pathname : "?view=" + k); } catch (e) {} } }));
+      onClick:() => { this.setState({ view:k }); try { history.replaceState(null, "", k === "family" ? location.pathname : "?view=" + k); } catch (e) {} } }));
     let groups, note;
     if (view === "grade") {
       groups = ["E1","E2","E3","E4","E5"].map(e => ({ hasHead:true, head:"Σ" + e[1], label:EN[e], def:ED[e], items:data.filter(d => d.E === e).map(m => ({ ...m, sub:m.fam, tileG:"" })) }));

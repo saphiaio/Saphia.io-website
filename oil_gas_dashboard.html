@@ -424,7 +424,7 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
 .c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
 .contents .sector-tag{letter-spacing:.08em}
 .brief{padding:64px 0 0}
-.brief .crumb{font-size:13px;color:var(--mute)}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
 .brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
 .brief h1{font-size:72px;line-height:1;margin:8px 0 0}
 .grade{text-align:right;padding-bottom:6px}
@@ -461,6 +461,9 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
 .ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
 .sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
 .sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
 @media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
 </style>
 </head>
@@ -468,25 +471,25 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ</a>
-    <ul><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/method">Method</a></li><li><a href="/contact">Contact</a></li></ul>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
   </div>
 </header>
 <div class="page">
 
 <div class="brief">
-  <div class="crumb">Markets · Metals, Energy &amp; Strategic Materials</div>
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Metals, Energy &amp; Strategic Materials</a></div>
   <div class="brief-head">
     <h1>Oil &amp; Gas</h1>
-    <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: futures · 5 Oct 2026</div></div>
+    <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: futures · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Hormuz flows back near pre-war levels, yet physical Brent stays tight: futures ~$101, Dated above $120 as inventories drain.</p>
+  <p class="regime">The September reopening has reversed: Hormuz crude flows back to ~70% of pre-war after nine tanker attacks in a week, Brent at $110 for the first time since May, diesel the binding constraint.</p>
   <div class="facts">
     <div><div class="k">Origins</div>United States · Saudi Arabia · Russia · Qatar · Canada</div>
     <div><div class="k">Principal markets</div>China · United States · India · European Union · Japan</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Low</span><span>Provenance risk</span><span>Low</span></div></div>
   </div>
   <h2>Since last update</h2>
-  <p class="since">Kpler: Hormuz crude flows topped pre-war levels in late September; Brent still ~$101 on 5 Oct. Dated Brent above $120 signals a physical squeeze. Reuters September poll lifted the 2026 Brent average to $89.05. EIA: global inventories down ~400 mb this year.<sup class="r"><a href="#s8">8</a></sup><sup class="r"><a href="#s9">9</a></sup><sup class="r"><a href="#s10">10</a></sup></p>
+  <p class="since">Brent closed $109.86 on 16 Oct, touching $110 intraday, +5% on the week and ~$9 above the last update; WTI $101.41.<sup class="r"><a href="#s19">19</a></sup> Kpler puts Hormuz crude exports at 9.4 mb/d for the week to 14 Oct, ~70% of pre-war, after topping pre-war levels in September.<sup class="r"><a href="#s19">19</a></sup> IEA's 14 Oct report: September supply +2.5 mb/d to 102.3; 2026 demand now −2.6 mb/d; 2027 still 0.6% below 2025.<sup class="r"><a href="#s18">18</a></sup> EIA's October STEO lifted 4Q26 Brent to $105 (+$14) and 2026 to $96.32.<sup class="r"><a href="#s20">20</a></sup> Gas cards (X) refreshed for the first time since July.</p>
   <h2>Why Σ2</h2>
   <div class="why">
     <div><p>Brent, WTI and Henry Hub futures give continuous pricing and the deepest commodity liquidity available. The route is futures, so roll yield and margin are the limits on holding. Physical barrels or cargoes are not a portfolio asset.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
@@ -495,7 +498,7 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>15 sections · 17 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>15 sections · 26 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A single-file, static reference on the two fuels that supply well over half the world's primary
        energy: who holds them, who produces and refines them, where they flow, and the state of the market as
        of early October 2026, a period defined by the Strait of Hormuz disruption. Every figure is date-stamped;
@@ -1213,7 +1216,7 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
   <div class="wrap">
     <div class="head">
       
-      <div class="sechead tint"><span class="unit">Oil &middot; US$ / bbl &middot; 2026</span><h2><em>IX</em>Oil price</h2><p class="sub">Brent monthly average through August 2026 (EIA basis). September is plotted at the late-month spot (~$114&ndash;121) rather than an average. Futures had eased to ~$101 by 5 October.<sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s16">16</a></sup></p></div>
+      <div class="sechead tint"><span class="unit">Oil &middot; US$ / bbl &middot; 2026</span><h2><em>IX</em>Oil price</h2><p class="sub">Brent monthly average through August 2026 (EIA basis). September is plotted at the late-month spot (~$114&ndash;121) rather than an average. Futures eased to ~$101 by 5 October, then rebounded to $109.86 on 16 October as Hormuz attacks resumed; October's month-to-date futures range is $93.68&ndash;110.00.<sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s16">16</a></sup><sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s22">22</a></sup></p></div>
     </div>
     
 
@@ -1227,19 +1230,19 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
         <div class="n">Low set 16 Dec 2025, before the conflict began.</div>
       </div>
       <div class="m">
-        <div class="k">Physical vs futures<sup class="r"><a href="#s17">17</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></div>
-        <div class="v v-sulfur">$120 / $101</div>
-        <div class="n">Dated Brent above $120 while ICE futures slipped to ~$101, early Oct. Physical scarcity, not paper.</div>
+        <div class="k">Brent, 16 Oct<sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s21">21</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
+        <div class="v v-sulfur">$109.86</div>
+        <div class="n">Close, after $110 intraday, first since May; +3.7% on the day, ~+5% on the week, +75% y/y. $107.11 on 19 Oct. Early-October Dated-futures gap not re-verified.</div>
       </div>
       <div class="m">
-        <div class="k">EIA 2H26 forecast<sup class="r"><a href="#s10">10</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
-        <div class="v v-sea">~$90</div>
-        <div class="n">September STEO, inputs frozen 3 Sep. Up from $74 for 3Q26 in July; spot has run above it since.</div>
+        <div class="k">EIA 4Q26 forecast<sup class="r"><a href="#s20">20</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
+        <div class="v v-sea">$105</div>
+        <div class="n">October STEO (6 Oct), +$14 on September. 2026 average $96.32, 2027 $83.74, third consecutive upward revision. Stocks −1.9 mb/d in 3Q26, −0.7 in 4Q26.</div>
       </div>
       <div class="m">
         <div class="k">Consensus 2026 avg<sup class="r"><a href="#s9">9</a></sup><span class="t">Forecast</span><span class="c c-m">Med</span></div>
         <div class="v">$89.05</div>
-        <div class="n">Reuters September poll, up from $85.08 in August. Analysts expect Hormuz disruption to persist.</div>
+        <div class="n">Reuters September poll, up from $85.08 in August. Already overtaken: EIA's October 2026 average is $96.32 and spot has held above $100 all month.</div>
       </div>
     </div>
   </div>
@@ -1251,30 +1254,30 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
       <div class="sechead tint"><span class="unit">Gas &middot; US$ / MMBtu &middot; mid-July 2026</span><h2><em>X</em>Gas price, three markets, not one</h2><p class="sub">The single most important fact about natural gas: unlike oil, it has no world price. Pipeline
        dependence and the cost of liquefaction split it into three regional markets, Henry Hub (US), TTF
        (Europe) and JKM (Asian spot LNG). The 2026 Hormuz crisis has pulled them violently apart, because Qatar
-      , ~20% of world LNG, ships almost entirely through the strait. Spot levels, week of 13&ndash;17 July 2026. <b>Not refreshed in the October pass</b>: no verified current regional prices were found.</p></div>
+      , ~20% of world LNG, ships almost entirely through the strait. Spot levels, 14&ndash;16 October 2026, replacing the July set; the European and Asian prints below are from secondary indices and carry Medium confidence.<sup class="r"><a href="#s23">23</a></sup><sup class="r"><a href="#s24">24</a></sup><sup class="r"><a href="#s25">25</a></sup></p></div>
     </div>
     
 
     <div class="mgrid">
       <div class="m">
-        <div class="k">Henry Hub &middot; US</div>
-        <div class="v v-sea">~$2.9</div>
-        <div class="n">Front-month, 22 Jul 2026. Barely moved, the US is a net exporter with ample domestic supply.</div>
+        <div class="k">Henry Hub &middot; US<span class="c c-h">High</span></div>
+        <div class="v v-sea">~$3.2</div>
+        <div class="n">$3.22 on 14 Oct, +14% y/y; 2026 average $3.47. Still barely moved: a net exporter with record storage.</div>
       </div>
       <div class="m">
-        <div class="k">TTF &middot; Europe</div>
-        <div class="v v-crude">~$16</div>
-        <div class="n">Highest since early 2023. Up ~53% since Feb; Europe competes for spot cargoes to refill storage.</div>
+        <div class="k">TTF &middot; Europe<span class="c c-m">Med</span></div>
+        <div class="v v-crude">~$25&ndash;28</div>
+        <div class="n">&euro;73&ndash;87/MWh in October, from ~$16 in July. Rising on below-average storage into winter; roughly a 2022-crisis level.</div>
       </div>
       <div class="m">
-        <div class="k">JKM &middot; Asia spot</div>
-        <div class="v v-crude">~$20&ndash;22</div>
-        <div class="n">High-$20s intraday mid-July as Qatari supply tightened. Asia is most exposed.</div>
+        <div class="k">JKM &middot; Asia spot<span class="c c-m">Med</span></div>
+        <div class="v v-crude">~$25&ndash;30</div>
+        <div class="n">High-$25s in early October on Hormuz LNG risk; one index prints $29.89 on 16 Oct but is internally inconsistent and is logged at Low.</div>
       </div>
       <div class="m">
         <div class="k">HH&ndash;TTF spread</div>
-        <div class="v v-sulfur">~5&times;</div>
-        <div class="n">European gas has traded around five times US gas, a gap only LNG shipping can arbitrage.</div>
+        <div class="v v-sulfur">~8&times;</div>
+        <div class="n">From ~5&times; in July. European gas now trades at eight times US gas, a gap only LNG shipping can arbitrage.</div>
       </div>
     </div>
 
@@ -1355,28 +1358,28 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
 
     <div class="mgrid" style="margin-top:24px">
       <div class="m">
-        <div class="k">August stock draw<sup class="r"><a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
-        <div class="v v-crude">&minus;3.1</div>
-        <div class="n">mb/d. Inventories are still doing the balancing; the IEA calls buffers shrinking.</div>
+        <div class="k">September supply<sup class="r"><a href="#s18">18</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
+        <div class="v">102.3</div>
+        <div class="n">mb/d, +2.5 m/m, led by Saudi Arabia (OPEC+ +2.1) and the UAE. Renewed Gulf attacks leave the recovery fragile.</div>
       </div>
       <div class="m">
-        <div class="k">August supply<sup class="r"><a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
-        <div class="v">100.1</div>
-        <div class="n">mb/d, down 1.6 m/m after the July rebound to 101.5.</div>
+        <div class="k">2026 supply<sup class="r"><a href="#s18">18</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
+        <div class="v">100.7</div>
+        <div class="n">mb/d, −5.8 y/y (September report: −5.7). 2027 rebound now +7.7 mb/d, from +8.</div>
       </div>
       <div class="m">
-        <div class="k">Gulf shut-in<sup class="r"><a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
-        <div class="v v-crude">&gt;10</div>
-        <div class="n">mb/d of Gulf output still offline in August. Full recovery deferred to 2027.</div>
+        <div class="k">Hormuz flows<sup class="r"><a href="#s19">19</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></div>
+        <div class="v v-crude">9.4</div>
+        <div class="n">mb/d crude exports, week to 14 Oct (Kpler), ~70% of pre-war, after exceeding pre-war in September. Nine ships attacked in four days.</div>
       </div>
       <div class="m">
-        <div class="k">2026 demand<sup class="r"><a href="#s11">11</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
-        <div class="v">&minus;2.5</div>
-        <div class="n">mb/d y/y, 940 kb/d steeper than in August. Middle distillates and Asian petchem hit hardest.</div>
+        <div class="k">2026 demand<sup class="r"><a href="#s18">18</a></sup><span class="t">Forecast</span><span class="c c-h">High</span></div>
+        <div class="v">&minus;2.6</div>
+        <div class="n">mb/d y/y, 100 kb/d steeper than September; diesel is a quarter of the drop. 2027 recovers only 2 mb/d, leaving use 620 kb/d below 2025.</div>
       </div>
     </div>
   </div>
-<div class="note"><span class="k">Revision history &middot; superseded figures</span>Balance now uses the IEA's September report.<sup class="r"><a href="#s11">11</a></sup> 2026 demand is derived as the 2025 base less the IEA's &minus;2.5 mb/d; 2027 applies its +8 mb/d supply and +2.6 mb/d demand rebounds. Previously shown (July OMR, as of 24 Jul): 2026 supply 102.6, demand 103.5, deficit &minus;0.9; 2027 supply 110.1, demand 105.3.<sup class="r"><a href="#s3">3</a></sup> August OMR: supply 102 mb/d, demand &minus;1.6 mb/d y/y.<sup class="r"><a href="#s7">7</a></sup><span class="c c-h">High</span></div></section>
+<div class="note"><span class="k">Revision history &middot; superseded figures</span>Balance now uses the IEA's October report (14 Oct).<sup class="r"><a href="#s18">18</a></sup> September report (11 Sep): 2026 supply 100.7 (−5.7), demand −2.5, August output 100.1, stock draw −3.1 mb/d, 2027 supply +8 and demand +2.6.<sup class="r"><a href="#s11">11</a></sup> July OMR (24 Jul): 2026 supply 102.6, demand 103.5, deficit −0.9; 2027 supply 110.1, demand 105.3.<sup class="r"><a href="#s3">3</a></sup> August OMR: supply 102 mb/d, demand −1.6 mb/d y/y.<sup class="r"><a href="#s7">7</a></sup> The chart above still plots the September series; the October changes are within its line weight.<span class="c c-h">High</span></div></section>
 <section id="s-xii">
   <div class="wrap">
     <div class="head">
@@ -1434,12 +1437,12 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
     <div class="head">
       
       <div class="sechead tint"><span class="unit">mb/d &middot; 2026 forecasts</span><h2><em>XIII</em>Demand, contested</h2><p class="sub">Nobody agrees how much demand the shock destroyed. A ~3.9 mb/d gap between the highest and
-       lowest 2026 forecasts is extraordinary, larger than the annual output of most producing nations. IEA is the September figure; OPEC and EIA are July vintage and not yet re-checked.</p></div>
+       lowest 2026 forecasts is extraordinary, larger than the annual output of most producing nations. IEA is the October figure; OPEC and EIA are July vintage and not yet re-checked.</p></div>
     </div>
     
 
     <div class="panel">
-      <div class="dv zero-based"><div class="dv-row"><span class="dv-n">OPEC</span><span class="dv-track"><span class="dv-fill" style="width:96.3%"></span></span><span class="dv-v">105.9</span></div><div class="dv-row"><span class="dv-n">IEA</span><span class="dv-track"><span class="dv-fill" style="width:92.7%"></span></span><span class="dv-v">~102.0</span></div><div class="dv-row"><span class="dv-n">EIA</span><span class="dv-track"><span class="dv-fill" style="width:93.5%"></span></span><span class="dv-v">102.8</span></div><div class="dv-row dv-axis"><span></span><span class="dv-scale"><span style="left:0.0%">0</span><span style="left:22.7%">25</span><span style="left:45.5%">50</span><span style="left:68.2%">75</span><span style="left:90.9%">100</span></span><span></span></div></div><p class="dv-note">OPEC (Jul) <sup class="r"><a href="#s6">6</a></sup> IEA (Sep) <sup class="r"><a href="#s11">11</a></sup> EIA (Jul) <sup class="r"><a href="#s5">5</a></sup> <span class="t">Forecast</span><span class="c c-m">Med</span><br>Zero-based, mb/d. The three agencies sit within ~3.9 mb/d of one another, about 3.7% of world demand, which is the point: they disagree at the margin, not about the level.</p>
+      <div class="dv zero-based"><div class="dv-row"><span class="dv-n">OPEC</span><span class="dv-track"><span class="dv-fill" style="width:96.3%"></span></span><span class="dv-v">105.9</span></div><div class="dv-row"><span class="dv-n">IEA</span><span class="dv-track"><span class="dv-fill" style="width:92.7%"></span></span><span class="dv-v">~102.0</span></div><div class="dv-row"><span class="dv-n">EIA</span><span class="dv-track"><span class="dv-fill" style="width:93.5%"></span></span><span class="dv-v">102.8</span></div><div class="dv-row dv-axis"><span></span><span class="dv-scale"><span style="left:0.0%">0</span><span style="left:22.7%">25</span><span style="left:45.5%">50</span><span style="left:68.2%">75</span><span style="left:90.9%">100</span></span><span></span></div></div><p class="dv-note">OPEC (Jul) <sup class="r"><a href="#s6">6</a></sup> IEA (Oct) <sup class="r"><a href="#s18">18</a></sup> EIA (Jul) <sup class="r"><a href="#s5">5</a></sup> <span class="t">Forecast</span><span class="c c-m">Med</span><br>Zero-based, mb/d. The three agencies sit within ~3.9 mb/d of one another, about 3.7% of world demand, which is the point: they disagree at the margin, not about the level.</p>
     </div>
 
     <div class="mgrid" style="margin-top:24px">
@@ -1449,14 +1452,14 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
         <div class="n">mb/d year-on-year (IEA, Sep). Jet fuel and petrochemical feedstock took the worst of it.</div>
       </div>
       <div class="m">
-        <div class="k">4Q26 demand<sup class="r"><a href="#s11">11</a></sup></div>
-        <div class="v v-sulfur">&minus;2.0</div>
-        <div class="n">mb/d y/y (IEA, Sep), easing from &minus;3.4 in 3Q. Earlier forecasts of 4Q growth have been withdrawn.</div>
+        <div class="k">4Q26 demand<sup class="r"><a href="#s18">18</a></sup></div>
+        <div class="v v-sulfur">&minus;2.5</div>
+        <div class="n">mb/d y/y (IEA, Oct), revised from &minus;2.0 in September as product shortages and fuel prices bite. Earlier forecasts of 4Q growth have been withdrawn.</div>
       </div>
       <div class="m">
-        <div class="k">Refinery runs 2026</div>
-        <div class="v">82.0</div>
-        <div class="n">mb/d, down 2.0 y/y. Second quarter fell to 78.7.</div>
+        <div class="k">Refinery runs 2026<sup class="r"><a href="#s18">18</a></sup></div>
+        <div class="v">81.7</div>
+        <div class="n">mb/d, down 2.3 y/y (Oct). October seasonal low 81.3, rebounding to 84.6 by year-end; +2.8 in 2027.</div>
       </div>
       <div class="m">
         <div class="k">Margins</div>
@@ -1522,7 +1525,7 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
     </div>
   </div>
 </section>
-<section id="sources"><div class="sechead"><h2><em>XV</em>Sources</h2><p class="sub">Numbered in order of first citation. Sections III, IX, XI and XIII only; the rest of the page is not yet sourced to this standard.</p></div><details><summary class="src-toggle">Show 17 sources</summary><ol class="src"><li id="s1"><b>EIA, International Energy Statistics.</b> Crude oil including lease condensate by country, calendar 2025; published as <em>The United States produced more crude oil than any other country in 2025</em>, 9 July 2026. US 13.58, Russia 9.87, Saudi Arabia 9.51 mb/d. <a href="https://www.eia.gov/todayinenergy/detail.php?id=67844" target="_blank" rel="noopener">www.eia.gov/todayinenergy/detail.php?id=67844</a></li><li id="s2"><b>Energy Institute, Statistical Review of World Energy 2025 (74th edition).</b> Published 26 June 2025, covering 2024. World gas production 4,124 bcm; US 1,033, Russia 630, Iran 263, China 248, Qatar ~179.5 bcm. <a href="https://www.energyinst.org/statistical-review" target="_blank" rel="noopener">www.energyinst.org/statistical-review</a></li><li id="s3"><b>IEA, Oil Market Report, July 2026.</b> Published 10 July 2026. 2026 supply on track to fall 3.7 mb/d to 102.6 mb/d; June supply 98.8 mb/d, up 4.1 m/m and 9.4 mb/d below pre-war; 2027 supply +7.5 mb/d if transit recovers. <a href="https://www.iea.org/reports/oil-market-report-july-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-july-2026</a></li><li id="s4"><b>IEA, Oil Market Report, June 2026.</b> Global observed stocks down 3.8 mb/d on average since the start of the war; May draw 143 mb (&minus;4.6 mb/d), preliminary. <a href="https://www.iea.org/reports/oil-market-report-june-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-june-2026</a></li><li id="s5"><b>EIA, Short-Term Energy Outlook.</b> Press release, 7 July 2026. Brent averaged $85/b in June, $22/b below May and $32/b below the April 2026 peak; 3Q26 forecast $74/b; 2027 forecast $65/b. <a href="https://www.eia.gov/pressroom/releases/press590.php" target="_blank" rel="noopener">www.eia.gov/pressroom/releases/press590.php</a></li><li id="s6"><b>OPEC, Monthly Oil Market Report, July 2026.</b> Published 13 July 2026. World oil demand forecast to grow 0.8 mb/d in 2026, revised down from 1.0 mb/d in the June report. <a href="https://publications.opec.org/momr" target="_blank" rel="noopener">publications.opec.org/momr</a></li><li id="s7"><b>IEA, Oil Market Report, August 2026.</b> Published 12 August 2026, after this page's compile date and recorded here as a later revision, not a correction: 2026 supply cut again to 102 mb/d and demand to &minus;1.6 mb/d y-o-y, with 8.3 mb/d of Gulf output still shut in. <a href="https://www.iea.org/reports/oil-market-report-august-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-august-2026</a></li><li id="s8"><b>Oilprice.com, "Oil Prices Fall as Hormuz Crude Flows Top Pre-War Levels"</b>, 5 Oct 2026. Kpler flow data; Brent ~$101. <a href="https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Fall-as-Hormuz-Crude-Flows-Top-Pre-War-Levels.html" target="_blank">oilprice.com</a> <span class="c c-h">High</span></li>
+<section id="sources"><div class="sechead"><h2><em>XV</em>Sources</h2><p class="sub">Numbered in order of first citation. Sections III, IX, X, XI and XIII only; the rest of the page is not yet sourced to this standard.</p></div><details><summary class="src-toggle">Show 26 sources</summary><ol class="src"><li id="s1"><b>EIA, International Energy Statistics.</b> Crude oil including lease condensate by country, calendar 2025; published as <em>The United States produced more crude oil than any other country in 2025</em>, 9 July 2026. US 13.58, Russia 9.87, Saudi Arabia 9.51 mb/d. <a href="https://www.eia.gov/todayinenergy/detail.php?id=67844" target="_blank" rel="noopener">www.eia.gov/todayinenergy/detail.php?id=67844</a></li><li id="s2"><b>Energy Institute, Statistical Review of World Energy 2025 (74th edition).</b> Published 26 June 2025, covering 2024. World gas production 4,124 bcm; US 1,033, Russia 630, Iran 263, China 248, Qatar ~179.5 bcm. <a href="https://www.energyinst.org/statistical-review" target="_blank" rel="noopener">www.energyinst.org/statistical-review</a></li><li id="s3"><b>IEA, Oil Market Report, July 2026.</b> Published 10 July 2026. 2026 supply on track to fall 3.7 mb/d to 102.6 mb/d; June supply 98.8 mb/d, up 4.1 m/m and 9.4 mb/d below pre-war; 2027 supply +7.5 mb/d if transit recovers. <a href="https://www.iea.org/reports/oil-market-report-july-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-july-2026</a></li><li id="s4"><b>IEA, Oil Market Report, June 2026.</b> Global observed stocks down 3.8 mb/d on average since the start of the war; May draw 143 mb (&minus;4.6 mb/d), preliminary. <a href="https://www.iea.org/reports/oil-market-report-june-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-june-2026</a></li><li id="s5"><b>EIA, Short-Term Energy Outlook.</b> Press release, 7 July 2026. Brent averaged $85/b in June, $22/b below May and $32/b below the April 2026 peak; 3Q26 forecast $74/b; 2027 forecast $65/b. <a href="https://www.eia.gov/pressroom/releases/press590.php" target="_blank" rel="noopener">www.eia.gov/pressroom/releases/press590.php</a></li><li id="s6"><b>OPEC, Monthly Oil Market Report, July 2026.</b> Published 13 July 2026. World oil demand forecast to grow 0.8 mb/d in 2026, revised down from 1.0 mb/d in the June report. <a href="https://publications.opec.org/momr" target="_blank" rel="noopener">publications.opec.org/momr</a></li><li id="s7"><b>IEA, Oil Market Report, August 2026.</b> Published 12 August 2026, after this page's compile date and recorded here as a later revision, not a correction: 2026 supply cut again to 102 mb/d and demand to &minus;1.6 mb/d y-o-y, with 8.3 mb/d of Gulf output still shut in. <a href="https://www.iea.org/reports/oil-market-report-august-2026" target="_blank" rel="noopener">www.iea.org/reports/oil-market-report-august-2026</a></li><li id="s8"><b>Oilprice.com, "Oil Prices Fall as Hormuz Crude Flows Top Pre-War Levels"</b>, 5 Oct 2026. Kpler flow data; Brent ~$101. <a href="https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Fall-as-Hormuz-Crude-Flows-Top-Pre-War-Levels.html" target="_blank">oilprice.com</a> <span class="c c-h">High</span></li>
 <li id="s9"><b>Oilprice.com, "Oil Price Forecasts Jump as Hormuz Disruption Drags On"</b>, Oct 2026. Reuters poll, 2026 Brent average $89.05. <a href="https://oilprice.com/Energy/Oil-Prices/Oil-Price-Forecasts-Jump-as-Hormuz-Disruption-Drags-On.html" target="_blank">oilprice.com</a> <span class="c c-m">Med</span></li>
 <li id="s10"><b>EIA, Short-Term Energy Outlook</b>, 9 Sep 2026. Inventories down ~400 mb; Brent ~$90 in 2H26. <a href="https://www.eia.gov/outlooks/steo/" target="_blank">eia.gov</a> <span class="c c-h">High</span></li>
 <li id="s11"><b>IEA, Oil Market Report, September 2026</b>, 11 Sep 2026. 2026 supply 100.7 mb/d (−5.7 y/y); demand −2.5 mb/d; August output 100.1 mb/d; >10 mb/d Gulf shut in; stocks −3.1 mb/d in August. <a href="https://www.iea.org/reports/oil-market-report-september-2026" target="_blank">iea.org</a> <span class="c c-h">High</span></li>
@@ -1532,14 +1535,23 @@ td.st{font-family:var(--sans);font-size:11.5px;letter-spacing:.05em;text-transfo
 <li id="s15"><b>Pipeline &amp; Gas Journal, "CPC increased oil exports by 22% in August"</b>, 14 Sep 2026. 1.6 mb/d in August after the 27 Jul restart; ~1.5 mb/d expected in September. <a href="https://pgjonline.com/news/2026/september/cpc-increased-oil-exports-by-22-in-august-after-fewer-attacks-on-tankers" target="_blank">pgjonline.com</a> <span class="c c-m">Med</span></li>
 <li id="s16"><b>EIA, Spot Prices: Brent – Europe</b>, Released 30 Sep 2026. Daily Brent spot 113.96–120.92, 23–29 Sep. <a href="https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm" target="_blank">eia.gov</a> <span class="c c-h">High</span></li>
 <li id="s17"><b>Oilprice.com, "Dated Brent Above $120 Signals a Serious Oil Squeeze"</b>, 2 Oct 2026. Physical Dated above $120 while ICE Brent near $101. <a href="https://oilprice.com/futures/brent/" target="_blank">oilprice.com</a> <span class="c c-m">Med</span></li>
-</ol></details></section>
+<li id="s18"><b>IEA, Oil Market Report, October 2026</b>, 14 Oct 2026. 2026 demand −2.6 mb/d, 4Q26 −2.5; diesel 25% of the drop; 2027 +2 mb/d, 620 kb/d below 2025; September supply 102.3 mb/d (+2.5 m/m; OPEC+ +2.1); 2026 supply 100.7 (−5.8), 2027 +7.7; runs 81.3 Oct low, 84.6 year-end, 81.7 for 2026 (−2.3), +2.8 in 2027; diesel exports −700 kb/d y/y. Next report 13 Nov. <a href="https://www.iea.org/reports/oil-market-report-october-2026" target="_blank">iea.org</a> <span class="c c-h">High</span></li>
+<li id="s19"><b>CNBC, "Brent oil touches $110 as Iran escalates Hormuz attacks"</b>, 16 Oct 2026. Brent $109.86 close (+3.7%), $110 intraday, first since May; WTI $101.41 (+3.5%); +5% and +10% on the week; nine ships attacked since 11 Oct; Kpler Hormuz crude 9.4 mb/d week to 14 Oct, ~70% of pre-war; US diesel $6.33/gal, +70% y/y. <a href="https://www.cnbc.com/2026/10/16/oil-price-today-iran-strait-hormuz-ukraine-russia.html" target="_blank">cnbc.com</a> <span class="c c-h">High</span></li>
+<li id="s20"><b>EIA, Short-Term Energy Outlook, October 2026</b>, 6 Oct 2026, with Rigzone summary 8 Oct. Brent $105/b 4Q26 (+$14); 2026 $96.32, 2027 $83.74; global stocks −1.9 mb/d 3Q26, −0.7 4Q26; East-West pipeline attacks; diesel tightness lifting crude demand. <a href="https://www.eia.gov/outlooks/steo/" target="_blank">eia.gov</a> <span class="c c-h">High</span></li>
+<li id="s21"><b>Trading Economics, Brent</b>, 19 Oct 2026. $107.11; +6.7% m/m; +75.5% y/y. <a href="https://tradingeconomics.com/commodity/brent-crude-oil" target="_blank">tradingeconomics.com</a> <span class="c c-m">Med</span></li>
+<li id="s22"><b>Investing.com, Brent Oil Futures Historical Data</b>, 16 Oct 2026. Close 109.86, high 110.00; 21 Sep–19 Oct range 93.68–110.00; 52-week 58.72–126.41. <a href="https://www.investing.com/commodities/brent-oil-historical-data" target="_blank">investing.com</a> <span class="c c-m">Med</span></li>
+<li id="s23"><b>Macrotrends, Natural Gas Prices 1997–2026</b>, 14 Oct 2026. Henry Hub $3.22; +13.8% y/y from $2.83; 2026 average $3.47 vs $3.52 in 2025. <a href="https://www.macrotrends.net/2478/natural-gas-prices-historical-chart" target="_blank">macrotrends.net</a> <span class="c c-h">High</span></li>
+<li id="s24"><b>Global LNG Hub, "Natural gas prices weekly update: JKM, TTF and Henry Hub"</b>, 5 Oct 2026. JKM high-$25s then high-$24s; TTF rising on winter risk and low storage; Hormuz LNG concerns. <a href="https://globallnghub.com/natural-gas-prices-weekly-update-jkm-ttf-and-henry-hub-5-october-2026/" target="_blank">globallnghub.com</a> <span class="c c-m">Med</span></li>
+<li id="s25"><b>LNGInsights / LNGPriceIndex</b>, 16 Oct 2026. JKM $29.89, TTF €86.54/MWh (~$28.55), Henry Hub $3.07; 5 Oct: JKM $25.43, TTF €73.25 (~$24.09). Headline and front-month figures on the same page disagree (JKM $29.89 vs $27.51, and a stated 52-week high of $27.23); non-official estimates. <a href="https://lnginsights.com/" target="_blank">lnginsights.com</a> <span class="c c-l">Low</span></li>
+<li id="s26"><b>Admiral Markets, "EIA Crude Oil Inventories Preview: 15 October 2026"</b>. US commercial crude 424.1 mb (−3.2 mb week to 2 Oct); SPR 283.0 mb; distillates 105.1 mb; Brent ~$105.2 on 8 Oct; Hurricane Isaias ~500 kb/d Gulf of Mexico shut-in. <a href="https://admiralmarkets.com/analytics/traders-blog/eia-crude-oil-inventories-october-2026" target="_blank">admiralmarkets.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
+<div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime and "Since last update" rewritten around the mid-October Hormuz re-escalation. Section IX: chart caption extended; the early-October Dated/futures card replaced by the 16 Oct close; EIA card moved from the September to the October STEO; the Reuters consensus card annotated as overtaken. Section X: all four gas cards refreshed from July to October prints, the first update since launch; European and Asian figures tagged Medium and the index inconsistency logged at source 25. Section XI: cards rebuilt on the October OMR with a Hormuz-flow card replacing the August shut-in figure; revision history extended. Section XIII: IEA vintage, 4Q demand and refinery-run cards updated. Sources 18–26 added; 34 new sourced figures. OPEC and EIA demand bars in XIII remain July vintage and are flagged as such.</div></section>
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Overview</a><a href="#s-ii"><span>II</span>How we got here</a><a href="#s-iii"><span>III</span>Who produces it</a><a href="#s-iv"><span>IV</span>Where it goes</a><a href="#s-v"><span>V</span>Who refines it</a><a href="#s-vi"><span>VI</span>The pipeline</a><a href="#s-vii"><span>VII</span>Pipelines around the strait</a><a href="#s-viii"><span>VIII</span>Transit corridors</a><a href="#s-ix"><span>IX</span>Oil price</a><a href="#s-x"><span>X</span>Gas price, three markets, not one</a><a href="#s-xi"><span>XI</span>Balance</a><a href="#s-xii"><span>XII</span>The buffer</a><a href="#s-xiii"><span>XIII</span>Demand, contested</a><a href="#s-xiv"><span>XIV</span>How it happened</a><a href="#sources"><span>XV</span>Sources</a></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
-  <span>Scarce assets. One perspective.</span>
-  <span>Market intelligence · not investment advice</span>
+  <span>Market intelligence, not investment advice</span>
 </footer>
 </div>
 <div class="ctl" id="ctl">
