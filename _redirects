@@ -51,7 +51,10 @@
 /gold-dashboard  /gold_dashboard.html  200
 /lab-grown-diamonds-dashboard  /lab_grown_diamonds_dashboard.html  200
 /manuka-honey-dashboard  /manuka_honey_dashboard.html  200
-/natural-diamonds-dashboard  /natural_diamonds_dashboard.html  200
+/natural-diamonds-dashboard  /polished-diamonds-dashboard  301
+/polished-diamonds-dashboard  /polished_diamonds_dashboard.html  200
+/rough-diamonds-dashboard  /rough_diamonds_dashboard.html  200
+/diamonds-dashboard  /polished-diamonds-dashboard  301
 /oil-gas-dashboard  /oil_gas_dashboard.html  200
 /olive-oil-dashboard  /olive_oil_dashboard.html  200
 /oud-dashboard  /oud_dashboard.html  200
