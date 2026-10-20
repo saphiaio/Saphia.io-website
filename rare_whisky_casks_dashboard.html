@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rare Whisky Casks, ΣΟΦΙΑ</title>
+<meta name="description" content="Rare Whisky Casks: the Scotch cask market, prices, title, the 2025 collapse and risk. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--sans);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents .sector-tag{display:none;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
+  .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--sans);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--sans);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--sans);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--sans);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--sans);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--sans);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.frame .v{font-family:var(--display);font-size:44px;line-height:1}
+.frame .l{font-size:13px;color:#6f6a62;margin-top:8px}
+.labels .v{font-family:var(--sans);font-size:19px;font-weight:600}
+.labels .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--sans);white-space:nowrap}
+.bars{margin:14px 0 26px;font-family:var(--sans);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#faf7f0;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:#141412}
+.bars .v{text-align:right}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;padding:14px 16px;border-top:2px solid #141412}
+.card .v{font-family:var(--sans);font-size:22px;font-weight:600}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:100px 1fr 100px}
+}.src-toggle{cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+
+/* ===== redesign v3 ===== */
+.mast .in{padding:20px 32px}.mast ul{gap:28px}.mark small{display:none}.mark{font-size:26px}
+.eyebrow{letter-spacing:.12em;font-size:11px}th{letter-spacing:.06em;font-size:11px}
+.c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
+.contents .sector-tag{letter-spacing:.08em}
+.brief{padding:64px 0 0}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
+.brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
+.brief h1{font-size:72px;line-height:1;margin:8px 0 0}
+.grade{text-align:right;padding-bottom:6px}
+.grade .g{font-family:var(--display);font-size:36px;color:var(--bronze-lo);line-height:1}
+.grade .n{font-family:var(--display);font-size:22px;margin-left:12px}
+.grade .m{font-size:12.5px;color:var(--mute);margin-top:4px}
+.regime{font-family:var(--display);font-size:24px;line-height:1.4;max-width:40ch;margin:32px 0 0;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 40px;margin-top:40px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.facts>div{min-width:0}
+.facts .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.facts .s{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px}
+.facts .s span:nth-child(odd){color:var(--mute)}
+.brief h2{font-size:24px;margin:44px 0 12px}
+.since{font-size:16.5px;line-height:1.6;max-width:62ch;margin:0}
+.why{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:start}
+.why p{font-size:16px;line-height:1.6;max-width:52ch;margin:0}
+.why .note-r{font-size:13px;color:var(--mute);margin-top:14px}
+.factors{display:flex;flex-direction:column;gap:8px}
+.factors>div{display:grid;grid-template-columns:1fr 70px;align-items:center;gap:12px;font-size:13.5px}
+.factors span{display:flex;gap:3px}
+.factors i{flex:1;height:5px;background:var(--line)}
+.factors i.on{background:var(--bronze-lo)}
+.report{margin-top:56px;border-top:1px solid var(--ink)}
+.report>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:24px}
+.report>summary::-webkit-details-marker{display:none}
+.report>summary small{font-family:var(--sans);font-size:13px;color:var(--mute)}
+.report>summary .cl{display:none}.report[open]>summary .op{display:none}.report[open]>summary .cl{display:inline}
+.report .intro{font-size:18px;color:var(--mute);max-width:66ch;margin:28px 0 0;line-height:1.55}
+.report .figures{margin-top:28px}
+.toc-lite{display:flex;flex-direction:column;font-size:15px}
+.toc-lite a{display:grid;grid-template-columns:36px 1fr;padding:11px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.toc-lite a span{color:var(--bronze)}
+.report[open]~.toc-lite{display:none}
+.ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
+.sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
+.sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
+@media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="/home">ΣΟΦΙΑ</a>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Cellar &amp; Collectibles</a></div>
+  <div class="brief-head">
+    <h1>Rare Whisky Casks</h1>
+    <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Physical, in bond · 20 Oct 2026</div></div>
+  </div>
+  <p class="regime">Twenty-two million casks in Scottish warehouses, no published price for any of them, and a retail investment industry built on selling the difference; its largest operator collapsed in 2025 with £80 m of client money and casks that could not be found.</p>
+  <div class="facts">
+    <div><div class="k">What is covered</div>Casks of maturing Scotch whisky held in bonded warehouses by private owners: new-make fills bought from distilleries or brokers, and aged casks bought from the secondary trade. Bottled whisky is covered under <a href="/scotch-whisky-dashboard" style="border-bottom:1px solid var(--bronze)">Scotch Whisky →</a> and <a href="/japanese-whisky-dashboard" style="border-bottom:1px solid var(--bronze)">Japanese Whisky →</a></div>
+    <div><div class="k">Principal markets</div>Scotland (Speyside, Islay, Highlands) · brokers in Edinburgh, Glasgow and London · online cask auctions (Whisky Hammer, Whisky Auctioneer, The Grand Whisky Auction) · industry trade between distillers and blenders, which is where almost all casks actually change hands</div>
+    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low at the cask level; high in the trade (Diageo, Pernod, Edrington)</span><span>Liquidity</span><span>Very low; no market, no price list</span><span>Scarcity</span><span>Low; 22 m casks and rising</span><span>Provenance risk</span><span>Very high; title, duplication, existence</span></div></div>
+  </div>
+  <h2>Since last update</h2>
+  <p class="since">First entry. The administrators of Whisky Merchants Trading (Cask 88, Braeburn Whisky) completed the sale of the business to Edinburgh Cask Management (Resolution) in 2026 and are reuniting casks with owners who can prove title; the Scotch Whisky Association reports 2025 exports of £5.36 bn, down 1%, and several distillers have paused production into a stock the Financial Times puts at 1.4 bn litres.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a> <a href="#s6">6</a></sup></p>
+  <h2>Why Σ4</h2>
+  <div class="why">
+    <div><p>There is no regulated market for casks of Scotch whisky, no published price list, and no established mechanism for selling one; the Scotch Whisky Association says so in those words. Valuation is therefore whatever the seller's brochure asserts, and the only independent prints are a few hundred auction lots a year. Exit is through the same brokers who sold the cask, or to a blender at a bulk price, or by bottling at the owner's cost and selling the bottles. Title is the specific hazard: a cask exists only as an entry in a warehousekeeper's records, and a certificate from an intermediary is not a delivery order; when the intermediary fails, the certificate is a claim in its insolvency. Access is the one easy factor, and the industry has made it so.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div></div>
+  </div>
+</div>
+
+<details class="report" id="report">
+  <summary>Full report <small>6 sections · 10 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">The only asset on this site that is sold to the public in volume without a market to sell it back into. This page covers the stock and why it is not scarce, what a cask costs and what the record prices actually represent, the mechanics of title that decided who lost money in 2025, the collapse itself, and what to watch. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">22 m</div><div class="l">Casks maturing in Scotland, roughly 12 bn bottles; 20 m two years earlier. Scotch Whisky Association<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></div></div><div><div class="v">£80 m</div><div class="l">Investor funds raised by Cask 88, Braeburn Whisky and Whisky Merchants Trading before insolvency, Apr–May 2025; administrators' estimate<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$266,345</div><div class="l">Hogshead of Macallan 1988, 197 bottles, The Grand Whisky Auction, Dec 2025, before 12.5% premium, transfer, storage, bottling, duty<sup class="r"><a href="#s7">7</a></sup></div></div><div><div class="v">£2,300–12,000</div><div class="l">Asking range for a new-make 200-litre cask from a Scottish distillery, 2026, by reputation of the still <span class="t">Trade</span><sup class="r"><a href="#s8">8</a></sup></div></div></div>
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <p class="sector-tag">RARE WHISKY CASKS</p>
+  <ol><li><a href="#s-i"><span>I</span>The stock, and why it is not scarce</a></li><li><a href="#s-ii"><span>II</span>What a cask costs, and what it fetches</a></li><li><a href="#s-iii"><span>III</span>Title: certificate or delivery order</a></li><li><a href="#s-iv"><span>IV</span>The 2025 collapse</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+
+<section id="s-i">
+  <div class="sechead tint"><h2><em>I</em>The stock, and why it is not scarce</h2><p class="sub">Scotland made a decade of record volume into a market that stopped growing.</p></div>
+  <p>The Scotch Whisky Association counts some 22 million casks maturing in Scotland, up from around 20 million two years earlier, the equivalent of 12 billion bottles against exports of 1.3 billion a year. Exports in 2025 were £5.36 bn, down 1% by value and 4.5% by volume; the Financial Times puts the maturing stock at 1.4 bn litres, roughly three years of global consumption. The large groups have responded with production pauses rather than closures.<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a> <a href="#s6">6</a></sup> <span class="c c-h">High</span></p>
+  <div class="note warn">The sales pitch has inverted. Cask sellers now argue that production cuts make existing casks scarce. The opposite is true: less new spirit does not reduce 22 million casks already in wood, it confirms that they are the surplus. Scarcity in whisky belongs to specific distilleries, closed stills and old age statements, not to the cask as a category. <span class="c c-m">Med</span><sup class="r"><a href="#s6">6</a></sup></div>
+  <p>Casks are a wasting asset in both senses. The angel's share, two per cent a year or so, reduces volume and strength; below 40% ABV the contents cease to be whisky. Warehouse rent, insurance and periodic regauging are payable throughout, and duty and VAT fall due on removal from bond. An owner who neither bottles nor sells is paying to hold a liquid that is slowly disappearing.<sup class="r"><a href="#s7">7</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-ii">
+  <div class="sechead tint"><h2><em>II</em>What a cask costs, and what it fetches</h2><p class="sub">The record prices are real, and almost entirely irrelevant to what is being sold.</p></div>
+  <div class="tw"><table>
+    <tr><th>Tier</th><th class="n">Indicative price</th><th>Note</th></tr>
+    <tr><td>New make, 200-litre barrel, 0–3 years</td><td class="n">£2,300–12,000</td><td>Distillery direct or broker; the spread is reputation of the still<sup class="r"><a href="#s8">8</a></sup></td></tr>
+    <tr><td>Established distillery, 3–10 years</td><td class="n">£4,000–8,000</td><td>Broker secondary trade<sup class="r"><a href="#s8">8</a></sup></td></tr>
+    <tr><td>Speyside first-fill sherry, 10+ years</td><td class="n">£15,000–60,000+</td><td>Distillery and fill date dominate<sup class="r"><a href="#s8">8</a></sup></td></tr>
+    <tr><td>Macallan 1989 hogshead, 32 years</td><td class="n">£98,000</td><td>Tennants, Sep 2021; bought 25 years earlier for £1,100<sup class="r"><a href="#s8">8</a></sup></td></tr>
+    <tr><td>Macallan 1988 hogshead, in bond</td><td class="n">$266,345</td><td>The Grand Whisky Auction, Dec 2025; 197 bottles at 46.52%, $1,352 a bottle before premium and costs<sup class="r"><a href="#s7">7</a></sup></td></tr>
+    <tr><td>Macallan 1988 refill butt</td><td class="n">c. £1.02 m</td><td>Whisky Hammer, Apr 2022; first cask over £1 m at auction<sup class="r"><a href="#s9">9</a></sup></td></tr>
+    <tr><td>Ardbeg 1975 cask</td><td class="n">£16 m</td><td>Private sale 2022, including bottling and Asian import taxes; 88 bottles a year drawn over five years<sup class="r"><a href="#s8">8</a></sup></td></tr>
+  </table></div>
+  <p style="font-size:14px;color:var(--mute)">Asking prices from trade guides; auction results as reported. Trade guides are published by firms that sell casks. <span class="c c-m">Med</span></p>
+  <p>Every record is a Macallan or an Ardbeg from the 1970s–80s, in sherry wood, sold by a house with a global bidder list. The casks sold to the public are new make from the current overproduction, from distilleries whose names do not appear in any record, bought at a broker's margin over the distillery fill price. The two have nothing in common but the word. Arithmetic on the Macallan 1988 shows the gap: a $266,345 hammer becomes roughly $300,000 with premium, and the owner then pays regauge, bottling, labels, duty of £31.64 a litre of alcohol and VAT before a single bottle can be sold, against a retail market in which the same whisky is already available.<sup class="r"><a href="#s7">7</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead tint"><h2><em>III</em>Title: certificate or delivery order</h2><p class="sub">The document decides whether you own a cask or a claim against a company.</p></div>
+  <div class="tw"><table>
+    <tr><th>Document</th><th>What it is</th><th>Effect on insolvency of the seller</th></tr>
+    <tr><td>Delivery order</td><td>Instruction from the current owner to the warehousekeeper to hold the cask to the buyer's order; the warehouse records the buyer by name</td><td>Cask is the buyer's; the warehouse will deal with them directly<sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Warehouse receipt / confirmation</td><td>The warehousekeeper's own acknowledgement of the cask and its owner</td><td>Equivalent protection if in the buyer's name</td></tr>
+    <tr><td>Certificate of ownership</td><td>A document issued by the intermediary, not the warehouse</td><td>Evidence of a contract with the intermediary only; buyer is an unsecured creditor<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>Cask held "on trust" or in a nominee</td><td>Intermediary remains the registered owner</td><td>Depends on the trust being real, documented and the casks identifiable; frequently none of the three<sup class="r"><a href="#s1">1</a></sup></td></tr>
+  </table></div>
+  <p>Casks in bond are also subject to the warehousekeeper's lien for unpaid rent, so a cask whose intermediary stopped paying storage can be sold by the warehouse. The WOWGR regime, under which a cask owner who is not a revenue trader historically had to hold casks through a registered owner, has been reformed but remains the reason most retail buyers hold through an intermediary at all. The BBC's 2025 investigation found the same cask sold to several buyers and casks that did not exist; the sector falls outside the Financial Conduct Authority because a cask is a chattel, so there is no authorisation, no audited marketing and no compensation scheme.<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
+  <div class="note">Diamond parallel inverted. A GIA report attaches to a stone that can be re-examined anywhere; a cask certificate attaches to a company. The asset is identified only in the warehouse ledger, and the owner's protection is a line in that ledger with their own name on it. Everything else is paper. <span class="c c-x">Hyp</span></div>
+</section>
+<section id="s-iv">
+  <div class="sechead tint"><h2><em>IV</em>The 2025 collapse</h2><p class="sub">Cask 88, Braeburn Whisky and Whisky Merchants Trading.</p></div>
+  <div class="era"><div class="y">2019–24</div><div class="t">Braeburn and Cask 88 market casks internationally from Edinburgh and Singapore; Braeburn publishes its own "Cask Index" as a market tracker; its president claims $80 m of cask assets.<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup></div></div>
+  <div class="era"><div class="y">Early 2025</div><div class="t">BBC investigation into the sector; Cask Whisky Ltd, Cask Spirits Global and Whisky Scotland identified and subsequently cease trading.<sup class="r"><a href="#s2">2</a> <a href="#s10">10</a></sup></div></div>
+  <div class="era"><div class="y">30 Apr 2025</div><div class="t">Whisky Merchants Trading lays off staff; administrator appointed 2 May; Singapore entities into liquidation; parent Teaghlach Holdings files for dissolution. Warehouses report calls from customers trying to find their casks.<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></div></div>
+  <div class="era"><div class="y">2025–26</div><div class="t">Administrators find lack of legal title for many investors, duplicate or missing registrations, unpaid storage fees and offshore structuring; £80 m raised from thousands of customers. Assets sold to Edinburgh Cask Management (Resolution); title verification and reunification under way for those who can prove ownership.<sup class="r"><a href="#s1">1</a></sup></div></div>
+  <p>The Advertising Standards Authority has separately upheld complaints against Blackford Casks (formerly Whisky Investment Partners) and London Cask Co (renamed twice since) for misleading advertising; the advertised "8 to 12% tax-free annual returns" rest on the capital gains exemption for wasting chattels, which is real, applied to appreciation that is asserted.<sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-v">
+  <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
+    <tr><td>Maturing stock and production pauses</td><td>SWA facts and figures, annual; FT and trade press on distillery output</td><td>The surplus; whether supply is actually tightening</td></tr>
+    <tr><td>Scotch exports by value and volume</td><td>SWA, February annually</td><td>Demand against which 22 m casks will be bottled</td></tr>
+    <tr><td>Cask auction results</td><td>Whisky Hammer, Whisky Auctioneer, The Grand Whisky Auction; monthly</td><td>The only independent price prints; watch unsold rates</td></tr>
+    <tr><td>Distillery fill prices for new make</td><td>Brokers; irregular</td><td>The wholesale cost against which retail cask prices are marked up</td></tr>
+    <tr><td>Insolvencies, ASA rulings, FCA statements</td><td>Companies House, ASA, FCA; as they occur</td><td>The intermediary risk that decides outcomes in this market</td></tr>
+    <tr><td>HMRC duty rate and WOWGR changes</td><td>Budget, annually</td><td>Cost of taking whisky out of bond; who may hold casks directly</td></tr>
+    <tr><td>Bottled secondary market for the same distilleries</td><td>Whisky Auctioneer, Rare Whisky 101 indices</td><td>What the contents are worth bottled, the only exit that bypasses the trade</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Administrators' statements and the SWA are primary; price ranges are from trade guides published by cask sellers and are tagged accordingly.</p></div>
+  <details><summary class="src-toggle">Show 10 sources</summary><ol class="src">
+    <li id="s1"><b>Griffins</b> (administrators of Whisky Merchants Trading Ltd) and KordaMentha (liquidators, Cask 88 Trading Pte and Braeburn Whisky Pte), announcement of sale to Edinburgh Cask Management (Resolution) Ltd: £80 m raised; lack of legal title, duplicate or missing registrations, unpaid storage, offshore structuring; title verification by LSS Group. <a href="https://www.griffins.net/griffins-news/" target="_blank">griffins.net</a></li>
+    <li id="s2"><b>Forbes</b> (Felipe Schrieberg), "$80 Million Scotch Whisky Cask Investment Firm Goes Bust", 2 May 2025, and "Don't Buy Scotch Whisky Casks As An Investment. Here's Why.", 6 Nov 2025: staff let go 30 April; ASA rulings against Blackford Casks and London Cask Co; the Braeburn Cask Index. <a href="https://www.forbes.com/sites/felipeschrieberg/2025/11/06/dont-buy-scotch-whisky-casks-as-an-investment-heres-why/" target="_blank">forbes.com</a></li>
+    <li id="s3"><b>cask.id</b>, "The Dark Side of Cask Investments", 2026: BBC 2025 investigation, same cask sold to multiple investors; certificates versus delivery orders; wasting chattel outside FCA, no FSCS. <span class="c c-m">Med</span> <a href="https://cask.id/articles/the-dark-side-of-cask-investments" target="_blank">cask.id</a></li>
+    <li id="s4"><b>Scotch Whisky Association</b>, "Facts &amp; Figures", 2025 data: exports £5.36 bn; 22 million casks, c. 12 bn bottles; 1.3 bn bottles exported a year. <a href="https://www.scotch-whisky.org.uk/industry-insights/facts-figures/" target="_blank">scotch-whisky.org.uk</a></li>
+    <li id="s5"><b>Dramface</b>, "The Scale of Modern Scotch Whisky", 2024: 22 million casks against 20 million two years earlier; capacity additions at Macallan, Glen Ord, Glen Moray. <a href="https://www.dramface.com/features/2024/the-scale-of-modern-scotch-whisky" target="_blank">dramface.com</a></li>
+    <li id="s6"><b>12x75</b>, "Scotland Made Too Much Whisky", Sep 2026, citing the Financial Times: 1.4 bn litres maturing, c. three years' consumption; 154 operating distilleries; 2025 exports −1% value, −4.5% volume; production pauses; cask prices fallen. <span class="c c-m">Med</span> <a href="https://www.12x75.com/scotland-made-too-much-whisky/" target="_blank">12x75.com</a></li>
+    <li id="s7"><b>Whisky Advocate</b>, "Auction Update", 19 Dec 2025: Macallan 1988 hogshead $266,345, 197 bottles at 46.52%, $1,352 a bottle before 12.5% premium, transfer, storage, bottling, duty and tax. <a href="https://whiskyadvocate.com/whisky-auction-update-December-2025" target="_blank">whiskyadvocate.com</a></li>
+    <li id="s8"><b>Trade price guides</b>, 2026 (Vinovest, Whiskeybarrel.com, citing Mark Littler Ltd and The Whiskey Wash): new make £2,300–12,000; 3–10 years £4,000–8,000; Speyside sherry 10+ years £15,000–60,000+; Macallan 1989 hogshead £98,000 (Tennants, Sep 2021, bought for £1,100); Ardbeg 1975 cask £16 m (2022). Published by cask sellers. <span class="c c-m">Med</span></li>
+    <li id="s9"><b>The Single Cask</b>, "The Macallan Distillery Guide", Sep 2026: 1988 refill butt c. £1.02 m at Whisky Hammer, Apr 2022; 1991 cask reported privately sold for $2.33 m in 2021. <span class="c c-m">Med</span> <a href="https://www.thesinglecask.co.uk/blogs/distilleries/the-macallan" target="_blank">thesinglecask.co.uk</a></li>
+    <li id="s10"><b>88 Bamboo</b>, "How Investing In Whisky Casks (Somehow) Became A Bust", 2025: inflated pricing and obstructed title as the two models; Cask Whisky Ltd, Cask Spirits Global, Whisky Scotland; reunification of Braeburn clients with casks. <span class="c c-m">Med</span> <a href="https://88bamboo.co/blogs/features/how-investing-in-whisky-casks-somehow-became-a-bust" target="_blank">88bamboo.co</a></li>
+  </ol></details>
+</section>
+
+</details>
+<div class="toc-lite"><a href="#s-i"><span>I</span>The stock, and why it is not scarce</a><a href="#s-ii"><span>II</span>What a cask costs, and what it fetches</a><a href="#s-iii"><span>III</span>Title: certificate or delivery order</a><a href="#s-iv"><span>IV</span>The 2025 collapse</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <a href="/advisers">For advisers and institutions</a>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  var r=document.getElementById('report'); if(!r) return;
+  function openFor(hash){ if(!hash) return; var el=document.querySelector(hash); if(el && r.contains(el)){ r.open=true; } }
+  openFor(location.hash);
+  window.addEventListener('hashchange',function(){openFor(location.hash)});
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+</body>
+</html>

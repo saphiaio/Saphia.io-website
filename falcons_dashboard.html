@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Falcons, ΣΟΦΙΑ</title>
+<meta name="description" content="Falcons: the Gulf falconry market, auction record, CITES and passports, breeding farms and risk. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--sans);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents .sector-tag{display:none;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
+  .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--sans);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--sans);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--sans);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--sans);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--sans);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--sans);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.frame .v{font-family:var(--display);font-size:44px;line-height:1}
+.frame .l{font-size:13px;color:#6f6a62;margin-top:8px}
+.labels .v{font-family:var(--sans);font-size:19px;font-weight:600}
+.labels .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--sans);white-space:nowrap}
+.bars{margin:14px 0 26px;font-family:var(--sans);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#faf7f0;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:#141412}
+.bars .v{text-align:right}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;padding:14px 16px;border-top:2px solid #141412}
+.card .v{font-family:var(--sans);font-size:22px;font-weight:600}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:100px 1fr 100px}
+}.src-toggle{cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+
+/* ===== redesign v3 ===== */
+.mast .in{padding:20px 32px}.mast ul{gap:28px}.mark small{display:none}.mark{font-size:26px}
+.eyebrow{letter-spacing:.12em;font-size:11px}th{letter-spacing:.06em;font-size:11px}
+.c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
+.contents .sector-tag{letter-spacing:.08em}
+.brief{padding:64px 0 0}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
+.brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
+.brief h1{font-size:72px;line-height:1;margin:8px 0 0}
+.grade{text-align:right;padding-bottom:6px}
+.grade .g{font-family:var(--display);font-size:36px;color:var(--bronze-lo);line-height:1}
+.grade .n{font-family:var(--display);font-size:22px;margin-left:12px}
+.grade .m{font-size:12.5px;color:var(--mute);margin-top:4px}
+.regime{font-family:var(--display);font-size:24px;line-height:1.4;max-width:40ch;margin:32px 0 0;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 40px;margin-top:40px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.facts>div{min-width:0}
+.facts .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.facts .s{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px}
+.facts .s span:nth-child(odd){color:var(--mute)}
+.brief h2{font-size:24px;margin:44px 0 12px}
+.since{font-size:16.5px;line-height:1.6;max-width:62ch;margin:0}
+.why{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:start}
+.why p{font-size:16px;line-height:1.6;max-width:52ch;margin:0}
+.why .note-r{font-size:13px;color:var(--mute);margin-top:14px}
+.factors{display:flex;flex-direction:column;gap:8px}
+.factors>div{display:grid;grid-template-columns:1fr 70px;align-items:center;gap:12px;font-size:13.5px}
+.factors span{display:flex;gap:3px}
+.factors i{flex:1;height:5px;background:var(--line)}
+.factors i.on{background:var(--bronze-lo)}
+.report{margin-top:56px;border-top:1px solid var(--ink)}
+.report>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:24px}
+.report>summary::-webkit-details-marker{display:none}
+.report>summary small{font-family:var(--sans);font-size:13px;color:var(--mute)}
+.report>summary .cl{display:none}.report[open]>summary .op{display:none}.report[open]>summary .cl{display:inline}
+.report .intro{font-size:18px;color:var(--mute);max-width:66ch;margin:28px 0 0;line-height:1.55}
+.report .figures{margin-top:28px}
+.toc-lite{display:flex;flex-direction:column;font-size:15px}
+.toc-lite a{display:grid;grid-template-columns:36px 1fr;padding:11px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.toc-lite a span{color:var(--bronze)}
+.report[open]~.toc-lite{display:none}
+.ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
+.sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
+.sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
+@media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="/home">ΣΟΦΙΑ</a>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Cellar &amp; Collectibles</a></div>
+  <div class="brief-head">
+    <h1>Falcons</h1>
+    <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Living asset · CITES · 20 Oct 2026</div></div>
+  </div>
+  <p class="regime">A single bird made SR1.4 m in Riyadh this month and the season's auction grew sales by a quarter, in a market with one region of buyers, a CITES permit on every transfer and an asset that is worth most on the day it is sold.</p>
+  <div class="facts">
+    <div><div class="k">What is covered</div>Captive-bred and legally wild-taken falcons sold for falconry and racing in the Gulf: gyrfalcons and gyr hybrids, sakers, peregrines and their crosses. Breeding farms are covered as the supply side. Wild trapping outside legal quota is not an asset and is not covered.</div>
+    <div><div class="k">Principal markets</div>Malham, north of Riyadh (Saudi Falcons Club: International Falcon Breeders Auction, Aug–Sep; Saudi International Falcons and Hunting Exhibition, Oct) · Abu Dhabi (ADIHEX, Sep) · Doha · Breeding farms in Canada, the US, the UK, Germany, Spain and the Gulf</div>
+    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium; c. 70 farms in 20+ countries sell into one region</span><span>Liquidity</span><span>Low; one auction season, one buyer base</span><span>Scarcity</span><span>Engineered; white gyr colour morphs</span><span>Provenance risk</span><span>Medium; CITES paperwork, ring, DNA</span></div></div>
+  </div>
+  <h2>Since last update</h2>
+  <p class="since">First entry. The 2026 International Falcon Breeders Auction's top lot was a Canadian-bred three-quarter gyr Super White at SR1.3 m ($346,000), the second-highest in the auction's history; a wild-taken Mongolian falcon then set a record of SR1.4 m at the Saudi International Falcons and Hunting Exhibition in October. The all-time auction record remains SR1.75 m ($467,000), 2021.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></p>
+  <h2>Why Σ4</h2>
+  <div class="why">
+    <div><p>The market is real and growing, and it is one market: Gulf falconers, bidding in Riyadh and Abu Dhabi between August and November, for birds that will hunt or race that winter. Price discovery exists for three months a year and is broadcast live, but there is no bid outside the region and none outside the season. The asset is alive, depreciates after its first moult, can die of aspergillosis or a collision, and cannot cross a border without a CITES permit and, in the Gulf, a falcon passport. Title is a ring number and a certificate, which is adequate; custody means a falconer, a mews and a hospital. A buyer is acquiring a season of sport, and the record prices are for the rarest colour of the rarest hybrid, which the breeder can make again next year.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div></div>
+  </div>
+</div>
+
+<details class="report" id="report">
+  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">Falconry is on UNESCO's intangible-heritage list and the Gulf states have built a modern market around it: licensed breeders, televised auctions, falcon hospitals, racing with seven-figure prize funds and a conservation apparatus for the wild populations. This page covers the auction record, what a buyer is actually paying for, the regulatory structure that makes the bird a tradeable asset, the ways it loses value, and what to watch. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">SR1.75 m</div><div class="l">Auction record, juvenile Ultra White three-quarter gyr, 2021 (c. $467,000)<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">SR1.4 m</div><div class="l">Wild-taken Mongolian falcon, Saudi International Falcons and Hunting Exhibition, Oct 2026; record for the exhibition<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">1,103</div><div class="l">Falcons sold at the 2025 Breeders Auction over 21 days, +27%; sales SR13 m (+23%); 67 farms from 23 countries<sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">SR28,000</div><div class="l">A shaheen-gyr hybrid chick on the same night as a SR1.2 m lot, Aug 2025; the market's floor and ceiling in one session<sup class="r"><a href="#s4">4</a></sup></div></div></div>
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <p class="sector-tag">FALCONS</p>
+  <ol><li><a href="#s-i"><span>I</span>The auction record</a></li><li><a href="#s-ii"><span>II</span>What is being bought</a></li><li><a href="#s-iii"><span>III</span>Permits, passports and the farms</a></li><li><a href="#s-iv"><span>IV</span>How a bird loses value</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+
+<section id="s-i">
+  <div class="sechead tint"><h2><em>I</em>The auction record</h2><p class="sub">Three seasons of the Saudi Falcons Club's auction, and the exhibition that follows it.</p></div>
+  <div class="tw"><table>
+    <tr><th>Season</th><th class="n">Sales</th><th class="n">Birds sold</th><th>Top lot</th></tr>
+    <tr><td>2024 (20 days)</td><td class="n">&gt;SR10 m</td><td class="n">866</td><td>Ultra White gyr hybrid, Pacific Northwest Falcons (US), SR400,000; 56 farms, 19 countries<sup class="r"><a href="#s5">5</a></sup></td></tr>
+    <tr><td>2025 (21 days)</td><td class="n">&gt;SR13 m (+23%)</td><td class="n">1,103 (+27%)</td><td>Super White pure gyr chick, RX farm (US), SR1.2 m ($320,000); 67 farms, 23 countries<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></td></tr>
+    <tr><td>2026</td><td class="n">—</td><td class="n">—</td><td>Three-quarter gyr Super White, Jim Wilson Falcons (Canada), SR1.3 m ($346,000), to Nova Falcon; bidding from SR200,000; a pure gyr chick from the same farm SR150,000<sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Exhibition, Oct 2026</td><td class="n">—</td><td class="n">—</td><td>Wild-taken Mongolian falcon, SR1.4 m, exhibition record<sup class="r"><a href="#s2">2</a></sup></td></tr>
+  </table></div>
+  <p>The series is short and steep: the top lot tripled from 2024 to 2025 and the auction's volume grew by a quarter, with sessions broadcast live on television and streamed. The all-time record, SR1.75 m in 2021, predates the current growth; the 2026 top lot is the second-highest ever. The buyer's own account of the SR1.3 m bird, "rare birds are priceless", is the market's valuation method stated plainly.<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a> <a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
+  <div class="note warn">Two markets again. Captive-bred birds from licensed farms are the auction; wild-taken birds, legally trapped under quota in Mongolia, Kazakhstan or Pakistan and prized by traditional falconers for hunting ability, are a separate and less transparent trade that the exhibition record has now brought into the open. Wild-taken sakers and peregrines are the conservation concern; the breeders' auction is partly the answer to it. <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></div>
+</section>
+<section id="s-ii">
+  <div class="sechead tint"><h2><em>II</em>What is being bought</h2><p class="sub">Species, cross, colour, sex, age and the season ahead.</p></div>
+  <div class="tw"><table>
+    <tr><th>Variable</th><th>What it means</th><th>Price effect</th></tr>
+    <tr><td>Species and cross</td><td>Pure gyrfalcon (largest, Arctic); gyr × peregrine ("shaheen") and gyr × saker hybrids at half, three-quarter, seven-eighths gyr</td><td>Pure and high-fraction gyr highest; hybrids bred for heat tolerance and racing speed</td></tr>
+    <tr><td>Colour morph</td><td>White, Super White, Ultra White gyr plumage; dark and silver below</td><td>The record lots are all white morphs; the premium is aesthetic and cultural, not sporting<sup class="r"><a href="#s1">1</a> <a href="#s5">5</a></sup></td></tr>
+    <tr><td>Sex</td><td>Females ("falcons") a third larger than males ("tiercels")</td><td>Females higher for hunting; males favoured in some racing classes</td></tr>
+    <tr><td>Age</td><td>Chick of the year (farkh) sold before first moult; intermewed birds after</td><td>Chicks command the premium; a trained adult with a racing record is a different asset</td></tr>
+    <tr><td>Origin</td><td>Captive-bred with closed ring and CITES certificate; or wild-taken under quota (hur)</td><td>Wild-taken prized by traditionalists; captive-bred the only route for export and for most buyers</td></tr>
+    <tr><td>Purpose</td><td>Hunting houbara in the winter season; or racing (400 m sprints, telwah) with prize funds</td><td>Racing bloodlines increasingly bred and priced separately</td></tr>
+  </table></div>
+  <p>The bird is sold in August for a season that runs to March. Its value to the buyer is sporting and social: a hunting trip, a race entry, a place in a majlis. The breeder's value is the pair that produced it, which is why the supply side looks like <a href="/breeding-stallions-dashboard" style="border-bottom:1px solid var(--bronze)">breeding stallions</a> and the demand side like a season ticket. <span class="c c-x">Hyp</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead tint"><h2><em>III</em>Permits, passports and the farms</h2><p class="sub">Why a falcon can be sold at all.</p></div>
+  <p>All falcons are listed under CITES: peregrine and gyrfalcon on Appendix I, saker on Appendix II. A captive-bred bird from a registered breeder may be traded internationally with a CITES certificate of captive breeding and a closed leg ring fitted as a chick; wild-taken birds may move only under national export quota. The UAE introduced a falcon passport in 2002, since adopted across the GCC, which records the bird, its ring and microchip and its owner and permits travel with the falconer; Saudi Arabia's National Center for Falcons and the Saudi Falcons Club (2017) regulate the domestic market, the auctions and the breeding-farm licences.<sup class="r"><a href="#s3">3</a> <a href="#s6">6</a></sup> <span class="c c-m">Med</span></p>
+  <div class="tw"><table>
+    <tr><th>Participant</th><th>Role</th><th>Note</th></tr>
+    <tr><td>Breeding farms</td><td>c. 67 at the 2025 auction from 23 countries; Canada, US, UK, Germany, Spain and Gulf farms</td><td>Hybrids by artificial insemination; white gyr lines are proprietary<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>Saudi Falcons Club</td><td>Organises the Breeders Auction, the exhibition, the King Abdulaziz Falconry Festival and a 122-day season</td><td>The market's exchange and regulator in one<sup class="r"><a href="#s3">3</a></sup></td></tr>
+    <tr><td>Abu Dhabi (ADIHEX, Emirates Falconers' Club, Abu Dhabi Falcon Hospital)</td><td>The other hub: exhibition sales, hospital, release programme</td><td>Hospital treats several thousand birds a year <span class="c c-m">Med</span></td></tr>
+    <tr><td>Racing bodies</td><td>Fazza Championships (Dubai), President's Cup (Abu Dhabi), Saudi festival races</td><td>Prize funds in the tens of millions of riyals and dirhams create a secondary demand for speed <span class="c c-m">Med</span></td></tr>
+    <tr><td>Conservation funds</td><td>Mohamed bin Zayed Raptor Conservation Fund; Sheikh Zayed release programme; IAF</td><td>Wild saker and houbara populations; the legitimacy of the whole market</td></tr>
+  </table></div>
+</section>
+<section id="s-iv">
+  <div class="sechead tint"><h2><em>IV</em>How a bird loses value</h2><p class="sub">Most of it, in the ordinary course.</p></div>
+  <div class="tw"><table>
+    <tr><th>Risk</th><th>Mechanism</th><th>Mitigation</th></tr>
+    <tr><td>Depreciation</td><td>A chick's premium is gone after the first season; an intermewed bird is valued on performance</td><td>None; this is the asset's nature</td></tr>
+    <tr><td>Mortality and injury</td><td>Aspergillosis, bumblefoot, collisions, heat; a hunting bird lost on a flight</td><td>Telemetry; falcon hospitals in Abu Dhabi, Dubai, Doha, Riyadh; insurance limited</td></tr>
+    <tr><td>Paperwork</td><td>Bird without matching ring, certificate and passport cannot travel or be resold legitimately</td><td>Buy only at licensed auction or from registered farms</td></tr>
+    <tr><td>Single buyer base</td><td>Demand is Gulf falconers in season; a change in houbara hunting access (Pakistan, Central Asia permits) or in racing prize funds reprices everything</td><td>None available to a holder</td></tr>
+    <tr><td>Supply response</td><td>White gyr morphs are bred to order; a record price is an instruction to the farms</td><td>Scarcity is engineered and temporary</td></tr>
+    <tr><td>Export controls</td><td>CITES Appendix I; national bans on wild take; diplomatic exposure of hunting trips</td><td>Captive-bred with full documentation only</td></tr>
+  </table></div>
+  <p>Custody is the working life of a falconer: daily weighing, feeding, flying, a mews, transport in the heat, and veterinary care that the Gulf has built world-class hospitals to provide. It is the second-heaviest custody burden on this site after <a href="/racehorses-dashboard" style="border-bottom:1px solid var(--bronze)">racehorses</a>, with the difference that a horse at least has a residual value as breeding stock; a falcon's residual is the next season. <span class="c c-m">Med</span></p>
+</section>
+<section id="s-v">
+  <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
+    <tr><td>International Falcon Breeders Auction results</td><td>Saudi Falcons Club; Aug–Sep, nightly, broadcast</td><td>Volume, farms, countries, top lots; the only price series</td></tr>
+    <tr><td>Saudi International Falcons and Hunting Exhibition; ADIHEX</td><td>Oct; Sep</td><td>Wild-taken and dealer sales; the exhibition record</td></tr>
+    <tr><td>King Abdulaziz Falconry Festival and Fazza race results</td><td>Dec–Jan</td><td>Which bloodlines win; racing demand</td></tr>
+    <tr><td>CITES export quotas for saker (Mongolia, Kazakhstan) and Appendix changes</td><td>CITES, annual; CoP triennial</td><td>Legal wild supply</td></tr>
+    <tr><td>Houbara hunting permits in Pakistan and Central Asia</td><td>National announcements, autumn</td><td>The purpose of most of the birds</td></tr>
+    <tr><td>Licensed breeding farms and new hybrid lines</td><td>Saudi Falcons Club; farm announcements</td><td>Supply response to record prices</td></tr>
+    <tr><td>Falcon hospital caseloads</td><td>Abu Dhabi Falcon Hospital, annual</td><td>Mortality and the size of the owned population</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Saudi Falcons Club statements via Gulf and Saudi press for the auction; CITES for the regulatory frame; structural detail on racing and hospitals from general reporting and tagged.</p></div>
+  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+    <li id="s1"><b>Gulf News</b>, "Most expensive falcon of 2026 sells for $346,000 in Saudi Arabia", Aug 2026: SR1.3 m, Jim Wilson Falcons (Ontario), Nova Falcon; bidding from SR200,000; record SR1.75 m (2021); and <b>WION</b>, same sale: pure gyr chick SR150,000; National Center for Falcons statement. <a href="https://gulfnews.com/world/gulf/saudi/most-expensive-falcon-of-2026-sells-for-346000-in-saudi-arabia-1.500643894" target="_blank">gulfnews.com</a></li>
+    <li id="s2"><b>Gulf News</b>, "World's most expensive Mongolian falcon sells for record SR1.4 million at Saudi auction", Oct 2026: Saudi International Falcons and Hunting Exhibition, Malham. <a href="https://gulfnews.com/world/gulf/saudi/worlds-most-expensive-mongolian-falcon-sells-for-record-sr14-million-at-saudi-auction-1.500706030" target="_blank">gulfnews.com</a></li>
+    <li id="s3"><b>Anadolu Agency</b> and <b>Gulf Agriculture</b>, "International Falcon Breeders Auction concludes… sales exceeding $3.46M / 13 million riyals", Sep 2025: 21 days from 5 Aug; 1,103 sold; 67 farms, 23 countries, 19 Saudi; +23% sales, +27% birds, +21% countries, +20% farms; 122-day season. <a href="https://www.aa.com.tr/en/middle-east/international-falcon-breeders-auction-concludes-in-saudi-arabia-with-sales-exceeding-346m/3676854" target="_blank">aa.com.tr</a></li>
+    <li id="s4"><b>Gulf News</b> / SPA, "Falcon sold for 1.2 million at International Falcon Breeders Auction", Aug 2025: Super White pure gyr farkh, RX farm (US), SR1.2 m; shaheen-gyr chicks SR28,000 and SR48,000 (Border Falcons, Falcon Mews, UK); three birds SR1.276 m. <a href="https://gulfnews.com/world/gulf/saudi/falcon-sold-for-12-million-at-international-falcon-breeders-auction-in-saudi-arabia-1.500243516" target="_blank">gulfnews.com</a></li>
+    <li id="s5"><b>Gulf News</b>, "Record-breaking sales at International Falcon Breeders Auction 2024", Aug 2024: &gt;SR10 m, 866 birds, 20 days; 56 farms, 19 countries; Ultra White gyr hybrid SR400,000, Pacific Northwest Falcons; live broadcast. <a href="https://gulfnews.com/business/corporate-news/record-breaking-sales-at-international-falcon-breeders-auction-2024-1.1724757178762" target="_blank">gulfnews.com</a></li>
+    <li id="s6"><b>CITES</b>, Appendices: Falco peregrinus and Falco rusticolus Appendix I; Falco cherrug Appendix II; captive-breeding and ring provisions. UAE falcon passport (2002) and GCC adoption from general reporting. <span class="c c-m">Med</span> <a href="https://cites.org/eng/app/appendices.php" target="_blank">cites.org</a></li>
+    <li id="s7"><b>UNESCO</b>, Representative List of the Intangible Cultural Heritage of Humanity: "Falconry, a living human heritage", inscribed 2010, extended 2012, 2016, 2021. <a href="https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708" target="_blank">ich.unesco.org</a></li>
+    <li id="s8"><b>General reporting</b> on Gulf falconry infrastructure: Abu Dhabi Falcon Hospital caseloads, Fazza and President's Cup racing prize funds, Mohamed bin Zayed Raptor Conservation Fund and houbara release programmes. Orders of magnitude only. <span class="c c-m">Med</span></li>
+  </ol></details>
+</section>
+
+</details>
+<div class="toc-lite"><a href="#s-i"><span>I</span>The auction record</a><a href="#s-ii"><span>II</span>What is being bought</a><a href="#s-iii"><span>III</span>Permits, passports and the farms</a><a href="#s-iv"><span>IV</span>How a bird loses value</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <a href="/advisers">For advisers and institutions</a>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  var r=document.getElementById('report'); if(!r) return;
+  function openFor(hash){ if(!hash) return; var el=document.querySelector(hash); if(el && r.contains(el)){ r.open=true; } }
+  openFor(location.hash);
+  window.addEventListener('hashchange',function(){openFor(location.hash)});
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Champagne, ΣΟΦΙΑ</title>
+<meta name="description" content="Champagne: shipments, the yield lever, the 2022–25 correction, structure and holding costs. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6; --ink:#141412; --mute:#6f6a62; --line:#dcd4c6; --rule:#e6dfd2;
+  --bronze:#a8825a; --bronze-lo:#7d5f3f; --surface:#faf7f0;
+  --high:#3f6b47; --med:#8a6a1c; --low:#9b4a22; --hyp:#5a4b8a;
+  /* categorical series ramp, for data series only, never for confidence */
+  --s1:#a8825a; --s2:#8c4a2f; --s3:#3f6470; --s4:#7f7a70; --s5:#5c6b45;
+  --chart-fill:#e9e1d1;   /* a tint that reads against the page, for map and area fills */
+  --display:'EB Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:ui-monospace,monospace;
+  --maxw:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px}
+em{font-style:italic}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mark small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--mute);margin-top:1px}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+
+/* type utilities */
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.lede{font-size:19px;line-height:1.55;max-width:66ch;color:var(--ink)}
+.rule{width:56px;height:1px;background:var(--bronze);margin:26px 0}
+
+/* sector hero */
+.hero{padding:72px 0 40px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:76px;line-height:1;margin:16px 0 20px}
+.hero .lede{color:var(--mute)}
+.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.figures>div{padding:16px 20px 16px 0;border-right:1px solid var(--rule)}
+.figures>div:last-child{border-right:0}
+.figures .v{font-family:var(--sans);font-size:21px;font-weight:500;color:var(--bronze-lo)}
+.figures .l{font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* contents */
+.contents .sector-tag{display:none;font-family:var(--sans);font-size:11px;letter-spacing:.1em;color:var(--mute);white-space:nowrap;flex-shrink:0}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+@media(min-width:901px){
+  .contents{position:sticky;top:90px;z-index:15;background:var(--paper);padding:14px 0;display:flex;align-items:baseline;gap:24px}
+  .contents .eyebrow{display:none}
+  .contents .sector-tag{display:block}
+  .contents ol{margin:0}
+}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0;color:var(--ink)}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+.contents li a:hover{color:var(--bronze-lo)}
+
+/* sections */
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead.tint{background:var(--surface);padding:20px 24px;margin-bottom:30px}
+.sechead.tint h2{margin:0}
+.sechead.tint .sub{border-left:2px solid var(--bronze);background:transparent;padding:12px 0 0;margin-top:10px}
+.sechead.narrative{border-bottom:none;border-top:1px solid var(--rule);padding-top:30px}
+.sechead.narrative h2{font-style:italic;font-family:var(--display);font-weight:400}
+.sechead.narrative h2 em{font-style:normal}
+.sechead.narrative .sub{border-left:none;background:transparent;padding:0;font-style:italic}
+.sechead{flex:1 1 100%;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+
+/* tables */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+tr.tot td{border-top:1px solid var(--bronze);font-weight:500}
+
+/* figure blocks */
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div,.card{background:var(--surface);padding:16px 18px}
+.ledger .v,.cards .v,.card .v{font-family:var(--sans);font-size:24px;font-weight:500;color:var(--bronze-lo)}
+.ledger .l,.cards .l,.card .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch}
+.note.warn{border-left-color:var(--low)}
+.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:6px}
+.note>h2,.note .panel-head h2{font-size:21px;margin:0 0 4px}
+.note .panel-head{margin-bottom:10px}
+.note .tag-line{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+/* bars */
+.bars{margin:16px 0 28px;max-width:680px}
+.bars .row,.bars .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;align-items:center;margin:7px 0;font-size:14px}
+.bars .bar{height:9px;background:var(--line);position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bronze)}
+.bars .val,.bars .v{font-family:var(--sans);font-size:12px;text-align:right;color:var(--bronze-lo)}
+
+/* timeline */
+.era{display:grid;grid-template-columns:104px 1fr;gap:18px;padding:11px 0;border-bottom:1px dotted var(--line);max-width:78ch}
+.era .y{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--bronze-lo);padding-top:3px}
+.era .t{font-size:15.5px;font-family:var(--sans);color:var(--ink);white-space:normal;border:0;background:none;padding:0;margin-left:0;line-height:1.5;overflow-wrap:break-word}
+
+/* tags */
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px}
+sup.r a{color:var(--bronze);border-bottom:0}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 10px;vertical-align:middle;background:var(--bronze)}
+
+/* snapshot */
+.snap{margin:0;padding:34px 0 36px;border-bottom:1px solid var(--line)}
+.snap-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px 18px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.snap-head .snap-title{color:var(--ink);font-size:15px;font-weight:400;letter-spacing:.06em}
+.snap-head .snap-meta{color:var(--mute);letter-spacing:.2em}
+.snap-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:0 40px;margin:0}
+.snap-rated{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px;margin:0}
+.snap-row{min-width:0;padding:22px 0 20px;border-bottom:1px solid var(--line)}
+.snap-row dt{font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin:0 0 10px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.snap-row dt .snap-scale{display:none}
+.snap-row dd{margin:0;font-size:16px;line-height:1.45}
+.snap-row.rated dd{display:block}
+.snap-row dd b{font-weight:400;font-family:var(--display);font-size:28px;line-height:1;display:block;margin-bottom:14px}
+.snap-bar{display:flex;gap:4px;margin-bottom:16px}
+.snap-bar i{flex:1;height:3px;background:var(--line);display:inline-block}
+.snap-bar i.on{background:var(--bronze)}
+.snap-c{font-family:var(--sans);font-size:8.5px;padding:3px 7px;border:1px solid var(--line);color:var(--mute);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.snap-scaleline{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.snap-scaleline a{color:var(--mute);border-bottom:1px solid var(--line)}
+.snap-scaleline a:hover{color:var(--ink);border-bottom-color:var(--bronze)}
+.snap-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:16px;font-family:var(--sans);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.snap-foot a{color:var(--mute);border-bottom:1px solid var(--bronze)}
+.snap-foot a:hover{color:var(--ink)}
+
+/* sources */
+ol.src{padding-left:0;list-style:none;counter-reset:s;font-size:14px;max-width:84ch;margin:8px 0 0}
+ol.src li{counter-increment:s;padding:10px 0 10px 42px;position:relative;border-bottom:1px dotted var(--line);color:var(--mute)}
+ol.src li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:var(--sans);color:var(--bronze);font-size:11px}
+ol.src li b{color:var(--ink);font-weight:500}
+ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-break:break-word}
+
+/* footer */
+footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+
+/* a bar fill is an inline span in several source pages, so its width never applies */
+[data-w]{display:block}
+.sechead .unit{display:inline-block;font-family:var(--sans);font-size:11px;letter-spacing:.05em;
+  color:var(--bronze-lo);border:1px solid var(--line);background:var(--surface);
+  padding:3px 10px;border-radius:2px;margin:0 0 16px}
+
+/* charts */
+svg{max-width:100%;height:auto}
+svg text{font-size:10px}
+.gl{stroke:var(--line);stroke-width:1}
+.axis{fill:var(--mute);font-family:var(--sans);font-size:11px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin:10px 0 18px;font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:var(--mute)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:7px;vertical-align:-1px;font-style:normal}
+
+/* section scroll controls */
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}
+.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--surface);color:var(--bronze-lo);font-family:var(--sans);font-size:13px;line-height:1;cursor:pointer;padding:0}
+.ctl button:hover:not(:disabled){border-color:var(--bronze);color:var(--ink)}
+.ctl button:disabled{opacity:.32;cursor:default}
+.ctl button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+@media(max-width:900px){
+  .page{padding:0 20px 72px}.mast .in{padding:14px 20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .hero{padding:44px 0 32px}.hero h1{font-size:46px}
+  .figures{grid-template-columns:1fr 1fr}.figures>div:nth-child(2n){border-right:0}
+  .contents ol{grid-template-columns:1fr}
+  .ledger,.cards{grid-template-columns:1fr}
+  .snap-top{grid-template-columns:1fr;gap:0}.snap-rated{grid-template-columns:1fr;gap:0}
+  section h2{font-size:30px}
+  .sechead{margin-bottom:22px}
+  .bars .row,.bars .r{grid-template-columns:110px 1fr 74px}
+  .era{grid-template-columns:76px 1fr;gap:12px}
+  .ctl{right:12px;bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ctl{transition:none}}
+
+/* carried from the source page, re-coloured */
+.frame .v{font-family:var(--display);font-size:44px;line-height:1}
+.frame .l{font-size:13px;color:#6f6a62;margin-top:8px}
+.labels .v{font-family:var(--sans);font-size:19px;font-weight:600}
+.labels .l{font-size:12.5px;color:#6f6a62;line-height:1.35}
+.n{text-align:right;font-family:var(--sans);white-space:nowrap}
+.bars{margin:14px 0 26px;font-family:var(--sans);font-size:12px;max-width:640px}
+.bars .r{display:grid;grid-template-columns:120px 1fr 120px;gap:12px;align-items:center;margin:7px 0}
+.bars .bar{height:10px;background:#faf7f0;position:relative}
+.bars .bar i{position:absolute;left:0;top:0;bottom:0;background:#141412}
+.bars .v{text-align:right}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 26px}
+.card{background:#faf7f0;padding:14px 16px;border-top:2px solid #141412}
+.card .v{font-family:var(--sans);font-size:22px;font-weight:600}
+.card .l{font-size:13px;color:#6f6a62}
+@media(max-width:860px){
+.cards{grid-template-columns:1fr}
+.bars .r{grid-template-columns:100px 1fr 100px}
+}.src-toggle{cursor:pointer;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);padding:10px 0;list-style:none}.src-toggle::-webkit-details-marker{display:none}.src-toggle::before{content:'▸ ';color:var(--bronze)}details[open]>.src-toggle::before{content:'▾ '}
+
+/* ===== redesign v3 ===== */
+.mast .in{padding:20px 32px}.mast ul{gap:28px}.mark small{display:none}.mark{font-size:26px}
+.eyebrow{letter-spacing:.12em;font-size:11px}th{letter-spacing:.06em;font-size:11px}
+.c,.t,.snap-c{letter-spacing:.02em;font-size:11px}.legend{letter-spacing:.02em}
+.contents .sector-tag{letter-spacing:.08em}
+.brief{padding:64px 0 0}
+.brief .crumb{font-size:13px;color:var(--mute)}.brief .crumb a{color:var(--mute);border-bottom:1px solid transparent}.brief .crumb a:hover{color:var(--ink);border-color:var(--bronze)}
+.brief-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px 32px;flex-wrap:wrap}
+.brief h1{font-size:72px;line-height:1;margin:8px 0 0}
+.grade{text-align:right;padding-bottom:6px}
+.grade .g{font-family:var(--display);font-size:36px;color:var(--bronze-lo);line-height:1}
+.grade .n{font-family:var(--display);font-size:22px;margin-left:12px}
+.grade .m{font-size:12.5px;color:var(--mute);margin-top:4px}
+.regime{font-family:var(--display);font-size:24px;line-height:1.4;max-width:40ch;margin:32px 0 0;text-wrap:pretty}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 40px;margin-top:40px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.facts>div{min-width:0}
+.facts .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.facts .s{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px}
+.facts .s span:nth-child(odd){color:var(--mute)}
+.brief h2{font-size:24px;margin:44px 0 12px}
+.since{font-size:16.5px;line-height:1.6;max-width:62ch;margin:0}
+.why{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:start}
+.why p{font-size:16px;line-height:1.6;max-width:52ch;margin:0}
+.why .note-r{font-size:13px;color:var(--mute);margin-top:14px}
+.factors{display:flex;flex-direction:column;gap:8px}
+.factors>div{display:grid;grid-template-columns:1fr 70px;align-items:center;gap:12px;font-size:13.5px}
+.factors span{display:flex;gap:3px}
+.factors i{flex:1;height:5px;background:var(--line)}
+.factors i.on{background:var(--bronze-lo)}
+.report{margin-top:56px;border-top:1px solid var(--ink)}
+.report>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:20px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:24px}
+.report>summary::-webkit-details-marker{display:none}
+.report>summary small{font-family:var(--sans);font-size:13px;color:var(--mute)}
+.report>summary .cl{display:none}.report[open]>summary .op{display:none}.report[open]>summary .cl{display:inline}
+.report .intro{font-size:18px;color:var(--mute);max-width:66ch;margin:28px 0 0;line-height:1.55}
+.report .figures{margin-top:28px}
+.toc-lite{display:flex;flex-direction:column;font-size:15px}
+.toc-lite a{display:grid;grid-template-columns:36px 1fr;padding:11px 0;border-bottom:1px solid var(--rule);color:var(--ink)}
+.toc-lite a span{color:var(--bronze)}
+.report[open]~.toc-lite{display:none}
+.ctl button{width:44px;height:44px;font-family:var(--sans);font-size:15px}
+.sechead .sub,.sechead.tint .sub{border-left:0;padding:0;background:transparent}
+.sechead.tint{background:transparent;padding:0;margin-bottom:24px}
+footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{font-size:12px;letter-spacing:.14em}
+td.n+td,th.n+th{padding-left:16px}
+
+@media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="in">
+    <a class="mark" href="/home">ΣΟΦΙΑ</a>
+    <ul><li><a href="/method">Method</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/contact">Contact</a></li></ul>
+  </div>
+</header>
+<div class="page">
+
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Cellar &amp; Collectibles</a></div>
+  <div class="brief-head">
+    <h1>Champagne</h1>
+    <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Physical, in bond · 20 Oct 2026</div></div>
+  </div>
+  <p class="regime">Three years of correction have taken a third off the prestige index and a sixth off release prices; the houses have cut the 2026 yield to the lowest since the pandemic, and the index has stopped falling.</p>
+  <div class="facts">
+    <div><div class="k">What is covered</div>Prestige and vintage cuvées traded on the secondary market: Dom Pérignon, Cristal, Krug, Salon, Taittinger Comtes, Bollinger Grande Année, Pol Roger Sir Winston Churchill, and the leading growers (Selosse, Egly-Ouriet). Still wine is covered under <a href="/fine-wine-dashboard" style="border-bottom:1px solid var(--bronze)">Fine Wine →</a></div>
+    <div><div class="k">Principal markets</div>London (Liv-ex, merchants, bonded warehouses) · Épernay and Reims (release) · Paris (iDealwine) · New York and Hong Kong (Sotheby's, Zachys, Acker)</div>
+    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High; LVMH houses, a regulated appellation, yield set annually</span><span>Liquidity</span><span>Medium; exchange mid-prices, merchant market</span><span>Scarcity</span><span>Low for the category, high for named vintages</span><span>Provenance risk</span><span>Low in bond; medium for older bottles</span></div></div>
+  </div>
+  <h2>Since last update</h2>
+  <p class="since">First entry. The Comité Champagne capped the 2026 marketable yield at 8,800 kg/ha, about 250 m bottles, the lowest since 2020; first-half 2026 shipments were 107.1 m bottles, up 1.2%; the Liv-ex Champagne 50 is up 1.7% from its August 2025 low after falling 4.2% in 2025.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
+  <h2>Why Σ2</h2>
+  <div class="why">
+    <div><p>Champagne is the most legible of the collectible drinks. Liv-ex publishes a daily index of fifty prestige cuvées and mid-prices for each; bottles are held in bond in a merchant's warehouse with the owner's name on the record; exit is to the merchant or through the exchange in weeks; and the asset is a branded, dated, sealed object whose authenticity is rarely in question. The one material limit is the one Fine Wine carries: transaction costs, 10% or more on each trade and storage of a few pounds a case a year, which on a product that has just fallen a third is the whole return of several years. The houses also set release prices and yields, so the holder's scarcity is partly the producer's decision.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div></div>
+  </div>
+</div>
+
+<details class="report" id="report">
+  <summary>Full report <small>6 sections · 9 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">The region ships 266 million bottles a year, of which the secondary market cares about perhaps seven million: the prestige cuvées of a dozen houses. This page covers the shipment cycle and the yield lever, the 2022–25 correction in release and secondary prices, how the category is structured and traded, the economics of holding, and what to watch. No prices are carried as live values.</p>
+  <div class="figures"><div><div class="v">266 m</div><div class="l">Bottles shipped 2025, −2.1%; exports 152 m, France 114 m; revenues c. €5.6 bn. Comité Champagne<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></div></div><div><div class="v">−33.1%</div><div class="l">Liv-ex Champagne 50 from its September 2022 peak to the August 2025 low; +1.7% since<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">−16.2%</div><div class="l">Average cut in the latest release prices of seven prestige cuvées against their previous release; Salon −39%, Cristal −23.8%<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">7 m</div><div class="l">Prestige cuvée bottles exported 2025, −17%, 4.6% of the market and 1 m below the ten-year average<sup class="r"><a href="#s1">1</a></sup></div></div></div>
+
+<nav class="contents" aria-label="Contents">
+  <p class="eyebrow">Contents</p>
+  <p class="sector-tag">CHAMPAGNE</p>
+  <ol><li><a href="#s-i"><span>I</span>Shipments and the yield lever</a></li><li><a href="#s-ii"><span>II</span>The correction</a></li><li><a href="#s-iii"><span>III</span>Structure of the trade</a></li><li><a href="#s-iv"><span>IV</span>The economics of holding</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
+</nav>
+
+
+<section id="s-i">
+  <div class="sechead tint"><h2><em>I</em>Shipments and the yield lever</h2><p class="sub">The only wine region that sets its own supply each August.</p></div>
+  <p>Shipments were 266.1 m bottles in 2025, down 2.1% on 2024's 271 m and well below the 326 m of 2022; France took 114 m (−3.6%), exports 152 m (−0.9%). Revenues were about €5.6 bn. The first half of 2026 recovered 1.2% to 107.1 m bottles, driven by export. Prestige cuvées, the part of the market that trades, fell much faster: exports down 17% to 7 m bottles, 4.6% of the total against 5.5%; in Britain 480,000 bottles against a ten-year average of 820,000.<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a> <a href="#s4">4</a> <a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
+  <div class="bars">
+    <div class="r"><span>2022</span><div class="bar"><i style="width:100%"></i></div><span class="v">326 m</span></div>
+    <div class="r"><span>2023</span><div class="bar"><i style="width:92%"></i></div><span class="v">299 m</span></div>
+    <div class="r"><span>2024</span><div class="bar"><i style="width:83%"></i></div><span class="v">271 m</span></div>
+    <div class="r"><span>2025</span><div class="bar"><i style="width:82%"></i></div><span class="v">266 m</span></div>
+    <div class="r"><span>2026 yield cap</span><div class="bar"><i style="width:77%"></i></div><span class="v">c. 250 m</span></div>
+  </div>
+  <p style="font-size:14px;color:var(--mute)">Bottles shipped; 2026 is the marketable yield equivalent, not a shipment figure. 2022–23 from Comité Champagne annual reports. <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></p>
+  <p>The Comité Champagne, the joint body of growers and houses, fixes the marketable yield each year before harvest. For 2026 it is 8,800 kg per hectare, roughly 250 m bottles, the lowest since the 8,000 kg of 2020. The mechanism matches supply to the stock in cellar, which runs to several years of sales, and is the structural reason Champagne corrections are shallower and shorter than Burgundy's.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-ii">
+  <div class="sechead tint"><h2><em>II</em>The correction</h2><p class="sub">From the 2022 peak to 2025: release prices, the index and the individual names.</p></div>
+  <div class="tw"><table>
+    <tr><th>Cuvée</th><th>Latest release vs previous</th><th>Note</th></tr>
+    <tr><td>Salon</td><td class="n">−39%</td><td>The 2012 released 2021 at £5,800 a case, traded to £13,300, now £7,000–8,000<sup class="r"><a href="#s1">1</a> <a href="#s6">6</a></sup></td></tr>
+    <tr><td>Louis Roederer Cristal</td><td class="n">−23.8%</td><td>2014 among the names leading the recovery<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></td></tr>
+    <tr><td>Pol Roger Sir Winston Churchill</td><td class="n">−23.1%</td><td><sup class="r"><a href="#s1">1</a></sup></td></tr>
+    <tr><td>Dom Pérignon</td><td class="n">−14.3%</td><td>Brand index bottomed Nov 2024; 2015 released at £750 a case of six, now c. £840<sup class="r"><a href="#s1">1</a> <a href="#s7">7</a></sup></td></tr>
+    <tr><td>Seven houses, average</td><td class="n">−16.2%</td><td>Against +16.2% in the previous release cycle<sup class="r"><a href="#s1">1</a></sup></td></tr>
+  </table></div>
+  <div class="cards">
+    <div class="card"><div class="v">−4.2%</div><div class="l">Champagne 50 in 2025; all Champagne trade value on Liv-ex +2.6% the same year <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
+    <div class="card"><div class="v">28 / 20 / 2</div><div class="l">Index components up, down and flat, year to March 2026; new vintages soften post-release, back vintages stable <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></div></div>
+    <div class="card"><div class="v">12.4%</div><div class="l">Champagne share of Liv-ex trade by value, 2025, from 11.8% in 2024 <span class="c c-m">Med</span><sup class="r"><a href="#s7">7</a></sup></div></div>
+  </div>
+  <p>Liv-ex's description is "correction to consolidation": the index fell 33.1% in 35 months, has risen 1.7% since, and the components are split. Bordeaux Index calls the outlook "flat"; iDealwine reports auction value up 21% on volume up 4%. The houses' own response, cutting release prices by a sixth after raising them by a sixth, is the clearest signal that the 2020–22 pricing was a cycle rather than a level.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s6">6</a></sup> <span class="c c-h">High</span></p>
+</section>
+<section id="s-iii">
+  <div class="sechead tint"><h2><em>III</em>Structure of the trade</h2><p class="sub">Houses, growers, an exchange and a dozen names that matter.</p></div>
+  <div class="tw"><table>
+    <tr><th>Tier</th><th>Position</th><th>Note</th></tr>
+    <tr><td>Grandes marques (négociant-manipulant)</td><td>LVMH (Dom Pérignon, Krug, Ruinart, Veuve Clicquot), Roederer (Cristal), Laurent-Perrier (Salon), Bollinger, Pol Roger, Taittinger</td><td>Set release prices and allocations; most of the Champagne 50 by weight</td></tr>
+    <tr><td>Growers (récoltant-manipulant)</td><td>Selosse, Egly-Ouriet, Larmandier-Bernier, Ulysse Collin and others</td><td>Tiny production, dealer-led price discovery; the Burgundy-like corner of the market <span class="c c-m">Med</span></td></tr>
+    <tr><td>Liv-ex</td><td>Trading platform for merchants; Champagne 50 index; mid-prices</td><td>The independent valuation Fine Wine lacks for most regions<sup class="r"><a href="#s2">2</a></sup></td></tr>
+    <tr><td>Merchants and bonded warehouses</td><td>London in-bond trade; storage under the owner's name</td><td>Custody and the ordinary exit; fees on each trade</td></tr>
+    <tr><td>Auction</td><td>Sotheby's, Christie's, Zachys, Acker; iDealwine in Paris</td><td>Older vintages and large formats; clearance rates fell to multi-year lows late 2025<sup class="r"><a href="#s6">6</a> <a href="#s8">8</a></sup></td></tr>
+  </table></div>
+  <p>The Champagne 50 is dominated by vintage releases from the large houses, which is why it has held better than non-vintage shipments and why the index can stabilise while the region's volumes fall. A holder is exposed to the house's release policy twice: a cut in the next release reprices the back vintages, and a late-disgorged or library release from the house's own cellar competes directly with the secondary market.<sup class="r"><a href="#s1">1</a> <a href="#s8">8</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-iv">
+  <div class="sechead tint"><h2><em>IV</em>The economics of holding</h2><p class="sub">Low custody, material friction, a product that is drunk.</p></div>
+  <div class="tw"><table>
+    <tr><th>Item</th><th>Order of cost</th><th>Note</th></tr>
+    <tr><td>Storage in bond</td><td>£10–20 a case a year</td><td>Includes insurance at replacement value in most merchants' schemes <span class="c c-m">Med</span></td></tr>
+    <tr><td>Merchant margin on sale</td><td>10–15% of value</td><td>Or the exchange spread plus the merchant's fee</td></tr>
+    <tr><td>Auction commission</td><td>Seller's 10–15%, buyer's 20–25%</td><td>Older vintages and formats only</td></tr>
+    <tr><td>Duty and VAT</td><td>On removal from bond</td><td>Payable only if the bottles leave the system</td></tr>
+    <tr><td>Condition</td><td>Fill level, label, capsule, disgorgement date</td><td>Prestige cuvées are checked on receipt into bond; a case that has left bond is repriced on re-entry</td></tr>
+  </table></div>
+  <p>The asset is consumed, which is the structural difference from every other collectible: the stock of Krug 2008 falls every year by what is drunk, and the house does not reissue it (library releases excepted). That drawdown is the long-run case for back vintages and the reason the index is split between stable back vintages and softening new ones. Provenance is simple for anything bought on release and kept in bond; for older bottles outside the system, storage history is unknowable and the market discounts accordingly.<sup class="r"><a href="#s2">2</a></sup> <span class="c c-m">Med</span></p>
+</section>
+<section id="s-v">
+  <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="tw"><table>
+    <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
+    <tr><td>Liv-ex Champagne 50</td><td>Liv-ex; monthly, daily to members</td><td>The benchmark; watch components up versus down</td></tr>
+    <tr><td>Comité Champagne shipments</td><td>Monthly; annual review in January</td><td>Demand; prestige cuvée share separately</td></tr>
+    <tr><td>Marketable yield decision</td><td>Comité Champagne; July–August</td><td>Supply for the vintage; the houses' view of stock</td></tr>
+    <tr><td>Release prices against previous release</td><td>Houses via merchants; Liv-ex analysis; rolling</td><td>The producer's own repricing of the back catalogue</td></tr>
+    <tr><td>Champagne share of Liv-ex trade</td><td>Liv-ex quarterly reports</td><td>Whether buyers are rotating in or out</td></tr>
+    <tr><td>Auction clearance rates for prestige cuvées</td><td>Sotheby's, Christie's, iDealwine; seasonal</td><td>Depth at the older end</td></tr>
+    <tr><td>Harvest size and quality</td><td>Comité Champagne, CIVC vintage reports; September</td><td>Which years will be declared and at what volume</td></tr>
+  </table></div>
+</section>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Comité Champagne for shipments and yield; Liv-ex, via the trade press, for secondary prices.</p></div>
+  <details><summary class="src-toggle">Show 9 sources</summary><ol class="src">
+    <li id="s1"><b>The Drinks Business</b>, "Prestige Champagne sees surprising silver lining", Jun 2026, citing Comité Champagne and Liv-ex (Tom Burchfield): prestige exports −17% to 7 m, 4.6% share; UK 480,000 vs 820,000 average; Champagne 50 −4.2% in 2025; release prices −16.2% average, Salon −39%, Cristal −23.8%, Churchill −23.1%, Dom Pérignon −14.3%; all-Champagne trade value +2.6%; DP 2015 £750 → £840. <a href="https://www.thedrinksbusiness.com/2026/06/cause-for-celebration/" target="_blank">thedrinksbusiness.com</a></li>
+    <li id="s2"><b>The Drinks Business</b>, "Champagne on the secondary market has moved from 'correction to consolidation'", May 2026: −33.1% peak to Aug 2025 low, +1.7% since; 28 up, 20 down, 2 flat to March 2026; new vintages soften post-release; iDealwine 13,000 bottles, +4% volume, +21% value; Bordeaux Index "flat". <a href="https://www.thedrinksbusiness.com/2026/05/a-matter-of-time/" target="_blank">thedrinksbusiness.com</a></li>
+    <li id="s3"><b>WineCap</b>, "Champagne caps 2026 harvest at its lowest yield since the pandemic", Aug 2026: 8,800 kg/ha, c. 250 m bottles, lowest since 8,000 kg in 2020; H1 2026 shipments 107.1 m, +1.2%; 2024 271 m; Comtes 2011, Cristal 2014, Krug 2004 leading the rise. <a href="https://winecap.com/editorial/news/champagne-caps-2026-harvest-at-its-lowest-yield-since-the-pandemic" target="_blank">winecap.com</a></li>
+    <li id="s4"><b>Comité Champagne</b>, "Champagne: 2025 shipment review and outlook", 17 Jan 2026: 266 m bottles; exports c. 152 m; France c. 114 m. <a href="https://www.champagne.fr/en/find-out-more/mediaroom/champagne-press/champagne-2025-shipment-review-and-outlook" target="_blank">champagne.fr</a></li>
+    <li id="s5"><b>Lanson-BCC</b>, 2025 full-year earnings, citing CIVC: shipments −2.1% to 266.1 m; c. €5.6 bn; France 42.9% of volume, −3.6%; exports 57.1%, −0.9%. <a href="https://www.lanson-bcc.com/en/node/1079" target="_blank">lanson-bcc.com</a></li>
+    <li id="s6"><b>Decanter</b>, "Prestige Champagne: 'A great time to be a Champagne buyer'", Sep 2026: Salon 2012 released 2021 at £5,800 (12×75cl in bond), climbed to £13,300, trading £7,000–8,000; index +8.7% over five years; Bordeaux Index on a "prolonged rut". <a href="https://www.decanter.com/wine/wine-investment-a-great-time-to-be-a-champagne-buyer/" target="_blank">decanter.com</a></li>
+    <li id="s7"><b>WineCap</b>, "Is Champagne's investment market bouncing back?", Jul 2025, and <b>Vinovest</b>, "Investing in Champagne", 2026: Champagne 50 first monthly rise (+0.8%) Jun 2025; Dom Pérignon index bottomed Nov 2024; 43 of 50 reference wines with declines arrested; Liv-ex share 12.4% vs 11.8%; −34.7% over 31 months. <span class="c c-m">Med</span> <a href="https://winecap.com/editorial/news/is-champagnes-investment-market-bouncing-back" target="_blank">winecap.com</a></li>
+    <li id="s8"><b>The Luxury Playbook</b>, "Major Champagne Houses Are Losing Consumer Confidence", May 2026: shipments down c. 9% y/y in the September 2025 data; vintage held better than non-vintage; auction clearance at multi-year lows late 2025. <span class="c c-m">Med</span> <a href="https://theluxuryplaybook.com/major-champagne-houses-are-losing-consumer-confidence/" target="_blank">theluxuryplaybook.com</a></li>
+    <li id="s9"><b>WineNews</b>, "Fine wines, after the good 2025 closing, positive signals at the beginning of 2026 for Liv-ex", Mar 2026: Champagne 50 +1.4% year to date, leading all regional indices. <a href="https://winenews.it/en/fine-wines-after-the-good-2025-closing-positive-signals-at-the-beginning-of-2026-for-liv-ex_584094/" target="_blank">winenews.it</a></li>
+  </ol></details>
+</section>
+
+</details>
+<div class="toc-lite"><a href="#s-i"><span>I</span>Shipments and the yield lever</a><a href="#s-ii"><span>II</span>The correction</a><a href="#s-iii"><span>III</span>Structure of the trade</a><a href="#s-iv"><span>IV</span>The economics of holding</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<footer class="foot">
+  <span class="fm">ΣΟΦΙΑ</span>
+  <span>Scarce assets. One perspective.</span>
+  <a href="/advisers">For advisers and institutions</a>
+</footer>
+</div>
+<div class="ctl" id="ctl">
+  <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
+  <button type="button" id="ctl-down" aria-label="Next section">&darr;</button>
+</div>
+<script>
+(function(){
+  /* any table not already in a scroll container gets one */
+  [].forEach.call(document.querySelectorAll('table'),function(tb){
+    if(tb.parentNode && tb.parentNode.classList && tb.parentNode.classList.contains('tw')) return;
+    var w=document.createElement('div'); w.className='tw';
+    tb.parentNode.insertBefore(w,tb); w.appendChild(tb);
+  });
+})();
+(function(){
+  var ctl=document.getElementById('ctl'); if(!ctl) return;
+  var up=document.getElementById('ctl-up'), down=document.getElementById('ctl-down');
+  function stops(){
+    var list=[document.body];
+    [].forEach.call(document.querySelectorAll('main section, .page > section, section[id]'),function(s){
+      if(list.indexOf(s)<0) list.push(s);
+    });
+    return list;
+  }
+  function tops(){
+    return stops().map(function(el){
+      return el===document.body?0:(el.getBoundingClientRect().top+window.scrollY-70);
+    }).sort(function(a,b){return a-b});
+  }
+  function go(dir){
+    var y=window.scrollY, t=tops(), target=null;
+    if(dir>0){ for(var i=0;i<t.length;i++){ if(t[i]>y+8){target=t[i];break} } if(target===null) target=document.body.scrollHeight; }
+    else { for(var j=t.length-1;j>=0;j--){ if(t[j]<y-8){target=t[j];break} } if(target===null) target=0; }
+    window.scrollTo({top:Math.max(0,target),behavior:'smooth'});
+  }
+  up.addEventListener('click',function(){go(-1)});
+  down.addEventListener('click',function(){go(1)});
+  function sync(){
+    var y=window.scrollY;
+    ctl.classList.toggle('on', y>260);
+    up.disabled = y<=8;
+    down.disabled = (window.innerHeight+y) >= document.body.scrollHeight-4;
+  }
+  window.addEventListener('scroll',sync,{passive:true});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
+
+<script>
+(function(){
+  var r=document.getElementById('report'); if(!r) return;
+  function openFor(hash){ if(!hash) return; var el=document.querySelector(hash); if(el && r.contains(el)){ r.open=true; } }
+  openFor(location.hash);
+  window.addEventListener('hashchange',function(){openFor(location.hash)});
+  document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+</body>
+</html>
