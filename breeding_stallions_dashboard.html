@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Breeding Stallions, ΣΟΦΙΑ</title>
@@ -268,6 +272,17 @@ footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{
 td.n+td,th.n+th{padding-left:16px}
 
 @media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+
+/* contents: collapse to one line once stuck */
+@media(min-width:901px){
+  .contents.stuck{padding:8px 0;align-items:center}
+  .contents.stuck ol{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0 22px;scrollbar-width:none}
+  .contents.stuck ol::-webkit-scrollbar{display:none}
+  .contents.stuck li.part-label{display:none}
+  .contents.stuck li a{display:inline-flex;align-items:baseline;gap:6px;font-size:13px;white-space:nowrap;padding:2px 0;color:var(--mute)}
+  .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
+  .contents.stuck li a span{font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -305,6 +320,7 @@ td.n+td,th.n+th{padding-left:16px}
   <p class="intro">Every price in the yearling ring is a derivative of a stallion fee, and every stallion fee is a bet on runners that do not yet exist. This page sets out how a sire is valued and divided, follows one horse from a $184 m implied valuation through three fee cuts, describes the three operations that own most of the top of the market, and lists the specific ways a shareholder loses. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$184 m</div><div class="l">Implied value of Flightline when a 2.5% share sold for $4.6 m, Keeneland, Nov 2022; the stud's own owner called the multiple unfair <span class="t">Implied</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></div></div><div><div class="v">$75 m</div><div class="l">Justify's breeding rights, Coolmore, 2018: $60 m agreed before the Belmont, $15 m more on the Triple Crown; record for a stallion transaction<sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">£350,000</div><div class="l">Dubawi and Frankel, 2026, the highest advertised fees in the world; Dubawi is 24<sup class="r"><a href="#s4">4</a></sup></div></div><div><div class="v">$7,500</div><div class="l">Fusaichi Pegasus's fee at the end of a career that began at $150,000 after a $70 m purchase in 2000<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></div></div></div>
 
+<div id="contents-sentinel" aria-hidden="true"></div>
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
   <p class="sector-tag">BREEDING STALLIONS</p>
@@ -459,6 +475,15 @@ td.n+td,th.n+th{padding-left:16px}
   openFor(location.hash);
   window.addEventListener('hashchange',function(){openFor(location.hash)});
   document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.contents'), s=document.getElementById('contents-sentinel'); if(!nav||!s||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ nav.classList.toggle('stuck', !e[0].isIntersecting && e[0].boundingClientRect.top<0); },{rootMargin:'-90px 0px 0px 0px',threshold:0}).observe(s);
+  var links=[].slice.call(nav.querySelectorAll('li a[href^="#s"]'));
+  links.forEach(function(a,i){ var sec=document.querySelector(a.getAttribute('href')); if(!sec) return;
+    new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
 </body>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Uranium, ΣΟΦΙΑ</title>
@@ -268,6 +272,17 @@ footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{
 td.n+td,th.n+th{padding-left:16px}
 
 @media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+
+/* contents: collapse to one line once stuck */
+@media(min-width:901px){
+  .contents.stuck{padding:8px 0;align-items:center}
+  .contents.stuck ol{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0 22px;scrollbar-width:none}
+  .contents.stuck ol::-webkit-scrollbar{display:none}
+  .contents.stuck li.part-label{display:none}
+  .contents.stuck li a{display:inline-flex;align-items:baseline;gap:6px;font-size:13px;white-space:nowrap;padding:2px 0;color:var(--mute)}
+  .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
+  .contents.stuck li a span{font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -305,6 +320,7 @@ td.n+td,th.n+th{padding-left:16px}
   <p class="intro">The only energy commodity whose buyers are a few hundred reactor operators, whose sellers are two companies and a dozen smaller ones, and whose price is not set on any exchange. Uranium does not trade openly; utilities and producers sign private contracts, two consultancies infer a price from what they are told, and a Toronto trust that buys physical pounds has since 2021 been the marginal buyer in the spot market. This page covers the two-price system, supply concentration, the demand case and the contracting cycle, the routes to exposure and what each actually holds, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$89.90/lb</div><div class="l">Spot U3O8, 17 Oct 2026; range $83–90 since a January spike to $101 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">$97/lb</div><div class="l">TradeTech long-term indicator, unchanged since Jun 2026; highest since Jul 2007<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">81.7 m lb</div><div class="l">U3O8 held by Sprott Physical Uranium Trust, 16 Oct 2026; $7.35 bn; units at a 12.95% discount to NAV<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">−46%</div><div class="l">Spot-market volume since 2021 (102 m lb → 55 m lb) while term contracting rose 62% to 116 m lb<sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
+<div id="contents-sentinel" aria-hidden="true"></div>
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
   <p class="sector-tag">URANIUM</p>
@@ -449,6 +465,15 @@ td.n+td,th.n+th{padding-left:16px}
   openFor(location.hash);
   window.addEventListener('hashchange',function(){openFor(location.hash)});
   document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.contents'), s=document.getElementById('contents-sentinel'); if(!nav||!s||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ nav.classList.toggle('stuck', !e[0].isIntersecting && e[0].boundingClientRect.top<0); },{rootMargin:'-90px 0px 0px 0px',threshold:0}).observe(s);
+  var links=[].slice.call(nav.querySelectorAll('li a[href^="#s"]'));
+  links.forEach(function(a,i){ var sec=document.querySelector(a.getAttribute('href')); if(!sec) return;
+    new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
 </body>

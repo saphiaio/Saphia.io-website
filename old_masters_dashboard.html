@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Old Masters, ΣΟΦΙΑ</title>
@@ -268,6 +272,17 @@ footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{
 td.n+td,th.n+th{padding-left:16px}
 
 @media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+
+/* contents: collapse to one line once stuck */
+@media(min-width:901px){
+  .contents.stuck{padding:8px 0;align-items:center}
+  .contents.stuck ol{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0 22px;scrollbar-width:none}
+  .contents.stuck ol::-webkit-scrollbar{display:none}
+  .contents.stuck li.part-label{display:none}
+  .contents.stuck li a{display:inline-flex;align-items:baseline;gap:6px;font-size:13px;white-space:nowrap;padding:2px 0;color:var(--mute)}
+  .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
+  .contents.stuck li a span{font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -305,6 +320,7 @@ td.n+td,th.n+th{padding-left:16px}
   <p class="intro">The smallest of the fine-art auction sectors by value and the only one whose supply is permanently fixed: nothing more will be painted, and every year museums remove works from circulation for good. The 2024 trough was a fifteen-year low; 2025 rose 30% and the first half of 2026 produced record weeks in both New York and London. This page covers the sector's size, the record book, who buys and why, how attribution makes and unmakes value, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$1.2 bn</div><div class="l">Old Masters auction sales 2025, +30%, 11% of fine-art auction value. Art Basel &amp; UBS Global Art Market Report 2026 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$535 m</div><div class="l">European Old Masters 2025, +38% by value on 6% fewer lots sold<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$30.5 m</div><div class="l">Canaletto, <i>The Bucintoro at the Molo</i>, Christie's New York, 4 Feb 2026; guaranteed; hammer $26 m<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></div></div><div><div class="v">$27.2 m</div><div class="l">Michelangelo foot study, Christie's New York, 5 Feb 2026; record for a work on paper by the artist<sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
+<div id="contents-sentinel" aria-hidden="true"></div>
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
   <p class="sector-tag">OLD MASTERS</p>
@@ -465,6 +481,15 @@ td.n+td,th.n+th{padding-left:16px}
   openFor(location.hash);
   window.addEventListener('hashchange',function(){openFor(location.hash)});
   document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.contents'), s=document.getElementById('contents-sentinel'); if(!nav||!s||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ nav.classList.toggle('stuck', !e[0].isIntersecting && e[0].boundingClientRect.top<0); },{rootMargin:'-90px 0px 0px 0px',threshold:0}).observe(s);
+  var links=[].slice.call(nav.querySelectorAll('li a[href^="#s"]'));
+  links.forEach(function(a,i){ var sec=document.querySelector(a.getAttribute('href')); if(!sec) return;
+    new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
 </body>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Parmigiano Reggiano, ΣΟΦΙΑ</title>
@@ -268,6 +272,17 @@ footer.foot{font-size:12px;text-transform:none;letter-spacing:0}footer.foot .fm{
 td.n+td,th.n+th{padding-left:16px}
 
 @media(max-width:900px){.brief{padding:40px 0 0}.brief h1{font-size:46px}.grade{text-align:left}.regime{font-size:20px}.facts{grid-template-columns:1fr;gap:20px}.why{grid-template-columns:1fr;gap:24px}.report>summary{font-size:20px}}
+
+/* contents: collapse to one line once stuck */
+@media(min-width:901px){
+  .contents.stuck{padding:8px 0;align-items:center}
+  .contents.stuck ol{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:0 22px;scrollbar-width:none}
+  .contents.stuck ol::-webkit-scrollbar{display:none}
+  .contents.stuck li.part-label{display:none}
+  .contents.stuck li a{display:inline-flex;align-items:baseline;gap:6px;font-size:13px;white-space:nowrap;padding:2px 0;color:var(--mute)}
+  .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
+  .contents.stuck li a span{font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -305,6 +320,7 @@ td.n+td,th.n+th{padding-left:16px}
   <p class="intro">A food that behaves like a commodity with a bond attached. Every wheel is made to the same recipe in the same five provinces, inspected at twelve months, fire-branded by a consortium, and logged by number; its value rises on a known curve as it ages; and since 1953 Credito Emiliano has taken young wheels as loan collateral, warehoused them, and sold them if the dairy defaults. This page covers the consortium system, the market's size and the 2025 price jump, how the cheese bank works, the fraud and climate risks, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">4.19 m</div><div class="l">Wheels produced 2025, +2.7%; about 40 kg each <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">€15.59/kg</div><div class="l">24-month wheels at origin, 2025 average, +24.8% from €12.50<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">50.5%</div><div class="l">Export share of sales, 2025, the first year above half; 74,980 t<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">500,000</div><div class="l">Wheels held in Credem's warehouses, worth over €300 m; 2.3 m wheels a year pass through<sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
+<div id="contents-sentinel" aria-hidden="true"></div>
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
   <p class="sector-tag">PARMIGIANO REGGIANO</p>
@@ -446,6 +462,15 @@ td.n+td,th.n+th{padding-left:16px}
   openFor(location.hash);
   window.addEventListener('hashchange',function(){openFor(location.hash)});
   document.addEventListener('click',function(e){ var a=e.target.closest('a[href^="#"]'); if(a){ openFor(a.getAttribute('href')); } });
+})();
+</script>
+<script>
+(function(){
+  var nav=document.querySelector('.contents'), s=document.getElementById('contents-sentinel'); if(!nav||!s||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ nav.classList.toggle('stuck', !e[0].isIntersecting && e[0].boundingClientRect.top<0); },{rootMargin:'-90px 0px 0px 0px',threshold:0}).observe(s);
+  var links=[].slice.call(nav.querySelectorAll('li a[href^="#s"]'));
+  links.forEach(function(a,i){ var sec=document.querySelector(a.getAttribute('href')); if(!sec) return;
+    new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
 </body>
