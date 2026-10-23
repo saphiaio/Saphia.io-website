@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Art</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Physical · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">The trophy segment rewrote the record book in November 2025 while the broad market contracted.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">The trophy segment rewrote the record book in November 2025 while the broad market contracted.<sup class="r"><a href="#s13">13</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>United States · United Kingdom · France · China (artists and consignors). Modern and contemporary; works before 1800 under <a href="/old-masters-dashboard" style="border-bottom:1px solid var(--bronze)">Old Masters →</a>; books and manuscripts under <a href="/rare-books-dashboard" style="border-bottom:1px solid var(--bronze)">Rare Books →</a></div>
     <div><div class="k">Principal markets</div>New York · London · Hong Kong · Paris</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low</span><span>Liquidity</span><span>Medium (auction); Low (private)</span><span>Scarcity</span><span>High</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10+ years</div>
+      <div>Auction houses and advisers cite a decade as the minimum for round-trip costs of 30–40% to be absorbed, and most works are held far longer: 72% of high-net-worth collectors have received art by inheritance or gift, and 75% of heirs kept at least some of it. Reselling within a few years of purchase is penalised by the trade.<sup class="r"><a href="#s16">16</a></sup><span class="t">Estimate</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical</div>
+      <div class="ex">
+        <span>Routes</span><span>Consignment to auction (Christie's, Sotheby's, Phillips, Bonhams and regional houses); private sale through the auction house or a dealer; sale back to the originating gallery, often expected for living artists. Fractional platforms exist but are not an exit for a work already owned.<sup class="r"><a href="#s15">15</a> <a href="#s17">17</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Public auction sales were $20.7 bn in 2025, up 9%, within a $59.6 bn market of 41.5 m transactions. Nine of the year's ten top lots sold in one week in New York; the value of works over $10 m rose 30% while online-only sales fell to their lowest since 2019. Depth exists at the top and at the bottom, thinnest in the middle.<sup class="r"><a href="#s15">15</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Sotheby's standard seller's commission is 10% of hammer, negotiable above $500,000 and waived for trophy consignments; the buyer pays 28% on hammer to $2 m (£1.5 m), 22% to $8 m and 15% above since February 2026, which caps the hammer. Add marketing, insurance, shipping and, for unsold lots, a buy-in fee.<sup class="r"><a href="#s17">17</a> <a href="#s18">18</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Consignment deadlines run two to four months before the sale; marquee sales are twice a year. Sotheby's pays within 45 days of the sale subject to the buyer settling. From decision to cash, four to eight months; a private sale can be faster at a price the dealer sets.<sup class="r"><a href="#s17">17</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Hong Kong modern and contemporary evening sales at Christie’s, Sotheby’s and Phillips (28–30 Sep) made $184.6m, up from $164.9m in spring, but with only one white-glove sale and lots withdrawn before Christie’s sale. A Hong Kong gallery closure over rent arrears points to weakness below the top.<sup class="r"><a href="#s13">13</a></sup><sup class="r"><a href="#s14">14</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 14 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 18 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Modern and contemporary art, which is where most of the value and almost all of the volatility sits. A $60 billion market that returned to growth in 2025 after two years of contraction, carried by the very top: a single Klimt portrait accounted for a fifth of the largest auction week since 2021, and every one of the year's ten most expensive lots was sold in New York. This page covers the market's size and structure, the 2025 recovery, regional shares, the auction record book and the structural shifts the benchmark report identifies. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$59.6 bn</div><div class="l">Global art sales 2025, +4%, first growth since 2022, still below the 2022 peak. Art Basel &amp; UBS Global Art Market Report 2026 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div></div>
 
@@ -411,9 +446,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Arts Economics' report is the primary source; auction-house and trade-press figures are used for the record book.</p></div>
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Arts Economics' report is the primary source; auction-house and trade-press figures are used for the record book. Sources 15–18 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 14 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 18 sources</summary><ol class="src">
     <li id="s1"><b>Art Basel</b>, "Global sales rise 4% to $59.6 billion in 2025, amid ongoing market recalibration", Mar 2026, headline figures; Paul Donovan and Clare McAndrew statements; Great Wealth Transfer ($83 tn).</li>
     <li id="s2"><b>UBS</b>, "The Art Basel and UBS Global Art Market Report 2026", dealer $34.8 bn (+2%); public auction $20.7 bn (+9%); private auction c.$4.2 bn (−4%); US $26 bn; UK $10.5 bn; China $8.5 bn; regional performance; 2024 $57.5 bn (−12%) with transactions +3%.</li>
     <li id="s3"><b>Artlyst</b>, "Art Basel And UBS Global Market Report 2026 Insights", 21 Jun 2026, and <b>MyArtBroker</b>, "Art Basel &amp; UBS Art Market Report 2026: Key Trends", 29 Jun 2026, fair share of dealer sales 31%→35%; online $9.2 bn, 15%, lowest since 2019, 25% peak in 2020; China 14%; France $4.5 bn (+9%); UK imports +47% / exports −39%; profitability findings (38% of dealers, 40% of mid-tier houses, 45% in the $250k–500k segment).</li>
@@ -428,6 +463,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s12"><b>MyArtBroker</b>, as source 3, sellers returning to auction; online rebalancing interpretation. <span class="c c-m">Med</span></li>
   <li id="s13"><b>ARTnews, "Strong Hong Kong Evening Sales… Mask Key Hurdles in Asia’s Art Market"</b>, Oct 2026. Combined $184.6m (spring $164.9m); one white-glove sale; Tang Contemporary space closed. <a href="https://www.artnews.com/art-news/market/hong-kong-september-2026-acutions-sothebys-christies-phillips-1234800173/" target="_blank">artnews.com</a> <span class="c c-m">Med</span></li>
 <li id="s14"><b>MyArtBroker, "September 2026 Print Auction Results"</b>, Oct 2026. London print sales £8.72m hammer, +34% y/y on similar lot count. <a href="https://www.myartbroker.com/market/articles/september-2026-print-auction-results" target="_blank">myartbroker.com</a> <span class="c c-m">Med</span></li>
+<li id="s15"><b>Art Basel & UBS</b>, "The Art Basel and UBS Global Art Market Report 2026", 12 Mar 2026, Clare McAndrew, Arts Economics: global sales $59.6 bn (+4%); public auction $20.7 bn (+9%); dealer $34.8 bn (+2%); private sales $4.2 bn; 41.5 m transactions; works over $10 m +30%; online $9.2 bn, lowest since 2019; nine of top ten lots in one November week. <a href="https://www.artbasel.com/stories/the-art-basel-and-ubs-global-art-market-report-2026" target="_blank">artbasel.com</a> <span class="c c-h">High</span></li>
+<li id="s16"><b>Art Basel & UBS</b>, "Survey of Global Collecting 2026", Oct 2026, 72% of HNW collectors have received art through will, bequest or gift (92% UK, 86% US); 75% of those retained at least some; 23% plan to sell within 12 months, 39% to buy. Via MyArtBroker summary. <a href="https://www.myartbroker.com/market-reports/articles/art-basel-ubs-survey-2026-print-collectors" target="_blank">myartbroker.com</a> <span class="c c-m">Med</span></li>
+<li id="s17"><b>Sotheby's</b>, "Buy & Sell at Sotheby's", standard seller's commission 10% of hammer; minimum $500 on lots with a low estimate of $5,000 or less, sold or unsold; payment within 45 days of sale provided the buyer has paid. <a href="https://www.sothebys.com/en/buy-sell" target="_blank">sothebys.com</a> <span class="c c-h">High</span></li>
+<li id="s18"><b>The Art Newspaper</b>, "Sotheby's hikes buyer's premiums as auction houses test new fee structures", 17 Feb 2026, from 13 Feb 2026: 28% to $2 m (£1.5 m), 22% from $2 m to $8 m (£1.5–6 m), 15% above; Phillips early-bid structure; Christie's structure retained from Sep 2025. <a href="https://www.theartnewspaper.com/2026/02/17/sothebys-adjusts-buyers-premiums-fee-structures-securitisation" target="_blank">theartnewspaper.com</a> <span class="c c-h">High</span></li>
 </ol></details>
 </section>
 

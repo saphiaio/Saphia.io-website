@@ -276,6 +276,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -293,11 +310,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Coffee</h1>
     <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: futures · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">A surplus year priced like a shortage: record Brazilian and world crops, yet ICE certified stocks near a 27-year low keep arabica above $3 into the December expiry.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">A surplus year priced like a shortage: record Brazilian and world crops, yet ICE certified stocks near a 27-year low keep arabica above $3 into the December expiry.<sup class="r"><a href="#s16">16</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Brazil · Vietnam · Colombia · Ethiopia · Indonesia</div>
     <div><div class="k">Principal markets</div>European Union · United States · Japan · China</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Low; Geisha High</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Contract-bounded</div>
+      <div>Arabica (37,500 lb) and robusta (10 t) futures expire five times a year and are rolled or delivered; index funds roll on a published five-day window. Any hold beyond a contract is a sequence of rolls priced off the spread, which stood at a 31 c premium for the nearby in August 2026.<sup class="r"><a href="#s25">25</a></sup><span class="t">Derived</span><span class="c c-h">High</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · futures</div>
+      <div class="ex">
+        <span>Routes</span><span>Close or roll ICE arabica (New York) or robusta (London) futures and options; a small number of coffee ETCs. Physical green coffee exits through exporters and trade houses, not a portfolio route.<sup class="r"><a href="#s26">26</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>ICE arabica traded 37,307 lots and robusta 38,611 on 20 October 2026; the quietest arabica session of the year was just over 17,000 lots on 6 April. ICE-certified arabica stocks fell to 226,242 bags in August, near a 27-year low.<sup class="r"><a href="#s26">26</a> <a href="#s27">27</a> <a href="#s25">25</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Exchange and clearing fees per lot, broker commission and margin. With certified stocks this thin, the nearby spread has carried a steep backwardation, which pays a long roll but punishes any delivery-month squeeze.<sup class="r"><a href="#s25">25</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Exit at the next trade during exchange hours; cleared the same day.<span class="t">Derived</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Arabica settled $3.056/lb on 16 Oct, a one-month high, as ICE certified stocks sat at 238,976 bags against last month's 27-year low of 217,646 and dealers doubted Brazilian coffee would reach warehouses before the December expiry.<sup class="r"><a href="#s16">16</a></sup> Supply is the opposite story: Conab lifted Brazil's 2026 crop to 67.6 m bags with arabica 48.2 m (+35%), above USDA for the first time, and USDA sees a record 189.7 m-bag world crop in 2026/27.<sup class="r"><a href="#s17">17</a></sup><sup class="r"><a href="#s18">18</a></sup> The tariff row carried here since launch is corrected below: coffee was exempted from the 50% Brazil tariff on 20 Nov 2025.<sup class="r"><a href="#s22">22</a></sup></p>
@@ -309,7 +344,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 24 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 27 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The world's most traded soft commodity after a two-year spike that took arabica to an all-time record in October 2025, followed by a 38% fall and two rallies inside 2026. Record production, record consumption, five consecutive years of falling stocks, a 50% US tariff on Brazilian beans, and the consolidation of the roasting industry into two global champions. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">178.8 m bags</div><div class="l">World production 2025/26 forecast, record (USDA, Dec 2025) <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">173.9 m bags</div><div class="l">World consumption 2025/26, record <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">20.1 m bags</div><div class="l">Ending stocks 2025/26, fifth consecutive decline <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$30,204 /kg</div><div class="l">Best of Panama 2025 auction record, Hacienda La Esmeralda Geisha <span class="t">Reported</span><sup class="r"><a href="#s6">6</a></sup></div></div></div>
 
@@ -412,9 +447,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. USDA is the primary statistical source; price observations are from market commentary and are dated.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. USDA is the primary statistical source; price observations are from market commentary and are dated. Sources 25–27 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 24 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 27 sources</summary><ol class="src">
     <li id="s1"><b>Comunicaffe</b>, "USDA forecasts world coffee production for 2025/26 at an all-time high of 178.8 million bags", 19 Dec 2025, summarising USDA FAS "Coffee: World Markets and Trade", December 2025: production 178.8 m (+2%); consumption 173.9 m (+1.3%); exports 123.8 m; ending stocks 20.1 m, fifth consecutive decline; Brazil 63.0 m with arabica 38.0 m; ICO composite nearly tripled.</li>
     <li id="s2"><b>Nasdaq / Barchart</b>, "Coffee Prices Supported by Tighter ICE Inventories", 7 Nov 2025, USDA June 2025: 178.68 m; arabica 97.022 m (−1.7%); robusta 81.658 m (+7.9%); Brazil 65 m; Vietnam 31 m; Conab September cut to 55.2 m (arabica 35.2 m); Vietnam exports and 29.4 m forecast; NOAA La Niña probability.</li>
     <li id="s3"><b>USDA FAS</b>, "Coffee Annual, Brazil" (BR2025-0013), May 2025, 65 m bags; arabica 40.9 m; robusta 24.1 m; exports 41.7 m.</li>
@@ -439,6 +474,9 @@ td.n+td,th.n+th{padding-left:16px}
 <li id="s22"><b>Supply Chain Dive, "US exempts coffee, other agricultural products from Brazil tariffs"</b>, 21 Nov 2025, and Sprudge, 24 Nov 2025. Executive Order 14361 signed 20 Nov 2025 removes the 40% Brazil levy on coffee, beef, cocoa and fruit, retroactive to 13 Nov; the 10% reciprocal tariff on coffee lifted the prior week. <a href="https://www.supplychaindive.com/news/trump-tariffs-us-exempts-coffee-food-products-brazil/806176/" target="_blank">supplychaindive.com</a> <span class="c c-h">High</span></li>
 <li id="s23"><b>National Coffee Association, "NCA applauds exemption of coffee from Section 301 tariffs on Brazil"</b>, 16 Jul 2026, with Thompson Coburn summary 29 Jul 2026 and Revista Cultivar 24 Jul 2026. 25% Section 301 tariff effective 22 Jul 2026; coffee including unflavoured instant exempted; second 301 action (12.5%) also exempts coffee. <a href="https://www.ncausa.org/Newsroom/NCA-applauds-exemption-of-coffee-from-Section-301-tariffs-on-Brazil" target="_blank">ncausa.org</a> <span class="c c-h">High</span></li>
 <li id="s24"><b>EBC, "Why Is Arabica Coffee Near a 10-Week Low Despite 27-Year-Low ICE Stocks?"</b>, 17 Sep 2026, and Perfect Daily Grind recap 28 Aug 2026. $2.817 on 16 Sep; certified stocks 217,646 bags; record August Brazilian exports 4.155 m bags (+31%); c.64,000 bags awaiting grading; Reuters poll: 2025/26 surplus 1.7 m, 2026/27 8.2 m bags, arabica $3 by year-end. <a href="https://www.ebc.com/forex/arabica-coffee-ice-stocks-brazil-exports" target="_blank">ebc.com</a> <span class="c c-m">Med</span></li>
+<li id="s25"><b>Sucafina</b>, "Market Report", weekly, 19 and 26 Aug 2026, nearby spread 31 c premium; ICE certified arabica stocks 226,242 bags, within reach of the November 2023 low and the lowest since 1999 if broken. <a href="https://sucafina.com/na/lp/market-report" target="_blank">sucafina.com</a> <span class="c c-m">Med</span></li>
+<li id="s26"><b>StoneX</b>, "Daily Coffee Report 10/20/26", 20 Oct 2026, ICE arabica volume 37,307 lots; ICE robusta 38,611; Brazil arabica 967. Source: Refinitiv. <a href="https://www.stonex.com/en-us/insights/daily-coffee-report-10-20-26/" target="_blank">stonex.com</a> <span class="c c-h">High</span></li>
+<li id="s27"><b>StoneX</b>, "Daily Coffee Report 4/6/26", 6 Apr 2026, arabica volume just above 17,000 lots, lowest since 26 December; index roll window 7–13 April. <a href="https://www.stonex.com/en/insights/daily-coffee-report-4-6-26/" target="_blank">stonex.com</a> <span class="c c-h">High</span></li>
 </ol></details>
   <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime and "Since last update" rewritten around the December delivery squeeze and the record Brazilian crop. Section II: two ledger rows added (Sep and 16 Oct 2026); structural paragraph extended with the exchange-versus-world distinction. Section V: the tariff row corrected (coffee exempted 20 Nov 2025, not in force since), Section 301 and EU–Mercosur rows added, Brazilian minimum prices updated to 2026/27; correction logged in place. Sources 16–24 added; 33 new sourced figures; one correction. Sections I, III and IV carry their launch figures and are due for refresh when USDA's December update lands.</div>
 </section>

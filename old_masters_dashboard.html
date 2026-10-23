@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Old Masters</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Physical · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">After a fifteen-year low in 2024, the category posted its strongest two seasons in a decade, but only for works with a name, a condition report and no competing attribution.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">After a fifteen-year low in 2024, the category posted its strongest two seasons in a decade, but only for works with a name, a condition report and no competing attribution.<sup class="r"><a href="#s9">9</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Italy · Netherlands and Flanders · France · Spain · Germany (artists, 1300–1800). Modern and contemporary are covered under <a href="/art-dashboard" style="border-bottom:1px solid var(--bronze)">Art →</a></div>
     <div><div class="k">Principal markets</div>New York (February) · London (July, December) · Paris · Maastricht (TEFAF, March)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low (fixed, dispersed)</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Very high; finite</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10+ years · fixed supply</div>
+      <div>Nothing more will be painted and museums remove works permanently, so a picture is held for decades and its value moves with attribution and condition more than with the cycle. The 2024 low and the 2026 records show the horizon can be set by a single reattribution: a "Dutch school" picture bought for €1.5 m sold as a Rembrandt for £8 m in July.<sup class="r"><a href="#s11">11</a> <a href="#s7">7</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical</div>
+      <div class="ex">
+        <span>Routes</span><span>Christie's and Sotheby's Old Masters evening and day sales (London July and December, New York January and May, Paris June); Bonhams and Dorotheum; specialist dealers who buy or consign; private sale through the houses. A fresh condition report and, where attribution is contested, scholarly opinion are expected before consignment.<sup class="r"><a href="#s11">11</a> <a href="#s5">5</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>London, July 2026: Christie's evening sale £38.9 m, 90% sold by lot, its highest sell-through ever in the category; Sotheby's £37.8 m, 78% sold, ten lots unsold and five of twelve pictures under £200,000 failing. New York, February 2026: Christie's $54.1 m, 84% by lot, the best since 2012; a Canaletto $30.5 m, a Michelangelo drawing $27 m. Sector auction sales $1.2 bn in 2025, +30%.<sup class="r"><a href="#s11">11</a> <a href="#s7">7</a> <a href="#s5">5</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Seller's commission around 10%, waived for trophy consignments; buyer's premium 28% to $2 m, 22% to $8 m, 15% above, capping the hammer; guarantees and third-party irrevocable bids on the top lots; shipping, insurance, conservation and export licences. An unsold lot is "burned" for several years.<sup class="r"><a href="#s5">5</a> <a href="#s12">12</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Consignment three to six months before the right sale; two London and two New York seasons a year; payment within 45 days of the sale subject to the buyer settling. Six to twelve months from decision to cash for a significant picture.<sup class="r"><a href="#s5">5</a> <a href="#s12">12</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Sotheby's has announced a $60 m single-owner sale, "Magnum Opus", 600 lots across four sales, 21–23 October 2026 in New York; the result will be the first test of autumn depth after the July London split between trophy lots and unsold middle.<sup class="r"><a href="#s9">9</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 10 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 12 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The smallest of the fine-art auction sectors by value and the only one whose supply is permanently fixed: nothing more will be painted, and every year museums remove works from circulation for good. The 2024 trough was a fifteen-year low; 2025 rose 30% and the first half of 2026 produced record weeks in both New York and London. This page covers the sector's size, the record book, who buys and why, how attribution makes and unmakes value, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$1.2 bn</div><div class="l">Old Masters auction sales 2025, +30%, 11% of fine-art auction value. Art Basel &amp; UBS Global Art Market Report 2026 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$535 m</div><div class="l">European Old Masters 2025, +38% by value on 6% fewer lots sold<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$30.5 m</div><div class="l">Canaletto, <i>The Bucintoro at the Molo</i>, Christie's New York, 4 Feb 2026; guaranteed; hammer $26 m<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></div></div><div><div class="v">$27.2 m</div><div class="l">Michelangelo foot study, Christie's New York, 5 Feb 2026; record for a work on paper by the artist<sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
@@ -403,19 +438,21 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Arts Economics' report is the primary source for sector size; auction-house and trade-press reporting for the record book.</p></div>
-  <details><summary class="src-toggle">Show 10 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Arts Economics' report is the primary source for sector size; auction-house and trade-press reporting for the record book. Sources 11–12 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 12 sources</summary><ol class="src">
     <li id="s1"><b>Art Basel &amp; UBS</b>, "The Art Basel and UBS Global Art Market Report 2026" (Arts Economics), Mar 2026, section 3.9 and press release: Old Masters just under $1.2 bn (+30%), 11% share; European Old Masters $535 m (+38%), lots −6%; sector shares. <a href="https://theartmarket.artbasel.com/auctions" target="_blank">theartmarket.artbasel.com</a></li>
     <li id="s2"><b>ARTnews</b>, "Contemporary Art Market Declines for Fourth Straight Year, as Old Masters and Impressionist Works Rebound", Mar 2026; and <b>Barnebys</b>, "6 Key Findings", 2024 as a fifteen-year low. <a href="https://www.artnews.com/art-news/news/contemporary-art-market-cooling-old-masters-report-1234777454/" target="_blank">artnews.com</a></li>
     <li id="s3"><b>HENI News</b>, "Canaletto Leads Christie's $54.13m Old Masters Auction", 4 Feb 2026: 37 lots sold, 82% sell-through, 11 guaranteed lots, Chardin $2.03 m. <a href="https://heni.com/news/article/christie-s-old-masters-auction-in-new-york-2026-02-04" target="_blank">heni.com</a></li>
     <li id="s4"><b>The Art Newspaper</b>, "Artemisia Gentileschi, Michelangelo and Rembrandt bring new energy and records to New York's Old Masters sales", 6 Feb 2026: $54.3 m with fees, highest New York total in over a decade; Gentileschi $5.7 m; Canaletto $30.5 m; Michelangelo $27.2 m; NGA acquisition; restituted works. <a href="https://www.theartnewspaper.com/2026/02/06/artemisia-gentileschi-michelangelo-rembrandt-new-york-old-masters-auctions" target="_blank">theartnewspaper.com</a></li>
     <li id="s5"><b>Panthera / trade summary</b>, Feb 2026: Christie's Classics Week $110,004,491; 45-minute Michelangelo bidding; Antonello da Messina withdrawn and bought by Italy's Ministry of Culture for $14.9 m against a $15 m estimate; Gentileschi prior record $5.25 m (Artcurial 2019); both houses' 2025 category highs; and <b>ARTnews</b>, "'Old Masters Are Back!'", Feb 2026, Christie's week c.$100 m, 84% sold. <span class="c c-m">Med</span></li>
     <li id="s6"><b>ARTnews</b>, "London Old Masters Sales Reveal a Market Split Between Trophy Works and Everything Else", Jul 2026: Sotheby's £37.8 m; Laocoön £13.62 m; Memling £3.51 m; ten unsold; and <b>Econique</b>, "Record auctions for the Old Masters", Oct 2026: Rembrandt re-attribution £8 m; Canaletto 2025 record £31.9 m. <a href="https://www.artnews.com/art-news/market/london-sothebys-christies-old-masters-sales-1234791036/" target="_blank">artnews.com</a></li>
-    <li id="s7"><b>Apollo</b>, "Old Masters show their muscle in London", Jul 2026: Christie's £38.9 m from 39 lots, 90% sold, highest ever by lot; Lawrence £9.7 m single bidder; crossover buyers; 23% new to category at Sotheby's; Landseer £5.9 m. <a href="https://apollo-magazine.com/sothebys-christies-classic-week-old-master-paintings-sculpture-auctions-2026/" target="_blank">apollo-magazine.com</a></li>
+    <li id="s7"><b>Apollo</b>, "Old Masters show their muscle in London", Jul 2026: Christie's £38.9 m from 39 lots, 90% sold, highest ever by lot; Lawrence £9.7 m single bidder; crossover buyers; 23% new to category at Sotheby's; Landseer £5.9 m. <a href="https://apollo-magazine.com/sothebys-christies-classic-week-old-master-paintings-sculpture-auctions-2026/" target="_blank">apollo-magazine.com</a> Also: Sotheby's 78% of 45 lots sold, ten artist records; Econique, Oct 2026: the Rembrandt was bought as "Dutch school" for €1.5 m. <a href="https://econique.art/en/record-auctions-for-the-old-masters-canaletto-soars-to-30-5-million-dollars/" target="_blank">econique.art</a></li>
     <li id="s8"><b>Sotheby's</b>, half-year results 2026, via Artnet News and Artforum, Jul 2026: Old Masters season $94.8 m; Rembrandt drawing $18 m; 4.9 bidders per lot; Breuer visitors doubled; consolidated sales $4.4 bn (+58%). <a href="https://news.artnet.com/market/sothebys-h1-sales-2787726" target="_blank">news.artnet.com</a></li>
     <li id="s9"><b>Art History News</b> (Bendor Grosvenor, Adam Busiakiewicz), auctions category: Sotheby's "Magnum Opus" $60 m, 600 lots, 21–23 Oct 2026; London evening totals with sell-through. <a href="https://www.arthistorynews.com/categories/auctions" target="_blank">arthistorynews.com</a></li>
     <li id="s10"><b>Art History News</b>, "Sotheby's London Results", 1 Jul 2026: £37,711,600, 77.78% sold by lot; "Christie's London Results", 30 Jun 2026: £38,940,700, 89.75% sold. The ARTnews £37.8 m and this £37.7 m are the same total rounded differently.</li>
-  </ol></details>
+  <li id="s11"><b>ARTnews</b>, "Christie's Old Masters Sale in London Totals $51.4 M.", 30 Jun 2026: £38.9 m, 40 lots, 96% by value and 90% by lot, three passed lots; "London Old Masters Sales Reveal a Market Split", Jul 2026: Sotheby's £37.8 m, ten lots unsold, Rembrandt £8 m, five of twelve pictures under £200,000 failed. <a href="https://www.artnews.com/art-news/market/christies-old-masters-evening-sale-june-2026-results-1234790894/" target="_blank">artnews.com</a> <span class="c c-h">High</span></li>
+<li id="s12"><b>Sotheby's / The Art Newspaper</b>, "Buy & Sell at Sotheby's": seller's commission 10%; payment within 45 days. The Art Newspaper, 17 Feb 2026: buyer's premium 28% to $2 m, 22% to $8 m, 15% above. Sotheby's Old Master Paintings department: sale calendar London July and December, New York January and May, Paris June. <a href="https://www.sothebys.com/en/buy-sell" target="_blank">sothebys.com</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

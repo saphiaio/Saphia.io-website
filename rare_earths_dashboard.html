@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Rare Earths</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Physical oxides and metals · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">The two-tier market has inverted: ex-China NdPr now trades below the Chinese benchmark and below the $110 floor. Three weeks to the 10 Nov pause expiry, no extension announced.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">The two-tier market has inverted: ex-China NdPr now trades below the Chinese benchmark and below the $110 floor. Three weeks to the 10 Nov pause expiry, no extension announced.<sup class="r"><a href="#s22">22</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>China · Myanmar · United States · Australia</div>
     <div><div class="k">Principal markets</div>China · Japan · United States · European Union</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High, separation (mining lower)</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Medium</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Years, by contract</div>
+      <div>There is no exchange and no roll. Supply is sold under multi-year offtake agreements between producers and magnet makers; Arafura's Nolans contract runs five years at 850 t of NdPr a year, and the US floor for MP Materials runs ten. A private holder of oxide has no such counterparty and no stated horizon.<sup class="r"><a href="#s28">28</a> <a href="#s29">29</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical oxides and metals</div>
+      <div class="ex">
+        <span>Routes</span><span>Sale to a separator, metal maker or magnet producer, almost all in China; a few specialist dealers sell small lots to private buyers and offer buy-back at their own quote. No listed physical vehicle; equities are the practical proxy.<sup class="r"><a href="#s30">30</a></sup><span class="c c-m">Med</span></span>
+        <span>Activity</span><span>Price reporting rather than turnover: SMM quoted Pr-Nd oxide at RMB 738,000–740,000/t on 21 October 2026 and recorded one enterprise selling 30 t that day. Western dealer quotes for the same material run $180–240/kg, roughly double the Chinese benchmark.<sup class="r"><a href="#s28">28</a> <a href="#s29">29</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>The spread between the Chinese benchmark and the ex-China dealer price is the exit cost for a private holder: buy at the dealer tier, sell back at a discount to it. Chinese export licensing, in force since April 2025, governs whether material can move at all.<sup class="r"><a href="#s29">29</a> <a href="#s30">30</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Weeks to months to find an industrial counterparty for a non-standard lot; dealer buy-backs settle faster at a wider spread. Offtake deliveries are scheduled by contract, not by the holder.<span class="t">Derived</span><span class="c c-l">Low</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Benchmark assesses ex-China NdPr oxide at $95/kg CIF Europe and North America, below the Chinese domestic price (~$107.5) for the first time in the series, as new Western separation output meets thin demand; the 63% ex-China premium carried here since March is withdrawn.<sup class="r"><a href="#s22">22</a></sup> SMM Pr-Nd oxide $97.30/kg on 30 Sep, a third cycle under the floor; the CRIA index rose to 263.6 on 9 Oct.<sup class="r"><a href="#s23">23</a></sup><sup class="r"><a href="#s24">24</a></sup> As of 11 Oct, Beijing has not extended the suspension of the October 2025 controls past 10 Nov; MOFCOM's 28 Sep statement extended US trade arrangements to 10 Jan 2027 without mentioning rare earths.<sup class="r"><a href="#s19">19</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 27 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 30 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Seventeen elements, one refiner. China mines roughly 70% of the world's rare-earth oxides and separates over 85%, and 98–99% of the heavy elements that make a permanent magnet survive heat. Its 2025–26 export-licensing regime is the most consequential commodity policy of the decade. This page tracks price structure, concentration and the ex-China build-out. No live price is carried.</p>
   <div class="figures"><div><div class="v">270,000 t</div><div class="l">China mine output 2025, REO, USGS MCS 2026 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$111.5 /kg</div><div class="l">NdPr oxide 2026 high, 25 Feb 2026, confirmed by Lynas <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">$110 /kg</div><div class="l">US DoD 10-year NdPr floor for MP Materials <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -417,9 +452,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. USGS is the primary statistical source; specialist trade sites are used for price and are marked Med unless the figure was independently confirmed.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. USGS is the primary statistical source; specialist trade sites are used for price and are marked Med unless the figure was independently confirmed. Sources 28–30 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 27 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 30 sources</summary><ol class="src">
     <li id="s1"><b>Investing News Network</b>, "Rare Earths Reserves: Top 7 Countries", 2 Jul 2026, reporting USGS MCS 2026: China 270,000 t (2025); reserves 44 Mt; Myanmar third by output.</li>
     <li id="s2"><b>USGS</b>, Mineral Commodity Summaries 2025, Rare Earths (D. J. Cordier): global mine production c.390,000 t REO (2024); US 45,000 t concentrate.</li>
     <li id="s3"><b>Rare-Earth-Mining.com</b>, "Rare Earth Market Outlook March 2026", NdPr $111.5 (25 Feb, confirmed in Lynas half-year results), $103.76 (10 Mar, SMM); DoD $110 floor; MP first magnets; Lynas first HRE; FOB vs domestic Nd oxide spread; USGS &gt;85% processing. <span class="c c-m">Med</span></li>
@@ -447,6 +482,9 @@ td.n+td,th.n+th{padding-left:16px}
 <li id="s25"><b>Crux Investor, "China's Export Cap Shifts Rare Earth Margin Toward Producers"</b>, Oct 2026, citing S&amp;P Global. NdPr $125/kg CIF North America 31 Mar 2026; near $120/kg mid-2026; $75–80/kg sustains 27,000 t across 20+ projects; China 84% of NdPr oxide supply, 61% of mine output; ex-China NdPr shortfall c.32,000 t 2026. <a href="https://www.cruxinvestor.com/posts/chinas-export-cap-shifts-rare-earth-margin-toward-producers" target="_blank">cruxinvestor.com</a> <span class="c c-m">Med</span></li>
 <li id="s26"><b>MP Materials, Form 8-K Q2 2026 results</b>, 6 Aug 2026, with Q2 call transcript 13 Aug. NdPr production 840 t (+41%), sales 1,006 t (+127%); REO 11,072 t (Q1 12,983 t); revenue $108.5m, PPA income $17.6m; Q3 NdPr guided above 1,000 t, realised price high-$90s; 650 t inventory at 30 Jun; gadolinium offtake; Q1 record 917 t NdPr. <a href="https://www.sec.gov/Archives/edgar/data/0001801368/000180136826000047/mpmcq22026er.htm" target="_blank">sec.gov</a> <span class="c c-h">High</span></li>
 <li id="s27"><b>Arafura Rare Earths, ASX announcement, Final Investment Decision</b>, 21 May 2026, with Australian Government media release the same day and Industrial Info 29 May. EFA letter of support for up to 500 tpa NdPr under the A$1.2bn Critical Minerals Strategic Reserve; construction from Sep 2026, first production 2029; 4,440 tpa NdPr; offtakes Hyundai, Kia, Siemens Gamesa, Traxys; A$350m placement incl. A$85m Hancock. <a href="https://announcements.asx.com.au/asxpdf/20260521/pdf/06zt53blvvwbfy.pdf" target="_blank">asx.com.au</a> <span class="c c-h">High</span></li>
+<li id="s28"><b>Shanghai Metals Market</b>, "Pr-Nd Oxide" price page (SMM-RE-OX-001), 21 Oct 2026, quotation RMB 738,000–740,000/t; one enterprise sold 30 t; and "SMM Analysis: Costs climb, quotes stall as PrNd metal margins slip back into the red", 16 Oct 2026, PrNd metal RMB 895,000–900,000/t; Arafura Nolans offtake raised to 850 t/yr for five years; Lynas–Meteoric acquisition. <a href="https://www.metal.com/rare-earth-oxides/201102250162" target="_blank">metal.com</a> <span class="c c-h">High</span></li>
+<li id="s29"><b>Critical Minerals News</b>, "Rare Earth Price 2026: NdPr Spot Price, History & Forecast", 4 Oct 2026, SMM Pr-Nd oxide $97.30/kg at 30 Sep; Western dealer/retail indicative $180–240+/kg; DoD $110/kg floor for MP Materials; two-market structure. Secondary. <a href="https://critical-minerals-news.com/rare-earths-price/" target="_blank">critical-minerals-news.com</a> <span class="c c-m">Med</span></li>
+<li id="s30"><b>Critical & Strategic Metals</b>, "Neodymium Price", pricing through reporting-agency benchmarks, bilateral negotiation and long-term offtake; spot v contract. Secondary. <a href="https://criticalstrategicmetals.com/minerals/neodymium/price/" target="_blank">criticalstrategicmetals.com</a> <span class="c c-m">Med</span></li>
 </ol></details>
   <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime and "Since last update" rewritten around the ex-China price inversion and the unextended 10 Nov deadline. Section II: the March "$184 vs $113" premium card replaced by Benchmark's August "$95 vs $107.5" discount; Q3 paragraph superseded by a Q4 paragraph with SMM, CRIA and S&amp;P Global prints; the July series discrepancy resolved as series selection and the note downgraded from warning to record. Section III: the pause row rebuilt on the MOFCOM announcement numbers with Medium confidence; the 1 Jan 2027 US defence ban added. Section IV: MP quarterly volumes, Lynas floor coverage and Arafura added; glut note updated. Sources 19–27 added; 29 new sourced figures; one superseded figure withdrawn.</div>
 </section>

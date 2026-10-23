@@ -297,6 +297,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -314,11 +331,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Saffron</h1>
     <div class="grade"><span class="g">Σ5</span><span class="n">No route</span><div class="m">Route: none identified · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Iranian farm-gate weakness against stable re-export pricing; grade and adulteration set the spread.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Iranian farm-gate weakness against stable re-export pricing; grade and adulteration set the spread.<sup><a href="#c31">31</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Iran (Khorasan) · Afghanistan · Kashmir · Spain · Greece</div>
     <div><div class="k">Principal markets</div>Spain (re-export) · UAE · India · European Union · United States</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Medium</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Under two years · the spice</div>
+      <div>Saffron loses colouring strength from the day it is dried and is graded on it, so a holding of threads depreciates; the trade turns stock within a season or two. There is no vehicle, no farm route that is practical from outside Iran, and no term to speak of. Σ5 because there is nothing to hold.<sup><a href="#c33">33</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · none identified</div>
+      <div class="ex">
+        <span>Routes</span><span>A holder of physical saffron sells to a spice trader, packer or re-exporter (Spain, UAE) at the grade the buyer's own test assigns; no exchange, no fund, no listed producer of scale. Iranian supply is sanctioned at the banking layer, which is why so much passes through Dubai and La Mancha labels.<sup><a href="#c33">33</a> <a href="#c34">34</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Price reporting only: Iranian Super Negin wholesale quoted at about US$3,700–3,800/kg in October 2026 by one exporter, US$1,750–1,850/kg on the Iranian exchange-linked dashboard a year earlier, and customs transaction values from US$1,335/kg (Afghanistan) to US$1,731/kg (Spain) in April 2026. The same grade differs twofold between sources in the same week.<sup><a href="#c33">33</a> <a href="#c34">34</a> <a href="#c35">35</a></sup><span class="t">Reported</span><span class="c c-l">Low</span></span>
+        <span>Cost</span><span>The spread between the grade you were sold and the grade the buyer's lab assigns is the exit cost, and it can be the whole premium: ISO 3632 cannot detect common adulterants at low levels, so buyers discount for the doubt. Re-exporters capture the Spanish or Kashmiri label premium the seller never sees.<sup><a href="#c35">35</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Days to weeks to a trader, at the trader's price; the product cannot wait, since colour strength falls with time. No mechanism exists for a private holder to exit at a published price.<span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Iranian Super Negin wholesale is quoted around $3,700–3,800/kg in mid-September, little changed year on year (single vendor). In Kashmir, GI-tagged saffron reached Rs 350–400/g by June against Rs 200–250 a year earlier, on Iran-related disruption and a poor local crop. The 2026 harvest begins in late October.<sup><a href="#c31">31</a></sup><sup><a href="#c32">32</a></sup></p>
@@ -330,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>8 sections · 32 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>8 sections · 35 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">One country grows almost all of it and earns the least from it. A market where the most reliable number is the chemistry, and the price on the label rarely tells you where the crop was cut.</p>
   
 
@@ -556,7 +591,7 @@ td.n+td,th.n+th{padding-left:16px}
 <!-- ============ SOURCES ============ -->
 <div class="wrap">
   
-<section id="sources"><div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><details><summary class="src-toggle">Show 32 sources</summary><ol class="src">
+<section id="sources"><div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 33–35 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div><details><summary class="src-toggle">Show 35 sources</summary><ol class="src">
       <li id="c1"><a href="https://www.fao.org/giahs/giahs-around-the-world/iran-qanat-based-saffron-system/en" target="_blank" rel="noopener">FAO GIAHS, Qanat-based Saffron Farming System, Iran</a>. <span class="src-note">Iran &gt;90% of world production.</span></li>
       <li id="c2"><a href="https://essfeed.com/top-10-saffron-producing-countries-in-the-world/" target="_blank" rel="noopener">Top saffron-producing countries, 2025</a>. <span class="src-note">Country-level production estimates; use with care (trade source).</span></li>
       <li id="c3"><a href="https://www.marketresearch.com/StatLedger-Market-Research-Consulting-v4317/Iran-Saffron-Trend-Forecast-40576646/" target="_blank" rel="noopener">Iran Saffron Market, StatLedger</a>. <span class="src-note">2021 record 422 t; 2022 fall to 272 t (drought).</span></li>
@@ -589,6 +624,9 @@ td.n+td,th.n+th{padding-left:16px}
       <li id="c30"><a href="https://agfundernews.com/from-taxol-to-cocoa-can-plant-cell-culture-make-the-leap-from-drugs-to-food" target="_blank" rel="noopener">AgFunderNews, plant cell culture for botanicals</a>. <span class="src-note">Ayana Bio saffron crocins; paclitaxel precedent.</span></li>
     <li id="c31"><b>Ana Saffron, "Saffron price per gram 2026"</b>, 14 Sep 2026. Iranian wholesale $3,700–3,800/kg. Vendor quote. <a href="https://anasaffron.com/iranian-saffron-price/" target="_blank">anasaffron.com</a> <span class="c c-l">Low</span></li>
 <li id="c32"><b>Kashmir Observer, "Iran Tensions, Poor Harvest Push Saffron Prices High"</b>, 20 Jun 2026. GI saffron Rs 350–400/g vs Rs 200–250 a year earlier. <a href="https://kashmirobserver.net/2026/06/20/iran-tensions-poor-harvest-push-saffron-prices-high/" target="_blank">kashmirobserver.net</a> <span class="c c-m">Med</span></li>
+<li id="c33"><b>Ana Saffron</b>, "Saffron price per gram 2026 + per kg", 21 Oct 2026: wholesale Iranian saffron US$3,800/kg, bulk €3,200/kg; vendor states Iranian wholesale "around $3,700 to $3,800". Single exporter's list price. <a href="https://anasaffron.com/iranian-saffron-price/" target="_blank">anasaffron.com</a> <span class="c c-l">Low</span></li>
+<li id="c34"><b>Tridge</b>, "Dried Saffron Suppliers, Export Data & Price Trends", updated Oct 2026: April 2026 transaction unit prices Spain US$1,731/kg, India US$1,558, Afghanistan US$1,335; Iranian shipments to South Korea 29 Sep 2026 at US$140–1,400/kg by grade. <a href="https://www.tridge.com/market-overview/dried-saffron" target="_blank">tridge.com</a> <span class="c c-m">Med</span></li>
+<li id="c35"><b>Tida Saffron</b>, "Iranian saffron price per kg", dashboard citing the Iranian Saffron Exchange, Nov 2025: Super Negin US$1,750/kg; Negin US$1,600; Royal Negin US$1,750; white saffron (konj) US$160; Iran 280 t exported, Spain 45 t. Exporter dashboard. <a href="https://tidasaffron.com/saffron-price/" target="_blank">tidasaffron.com</a> <span class="c c-l">Low</span></li>
 </ol></details></section></div>
 
 </details>

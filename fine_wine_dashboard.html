@@ -280,6 +280,24 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -297,23 +315,41 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Fine Wine</h1>
     <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Bottles in bond · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Post-2022 correction has run back to 2015 price levels; Liv-ex says wine "hasn't been cheaper since 2014" as supply and demand normalise.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+    <p class="regime">Post-2022 correction has run back to 2015 price levels; Liv-ex says wine "hasn't been cheaper since 2014" as supply and demand normalise.<sup class="r"><a href="#s60">60</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Bordeaux · Burgundy · Piedmont and Tuscany · Napa. Champagne under <a href="/champagne-dashboard" style="border-bottom:1px solid var(--bronze)">Champagne →</a></div>
     <div><div class="k">Principal markets</div>United Kingdom · United States · Hong Kong · Mainland China · Switzerland</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Medium; top Burgundy High</span><span>Provenance risk</span><span>Medium</span></div></div>
   </div>
+  <div class="hx">
+      <div>
+        <div class="k">Holding horizon</div>
+        <div class="big">3–7 years</div>
+        <div>Cited as typical for investment-grade wine; one platform builds its models on four- to five-year horizons. Value can fall once a wine is held well past maturity.<sup class="r"><a href="#s62">62</a></sup><span class="t">Estimate</span><span class="c c-m">Med</span></div>
+      </div>
+      <div>
+        <div class="k">Exit depth · bottles in bond</div>
+        <div class="ex">
+          <span>Routes</span><span>Sale through a merchant on Liv-ex, which trades only between professionals; auction; private sale; fund terms where held through a fund.<sup class="r"><a href="#s62">62</a> <a href="#s63">63</a></sup><span class="c c-m">Med</span></span>
+          <span>Activity</span><span>620+ merchants in 47 countries; about £100m of firm bids and offers across 16,000+ wines. Source does not date the order-book figure.<sup class="r"><a href="#s63">63</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+          <span>Cost</span><span>Exchange fees are a flat charge per unit; the amount is not published. Wine that leaves bond loses verifiable provenance and resells at a discount.<sup class="r"><a href="#s62">62</a> <a href="#s63">63</a></sup><span class="c c-m">Med</span></span>
+          <span>Time</span><span>Wine in the exchange warehouse changes hands without moving, and title transfers at once. Private holders reach it only through a member merchant.<sup class="r"><a href="#s63">63</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        </div>
+      </div>
+      <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
+    </div>
   <h2>Since last update</h2>
   <p class="since">Liv-ex Fine Wine 1000 has returned to its 2020 low, at levels last seen in 2015. The brief late-2025 recovery has not carried through 2026.<sup class="r"><a href="#s60">60</a></sup></p>
   <h2>Why Σ2</h2>
   <div class="why">
-    <div><p>Liv-ex mid prices give regular, independent valuation for traded wines. Stock held in bond keeps provenance and avoids duty. Exit through merchants or the exchange takes weeks, and fees on each trade are material.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
+    <div><p>Liv-ex mid prices give regular, independent valuation for traded wines. Stock held in bond keeps provenance and avoids duty. Exit runs through merchants or the exchange rather than an open market, and each trade carries fees.<sup class="r"><a href="#s63">63</a></sup></p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
     <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div></div>
   </div>
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>10 sections · 61 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>10 sections · 63 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">How a handful of European regions became the only agricultural product with a global secondary market, an exchange and a fraud jurisprudence of its own. This page explains the structures, classifications, the Place de Bordeaux, the Burgundian climat, and the market events that shaped them, from 1855 to the post-2022 correction. It carries no prices or index values; those change daily and are available from the sources listed. Compiled 15 September 2026.</p>
   
 
@@ -565,9 +601,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-x">
-  <div class="sechead"><h2><em>X</em>Sources</h2><p class="sub">Numbered in order of first citation for sources 1–58; sources 59–70 were added in the table revision and are numbered in the order they were added.</p></div>
+  <div class="sechead"><h2><em>X</em>Sources</h2><p class="sub">Numbered in order of first citation for sources 1–58; sources 59–61 were added in the table revision; sources 62–63 added 22 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 61 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 63 sources</summary><ol class="src">
     <li id="s1"><b>Corney &amp; Barrow</b>, "The Origins of Bordeaux Wine", port, claret, Dutch drainage of the Médoc, Place de Bordeaux. Merchant. <span class="c c-m">Med</span></li>
     <li id="s2"><b>The Wine Cellar Insider</b>, "En Primeur, Negociants, Courtiers, Place de Bordeaux Explained", Dec 2022, courtier role in every transaction; system faults; Dutch as early négociants.</li>
     <li id="s3"><b>Corney &amp; Barrow</b>, "Understanding Bordeaux's En Primeur System", 1680 recognition of courtiers under Louis XIV; expansion after 1855; en primeur as financing mechanism. <span class="c c-m">Med</span></li>
@@ -629,6 +665,8 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s59"><b>WineWiki</b>, "Judgment of Paris (1976)", May 2026, wine list for both flights, producers of the French whites, judges, Taber's Time article of 7 July 1976, Montelena 14.67 and Stag's Leap 14.14.</li>
   <li id="s60"><b>The Drinks Business, "Is it time to start buying fine wine again?"</b>, 1 Sep 2026. Liv-ex 1000 at 2015 levels. <a href="https://www.thedrinksbusiness.com/2026/09/is-it-time-to-start-buying-fine-wine-again/" target="_blank">thedrinksbusiness.com</a> <span class="c c-m">Med</span></li>
 <li id="s61"><b>INAO</b>, "Saint-Emilion grand cru : classification for the next decade", Comité national, 8 Sep 2022, official list of Premiers Grands Crus Classés and Grands Crus Classés; <b>FINE+RARE</b>, "Your guide to the Saint-Emilion classification", parcel-level assessment. <a href="https://www.inao.gouv.fr/en/lettres-odg/septembre-2022/saint-emilion-grand-cru-classement" target="_blank">inao.gouv.fr</a></li>
+<li id="s62"><b>WineFi</b>, "How Long Should You Hold Fine Wine?", 13 Jul 2026, typical 3–7 year hold; four-year selection weightings and five-year backtests; provenance loss outside bond. Investment platform. <a href="https://winefi.co/blog/how-long-should-you-hold-fine-wine" target="_blank">winefi.co</a> <span class="c c-m">Med</span></li>
+<li id="s63"><b>Wikipedia</b>, "London International Vintners Exchange", accessed 22 Oct 2026, membership, order book, flat per-unit fees, professional-only trading, warehouse settlement. Order-book figure undated. <a href="https://en.wikipedia.org/wiki/London_International_Vintners_Exchange" target="_blank">wikipedia.org</a> <span class="c c-m">Med</span></li>
 </ol></details>
 </section>
 

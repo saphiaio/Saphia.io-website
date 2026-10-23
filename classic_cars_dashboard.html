@@ -285,6 +285,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -302,11 +319,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Classic Cars</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Physical · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Post-war "boomer" segment softening while modern supercars rise; auction totals flat.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Post-war "boomer" segment softening while modern supercars rise; auction totals flat.<sup class="r"><a href="#s1">1</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Italy · Germany · United Kingdom · United States</div>
     <div><div class="k">Principal markets</div>United States (Monterey) · United Kingdom · Continental Europe · Gulf</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>High (top); Low (base)</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">5–15 years</div>
+      <div>Transaction costs of 20% or more round-trip and running costs of several per cent a year make anything under five years a losing hold unless the model is re-rated. Collectors describe holding periods of a decade or more; the 2026 Monterey results show value migrating by buyer cohort, so the horizon that matters is a generation.<span class="t">Estimate</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical</div>
+      <div class="ex">
+        <span>Routes</span><span>Consignment to a live auction (RM Sotheby's, Gooding, Bonhams, Broad Arrow) on a fixed calendar; online auction (Bring a Trailer, Collecting Cars) for sub-$500k cars; dealer purchase or brokered private sale; sealed-bid sales for the rarest cars.<sup class="r"><a href="#s14">14</a> <a href="#s1">1</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Monterey week 2026 grossed a record $755.6 m across five houses with eleven eight-figure lots; the rest of the year is a dozen comparable sales worldwide. Below the top, online platforms list thousands of cars a month but each model trades a handful of times a year.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a> <a href="#s5">5</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>RM Sotheby's charges the seller 10% of hammer and the buyer 12% to $250,000 and 10% above in the US (15%/12.5% plus VAT in Europe); the buyer's premium comes out of what the seller can achieve. Transport, detailing, pre-sale mechanical work and reserve negotiation sit on top; a withdrawn car still pays fees.<sup class="r"><a href="#s14">14</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Consignment closes six to twelve weeks before the sale; sale proceeds are paid within about 30 business days of settlement. From decision to cash, three to six months at a major house; a dealer sale is faster at a wider discount.<sup class="r"><a href="#s14">14</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no major auction since Monterey Car Week, which is already recorded here. Ratings unchanged.</p>
@@ -318,7 +353,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 13 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 14 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A collector market that set an all-time auction record in August 2026, $756 million in one California week, while the cars that built the hobby quietly went unsold. The money moved to modern Ferraris, McLarens and Bugattis; the Duesenbergs and 300 SLs held; the 1950s bread-and-butter classics did not. This page is an overview: the auction calendar and its record book, the generational rotation, the indices that measure it, the marques that matter and the provenance economics underneath. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$755.6 m</div><div class="l">Monterey Car Week auctions 2026, record; 2025 was $432.8 m <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">€135 m</div><div class="l">1955 Mercedes-Benz 300 SLR Uhlenhaut Coupé, May 2022, most valuable car ever sold <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">+30% / −2%</div><div class="l">Hagerty Supercar Index vs Blue Chip Index, twelve months to Aug 2026 <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">7 of 10</div><div class="l">Top Monterey 2026 lots built in 1985 or later; Ferrari took seven of ten <span class="t">Reported</span><sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></div></div></div>
 
@@ -424,9 +459,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Hagerty and RM Sotheby's are primary for totals and records; trade press for interpretation.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Hagerty and RM Sotheby's are primary for totals and records; trade press for interpretation. Source 14 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 13 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 14 sources</summary><ol class="src">
     <li id="s1"><b>Hagerty Media</b>, "2026 Monterey Car Week Auctions Shatter Record with $756M in Sales", Aug 2026, $755.6 m vs 2022 record; supercars over half of sales; Ferrari 288 GTO $11.6 m, F40 $8.4 m, F50 $14.6 m; Daytona Coupé $42.9 m; Corvette Grand Sport $18.7 m; McLaren F1 GTR $34.7 m; 1950s underperformance; allocation dynamic.</li>
     <li id="s2"><b>RM Sotheby's</b>, "The Mercedes-Benz 300 SLR Uhlenhaut Coupé | Auction Details", €135 m on 5 May 2022 at the Mercedes-Benz Museum; one of two; opening bid above the 2018 GTO price; and <b>Mercedes-Benz Group</b>, "The most valuable car in the world", proceeds to the Mercedes-Benz Fund.</li>
     <li id="s3"><b>CNBC</b>, "Monterey Car Week auctions could hit a record $500 million, with help from younger buyers", 13 Aug 2026, Hagerty forecast $470–500 m; Blue Chip Index −2%, Supercar Index +30% over twelve months; nine of the top ten 2026 auction cars Ferraris; sustainability debate.</li>
@@ -440,7 +475,8 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s11"><b>Magneto</b>, "Monterey Car Week Auctions 2025 results: How one sale skews perception", 21 Aug 2025, the SP3 effect; 300 SL and Porsche results at or below estimate; no-sales.</li>
     <li id="s12"><b>Classic Motorsports</b>, "Monterey Car Week 2025 auction sales: What's hot and what's not", 19 Aug 2025, 2024 down 3%; 2025 +5% to $432.8 m; six of top ten from the 1990s or later; Enzo-era sell-through 53% → 60%.</li>
     <li id="s13"><b>Classic Motorsports</b>, as source 12, Bonhams $44.2 m (+287.72%), 96% sell-through, Bugatti Divo $8.56 m and Chiron results.</li>
-  </ol></details>
+  <li id="s14"><b>RM Sotheby's</b>, "The Monterey Auction 2026, Conditions of Business", 13–15 Aug 2026, seller's commission 10% on motor cars; buyer's premium 12% to $250,000 and 10% above; Paris/Monaco/Milan 15% to €200,000 and 12.5% above plus VAT; remaining funds returned to consignor within 30 business days; buyer payment due next business day. <a href="https://rmsothebys.com/auctions/mo26/" target="_blank">rmsothebys.com</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

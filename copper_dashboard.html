@@ -281,6 +281,24 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -298,11 +316,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Copper</h1>
     <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: futures · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">ICSG has swung back to a 2026 surplus, yet the price holds within 5% of its September record: the metal is plentiful in the wrong country. Grasberg's full return has slipped to 2028.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">ICSG has swung back to a 2026 surplus, yet the price holds within 5% of its September record: the metal is plentiful in the wrong country. Grasberg's full return has slipped to 2028.<sup class="r"><a href="#s19">19</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Chile · Peru · DR Congo · China · United States</div>
     <div><div class="k">Principal markets</div>China · Europe · United States · Japan</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High, refining (mine Medium)</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Medium</span><span>Provenance risk</span><span>Low</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Contract-bounded</div>
+      <div>A futures position has no fixed life but must be rolled: LME prompts run daily to three months, weekly to six and monthly to ten years. A holding of any length is a sequence of contracts, and each roll pays or earns the shape of the curve.<sup class="r"><a href="#s34">34</a></sup><span class="t">Derived</span><span class="c c-h">High</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · futures</div>
+      <div class="ex">
+        <span>Routes</span><span>Close or roll LME or COMEX futures; sell ETF units; physical cathode only by warrant and warehouse, impractical for portfolios.<sup class="r"><a href="#s33">33</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>LME copper traded over 170,000 lots a day in 2025 and 168,000 in Q2 2026, at 25 t a lot. LME average daily volume January–September 2026 was 16% above the prior year.<sup class="r"><a href="#s33">33</a> <a href="#s35">35</a> <a href="#s36">36</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Exchange and clearing fees per lot, broker commission and margin funding. The material cost is the roll, paid on every prompt in contango; the COMEX–LME arbitrage gap was near 14 c/lb in Q2.<sup class="r"><a href="#s35">35</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Exit at the next trade in a continuous market; LME cash settles on a prompt two business days forward.<sup class="r"><a href="#s34">34</a></sup><span class="t">Derived</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">ICSG's 14 October forecast puts 2026 in a 104 kt surplus and 2027 at 368 kt; its April revision to surplus was missed at launch and the −150 kt headline carried here is corrected below.<sup class="r"><a href="#s19">19</a></sup> LME three-month $14,407.50 on 16 Oct and COMEX $6.56/lb, +32% on the year and ~5% below the 9 Sep record.<sup class="r"><a href="#s23">23</a></sup><sup class="r"><a href="#s22">22</a></sup> The US refined-cathode tariff decision lapsed on 28 Sep with no announcement; the COMEX premium has collapsed from over $3,000/t to ~$310 while US warehouses hold ~70% of visible exchange stock.<sup class="r"><a href="#s28">28</a></sup><sup class="r"><a href="#s29">29</a></sup> Grasberg's mill is at 67%; full capacity is now early 2028.<sup class="r"><a href="#s26">26</a></sup><sup class="r"><a href="#s25">25</a></sup></p>
@@ -314,7 +350,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 32 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 36 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The energy-transition bellwether after a year in which the world's second-largest mine flooded, the forecast surplus became a deficit and then a surplus again, the metal set a record, and the United States put a 50% tariff on semi-finished copper while leaving cathode in limbo. This page covers the balance, the disruption ledger, supply and refining concentration, the corporate consolidation and the policy layer. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">+104 kt</div><div class="l">ICSG forecast refined surplus 2026 (14 Oct 2026), from a −150 kt deficit forecast a year earlier; 2027 +368 kt <span class="t">Forecast</span><sup class="r"><a href="#s19">19</a> <a href="#s21">21</a></sup></div></div><div><div class="v">early 2028</div><div class="l">Grasberg full-capacity date, from end-2027; mill at 67% on 2 Oct 2026 <span class="t">Reported</span><sup class="r"><a href="#s25">25</a> <a href="#s26">26</a></sup></div></div><div><div class="v">36%</div><div class="l">Share of world supply from the 20 largest mines, 2025 <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">&gt;48%</div><div class="l">China's share of refined production, 2025 (14 Mt) <span class="t">Reported</span><sup class="r"><a href="#s10">10</a></sup></div></div></div>
 
@@ -432,9 +468,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. ICSG and USGS are primary; analyst forecasts are recorded as house views at the date made.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. ICSG and USGS are primary; analyst forecasts are recorded as house views at the date made. Sources 33–36 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 32 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 36 sources</summary><ol class="src">
     <li id="s1"><b>Benchmark Mineral Intelligence</b>, "Grasberg supply shock to plunge refined copper market into deficit in 2026", 26 Sep 2025, c.591 kt lost Sep 2025–Dec 2026; more than Collahuasi's 2026 output; top-20 mines 36% of supply; export-licence loss shifts impact to the refined market; LME $10,364/t on 24 Sep; 800 kt of material; casualties.</li>
     <li id="s2"><b>MetalMiner</b>, "Global Copper Market Deficit Balloons on Grasberg Collapse", 6 Oct 2025, Benchmark deficit revision 72 kt to 400 kt; Goldman Sachs 525 kt loss (260 kt 2025, 270 kt 2026); c.$10,485/t 15-month high; El Teniente disruption.</li>
     <li id="s3"><b>Skillings Mining Intelligence</b>, "Copper Price Forecast 2026: Deficits, Smelting", 12 May 2026, Block Cave c.70% of Grasberg output; closure to at least Q2 2026; J.P. Morgan $12,075/t average and Q2 peak; Chinese smelter cuts; Codelco–Microsoft. <span class="c c-m">Med</span></li>
@@ -467,6 +503,10 @@ td.n+td,th.n+th{padding-left:16px}
 <li id="s30"><b>Bloodstone Research, "Copper: The Tariff Trade Deflates"</b>, 9 Oct 2026. 2026 benchmark TC/RC $0/t from $21.25; spot TC c.−$127/t end-June; China social inventory c.100 kt (+27.3 kt); SHFE ¥111,710/t; LME 3M $14,415 on 8 Oct. <a href="https://www.bloodstonecapital.co.uk/research/journal/copper-analysis-2026-10-09" target="_blank">bloodstonecapital.co.uk</a> <span class="c c-m">Med</span></li>
 <li id="s31"><b>Mining.com, "Copper price forecasts lifted for 2026 but tariff 'collapse' still on the table"</b>, 15 Oct 2026, reporting Macquarie. Visible stocks +300 kt in 2026, all US; ex-US −168 kt; "the great copper gamble". <a href="https://www.mining.com/copper-price-forecasts-lifted-for-2026-but-tariff-collapse-still-on-the-table/" target="_blank">mining.com</a> <span class="c c-m">Med</span></li>
 <li id="s32"><b>Anglo American, "Anglo American and Teck announce future Anglo Teck Executive Leadership Team"</b>, 30 Jul 2026. Completion conditional on final regulatory approval, expected Sep 2026–Mar 2027; c.$800m synergies; and AGM address 29 Apr 2026: $4.5bn special dividend on completion; Teck 6-K: Investment Canada approval 15 Dec 2025. <a href="https://www.angloamerican.com/media/press-releases/2026/30-07-2026b" target="_blank">angloamerican.com</a> <span class="c c-h">High</span></li>
+<li id="s33"><b>London Metal Exchange</b>, "LME Copper", over 170,000 lots traded on average every day in 2025; lot size 25 t; physical settlement. <a href="https://www.lme.com/en/metals/non-ferrous/lme-copper" target="_blank">lme.com</a> <span class="c c-h">High</span></li>
+<li id="s34"><b>London Metal Exchange</b>, "LME Copper contract specifications", prompt dates daily to 3 months, weekly 3–6 months, monthly 7–123 months; tick $0.50/t. <a href="https://www.lme.com/metals/non-ferrous/lme-copper/contract-specifications" target="_blank">lme.com</a> <span class="c c-h">High</span></li>
+<li id="s35"><b>Recycling Today</b>, "LME reports active Q2 2026", 17 Jul 2026, LME ADV over 810,000 lots/day; copper 168,000 lots/day (+0.3% y/y); COMEX–LME spread near 14 c/lb. <a href="https://www.recyclingtoday.com/news/london-metal-exchange-aluminum-copper-adv-activity-q2-2026-wray-bond/" target="_blank">recyclingtoday.com</a> <span class="c c-m">Med</span></li>
+<li id="s36"><b>Shanghai Metals Market</b>, "SMM Copper Morning Briefing", 23 Oct 2026, LME ADV January–September 2026 +16% y/y, cited at LME Week. <a href="https://news.metal.com/newscontent/104174105" target="_blank">news.metal.com</a> <span class="c c-m">Med</span></li>
 </ol></details>
   <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime and "Since last update" rewritten. Intro and headline figures: ICSG −150 kt replaced by +104 kt (14 Oct 2026); Grasberg lost-tonnage figure replaced by the 2028 full-capacity date. Section I: ICSG April and October 2026 and Wood Mackenzie rows added; the stale deficit headline corrected in place; stock-maldistribution and TC/RC paragraphs added; price paragraph added. Section II: ledger extended from Oct 2025 to Oct 2026 with the Block Cave restart and the 2028 delay. Section IV: Anglo–Teck and Freeport rows updated. Section V: tariff scope corrected (cathode was never covered by the 50% rate), the pending cathode decision and US stock build added as rows. Section VI: three indicator rows updated. Sources 19–32 added; 41 new sourced figures; two corrections logged.</div>
 </section>

@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Parmigiano Reggiano</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Whole wheels, 12–36 months · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Prices at origin rose a fifth to a quarter in 2025 as exports passed half of sales and Italians bought less; the only food on this site that a bank will lend against.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">Prices at origin rose a fifth to a quarter in 2025 as exports passed half of sales and Italians bought less; the only food on this site that a bank will lend against.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Parma · Reggio Emilia · Modena · Bologna (west of the Reno) · Mantua (south of the Po); about 300 dairies</div>
     <div><div class="k">Principal markets</div>Italy · United States · France · Germany · United Kingdom; the Credem warehouses at Reggio Emilia and Modena</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium; one consortium sets output and grades every wheel</span><span>Liquidity</span><span>Medium, trade only</span><span>Scarcity</span><span>Low; supply responds within two years</span><span>Provenance risk</span><span>Low for whole wheels; High for grated</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">12–36 months · the wheel</div>
+      <div>A wheel is inspected and fire-branded at twelve months and gains value with every month of ageing to 36 and beyond; the Parma price list quotes six maturities, so the horizon is chosen by the holder and priced weekly. Credito Emiliano lends against wheels for the ageing period, typically 18–24 months, and has done since 1953.<sup class="r"><a href="#s8">8</a> <a href="#s7">7</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · whole wheels</div>
+      <div class="ex">
+        <span>Routes</span><span>Sale to a wholesaler, ageing house or packer at the Parma Borsa Merci price for the maturity; the Consorzio's numbered wheels are the standard unit. A bank-held wheel is sold by the bank's warehouse subsidiary if the loan is not repaid. No retail or exchange route for a private holder.<sup class="r"><a href="#s8">8</a> <a href="#s7">7</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>The Borsa Merci of 16 October 2026 raised every maturity by €0.10: 12 months €15.15–15.40/kg, 24 months €18.00–18.25, 30 months €18.70–19.05, 36 months and over up to €19.65, with trade described as good; 24-month wheels are 12% dearer than a year ago. About 4.2 m wheels are made a year; Credem's warehouses hold up to 440,000.<sup class="r"><a href="#s8">8</a> <a href="#s9">9</a> <a href="#s7">7</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Warehouse rent and turning, insurance and the Consorzio's inspection; a wheel that fails at twelve months is downgraded or scored. Wholesaler margin between the origin price and the €21.80–24.90/kg a whole 24–36 month wheel fetches at retail. Bank finance on wheels runs at ordinary commercial rates plus storage.<sup class="r"><a href="#s10">10</a> <a href="#s7">7</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>A certified wheel sells to the trade within days at the published price; the ageing itself is the wait. The price list is set weekly in Parma and tracked by ISMEA across Mantua, Reggio, Milan and Modena, so there is no discovery delay.<sup class="r"><a href="#s8">8</a> <a href="#s9">9</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. 2025 production 4.19 m wheels (+2.7%); exports 50.5% of sales for the first time; 12-month wheels €13.22/kg (+20.6%), 24-month €15.59/kg (+24.8%); Italian volumes sold −10%. Fortune reports the summer 2026 heat as a threat to maturation and to the cheese banks' stock.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 7 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 10 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A food that behaves like a commodity with a bond attached. Every wheel is made to the same recipe in the same five provinces, inspected at twelve months, fire-branded by a consortium, and logged by number; its value rises on a known curve as it ages; and since 1953 Credito Emiliano has taken young wheels as loan collateral, warehoused them, and sold them if the dairy defaults. This page covers the consortium system, the market's size and the 2025 price jump, how the cheese bank works, the fraud and climate risks, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">4.19 m</div><div class="l">Wheels produced 2025, +2.7%; about 40 kg each <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">€15.59/kg</div><div class="l">24-month wheels at origin, 2025 average, +24.8% from €12.50<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">50.5%</div><div class="l">Export share of sales, 2025, the first year above half; 74,980 t<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">500,000</div><div class="l">Wheels held in Credem's warehouses, worth over €300 m; 2.3 m wheels a year pass through<sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
@@ -387,8 +422,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
-  <details><summary class="src-toggle">Show 7 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 8–10 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 10 sources</summary><ol class="src">
     <li id="s1"><b>CNN</b>, "Inside Italy's secret 'Cheese Bank,' where Parmigiano Reggiano becomes financial gold", 2 May 2026: Italian volumes −10% in 2025; prices €13.22/kg (+20.6%) and €15.59/kg (+24.8%); 60–80% advance; blockchain doubling capacity; Ravanetti quotes; "never lost a single euro". <a href="https://www.cnn.com/2026/05/02/food/italy-cheese-bank-parmigiano-reggiano-intl" target="_blank">cnn.com</a></li>
     <li id="s2"><b>Italianfood.net</b>, "Parmigiano Reggiano PDO Strengthens Global Footprint in 2025", 26 Mar 2026, reporting the consortium's annual figures: 4.19 m wheels (+2.7% from 4.079 m); exports 50.5%, 74,980 t (+2.7%); non-EU +4.2%; price series. <a href="https://news.italianfood.net/2026/03/26/parmigiano-reggiano-pdo-strengthens-global-footprint-in-2025/" target="_blank">italianfood.net</a></li>
     <li id="s3"><b>Fortune</b>, "Italy's $4.7 billion cheese economy is feeling the heat …", 10 Aug 2026: 500,000+ wheels worth over €300 m; collateral since 1953; Magazzini Generali delle Tagliate; 2.3 m wheels a year; heat risk. <a href="https://fortune.com/2026/08/10/italy-5-billion-cheese-economy-heat-wave-climate-change/" target="_blank">fortune.com</a></li>
@@ -396,7 +431,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s5"><b>Library of Congress Law Blog</b>, "When Loans Become Cheesy", Oct 2024: five provinces; ingredients; 12-month inspection and PDO stamp; consortium legislation links. <a href="https://blogs.loc.gov/law/2024/10/when-loans-become-cheesy/" target="_blank">loc.gov</a></li>
     <li id="s6"><b>Consorzio del Formaggio Parmigiano Reggiano</b>, production rules and marking system (casein plate, fire-brand, age stamps); used for section I. parmigianoreggiano.com.</li>
     <li id="s7"><b>Wikipedia</b>, "Credito Emiliano": collateral since 1953; warehouse capacity 440,000 wheels; Harvard Business School, USDA FAS and New York Times coverage. <a href="https://en.wikipedia.org/wiki/Credito_Emiliano" target="_blank">wikipedia.org</a> <span class="c c-m">Med</span></li>
-  </ol></details>
+  <li id="s8"><b>Gazzetta di Parma</b>, "Borsa merci Parma: aumenti per Parmigiano Reggiano", 22 Oct 2026: session of 16 Oct 2026, +€0.10 on all maturities, 36 months and over to a maximum €19.65/kg, trade good. Quotidianoweb, 19 Oct 2026: 12 months €15.15–15.40, 15 months €15.45–15.85, 18 months €16.85–17.35, 24 months €18.00–18.25, 30 months €18.70–19.05. <a href="https://www.gazzettadiparma.it/economia/2026/10/22/news/borsa-merci-parma-aumenti-per-parmigiano-reggiano-siero-frumento-duro-e-tenero-e-crusca-cala-lo-zangolato-976203/" target="_blank">gazzettadiparma.it</a> <span class="c c-h">High</span></li>
+<li id="s9"><b>ISMEA Mercati / BMTI</b>, "Parmigiano Reggiano, prezzi all'origine": Parma 18 Sep 2026, 12 months €15.34/kg, 24 months €17.93; Mantua, Reggio Emilia, Milan, Modena quotations. BMTI weekly, Oct 2026: Parma 12 months €15.28 (+11.9% y/y), 24 months €18.13 (+12.1%). <a href="https://www.ismeamercati.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/1075" target="_blank">ismeamercati.it</a> <span class="c c-h">High</span></li>
+<li id="s10"><b>Il Casale di Parma</b>, Retail price list, Oct 2026: whole wheel 24 months €21.80/kg (€872), 30 months €22.90/kg, 36 months €24.90/kg (€996); 1 kg cuts €24.50–34.50. Retailer source. <a href="https://www.ilcasalediparma.com/listino.php?lang=it" target="_blank">ilcasalediparma.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

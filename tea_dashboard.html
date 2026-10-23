@@ -287,6 +287,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -304,11 +321,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Tea</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Route: listed plantation companies · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Bulk auction grades flat while the matcha and Uji tencha tier runs short; a two-speed market.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Bulk auction grades flat while the matcha and Uji tencha tier runs short; a two-speed market.<sup class="r"><a href="#s14">14</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>China · India · Kenya · Sri Lanka · Japan</div>
     <div><div class="k">Principal markets</div>China · India · Europe · Pakistan · United States</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Low; Uji tencha High</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Equity · bushes 5 yrs to tencha</div>
+      <div>The route is listed plantation companies, so the horizon is an equity holding. The scarce tier cannot be held: tencha is auctioned in May and milled within months, and a new field needs about five years before its leaf is matcha-grade, which is why the 2024–26 price tripling has no quick supply answer.<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · listed plantation companies</div>
+      <div class="ex">
+        <span>Routes</span><span>Shares in listed tea groups (Ito En in Tokyo; Indian and Kenyan plantation companies for bulk grades) through any broker. Leaf itself exits only through the prefectural auctions (Kyoto, Kagoshima) or the Mombasa and Kolkata bulk auctions, both trade-only.<sup class="r"><a href="#s16">16</a> <a href="#s18">18</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Kyoto first-flush tencha averaged ¥17,797/kg to 19 June 2026 against ¥14,144 in 2025 and ¥5,402 in 2024, even with a 21% larger first flush; the Kyoto opening auction on 13 May 2026 printed ¥13,972/kg, 1.7× the 2025 record, and Kagoshima ¥19,095. Bulk CTC at Mombasa and Kolkata trades in the low single dollars a kilo.<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a> <a href="#s18">18</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Equity: brokerage and spread. Leaf: auction commission and the grower's share of handling; for buyers abroad, Uji ceremonial wholesale runs US$200–500/kg at 10–25 kg minimums, with everything below about US$100 a counterfeit signal.<sup class="r"><a href="#s18">18</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Shares exit the same day. Tencha is sold at a dated spring auction and allocated for the year; heritage makers have moved to allocation-only sales, so a buyer outside the trade waits a season or pays the dealer tier.<sup class="r"><a href="#s18">18</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Kyoto’s Uji tea market closed its 2026 season on 31 July with machine-harvested tencha averaging a record ¥17,250/kg, highest since records began in 1996 and above the ¥13,972 opening. Fields shifted to tencha pushed sencha, gyokuro and bancha prices up ~30% to more than double: the matcha squeeze has become a wider Japanese tea squeeze.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup></p>
@@ -320,7 +355,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 15 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 18 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The world's most consumed manufactured drink after water: seven million tonnes a year, more than half of it Chinese, priced at commodity auctions in Mombasa and Kolkata, and, at the top, a Japanese shade-grown powder whose producer price rose 2.6-fold in a single year. This page covers the overview: production and its concentration, the auction system, the export trade, and the matcha shortage as the clearest case of a luxury tier decoupling from its commodity base. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">7.05 m t</div><div class="l">World production 2024; China 3.74 m t, India 1.28 m t, 78% together <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">1.94 m t</div><div class="l">Exports 2024 (preliminary ITC), 27.6% of the crop <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">13 m</div><div class="l">People whose living depends on tea, per FAO <span class="t">Reported</span><sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
@@ -418,9 +453,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Trade-journal compilations of FAO and ITC data are primary for the commodity tier; Japanese tea merchants and associations for matcha, marked Med where they are interested parties.</p></div>
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Trade-journal compilations of FAO and ITC data are primary for the commodity tier; Japanese tea merchants and associations for matcha, marked Med where they are interested parties. Sources 16–18 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 15 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 18 sources</summary><ol class="src">
     <li id="s1"><b>Tea &amp; Coffee Trade Journal</b>, "The 2025 Global Tea Report", 22 May 2025, 2024 production 7.05 m t; China 3.74 m t, India 1.28 m t, 78%; 2006 comparison (3.66 m t, 58%); seven countries above 100 kt; Japan 74 kt; ITC exports 1.94 m t (27.6%); top importers 2023; green-tea exports 385,760 t.</li>
     <li id="s2"><b>Firsd Tea</b>, "2025 China Tea Report: Production", 14 Jul 2025, world +6.8% from 6.6 to 7.1 m t; China 53%, +12%; India 18.2%, −6.1%; Kenya 8.5%; Türkiye fourth; Bangladesh −9.6%; Argentina +19.1%.</li>
     <li id="s3"><b>FAO</b>, Intergovernmental Group on Tea, CCP:TE/24/2, Jan 2024, India 1.37 m t (2022); Kenya 542,561 t and Sri Lanka 255,973 t (2022); Pu-erh and domestic consumption; decade outlook for exporters.</li>
@@ -436,6 +471,9 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s13"><b>Vision Times</b>, "Japan's Matcha Crisis", 12 Feb 2026, 170% price surge in 2025; rationing by established gardens. <span class="c c-m">Med</span></li>
   <li id="s14"><b>One With Tea, "The 2026 Matcha Shortage Explained"</b>, 29 Sep 2026. Uji season average ¥17,250/kg (GJTA, via Yomiuri); opening ¥13,972; Kagoshima top lot ~¥19,000. Retailer commentary citing GJTA. <a href="https://onewithtea.com/blogs/news/2026-matcha-shortage-explained" target="_blank">onewithtea.com</a> <span class="c c-m">Med</span></li>
 <li id="s15"><b>First Agri, "Matcha Wholesale Price per kg: 2026 Guide"</b>, Sep 2026. 2026 first flush hand-picked Uji volume +18.5%, prices +11% (hand-picked) and +22% (machine-picked). <a href="https://first-agri.jp/matcha/columns/understanding-matcha-pricing" target="_blank">first-agri.jp</a> <span class="c c-m">Med</span></li>
+<li id="s16"><b>Meguri Group</b>, "Is There a Matcha Shortage?", Oct 2026: Kyoto market first-flush tencha average ¥17,797/kg in 2026 (to 19 June), ¥14,144 in 2025, ¥5,402 in 2024; 2026 first flush 21% larger; table 2022–26. <a href="https://meguri-group.co.jp/en/matcha/journal/matcha-shortage/" target="_blank">meguri-group.co.jp</a> <span class="c c-m">Med</span></li>
+<li id="s17"><b>Rikyu Matcha / Japanomars</b>, "Why US Cafés Are Asking for Price Lists in 2026": Kyoto opening auction 13 May 2026 averaged ¥13,972/kg, 1.7× the 2025 record of ¥8,235; Japanomars index, 5 Oct 2026: Kagoshima prefectural sale ¥19,095/kg (organic ¥20,422; top lot ¥47,100), JA Zen-Noh Kyoto ¥14,127; second flush roughly half. <a href="https://rikyumatcha.co.jp/matcha-guide/us-matcha-prices-2026-stable-supply" target="_blank">rikyumatcha.co.jp</a> <span class="c c-m">Med</span></li>
+<li id="s18"><b>First Agri</b>, "Uji Matcha Wholesale 2026: Sourcing, Pricing & Verification After the Kyoto Shortage", Apr 2026: Uji first-flush tencha peaked ¥43,330/kg in 2025 (+265%); production −40% 2024–25; heritage makers allocation-only; 2026 Uji ceremonial US$250–500/kg at 10–25 kg MOQ; below US$100 a counterfeit signal. Trade source (also source 11/15 family on this page). <a href="https://first-agri.jp/matcha/columns/054" target="_blank">first-agri.jp</a> <span class="c c-m">Med</span></li>
 </ol></details>
 </section>
 

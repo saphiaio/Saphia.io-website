@@ -285,6 +285,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -302,11 +319,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Scotch Whisky</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Bottles · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Collector bottle market correcting, not collapsing; exports flat in value and down in volume.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Collector bottle market correcting, not collapsing; exports flat in value and down in volume.<sup class="r"><a href="#s15">15</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Scotland (Speyside · Islay · Highlands · Lowlands · Campbeltown)</div>
     <div><div class="k">Principal markets</div>United States · France · Singapore · India · Taiwan</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Medium (bottles); Low (casks)</span><span>Scarcity</span><span>Medium; closed distilleries High</span><span>Provenance risk</span><span>High (casks)</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">5–10 years · bottles</div>
+      <div>Bottle collectors and auctioneers describe five- to ten-year holds; the 2023–25 correction means bottles bought at the 2022 peak are mostly still below cost. A sealed bottle does not improve with time, so the horizon is set by scarcity and fashion, not maturation. Casks are a different asset with a different page.<span class="t">Estimate</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · bottles</div>
+      <div class="ex">
+        <span>Routes</span><span>Monthly online auctions (Whisky Auctioneer, Whisky.Auction, Scotch Whisky Auctions, Whisky Hammer); specialist retailers who buy or consign; Sotheby's and Bonhams for the rarest bottles. No exchange and no dealer bid outside these.<sup class="r"><a href="#s17">17</a> <a href="#s18">18</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Whisky Auctioneer alone listed 4,486–5,766 lots a month through 2026 and has sold over 810,000 lots worth more than £300 m since 2013. Depth is in standard releases from live distilleries; trophy bottles appear a few times a year and, in 2024, many failed to meet reserve.<sup class="r"><a href="#s17">17</a> <a href="#s19">19</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Seller's commission 5% plus VAT at Whisky Auctioneer, 10% at others; £6 listing and £10 reserve fees; the buyer pays 12.5–15% on top of hammer, which caps the bid. Insured shipping to the auctioneer and, for overseas sales, the buyer's duty and freight sit outside the hammer.<sup class="r"><a href="#s17">17</a> <a href="#s19">19</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Bottles are received, authenticated and photographed, then listed in the next monthly sale (ten days live); payment within 21 working days of close. From decision to cash, six to ten weeks if the first auction clears the reserve.<sup class="r"><a href="#s17">17</a> <a href="#s19">19</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Tariff-free US access for Scotch was restored on 24 July 2026, ending the 10% levy in place since April 2025 (and the threatened 25% on single malts). The SWA put the cost at close to £20m a month; no post-tariff export data has been published yet.<sup class="r"><a href="#s15">15</a></sup><sup class="r"><a href="#s16">16</a></sup></p>
@@ -318,7 +353,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>8 sections · 16 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>8 sections · 19 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A £5 billion export industry with a legally protected name, two companies selling most of it, and, on top, a secondary market for rare bottles and casks that boomed into 2022, corrected for three years and has drawn a BBC investigation into fraud. This page covers the product and its law, the trade's history and structure, the 2025 export picture, the collector market, and the cask problem. No prices or index levels are carried as live values.</p>
   <div class="figures"><div><div class="v">£5.36 bn</div><div class="l">Export value 2025, −0.6%; volume −4.3% to 1.34 bn bottles <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">c.63%</div><div class="l">Share of Scotch sold worldwide by Diageo and Chivas Brothers <span class="t">Estimate</span><sup class="r"><a href="#s7">7</a></sup></div></div><div><div class="v">£2.1 m</div><div class="l">Macallan 1926, Sotheby's, Nov 2023, record for any wine or spirit <span class="t">Reported</span><sup class="r"><a href="#s9">9</a></sup></div></div><div><div class="v">33</div><div class="l">Distilleries closed 1980–86; 32 have since reopened <span class="t">Reported</span><sup class="r"><a href="#s10">10</a></sup></div></div></div>
 
@@ -441,9 +476,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-viii">
-  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. SWA statistics are primary; broker and investment-platform sources are marked.</p></div>
+  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. SWA statistics are primary; broker and investment-platform sources are marked. Sources 17–19 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 16 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 19 sources</summary><ol class="src">
     <li id="s1"><b>Global Drinks Intel</b>, "Export declines continue for scotch whisky in 2025, data", 16 Feb 2026, £5.36 bn, −0.6%; 104.2 m cases, −4.3%; US £933 m; EU £1.5 bn; France £404 m; India £286 m and largest by volume; SWA attribution.</li>
     <li id="s2"><b>Scotch Whisky Association</b>, "2025 export figures", 12 Feb 2026, headline "−1.8% to £5.3 bn"; 1.3 bn bottles; US £971 m → £933 m and 132 m → 120 m bottles; May–Dec −15%/−7%; EU 444 m bottles; France 152 m bottles.</li>
     <li id="s3"><b>Inside the Cask</b>, "Scotch Whisky Exports in 2025 impacted by Tariffs", 23 Feb 2026, Mark Kent quotations; duty +17% in three years; Germany and Spain figures.</li>
@@ -460,6 +495,9 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s14"><b>Wikipedia</b>, "Diageo", distilleries producing 40% of all Scotch whisky; 24+ brands. <span class="c c-m">Med</span></li>
   <li id="s15"><b>The Drinks Business, "Spirits industry responds to US lifting tariffs on Scotch"</b>, 24 Jul 2026. Zero-for-zero regime in force; 25% single-malt rise averted. <a href="https://www.thedrinksbusiness.com/2026/07/spirits-industry-responds-to-us-lifting-tariffs-on-scotch/" target="_blank">thedrinksbusiness.com</a> <span class="c c-h">High</span></li>
 <li id="s16"><b>Whisky Torbati, "US Tariff on Scotch Whisky Removed from 24 July 2026"</b>, Sep 2026. Industry losses near £20m per month under the tariff. <a href="https://www.whiskytorbati.it/en/us-tariff-scotch-whisky-removed-2026/" target="_blank">whiskytorbati.it</a> <span class="c c-l">Low</span></li>
+<li id="s17"><b>Whisky Auctioneer</b>, "Auctions" pages, 2026: January 5,546 lots; March 4,580; May 5,766; June 5,045; August 4,486; September 5,284; buyer's commission 12.5% (May) rising to 15% ex-VAT (September); sellers paid within 21 working days of close; 810,000 lots and £300 m sold worldwide since 2013. <a href="https://whiskyauctioneer.com/whisky-auctions/september-2026-auction/lots" target="_blank">whiskyauctioneer.com</a> <span class="c c-h">High</span></li>
+<li id="s18"><b>Mark Littler</b>, "The Ultimate Guide To Selling Whisky At Auction", updated 2022–25, seller commission by house: Whisky Auctioneer 5% + VAT; Whisky.Auction 2.5–20% sliding by hammer; WhiskyAuction.com 10% + VAT. Dealer source. <a href="https://www.marklittler.com/selling-whisky-at-auction/" target="_blank">marklittler.com</a> <span class="c c-m">Med</span></li>
+<li id="s19"><b>Whisky Hunter</b>, "Whisky Auctioneer: Sales History, Analysis & Statistics", accessed 23 Oct 2026, seller fee 5%, buyer fee 12.5%, listing £6, reserve £10, payment within 21 business days; loss and breakage cover 3%; 809,955 lots in database. <a href="https://whiskyhunter.net/auctions/whiskyauctioneer-com/" target="_blank">whiskyhunter.net</a> <span class="c c-m">Med</span></li>
 </ol></details>
 </section>
 

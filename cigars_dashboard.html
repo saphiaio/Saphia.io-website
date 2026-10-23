@@ -286,6 +286,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -303,11 +320,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Cigars</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Boxes · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Habanos at record revenue on lower volume; a levelled boom now absorbing US tariffs.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Habanos at record revenue on lower volume; a levelled boom now absorbing US tariffs.<sup class="r"><a href="#s1">1</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Cuba · Dominican Republic · Nicaragua · Honduras</div>
     <div><div class="k">Principal markets</div>United States · Spain and Europe · China and Hong Kong · Gulf</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Medium</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">5–15 years</div>
+      <div>Boxes are bought at release and aged; the secondary market pays most for Cohiba three to ten years old and for discontinued limited editions. A box must be kept at 65–70% humidity throughout, so the horizon is bounded by the humidor as much as by the market.<sup class="r"><a href="#s37">37</a> <a href="#s38">38</a></sup><span class="t">Estimate</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · boxes</div>
+      <div class="ex">
+        <span>Routes</span><span>Specialist auctions (C.Gars in London, Online Cigar Auctions, regional houses); private sale through the same dealers, who also buy outright; Habanos' own festival auction for humidors. No route for US sellers of Cuban product.<sup class="r"><a href="#s37">37</a> <a href="#s38">38</a> <a href="#s40">40</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Online Cigar Auctions ran over 580 lots in March 2026; a box of 25 Cohiba Esplendidos made £1,600 and 25 Siglo VI £1,400 at a regional house in 2025. At the top, the Festival del Habano humidor auction took €16.25 m in 2026 with a €4.6 m record lot; Cohiba Behike 2010 box codes draw the most bids.<sup class="r"><a href="#s38">38</a> <a href="#s39">39</a> <a href="#s40">40</a> <a href="#s37">37</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>Auction seller's commission around 10–15% plus a buyer's premium of 15–25% that caps the hammer; dealer buy-in at a discount to retail; humidor storage and insurance throughout. Boxes without intact seals, bands and codes sell at a steep discount or not at all.<sup class="r"><a href="#s39">39</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Auctions run quarterly; consignment deadlines fall weeks ahead and payment follows the sale by about a month. A dealer purchase can settle in days at a lower price. Three to four months from decision to cash through auction.<sup class="r"><a href="#s38">38</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no new Habanos sales or price data since the last update. Ratings unchanged.</p>
@@ -319,7 +354,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>8 sections · 36 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>8 sections · 40 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A luxury product rolled by hand in four countries, sold through a state monopoly on one side and a tariff-exposed private industry on the other. This page covers the structure of the trade, Cuba's repricing and supply collapse, the sanctions case that has fractured the world's largest cigar business, US regulation, and the Gulf's position as consumer, distributor and, since 2025, owner. Compiled 16 September 2026. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$827 m</div><div class="l">Habanos S.A. revenue 2024, record; 2025 not published <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">429.8 m</div><div class="l">Premium handmade cigars imported into the US, 2025 <span class="t">Reported</span><sup class="r"><a href="#s12">12</a></sup></div></div><div><div class="v">50 m</div><div class="l">Cuban cigar exports 2024, vs 93.9 m in 2018 <span class="t">Reported</span><sup class="r"><a href="#s6">6</a></sup></div></div><div><div class="v">28.55%</div><div class="l">Habanos S.A. held indirectly by a US-sanctioned individual <span class="t">Reported</span><sup class="r"><a href="#s19">19</a></sup></div></div></div>
 
@@ -471,9 +506,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-viii">
-  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. halfwheel and Cigar Aficionado are the trade's primary reporters; Cuban state figures are used as reported and marked where unverifiable.</p></div>
+  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. halfwheel and Cigar Aficionado are the trade's primary reporters; Cuban state figures are used as reported and marked where unverifiable. Sources 37–40 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 36 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 40 sources</summary><ol class="src">
     <li id="s1"><b>Habanos S.A. / PR Newswire</b>, "Corporación Habanos S.A. achieves a record revenue of 827 million dollars in 2024", 24 Feb 2025, revenue, +16%, 27 brands, 130+ territories, Protected Appellation of Origin.</li>
     <li id="s2"><b>halfwheel</b>, "Habanos S.A. Reports $827 Million in Revenue for 2024, a 14.7 Percent Increase", 25 Feb 2025, arithmetic from $721 m (2023, +31%); Europe over half of sales; Behike BHK 58 pricing expectation.</li>
     <li id="s3"><b>Prensa Latina</b>, "Habanos S.A. registers record revenues in 2024", 24 Feb 2025, and <b>London Cigar Smoker</b>, "XXV Festival del Habano 2025, The Highlights", 2 Mar 2025, 4,705 points of sale by category; top five markets; Europe 54%.</li>
@@ -510,7 +545,11 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s34"><b>Habanos S.A.</b>, official distributor directory, Phoenicia Trading T.A.A. (Cyprus) Ltd, Limassol; territories listed.</li>
     <li id="s35"><b>Baqer Mohebi Establishment</b>, "Tobacco brands", La Casa del Habano in the UAE since 1988; store locations; Le Tabac Exclusivo.</li>
     <li id="s36"><b>Habano Mag</b>, listings for La Casa del Habano Terminal 1 (Dubai Duty Free), Habanos Specialist Terminal 3, Abu Dhabi Mall and Dubai Mall, distributor attribution to Phoenicia. <span class="c c-m">Med</span></li>
-  </ol></details>
+  <li id="s37"><b>Cigar Aficionado</b>, "Dreams of Cigar Unicorns", Apr 2021: C.Gars (Mitchell Orchant) private sales of $52,000 (Cohiba 30th humidor), $156,000 (40th Behike humidor), $455,000 (50th Aniversario humidor); Cohibas 3–10 years old receive most bids; Behike 2010 box codes most sought. <a href="https://www.cigaraficionado.com/article/dreams-of-cigar-unicorns" target="_blank">cigaraficionado.com</a> <span class="c c-m">Med</span></li>
+<li id="s38"><b>Online Cigar Auctions</b>, March 2026 catalogue: over 580 lots from collectors and estates; Cohiba Esplendidos 1996 box est. £1,300–1,500; Behike 52 2010 box est. £1,300–1,500; next sale June 2026; dealer buys and sells year-round. <a href="https://www.onlinecigarauctions.com/catalog/march-2026/Acatalogue_3-2026_Full.pdf" target="_blank">onlinecigarauctions.com</a> <span class="c c-h">High</span></li>
+<li id="s39"><b>Potteries Auctions</b>, "What Are My Cuban Cigars Worth? (And Where Can I Sell Them?)", Jun 2026: box of 25 Cohiba Esplendidos £1,600; 25 Siglo VI £1,400; Colección Habanos books £3,000; value factors (seals, packaging, storage). <a href="https://www.potteriesauctions.com/news/what-are-my-cuban-cigars-worth-at-auction" target="_blank">potteriesauctions.com</a> <span class="c c-m">Med</span></li>
+<li id="s40"><b>halfwheel</b>, "Festival del Habano XXV: The Humidor Auction", Aug 2026: €16.25 m total across 10 lots; Cohiba Behike humidor €4.6 m, a record; 2024 total €18.91 m. <a href="https://halfwheel.com/festival-del-habano-xxv-the-humidor-auction/447802/" target="_blank">halfwheel.com</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

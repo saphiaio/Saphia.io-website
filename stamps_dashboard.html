@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Stamps</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Classic issues and rarities · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">A shrinking collector base and an ageing one: the great rarities still make seven figures, but the only stamp ever to sell for less than its previous price did so in 2021, and the middle of the market has fallen for two decades.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">A shrinking collector base and an ageing one: the great rarities still make seven figures, but the only stamp ever to sell for less than its previous price did so in 2021, and the middle of the market has fallen for two decades.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Great Britain and Empire (1840 onward) · United States · the German states, France, Switzerland · China (1878 onward, the fastest-growing field)</div>
     <div><div class="k">Principal markets</div>London (Spink, Stanley Gibbons, Sotheby's) · New York (Siegel) · Geneva (David Feldman) · Hong Kong (Interasia, Spink) · Germany (Heinrich Köhler, Christoph Gärtner)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>High at the apex; abundant below</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10+ years · a generation</div>
+      <div>Great rarities change hands once a decade or less; the 1c Magenta sold in 1970, 1980, 2014 and 2021, and fell in price only on the last occasion. Ordinary classic material is held for a collecting lifetime and sold by the estate, into a buyer base that is shrinking and ageing, which is why the middle of the market has fallen for two decades.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · classic issues and rarities</div>
+      <div class="ex">
+        <span>Routes</span><span>Specialist auction houses (Siegel in New York, Spink and Stanley Gibbons in London, Corinphila, David Feldman) for rarities with expertising certificates; Sotheby's for the very top; dealer purchase or consignment; postal and online auctions for the rest. Stanley Gibbons fractionalised the 1c Magenta into shares in 2021.<sup class="r"><a href="#s9">9</a> <a href="#s11">11</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>The 1c Magenta made $8.3 m at Sotheby's in June 2021 against a $10–15 m estimate, down from $9.48 m in 2014; the Inverted Jenny plate block $4.9 m against $5–7 m. Below the trophies, stamps typically realise 10–30% of catalogue value at auction, and a 2026 postal sale priced a lifetime Stanley Gibbons collection at 30–35% of catalogue against the 80% originally paid.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>Auction seller's commission around 10–15% plus a buyer's premium of 20–25% that caps the hammer; expertising certificates for anything valuable; dealer buy-in at a fraction of catalogue. The gap between catalogue value and realised price is the real cost of exit.<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Dealer sale in days at the dealer's price; specialist auctions run on a seasonal calendar with consignment two to four months ahead and payment 30–45 days after. Rarities are timed to the one sale a year that will draw the two or three bidders who matter.<sup class="r"><a href="#s11">11</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. The British Guiana 1c Magenta, bought by Stanley Gibbons for $8.3 m in June 2021 and fractionalised into 80,000 "Pieces" at £100, remains on loan to the Smithsonian National Postal Museum; no sale above $5 m has occurred since. Chinese classic material continues to set the running in Hong Kong.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The oldest mass collecting hobby and the one whose demographics are most against it. Every stamp has a catalogue number and a printed price, every major rarity a published census, and yet nobody can say what the market is worth because almost all of it changes hands privately or not at all. This page covers what is known of size and trend, the record book, the condition and expertising system that decides value, the trade's structure, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$9.48 m</div><div class="l">British Guiana 1c Magenta, Sotheby's New York, June 2014; record for any stamp <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$8.3 m</div><div class="l">The same stamp, Sotheby's, June 2021, against a $10–15 m estimate; its first sale below the previous price<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">80,000</div><div class="l">Fractional "Pieces" at £100 into which Stanley Gibbons split beneficial ownership, Nov 2021<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">1</div><div class="l">Known example; Stanley Gibbons weighed it at 0.05 g, roughly $166 m a gram<sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -388,8 +423,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Dealer and app price guides are excluded.</p></div>
-  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Dealer and app price guides are excluded. Sources 9–11 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>Wikipedia</b>, "British Guiana 1c magenta", and <b>Sotheby's</b> sale records: $9,480,000 (17 Jun 2014, Weitzman); $8,307,000 (8 Jun 2021, Stanley Gibbons); four world records; on loan to the Smithsonian National Postal Museum. <a href="https://en.wikipedia.org/wiki/British_Guiana_1c_magenta" target="_blank">wikipedia.org</a></li>
     <li id="s2"><b>Stanley Gibbons</b>, "The One Cent Magenta", and Showpiece launch, 8 Nov 2021: $8.3 m purchase; 80,000 Pieces at £100; resale not guaranteed. <a href="https://legacy.stanleygibbons.com/collecting-stamps/one-cent-magenta" target="_blank">stanleygibbons.com</a></li>
     <li id="s3"><b>Just Collecting</b>, "Why the British Guiana 1c magenta is worth millions", Sep 2026: 2021 estimate $10–15 m; first sale below the previous price; 0.05 g weighing; "rarity sets a floor for interest, not a ceiling on price". <a href="https://news.justcollecting.com/why-the-british-guiana-1c-magenta-is-worth-millions/" target="_blank">justcollecting.com</a> <span class="c c-m">Med</span></li>
@@ -398,7 +433,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s6"><b>Yahoo Finance / Reuters</b>, "World's most valuable stamp bought for $8m by UK's Stanley Gibbons", Jun 2021. <a href="https://uk.finance.yahoo.com/news/worlds-most-valuable-stamp-bought-for-8-m-by-u-ks-stanley-gibbons-102403853.html" target="_blank">yahoo.com</a></li>
     <li id="s7"><b>Royal Philatelic Society London, BPA Expertising, Philatelic Foundation</b>: expert committee procedures; used for structure, no figures cited.</li>
     <li id="s8"><b>ΣΟΦΙΑ</b>: catalogue-to-realisation ratios and dealer margins are the trade's rule of thumb, not a measured series. <span class="c c-l">Low</span></li>
-  </ol></details>
+  <li id="s9"><b>Artnet News</b>, "In Just 10 Minutes, One Coin and Five Stamps Owned by Shoe Designer Stuart Weitzman Fetched $32 Million at Sotheby's", Jun 2021: 1c Magenta $8.3 m (estimate $10–15 m) to Stanley Gibbons; Inverted Jenny plate block $4.9 m (estimate $5–7 m); 1933 double eagle $18.9 m; neither stamp lot met estimate. <a href="https://news.artnet.com/market/sothebys-weizman-coin-stamp-sale-1978544" target="_blank">news.artnet.com</a> <span class="c c-h">High</span></li>
+<li id="s10"><b>Wikipedia</b>, "Stamp collecting", accessed 23 Oct 2026: stamps typically sell at auction for 10–30% of catalogue value, above catalogue only for the very top quality; Stanley Gibbons and Scott catalogues as references. "British Guiana 1c magenta": four world records; $9.48 m in 2014, $8,307,000 in 2021. <a href="https://en.wikipedia.org/wiki/Stamp_collecting" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
+<li id="s11"><b>MoneyWeek / Stamp Group</b>, "Fractional ownership: buy a share of an $8.6m postage stamp", Aug 2021: Stanley Gibbons share scheme at a total of £8 m, dealer bearing vault and insurance costs, total acquisition cost c.£6.5 m. Stamp Group postal auction, Aug 2026: 500+ lots of British Empire stamps from a Stanley Gibbons-built collection priced at 30–35% of catalogue against up to 80% originally paid. <a href="https://moneyweek.com/investments/alternative-investments/603805/fractional-ownership-buy-a-share-of-an-86m-postage-stamp" target="_blank">moneyweek.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

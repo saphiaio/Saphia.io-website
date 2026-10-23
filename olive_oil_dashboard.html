@@ -281,6 +281,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -298,11 +315,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Olive Oil</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Route: groves and listed producers · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Origin prices retreating from the 2023–24 drought peak as Spanish supply recovers.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Origin prices retreating from the 2023–24 drought peak as Spanish supply recovers.<sup class="r"><a href="#s9">9</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Spain · Italy · Greece · Tunisia · Turkey</div>
     <div><div class="k">Principal markets</div>Italy · Spain · United States · Brazil · Japan</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Low</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Grove 5–7 yrs to yield · oil one season</div>
+      <div>Oil oxidises and is sold within the campaign; no one holds it. A grove yields commercially from year five to seven, in super-high-density systems from year three, and for decades after. Listed producers add a third horizon: Deoleo, the largest bottler, was the object of a €470 m takeover contest in August 2026.<sup class="r"><a href="#s14">14</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · groves and listed producers</div>
+      <div class="ex">
+        <span>Routes</span><span>Oil: bulk sale to a bottler or cooperative at the weekly origin price (Poolred, Infaoliva in Jaén; ISMEA in Italy). Grove: sale of farmland with trees, in Andalusia an active market with institutional buyers. Equity: Deoleo (Madrid), a few Greek and Italian listings, Spanish cooperatives are unlisted.<sup class="r"><a href="#s12">12</a> <a href="#s13">13</a> <a href="#s14">14</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Poolred recorded Spanish extra virgin at €3.20/kg for 3–9 October 2026 (Infaoliva €3.10 on 13 October), down about 20% in a year and less than half the 2024 peak; Spain's first 2026/27 estimate is 1.6 m t, Jaén alone 575,000 t. Italian stocks closed the campaign at 195,044 t, up 47%. Deoleo trades about €0.35 a share with a 52-week range of €0.18–0.50.<sup class="r"><a href="#s12">12</a> <a href="#s13">13</a> <a href="#s14">14</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Oil: mill and bottler margins, quality downgrades (virgin and lampante trade €0.20–0.30/kg below extra virgin), and storage losses if held. Grove: agency and transfer costs; valuation on yield, water and planting system. Equity: brokerage and a thin order book.<sup class="r"><a href="#s12">12</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Bulk oil sells in days at the weekly price; a grove takes months; listed shares exit the same day. The campaign calendar (harvest October–January) sets when sellers have oil to sell.<sup class="r"><a href="#s12">12</a> <a href="#s13">13</a></sup><span class="t">Derived</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Spanish 2026/27 crop estimates have been cut from up to 1.8 Mt to 1.4–1.5 Mt after a hot, dry summer (42–44°C in Andalusia). Spanish EVOO at origin averaged €4.65/kg on 28 Sep, up 18% in ten days, reversing the summer low near €3.40. October rain now decides the harvest.<sup class="r"><a href="#s9">9</a></sup><sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s11">11</a></sup></p>
@@ -314,7 +349,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 14 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A Mediterranean staple that behaved like a luxury for two years: Spanish drought halved the world's largest crop, producer prices in Jaén trebled, consumption fell, then a record 2024/25 harvest cut prices by a third and the trade sold seventy per cent of the next crop in seven months. This page covers the crop-year balance, the price cycle at origin, the geography of supply, consumption's structural shift away from Europe, and the integrity layer. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">3,572 kt</div><div class="l">World production 2024/25, +38%, a record recovery <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">3,440 kt</div><div class="l">World production 2025/26 estimate, c.−4% <span class="t">Estimate</span><sup class="r"><a href="#s2">2</a> <a href="#s5">5</a></sup></div></div><div><div class="v">3,248 kt</div><div class="l">World consumption 2025/26 estimate, +1.0% <span class="t">Estimate</span><sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">c.45%</div><div class="l">EU share of world consumption, down from over 70% in 2004/05 <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -418,9 +453,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. The International Olive Council is the primary source; trade-house market reports are marked Med.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. The International Olive Council is the primary source; trade-house market reports are marked Med. Sources 12–14 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 14 sources</summary><ol class="src">
     <li id="s1"><b>International Olive Council</b>, "World Market of Olive Oil and Table Olives, Data From December 2024", Jan 2025, 2023/24 production 2,564 kt (−7%), consumption 2,780 kt (−3%), imports 1,015 kt; Spain 854 kt, Italy 328.5 kt, Portugal 160.9 kt; Jaén €530 (−28.9%), Bari €915 (+1.7%).</li>
     <li id="s2"><b>International Olive Council</b>, "Olive sector statistics, December 2025 and forecasts", Jan 2026, 2024/25 production 3,572 kt (+38%, +983 kt); 2023/24 revised 2,589 kt; 2025/26 estimate 3,440 kt; table olives 2,986 kt (−10%); Jaén €433, Bari €665, Chania €465; production tripled in sixty years.</li>
     <li id="s3"><b>International Olive Council</b>, "Olive sector statistics, January/February 2026", Feb 2026, consumption 3,215 kt (2024/25, +15.3%) and 3,248 kt (2025/26e, +1.0%); EU share 70% to c.45%; Egypt, Algeria, Türkiye table-olive consumption; Jaén €407 (−2.5%), Bari €650 (−30.9%).</li>
@@ -432,6 +467,9 @@ td.n+td,th.n+th{padding-left:16px}
   <li id="s9"><b>Greek City Times, "Greek Olive Oil Prices Fall as 2026 Harvest Begins"</b>, 21 Sep 2026. Spain estimate cut to 1.4–1.5 Mt; Spanish costs €1.70–2/kg. <a href="https://greekcitytimes.com/2026/09/21/greek-olive-oil-prices-2026-harvest" target="_blank">greekcitytimes.com</a> <span class="c c-m">Med</span></li>
 <li id="s10"><b>Oleista, "Olive oil price at origin today"</b>, 28 Sep 2026. Spain EVOO €4.65/kg average, +18% in ten days; virgin €3.31; lampante €3.16. <a href="https://oleista.com/en/prices" target="_blank">oleista.com</a> <span class="c c-m">Med</span></li>
 <li id="s11"><b>Mediterrolio, "Olive Oil Prices 2026"</b>, Aug 2026. Spain cycle low €3.40/kg; €3.45/kg on 6 Aug. <a href="https://www.mediterrolio.com/mediterranean-olive-oil-prices/" target="_blank">mediterrolio.com</a> <span class="c c-l">Low</span></li>
+<li id="s12"><b>Wikifarmer</b>, "Olive oil prices and Italy's season-end stocks", 15 Oct 2026: Poolred (COAG Jaén) 3–9 Oct extra virgin €3.20/kg, virgin €3.01, lampante €2.93; Infaoliva 13 Oct €3.10 extra virgin; Italian stocks 195,044 t, +46.7% y/y. <a href="https://wikifarmer.com/library/en/article/olive-oil-prices-italy-stocks-september-2026" target="_blank">wikifarmer.com</a> <span class="c c-h">High</span></li>
+<li id="s13"><b>Wikifarmer</b>, "Olive oil 2026/27 outlook for crops and prices", Sep 2026: Spain first aforo 1.6 m t; Jaén 575,000 t; AICA 2025/26 production 1,301,761 t; Jaén producer price €378.5/100 kg mid-June per IOC. Also Olive Private Label Studio tracker: €3.39/kg late September, −20% y/y. <a href="https://wikifarmer.com/library/en/article/olive-oil-2026-27-outlook-prices" target="_blank">wikifarmer.com</a> <span class="c c-h">High</span></li>
+<li id="s14"><b>CNBC</b>, "Spain's Deoleo shares surge as olive oil maker draws takeover interest", 19 Aug 2026: Dcoop offer reported at €470 m; shares +20% to a 52-week high; Italian, French and Australian bidders. Yahoo Finance OLE.MC: €0.352, 52-week range €0.1765–0.498, Oct 2026. <a href="https://www.cnbc.com/2026/08/19/deoleo-takeover-battle-olive-oil-dcoop.html" target="_blank">cnbc.com</a> <span class="c c-h">High</span></li>
 </ol></details>
 </section>
 

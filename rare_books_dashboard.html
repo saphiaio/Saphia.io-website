@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Rare Books</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Printed books and manuscripts · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">A $1.2 billion auction market growing at the top: million-dollar lots doubled in two years while the trade below $10,000 thins and moves online.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">A $1.2 billion auction market growing at the top: million-dollar lots doubled in two years while the trade below $10,000 thins and moves online.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Europe (incunabula, early printing) · England · United States (Americana, modern firsts) · the Islamic and Hebrew manuscript traditions</div>
     <div><div class="k">Principal markets</div>New York · London · Paris · the dealer fairs (New York, London, Paris, California)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low</span><span>Liquidity</span><span>Medium; top manuscripts Low</span><span>Scarcity</span><span>High; fixed stock</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10+ years · libraries never sell</div>
+      <div>Books are held for a collecting lifetime and sold by the estate; the auction record stretches back centuries and sixteen million results make the price history unusually legible. Supply only falls, because institutional buyers absorb copies permanently, and the market below $10,000 has thinned and moved online while million-dollar lots doubled in two years.<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · printed books and manuscripts</div>
+      <div class="ex">
+        <span>Routes</span><span>Christie's and Sotheby's books and manuscripts departments (London, New York, Paris) for lots over about $10,000; specialist houses (Bonhams, Swann, Forum, Dominic Winter); ABAA/ILAB dealers who buy outright or consign; online marketplaces for the trade below.<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Auction sales of books and manuscripts were $1.23 bn in 2025, up 8.2%, with 26 lots over $1 m against 12 two years earlier; the record stands at $43.2 m for a first printing of the US Constitution and $38.1 m for the Codex Sassoon. Rare Book Hub indexes sixteen million auction records.<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Sotheby's standard seller's commission 10%, negotiable above $500,000; buyer's premium 28% to $2 m, which caps the hammer; collation, condition reports and, for manuscripts, provenance research before consignment. Dealers buy at a third to a half below retail.<sup class="r"><a href="#s10">10</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Consignment closes two to three months before a sale; marquee sales in spring and autumn; payment within 45 days of the sale subject to the buyer settling. Dealer sale in days at a lower price.<sup class="r"><a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Rare Book Hub's 2025 tally put auction sales of books and collectible paper at $1.23 bn, up 8.2%, with 26 lots above $1 m against 12 in 2023. Sotheby's names books among the categories with "continued strength" in a record first half of 2026.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 9 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 10 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The oldest collecting market in the West and one of the best documented: sixteen million auction records exist, and a copy of almost anything has sold before. Supply is fixed and shrinks as institutions absorb it; demand has broadened from the antiquarian core into modern first editions, science, and manuscripts of every tradition. This page covers the market's size, the record book, the condition and forgery questions that decide value, the trade's structure, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$1.23 bn</div><div class="l">Auction sales of books and collectible paper, 2025, +8.2%, premium included. Rare Book Hub <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">26</div><div class="l">Lots above $1 m in 2025, against 12 in 2023; 16,018 lots at $10,000 or more<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$38.1 m</div><div class="l">Codex Sassoon, Sotheby's New York, May 2023; record for any book or manuscript<sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">$43.2 m</div><div class="l">First printing of the US Constitution, Sotheby's, Nov 2021; record for any document<sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -388,8 +423,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
-  <details><summary class="src-toggle">Show 9 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Source 10 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 10 sources</summary><ol class="src">
     <li id="s1"><b>Rare Book Hub</b>, 2025 auction sales of books and collectible paper, as compiled in a market report revised 6 Oct 2026: $1.23 bn (+8.2% from $1,137,614,000), 26 lots above $1 m (12 in 2023), 16,018 lots at $10,000+; specialist houses named. <a href="https://www.rarebookhub.com/" target="_blank">rarebookhub.com</a> <span class="c c-m">Med</span></li>
     <li id="s2"><b>The Art Newspaper</b>, "Christie's and Sotheby's 2026 half year results", 15 Jul 2026: Sotheby's luxury head cites "continued strength in … books"; H1 totals. <a href="https://www.theartnewspaper.com/2026/07/15/trophy-lots-and-luxury-goods-fuel-rebound-for-christies-and-sothebys-2026-half-year-results" target="_blank">theartnewspaper.com</a></li>
     <li id="s3"><b>Sotheby's</b>, Books &amp; Manuscripts department page: Codex Sassoon $38.1 m (2023), record for any book; US Constitution $43.2 m (2022 per Sotheby's; sale Nov 2021), record for any document. <a href="https://www.sothebys.com/en/departments/books-manuscripts" target="_blank">sothebys.com</a></li>
@@ -399,7 +434,8 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s7"><b>ILAB / ABAA</b>, association directories and stolen-book register; used for trade structure, no figures cited.</li>
     <li id="s8"><b>Christie's</b>, First Folio sale, Oct 2020, $9.98 m; record for a literary work. Christie's release.</li>
     <li id="s9"><b>ΣΟΦΙΑ</b>, fee and retail-to-auction ratios are the trade's rule of thumb, not a measured series. <span class="c c-l">Low</span></li>
-  </ol></details>
+  <li id="s10"><b>Sotheby's / The Art Newspaper</b>, "Buy & Sell at Sotheby's": seller's commission 10% of hammer; payment within 45 days subject to buyer's payment. The Art Newspaper, 17 Feb 2026: buyer's premium 28% to $2 m (£1.5 m), 22% to $8 m, 15% above. <a href="https://www.sothebys.com/en/buy-sell" target="_blank">sothebys.com</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

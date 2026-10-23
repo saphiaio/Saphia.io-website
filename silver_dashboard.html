@@ -288,6 +288,24 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -305,11 +323,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Silver</h1>
     <div class="grade"><span class="g">Σ1</span><span class="n">Institutional</span><div class="m">Physical metal · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Through $60: ~$57 in mid-October, down a tenth on the month after the Fed's September hike took 10-year yields past 5%. The year-on-year gain has shrunk to single digits.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">Through $60: ~$57 in mid-October, down a tenth on the month after the Fed's September hike took 10-year yields past 5%. The year-on-year gain has shrunk to single digits.<sup class="r"><a href="#s14">14</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Mexico · China · Peru · Chile · Poland</div>
     <div><div class="k">Principal markets</div>India · China · United States · London and New York (bullion)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Medium</span><span>Provenance risk</span><span>Low</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Open-ended</div>
+      <div>Held as metal or ETF shares with no term. Storage and insurance cost more per dollar than gold because of weight and volume, which argues against short holds in physical form.<span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical metal</div>
+      <div class="ex">
+        <span>Routes</span><span>Dealer or bullion bank at the LBMA Silver Price; physically backed ETFs, the largest of which held 491 Moz at 31 March 2026; COMEX futures.<sup class="r"><a href="#s27">27</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>LBMA trade reporting averaged 485 Moz a day in Q2 2026, worth US$35.8 bn. London clearing transferred 175.1 Moz a day in August.<sup class="r"><a href="#s25">25</a> <a href="#s26">26</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Wholesale spreads on 1,000 oz bars are narrow; retail bar and coin premiums over spot are materially wider, and vaulting is charged on weight.<span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Loco London spot settles two business days after trade; ETF shares on the exchange cycle.<sup class="r"><a href="#s28">28</a></sup><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Silver $57.26 on 18 Oct, from $61.4 at the last update; −9% on the month, +7% on the year as the October 2025 squeeze drops into the base.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup> LBMA's Q3 report puts the quarter at +4.3% inside a $55–70 range and the gold:silver ratio at 69.<sup class="r"><a href="#s13">13</a></sup> COMEX registered stock has rebuilt to 103 Moz; London vaults hold 28,985 t, up 3.2% on the quarter.<sup class="r"><a href="#s20">20</a></sup><sup class="r"><a href="#s13">13</a></sup> Two inventory figures carried since launch are corrected below.</p>
@@ -321,7 +357,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 24 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 28 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Two demand pools, one supply that cannot grow: industry takes the majority of every ounce mined, investors take the rest, and the market has run a deficit for six years. This page tracks how solar thrifting and a January 2026 blow-off top are reshaping the balance. No live price is carried.</p>
   <div class="figures"><div><div class="v">$121.67 /oz</div><div class="l">All-time high, 29 Jan 2026</div></div><div><div class="v">846.6 Moz</div><div class="l">Mine production 2025</div></div><div><div class="v">197.6 Moz</div><div class="l">Recycling 2025, 12-year high</div></div><div><div class="v">186.6 Moz</div><div class="l">Solar PV demand 2025</div></div></div>
 
@@ -410,9 +446,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 25–28 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 24 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 28 sources</summary><ol class="src">
     <li id="s1"><b>Investing News Network</b>, "Silver Institute: Sustained Supply Deficit Exposes Market to Squeezes", 27 Apr 2026, reporting World Silver Survey 2026 (46.3 Moz 2026; 40.3 Moz 2025).</li>
     <li id="s2"><b>Mining Visuals</b>, "Silver Market Balance: A 2026 Update", 25 May 2026, mine 846.6 Moz; recycling 197.6 Moz; demand −2% to c.1.13 bn oz; LONGi 5 Jan 2026 statement; January record above $121. <span class="c c-m">Med</span></li>
     <li id="s3"><b>Kitco</b>, Silver price page, all-time high $121.67 on 29 Jan 2026.</li>
@@ -437,6 +473,10 @@ td.n+td,th.n+th{padding-left:16px}
 <li id="s22"><b>ETF Action, "Energy Surges as Gold Draws Steady Inflows"</b>, 17 Oct 2026. SLV 5-day flow +$219m; SLV −5.97% on the week. <a href="https://www.etfaction.com/energy-surges-as-gold-draws-steady-inflows/" target="_blank">etfaction.com</a> <span class="c c-m">Med</span></li>
 <li id="s23"><b>GoldSilver, "Gold ETFs Just Pulled In $2 Billion. Silver Investors Pulled Out."</b>, Sep 2026, citing ETF Action 8 Sep 2026. SLV −$29m over five days. <a href="https://goldsilver.com/industry-news/goldsilver-news/gold-etf-inflows-silver-etf-outflows/" target="_blank">goldsilver.com</a> <span class="c c-m">Med</span></li>
 <li id="s24"><b>Charles Schwab, "Fed Hikes in 12-0 Vote, Commits to Inflation Fight"</b>, 16 Sep 2026. 25 bp, unanimous; 10-year back to 5% after the press conference. <a href="https://www.schwab.com/learn/story/fomc-meeting" target="_blank">schwab.com</a> <span class="c c-h">High</span></li>
+<li id="s25"><b>LBMA</b>, "Precious Metals Market Report: Q2 2026", silver average daily volume 485.19 Moz, average daily value US$35.76 bn; London vaults 28,082 t at end-June. <a href="https://www.lbma.org.uk/articles/lbma-precious-metals-market-report-q2-2026" target="_blank">lbma.org.uk</a> <span class="c c-h">High</span></li>
+<li id="s26"><b>LBMA</b>, "Clearing Data", August 2026 daily averages, 175.1 Moz of silver transferred per day, US$11.4 bn, 1,986 transfers. <a href="https://www.lbma.org.uk/prices-and-data/clearing-data" target="_blank">lbma.org.uk</a> <span class="c c-h">High</span></li>
+<li id="s27"><b>Wikipedia</b>, "Silver exchange-traded product", accessed 23 Oct 2026, iShares Silver Trust holdings 490,988,894 oz at 31 Mar 2026 per SEC 10-Q; custody with JPMorgan London; valuation at the LBMA Silver Price. <a href="https://en.wikipedia.org/wiki/Silver_exchange-traded_product" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
+<li id="s28"><b>Wikipedia</b>, "London bullion market", accessed 23 Oct 2026, spot settlement two business days after trade. <a href="https://en.wikipedia.org/wiki/London_bullion_market" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
 </ol></details>
   <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime line and "Since last update" rewritten; the January high quoted there ($115.15, a futures print) was inconsistent with the page's own $121.67 spot record and is replaced by the LBMA auction high of $118.45 alongside the spot figure. Section I: Q3 and October paragraphs added with Fed and yield context; derived gold:silver ratio of 67 replaced by the Silver Institute's 69 at end-Q3. Section II: 2026F mine production "~flat" made specific at 844.1 Moz. Section III: ETF flow evidence and the July copper-substitution announcement added. Section IV: rebuilt on primary CME and LBMA data; two launch figures withdrawn and the correction logged in place. Section V: one indicator added. Sources 13–24 added; 31 new sourced figures.</div>
 </section>

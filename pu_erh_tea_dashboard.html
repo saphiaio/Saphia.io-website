@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Pu-erh Tea</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Physical · dry-stored · 20 Oct 2026</div></div>
   </div>
-  <p class="regime">A century-old cake sells for HK$3.5 m while the factory tea that the speculative market actually trades has lost four-fifths of its value since 2021; the asset appreciates only if stored correctly for decades and is the most counterfeited tea in the world.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">A century-old cake sells for HK$3.5 m while the factory tea that the speculative market actually trades has lost four-fifths of its value since 2021; the asset appreciates only if stored correctly for decades and is the most counterfeited tea in the world.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Compressed raw (sheng) pu-erh from Yunnan held for ageing: antique private-label cakes (Hao Ji, pre-1950), state-era cakes (Yin Ji, 1950s; Qizi bingcha, 1970s–90s) and modern factory and single-mountain production. Ripe (shou) pu-erh and loose tea are not covered; other teas under <a href="/tea-dashboard" style="border-bottom:1px solid var(--bronze)">Tea →</a></div>
     <div><div class="k">Principal markets</div>Hong Kong (L&amp;H, Poly, Tokyo Chuo, Sotheby's since 2021) · Guangzhou Fangcun wholesale market · Donghe online price platform · Kunming · Taipei · Beijing (China Guardian)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High for factory tea (Dayi); dispersed for mountain tea</span><span>Liquidity</span><span>Medium for current Dayi; very low above</span><span>Scarcity</span><span>Very high for antique; none for new production</span><span>Provenance risk</span><span>Very high; wrappers, storage, forgery</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10–30 years</div>
+      <div>Raw pu-erh is bought young and held while it ferments; the trade's own data show that only pre-2007 factory cakes have reliably appreciated, while younger 7542s have fallen with the extra years. The horizon is decades, the storage must be right throughout, and the price of a cake is set by its age only once it is old.<sup class="r"><a href="#s11">11</a> <a href="#s12">12</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · dry-stored cakes</div>
+      <div class="ex">
+        <span>Routes</span><span>For modern Dayi factory tea, the Fangcun wholesale market in Guangzhou and the Donghe quotation platform, where whole tongs and jian trade between dealers; Taobao and dealer networks for single cakes. For antique and state-era cakes, a handful of Hong Kong specialists and the auction houses (L&H, Poly, Sotheby's), a few dozen lots a year.<sup class="r"><a href="#s11">11</a> <a href="#s13">13</a></sup><span class="c c-m">Med</span></span>
+        <span>Activity</span><span>Donghe posts daily quotes for hundreds of Dayi productions: the 2020 7542 peaked near RMB 50,000 a jian (42 cakes) and had fallen to about RMB 29,000 by February 2024. The 7542 is the market's reference; its 20–30% swings set everything else. Antique cakes: a century-old Song Pin Hao made HK$3.5 m this year.<sup class="r"><a href="#s11">11</a> <a href="#s13">13</a> <a href="#s1">1</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>Dealer spread at Fangcun on the quoted price; auction commissions of 20–25% to the buyer and 10–15% to the seller for antique lots; authentication risk borne by the seller, since Dayi is the most counterfeited tea in the world and a rejected cake is unsaleable. Storage for decades is the hidden cost.<sup class="r"><a href="#s13">13</a> <a href="#s10">10</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Factory tea in a tong can be sold at Fangcun in days at the quoted price less spread; a single cake or an unusual production takes weeks. Antique cakes wait for a Hong Kong sale and are paid 30–45 days after.<span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. L&amp;H Auction's autumn 2025 sale carried the first complete seven-cake stack of Red Mark Song Pin Hao offered at auction, following its HK$3.5 m hammer for a single cake in spring 2024; Dayi's Xuan Yuan series, the speculative benchmark, had fallen to 380,000 yuan a unit by mid-2025 from 1.88 m in 2021.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 10 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 13 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The one collectible that is literally consumed in the tasting, and whose value depends on a biological process the owner must manage for decades. This page covers the record book for antique cakes, the factory-tea speculation that is the real market by volume, the tiers and what the wrappers mean, storage and forgery, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">RMB 23.11 m</div><div class="l">Fu Yuan Chang purple-ticket stack, 2,235 g, c. 1920, Tokyo Chuo Auction Hong Kong, 2019; the standing record for pu-erh (c. $3.4 m)<sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">HK$3.5 m</div><div class="l">Single cake, Red Mark Song Pin Hao, c. 1920s, L&amp;H Auction, spring 2024; record for one cake<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">−80%</div><div class="l">Dayi Xuan Yuan series, 15 kg unit: 1.88 m yuan (2021) to 380,000 yuan (Jun 2025)<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">95%</div><div class="l">Share of tea at Fangcun bought to store rather than drink, per CCTV's 2007 investigation; prices then halved<sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
@@ -390,8 +425,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Auction houses for the record book; SCMP and specialist blogs for the factory market, tagged where they are the only source.</p></div>
-  <details><summary class="src-toggle">Show 10 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Auction houses for the record book; SCMP and specialist blogs for the factory market, tagged where they are the only source. Sources 11–13 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 13 sources</summary><ol class="src">
     <li id="s1"><b>L&amp;H Auction</b>, Hong Kong, "Century-Old Red Mark Song Pin Hao Makes Historic Debut", autumn 2025 catalogue notes: HK$3.5 m hammer for a single Red Mark Song Pin Hao cake, spring 2024; estimates for Yin Ji and 8582 stacks; Fu Yuan Chang and Jing Chang Hao lots. <a href="https://www.lhauction.com.hk/en/blog/detail?id=588" target="_blank">lhauction.com.hk</a></li>
     <li id="s2"><b>South China Morning Post</b>, "How is market reading the tea leaves as China's Puer bubble comes off the boil?", Aug 2025: Dayi Xuan Yuan 70,000 yuan (2017), 1.88 m (2021), 1.08 m (early 2023), 380,000 (Jun 2025); weak economy, gift-giving, anti-corruption. <a href="https://www.scmp.com/economy/china-economy/article/3322809/how-market-reading-tea-leaves-chinas-puer-bubble-comes-boil" target="_blank">scmp.com</a></li>
     <li id="s3"><b>CS Puerh</b>, "The World's Most Expensive Aged Tea", 2023: Fu Yuan Chang purple ticket, 2,235 g, RMB 23.11 m ($3.36 m), Tokyo Chuo Hong Kong 2019; blue ticket stack RMB 10.35 m ($1.46 m), China Guardian 2013. Trade source. <span class="c c-m">Med</span> <a href="https://cspuerh.com/blogs/news/discover-the-most-expensive-aged-tea-and-the-story-behind" target="_blank">cspuerh.com</a></li>
@@ -402,7 +437,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s8"><b>A Tea Addict's Journal</b> (MarshalN), "Crashing prices", 26 Feb 2024: Donghe screen; 2020 7542 from c. 50,000 to c. 29,000 yuan a jian; over 600 yuan a cake. <span class="c c-m">Med</span> <a href="https://marshaln.com/2024/02/crashing-prices/" target="_blank">marshaln.com</a></li>
     <li id="s9"><b>Page of Tea</b>, "Tea Market News 2025": 2017 as the peak for maocha prices; famous villages (Bingdao, Lao Banzhang) falling; Kunming market; outlook for pre-2022 arbor material. <span class="c c-m">Med</span> <a href="https://www.pageoftea.com/tea-market-news-2025" target="_blank">pageoftea.com</a></li>
     <li id="s10"><b>Steep Atlas</b>, "Menghai County", 2026: Dayi the most counterfeited brand; current 7572 $10–20, 7542 $15–30; 2000s $100–600+; 1990s 88 Qing $2,000–10,000+; and <b>TeaDB</b> on CNNP selling name and wrappers. <span class="c c-m">Med</span> <a href="https://steepatlas.com/origin/menghai-county/" target="_blank">steepatlas.com</a></li>
-  </ol></details>
+  <li id="s11"><b>A Tea Addict's Journal (MarshalN)</b>, "Crashing prices", 26 Feb 2024: Donghe screenshot, 2020 7542 from a peak near RMB 50,000/jian (42 cakes) to about RMB 29,000; "2019–2021 7542s", Jul 2021: new 7542 over RMB 1,000 a cake, Taobao RMB 1,500+; Dayi limiting pressings to one a year. <a href="https://marshaln.com/2024/02/crashing-prices/" target="_blank">marshaln.com</a> <span class="c c-m">Med</span></li>
+<li id="s12"><b>TeaDB</b>, "Does Pu'erh Increase in Value? Part 1. Big Factory Pu'erh Recipes": Donghe historical pricing from 2013; younger 7542s decreased in price despite extra age; nearly every pre-2007 production of 7542, 8582 and 7572 rose. <a href="https://teadb.org/does-puerh-increase-in-value-big-factory-puerh-recipes/" target="_blank">teadb.org</a> <span class="c c-m">Med</span></li>
+<li id="s13"><b>Umi Tea Sets</b>, "Dayi Sole High Note at the Lonely Fangcun Tea Market": 7542 as the basis for speculation at Fangcun; list price just over RMB 1,000 against Fangcun RMB 3,500–5,000 a case; current swings of 20–30% against earlier doublings and triplings. <a href="https://www.umiteasets.com/blogs/umi-tea-sets-blog/dayi-sole-high-note-at-the-lonely-fangcun-tea-market" target="_blank">umiteasets.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

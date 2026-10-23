@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Racehorses</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Living asset · 20 Oct 2026</div></div>
   </div>
-  <p class="regime">Record prices at the top of the yearling market for a sixth year, on a foal crop that shrinks every year and with a buyer base narrow enough that one owner wrote a fifth of Europe's premier sale.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">Record prices at the top of the yearling market for a sixth year, on a foal crop that shrinks every year and with a buyer base narrow enough that one owner wrote a fifth of Europe's premier sale.<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Thoroughbreds bred for flat racing: yearlings, horses in training, broodmares and stallion shares. National Hunt, Arabians and Quarter Horses are not covered.</div>
     <div><div class="k">Principal markets</div>Lexington, Kentucky (Keeneland, September) · Newmarket (Tattersalls, October and December) · Deauville (Arqana, August) · Kildare (Goffs) · Hokkaido (JRHA, July) · Gold Coast (Magic Millions, January)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium; Kentucky, two stallion fees</span><span>Liquidity</span><span>Medium, calendar-bound</span><span>Scarcity</span><span>Low; renewed yearly</span><span>Provenance risk</span><span>Low</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">1–4 years · racing</div>
+      <div>A horse bought as a yearling is resold as a two-year-old in training, raced for two or three seasons, then sold on as a stallion prospect, broodmare or horse of racing age. The holding is bounded by the animal: training costs run from the day of purchase and most horses never cover them, so the horizon is set by results, not by the owner.<span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · living asset</div>
+      <div class="ex">
+        <span>Routes</span><span>A fixed calendar of auctions: Keeneland (September yearlings; November breeding stock, 3–11 Nov 2026 with 3,397 catalogued; horses of racing age 12 Nov) and Tattersalls (October yearlings; December mares). Private sale, claiming races and syndication of shares sit alongside.<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Keeneland September 2025 grossed a record $531.5 m; Tattersalls October Book 1 2026 set a European yearling record at 4.6 m guineas and one buyer signed for 21% of the sale. Depth is in yearlings and breeding stock; the horses-of-racing-age sale catalogues 125 lots a year.<sup class="r"><a href="#s1">1</a> <a href="#s6">6</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Tattersalls charges the vendor 5% of hammer plus an entry fee; Keeneland 5% on bids over $10,000 (minimum $500) and a $1,000 entry fee, with 2.5% on a horse bought back. Vetting, transport, sales preparation and the consignor's fee sit on top. Carry cost while waiting is the heaviest on this site.<sup class="r"><a href="#s17">17</a> <a href="#s18">18</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Entries close two to three months before a sale; Tattersalls pays the vendor on the 35th day after the lot is sold, provided the buyer has paid. From decision to cash, three to five months if the horse sells at the next suitable sale.<sup class="r"><a href="#s17">17</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Keeneland September 2026 closed on 3 October with records for gross, average and median and seventy yearlings at $1 m or more; Tattersalls October Books 1–4 closed on 16 October past 210 m guineas for the first time, with a European record 4.6 m guineas for a yearling colt.<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 15 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 18 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The only market on this site whose asset is alive. Supply is renewed every spring and has fallen for a decade; demand at the top has never been stronger, and the gap between the two is the story of the last five sales seasons. This page covers the size of the trade, the 2026 season, the stallion economy that sets the value of everything else, the cost of holding, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$531.5 m</div><div class="l">Keeneland September 2025, 3,070 yearlings; the highest gross of any thoroughbred auction ever held. Beaten again in 2026<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></div></div><div><div class="v">4,600,000 gns</div><div class="l">European record for a yearling colt, by Night Of Thunder, Tattersalls October Book 1, Oct 2026<sup class="r"><a href="#s4">4</a> <a href="#s5">5</a></sup></div></div><div><div class="v">17,000</div><div class="l">Projected North American foal crop of 2026, down from 34,000 mares bred in 2014 <span class="t">Estimate</span><sup class="r"><a href="#s7">7</a> <a href="#s8">8</a></sup></div></div><div><div class="v">£350,000</div><div class="l">2026 covering fee for Dubawi and Frankel, the world's most expensive stallions<sup class="r"><a href="#s9">9</a></sup></div></div></div>
 
@@ -409,8 +444,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Auction-house releases and the Jockey Club are primary; trade press for context and cost estimates.</p></div>
-  <details><summary class="src-toggle">Show 15 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Auction-house releases and the Jockey Club are primary; trade press for context and cost estimates. Sources 16–18 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 18 sources</summary><ol class="src">
     <li id="s1"><b>Keeneland</b>, "Keeneland September Concludes with Record $531.5 Million in Sales", 20 Sep 2025: 3,070 sold; $510,544,900 through the ring (+23.99%); average $175,807; 56 seven-figure yearlings; 120 buyers at $1 m or more. <a href="https://www.keeneland.com/media/news/keeneland-september-concludes-record-5315-million-sales" target="_blank">keeneland.com</a></li>
     <li id="s2"><b>Thoroughbred Daily News</b>, "'An Incredible Sale': Record-Smashing Keeneland September Sale Concludes", 20 Sep 2025: median $80,000 (+14.29%); 2024 comparison; $3.3 m Gun Runner colt. <a href="https://www.thoroughbreddailynews.com/an-incredible-sale-record-smashing-keeneland-september-sale-concludes/" target="_blank">thoroughbreddailynews.com</a></li>
     <li id="s3"><b>Thoroughbred Daily News</b>, "'Spectacular Success': Another Record-Setting Keeneland September Sale Concludes", Oct 2026: average $187,933 (+6.87%), median +6.25%, 70 seven-figure yearlings; leading buyer partnership $16.2 m for 20; Taylor Made leading consignor. <a href="https://www.thoroughbreddailynews.com/spectacular-success-another-record-setting-keeneland-september-sale-concludes/" target="_blank">thoroughbreddailynews.com</a></li>
@@ -426,7 +461,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s13"><b>Racehorse Owners Association</b>, "Costs of ownership" and fee schedule from 1 Jan 2026: 2015 survey £22,595 flat, £16,325 jumps; registration of sole owner £0; syndicate registration £337.50. <a href="https://www.roa.co.uk/raceday/started/cost.html" target="_blank">roa.co.uk</a></li>
     <li id="s14"><b>Hambleton Racing</b>, "How much does it cost to own a racehorse in the UK?", 2026: £30,000–70,000 sole ownership; day rates £50–80; vet and farrier £3,000–14,000; BHA free sole-owner registration from Oct 2025. <span class="c c-m">Med</span> <a href="https://www.hambletonracing.co.uk/how-much-does-it-cost-to-own-a-racehorse-uk/" target="_blank">hambletonracing.co.uk</a></li>
     <li id="s15"><b>Light Up Racing</b>, "Is Racehorse Ownership All About Money?", 2026: c. $75,000 a year per horse in training; c. $3.4 bn aggregate against purses; 40% recoupment; about 8% of horses cover their keep. Industry advocacy source; figures are estimates. <span class="c c-m">Med</span> <a href="https://lightupracing.com/is-racehorse-ownership-all-about-money/" target="_blank">lightupracing.com</a></li>
-  </ol></details>
+  <li id="s16"><b>Keeneland</b>, "Sales" and "Keeneland Catalogs 3,397 Horses for 2026 November Breeding Stock Sale", Oct 2026: November Breeding Stock Sale 3–11 Nov (1,600 weanlings, 1,797 mares and prospects); Horses of Racing Age Sale 12 Nov, 125 catalogued. <a href="https://www.keeneland.com/legacy-news-category/sales" target="_blank">keeneland.com</a> <span class="c c-h">High</span></li>
+<li id="s17"><b>Tattersalls</b>, "Conditions of Sale", 3.1–3.4 and 9.1: vendor commission 5% of price, sold or bought in (2.5% if published as bought in); auction fee 2.5% of reserve above 10,000 gns; proceeds paid on but not before the 35th day after sale subject to receipt from the purchaser. <a href="https://secure.tattersalls.com/4DCGI/Online/conditions-of-sale" target="_blank">secure.tattersalls.com</a> <span class="c c-h">High</span></li>
+<li id="s18"><b>Keeneland</b>, "Quick Reference Guide, September Sale 2025": entry fee $1,000 for all sales; sales commission 5% on bids exceeding $10,000, minimum $500; RNA commission 2.5%. <a href="https://www.keeneland.com/files/keesept2025-qrg" target="_blank">keeneland.com</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

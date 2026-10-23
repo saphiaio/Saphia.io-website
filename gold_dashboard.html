@@ -294,6 +294,24 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -311,11 +329,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Gold</h1>
     <div class="grade"><span class="g">Σ1</span><span class="n">Institutional</span><div class="m">Physical metal · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Correction stabilising: ~$4,170 in mid-October, about 25% below the January record. A hot September CPI was absorbed within a day; October hike odds have faded and official-sector buying is accelerating.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">Correction stabilising: ~$4,170 in mid-October, about 25% below the January record. A hot September CPI was absorbed within a day; October hike odds have faded and official-sector buying is accelerating.<sup class="r"><a href="#s25">25</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>China · Russia · Australia · Canada · Ghana. Numismatic coins are covered under <a href="/coins-dashboard" style="border-bottom:1px solid var(--bronze)">Coins →</a></div>
     <div><div class="k">Principal markets</div>China · India · Switzerland (refining) · Dubai · London</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium, refining (mine Low)</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Low</span><span>Provenance risk</span><span>Medium (doré origin)</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Open-ended</div>
+      <div>Gold is held as a reserve or strategic allocation rather than to a term; the World Gold Council frames it as a long-term portfolio holding. No contractual horizon applies to allocated metal or to physically backed ETF shares.<sup class="r"><a href="#s34">34</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical metal</div>
+      <div class="ex">
+        <span>Routes</span><span>Allocated bars sold back through a bullion bank or dealer at the LBMA Gold Price; physically backed ETF shares on exchange; COMEX futures.<sup class="r"><a href="#s34">34</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Average daily turnover across OTC, exchange and ETF venues was about US$423 bn in September 2026. London clearing alone transferred 18.6 Moz a day in August.<sup class="r"><a href="#s34">34</a> <a href="#s35">35</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>The largest US gold ETFs charge 0.10–0.40% a year with quoted spreads near 0.01%. Dealer spreads on physical bars are wider and depend on size and form.<sup class="r"><a href="#s36">36</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Loco London spot settles two business days after trade; ETF shares settle on the exchange cycle.<sup class="r"><a href="#s37">37</a></sup><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Spot ~$4,171 on 19 Oct, up about 1% since 5 Oct and within a $4,080–4,200 range for the month. The hot September CPI print on 14 Oct knocked gold to ~$4,080 intraday; it recovered to ~$4,183 the next day as Treasury yields retreated from their highest level since 2002.<sup class="r"><a href="#s25">25</a></sup><sup class="r"><a href="#s26">26</a></sup> Markets now price roughly an 85% chance the Fed holds at 3.75–4.00% on 28 Oct, with a hike pushed to December; the "possible October hike" of early October has faded.<sup class="r"><a href="#s27">27</a></sup> The PBoC added 23 t in September per the World Gold Council (21 t per Wind Info), its largest month since October 2023 and 103 t year to date; a secondary report puts global central-bank buying in September near 63 t, unconfirmed by the WGC at this update.<sup class="r"><a href="#s28">28</a></sup></p>
@@ -327,7 +363,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 33 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 37 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The monetary metal in the year after its parabolic run: record official-sector buying, a peak near $5,600 in January 2026, and the first correction of the cycle. Dubai's position as the second hub after Switzerland is examined alongside its sourcing-integrity exposure.</p>
   <div class="figures"><div><div class="v">3,672 t</div><div class="l">Mine production 2025, record subject to revision <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$5,597–5,602</div><div class="l">All-time high, 28–29 Jan 2026 <span class="t">Reported</span><sup class="r"><a href="#s7">7</a></sup></div></div><div><div class="v">5,002 t</div><div class="l">Total supply 2025, record <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">863 t</div><div class="l">Central-bank net buying 2025 <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div></div>
 
@@ -447,9 +483,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Primary sources preferred; secondary reports of primary data carry Med confidence unless the primary was checked.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Primary sources preferred; secondary reports of primary data carry Med confidence unless the primary was checked. Sources 34–37 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 33 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 37 sources</summary><ol class="src">
     <li id="s1"><b>World Gold Council</b>, Gold Demand Trends Full Year 2025, Supply, 29 Jan 2026. gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/supply</li>
     <li id="s2"><b>World Gold Council</b>, Gold Demand Trends Full Year 2025, Central Banks, 29 Jan 2026. gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/central-banks</li>
     <li id="s3"><b>World Gold Council</b>, Gold Demand Trends Q2 2026 landing page, 5 Aug 2026; and Central bank gold statistics: June 2026 (M. Salim), Aug 2026. gold.org</li>
@@ -483,6 +519,10 @@ td.n+td,th.n+th{padding-left:16px}
 <li id="s31"><b>World Gold Council, Gold Demand Trends Q2 2026, Central Banks</b>, 30 Jul 2026 (data to 24 Jul). Q2 288.9 t, +62% y/y; Q1 revised to 57 t; H1 345 t, lowest since 2022; Russia the only sizeable Q2 seller. Standard Chartered forecast trim reported by Gate News, 4 Aug 2026. <a href="https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks" target="_blank">gold.org</a> <span class="c c-h">High</span></li>
 <li id="s32"><b>Gulf News, "UAE suspends 32 gold refineries in money-laundering crackdown"</b>, Aug 2024, reporting the Ministry of Economy: suspension 24 Jul&ndash;24 Oct 2024; 256 violations; 5% of the sector. Emirates Gold suspension: Reuters via Zawya, 15 Jul 2023. "No UAE refinery on the LBMA list": Golden Ark Reserve blog, 2026, unverified against the LBMA list itself. <a href="https://gulfnews.com/business/markets/uae-suspends-32-gold-refineries-in-money-laundering-crackdown-1.1723129712305" target="_blank">gulfnews.com</a> <span class="c c-h">High</span></li>
 <li id="s33"><b>World Gold Council, "Gold Market Commentary: Go with the flow"</b> (September 2026), 7 Oct 2026. September LBMA PM return −8.5% in USD, average $4,176; y-t-d −4.4%; managed-money net longs −84 t. August commentary, 8 Sep 2026: August +13%, month-end $4,563. <a href="https://www.gold.org/goldhub/research/gold-market-commentary-september-2026" target="_blank">gold.org</a> <span class="c c-h">High</span></li>
+<li id="s34"><b>World Gold Council</b>, "Gold ETF Flows: September 2026", 8 Oct 2026, global gold market volumes US$423 bn/day; OTC US$229 bn/day; LBMA US$200 bn/day; ETF US$7 bn/day. Also "Gold as a strategic asset: 2026 edition" for the strategic-holding framing. <a href="https://www.gold.org/goldhub/research/gold-etfs-holdings-and-flows/2026/10" target="_blank">gold.org</a> <span class="c c-h">High</span></li>
+<li id="s35"><b>LBMA</b>, "Clearing Data", August 2026 daily averages, 18.6 Moz of gold transferred per day, US$81.8 bn, 7,611 transfers. <a href="https://www.lbma.org.uk/prices-and-data/clearing-data" target="_blank">lbma.org.uk</a> <span class="c c-h">High</span></li>
+<li id="s36"><b>etf.com</b>, "GLD vs GLDM vs IAU: Which Gold ETF Should You Actually Buy?", Jul 2026, expense ratios 0.40% / 0.10% / 0.25%; spread figures from fund analytics pages, mid-2026. Secondary. <a href="https://www.etf.com/sections/news/gld-vs-gldm-vs-iau-which-gold-etf-should-you-actually-buy" target="_blank">etf.com</a> <span class="c c-m">Med</span></li>
+<li id="s37"><b>Wikipedia</b>, "London bullion market", accessed 23 Oct 2026, spot gold settles two business days after trade; allocated account definition. <a href="https://en.wikipedia.org/wiki/London_bullion_market" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
 </ol></details>
   <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Section I: September and October added; August close discrepancy logged. Section III: Q1 2026 corrected to 57 t and the earlier reconciliation withdrawn; August global and September PBoC rows added; the unconfirmed 63 t September global figure carried as Low. Section IV: September ETF flows added. Section V: refinery-suspension date corrected to 2024; LBMA Good Delivery status added. Sources 29&ndash;33 added; corrections noted on sources 4, 5 and 16. Previous snapshot date: 5 Oct 2026.</div>
 </section>

@@ -276,6 +276,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -293,11 +310,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Oud</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Wood and oil · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">No benchmark; wild-sourced material commanding rising premia while plantation grades expand supply.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">No benchmark; wild-sourced material commanding rising premia while plantation grades expand supply.<sup class="r"><a href="#s14">14</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Assam (India) · Cambodia · Laos · Vietnam · Indonesia</div>
     <div><div class="k">Principal markets</div>Saudi Arabia · UAE · Kuwait · Japan and Taiwan · Europe</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>High (wild); Low (plantation)</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Years · oil improves, wood does not</div>
+      <div>Distilled oud oil matures in the bottle and dealers price vintage oils at multiples of fresh; wild sinking-grade chips hold value but gain little. Plantation trees take 10–15 years to reach commercial sinking grade and 15–25 for the premium tier, so a planter's horizon is two decades. Nothing in this market has a published term or a benchmark to mark against.<sup class="r"><a href="#s14">14</a> <a href="#s15">15</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · wood and oil</div>
+      <div class="ex">
+        <span>Routes</span><span>Private sale to attar dealers in the Gulf, Mumbai and Singapore, who also buy back; specialist online dealers; Japanese kōdō houses for the finest wood; Gulf bakhoor wholesalers for plantation chips. No auction depth outside occasional Hong Kong and Japanese incense sales, and CITES permits on every cross-border move.<sup class="r"><a href="#s14">14</a> <a href="#s15">15</a> <a href="#s16">16</a></sup><span class="c c-m">Med</span></span>
+        <span>Activity</span><span>Dealer price ladders rather than turnover: wild authenticated chips US$800–15,000+/kg and plantation US$30–400 at wholesale; wild oil US$30,000–80,000/kg against plantation oil US$2,000–10,000; top Hindi oil retails at £400–1,200 a tola (12 g). Plantation sinking-grade chips trade at US$120–350/kg on 50 kg minimums. The same grade is quoted at prices an order of magnitude apart.<sup class="r"><a href="#s14">14</a> <a href="#s15">15</a> <a href="#s16">16</a></sup><span class="t">Reported</span><span class="c c-l">Low</span></span>
+        <span>Cost</span><span>Dealer spread and the authentication gap are the cost: there is no laboratory standard, grading is by nose and the water test, and the Gulf and East Asian buyers who can tell wild from plantation in seconds discount everything they cannot verify. CITES export permits and, for wild material, legal provenance that often does not exist.<sup class="r"><a href="#s15">15</a> <a href="#s16">16</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Weeks to a dealer at the dealer's price; months to place a large or unusual lot with a collector or house. Permits add weeks for any border crossing.<span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no new benchmark, CITES listing change or market data found since the last update. Ratings unchanged.</p>
@@ -309,7 +344,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 13 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 16 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The Gulf's own luxury commodity: a resin formed only when an Aquilaria tree is wounded and infected, traded by weight at prices that overlap with gold, and sourced, seven times in ten, from wild populations that are already listed as threatened. There is no benchmark price, no exchange and no reliable production statistic. This page maps what can be verified.</p>
   <div class="figures"><div><div class="v">c.70%</div><div class="l">of trade from wild-harvested threatened species, 2010–2020 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">62</div><div class="l">CITES Appendix II agarwood-producing species; 3 species carry &gt;90% of trade <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">$7.8–32 bn</div><div class="l">Published market-size estimates, 2025, unreconciled <span class="t">Estimate</span><sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup></div></div></div>
 
@@ -406,9 +441,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Oud has few primary statistical sources; academic and CITES documents are weighted over market-research vendors.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Oud has few primary statistical sources; academic and CITES documents are weighted over market-research vendors. Sources 14–16 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 13 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 16 sources</summary><ol class="src">
     <li id="s1"><b>Mongabay</b>, "Global agarwood trade heavily dependent on wild, threatened trees: Study", 28 Apr 2025, reporting Kadoorie Farm and Botanic Garden study; c.70% wild; 97% / 57% wild for <i>A. filaria</i> / <i>A. malaccensis</i>; CITES–customs discrepancies.</li>
     <li id="s2"><b>Global Ecology and Conservation</b> (ScienceDirect), "Using global trade data to identify priorities for agarwood conservation and trade management", Mar 2025, 62 listed species; three species &gt;90% of chip/powder trade; &gt;99% of <i>A. crassna</i> cultivated; shift to plantations since 2017.</li>
     <li id="s3"><b>CITES</b>, CoP19 Inf. 12, "A review of the agarwood-producing genera Aquilaria and Gyrinops", decade to maturity; whole-tree harvest; Indonesia 2009 NDF density assumptions.</li>
@@ -422,7 +457,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s11"><b>Persistence Market Research</b>, Agarwood Essential Oil Market, natural oil c.77% share (2025); Gulf, Japan and China use patterns; Ajmal, Ensar Oud named. <span class="c c-l">Low</span></li>
     <li id="s12"><b>CITES</b>, SC78 Doc. 34.3 Annex 3 (Malaysia), "Scientific Basis for Sustainable Trade of Aquilaria…", wild <i>A. malaccensis</i> NDF 2025–2027; physical inspection; DNA database (Chua 2022) reference.</li>
     <li id="s13"><b>Oudgo</b>, "Agarwood Price in the Philippines", DENR plantation-only rule; United Agarwood Planters 500 ha target. <span class="c c-l">Low</span></li>
-  </ol></details>
+  <li id="s14"><b>Agarwood Town</b>, "Agarwood Price Per Kg 2026: Wild vs Cultivated Guide", Apr 2026, and "Agarwood Tree 2026: Maturity Period & Plantation Oud Guide": wild authenticated US$800–15,000+/kg; cultivated US$30–400; cultivated kynam US$400–3,500; sinking-grade plantation US$120–350/kg at 50 kg MOQ; maturity bands year 5–10, 10–15, 15–25; CITES Appendix II since 2004. Plantation trade source. <a href="https://agarwoodtown.com/blog/agarwood-price-wild-vs-cultivated/" target="_blank">agarwoodtown.com</a> <span class="c c-m">Med</span></li>
+<li id="s15"><b>Première Peau</b>, "Agarwood: The $100,000/kg Tree Poached to Extinction", Oct 2026 (also source 7 on this page): wild oil US$30,000–80,000/kg; high-grade plantation oil US$5,000–10,000; standard US$2,000–5,000; wild chips US$10,000–50,000; plantation chips US$500–7,000; ~7% natural infection rate; kyara above US$100,000/kg. <a href="https://premierepeau.com/blogs/news/agarwood-the-100-000-kg-tree-poached-to-extinction-premiere-peau" target="_blank">premierepeau.com</a> <span class="c c-m">Med</span></li>
+<li id="s16"><b>The Fragrance World</b>, "What Does Oud Smell Like?", Jul 2026: top-grade Hindi oud oil £400–1,200 per tola (~12 g) at specialist Middle Eastern attar dealers in 2026; top-grade Hindi or Cambodian agarwood over £30,000/kg; CITES protection. Retail source. <a href="https://thefragranceworld.co.uk/blog/what-does-oud-smell-like/" target="_blank">thefragranceworld.co.uk</a> <span class="c c-l">Low</span></li>
+</ol></details>
 </section>
 
 </details>

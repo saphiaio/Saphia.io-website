@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Coins</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Numismatic coins, certified · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">The most liquid of the collecting markets, lifted by the gold price beneath it: two 1804 dollars and a 1794 dollar made $4.5–6 m each in the past year, and third-party grading has made a coin in a slab almost a commodity.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">The most liquid of the collecting markets, lifted by the gold price beneath it: two 1804 dollars and a 1794 dollar made $4.5–6 m each in the past year, and third-party grading has made a coin in a slab almost a commodity.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>United States (the deepest market) · ancient Greece and Rome · Britain and Europe · Islamic gold · China (imperial and republican)</div>
     <div><div class="k">Principal markets</div>Dallas (Heritage) · Costa Mesa and New York (Stack's Bowers) · the FUN and ANA shows · London (Spink, Baldwin's, Sovereign Rarities) · Zürich and Hong Kong</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low</span><span>Liquidity</span><span>Medium; common certified coins High</span><span>Scarcity</span><span>High at the apex; fixed stock</span><span>Provenance risk</span><span>Low for slabbed; Medium for raw and ancients</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">5–10 years · slabbed</div>
+      <div>Certified coins trade sight-unseen against published bid prices, so the holding period is a choice rather than a constraint; collectors and funds cite five to ten years to clear the auction round trip. Bullion-grade coins track the metal day to day. Rarities are held for a generation and priced by the one or two bidders present when they surface.<sup class="r"><a href="#s8">8</a> <a href="#s9">9</a></sup><span class="t">Estimate</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · certified numismatic coins</div>
+      <div class="ex">
+        <span>Routes</span><span>Heritage Auctions (over 200,000 numismatic lots a year, weekly online sales plus Signature floor sales), Stack's Bowers, Legend and GreatCollections; dealer networks bidding on the CDN Greysheet; Heritage's fixed-price "Buy Now" inventory with no premium. Bullion coins to any dealer at spot plus or minus.<sup class="r"><a href="#s8">8</a> <a href="#s9">9</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Heritage handles over $1 bn of numismatic sales a year within $1.87 bn of total 2024 sales, with a free archive of past results that functions as the market's price database. PCGS and NGC population reports count every graded example. Two 1804 dollars and a 1794 dollar made $4.5–6 m each in the past year.<sup class="r"><a href="#s8">8</a> <a href="#s9">9</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Heritage raised its US-coin buyer's premium to 22% (minimum $29) from 1 January 2026 and Stack's Bowers matched from 1 April; seller's commission runs 10% on ordinary consignments to zero, or a rebate of the premium, above about $250,000. Dealer bid–ask on common certified coins is a few per cent; grading fees and CAC stickers on top.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Dealer sale: same day at bid. Heritage weekly online sales close within days of consignment; Signature sales are scheduled monthly; settlement 45–60 days after the sale at Heritage, 60–90 at Stack's Bowers.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Stack's Bowers sold the James A. Stack 1804 dollar for $6 m in December 2025 and a 1794 Flowing Hair dollar for $4.5 m in November; A-Mark Precious Metals completed its acquisition of Stack's Bowers in 2025, putting the second-largest numismatic auctioneer inside a bullion dealer. All eleven government-held 1933 Double Eagles were shown together at the ANA in Pittsburgh in 2026.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 7 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Coins are where the collectible meets the commodity. A common-date gold sovereign or double eagle trades at a small premium to its metal; a 1933 double eagle, of which one may legally be owned, made $18.9 million. Between them sits a market organised around two grading companies, two auction houses and a calendar of shows, with better price data than any other field on this site. This page covers size and cycle, the record book, how grading works and what it does not do, the trade's structure, and what to watch. Bullion coins as metal are covered under <a href="/gold-dashboard">Gold</a> and <a href="/silver-dashboard">Silver</a>. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$18.87 m</div><div class="l">1933 Saint-Gaudens double eagle, Sotheby's New York, 8 Jun 2021; record for any coin <span class="t">Reported</span><sup class="r"><a href="#s4">4</a></sup></div></div><div><div class="v">$10.0 m</div><div class="l">1794 Flowing Hair dollar, SP-66, Stack's Bowers, Jan 2013; the first eight-figure coin<sup class="r"><a href="#s5">5</a></sup></div></div><div><div class="v">$6.0 m</div><div class="l">1804 dollar, PR-65 CAC, James A. Stack collection, Stack's Bowers, Dec 2025<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">14</div><div class="l">1933 double eagles known; one legally in private hands, two at the Smithsonian, eleven held by the Mint<sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -393,8 +428,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
-  <details><summary class="src-toggle">Show 7 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 8–11 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>Stack's Bowers Galleries</b>, James A. Stack Sr. collection, Dec 2025: 1804 dollar PR-65 CAC $6,000,000; Nov 2025: 1794 dollar MS-63+ CAC $4,500,000. House results, as tabulated in source 5.</li>
     <li id="s2"><b>A-Mark Precious Metals</b>, "A-Mark Continues Expansion … by Acquiring Stack's Bowers Galleries", GlobeNewswire, 10 Mar 2025. <a href="https://www.globenewswire.com/news-release/2025/03/10/3039662/31746/en/" target="_blank">globenewswire.com</a></li>
     <li id="s3"><b>Attic Capital</b>, "Rare Coins Market Report", Sep 2026: fourteen 1933 double eagles, one private, eleven shown at Pittsburgh 2026; Heritage and Stack's positions; PCGS, NGC, CAC/CACG, IAPN; "pedigree still outranks the slab". <a href="https://atticcapital.com/coin-market-report/" target="_blank">atticcapital.com</a> <span class="c c-m">Med</span></li>
@@ -402,7 +437,11 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s5"><b>Wikipedia</b>, "List of most expensive coins": tabulated results with grades, pedigrees and houses, including 1794 dollar $10,016,875 (2013), 1804 dollars, Brasher doubloons, Paquet $7.2 m, Fengtien Tael $6.9 m, Umayyad dinar $6,029,400, Stack 1804 $6 m (Dec 2025), Cardinal 1794 $4.5 m (Nov 2025). <a href="https://en.wikipedia.org/wiki/List_of_most_expensive_coins" target="_blank">wikipedia.org</a> <span class="c c-m">Med</span></li>
     <li id="s6"><b>Heritage Auctions</b>, annual and show results; category totals. House releases; no single figure cited.</li>
     <li id="s7"><b>Bullion Shark</b>, "The most expensive coin, 1933 Double Eagle (2025 update)": PCGS price-guide value $23.5 m; common-date MS-64 Saints $3,850. Dealer source. <a href="https://bullionsharks.com/blog/the-most-expensive-coin-1933-double-eagle-/" target="_blank">bullionsharks.com</a> <span class="c c-l">Low</span></li>
-  </ol></details>
+  <li id="s8"><b>US Coin Shows</b>, "Coin Auction Houses: Heritage, Stack's Bowers" and "Major Auction Houses" guides, 2026: Heritage over $1 bn annual numismatic sales, weekly online auctions plus Signature floor sales, 200,000+ lots a year, free Heritage Archives; seller's commission typically 10%, negotiable; payment 45–60 days; Stack's Bowers 5–10%; Legend 17.5–20% buyer's premium. Secondary guide. <a href="https://www.uscoinshows.com/learn/selling-coins/coin-auction-houses" target="_blank">uscoinshows.com</a> <span class="c c-m">Med</span></li>
+<li id="s9"><b>Collectors Universe forums</b>, "Heritage BP increasing to 22% 1/1/26 for US Coins", Dec 2025, quoting Heritage's notice: buyer's premium 22% (minimum $29) for US coin auctions closing after 1 Jan 2026; premium consignors can net 110%+ of hammer via rebate. Coinage Rings, May 2026: Stack's Bowers matched 22% from 1 April; Heritage 0% seller commission on many consignments with partial rebate. <a href="https://forums.collectors.com/discussion/1119001/heritage-bp-increasing-to-22-1-1-26-for-us-coins" target="_blank">forums.collectors.com</a> <span class="c c-m">Med</span></li>
+<li id="s10"><b>Coin Identifier</b>, "Heritage Auctions vs Stack's Bowers: Where to Sell Rare Coins", May 2026: 2026 rate cards, seller's commission 0–10% by value and relationship, zero above $250,000; settlement 45–60 days Heritage, 60–90 Stack's Bowers; net paid by ACH or wire. Secondary. <a href="https://coinidentifier.org/heritage-auctions-vs-stacks-bowers-sell-rare-coins/" target="_blank">coinidentifier.org</a> <span class="c c-l">Low</span></li>
+<li id="s11"><b>Wikipedia</b>, "James L. Halperin", accessed 23 Oct 2026: Heritage Auctions 2024 sales in excess of $1.867 bn; Halperin's 1985 grading text as the basis for PCGS and NGC standards. <a href="https://en.wikipedia.org/wiki/James_L._Halperin" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

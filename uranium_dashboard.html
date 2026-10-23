@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Uranium</h1>
     <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: physical trust (U3O8 in licensed storage) · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Spot has sat at $89–90/lb for three weeks while the long-term contract price holds at $97, its highest since 2007; the physical trust trades at a 13% discount to the uranium it holds.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">Spot has sat at $89–90/lb for three weeks while the long-term contract price holds at $97, its highest since 2007; the physical trust trades at a 13% discount to the uranium it holds.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Kazakhstan (c. 40% of mine supply) · Canada · Namibia · Australia · Uzbekistan · Russia (conversion and enrichment)</div>
     <div><div class="k">Principal markets</div>No exchange; private contracts between utilities, producers and traders, with prices published by UxC and TradeTech; Sprott Physical Uranium Trust (Toronto); Yellow Cake (London); CME futures (thin)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High; Kazatomprom and Cameco; Russia in enrichment</span><span>Liquidity</span><span>Medium; spot thin, term deep</span><span>Scarcity</span><span>Medium; new mines 7–10 years out</span><span>Provenance risk</span><span>Low; licensed custody and material accounting</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Open-ended, via the trust</div>
+      <div>The trust has no term and pays no distribution; return is the uranium price plus the change in the unit's discount or premium to the metal. Utilities contract for five to ten years; the trust's holders are the only short-horizon money in the market, and their exit shows up as the discount.<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical trust</div>
+      <div class="ex">
+        <span>Routes</span><span>Sell units of the Sprott Physical Uranium Trust on the TSX (U.U in US dollars, U.UN in Canadian) through any broker; Yellow Cake plc in London; CME futures, which are thin. The trust does not redeem units for metal in practice.<sup class="r"><a href="#s10">10</a> <a href="#s12">12</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>The trust held 81,697,348 lb of U3O8 worth about US$7.35 bn on 16 October 2026, 0.2367 lb per unit. Spot activity behind it is a handful of transactions a week: three in the week to 10 October at $89.70/lb.<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Management expense ratio 0.71% a year, plus brokerage. The material cost is the discount: units closed 12.95% below the value of their uranium on 16 October, after 63 straight discount days in Q3, so a seller realises roughly $14/lb less than spot.<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Time</span><span>Exchange trade, settled on the standard equity cycle. Exiting the uranium itself, rather than the unit, is not available to a private holder.<sup class="r"><a href="#s12">12</a></sup><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Spot $89.90/lb on 17 Oct 2026; TradeTech long-term $97/lb since June, the highest since July 2007; SPUT 81.7 m lb, NAV $21.61, unit price $18.81, a 12.95% discount. Cameco's first-half Canadian production fell 5% on Saskatchewan flooding; Paladin's Langer Heinrich output fell 19% quarter on quarter.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 9 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 12 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The only energy commodity whose buyers are a few hundred reactor operators, whose sellers are two companies and a dozen smaller ones, and whose price is not set on any exchange. Uranium does not trade openly; utilities and producers sign private contracts, two consultancies infer a price from what they are told, and a Toronto trust that buys physical pounds has since 2021 been the marginal buyer in the spot market. This page covers the two-price system, supply concentration, the demand case and the contracting cycle, the routes to exposure and what each actually holds, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$89.90/lb</div><div class="l">Spot U3O8, 17 Oct 2026; range $83–90 since a January spike to $101 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">$97/lb</div><div class="l">TradeTech long-term indicator, unchanged since Jun 2026; highest since Jul 2007<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">81.7 m lb</div><div class="l">U3O8 held by Sprott Physical Uranium Trust, 16 Oct 2026; $7.35 bn; units at a 12.95% discount to NAV<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">−46%</div><div class="l">Spot-market volume since 2021 (102 m lb → 55 m lb) while term contracting rose 62% to 116 m lb<sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -388,8 +423,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
-  <details><summary class="src-toggle">Show 9 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 10–12 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 12 sources</summary><ol class="src">
     <li id="s1"><b>Uranium Unleashed</b>, "The Long-Term Price Hits an 18-Year High", 18 Oct 2026, citing FNArena, TradeTech and Sprott: spot $89.90/lb; long-term $97 since June, highest since Jul 2007; SPUT 81,697,348 lb, NAV $21.61, price $18.81, −12.95%; Langer Heinrich 1.00 m lb Q3. <a href="https://uraniumunleashed.substack.com/p/the-long-term-price-hits-an-18-year" target="_blank">substack.com</a> <span class="c c-m">Med</span></li>
     <li id="s2"><b>Investing News Network</b>, "Uranium Price Trends: Q3 2026 Review and Forecast", Oct 2026: Q3 high $90.49 (27 Aug); September close $89.50; January spike to $101; $83–90 range; Cameco H1 10.1 m lb (−5%), Key Lake flooding; SPUT 10–12% discount. <a href="https://investingnews.com/uranium-forecast/" target="_blank">investingnews.com</a></li>
     <li id="s3"><b>The Traders Spread</b>, "Uranium Price Prediction", 28 Aug 2026, citing Cameco/UxC disclosure: spot volume 102.41 m lb (2021) → 55.3 m lb; term contracting +61.6% to 116 m lb; term +7.3% in 2026 with no down month; Cameco 2026 guidance 19.5–21.5 m lb; JV Inkai 10.4 m lb. <a href="https://thetradersspread.com/commodities/uranium-price-prediction-118-bull-68-bear" target="_blank">thetradersspread.com</a> <span class="c c-m">Med</span></li>
@@ -399,7 +434,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s7"><b>Kazatomprom</b> and <b>Cameco</b> quarterly reports, 2026: production shares and guidance. Company filings; Kazakhstan's c. 40% share from WNA.</li>
     <li id="s8"><b>NucNet</b>, "In Bullish Uranium Outlook, Sprott Points to Policy Certainty and Tight Supply", 19 Jan 2026: spot +11.43% in 2025; "re-accelerating contracting cycle". <a href="https://www.nucnet.org/news/in-bullish-uranium-outlook-sprott-points-to-policy-certainty-and-tight-supply-1-1-2026" target="_blank">nucnet.org</a></li>
     <li id="s9"><b>Global X</b>, URA holdings, 16 Oct 2026: Cameco 23.18%; SPUT 7.68% at $18.79. <a href="https://www.globalxetfs.com/funds/ura" target="_blank">globalxetfs.com</a></li>
-  </ol></details>
+  <li id="s10"><b>Sprott</b>, "Sprott Physical Uranium Trust", fund statistics as of 16 Oct 2026 close: NAV US$21.61/unit; market price US$18.81; discount −12.95%; 81,697,348 lb U3O8; Q3 2026 63 discount days, 0 premium days; MER 0.71%; 0.2367 lb per unit. <a href="https://sprott.com/investment-strategies/physical-commodity-funds/uranium/" target="_blank">sprott.com</a> <span class="c c-h">High</span></li>
+<li id="s11"><b>Uranium Unleashed</b>, "The Long-Term Price Hits an 18-Year High", 18 Oct 2026, spot $89.70/lb on three transactions in the week to 10 Oct; mid-term $91; long-term $97; SPUT discount arithmetic (~$14/lb below spot). Secondary, citing Sprott and FNArena. <a href="https://uraniumunleashed.substack.com/p/the-long-term-price-hits-an-18-year" target="_blank">uraniumunleashed.substack.com</a> <span class="c c-m">Med</span></li>
+<li id="s12"><b>Sprott</b>, "Sprott Physical Uranium Trust" (US site), units trade in US and Canadian dollars and can be bought or sold like any equity through brokers; units outstanding; historical premium/discount series. <a href="https://www.sprottusa.com/api-update/investment-strategies/physical-commodity-funds/uranium/" target="_blank">sprottusa.com</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

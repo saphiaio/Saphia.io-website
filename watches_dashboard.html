@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Watches</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Physical · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Secondary prices stabilising after the 2022–24 bust; primary export value held by the top of the pyramid.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Secondary prices stabilising after the 2022–24 bust; primary export value held by the top of the pyramid.<sup class="r"><a href="#s14">14</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Switzerland</div>
     <div><div class="k">Principal markets</div>United States · China and Hong Kong · Japan · Singapore · UAE</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Low</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">5–10 years</div>
+      <div>Dealers and platforms cite a five- to ten-year hold for references expected to appreciate; anything shorter is exposed to the dealer spread on both legs. The 2022–24 bust showed the horizon can be dictated by the cycle: a watch bought at the 2022 peak is still under water in 2026 for most references.<span class="t">Estimate</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical</div>
+      <div class="ex">
+        <span>Routes</span><span>Sale to a dealer for an immediate offer; consignment to a dealer or platform; listing on a marketplace such as Chrono24 (over 500,000 listings, buyers in 150 countries); auction at Phillips, Sotheby's, Christie's or Antiquorum for rare references.<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>The pre-owned market turned over about $17 bn in 2025, Rolex alone $5.7 bn. On Chrono24 a correctly priced listing typically sells in two to eight weeks; instant-offer dealers pay in one to five days at 70–85% of retail.<sup class="r"><a href="#s17">17</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>Private marketplace sale 6.5% commission; platform consignment 13–19%; dealer buy-in priced at a discount of 15–30% to retail; auction seller's commission negotiable plus a buyer's premium of 25%+ that caps the hammer. Service history and box-and-papers move the price by more than the fee.<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Dealer sale: days, payout one to three business days after receipt. Marketplace: weeks to sell, then escrow release about seven days after delivery. Auction: consignment deadlines run two to four months ahead of sale, payment about 35 days after.<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a> <a href="#s18">18</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Swiss watch exports rose 9.1% in August to CHF 1.79bn, the fourth straight monthly gain, turning the 12-month average positive for the first time in two years; year to date +1.7%. The US, still the largest market, fell 19.4%; the UK (+46%) and China (+16%) led. France’s +113% likely reflects logistics routing, per FH.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 15 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 18 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A CHF 25 billion export industry in which four privately owned brands take half the value, the ultra-high end is the only growing segment, and a secondary market of $17 billion has just finished a three-year correction from its March 2022 peak. This page covers the primary market, concentration, the pre-owned market and its indices, and the structural shift of the trade from retail to resale. No prices or index levels are carried as live values.</p>
   <div class="figures"><div><div class="v">CHF 24.4 bn</div><div class="l">Swiss wristwatch exports 2025, −1.7%; 14.6 m units, −4.8% <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">49.1%</div><div class="l">Share of industry sales held by Rolex, Patek Philippe, Audemars Piguet and Richard Mille <span class="t">Estimate</span><sup class="r"><a href="#s4">4</a></sup></div></div><div><div class="v">$17 bn</div><div class="l">Pre-owned sales 2025; Rolex $5.7 bn of it <span class="t">Estimate</span><sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">37%</div><div class="l">Export value from watches above CHF 50,000, 1.4% of units, 89% of growth <span class="t">Reported</span><sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
@@ -407,9 +442,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. FH export statistics are primary; Morgan Stanley / WatchCharts figures are reported second-hand and marked Med.</p></div>
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. FH export statistics are primary; Morgan Stanley / WatchCharts figures are reported second-hand and marked Med. Sources 16–18 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 15 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 18 sources</summary><ol class="src">
     <li id="s1"><b>Federation of the Swiss Watch Industry (FH)</b>, "Swiss watch exports in 2025", 29 Jan 2026, CHF 24.4 bn (−1.7%); 14.6 m units (−4.8%, −740,000); above-CHF-3,000 segment −1.9%; 2026 outlook; US +19.2% in December.</li>
     <li id="s2"><b>Velociphile (Substack)</b>, "Swiss Watch Exports 2025: The Numbers Behind the Downturn", 20 Jun 2026, CHF 25.6 bn total; employment −835 (−1.3%); Kurzarbeit; January 2026 value −3.6% / units +2.0%; Rolex supply management; Patek US repricing. <span class="c c-m">Med</span></li>
     <li id="s3"><b>WatchPro</b>, "Pre-owned Watch Sales Hit $17bn In 2025, $5.7bn From Rolex", 5 Feb 2026, reporting the WatchCharts 2025 report; Patek $2.2 bn, AP $1.6 bn, Omega $697 m, Richard Mille $672 m; data sources across retailers, dealers and auctioneers. <span class="c c-m">Med</span></li>
@@ -425,6 +460,9 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s13"><b>WatchCharts</b>, press listing, "Luxury Watch Secondary Market Forecast to Surpass Primary by 2033" (Watches by SJX, Jan 2023). <span class="c c-l">Low</span></li>
   <li id="s14"><b>JCK, "Swiss Watch Exports to the U.S. Fell Nearly 20% in August"</b>, 17 Sep 2026. FH data: world +9.1%; US −19.4% to CHF 197.5m; UK +46.1%; China +15.8%; Japan +22.1%. <a href="https://www.jckonline.com/editorial-article/swiss-watch-exports-us-august/" target="_blank">jckonline.com</a> <span class="c c-h">High</span></li>
 <li id="s15"><b>Bloomberg, "Swiss Watch Exports Grow for Fourth Month, Overcoming US Slump"</b>, 17 Sep 2026. 12-month moving average positive for the first time in two years. <a href="https://www.bloomberg.com/news/articles/2026-09-17/swiss-watch-exports-grow-for-fourth-month-overcoming-us-slump" target="_blank">bloomberg.com</a> <span class="c c-h">High</span></li>
+<li id="s16"><b>Chrono24</b>, "Help and Frequently Asked Questions", accessed 23 Oct 2026, private-seller commission 6.5% on sale, free listing; escrow payout within seven business days of delivery; "Sell your watch to Chrono24" quote in 1–3 business days, payout 1–3 days after receipt. Chrono24 Magazine gives consignment commission as 13–19%. <a href="https://www.chrono24.co.uk/info/faqs.htm" target="_blank">chrono24.co.uk</a> <span class="c c-h">High</span></li>
+<li id="s17"><b>Grailr</b>, "Where to Sell a Watch Online in 2026, Ranked by Net Payout", Sep 2026, marketplace time to sale 2–8 weeks and net 80–93% of market value; instant-offer platforms pay in 1–5 days at 70–85% of retail; eBay total fees 13–15%; Chrono24 500,000+ listings. Secondary. <a href="https://grailr.watch/blog/best-place-to-sell-watches-online" target="_blank">grailr.watch</a> <span class="c c-m">Med</span></li>
+<li id="s18"><b>Sotheby's</b>, "Buy & Sell at Sotheby's", seller's commission standard 10% of hammer; payment within 45 days of sale subject to buyer's payment; buyer's premium tiers revised 13 Feb 2026 (28% to $2 m, 22% to $8 m, 15% above) per The Art Newspaper, 17 Feb 2026. <a href="https://www.sothebys.com/en/buy-sell" target="_blank">sothebys.com</a> <span class="c c-h">High</span></li>
 </ol></details>
 </section>
 

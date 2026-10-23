@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Falcons</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Living asset · CITES · 20 Oct 2026</div></div>
   </div>
-  <p class="regime">A single bird made SR1.4 m in Riyadh this month and the season's auction grew sales by a quarter, in a market with one region of buyers, a CITES permit on every transfer and an asset that is worth most on the day it is sold.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">A single bird made SR1.4 m in Riyadh this month and the season's auction grew sales by a quarter, in a market with one region of buyers, a CITES permit on every transfer and an asset that is worth most on the day it is sold.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Captive-bred and legally wild-taken falcons sold for falconry and racing in the Gulf: gyrfalcons and gyr hybrids, sakers, peregrines and their crosses. Breeding farms are covered as the supply side. Wild trapping outside legal quota is not an asset and is not covered.</div>
     <div><div class="k">Principal markets</div>Malham, north of Riyadh (Saudi Falcons Club: International Falcon Breeders Auction, Aug–Sep; Saudi International Falcons and Hunting Exhibition, Oct) · Abu Dhabi (ADIHEX, Sep) · Doha · Breeding farms in Canada, the US, the UK, Germany, Spain and the Gulf</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium; c. 70 farms in 20+ countries sell into one region</span><span>Liquidity</span><span>Low; one auction season, one buyer base</span><span>Scarcity</span><span>Engineered; white gyr colour morphs</span><span>Provenance risk</span><span>Medium; CITES paperwork, ring, DNA</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">One season</div>
+      <div>A captive-bred chick is bought in August–October to hunt or race that winter; its value is highest on the day of sale and falls after the first moult. New 2026 rules tie racing eligibility to birds bought at the auction, which pulls demand into the sale window.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · living asset · CITES</div>
+      <div class="ex">
+        <span>Routes</span><span>The International Falcon Breeders Auction in Riyadh (5–25 August), the National Center for Falcons auction and the Mongolian Falcon Auction at the Saudi Falcons and Hunting Exhibition (1–10 October); Abu Dhabi's ADIHEX; private sale to a falconer. Every transfer needs a CITES permit and, in the Gulf, a falcon passport.<sup class="r"><a href="#s9">9</a> <a href="#s11">11</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>The 2025 Breeders Auction sold 1,103 falcons from 67 farms in 23 countries for more than SR 13 m over 21 nights, up 23% on 2024; typical nights in 2026 cleared two birds for SR 200,000–380,000, and the Mongolian auction set a record of SR 1.4 m on 9 October 2026. There is no bid outside the Gulf and none outside August–November.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Auction commission terms are not published by the National Center for Falcons; the seller bears transport in a licensed shipment, veterinary certification and permit fees. Holding cost is the falconer, mews, food and hospital care.<span class="t">Derived</span><span class="c c-l">Low</span></span>
+        <span>Time</span><span>A bird consigned to the August auction sells on a scheduled night and changes hands at once; outside the season a private sale can take months and a border crossing adds CITES processing of weeks.<sup class="r"><a href="#s9">9</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. The 2026 International Falcon Breeders Auction's top lot was a Canadian-bred three-quarter gyr Super White at SR1.3 m ($346,000), the second-highest in the auction's history; a wild-taken Mongolian falcon then set a record of SR1.4 m at the Saudi International Falcons and Hunting Exhibition in October. The all-time auction record remains SR1.75 m ($467,000), 2021.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Falconry is on UNESCO's intangible-heritage list and the Gulf states have built a modern market around it: licensed breeders, televised auctions, falcon hospitals, racing with seven-figure prize funds and a conservation apparatus for the wild populations. This page covers the auction record, what a buyer is actually paying for, the regulatory structure that makes the bird a tradeable asset, the ways it loses value, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">SR1.75 m</div><div class="l">Auction record, juvenile Ultra White three-quarter gyr, 2021 (c. $467,000)<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">SR1.4 m</div><div class="l">Wild-taken Mongolian falcon, Saudi International Falcons and Hunting Exhibition, Oct 2026; record for the exhibition<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">1,103</div><div class="l">Falcons sold at the 2025 Breeders Auction over 21 days, +27%; sales SR13 m (+23%); 67 farms from 23 countries<sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">SR28,000</div><div class="l">A shaheen-gyr hybrid chick on the same night as a SR1.2 m lot, Aug 2025; the market's floor and ceiling in one session<sup class="r"><a href="#s4">4</a></sup></div></div></div>
 
@@ -392,8 +427,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Saudi Falcons Club statements via Gulf and Saudi press for the auction; CITES for the regulatory frame; structural detail on racing and hospitals from general reporting and tagged.</p></div>
-  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Saudi Falcons Club statements via Gulf and Saudi press for the auction; CITES for the regulatory frame; structural detail on racing and hospitals from general reporting and tagged. Sources 9–11 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>Gulf News</b>, "Most expensive falcon of 2026 sells for $346,000 in Saudi Arabia", Aug 2026: SR1.3 m, Jim Wilson Falcons (Ontario), Nova Falcon; bidding from SR200,000; record SR1.75 m (2021); and <b>WION</b>, same sale: pure gyr chick SR150,000; National Center for Falcons statement. <a href="https://gulfnews.com/world/gulf/saudi/most-expensive-falcon-of-2026-sells-for-346000-in-saudi-arabia-1.500643894" target="_blank">gulfnews.com</a></li>
     <li id="s2"><b>Gulf News</b>, "World's most expensive Mongolian falcon sells for record SR1.4 million at Saudi auction", Oct 2026: Saudi International Falcons and Hunting Exhibition, Malham. <a href="https://gulfnews.com/world/gulf/saudi/worlds-most-expensive-mongolian-falcon-sells-for-record-sr14-million-at-saudi-auction-1.500706030" target="_blank">gulfnews.com</a></li>
     <li id="s3"><b>Anadolu Agency</b> and <b>Gulf Agriculture</b>, "International Falcon Breeders Auction concludes… sales exceeding $3.46M / 13 million riyals", Sep 2025: 21 days from 5 Aug; 1,103 sold; 67 farms, 23 countries, 19 Saudi; +23% sales, +27% birds, +21% countries, +20% farms; 122-day season. <a href="https://www.aa.com.tr/en/middle-east/international-falcon-breeders-auction-concludes-in-saudi-arabia-with-sales-exceeding-346m/3676854" target="_blank">aa.com.tr</a></li>
@@ -402,7 +437,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s6"><b>CITES</b>, Appendices: Falco peregrinus and Falco rusticolus Appendix I; Falco cherrug Appendix II; captive-breeding and ring provisions. UAE falcon passport (2002) and GCC adoption from general reporting. <span class="c c-m">Med</span> <a href="https://cites.org/eng/app/appendices.php" target="_blank">cites.org</a></li>
     <li id="s7"><b>UNESCO</b>, Representative List of the Intangible Cultural Heritage of Humanity: "Falconry, a living human heritage", inscribed 2010, extended 2012, 2016, 2021. <a href="https://ich.unesco.org/en/RL/falconry-a-living-human-heritage-01708" target="_blank">ich.unesco.org</a></li>
     <li id="s8"><b>General reporting</b> on Gulf falconry infrastructure: Abu Dhabi Falcon Hospital caseloads, Fazza and President's Cup racing prize funds, Mohamed bin Zayed Raptor Conservation Fund and houbara release programmes. Orders of magnitude only. <span class="c c-m">Med</span></li>
-  </ol></details>
+  <li id="s9"><b>Anadolu Agency</b>, "International Falcon Breeders Auction concludes in Saudi Arabia with sales exceeding $3.46M", Sep 2025: 21 days from 5 Aug; 67 farms from 23 countries (19 Saudi); 1,103 falcons sold; revenue +23%, birds +27%; top lot SR 1.2 m. <a href="https://www.aa.com.tr/en/middle-east/international-falcon-breeders-auction-concludes-in-saudi-arabia-with-sales-exceeding-346m/3676854" target="_blank">aa.com.tr</a> <span class="c c-h">High</span></li>
+<li id="s10"><b>Saudi Press Agency</b>, "Falcon Breeders Auction Links Sales to Competitions Offering SAR50 Million in Prizes", 28 Jul 2026: only falcons sold through the auction eligible for chick-racing categories; 2025 sales over SR 13 m. Arab News, 9 Aug 2026: second night SR 201,000 for two birds; SPA 22 Aug 2026: tenth night SR 380,000. <a href="https://www.spa.gov.sa/en/N2643403" target="_blank">spa.gov.sa</a> <span class="c c-h">High</span></li>
+<li id="s11"><b>Travel and Tour World / SPA</b>, "Saudi Arabia Sets New Falcon Auction Record as Rare Bird Sells for $373,000", Oct 2026: Mongolian saker SR 1.4 m on 9 Oct 2026 at the Saudi Falcons and Hunting Exhibition (1–10 Oct), evening total SR 1.651 m; SPA 6 Oct: two sakers SR 476,000. <a href="https://www.travelandtourworld.com/news/article/93rcpigdq8iz/" target="_blank">travelandtourworld.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

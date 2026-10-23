@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Jade</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Jadeite jewellery, Type A · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">The market has split: imperial-grade jadeite set a decade record in Hong Kong in May while mid-grade prices fell under livestream selling, and the only legal source is a sanctioned military enterprise.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">The market has split: imperial-grade jadeite set a decade record in Hong Kong in May while mid-grade prices fell under livestream selling, and the only legal source is a sanctioned military enterprise.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Myanmar (Hpakant, Kachin State), effectively the sole source of gem jadeite · Guatemala (minor) · nephrite from Hetian (Xinjiang), British Columbia, Siberia</div>
     <div><div class="k">Principal markets</div>Hong Kong · mainland China (Ruili, Guangzhou, Pingzhou) · Taiwan · Singapore</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High; one country, one state enterprise</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Medium; imperial grade High</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10+ years · top grade</div>
+      <div>Imperial-grade jadeite is held for decades and surfaces at Hong Kong sales a few times a year; the Hutton-Mdivani necklace record of 2014 stood until this May and was not beaten. Mid-grade jadeite bought at retail in the last five years has fallen under livestream selling and has no resale route at all.<sup class="r"><a href="#s2">2</a> <a href="#s11">11</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · Type A jadeite jewellery</div>
+      <div class="ex">
+        <span>Routes</span><span>Christie's, Sotheby's, Poly and Tiancheng in Hong Kong for pieces with a Hong Kong Jade & Stone Laboratory or GIA report; Hong Kong and Guangzhou dealers for the rest; no Western auction depth and no route at all for recent Myanmar material into sanctioning jurisdictions.<sup class="r"><a href="#s2">2</a> <a href="#s11">11</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Christie's Hong Kong, 26 May 2026: the 61-bead Ethereal necklace made HK$200.2 m (US$25.5 m) on 18 bids, the most valuable jadeite at auction in a decade; a 68-bead necklace HK$13.9 m; the sale 90% sold by lot, HK$581.5 m, +55% y/y. Below that tier, the trade association reports top grades firm and mid and lower grades flat to easing.<sup class="r"><a href="#s2">2</a> <a href="#s11">11</a> <a href="#s7">7</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Auction commission on both sides (seller around 10%, buyer 25%+), a laboratory report before consignment, and the authentication risk that a treated (Type B or C) piece is unsaleable. Dealer buy-back at a deep discount to retail; livestream resale prices have reset the mid-market downward.<sup class="r"><a href="#s7">7</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Two Hong Kong seasons a year, spring and autumn; consignment months ahead, payment 30–45 days after. A dealer offer in days at the dealer's price. Nothing faster exists.<sup class="r"><a href="#s2">2</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Myanmar's military held its first Gems Emporium outside the country, in Ruili, China, on 22 July 2026, offering 500 tonnes of rough; the 61st domestic Emporium ran to 17 October. The Christie's Hong Kong record necklace in May (HK$200.2 m) and falling mid-tier prices define the year.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 10 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The most valuable gem market the West does not read. Jadeite from one valley in northern Myanmar is cut, sold and worn almost entirely in greater China, priced by a vocabulary of colour, texture and translucency that has no Western equivalent, and traded through a state enterprise that the United States, United Kingdom and European Union have sanctioned since 2021. This page covers what jade is, where it comes from and who controls it, how price is formed at the top and the bottom, the treatment and sanctions questions, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">HK$200.2 m</div><div class="l">The Ethereal Jadeite Necklace, 61 beads, Christie's Hong Kong, 26 May 2026 (c. US$25.5 m); most valuable jadeite necklace at auction in a decade <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s4">4</a></sup></div></div><div><div class="v">500 t</div><div class="l">Rough jadeite offered at the first overseas Myanmar Gems Emporium, Ruili, China, July 2026<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">70–90%</div><div class="l">Share of Hpakant jade smuggled to China before the 2021 coup, Global Witness estimate<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$1.7–2 bn</div><div class="l">Estimated annual illicit trade, 2014–17, against $346–417 m official sales<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s5">5</a></sup></div></div></div>
 
@@ -390,19 +425,20 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Dealer price guides are marked Low and used only for orientation.</p></div>
-  <details><summary class="src-toggle">Show 10 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Dealer price guides are marked Low and used only for orientation. Source 11 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>The Irrawaddy</b>, "Myanmar Military Shifts Jade Auction to China", 24 Jul 2026: Ruili Emporium opened 22 Jul; 500 t of rough from MGE; Global Witness 70–90% smuggled; official $346–417 m v. illicit $1.7–2 bn (2014–17); UN FFM 2019 on MEHL and MEC. <a href="https://www.irrawaddy.com/business/myanmar-military-shifts-jade-auction-to-china.html" target="_blank">irrawaddy.com</a></li>
-    <li id="s2"><b>The Value</b>, "Jadeite necklace sells for US$25.5m at Christie's Hong Kong", May 2026: Lot 1923 HK$200.2 m, hammer HK$170 m, estimate HK$110–200 m; HKJSL report; 109 of 121 lots sold; hammer 129% of estimate; sale total HK$581.5 m. <a href="https://en.thevalue.com/articles/christies-hong-kong-jewels-spring-auction-2026-result-jadeite-necklace" target="_blank">thevalue.com</a></li>
+    <li id="s2"><b>The Value</b>, "Jadeite necklace sells for US$25.5m at Christie's Hong Kong", May 2026: Lot 1923 HK$200.2 m, hammer HK$170 m, estimate HK$110–200 m; HKJSL report; 109 of 121 lots sold; hammer 129% of estimate; sale total HK$581.5 m. <a href="https://en.thevalue.com/articles/christies-hong-kong-jewels-spring-auction-2026-result-jadeite-necklace" target="_blank">thevalue.com</a> Lot 1923: estimate HK$110–200 m, hammer HK$170 m after ~18 bids, sold HK$200.2 m; 109 of 121 lots sold (90%); hammer 129% of estimate.</li>
     <li id="s3"><b>Global New Light of Myanmar</b>, "Myanma Gems Emporium sells 463 jade lots on 7th day", Oct 2026: 61st Emporium, to 17 Oct. State media. <a href="https://gnlm.com.mm/myanma-gems-emporium-sells-463-jade-lots-on-7th-day" target="_blank">gnlm.com.mm</a> <span class="c c-m">Med</span></li>
     <li id="s4"><b>BMjade</b>, "The Jade Market for Western Buyers", 2026, citing Rapaport and TheValue: decade record; Poly May 2025 HK$36 m below estimate; HKJSL report contents; resale takes months, "no exchange and no standing bid"; GAC 2025 findings. Dealer source. <a href="https://bmjade.com/blogs/news/jadeite-market-2026-top-grade-prices-rise-mid-tier-falls" target="_blank">bmjade.com</a> <span class="c c-l">Low</span></li>
     <li id="s5"><b>Al Jazeera</b>, "Military coup clouds control over jade, gems in Myanmar", 22 Apr 2021: Global Witness $31 bn valuation (2015); EU sanctions on MEHL and MEC; Hpakant; and <b>Myanmar Now</b>, Sep 2023, MGE sanctioned by US, UK, EU since 2021; $346–415 m official. <a href="https://www.aljazeera.com/news/2021/4/22/myanmar-militarys-lucrative-jade-industry" target="_blank">aljazeera.com</a></li>
     <li id="s6"><b>Alibaba / BMjade market summary</b>, "Burma Jade Buying Guide 2026": bifurcation; grade price table; Guatemala position. Dealer source. <span class="c c-l">Low</span></li>
-    <li id="s7"><b>BMjade</b>, "How Much Is Jade Worth? The 2026 Price Guide": tier ranges; treated 5×–100× discount citing Gems &amp; Gemology; Poly bangle HK$60 m (2024); Circle of Happiness c. $3.9 m (2021). Dealer source. <a href="https://bmjade.com/blogs/news/how-much-is-jade-worth-price-guide" target="_blank">bmjade.com</a> <span class="c c-l">Low</span></li>
+    <li id="s7"><b>BMjade</b>, "How Much Is Jade Worth? The 2026 Price Guide": tier ranges; treated 5×–100× discount citing Gems &amp; Gemology; Poly bangle HK$60 m (2024); Circle of Happiness c. $3.9 m (2021). Dealer source. <a href="https://bmjade.com/blogs/news/how-much-is-jade-worth-price-guide" target="_blank">bmjade.com</a> <span class="c c-l">Low</span> GJTAC 2025 report: top-grade jadeite strengthening, mid and lower grades flat to easing; certification standards NGTC, HKJSL, GIA.</li>
     <li id="s8"><b>Revere Auctions</b>, "Chinese Jade Value", Sep 2026: median $400 across 642 lots; 346 under $500; HK$170 m hammer contrast. <a href="https://www.revereauctions.com/chinese-jade-value/" target="_blank">revereauctions.com</a> <span class="c c-m">Med</span></li>
     <li id="s9"><b>Kharon</b>, "Myanmar Gems Enterprise Sanctioned by U.S.", 2021, and <b>AP</b>, "Myanmar gems industry targeted in push for sanctions", Dec 2021: OFAC designation of MGE; Global Witness "no such thing as an ethically sourced Burmese ruby"; Burma Act. <a href="https://www.kharon.com/brief/myanmar-gems-enterprise-sanctioned-by-us" target="_blank">kharon.com</a></li>
     <li id="s10"><b>Business &amp; Human Rights Resource Centre</b>, "Myanmar: Junta launches first official jade auction in China", 24 Jul 2026: Myanmar–Yunnan memorandum of February 2026. <a href="https://www.business-humanrights.org/en/latest-news/myanmar-junta-launches-first-official-jade-auction-in-china/" target="_blank">business-humanrights.org</a></li>
-  </ol></details>
+<li id="s11"><b>DCLA</b>, "$25.6m Jadeite Necklace Just Misses World Record", 28 May 2026: Hutton-Mdivani 27-bead necklace HK$215 m at Sotheby's Hong Kong, April 2014, remains the record; 72% of lots over high estimate; total +55% y/y. <a href="https://www.dcla.com.au/news/25-6m-jadeite-necklace-just-misses-world-record/" target="_blank">dcla.com.au</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

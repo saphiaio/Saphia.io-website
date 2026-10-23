@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Handbags</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Hermès Birkin and Kelly, secondary market · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">The top is detaching from the middle: the original Birkin made $10.1 m and Sotheby's bag sales rose 44% in 2025, while the average Birkin's premium to retail has fallen from 2.2× to 1.4× as pandemic buyers sell into a flooded resale market.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">The top is detaching from the middle: the original Birkin made $10.1 m and Sotheby's bag sales rose 44% in 2025, while the average Birkin's premium to retail has fallen from 2.2× to 1.4× as pandemic buyers sell into a flooded resale market.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Hermès, Paris (Birkin 1984, Kelly 1956, Constance); Chanel (Classic Flap, 2.55) a distant second; everything else trades below retail</div>
     <div><div class="k">Principal markets</div>Paris, New York, Hong Kong (Sotheby's, Christie's) · Japan (Valuence, Brand Off) · resale platforms (Fashionphile, Rebag, Vestiaire, The RealReal, Saclàb)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High; one house controls new supply by allocation</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Low; artificial, by allocation</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">1–5 years · store-fresh</div>
+      <div>The premium is highest the day the bag leaves the boutique: a pristine Birkin 25 or 30 trades at about $28,000–30,000 against $13,500–14,900 retail, and the premium decays with use. Collectors hold rare colours and exotics for longer; the quota system (two Birkin, Kelly or Constance a year per client) is what keeps the first-year premium alive.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · Birkin and Kelly, secondary</div>
+      <div class="ex">
+        <span>Routes</span><span>Sotheby's Marketplace at a fixed price or Sotheby's online auctions (Zurich 5–19 Nov, New York 30 Nov–14 Dec 2026); Christie's and Heritage for rare pieces; direct buyers (Rebag, Privé Porter, Madison Avenue Couture) for an immediate offer; consignment platforms. Hermès itself buys nothing back.<sup class="r"><a href="#s9">9</a> <a href="#s11">11</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Sotheby's Birkin sales grew over 70% in 2025 and the average Togo Birkin 30 made $22,300; neutral 25s and 30s in pristine condition sell within weeks, and Marketplace leather Birkins in 30–45 days. The original 1985 bag made $10.1 m in July 2025. Below the top, the average Birkin's premium to retail has fallen from 2.2× to 1.4× as pandemic buyers sell.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Sotheby's Marketplace pays the seller 80% of the sale price; auction adds a buyer's premium of 20–26% that caps the hammer; specialist consignment runs 20–30%; a direct buyer pays 40–70% of resale value for cash in days. Missing box, receipt or dust bag costs more than any fee.<sup class="r"><a href="#s9">9</a> <a href="#s11">11</a> <a href="#s12">12</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Direct buyer: offer in days, payment 3–7 days after receipt. Marketplace: 30–45 days for leather, longer for exotics. Auction: a scheduled two-week online sale, paid about 35 days after close.<sup class="r"><a href="#s9">9</a> <a href="#s11">11</a> <a href="#s12">12</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. The Jane Birkin prototype, €8.58 m at Sotheby's Paris on 10 July 2025, set the handbag record by a factor of twenty; a second Birkin-owned bag made $2.9 m in December against a $440,000 high estimate. Sotheby's reports Birkin and Kelly sales up 44% in 2025; Bernstein and Saclàb data show the average premium falling and mid-2026 average resale at €16,290.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 12 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The only consumer product that routinely resells above its retail price, and the clearest example on this site of scarcity created by allocation rather than by nature. Hermès makes as many Birkins as it chooses, sells them only to clients it chooses, and the difference between the boutique price and the price a stranger will pay is the market. This page covers how the allocation works, the size and current state of the resale market, the record book, authentication and condition, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">€8.58 m</div><div class="l">The original Birkin (1985), Sotheby's Paris, 10 Jul 2025; $10.1 m; record for any handbag <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">+44%</div><div class="l">Sotheby's Birkin and Kelly sales 2025 v. 2024; average prices up c. 35%; c. $160 m sold since 2021<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">1.4×</div><div class="l">Average Birkin auction premium to retail, late 2025, from 2.2× in 2022 (Bernstein)<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">€16,290</div><div class="l">Average resale of regular-leather Birkin and Kelly, mid-2026, Saclàb Clochette Monitor<sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -387,8 +422,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Reseller blogs are marked Low and used only where they cite named data.</p></div>
-  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Reseller blogs are marked Low and used only where they cite named data. Sources 9–12 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 12 sources</summary><ol class="src">
     <li id="s1"><b>Sotheby's</b>, "Jane Birkin's Original Hermès Birkin Bag Shatters Auction Records at $10.1 Million", 10 Jul 2025: €8.6 m; opened €1 m; nine bidders, ten minutes; previous record $513,040 (Himalaya Kelly 28, 2021). <a href="https://www.sothebys.com/en/videos/jane-birkins-original-hermes-birkin-bag-shatters-auction-records-at-10-1-million" target="_blank">sothebys.com</a></li>
     <li id="s2"><b>Saika Collective</b>, "Birkin Resale Value 2026: What the Data Really Shows", 11 Jul 2026, citing Sotheby's and Bernstein: sales +44% (2025), +55% since 2023; average prices +35%; c. $160 m since 2021; premium 2.2× → 1.4×; Togo B25/30 $28–30,000; Kelly Pochette 4.5×; second Birkin bag $2.9 m v. $440,000. <a href="https://www.saikacollective.com/blogs/saika-luxury-authentication-journal/birkin-resale-value-2026-market-data-this-week-in-luxury" target="_blank">saikacollective.com</a> <span class="c c-m">Med</span></li>
     <li id="s3"><b>The Luxury Closet</b>, "Resale Value of a Hermès Birkin and Kelly in 2026", 27 May 2026: Saclàb Clochette Monitor €16,290; B25 Togo retail $10,400 (2023) → $13,500 (2026). Reseller source. <a href="https://theluxurycloset.com/blog/2026/05/27/hermes-resale-value-2026-why-birkins-kellys-are-the-worlds-best-wearable-investment/" target="_blank">theluxurycloset.com</a> <span class="c c-l">Low</span></li>
@@ -397,7 +432,11 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s6"><b>Bloomberg</b>, "Hermès' Original Birkin Bag Sells for $10 Million at Auction", 10 Jul 2025: Valuence Japan identified as buyer; and <b>Guinness World Records</b>, 3 Sep 2026: €8,582,500; Osaka exhibition. <a href="https://www.guinnessworldrecords.com/news/2026/9/original-hermes-birkin-owned-by-actress-its-named-after-sells-for-record-10-million" target="_blank">guinnessworldrecords.com</a></li>
     <li id="s7"><b>CNN</b>, "Jane Birkin's original Hermès bag sells for $10 million", 10 Jul 2025: Diamond Himalaya Birkin &gt;$450,000 (2022); crocodile Birkin c. $390,000 (2021). <a href="https://www.cnn.com/2025/07/10/style/original-hermes-birkin-sells" target="_blank">cnn.com</a></li>
     <li id="s8"><b>CITES</b> Appendix II listing of crocodilians; California Penal Code §653o. Statutory; used for the exotic-skin row.</li>
-  </ol></details>
+  <li id="s9"><b>Sotheby's</b>, "Complete Guide to Buying and Selling a Birkin", Jan 2026: Marketplace sellers receive 80% of the final amount; leather Birkins typically sell within 30–45 days, exotics longer; pristine neutral 25s and 30s sell within weeks. "Hermès Raises the Birkin Bag Price", Jan 2026: 2026 US retail $13,500 / $14,900 / $16,300 (25/30/35); average Togo Birkin 30 at Sotheby's $22,300 in 2025, +6%; Birkin sales +70% in 2025; pristine 25/30 at $28,000–30,000, 2.4× retail. Upcoming sales Zurich 5–19 Nov and New York 30 Nov–14 Dec 2026. <a href="https://www.sothebys.com/en/articles/complete-guide-to-buying-and-selling-a-birkin" target="_blank">sothebys.com</a> <span class="c c-h">High</span></li>
+<li id="s10"><b>Fashion Law Journal</b>, "Birkin Bag Price 2026: Retail, Resale and the Hermès Lawsuit", Oct 2026: January 2026 retail increase 6–8%; resale about double retail for pristine 25/30; access, not money, as the constraint; Cavalleri antitrust case (also source 4 on this page). <a href="https://fashionlawjournal.com/birkin-bag-price-2026-hermes-antitrust/" target="_blank">fashionlawjournal.com</a> <span class="c c-m">Med</span></li>
+<li id="s11"><b>Underpriced</b>, "Where to Sell Luxury Handbags: Best Platforms Compared 2026", Oct 2026: Rebag as direct buyer, no commission, offers 40–70% of current resale value, payout 3–7 days; platform comparison table. <a href="https://www.underpriced.app/blog/where-to-sell-luxury-handbags" target="_blank">underpriced.app</a> <span class="c c-l">Low</span></li>
+<li id="s12"><b>Estimonia</b>, "Hermès Birkin Bag Value Guide (2026)", Oct 2026: specialist consignment fees 20–30%; auction buyer's premiums 20–26%; dealers pay 45–70% of value, auction returns 75–88% after commission but takes weeks. Secondary. <a href="https://estimonia.com/guides/collectibles/hermes-birkin-bag-value-guide" target="_blank">estimonia.com</a> <span class="c c-l">Low</span></li>
+</ol></details>
 </section>
 
 </details>

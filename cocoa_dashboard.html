@@ -279,6 +279,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -296,11 +313,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Cocoa</h1>
     <div class="grade"><span class="g">Σ2</span><span class="n">Accessible</span><div class="m">Route: futures · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Demand has turned before supply: Q3 grindings rose in Europe and Asia, the two largest regions, for the first time since 2024, while El Niño and a smaller Ivorian crop loom. Futures hold near $5,600, double the April low.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">Demand has turned before supply: Q3 grindings rose in Europe and Asia, the two largest regions, for the first time since 2024, while El Niño and a smaller Ivorian crop loom. Futures hold near $5,600, double the April low.<sup class="r"><a href="#s12">12</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Côte d'Ivoire · Ghana · Ecuador · Cameroon · Nigeria</div>
     <div><div class="k">Principal markets</div>Europe (Netherlands, Germany, Belgium) · United States · Malaysia · Indonesia</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High, marketing boards</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Low</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Contract-bounded</div>
+      <div>Five delivery months a year (March, May, July, September, December); a position is rolled into the next one or delivered. Index funds roll on a fixed calendar, so the roll, not the crop, sets the return on any hold beyond one contract.<sup class="r"><a href="#s21">21</a></sup><span class="t">Derived</span><span class="c c-h">High</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · futures</div>
+      <div class="ex">
+        <span>Routes</span><span>Close or roll ICE New York (US$/t) or ICE London (£/t) futures and options; a handful of ETFs and ETCs. Physical beans are deliverable only through exchange-licensed warehouses, a trade-house business.<sup class="r"><a href="#s21">21</a> <a href="#s22">22</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>New York December cocoa traded 25,904 lots on 8 September 2026 and around 17,000–20,000 lots on ordinary days; each lot is 10 t. ICE-certified stocks were 3.41 m bags on 1 September, a two-year high.<sup class="r"><a href="#s23">23</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>Exchange and clearing fees per lot, broker commission and margin; initial margin on the New York contract was about $9,500 a lot in October 2026, a fifth of contract value. The roll is paid each delivery month.<sup class="r"><a href="#s24">24</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Exit at the next trade during exchange hours; the position is marked and cleared the same day.<span class="t">Derived</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Q3 grindings (15 Oct): Europe +3.2%, the first year-on-year gain in any quarter since 2024; Asia +29% to a record 233,767 t; Ivorian exporters +40%.<sup class="r"><a href="#s12">12</a></sup><sup class="r"><a href="#s13">13</a></sup> New York December closed $5,645 on 16 Oct, −4% on the year but 98% above the April low; ICE certified stocks at a 2.25-year high of 3.54 m bags cap rallies.<sup class="r"><a href="#s11">11</a></sup><sup class="r"><a href="#s18">18</a></sup> Ghana opened its season on 25 Sep at 42,400 cedis/t (~$3.65/kg), 75% above Ivory Coast's 1,200 CFA, breaking the June harmonisation pledge, and sold its first cocoa bills since default at 11%.<sup class="r"><a href="#s15">15</a></sup><sup class="r"><a href="#s17">17</a></sup></p>
@@ -312,7 +347,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 20 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 24 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A crop grown by millions of West African smallholders and priced in New York and London, which quadrupled to a record in December 2024, fell almost 80% into March 2026, then rose 70% in a month on floods. This page covers the balance, the disruption history, the two-country duopoly and its regulated farmgate, the demand destruction inside chocolate, and the policy layer. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">−489 kt</div><div class="l">2023/24 deficit, the crisis year <span class="t">Reported</span><sup class="r"><a href="#s7">7</a></sup></div></div><div><div class="v">+75 kt</div><div class="l">2024/25 surplus, ICCO February 2026 bulletin; first surplus since 2020/21 <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">−4.2%</div><div class="l">2024/25 grindings to 4.606 Mt, demand destruction <span class="t">Reported</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></div></div><div><div class="v">−16%+</div><div class="l">Ghana's own forecast for its 2026/27 crop, July 2026 <span class="t">Forecast</span><sup class="r"><a href="#s6">6</a></sup></div></div></div>
 
@@ -407,9 +442,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. ICCO figures are primary, reported through market commentary; price observations are dated.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. ICCO figures are primary, reported through market commentary; price observations are dated. Sources 21–24 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 20 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 24 sources</summary><ol class="src">
     <li id="s1"><b>Procurement Resource</b>, "Cocoa Price Trend July 2026", Sep 2026, ICCO 2024/25 grindings 4.606 Mt (−4.2%); May 2026 bulletin production 4.723 Mt and grindings 4.628 Mt; Ghana farmer price cut c.29%; unsold Ivorian stocks; Côte d'Ivoire 2.0–2.1 Mt projection and arrivals; end-use split. <span class="c c-m">Med</span></li>
     <li id="s2"><b>RankiaPro</b>, "What is the situation of cocoa in 2026?", 2 Jun 2026, ICCO Quarterly Bulletin Vol. LII No. 1 (Feb 2026): production 4.728 Mt, grindings 4.606 Mt, surplus 75 kt, stocks 1.347 Mt, ratio 29.2%; 2023/24 crisis; May 2026 Ivorian rainfall. <span class="c c-m">Med</span></li>
     <li id="s3"><b>Capital.com</b>, "Cocoa Price Forecast", 2026, dated observations: $12,486.60 (19 Dec 2024); $8,399.20 (21 Apr 2025); $2,862.80 (2 Mar 2026); $3,780.80 (12 Jun) to $6,520.10 (9 Jul 2026); $5,702.90 (13 Jul); analyst division. Broker; used for dated points only. <span class="c c-m">Med</span></li>
@@ -430,6 +465,10 @@ td.n+td,th.n+th{padding-left:16px}
 <li id="s18"><b>CropGPT, "Cocoa Prices Drop as ICE Inventories Hit Multi-Year High"</b>, 6–9 Oct 2026. ICE stocks 3,538,981 bags, 2.25-year high; Cargill mark-to-market losses on cocoa; CPC: El Niño likely among the strongest in 75 years; Ivorian rain cut roads and bridges; December NY $5,670–$5,665 on the week; COCOBOD survey 650 kt, −13%. <a href="https://cropgpt.ai/cocoa-prices-drop-as-ice-inventories-hit-multi-year-high" target="_blank">cropgpt.ai</a> <span class="c c-m">Med</span></li>
 <li id="s19"><b>J2T, "Cocoa Price Prediction 2026–2030"</b>, 5 Oct 2026. ATH $12,931 Dec 2024; cycle low $2,846 Apr 2026; $6,569 on 1 Sep 2026; $5,609 on 5 Oct. Vendor page; used for dated price points only. <a href="https://j2t.com/solutions/blogview/cocoa-price-prediction/" target="_blank">j2t.com</a> <span class="c c-l">Low</span></li>
 <li id="s20"><b>Barchart via Yahoo Finance, "Unexpected Strength in North American Cocoa Demand Boosts Prices"</b>, 17 Jul 2026. NCA Q2 +7.7% to 109,659 t; ICE stocks 2-year high 3.25 m bags; Ivorian arrivals 2.09 Mt to 12 Jul (+21%); 2026/27 Ivorian surveys average 1.8 Mt, −18% from c.2.2 Mt; Barry Callebaut fiscal Q3 sales +5.7%. <a href="https://finance.yahoo.com/markets/commodities/articles/unexpected-strength-north-american-cocoa-182218411.html" target="_blank">yahoo.com</a> <span class="c c-m">Med</span></li>
+<li id="s21"><b>ICE Futures U.S.</b>, "Cocoa Futures", contract specifications: 10 metric tons; March, May, July, September, December; physical delivery to five US ports; origin premiums by group. <a href="https://www.ice.com/products/7/Cocoa-Futures" target="_blank">ice.com</a> <span class="c c-h">High</span></li>
+<li id="s22"><b>ICE Futures Europe</b>, "London Cocoa Futures", ten tonnes, £ per tonne, ten delivery months available; physical delivery in standard, large and bulk units. <a href="https://www.ice.com/products/37089076/London-Cocoa-Futures" target="_blank">ice.com</a> <span class="c c-h">High</span></li>
+<li id="s23"><b>The Traders Spread</b>, "Cocoa Falls 12.4% to $5,927 as Ivory Coast Arrivals Rise 19%", 9 Sep 2026, December cocoa 25,904 lots on 8 Sep; ICE certified stocks 3,411,776 bags on 1 Sep. Secondary, citing Investing.com and Trading Economics. <a href="https://thetradersspread.com/commodities/cocoa-falls-12-4-percent-5927-ivory-coast-arrivals-19-percent" target="_blank">thetradersspread.com</a> <span class="c c-m">Med</span></li>
+<li id="s24"><b>Barchart</b>, "Cocoa Dec '26 Futures Contract Specifications", Oct 2026, margin/maintenance $9,482 / $8,620; last trading day eleven business days before the last business day of the delivery month. <a href="https://www.barchart.com/futures/quotes/CC*0/profile" target="_blank">barchart.com</a> <span class="c c-m">Med</span></li>
 </ol></details>
   <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime and "Since last update" rewritten around the Q3 grindings turn and Ghana's season opening. Section I: 2026/27 crop-survey row added (Côte d'Ivoire 1.8 Mt, Ghana 650 kt, El Niño). Section II: ledger extended to 1 Sep and 16 Oct 2026; March/April cycle-low discrepancy logged. Section III: both country rows rebuilt with 2026/27 farmgate prices, the 75% gap, the unmet harmonisation pledge and COCOBOD's domestic financing; a derived paragraph on the two boards pricing in opposite directions. Section IV: the two 2025 demand-destruction cards replaced by Q3 2026 Europe and Asia prints; paragraph extended with origin grinding, panel caveat and the ICE stock high. Section VI: two rows updated, one added. Sources 11–20 added; 31 new sourced figures. No corrections to prior figures.</div>
 </section>

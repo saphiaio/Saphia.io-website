@@ -281,6 +281,24 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -298,11 +316,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Platinum Group Metals</h1>
     <div class="grade"><span class="g">Σ1</span><span class="n">Institutional</span><div class="m">Physical metal · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">The platinum deficit has become a forecast surplus, made entirely of investors leaving; above-ground stocks are the thinnest in the series. Both metals near 2026 lows.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">The platinum deficit has become a forecast surplus, made entirely of investors leaving; above-ground stocks are the thinnest in the series. Both metals near 2026 lows.<sup class="r"><a href="#s19">19</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>South Africa · Russia · Zimbabwe</div>
     <div><div class="k">Principal markets</div>China · Europe · United States · Japan</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>High</span><span>Scarcity</span><span>Medium</span><span>Provenance risk</span><span>Low</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Open-ended</div>
+      <div>No term applies to metal or ETF shares. Investment holdings are the swing factor in the published balances: H1 2026 ETF outflows alone turned the 2026 platinum forecast from deficit to surplus, so holding periods in this market are short and price-reactive.<span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · physical metal</div>
+      <div class="ex">
+        <span>Routes</span><span>Dealer at the LBMA Platinum or Palladium Price, set twice daily in IBA auctions; NYMEX futures; physically backed ETFs. Rhodium only through dealers, with no benchmark.<sup class="r"><a href="#s29">29</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>LBMA trade reporting, 12-week average to 9 Oct 2026: US$15.95 bn a week in platinum and US$7.26 bn in palladium, against US$961 bn in gold. Platinum spot turnover June–August was 49% below the same period of 2025.<sup class="r"><a href="#s28">28</a> <a href="#s30">30</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Spot liquidity is a fraction of gold or silver, so dealer spreads widen with size; sponge and ingot price differently, and ETF fees run above gold equivalents.<span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Loco London and Zurich spot settle two business days after trade, as for gold; ETF shares on the exchange cycle.<sup class="r"><a href="#s31">31</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">WPIC's 9 September report, missed at the last update, flipped 2026 from a 297 koz deficit to a 265 koz surplus on H1 investment outflows, and deepened the 2025 deficit to 1,440 koz.<sup class="r"><a href="#s19">19</a></sup> Platinum ~$1,630–1,650 on 18–19 Oct, −9% on the month and flat on the year; palladium ~$1,114–1,140, at the bottom of its 52-week range.<sup class="r"><a href="#s20">20</a></sup><sup class="r"><a href="#s21">21</a></sup><sup class="r"><a href="#s22">22</a></sup> The deficit claim carried on 5 October is corrected below.</p>
@@ -314,7 +350,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 27 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 31 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Six metals mined together from two geological provinces, priced apart, and consumed mostly inside exhaust systems. Platinum ran three deepening deficits; 2026 is now forecast as a small surplus made entirely of investment outflows, with stocks at 3.4 months of cover. Palladium's balance is disputed between the two independent houses. South Africa's largest producer has been spun out of Anglo American. This page covers the balance, supply concentration, demand by end-use, the corporate map and the assumptions behind the outlook. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">−1,440 koz</div><div class="l">2025 market deficit, revised up from 1,082 in September 2026; the largest in the WPIC series <span class="t">Reported</span><sup class="r"><a href="#s19">19</a></sup></div></div><div><div class="v">+265 koz</div><div class="l">2026 forecast surplus, from a 297 koz deficit forecast in May; H1 surplus 548 koz, H2 deficit 283 koz <span class="t">Forecast</span><sup class="r"><a href="#s19">19</a></sup></div></div><div><div class="v">South Africa</div><div class="l">Supplies c.70% of platinum, c.35% of palladium and the bulk of rhodium <span class="t">Estimate</span><sup class="r"><a href="#s9">9</a></sup></div></div></div>
 
@@ -430,9 +466,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. WPIC reports are primary for supply and demand; Anglo American and Valterra releases for corporate events.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. WPIC reports are primary for supply and demand; Anglo American and Valterra releases for corporate events. Sources 28–31 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 27 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 31 sources</summary><ol class="src">
     <li id="s1"><b>WPIC</b>, "Platinum Quarterly Q4 2025" (Metals Focus), Mar 2026, 2025 deficit 1,082 koz, largest in the series from 2013; 2024 deficit 921 koz; supply −1%, demand +1%; price more than doubled; Q4 mine supply +6%, recycling +15%.</li>
     <li id="s2"><b>WPIC</b>, "Platinum Essentials" research page, mid-2026, deficits averaging 331 koz 2026f–2030f; palladium surpluses from 2027f; Iran war, inflation and rate expectations; Strait of Hormuz base case; May 2024 palladium note on recycling +1.3 Moz p.a.; 13 Mar 2026 note on lease rates.</li>
     <li id="s3"><b>WPIC</b>, "Platinum Quarterly" landing page (Q1 2026 report, May 2026), 2026 deficit 297 koz (from 240); above-ground stocks 1,747 koz, under three months' cover; bar and coin +27% to 718 koz; total demand −9% to 7,674 koz; next report 9 Sep 2026.</li>
@@ -460,6 +496,10 @@ td.n+td,th.n+th{padding-left:16px}
 <li id="s25"><b>Strategic Metals Invest, Palladium Prices</b>, 16 Oct 2026. Johnson Matthey May 2026 outlook: small 2026 surplus; Heraeus/SFA Sep 2026: 345 koz deficit before ETF flows; palladium −32.6% YTD after +74.5% in 2025. Secondary. <a href="https://strategicmetalsinvest.com/palladium-prices/" target="_blank">strategicmetalsinvest.com</a> <span class="c c-m">Med</span></li>
 <li id="s26"><b>LBMA, "Precious Metals Market Report: Q3 2026"</b>, 14 Oct 2026. Platinum +9.22% Q3, −19.60% YTD; palladium +1.43% Q3, −25.53% YTD. <a href="https://www.lbma.org.uk/articles/lbma-precious-metals-market-report-q3-2026" target="_blank">lbma.org.uk</a> <span class="c c-h">High</span></li>
 <li id="s27"><b>WPIC, Platinum Quarterly landing page</b>, Oct 2026. Next report 18 Nov 2026. <a href="https://platinuminvestment.com/supply-and-demand/platinum-quarterly" target="_blank">platinuminvestment.com</a> <span class="c c-h">High</span></li>
+<li id="s28"><b>LBMA</b>, "Daily Trade Reporting Data", 12-week moving average weekly turnover to 9 Oct 2026: gold US$960.98 bn, platinum US$15.95 bn, palladium US$7.26 bn. <a href="https://www.lbma.org.uk/prices-and-data/lbma-daily-trade-reporting-data" target="_blank">lbma.org.uk</a> <span class="c c-h">High</span></li>
+<li id="s29"><b>LBMA</b>, "LBMA Precious Metal Prices", platinum and palladium benchmarks set twice daily in auctions administered by ICE Benchmark Administration. <a href="https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices" target="_blank">lbma.org.uk</a> <span class="c c-h">High</span></li>
+<li id="s30"><b>Nasdaq / LBMA</b>, "LBMA Precious Metals market volumes, June–August 2026, and their significance", platinum spot turnover −49% on the equivalent 2025 period; swaps/forwards +21%. <a href="https://www.nasdaq.com/articles/data/lbma-precious-metals-market-volumes-june-august-2026-and-their-significance" target="_blank">nasdaq.com</a> <span class="c c-m">Med</span></li>
+<li id="s31"><b>Wikipedia</b>, "London bullion market", accessed 23 Oct 2026, spot settlement convention. <a href="https://en.wikipedia.org/wiki/London_bullion_market" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
 </ol></details>
   <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Brief: date, regime and "Since last update" rewritten around WPIC's 9 September report, which the 5 October brief had missed; that stale deficit claim is corrected in Section I. Intro and headline figures: 2025 deficit 1,082 → 1,440 koz; "surplus from 2027" replaced by the 2026 surplus forecast. Section I: balance table restated to the September series with Q1 and Q2 2026 rows; stock cards and the 2026 demand paragraph rebuilt from the primary table; price paragraph added; January-high venue discrepancy logged. Section III: jewellery, industrial, hydrogen and investment rows updated; palladium balance dispute (JM vs Heraeus/SFA) recorded. Section V: Hormuz and five-year-deficit assumptions downgraded to Low; AI demand leg added at Low. Section VI: next report date, GFEX and lease-rate notes. Sources 19–27 added; 38 new sourced figures.</div>
 </section>

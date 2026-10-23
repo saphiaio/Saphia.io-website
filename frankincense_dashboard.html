@@ -278,6 +278,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -295,11 +312,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Frankincense</h1>
     <div class="grade"><span class="g">Σ5</span><span class="n">No route</span><div class="m">Route: none identified · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Resin prices rising against documented tree decline; the trade informal and unbenchmarked.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Resin prices rising against documented tree decline; the trade informal and unbenchmarked.<sup class="r"><a href="#s18">18</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Somaliland and Somalia · Oman (Dhofar) · Ethiopia · Yemen · India</div>
     <div><div class="k">Principal markets</div>Gulf · Europe (fragrance houses) · China · United States</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Medium; <em>B. papyrifera</em> High</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">None · no route</div>
+      <div>Resin keeps for years but is harvested, sorted and shipped within the season by traders who hold it for weeks, not years. There is no vehicle, no listed producer and no way to own the trees, which are communal or state land in Somaliland, Oman and Ethiopia. Σ5 because there is nothing to hold.<sup class="r"><a href="#s18">18</a> <a href="#s19">19</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · none identified</div>
+      <div class="ex">
+        <span>Routes</span><span>A holder of resin sells to an exporter in Berbera, Bosaso or Salalah, or to a Western ingredient house or distiller; essential-oil distillers and incense merchants buy graded lots. No exchange, no benchmark, no fund.<sup class="r"><a href="#s18">18</a> <a href="#s19">19</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Exporter FOB quotes from Berbera and Mogadishu run US$6–14/kg for Boswellia sacra by grade and US$8–65/kg for frereana (maydi), with 200–500 t a season on offer from a single trader; harvesters receive US$2–5/kg while the same resin sells to Western suppliers at US$60–100/kg. Over 15,000 t trade a year.<sup class="r"><a href="#s18">18</a> <a href="#s19">19</a> <a href="#s20">20</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>The exit cost is the chain itself: each of four or five hands between the tree and the distiller takes a margin, and grading is by eye at the point of sale. Export licensing in Somaliland and CITES listing of Boswellia (Appendix II from 2025) add paperwork a private seller cannot easily complete.<sup class="r"><a href="#s19">19</a> <a href="#s20">20</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Weeks to a local trader at the trader's price in the harvest season; months to find an overseas buyer for a graded lot. No mechanism exists for a private holder to sell at a published price.<span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: only retail listings for the 2026 Dhofar and Somaliland harvests found (Omani Hojari roughly €140–240/kg retail), no trade benchmark or new tree-health study. Regime and ratings unchanged.</p>
@@ -311,7 +346,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 17 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>7 sections · 20 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">A wild-harvested tree resin traded for millennia, now a billion-dollar input to perfumery, medicine and incense, with no benchmark price, no production statistics, population collapse documented in its largest source country, and a CITES listing debated and, so far, not made. This page covers the species and grades, the geography of harvest, the science of decline, the trade's structure, and the regulatory argument. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">&gt;15,000 t</div><div class="l">Annual international trade in all frankincense resins, and increasing <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">up to $1 bn</div><div class="l">Annual market value, potentially <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></div></div><div><div class="v">225,750</div><div class="l">People in Somaliland's Bari and Sanaag regions earning 55–60% of income from frankincense and goats <span class="t">Reported</span><sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -401,9 +436,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. CITES documents and peer-reviewed papers are primary; merchant and supplier sources are marked.</p></div>
+  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. CITES documents and peer-reviewed papers are primary; merchant and supplier sources are marked. Sources 18–20 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 17 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 20 sources</summary><ol class="src">
     <li id="s1"><b>CITES</b>, CoP20 Inf. 22 (Bongers et al.), Mar 2025, <i>B. papyrifera</i> by far the most valuable in financial terms, market potentially up to $1 bn; global trade appears to exceed 15,000 t a year and increasing; population collapse mechanisms; Socotra parallel.</li>
     <li id="s2"><b>Johnson, Canney Davison, Ablard, Bongers, Cunningham, DeCarlo, Van Wyk</b>, "Good intentions meet complex realities: CITES listing of diverse frankincense (Boswellia species) might do more harm than good", <i>Forest Policy and Economics</i>, 2024, likely more than $1 bn annual value; livelihoods in Somalia, Sudan, Ethiopia, India; review of studies; CITES inappropriate; alternative interventions.</li>
     <li id="s3"><b>CITES</b>, PC26 Doc. 28.1 / "Chapter Five: Frankincense production and trade" (ResearchGate copy), 2022, <i>B. carteri</i> and <i>B. sacra</i> treated as separate species; 225,750 people in Bari and Sanaag earning 55–60% of income from frankincense and goats; Appendix II likely counter-productive; recommendations on tenure research.</li>
@@ -421,7 +456,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s15"><b>CITES</b>, CoP20 Inf. 28, Nov 2025, case for and against Appendix II; few species traded in significant volumes; internal consumption in Ethiopia; difficulty linking harvest to international trade; mass-spectrometry identification.</li>
     <li id="s16"><b>CITES</b>, CoP20 Doc. 94 (Secretariat working document), Decisions 19.241 onward from CoP19; desk-based study; identification now achievable; most trade from states under trade suspensions or transiting them; RBGE research updates.</li>
     <li id="s17"><b>Royal Botanic Garden Edinburgh</b>, "Conservation status, trade and threats to the genus Boswellia (frankincense)", CoP20 information document, Nov 2025, Table 2 assessment against Appendix II criteria; <i>B. papyrifera</i> meets them; <i>B. sacra</i> possibly, pending Omani surveys; Appendix III as a data step; Gibson 2023 taxonomy.</li>
-  </ol></details>
+  <li id="s18"><b>TradeWheel</b>, "Superior Hojari Frankincense, Boswellia sacra", Somalia exporter listing, 2026: Grade A US$14/kg, Grade B US$8, Grade C US$6.30 FOB Berbera or Mogadishu; 200–500 t capacity per season per grade; 1 t MOQ. Go4WorldBusiness: Boswellia & Co, frereana US$8–65/kg FOB, carterii US$10–15. Trade listings. <a href="https://www.tradewheel.com/p/superior-hojari-frankincense-boswellia-sacra-2506896/" target="_blank">tradewheel.com</a> <span class="c c-l">Low</span></li>
+<li id="s19"><b>Saxafi Media</b>, "The Last Tears of Frankincense: Somaliland's Struggle to Save an Ancient Resin", Dec 2025: Western supplier prices US$60–100/kg against US$2–5/kg to harvesters (Silvan Ingredient Ecosystem); market projected to nearly double by 2032 while wild trees dwindle. <a href="https://saxafimedia.com/last-tears-frankincense-somaliland-ancient-resin/" target="_blank">saxafimedia.com</a> <span class="c c-m">Med</span></li>
+<li id="s20"><b>Export Ready Africa</b>, "Top Fresh Produce Exporters in Somalia", Mar 2026: Somalia the world's third-largest producer; maydi (B. frereana) up to US$12/kg, six times standard grades; Golis Mountains supply chain. <a href="https://exportready.africa/african-exporter-directories/top-fresh-produce-exporters-somalia/" target="_blank">exportready.africa</a> <span class="c c-l">Low</span></li>
+</ol></details>
 </section>
 
 </details>

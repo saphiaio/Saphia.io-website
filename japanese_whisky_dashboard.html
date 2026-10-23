@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Japanese Whisky</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Physical · bottled · 20 Oct 2026</div></div>
   </div>
-  <p class="regime">A record set in May 2026 for a single bottle, a labelling standard that finally defines the category, and a secondary market where half the famous names failed to meet reserve two years ago; the asset is the age statement, not the country.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">A record set in May 2026 for a single bottle, a labelling standard that finally defines the category, and a secondary market where half the famous names failed to meet reserve two years ago; the asset is the age statement, not the country.<sup class="r"><a href="#s1">1</a> <a href="#s5">5</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Bottled whisky distilled, matured and bottled in Japan: Suntory (Yamazaki, Hakushu, Hibiki), Nikka (Yoichi, Miyagikyo, Taketsuru), Chichibu, and the closed distilleries Karuizawa and Hanyu. Casks are covered under <a href="/rare-whisky-casks-dashboard" style="border-bottom:1px solid var(--bronze)">Rare Whisky Casks →</a>; Scotch under <a href="/scotch-whisky-dashboard" style="border-bottom:1px solid var(--bronze)">Scotch Whisky →</a></div>
     <div><div class="k">Principal markets</div>Hong Kong (Bonhams, Sotheby's) · Tokyo · London and Edinburgh (Whisky Auctioneer, Sotheby's) · New York · Taipei and Singapore; domestic retail by ballot</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Very high; two companies, two closed stills</span><span>Liquidity</span><span>Medium; monthly online auctions, thin at the top</span><span>Scarcity</span><span>High for age statements; low for the category</span><span>Provenance risk</span><span>High; refills and counterfeits</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">5–10 years</div>
+      <div>Age-statement bottles are allocated by ballot and resell above release at once, so the first-year gain is the allocation, not the hold. Beyond that the horizon is the same as Scotch, five to ten years, with one addition: bottles labelled before the 2021 standard took effect carry a provenance discount that widens as the market learns to read the label.<span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · bottles</div>
+      <div class="ex">
+        <span>Routes</span><span>The same monthly online auctions as Scotch (Whisky Auctioneer and peers), where Japanese whisky is a standing category; Bonhams and Sotheby's Hong Kong for the trophy lots; specialist retailers in Japan and Europe who buy outright.<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Deep for standard Yamazaki, Hakushu and Hibiki age statements, which appear in every monthly sale; thin at the top, where a handful of lots a year set the record and where several named bottles failed to sell in 2024 before the May 2026 record of $842,169.<sup class="r"><a href="#s10">10</a> <a href="#s1">1</a> <a href="#s3">3</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>As for Scotch: seller's commission 5–10% plus VAT, buyer's premium 12.5–15% that caps the hammer, listing and reserve fees. Shipping spirits across borders adds duty and freight that fall on the buyer and narrow the pool.<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Six to ten weeks from consignment to cash through a monthly online sale; a trophy bottle waits for a Hong Kong or London sale date and is paid 30–45 days after.<sup class="r"><a href="#s10">10</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Bonhams Hong Kong sold Yamazaki 50 Year Old Club Natsume for a hammer of $842,169 on 30 May 2026, a record for any Japanese whisky by more than 30%, with Karuizawa 1960 Cask 5627 at $638,007 in the same two-lot sale; the JSLMA's application for geographical-indication status, announced March 2025, is pending.<sup class="r"><a href="#s1">1</a> <a href="#s5">5</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 9 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The second most valuable whisky category at auction after Scotch, built in fifteen years from a domestic drink into a collectible on the strength of two distilleries that stopped producing and two that could not make enough. This page covers the record book and what sits beneath it, the labelling standard that now defines the asset, supply and allocation, the risks specific to the bottle, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$842,169</div><div class="l">Yamazaki 50 Year Old Club Natsume, hammer, Bonhams Hong Kong, 30 May 2026; record for Japanese whisky<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$645,125</div><div class="l">Previous record, Yamazaki 55, Bonhams Hong Kong, Aug 2020; released by ballot at ¥3.3 m (c. $31,000); stood 2,108 days<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></div></div><div><div class="v">$638,007</div><div class="l">Karuizawa 1960 52 Year Old, Cask 5627, same sale; the distillery closed in 2000<sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">1 Apr 2021</div><div class="l">JSLMA labelling standard enacted, three-year transition to 2024; GI application announced Mar 2025<sup class="r"><a href="#s6">6</a> <a href="#s7">7</a></sup></div></div></div>
 
@@ -385,8 +420,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Auction-house results and the JSLMA standard are primary; trade guides for secondary prices and are tagged.</p></div>
-  <details><summary class="src-toggle">Show 9 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Auction-house results and the JSLMA standard are primary; trade guides for secondary prices and are tagged. Sources 10–11 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>Vinetur</b> citing Bonhams and Whisky Advocate, "Rare Yamazaki 50-Year-Old Whisky Sets a New Japanese Auction Record", 9 Jun 2026: $842,169 hammer (HK$6.6 m), 30 May 2026; previous record $645,125, Aug 2020, stood 2,108 days; Karuizawa 1960 Cask 5627 $638,007. <a href="https://www.vinetur.com/en/amp/20260609102342/rare-yamazaki-50-year-old-whisky-sets-a-new-japanese-auction-record.html" target="_blank">vinetur.com</a></li>
     <li id="s2"><b>Sotheby's</b>, "How Yamazaki 55 Became the Top Japanese Whisky", 2025: released 2020 by ballot at ¥3.3 m (c. $31,000); prices to $780,000; Japanese whisky second to Scotch by secondary value; case of 12 at $100,000, New York, Jun 2024. <a href="https://www.sothebys.com/en/articles/how-yamazaki-55-became-the-top-japanese-whisky" target="_blank">sothebys.com</a></li>
     <li id="s3"><b>Whisky Advocate</b>, "Japanese Whisky To Collect", 2025: Yamazaki 55 over $200,000 but several unsold at reserve; non-compliant blends likely to be worth far less; Karuizawa and Hanyu last casks as the catalyst. <a href="https://whiskyadvocate.com/Collecting-Japanese-Whisky" target="_blank">whiskyadvocate.com</a></li>
@@ -396,7 +431,9 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s7"><b>Master of Malt</b>, "Hakushu Whisky and the JSLMA Certification", 2025: criteria (Japanese water; saccharification, fermentation, distillation in Japan; below 95% ABV; three years in wood; bottled in Japan); GI application announced Mar 2025. <a href="https://www.masterofmalt.com/blog/post/hakushu-whisky-and-the-jslma-certification/" target="_blank">masterofmalt.com</a></li>
     <li id="s8"><b>Vinovest</b>, "10 Most Expensive Japanese Whisky Bottles" and "Japanese Whisky: Complete 2026 Guide": Hanyu Ace of Spades $56,408 → $74,401, Nov 2024–Apr 2025; Karuizawa 1965 c. $30,000; Hibiki 35 $100,000+. Trade source; its $953,237 Yamazaki 55 figure is not reconciled with the Bonhams hammer record and is not used. <span class="c c-m">Med</span></li>
     <li id="s9"><b>BlockApps</b>, "Navigating the Japanese Whisky Market", 2024: Karuizawa 1960 The Archer $140,140; Yamazaki 55 $256,162 Sotheby's Hong Kong; Yamazaki 18 appreciation since 2014. <span class="c c-m">Med</span></li>
-  </ol></details>
+  <li id="s10"><b>Whisky Auctioneer</b>, "Auctions" pages, 2026, monthly sales of 4,486–5,766 lots; buyer's commission 12.5–15% ex-VAT; sellers paid within 21 working days; Japanese whisky a standing category. <a href="https://whiskyauctioneer.com/whisky-auctions/september-2026-auction/lots" target="_blank">whiskyauctioneer.com</a> <span class="c c-h">High</span></li>
+<li id="s11"><b>Mark Littler</b>, "The Ultimate Guide To Selling Whisky At Auction", seller commission by house, 5% + VAT to 10% + VAT. Dealer source. <a href="https://www.marklittler.com/selling-whisky-at-auction/" target="_blank">marklittler.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

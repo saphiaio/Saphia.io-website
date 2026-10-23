@@ -280,6 +280,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -297,11 +314,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Vanilla</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Route: flavour houses and exporters · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Third price cycle of structural oversupply: exports ~$40/kg average; green-vanilla floor reinstated at ~$2.34/kg in June 2026.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Third price cycle of structural oversupply: exports ~$40/kg average; green-vanilla floor reinstated at ~$2.34/kg in June 2026.<sup class="r"><a href="#s14">14</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Madagascar · Indonesia · Papua New Guinea · Uganda</div>
     <div><div class="k">Principal markets</div>United States · France · Germany · Japan</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Low</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">One to two seasons · beans</div>
+      <div>Cured vanilla keeps its vanillin for a year or two under vacuum and then loses it; the trade turns stock within the season and speculators who held through 2018–23 took the $600-to-$50 round trip. The route is flavour houses and exporters, whose horizon is a procurement contract, not a hold.<sup class="r"><a href="#s2">2</a> href="#s16">16</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · flavour houses and exporters</div>
+      <div class="ex">
+        <span>Routes</span><span>Beans: sale to an exporter in Madagascar at or above the official minimum, or to an importer or flavour house abroad. Equity: shares in diversified flavour and ingredient groups (Symrise, Givaudan, IFF), where vanilla is a fraction of revenue; no listed pure play.<sup class="r"><a href="#s2">2</a> href="#s17">17</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Madagascar's 2026 crop is projected at 3,000–3,500 t against inventories built over several years. Grade A FOB is quoted anywhere from $60–120/kg (one importer) to $140–260/kg (indicative 2026 export ranges) and $188–218/kg (a price-reporting forecast); extraction grades near $30/kg. The spread between sources is itself the market.<sup class="r"><a href="#s2">2</a> href="#s16">16</a> href="#s17">17</a></sup><span class="t">Reported</span><span class="c c-l">Low</span></span>
+        <span>Cost</span><span>Official minimum export prices ($50/kg black, $25 long red, $15 cuts) set a floor that is not always respected; exporter and importer margins between FOB and the $150–280/kg landed-to-retail ladder; grading disputes on vanillin content and moisture fall on the seller.<sup class="r"><a href="#s2">2</a> href="#s18">18</a></sup><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Beans move within weeks of curing when an exporter will take them; in an oversupplied year a seller waits a season or discounts. Equity exposure exits on exchange the same day.<sup class="r"><a href="#s16">16</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">In late June 2026 Madagascar set a green-vanilla floor of 10,000 Ariary/kg (~$2.34) for pods over 13 cm. Trade reference prices: $15 cuts, $25 long, $50 gourmet. A 3,000–3,500 t crop is projected for 2026.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup></p>
@@ -313,7 +348,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 15 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 18 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The world's second most expensive spice after saffron is trading at inflation-adjusted lows: a $600/kg peak in 2018, a floor price abolished in 2023, and a 2026 Madagascar crop large enough to keep it there. Structural overproduction meets a customer base that reformulated away and has not come back.</p>
   <div class="figures"><div><div class="v">$15 / $25 / $50</div><div class="l">Trade reference $/kg, cuts / long red / gourmet black, 2026 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">3,000–3,500 t</div><div class="l">Aust & Hachmann projection, 2026 Madagascar crop <span class="t">Forecast</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">c.$600</div><div class="l">2018 peak, $/kg cured, briefly above silver by weight <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div></div>
 
@@ -433,11 +468,11 @@ td.n+td,th.n+th{padding-left:16px}
   </table>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 16–18 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 15 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 18 sources</summary><ol class="src">
     <li id="s1"><b>Rio Times</b>, "Madagascar Economy Reels as Vanilla Collapses and Ambatovy Halts Again", Sep 2026, green floor 10,000 Ariary (c.$2.34); prior 75,000 Ariary (c.$18); $250 floor removed May 2023; export revenue −64% by mid-2024; Biovanilla c.$40 average and 4,500 t estimate; Aust & Hachmann 3,000–3,500 t; $15/$25/$50 references; distressed $10–16; 2018 peak near $600.</li>
-    <li id="s2"><b>Amadeus Vanilla Beans</b>, "Vanilla Bean Prices 2026 | Farm-Direct Market Report", 10 Aug 2026, 2014 $35–65; 2018 $500–800; April 2023 floor cancellation; three-year vine lag; US retail $97–225/lb. Merchant source. <span class="c c-m">Med</span></li>
+    <li id="s2"><b>Amadeus Vanilla Beans</b>, "Vanilla Bean Prices 2026 | Farm-Direct Market Report", 10 Aug 2026, 2014 $35–65; 2018 $500–800; April 2023 floor cancellation; three-year vine lag; US retail $97–225/lb. Merchant source. <span class="c c-m">Med</span> Also: official minimum export prices $50/kg black, $25 long red, $15 cuts, not always respected; 2026 crop 3,000–3,500 t (Aust & Hachmann); Grade A peaked $500–800/kg in 2018.</li>
     <li id="s3"><b>Mintec</b>, "Madagascar lifts minimum export price on vanilla", 2023, $250 floor in place since July 2020; cost-price rule; trade estimate $140–150/kg.</li>
     <li id="s4"><b>Ken Research</b>, Global Vanilla Market report, Aug 2026, 7,433 t raw 2023; Madagascar 3,113 t (41.9%); Indonesia 24.7%; substitution dynamics; Uganda two seasons. <span class="c c-m">Med</span></li>
     <li id="s5"><b>FoodUnfolded</b>, "Vanilla Beans | The Cost of Production", natural extract c.1% of flavour market; c.65% of natural demand from north-eastern Madagascar (2020 projection).</li>
@@ -451,6 +486,9 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s13"><b>Future Market Insights</b>, Vanilla Extract Market, Mar 2026, USD 5.60 bn (2025); 200+ aroma compounds claim. <span class="c c-l">Low</span></li>
   <li id="s14"><b>Rio Times, "Madagascar Economy Reels as Vanilla Collapses…"</b>, Sep 2026. Green floor 10,000 Ar/kg; crop 3,000–3,500 t. <a href="https://www.riotimesonline.com/madagascar-economy-vanilla-nickel-2026" target="_blank">riotimesonline.com</a> <span class="c c-m">Med</span></li>
 <li id="s15"><b>Biovanilla, Madagascar Vanilla Market Report n°04</b>, Mar 2026. Cycle 3 average export ~$40/kg. <a href="https://www.biovanilla.fr/en/actualites/madagascar-vanilla-market-report-04-march-2026" target="_blank">biovanilla.fr</a> <span class="c c-m">Med</span></li>
+<li id="s16"><b>Capmad</b>, "Madagascar restores a floor price on green vanilla ahead of a pressured 2026–2027 export season", Oct 2026: extraction grades around $30/kg in 2026, back to 2012–13 levels; indicative 2026 export ranges for prepared Grade A (16 cm+) $140–260/kg FOB Toamasina. <a href="https://www.capmad.com/post/madagascar-restores-a-floor-price-on-green-vanilla-ahead-of-a-pressured-20262027-export-season" target="_blank">capmad.com</a> <span class="c c-m">Med</span></li>
+<li id="s17"><b>Expert Market Research</b>, "Vanilla Price Trend 2026", Oct 2026: Madagascar $200/kg in Q1 2026, $196–204 since; 2026 forecast range $188–218/kg; Indonesia $130–158. Price-reporting service; basis "cured Grade A FOB to landed". <a href="https://www.expertmarketresearch.com/price-forecast/vanilla-price-trends" target="_blank">expertmarketresearch.com</a> <span class="c c-m">Med</span></li>
+<li id="s18"><b>Vanilla Roots</b>, "Vanilla Price Per Kg in 2026", 12 Oct 2026: Madagascar certified Grade A $60–120/kg FOB; Indonesia $50–90; extraction $15–40; US retail $152–241/kg; informal $50–70 floor. Trade source. <a href="https://vanillaroots.com/vanilla-price-history" target="_blank">vanillaroots.com</a> <span class="c c-l">Low</span></li>
 </ol></details>
 </section>
 

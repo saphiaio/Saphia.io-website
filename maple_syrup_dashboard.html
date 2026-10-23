@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Maple Syrup</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Commodity · administered · 20 Oct 2026</div></div>
   </div>
-  <p class="regime">The world's only agricultural cartel with a strategic reserve has just run it to zero: two record harvests, tariff front-running and a 16% export surge emptied 133 million pounds of capacity, and the price is still set by the Federation, not the market.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">The world's only agricultural cartel with a strategic reserve has just run it to zero: two record harvests, tariff front-running and a 16% export surge emptied 133 million pounds of capacity, and the price is still set by the Federation, not the market.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Bulk maple syrup produced in Québec and sold through the Québec Maple Syrup Producers (PPAQ) joint plan, the Global Strategic Maple Syrup Reserve, and production quota (taps). US and other-province production is covered as context. Retail bottled syrup is not an asset and is not covered.</div>
     <div><div class="k">Principal markets</div>Québec (Centre-du-Québec, Chaudière-Appalaches, Bas-Saint-Laurent) · Laurierville, Plessisville and Saint-Antoine-de-Tilly reserve warehouses · Vermont, New York, Maine · export to 69 countries, 65% of it to the United States</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Very high; Québec 72% of world output under one seller</span><span>Liquidity</span><span>None outside the plan; administered price</span><span>Scarcity</span><span>Weather-driven year to year; none structurally</span><span>Provenance risk</span><span>Low; graded and inspected on delivery</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">None · administered</div>
+      <div>There is nothing to hold. Bulk syrup in Québec must be delivered to the Federation in the season it is made, graded and paid at an administered price; the Federation, not the producer, decides whether it ships or goes into the reserve. The only holding is a sugar bush with quota, a farming business whose horizon is the trees.<sup class="r"><a href="#s2">2</a> href="#s9">9</a></sup><span class="t">Derived</span><span class="c c-h">High</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · administered market</div>
+      <div class="ex">
+        <span>Routes</span><span>Québec bulk: sale only to a PPAQ-authorised buyer at the Federation price; direct retail sales of small containers are the sole exception. Outside Québec, US bulk buyers (Bascom in New Hampshire is the largest) set their own prices, anchored to Québec's. A sugar bush with quota sells as farmland.<sup class="r"><a href="#s2">2</a> href="#s9">9</a> href="#s10">10</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>The reserve's 133 m lb capacity has been run to zero and remaining contracted syrup is expected gone by February 2027; the Federation has added 21 m taps in five years. US bulk buyers paid US$2.60/lb for top grades in 2026, Québec about US$2.60; USDA reports US bulk at $2.80/lb for 2025. Quota itself is allocated by the Federation, not traded.<sup class="r"><a href="#s2">2</a> href="#s10">10</a> href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Levies of about 14¢/lb on all bulk syrup graded fund the Federation, plus promotion and reserve charges; cash authorised buyers pay C$1,450 a barrel on receipt, credit buyers pay over months with carrying charges at prime plus 1%. Producers who sell outside the system have faced seizure and fines.<sup class="r"><a href="#s2">2</a> href="#s12">12</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Time</span><span>Delivery to the buyer within the season; payment on receipt from a cash buyer or spread over months from a credit buyer, with the Federation paying producers gradually as inventory sells. A sugar bush takes months to sell and the quota transfers with the land at the Federation's discretion.<sup class="r"><a href="#s2">2</a> href="#s12">12</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. PPAQ's president said on 19 October 2026 that the Strategic Reserve "has been reduced to zero" and remaining contracted syrup will be gone by end-February; 2026 production was 229.5 m lb on 58.6 m taps; exports rose 15.8% in 2025 ahead of US tariffs and 2.5% January–August 2026.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 12 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">The nearest thing in agriculture to OPEC, with a warehouse. This page covers the joint plan and how it prices, the reserve and why it is empty, the harvest and tap arithmetic, the risks specific to a managed market, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">0 lb</div><div class="l">Global Strategic Maple Syrup Reserve, Oct 2026, from 40 m lb in June 2025 and a capacity of 133 m lb (218,000 barrels)<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s4">4</a></sup></div></div><div><div class="v">229.5 m lb</div><div class="l">Québec production 2026; 225 m in 2025 ($750 m); record 239 m in 2024; ten-year average 168 m<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></div></div><div><div class="v">72%</div><div class="l">Québec's share of world maple syrup; 85% exported to 69 countries; 65% of exports to the US<sup class="r"><a href="#s2">2</a> <a href="#s5">5</a></sup></div></div><div><div class="v">58.6 m</div><div class="l">Taps in operation 2026; 7 m issued in 2025; 178 m potential<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></div></div></div>
 
@@ -389,8 +424,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. PPAQ is the primary source for production, taps and the reserve; Canadian press for the October 2026 statements.</p></div>
-  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. PPAQ is the primary source for production, taps and the reserve; Canadian press for the October 2026 statements. Sources 9–12 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 12 sources</summary><ol class="src">
     <li id="s1"><b>BNN Bloomberg</b> / The Canadian Press, "Quebec's strategic maple syrup reserve running dry amid high demand", 19 Oct 2026: Luc Goulet, "reduced to zero"; exports +15.8% in 2025, +2.48% Jan–Aug 2026; GDP contribution $1.21 bn; over 70% of North American production. <a href="https://www.bnnbloomberg.ca/business/economics/2026/10/19/quebecs-strategic-maple-syrup-reserve-running-dry-amid-high-demand/" target="_blank">bnnbloomberg.ca</a></li>
     <li id="s2"><b>The Globe and Mail</b>, "Strategic maple syrup reserve close to empty, producers say", Oct 2026: contracted syrup gone by end-February; capacity 133 m lb, 218,000 barrels, c. $400 m; minimum prices and quotas; c. 70% of world, 65% to the US. <a href="https://www.theglobeandmail.com/business/article-strategic-maple-syrup-reserve-close-to-empty-producers-say/" target="_blank">theglobeandmail.com</a></li>
     <li id="s3"><b>PPAQ</b>, "Québec Maple Syrup Producers Announce Excellent Harvest, Issue of 7 Million New Taps", 16 Jun 2025: 225 m lb, $750 m; 2024 record 239 m; reserve just over 40 m lb; US trade relations; AGÉCO survey method. <a href="https://ppaq.ca/en/communiques/les-producteurs-et-productrices-acericoles-du-quebec-annoncent-lemission-de-7-millions-de-nouvelles-entailles/" target="_blank">ppaq.ca</a></li>
@@ -399,7 +434,11 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s6"><b>Maple Terroir</b>, "The Hidden Truth Behind Real Maple Syrup Sap Values", 2025: quota since 2004; c. 70% of global production; reserve 133 m lb. Trade source. <span class="c c-m">Med</span> <a href="https://mapleterroir.com/blogs/blogs-maple-terroir/the-hidden-truth-behind-real-maple-syrup-sap-values-2025-guide" target="_blank">mapleterroir.com</a></li>
     <li id="s7"><b>Maple Terroir</b> citing Statistics Canada (11 Dec 2025), "Canadian Maple Syrup Production Report 2025": Canada 18.9 m gallons 2025, −5.1% from 19.9 m record; Québec 17.0 m gallons, 90%; Québec 2024 18 m gallons, +92.2% on 2023; reserve at a sixteen-year low before 2024. <a href="https://mapleterroir.com/blog/canadian-maple-syrup-production-report-2025" target="_blank">mapleterroir.com</a></li>
     <li id="s8"><b>Al Jazeera</b>, "Inside the pressures facing Quebec's billion-dollar maple syrup industry", 15 Apr 2024: PPAQ represents 13,000 producers; quota system; reserve lowest in over fifteen years. <a href="https://www.aljazeera.com/news/2024/4/15/inside-the-pressures-facing-quebecs-billion-dollar-maple-syrup-industry" target="_blank">aljazeera.com</a></li>
-  </ol></details>
+<li id="s9"><b>PPAQ</b>, "Become an Authorized Buyer": only authorised buyers may purchase bulk syrup from Québec producers; cash buyers pay C$1,450 per barrel on receipt; credit buyers pay 30% by the 15th of the following month with carrying charges at Desjardins prime +1%. "Guide for New Maple Producers": 14¢/lb levy on all syrup graded, further per-pound charges for promotion and reserve. <a href="https://ppaq.ca/en/sale-purchase-maple-syrup/become-an-authorized-buyer/" target="_blank">ppaq.ca</a> <span class="c c-h">High</span></li>
+<li id="s9"><b>The Maple News</b>, "Bascom's announces a 20-cent increase for new crop syrup", 23 Mar 2026: US$2.60/lb Golden and Amber, $2.55 Dark, $2.35 Very Dark, $1.60 processing; Québec producer price about US$2.60/lb; reserve near empty and rationed to preferred buyers. <a href="https://www.themaplenews.com/story/bascom039;s-announces-a-20-cent-increase-for-new-crop-syrup-/564/" target="_blank">themaplenews.com</a> <span class="c c-h">High</span></li>
+<li id="s10"><b>USDA NASS via Find Homegrown</b>, "How Much to Sell Maple Syrup For: 2026 Price Guide", Sep 2026, citing USDA Crop Production 11 Jun 2026: US bulk $2.80/lb in 2025 ($2.60 in 2024); wholesale $48.70/gal; retail $56.70/gal; 2026 US crop 5.88 m gal. <a href="https://findhomegrown.com/blog/how-much-to-sell-maple-syrup-for" target="_blank">findhomegrown.com</a> <span class="c c-m">Med</span></li>
+<li id="s11"><b>The Rotten Apple</b>, "Issue 235: Maple Syrup Fraud in Canada", May 2026: PPAQ as mandatory sales agent for almost all bulk syrup; pays producers gradually as inventory sells; investigations, seizures, security guards and civil claims against producers selling outside the system. <a href="https://therottenapple.substack.com/p/issue-235" target="_blank">therottenapple.substack.com</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>

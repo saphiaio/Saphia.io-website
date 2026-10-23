@@ -264,6 +264,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -281,11 +298,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Bluefin Tuna</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Route: ranching and seafood groups · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Toyosu first-auction records for Ōma bluefin, against a commercial price that has not followed.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Toyosu first-auction records for Ōma bluefin, against a commercial price that has not followed.<sup class="r"><a href="#s5">5</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Ōma and Japanese coastal fisheries · Mediterranean ranching · Pacific and Southern stocks</div>
     <div><div class="k">Principal markets</div>Japan · United States · European Union · Hong Kong</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>High (wild Ōma)</span><span>Provenance risk</span><span>Medium</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Equity · fish 2–3 years in pens</div>
+      <div>Ranched Pacific bluefin are caught young and fattened in pens for two to three years before sale; wild Ōma fish are sold the day they land. The route is seafood groups and ranching operations, so the practical holding is listed equity (Maruha Nichiro, Nissui, Kyokuyo) with no fixed term, bounded by quota allocations set year to year.<sup class="r"><a href="#s5">5</a> <a href="#s3">3</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · ranching and seafood groups</div>
+      <div class="ex">
+        <span>Routes</span><span>Fish: the Toyosu auction and regional wholesale markets, licensed buyers only; direct contracts with retailers and sushi chains. Capital: shares in the listed seafood groups through any broker; private sale of a ranching licence and pens, which transfers with the quota.<sup class="r"><a href="#s5">5</a> <a href="#s3">3</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Hundreds of tuna sell at Toyosu every morning; superb Ōma bluefin trades at roughly ¥17,000–20,000/kg on an ordinary day against the ¥2.1 m/kg paid at the 5 January 2026 New Year auction (¥510.3 m for 243 kg). Pacific bluefin catch limits were raised 60% for 2025–26 as the stock recovered.<sup class="r"><a href="#s5">5</a> <a href="#s3">3</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Market commission and handling at Toyosu; grading on the day by cut and fat, which can halve the price of a fish that looked right in the water. Equity: brokerage and spread. Ranching: feed for two to three years and the mortality that comes with it.<sup class="r"><a href="#s5">5</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>A fish is sold within hours of landing and paid on market terms. Shares exit the same day. A ranching business takes months and needs a licensed buyer, since the quota cannot be sold to anyone else.<sup class="r"><a href="#s3">3</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no new Toyosu price series or quota decision since the last update; the 2026 New Year record (¥510.3m) and the 2025–26 Pacific catch-limit increase remain the latest data points.</p>
@@ -362,7 +397,8 @@ td.n+td,th.n+th{padding-left:16px}
     
     
   </table></div>
-</section><section id="sources"><div class="sechead"><h2><em>V</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div><details><summary class="src-toggle">Show 6 sources</summary><ol class="src"><li id="s1"><b>CNN / AP</b>, "Bluefin tuna fetches record $3.2 million at Japan's Toyosu market auction", 5 Jan 2026, ¥510 m; 243 kg; Kiyomura; previous record ¥334 m (2019); Ōma; ¥2.1 m/kg.</li><li id="s2"><b>Nippon.com</b>, "The ¥500-Million Tuna", 20 Jan 2026, ¥510.3 m; 234 kg; previous record ¥333.6 m at the first Toyosu New Year auction in 2019.</li><li id="s3"><b>SeafoodSource</b>, "Top tuna at Toyosu sells for USD 3.2 million", 5 Jan 2026, IATTC–WCPFC joint working group 2024 vote to raise Pacific bluefin catch limits 60% for 2025 and 2026; no harvest strategy adopted in 2025; Pew and ISSF positions.</li><li id="s4"><b>Nippon.com</b>, "Big Spending on a Big Fish", 26 Jan 2026, ¥2.1 m/kg; Yamayuki/Onodera five consecutive wins; 2025 bid ¥207 m; bidding sequence to ¥486 m; 2019 fish 278 kg.</li><li id="s5"><b>Toyosu Fish Market guide</b>, "Bluefin Tuna Auction Record Prices Explained (2026)", IUCN 2021 reassessment by stock (verbatim categories); Beth Polidoro quotation; 2025–26 trend (weak yen, tourism, rivalry vs. commercial pressure); Ōma under-reporting conviction 2023; c.200 fresh and c.1,000 frozen tuna daily; green floor. <span class="c c-m">Med</span></li><li id="s6"><b>Nikkei Asia</b>, "Top-grade A5 wagyu accounts for over 75% of Japan's market, driving exports", 25 Jun 2026, A5 saturation; inflation-hit domestic consumers; export push.</li></ol></details></section>
+</section><section id="sources"><div class="sechead"><h2><em>V</em>Sources</h2><p class="sub">Numbered in order of first citation. Holding-horizon and exit-depth fields added 23 Oct 2026 from existing sources.</p></div><details><summary class="src-toggle">Show 6 sources</summary><ol class="src"><li id="s1"><b>CNN / AP</b>, "Bluefin tuna fetches record $3.2 million at Japan's Toyosu market auction", 5 Jan 2026, ¥510 m; 243 kg; Kiyomura; previous record ¥334 m (2019); Ōma; ¥2.1 m/kg.</li><li id="s2"><b>Nippon.com</b>, "The ¥500-Million Tuna", 20 Jan 2026, ¥510.3 m; 234 kg; previous record ¥333.6 m at the first Toyosu New Year auction in 2019.</li><li id="s3"><b>SeafoodSource</b>, "Top tuna at Toyosu sells for USD 3.2 million", 5 Jan 2026, IATTC–WCPFC joint working group 2024 vote to raise Pacific bluefin catch limits 60% for 2025 and 2026; no harvest strategy adopted in 2025; Pew and ISSF positions.</li><li id="s4"><b>Nippon.com</b>, "Big Spending on a Big Fish", 26 Jan 2026, ¥2.1 m/kg; Yamayuki/Onodera five consecutive wins; 2025 bid ¥207 m; bidding sequence to ¥486 m; 2019 fish 278 kg.</li><li id="s5"><b>Toyosu Fish Market guide</b>, "Bluefin Tuna Auction Record Prices Explained (2026)", IUCN 2021 reassessment by stock (verbatim categories); Beth Polidoro quotation; 2025–26 trend (weak yen, tourism, rivalry vs. commercial pressure); Ōma under-reporting conviction 2023; c.200 fresh and c.1,000 frozen tuna daily; green floor. <span class="c c-m">Med</span> Also: ordinary-day Ōma bluefin roughly ¥17,000–20,000/kg against ¥2.1 m/kg at the 5 Jan 2026 New Year auction; hundreds of tuna sold daily.</li><li id="s6"><b>Nikkei Asia</b>, "Top-grade A5 wagyu accounts for over 75% of Japan's market, driving exports", 25 Jun 2026, A5 saturation; inflation-hit domestic consumers; export push.</li>
+</ol></details></section>
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The first auction</a><a href="#s-ii"><span>II</span>Stock and quota</a><a href="#s-v"><span>III</span>Brand economics compared</a><a href="#s-vi"><span>IV</span>Indicators to monitor</a><a href="#sources"><span>V</span>Sources</a></div>

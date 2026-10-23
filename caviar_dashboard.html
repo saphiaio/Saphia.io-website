@@ -285,6 +285,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -302,11 +319,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Caviar</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Route: sturgeon farms · 5 Oct 2026</div></div>
   </div>
-  <p class="regime">Farmed supply expansion pushing prices down since the late 2010s; wild product effectively off-market.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
+  <p class="regime">Farmed supply expansion pushing prices down since the late 2010s; wild product effectively off-market.<sup class="r"><a href="#s23">23</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>China · Italy · France · Russia · Iran</div>
     <div><div class="k">Principal markets</div>European Union (France) · United States · Japan · Gulf</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium–High</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>Low (farmed); High (wild)</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">8–10 years · the fish</div>
+      <div>The route is the farm, and the farm's clock is the sturgeon: females first yield at eight to ten years (longer for beluga), so capital is committed for a decade before the first tin. The caviar itself is perishable and is sold within months of harvest; it is not held.<sup class="r"><a href="#s24">24</a> <a href="#s25">25</a></sup><span class="t">Derived</span><span class="c c-h">High</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · sturgeon farms</div>
+      <div class="ex">
+        <span>Routes</span><span>Sale of the farm or a stake in it to a trade buyer or private equity; sale of fish stock to another farm; the product itself to importers, brands and restaurants under CITES labelling. No listed pure-play; the largest producer, Kaluga Queen, is private.<sup class="r"><a href="#s24">24</a> <a href="#s26">26</a></sup><span class="c c-m">Med</span></span>
+        <span>Activity</span><span>China exported 322 t of caviar worth US$98 m in 2024, 43% of world exports, at an average unit value near US$300/kg; French exporters realised US$750–970/kg a shipment through 2026. Farm transactions are rare and private.<sup class="r"><a href="#s24">24</a> <a href="#s25">25</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>A farm sale carries M&A costs and a valuation on biomass whose price is falling; product sale carries cold-chain freight, CITES paperwork and distributor margins that take the retail price of €800–4,000/kg down to a few hundred dollars at the farm gate.<sup class="r"><a href="#s24">24</a> <a href="#s26">26</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>Product clears within weeks of harvest; a farm or stake takes months to sell and the buyer universe is a handful of operators. Fish stock cannot be liquidated quickly without destroying its value.<span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Chinese industry data put China at ~60% of global caviar output; a single Hubei farm ships 10,000+ tins a day, and supermarket tins now sell for under ¥200. The price-deflation regime holds; no new US tariff change since the last update.<sup class="r"><a href="#s23">23</a></sup></p>
@@ -318,7 +353,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>8 sections · 23 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>8 sections · 26 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Thirty years ago caviar was a wild Caspian fishery. Today it is an aquaculture product, more than nine-tenths of it farmed, a third or more of it Chinese, with supply now exceeding demand and wholesale prices falling, while the illegal wild trade persists on the Danube and in every market where a tin can be relabelled. This page covers species, the wild-to-farmed transition, production by country, trade, integrity and the Gulf's own experiment in desert aquaculture.</p>
   <div class="figures"><div><div class="v">380 t</div><div class="l">Global caviar production, 2018, last comprehensive estimate <span class="t">Estimate</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">31,800 t</div><div class="l">Peak wild sturgeon catch, 1977 <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">121,875 t</div><div class="l">China's farmed sturgeon biomass, 2021, c.84% of world <span class="t">Reported</span><sup class="r"><a href="#s4">4</a> <a href="#s3">3</a></sup></div></div><div><div class="v">50%</div><div class="l">Share of Lower-Danube caviar and meat samples found illegal, 2023 study <span class="t">Reported</span><sup class="r"><a href="#s10">10</a></sup></div></div></div>
 
@@ -450,9 +485,9 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-viii">
-  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. EUMOFA (the EU market observatory) and FAO are the primary statistical sources; vendor and retailer figures are marked Low.</p></div>
+  <div class="sechead"><h2><em>VIII</em>Sources</h2><p class="sub">Numbered in order of first citation. EUMOFA (the EU market observatory) and FAO are the primary statistical sources; vendor and retailer figures are marked Low. Sources 24–26 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
-  <details><summary class="src-toggle">Show 23 sources</summary><ol class="src">
+  <details><summary class="src-toggle">Show 26 sources</summary><ol class="src">
     <li id="s1"><b>EUMOFA</b>, "The Caviar Market, 2021 Edition" (production, trade and consumption in and outside the EU), 380 t global caviar 2018; 115,168 t farmed sturgeon; 1977 peak catch 31,800 t; 1984 first aquaculture 150 t; EU 164 t 2018 (FEAP), top four producers 84%; intra-EU trade 2014–2020; China c.one-third of caviar and main EU supplier; 2006 Romanian ban; species hierarchy.</li>
     <li id="s2"><b>SeafoodSource</b>, "EUMOFA report on global caviar market finds EU consumption increased", apparent consumption France 57.9 t, Germany 25.7 t, Spain 9.3 t; other consumers including the UAE; US 1,166 t sturgeon and 18 t caviar 2018 with export destinations; US export price €303 (2014) to €188 (2020); Siberian maturity in captivity.</li>
     <li id="s3"><b>EUMOFA</b>, "Sturgeon meat and other by-products of caviar" (2023), 20 t meat per t caviar; 8–10 years to maturity; Italy 1,051 t sturgeon 2020; world 4,100 t in 2002, China &gt;9,000 t in 2003; China 84% of sturgeon 2020; EU meat unit values 2016–2020.</li>
@@ -476,6 +511,9 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s21"><b>MEED</b>, "Fish farming in the desert", Jan 2015, and UAE Innovation Project of the Year entry, operations from 2013; 35 t caviar and 500 t meat capacity; ADFCA distinguished facility 2014.</li>
     <li id="s22"><b>ABC News (Australia)</b>, "UAE is home to the world's largest caviar factory", Apr 2016, over $100 m invested; "inching closer" to 35 t; co-founder Ahmed Al Dhaheri; and <b>The National</b>, "Abu Dhabi's resurgence of sturgeon", first UAE-hatched eggs, late 2013.</li>
   <li id="s23"><b>Xinhua via People’s Daily, "China's farmed caviar eases pressure on wild sturgeon"</b>, 18 Sep 2026. China ~60% of global production; Yidu ships >10,000 tins/day; retail tins <¥200. <a href="https://en.people.cn/n3/2026/0920/c90000-20501712.html" target="_blank">en.people.cn</a> <span class="c c-m">Med</span></li>
+<li id="s24"><b>Selina Wamucii / UN Comtrade</b>, "Caviar Price in China, June 2026": China exported 322 t of caviar worth US$97.96 m in 2024, 43.2% of global exports, +18.4% y/y; export unit value US$303.80/kg. Aggregator of Comtrade unit values. <a href="https://www.selinawamucii.com/insights/prices/china/caviar/" target="_blank">selinawamucii.com</a> <span class="c c-m">Med</span></li>
+<li id="s25"><b>Tridge</b>, "Caviar Suppliers, Export Data & Price Trends", updated 6 Oct 2026: French transaction unit prices US$750–968/kg Nov 2025–Apr 2026; Chinese US$182–501/kg; transaction counts by country. <a href="https://www.tridge.com/market-overview/caviar" target="_blank">tridge.com</a> <span class="c c-m">Med</span></li>
+<li id="s26"><b>Bacalalo</b>, "How Much Does Caviar Cost? Price Guide by Type [2026]", Sep 2026: retail €800–4,000/kg by species; Chinese Baeri/Kaluga €800–2,000/kg; sturgeon maturation 6–8 years for Baeri. Retailer source. <a href="https://bacalalo.com/en/blogs/bacalao/caviar-precio-guia-2026" target="_blank">bacalalo.com</a> <span class="c c-l">Low</span></li>
 </ol></details>
 </section>
 

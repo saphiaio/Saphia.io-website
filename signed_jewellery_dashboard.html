@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Signed Jewellery</h1>
     <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Period and contemporary pieces by named houses · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">The maker's name is now most of the price: white-glove sales for Cartier, Van Cleef &amp; Arpels and JAR while unsigned period jewellery sells for its stones.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">The maker's name is now most of the price: white-glove sales for Cartier, Van Cleef &amp; Arpels and JAR while unsigned period jewellery sells for its stones.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Paris (Cartier, Van Cleef &amp; Arpels, Boucheron, Chaumet, JAR) · Rome (Bulgari) · New York (Tiffany, Harry Winston, David Webb) · London (Graff)</div>
     <div><div class="k">Principal markets</div>Geneva (May, November) · New York · Hong Kong · Paris · London</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium; the houses control new supply</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>Medium; period pieces High</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10+ years · two seasons a year</div>
+      <div>Signed pieces are held for decades and resurface in Geneva in May and November, Hong Kong and New York in between; the archive number that makes them verifiable also makes them easy to track, so the trade knows when a piece last sold. The premium over materials, often several times, is a fashion premium and moves by house and period over a cycle of years.<sup class="r"><a href="#s1">1</a> <a href="#s9">9</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · signed pieces</div>
+      <div class="ex">
+        <span>Routes</span><span>Christie's and Sotheby's Magnificent Jewels (Geneva, Hong Kong, New York) and their online jewels sales; Phillips and Bonhams; specialist dealers in period jewellery; the houses themselves buy back archive pieces selectively. A maker's archive letter or certificate of authenticity is expected before consignment.<sup class="r"><a href="#s1">1</a> <a href="#s10">10</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Christie's Geneva, 13 May 2026: CHF 51.9 m ($66.5 m), 99% sold, 84% over high estimate, bidders from 40 countries; Cartier Art Deco tiara CHF 698,500, nearly three times low estimate, Cartier Tiger cuffs CHF 863,600. The November Geneva sale lists nearly 300 lots expected to exceed $25 m, including eight Van Cleef & Arpels mystery-set pieces. Hong Kong Luxury Week H1 2026: HK$958 m live, 95% sold by lot, +32% y/y.<sup class="r"><a href="#s1">1</a> <a href="#s9">9</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Sotheby's standard seller's commission 10%, negotiable above $500,000; buyer's premium 28% on the first $2 m since February 2026, which caps the hammer; authentication and, for older pieces, a gem lab report. Dealers buy at a third to a half below auction value.<sup class="r"><a href="#s10">10</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>Consignment closes two to three months before a sale; marquee sales twice a year; payment within 45 days of the sale, subject to the buyer settling. Four to eight months from decision to cash; a dealer sale in days at a lower price.<sup class="r"><a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Christie's Geneva Magnificent Jewels on 13 May 2026 made $66.5 m with 99% of lots sold and 84% above high estimate; Cartier's 1920 tiara made nearly three times its low estimate and a Tutti Frutti clip $1.35 m. Sotheby's reports luxury sales up 22% to $2.7 bn for 2025.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Jewellery is the one item every estate contains, and the one where the gap between what it is worth as materials and what it is worth as an object is widest. A Cartier Art Deco bracelet and an anonymous one of the same stones and date differ in price by a multiple, not a margin. This page covers what the signature means, the size and current cycle of the market, the record book, how pieces are authenticated and why the house archive matters, and what to watch. Separate pages cover <a href="/polished-diamonds-dashboard">natural diamonds</a>, <a href="/coloured-gemstones-dashboard">coloured gemstones</a> and <a href="/pearls-dashboard">pearls</a> as materials. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$66.5 m</div><div class="l">Christie's Geneva Magnificent Jewels, 13 May 2026; 99% sold, 84% above high estimate <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$2.7 bn</div><div class="l">Sotheby's luxury sales 2025, +22%; jewellery, watches and handbags combined<sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">$7.1 m</div><div class="l">21 jewels by JAR in one Christie's Geneva sale, May 2025, within a $72.3 m white-glove result<sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">$1.35 m</div><div class="l">Cartier Tutti Frutti clip-brooch, 1930s, Christie's Geneva, May 2026<sup class="r"><a href="#s1">1</a></sup></div></div></div>
 
@@ -387,8 +422,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
-  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 9–11 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>JCK</b>, "Christie's $66.5M Haul in Geneva Jewelry Sale", 14 May 2026: CHF 51.86 m; 99% sold; 84% above high estimate; Chaumet sapphire $3.51 m; Tutti Frutti $1.35 m; tiara $894,080; flamingo $406,400; Gatsby sautoir; Luxury Week c. $108 m. <a href="https://www.jckonline.com/editorial-article/christies-geneva-results/" target="_blank">jckonline.com</a></li>
     <li id="s2"><b>The Art Newspaper</b>, "Christie's and Sotheby's end 2025 with increased sales", 17 Dec 2025: Sotheby's luxury +22% to $2.7 bn; Christie's +17% to $795 m. <a href="https://www.theartnewspaper.com/2025/12/17/christies-and-sothebys-end-2025-with-increased-sales-thanks-to-luxury-goods-trophy-lots-and-private-deals" target="_blank">theartnewspaper.com</a></li>
     <li id="s3"><b>Forbes</b>, "Christie's Geneva Jewelry Sale Achieves $72 Million With All Lots Sold", 14 May 2025: 115 lots white glove; 77 above high estimate; 21 JAR jewels $7.1 m. <a href="https://www.forbes.com/sites/anthonydemarco/2025/05/14/christies-geneva-jewelry-sale-achieves-72-million-with-all-lots-sold/" target="_blank">forbes.com</a></li>
@@ -397,7 +432,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s6"><b>Sotheby's</b>, Jewelry department page: $270 m jewellery sales 2024; VCA 1929 tie necklace $3.6 m, triple estimate. <a href="https://www.sothebys.com/en/departments/jewelry" target="_blank">sothebys.com</a></li>
     <li id="s7"><b>Artlyst</b>, "Christie's and Sotheby's Post Sharp Recovery in First Half of 2026", Jul 2026: conservative estimates and bidder numbers as drivers of 90%+ sell-through. <a href="https://artlyst.com/christies-and-sothebys-post-sharp-recovery-in-first-half-of-2026/" target="_blank">artlyst.com</a></li>
     <li id="s8"><b>Christie's</b>, "Highlights of Magnificent Jewels in Geneva", May 2026: Cartier Tiger cuffs CHF 863,600; tiara and sautoir lot descriptions. <a href="https://www.christies.com.cn/en/stories/geneva-magnificent-spring-2026-jewels-highlights-from-boucheron-cartier-chaumet-jar-b430ce0f0ca245b5aabd858e32a94ff1" target="_blank">christies.com</a></li>
-  </ol></details>
+  <li id="s9"><b>Haute Living</b>, "Introducing Christie's Geneva Jewelry Auction November 2026", Sep 2026: nearly 300 lots expected to exceed US$25 m; Van Cleef & Arpels Oiseau Mystérieux brooch est. $600,000–1 m; eight mystery-set pieces; Graff emerald earrings est. $900,000–1.5 m; Bulgari 14.38 ct Burmese ruby ring. <a href="https://hauteliving.com/2026/09/christies-geneva-jewelry-auction-november-2026/796039/" target="_blank">hauteliving.com</a> <span class="c c-m">Med</span></li>
+<li id="s10"><b>Sotheby's / The Art Newspaper</b>, "Buy & Sell at Sotheby's": seller's commission 10% of hammer; payment within 45 days subject to buyer's payment. The Art Newspaper, 17 Feb 2026: buyer's premium 28% to $2 m (£1.5 m), 22% to $8 m, 15% above. <a href="https://www.sothebys.com/en/buy-sell" target="_blank">sothebys.com</a> <span class="c c-h">High</span></li>
+<li id="s11"><b>Christie's</b>, "Hong Kong Luxury Sales Exceed HK$1B / US$140M in First Half of 2026": live sales HK$958 m; 95% sold by lot; 130% hammer over low estimate; +32% y/y; Millennials and Gen Z over 50% of new buyers. <a href="https://www.christies.com.cn/en/events/luxury-hong-kong/what-is-on" target="_blank">christies.com.cn</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

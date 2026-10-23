@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Fossils &amp; Meteorites</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Mounted dinosaur skeletons; classified meteorites · 19 Oct 2026</div></div>
   </div>
-  <p class="regime">Three dinosaur records in six years, each set against a single-digit field of bidders; a market made by one auction department and a handful of buyers, with no price below the trophy tier.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">Three dinosaur records in six years, each set against a single-digit field of bidders; a market made by one auction department and a handful of buyers, with no price below the trophy tier.<sup class="r"><a href="#s1">1</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Fossils: private ranch land in Montana, South Dakota, Wyoming, Colorado (the Hell Creek and Morrison formations); Germany (Solnhofen); Morocco. Meteorites: the Sahara (Morocco, Algeria, Niger), Antarctica (not traded), named falls worldwide</div>
     <div><div class="k">Principal markets</div>New York (Sotheby's, Christie's natural-history sales, July) · Paris (Drouot, Hôtel des Ventes) · Tucson Gem and Mineral Show (February) · dealer networks</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Low; dispersed finders, one dominant saleroom</span><span>Liquidity</span><span>Low</span><span>Scarcity</span><span>High at the apex; finite but still being dug</span><span>Provenance risk</span><span>High</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">Years · one department, one season</div>
+      <div>A mounted dinosaur comes to market once; the three records since 2020 ($31.8 m, $44.6 m, $50.1 m) were each set by a different specimen sold by a single auction department in its July natural-history sale. Buyers are institutions and a handful of billionaires, so the holding period is whatever the next such buyer's appetite dictates. Meteorites follow the same calendar at a tenth of the price.<sup class="r"><a href="#s1">1</a> <a href="#s9">9</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · dinosaurs and meteorites</div>
+      <div class="ex">
+        <span>Routes</span><span>Sotheby's New York natural-history sale each July (Christie's and Bonhams occasionally); private sale to a museum or collector through the same specialists; dealer sale for smaller specimens. Title turns on which side of a US ranch fence the bones lay; meteorites need export clearance from the country of fall, which Niger is now contesting.<sup class="r"><a href="#s1">1</a> <a href="#s10">10</a></sup><span class="c c-h">High</span></span>
+        <span>Activity</span><span>Sotheby's, 14 July 2026: "Gus" the T. rex $50.13 m after 19 bids from seven bidders in ten minutes, hammer $43 m against a $20–30 m estimate; a ceratosaur made seven times its low estimate in 2025 on six bidders, and Sotheby's reported a sharp rise in registrations. The NWA 16788 Martian meteorite made $5.3 m in July 2025 against $2–4 m.<sup class="r"><a href="#s1">1</a> <a href="#s9">9</a> <a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+        <span>Cost</span><span>Sotheby's buyer's premium of 28% on the first $2 m, 22% to $8 m and 15% above (Gus: $7.1 m of premium on a $43 m hammer) caps the hammer; seller's commission negotiable for a trophy; excavation, preparation and mounting run to years and seven figures before the sale; crating and transport of a 38 ft skeleton.<sup class="r"><a href="#s1">1</a> <a href="#s11">11</a></sup><span class="c c-h">High</span></span>
+        <span>Time</span><span>One sale a year in July; consignment many months ahead to allow preparation and promotion; payment within 45 days of the sale subject to the buyer settling. A specimen that fails to sell waits a year or goes private.<sup class="r"><a href="#s1">1</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. "Gus", a Tyrannosaurus rex from South Dakota, made $50.1 m at Sotheby's New York on 14 July 2026 against a $20–30 m estimate, seven bidders over ten minutes, beating "Apex" the Stegosaurus ($44.6 m, 2024). The largest Martian meteorite on Earth, NWA 16788, made $5.3 m in the same department's July 2025 sale.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 8 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Natural history is the newest trophy market and the thinnest. A complete dinosaur made $8 m in 1997, $31.8 m in 2020, $44.6 m in 2024 and $50.1 m in 2026; each result was set by fewer than ten bidders in a single room, and each was followed by scientists asking whether the sale should have happened. Meteorites are the smaller, older and better-organised half of the same department. This page covers the two markets, the record book, the title questions that decide whether a specimen can be sold at all, authenticity and restoration, and what to watch. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$50.1 m</div><div class="l">"Gus", T. rex, Sotheby's New York, 14 Jul 2026; estimate $20–30 m; seven bidders <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></div></div><div><div class="v">$44.6 m</div><div class="l">"Apex", Stegosaurus, Sotheby's, 17 Jul 2024; estimate $4–6 m; buyer Ken Griffin<sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s4">4</a></sup></div></div><div><div class="v">$31.8 m</div><div class="l">"Stan", T. rex, Christie's, Oct 2020; estimate $6–8 m; now in Abu Dhabi<sup class="r"><a href="#s4">4</a></sup></div></div><div><div class="v">$5.3 m</div><div class="l">NWA 16788, 24.7 kg Martian meteorite, Sotheby's, Jul 2025; record for a meteorite<sup class="r"><a href="#s3">3</a></sup></div></div></div>
 
@@ -390,8 +425,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation.</p></div>
-  <details><summary class="src-toggle">Show 8 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Sources 9–11 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
     <li id="s1"><b>Robb Report / ARTnews</b>, "This Massive T. Rex Fossil Just Sold for a Record $50.1 Million", 15 Jul 2026: 183 elements, c. 63% complete; Hatton on commercial excavation; museum-access debate. <a href="https://robbreport.com/shelter/art-collectibles/gus-t-rex-fossil-auction-record-sothebys-1238467148/" target="_blank">robbreport.com</a></li>
     <li id="s2"><b>CNBC</b>, "T. rex sells for $50 million", 14 Jul 2026: estimate $20–30 m; seven bidders, ten minutes; 61% complete; dimensions; Apex $44.6 m to Ken Griffin; and <b>CBS News</b>, same date, Harding County excavation. <a href="https://www.cnbc.com/2026/07/14/trex-fossil-auction-sothebys.html" target="_blank">cnbc.com</a></li>
     <li id="s3"><b>ABC / Yahoo News</b>, "Largest Mars rock found on Earth … at Sotheby's auction", Jul 2025: NWA 16788 $5.3 m; 54 lb; 70% larger than next; found Agadez region, Nov 2023. <a href="https://www.yahoo.com/news/largest-mars-rock-found-earth-164800216.html" target="_blank">yahoo.com</a></li>
@@ -400,7 +435,10 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s6"><b>US Paleontological Resources Preservation Act</b>, 2009; <b>United States v. One Tyrannosaurus Bataar Skeleton</b>, S.D.N.Y. 2012–13 (Tarbosaurus repatriation). Statute and court record.</li>
     <li id="s7"><b>Society of Vertebrate Paleontology</b>, statements on commercial fossil sales, 2020–26; used for the scientific position. <span class="c c-m">Med</span></li>
     <li id="s8"><b>NPR</b>, "Apex the Stegosaurus sells on auction for record $44.6 million", 17 Jul 2024: palaeontologists' objections. <a href="https://www.npr.org/2024/07/17/nx-s1-5043576/apex-the-stegosaurus-sells-on-auction-for-record-44-6-million" target="_blank">npr.org</a></li>
-  </ol></details>
+  <li id="s9"><b>Deccan Herald / NYT</b>, "Ceratosaur fossil auctioned for Rs 262 crore by Sotheby's", Jul 2025: six bidders over six minutes, seven times low estimate; third-most-expensive fossil after Apex ($44.6 m) and Stan ($31.8 m, Christie's 2020); T. rex foot mount and Pachycephalosaurus skull c.$1.7 m each; Sotheby's reported a sharp increase in registrations. <a href="https://www.deccanherald.com/amp/story/world%2Fceratosaur-fossil-auctioned-for-rs-262-crore-by-sothebys-3634367" target="_blank">deccanherald.com</a> <span class="c c-m">Med</span></li>
+<li id="s10"><b>Wikipedia</b>, "Northwest Africa 16788", accessed 23 Oct 2026: Martian meteorite sold at Sotheby's New York on 16 Jul 2025 for $5.3 m against a $2–4 m estimate, the most valuable meteorite auctioned at Sotheby's; Niger investigating the legality of its export. <a href="https://en.wikipedia.org/wiki/Northwest_Africa_16788" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
+<li id="s11"><b>Sotheby's / The Art Newspaper</b>, "Buy & Sell at Sotheby's": seller's commission 10%, negotiable; payment within 45 days. The Art Newspaper, 17 Feb 2026: buyer's premium 28% to $2 m, 22% to $8 m, 15% above. <a href="https://www.sothebys.com/en/buy-sell" target="_blank">sothebys.com</a> <span class="c c-h">High</span></li>
+</ol></details>
 </section>
 
 </details>

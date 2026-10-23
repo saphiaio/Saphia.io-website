@@ -283,6 +283,23 @@ td.n+td,th.n+th{padding-left:16px}
   .contents.stuck li a:hover,.contents.stuck li a.cur{color:var(--ink)}
   .contents.stuck li a span{font-size:10px}
 }
+/* ===== Fields 9 & 10: holding horizon and exit depth (v2.1) ===== */
+.regime-k{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 14px;margin:32px 0 0;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.regime-k + .regime{margin-top:8px}
+.regime-k>span:last-child{padding-bottom:7px}
+.regime sup.r{font-size:12px}
+.regime .c{font-size:11px;vertical-align:4px}
+.hx{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 40px;margin-top:44px;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.hx>div{min-width:0}
+.hx .big{font-family:var(--display);font-size:26px;line-height:1.15;margin:2px 0 8px}
+.hx .ex{display:grid;grid-template-columns:76px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.hx .ex>span:nth-child(odd){color:var(--ink);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding-top:3px}
+.hx .foot{grid-column:1/-1;font-size:12.5px;color:var(--mute);margin:0}
+.hx .foot a{border-bottom:1px solid var(--line);color:var(--mute)}
+.facts .k,.hx .k{display:block;width:fit-content}
+.regime-k>span:first-child{display:inline-block}
+.facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+@media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -300,11 +317,29 @@ td.n+td,th.n+th{padding-left:16px}
     <h1>Breeding Stallions</h1>
     <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Living asset · 20 Oct 2026</div></div>
   </div>
-  <p class="regime">The one form of bloodstock that pays an income, priced each autumn by a fee the stud sets and the market ratifies or refuses; the best horse of his generation has had his fee cut three years running while his yearlings sold for six times it.</p>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">The one form of bloodstock that pays an income, priced each autumn by a fee the stud sets and the market ratifies or refuses; the best horse of his generation has had his fee cut three years running while his yearlings sold for six times it.<sup class="r"><a href="#s6">6</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Thoroughbred stallions standing at public stud and the instruments that divide them: syndicate shares, lifetime breeding rights and annual nominations. Racehorses in training and broodmares are covered under <a href="/racehorses-dashboard" style="border-bottom:1px solid var(--bronze)">Racehorses →</a></div>
     <div><div class="k">Principal markets</div>Kentucky (Lexington and Versailles) · Newmarket · County Tipperary and Kildare · Hokkaido · Hunter Valley, New South Wales (shuttle season, Aug–Dec)</div>
     <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High; three studs, two countries</span><span>Liquidity</span><span>Low; shares rarely trade</span><span>Scarcity</span><span>High at the top, c. 740 sires in North America</span><span>Provenance risk</span><span>Low</span></div></div>
+  </div>
+  <div class="hx">
+    <div>
+      <div class="k">Holding horizon</div>
+      <div class="big">10–15 years</div>
+      <div>A share is bought when the horse retires and is held while he covers 100–200 mares a season for ten to fifteen years; the income is the fee, the capital value is a multiple of it. The first evidence that the multiple was right arrives three to five years in, when yearlings sell and then run. Flightline's fee has been cut three years running while his yearlings sold for six times it.<sup class="r"><a href="#s6">6</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></div>
+    </div>
+    <div>
+      <div class="k">Exit depth · syndicate share</div>
+      <div class="ex">
+        <span>Routes</span><span>Private sale of the share to another member or a buyer the syndicate manager approves; occasionally a public auction, as with the Flightline share at Keeneland November 2022. Annual nominations (the right to one cover) are sold separately and are the liquid instrument. Keeneland's November sale lists shares and seasons.<sup class="r"><a href="#s1">1</a> <a href="#s12">12</a></sup><span class="c c-m">Med</span></span>
+        <span>Activity</span><span>Shares change hands a few times a year across the whole industry; one Flightline share ($4.6 m for 2.5%) was news. Nominations trade every autumn when fees are set: Vekoma to $100,000 from $35,000 and Into Mischief at the top of the Spendthrift roster for 2026; Flightline cut to $125,000.<sup class="r"><a href="#s9">9</a> <a href="#s6">6</a> <a href="#s1">1</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
+        <span>Cost</span><span>A share at public auction pays the house 5% of hammer plus entry fee; a private transfer pays the syndicate's transfer terms and legal cost. The running cost is the annual keep and the share of insurance, set against the fee income; fertility insurance is limited and mortality cover priced per horse.<sup class="r"><a href="#s12">12</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+        <span>Time</span><span>A private sale within a syndicate can close in weeks; a public auction waits for the November sale and pays 35 days after. Exiting at a fair price depends on the horse's next crop, so sellers often wait a season for the evidence.<sup class="r"><a href="#s12">12</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
+      </div>
+    </div>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a></p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. The 2027 fee lists are being published through October and November; Lane's End has left Flightline's "to be announced" pending his first crop's remaining season, the first time the farm has held a headline fee open. Darley, Juddmonte, Coolmore and Spendthrift are due before the Keeneland November and Tattersalls December mares sales, where the new fees will be priced into every mare in foal.<sup class="r"><a href="#s6">6</a></sup></p>
@@ -316,7 +351,7 @@ td.n+td,th.n+th{padding-left:16px}
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>6 sections · 11 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <summary>Full report <small>6 sections · 12 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
   <p class="intro">Every price in the yearling ring is a derivative of a stallion fee, and every stallion fee is a bet on runners that do not yet exist. This page sets out how a sire is valued and divided, follows one horse from a $184 m implied valuation through three fee cuts, describes the three operations that own most of the top of the market, and lists the specific ways a shareholder loses. No prices are carried as live values.</p>
   <div class="figures"><div><div class="v">$184 m</div><div class="l">Implied value of Flightline when a 2.5% share sold for $4.6 m, Keeneland, Nov 2022; the stud's own owner called the multiple unfair <span class="t">Implied</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></div></div><div><div class="v">$75 m</div><div class="l">Justify's breeding rights, Coolmore, 2018: $60 m agreed before the Belmont, $15 m more on the Triple Crown; record for a stallion transaction<sup class="r"><a href="#s3">3</a></sup></div></div><div><div class="v">£350,000</div><div class="l">Dubawi and Frankel, 2026, the highest advertised fees in the world; Dubawi is 24<sup class="r"><a href="#s4">4</a></sup></div></div><div><div class="v">$7,500</div><div class="l">Fusaichi Pegasus's fee at the end of a career that began at $150,000 after a $70 m purchase in 2000<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></div></div></div>
 
@@ -396,8 +431,8 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
 </section>
 <section id="s-vi">
-  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Stud fee lists are primary; stallion transaction prices are as reported by the parties to the trade press.</p></div>
-  <details><summary class="src-toggle">Show 11 sources</summary><ol class="src">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Stud fee lists are primary; stallion transaction prices are as reported by the parties to the trade press. Source 12 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+  <details><summary class="src-toggle">Show 12 sources</summary><ol class="src">
     <li id="s1"><b>Paulick Report</b>, "Share In Flightline Sells For $4.6 Million At Keeneland November", 7 Nov 2022: 2.5%; $184 m implied; 20+ registered bidders pre-approved by Keeneland and Lane's End; offered from West Point's stake. <a href="https://paulickreport.com/news/bloodstock/when-youre-dealing-with-top-quality-youve-got-to-pay-share-in-flightline-sells-for-4-6-million-at-keeneland-november/" target="_blank">paulickreport.com</a></li>
     <li id="s2"><b>Daily Racing Form</b>, "A 2.5 percent interest in Flightline sells for $4.6 million at Keeneland", 7 Nov 2022: forty-share syndicate; West Point's 17.5%; Will Farish on scarcity value; and <b>Horse Racing Nation</b>, same day: Farish, "I don't think it would be fair to say he's worth 40 times that"; Coolmore underbidder; 42 registered. <a href="https://www.drf.com/news/25-percent-interest-flightline-sells-46-million-keeneland" target="_blank">drf.com</a></li>
     <li id="s3"><b>ESPN</b> (Darren Rovell), "Triple Crown pushes Justify's breeding rights fee to record $75M", Jun 2018: $60 m plus $15 m; Fusaichi Pegasus $70 m (2000); American Pharoah $10 m plus bonuses; Big Brown $50 m; 250 covers across hemispheres at c. $150,000. <a href="https://www.espn.com/horse-racing/story/_/id/23747927/justify-triple-crown-win-pushes-breeding-rights-fee-75-million" target="_blank">espn.com</a></li>
@@ -409,7 +444,8 @@ td.n+td,th.n+th{padding-left:16px}
     <li id="s9"><b>BloodHorse</b>, "Into Mischief, Vekoma Lead 2026 Spendthrift Stud Roster", Oct 2025: Vekoma $100,000 from $35,000; Omaha Beach $75,000 from $35,000; Yaupon $60,000 from $25,000; and <b>Lane's End</b>, stallion page: $2.2 m Book 1-topping filly. <a href="https://www.bloodhorse.com/horse-racing/articles/287787/into-mischief-vekoma-lead-2026-spendthrift-stud-roster" target="_blank">bloodhorse.com</a></li>
     <li id="s10"><b>BloodHorse</b> via Equibase, "Liam's Map's Fee at $80k, Flightline to Be Determined", 12 Oct 2026: 2027 fee TBA; top-five freshman sire; two black-type winners including a Japanese Group 3; Liam's Map $80,000 from $50,000. <a href="https://cms.equibase.com/node/330149" target="_blank">equibase.com</a></li>
     <li id="s11"><b>Racing Post</b>, "Godolphin drive Tattersalls Book 1 trade with record 26.9 million guineas spending spree", 8 Oct 2026: 21.3% of turnover; and <b>The Jockey Club</b>, 2025 Report of Mares Bred: 740 stallions; busiest sires at 263–274 mares. The 140-mare cap and its 2021 withdrawal are from contemporaneous trade reporting. <span class="c c-m">Med</span> <a href="https://www.jockeyclub.com/default.asp?section=resources&amp;area=10&amp;story=1550" target="_blank">jockeyclub.com</a></li>
-  </ol></details>
+  <li id="s12"><b>Keeneland and Tattersalls</b>, Keeneland Sales (Wikipedia, "November Breeding Stock Sale: stallion shares and seasons are also sold at this auction"); Keeneland commission 5% on bids over $10,000, entry fee $1,000; Tattersalls vendor commission 5%, payment on the 35th day. <a href="https://en.wikipedia.org/wiki/Keeneland_Sales" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
+</ol></details>
 </section>
 
 </details>
