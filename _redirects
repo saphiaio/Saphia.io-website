@@ -4,6 +4,8 @@
 /method  /method.html  200
 /contact  /contact.html  200
 /advisers  /advisers.html  200
+/tokenisation  /tokenisation.html  200
+/tokenization  /tokenisation  301
 /institutions  /advisers  301
 /about  /method  301
 /methodology  /method  301

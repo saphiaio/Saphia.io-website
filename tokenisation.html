@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tokenising Scarce Assets, ΣΟΦΙΑ</title>
+<meta name="description" content="What tokenisation changes for scarce physical assets, and what it does not: market size, sector preconditions, a natural-diamond case study and the UAE framework. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/method">Method</a></li><li><a href="/markets">Markets</a></li><li><a href="/contact">Contact</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · Themes · Cross-sector</div>
+  <h1>Tokenising scarce assets</h1>
+  <p class="lede">A token changes how ownership is recorded and transferred. It does not create a price, a buyer or an exit. This page sets out which scarce-asset markets already have what tokenisation needs, and examines natural diamonds as the case where most of it is missing.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Methodology v2.0</span><span>Data as of 27 Oct 2026</span><span>Touches <a href="/gold-dashboard" style="border-bottom:1px solid var(--line)">Gold</a>, <a href="/fine-wine-dashboard" style="border-bottom:1px solid var(--line)">Fine Wine</a>, <a href="/polished-diamonds-dashboard" style="border-bottom:1px solid var(--line)">Polished Diamonds</a>, <a href="/coloured-gemstones-dashboard" style="border-bottom:1px solid var(--line)">Coloured Gemstones</a>, <a href="/art-dashboard" style="border-bottom:1px solid var(--line)">Art</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>What a token changes</a></li><li><a href="#s2"><span>II</span>Market size</a></li><li><a href="#s3"><span>III</span>Preconditions by sector</a></li><li><a href="#s4"><span>IV</span>Case study: natural diamonds</a></li><li><a href="#s5"><span>V</span>The UAE framework</a></li><li><a href="#s6"><span>VI</span>Indicators to monitor</a></li><li><a href="#s7"><span>VII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(4,1fr)">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Physical scarce assets represented by a digital token</div></div>
+      <div><div class="l" style="margin-bottom:4px">Most mature</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Gold: regulated benchmark, standard bar, live token market</div></div>
+      <div><div class="l" style="margin-bottom:4px">Least resolved</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Diamonds, coloured gemstones and art: no reference price set by trades</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">27 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; sector ratings remain on each sector page.</p>
+
+    <!-- I -->
+    <section id="s1"><div class="sechead"><h2><em>I</em>What a token changes, and what it does not</h2></div>
+      <div class="prose">
+        <p>A token is a digital record of a claim on an underlying asset, held on a shared ledger. For a physical asset it adds three things: ownership can be split into small units, transferred quickly between approved holders, and tracked without paper. In effect it creates shares in an asset, much as a company issues shares.</p>
+        <p>Everything that determines whether an investor can get a fair price and get out still sits off-chain: an agreed way to value the asset, a custodian who holds it, a legal right that the token represents, and buyers on the other side. Where those exist, tokenisation can lower costs and widen access. Where they do not, it reproduces an illiquid asset in a faster format.</p>
+        <p>The evidence so far supports the distinction. A 2025 review of on-chain data found that "most RWA tokens exhibit low trading volumes, long holding periods, and limited investor participation", with "minimal secondary trading" across most asset classes. <span class="c c-m">Med</span> <sup class="r"><a href="#s2">2</a></sup> A Bank for International Settlements study of tokenised property found trading rose sharply after local shocks, but the liquidity depended on platforms offering buybacks, which carries insolvency risk for the platform. <span class="c c-h">High</span> <sup class="r"><a href="#s19">19</a></sup></p>
+      </div>
+      <div class="ledger">
+        <div><span class="k">A token can</span><ul class="dash"><li>Divide one asset into many small units</li><li>Move title quickly between verified holders</li><li>Keep a permanent record of transfers</li><li>Automate distribution of sale proceeds</li></ul></div>
+        <div><span class="k">A token cannot, on its own</span><ul class="dash"><li>Set a price where no reference price exists</li><li>Create buyers or a market maker</li><li>Prove the asset is what the certificate says</li><li>Make two non-identical assets interchangeable</li></ul></div>
+      </div>
+    </section>
+
+    <!-- II -->
+    <section id="s2"><div class="sechead"><h2><em>II</em>Market size</h2><p class="sub">Tokenised real-world assets remain small next to the markets they draw on, and are dominated by financial instruments. Gold is the only physical scarce asset with a token market of material size.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Measure</th><th>Value</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Total tokenised real-world assets, 11 Mar 2026 (DeFiLlama)</td><td class="n">$23.6bn<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s1">1</a></sup></td></tr>
+          <tr><td>Change since 1 Jan 2026 (from $14.1bn)</td><td class="n">+66%<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s1">1</a></sup></td></tr>
+          <tr><td>of which tokenised funds (Treasuries, bonds, money-market)</td><td class="n">$10.5bn<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s1">1</a></sup></td></tr>
+          <tr><td>of which gold and other commodities</td><td class="n">~$6.5bn<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s1">1</a></sup></td></tr>
+          <tr><td>Tokenised gold market capitalisation, Feb 2026</td><td class="n">&gt;$5.4bn<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s3">3</a></sup></td></tr>
+          <tr><td>Tokenised gold trading volume, Q4 2025</td><td class="n">$126bn<span class="t">Reported</span></td><td><span class="c c-l">Low</span></td><td class="n"><sup class="r"><a href="#s3">3</a></sup></td></tr>
+          <tr><td>Tokenised gold market, end-2026 (market maker's projection)</td><td class="n">$15bn<span class="t">Forecast</span></td><td><span class="c c-l">Low</span></td><td class="n"><sup class="r"><a href="#s3">3</a></sup></td></tr>
+          <tr><td>Tokenised diamonds, coloured gemstones, wine, art</td><td class="n">Not established</td><td><span class="c c-x">Hyp</span></td><td class="n">—</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Totals differ by tracker and by what each counts as a real-world asset; a 2025 academic review put the figure above $25bn. <sup class="r"><a href="#s2">2</a></sup> The gold volume and forecast come from a single market maker with a commercial interest in the segment. No tracker reviewed reports a separate figure for gemstones or collectibles.</p>
+    </section>
+
+    <!-- III -->
+    <section id="s3"><div class="sechead"><h2><em>III</em>Preconditions by sector</h2><p class="sub">Gold shows what a token needs to work: a published reference price set by trades, a standard unit, and redemption into that unit. Each sector below is read against those three conditions.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Sector</th><th>Reference price</th><th>Standard unit</th><th>Token or fractional precedent</th><th>Conditions met</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Sector">Gold</td>
+            <td data-label="Reference price">LBMA Gold Price: a regulated benchmark set twice daily by electronic auction, administered by ICE Benchmark Administration <sup class="r"><a href="#s4">4</a></sup></td>
+            <td data-label="Standard unit">Fine troy ounce held in LBMA vaults <sup class="r"><a href="#s5">5</a></sup></td>
+            <td data-label="Precedent">PAXG, XAUT and others; &gt;$5.4bn combined <sup class="r"><a href="#s3">3</a></sup></td>
+            <td data-label="Conditions met"><span class="state met"><span class="dot"></span>All met</span></td>
+          </tr>
+          <tr>
+            <td data-label="Sector">Fine wine</td>
+            <td data-label="Reference price">Liv-ex Mid Price: midpoint of best bid and offer on a trade platform; drives the Fine Wine 100 index <sup class="r"><a href="#s7">7</a></sup></td>
+            <td data-label="Standard unit">Named wine and vintage, the unit Liv-ex prices and indexes <sup class="r"><a href="#s7">7</a></sup></td>
+            <td data-label="Precedent">Not established in the sources reviewed</td>
+            <td data-label="Conditions met"><span class="state part"><span class="dot"></span>Partly met</span></td>
+          </tr>
+          <tr>
+            <td data-label="Sector">Dubai real estate</td>
+            <td data-label="Reference price">Title registered by a government land department, which runs the token pilot itself <sup class="r"><a href="#s9">9</a></sup></td>
+            <td data-label="Standard unit">None: each property unique</td>
+            <td data-label="Precedent">Prypco Mint pilot (May 2025): AED 2,000 minimum, UAE ID holders, AED only, with VARA and the Central Bank <sup class="r"><a href="#s9">9</a></sup></td>
+            <td data-label="Conditions met"><span class="state part"><span class="dot"></span>Partly met</span></td>
+          </tr>
+          <tr>
+            <td data-label="Sector">Natural diamonds</td>
+            <td data-label="Reference price">None set by trades. The Rapaport list is sellers' asking prices and "isn't a record of actual transaction prices" <sup class="r"><a href="#s6">6</a></sup></td>
+            <td data-label="Standard unit">None: each stone graded individually; pooling into standard units attempted <sup class="r"><a href="#s11">11</a></sup></td>
+            <td data-label="Precedent">Diamond Standard coins and tokens; Icecap single-stone NFTs; several UAE proposals (Section IV) <sup class="r"><a href="#s11">11</a> <a href="#s12">12</a> <a href="#s14">14</a></sup></td>
+            <td data-label="Conditions met"><span class="state no"><span class="dot"></span>Not met</span></td>
+          </tr>
+          <tr>
+            <td data-label="Sector">Coloured gemstones</td>
+            <td data-label="Reference price">None. Valuers rely on auction comparables <sup class="r"><a href="#s17">17</a></sup></td>
+            <td data-label="Standard unit">None: each stone valued individually <sup class="r"><a href="#s17">17</a></sup></td>
+            <td data-label="Precedent">Proposed at the Dubai Diamond Conference, Oct 2026; not launched <sup class="r"><a href="#s14">14</a></sup></td>
+            <td data-label="Conditions met"><span class="state no"><span class="dot"></span>Not met</span></td>
+          </tr>
+          <tr>
+            <td data-label="Sector">Art</td>
+            <td data-label="Reference price">None. Value is set at sale of the work</td>
+            <td data-label="Standard unit">None: each work unique</td>
+            <td data-label="Precedent">Masterworks: SEC-qualified Reg A shares (securities, not tokens); &gt;$1.2bn invested, 32 exits, trading venue since Jan 2025 <sup class="r"><a href="#s8">8</a></sup></td>
+            <td data-label="Conditions met"><span class="state no"><span class="dot"></span>Not met</span></td>
+          </tr>
+        </tbody>
+      </table></div>
+      <p class="fn">"Conditions met" counts the three preconditions above as the cited sources describe them: all, some or none. It is a description, not a rating; no Σ grade on any market page changes because of it. Masterworks figures are the company's own and marked by it as pending confirmation <sup class="r"><a href="#s8">8</a></sup>; they are shown because fractional art is the closest large-scale precedent, and its exit route is still the sale of the whole work.</p>
+    </section>
+
+    <!-- IV -->
+    <section id="s4"><div class="sechead"><h2><em>IV</em>Case study: natural diamonds</h2><p class="sub">Diamonds have strong provenance infrastructure but no transaction price and no standard unit. A decade of attempts has improved the first; none has solved the second.</p></div>
+
+      <h3>Earlier attempts</h3>
+      <div class="tw"><table>
+        <thead><tr><th>Initiative</th><th>What it did</th><th>Outcome</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Everledger (2015)</td><td>Blockchain provenance records for diamonds and other luxury goods; raised over $51.7m</td><td>Entered voluntary administration, April 2023, after a funding round fell through</td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s10">10</a></sup></td></tr>
+          <tr><td>Diamond Standard (2018)</td><td>Pools GIA-graded diamonds into standard coins and bars, tokenised as Bitcarbon; operates its own order-book spot market</td><td>Operating; reported Bermuda regulation. Pricing set through its own exchange, not an independent benchmark</td><td><span class="c c-l">Low</span></td><td class="n"><sup class="r"><a href="#s11">11</a> <a href="#s20">20</a></sup></td></tr>
+          <tr><td>Icecap</td><td>One NFT per GIA-certified, vaulted stone, redeemable for the stone</td><td>No published volume or holder data found</td><td><span class="c c-l">Low</span></td><td class="n"><sup class="r"><a href="#s12">12</a></sup></td></tr>
+          <tr><td>Tracr (De Beers; GIA agreed a 30% stake, May 2026)</td><td>Provenance, not ownership: records rough from recovery through polishing</td><td>More than 5m rough diamonds registered, about two-thirds of De Beers' rough by value</td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s13">13</a></sup></td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Models presented in Dubai, October 2026</h3>
+      <p class="sub">Three issuers described live or planned models at the Dubai Diamond Conference. Descriptions are as stated on stage and are not independently verified. <span class="c c-m">Med</span> <sup class="r"><a href="#s14">14</a></sup></p>
+      <div class="cards">
+        <div><span class="k">Model A · single rare stone</span><h3>Fractions of one stone</h3><p>A certified, insured rare stone is held in custody and divided into tokens. Valuation sits with the issuer, which is also the source of the stone.</p><p class="open">Open issue: who sets the price at entry and exit</p></div>
+        <div><span class="k">Model B · valued at entry</span><h3>Independent valuation before minting</h3><p>Stone placed in a separate legal entity, valued independently before tokens are issued; trading only between approved investors. The issuer stated: "Diamonds are not gold. There is no spot price."</p><p class="open">Open issue: no revaluation cadence stated</p></div>
+        <div><span class="k">Model C · pooled</span><h3>Pool priced from public data</h3><p>Value aggregated across a pool of GIA-graded stones, priced from published retail data and disclosed algorithms, so individual grading errors average out.</p><p class="open">Open issue: retail prices sit above the wholesale price an investor realises on exit</p></div>
+      </div>
+
+      <h3>Three problems still open</h3>
+      <div class="cards">
+        <div class="note"><span class="k">Price</span><p>No benchmark is set by completed trades. List and platform prices are asking prices <sup class="r"><a href="#s6">6</a></sup>. A token's value therefore rests on an appraisal, and appraisal methods differ by issuer.</p></div>
+        <div class="note"><span class="k">Certificate</span><p>The grading report functions as the title document. Conference speakers noted that grading varies between laboratories and over time, and that the same laboratories grade both natural and laboratory-grown stones. <sup class="r"><a href="#s14">14</a></sup></p></div>
+        <div class="note"><span class="k">Exit</span><p>Exits run through redemption to the issuer or a closed investor pool. One law firm cites redemption spreads of 8–15% for gemstone tokens. <span class="c c-l">Low</span> <sup class="r"><a href="#s17">17</a></sup></p></div>
+      </div>
+    </section>
+
+    <!-- V -->
+    <section id="s5"><div class="sechead"><h2><em>V</em>The UAE framework</h2><p class="sub">Dubai has a specific regime for asset-backed tokens, and a working state-backed precedent in property. Neither yet resolves how a non-standard asset is valued.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Element</th><th>Position</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Regulator and rulebook</td><td>VARA issued its first asset-referenced token rules in 2023; asset-backed tokens are now issued under the ARVA Issuance Rulebook (Category 1)</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s15">15</a> <a href="#s16">16</a></sup></td></tr>
+          <tr><td>Backing and custody</td><td>Fully backed by reserve assets held with licensed custodians and segregated from the issuer's funds</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s16">16</a></sup></td></tr>
+          <tr><td>Audit</td><td>Independent audit of tokens in circulation and reserve assets every six months</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s16">16</a></sup></td></tr>
+          <tr><td>Redemption</td><td>Holders entitled to redeem at par, in AED or as set out in the white paper</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s16">16</a></sup></td></tr>
+          <tr><td>Capital</td><td>Greater of AED 1.5m or 2% of the average market value of reserve assets</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s16">16</a></sup></td></tr>
+          <tr><td>Valuation method</td><td>Not prescribed. VARA said it will assess whether a proposed method is credible and legible to investors, and called mark-to-market for diamonds "a very difficult one to solve"</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s14">14</a></sup></td></tr>
+          <tr><td>Settlement currency</td><td>Under the Central Bank's 2024 Payment Token Services Regulation, foreign-currency payment tokens may be used onshore only to buy virtual assets. Settling physical diamond trades in USD stablecoins therefore appears restricted outside the financial free zones; application to DMCC is an inference, not stated</td><td><span class="c c-x">Hyp</span></td><td class="n"><sup class="r"><a href="#s18">18</a></sup></td></tr>
+        </tbody>
+      </table></div>
+      <div class="note">
+        <span class="k">Derived observation</span>
+        <p>"Redemption at par" is straightforward where par is a gold price or a currency. For a token backed by a diamond, par is an appraisal. The rule therefore moves the valuation problem onto the appraiser and the revaluation schedule, rather than removing it. <span class="c c-x">Hyp</span></p>
+      </div>
+    </section>
+
+    <!-- VI -->
+    <section id="s6"><div class="sechead"><h2><em>VI</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>Publication of any diamond price index built on completed transactions rather than asking prices, and who administers it.</li>
+        <li>VARA approvals of gemstone-backed tokens, and the valuation methods disclosed in their white papers.</li>
+        <li>Secondary-market activity in issued gemstone tokens: holders, transfers and redemptions, against the low turnover found for tokenised assets generally <sup class="r"><a href="#s2">2</a></sup>.</li>
+        <li>Whether grading laboratories adopt a common standard that separates natural from laboratory-grown stones in a form investors can read.</li>
+        <li>Growth of tokenised gold relative to gold ETFs, as the test case for whether tokens add liquidity where a benchmark already exists <sup class="r"><a href="#s3">3</a></sup>.</li>
+        <li>Expansion of the Dubai Land Department pilot beyond UAE ID holders, as a signal of how far regulators will open asset tokens to foreign retail investors <sup class="r"><a href="#s9">9</a></sup>.</li>
+      </ul>
+    </section>
+
+    <!-- VII -->
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Sources</h2></div>
+      <ol class="src">
+        <li id="s1">Cointelegraph, citing DeFiLlama, "<a href="https://cointelegraph.com/news/tokenized-rwas-rise-66-percent-2026-defillama">Tokenized RWAs rise 66% in 2026</a>", 11 Mar 2026 — accessed 27 Oct 2026</li>
+        <li id="s2">R. Mafrur, "<a href="https://arxiv.org/abs/2508.11651">Tokenize Everything, But Can You Sell It? RWA Liquidity Challenges and the Road Ahead</a>", arXiv 2508.11651, Aug 2025 — accessed 27 Oct 2026</li>
+        <li id="s3">The Block, "<a href="https://theblock.co/post/390042/wintermute-launches-institutional-tokenized-gold-trading-expects-market-to-reach-15-billion-in-2026">Wintermute launches institutional tokenized gold trading</a>", 16 Feb 2026 — accessed 27 Oct 2026</li>
+        <li id="s4">LBMA, "<a href="https://www.lbma.org.uk/prices-and-data/lbma-gold-price/lbma-gold-price">LBMA Gold Price</a>" — accessed 27 Oct 2026</li>
+        <li id="s5">Paxos, "<a href="https://paxos.com/?p=5991">PAX Gold</a>" — accessed 27 Oct 2026</li>
+        <li id="s6">Rapaport, "<a href="https://help.rapaport.com/en/articles/2982406-rapaport-price-lists-your-guide-to-diamond-pricing-tools">Rapaport Price Lists: your guide to diamond pricing tools</a>" — accessed 27 Oct 2026</li>
+        <li id="s7">Liv-ex, "<a href="https://files.liv-ex.com/Liv-ex_press_pack.pdf">Press pack</a>" — accessed 27 Oct 2026</li>
+        <li id="s8">Masterworks, "<a href="https://www.masterworks.com/academy/posts/masterworks-by-the-numbers-annual-platform-performance-review">Masterworks by the Numbers: Annual Platform Performance Review</a>", Jul 2026 — accessed 27 Oct 2026</li>
+        <li id="s9">Dubai Land Department, "<a href="https://dubailand.gov.ae/en/news-media/dld-launches-the-mena-s-first-tokenized-real-estate-project-through-the-prypco-mint-platform">DLD launches the MENA's first tokenized real estate project through the Prypco Mint platform</a>", 25 May 2025 — accessed 27 Oct 2026</li>
+        <li id="s10">Jewellery Monthly, "<a href="https://jewellerymonthly.co.uk/everledger-enters-administration/">Everledger enters administration</a>", May 2023 — accessed 27 Oct 2026</li>
+        <li id="s11">Wikipedia, "<a href="https://en.wikipedia.org/wiki/Diamond_Standard">Diamond Standard</a>" (secondary; company claims not independently confirmed) — accessed 27 Oct 2026</li>
+        <li id="s12">Chainlink, "<a href="https://chain.link/article/tokenized-diamonds">Tokenized Diamonds Explained</a>" — accessed 27 Oct 2026</li>
+        <li id="s13">GIA, "<a href="https://www.gia.edu/gia-news-press/gia-and-tracr">GIA and Tracr</a>", 29 May 2026 — accessed 27 Oct 2026</li>
+        <li id="s14">Dubai Diamond Conference 2026, panel and showcase remarks, Dubai, 26 Oct 2026 (attended; not independently verified)</li>
+        <li id="s15">VARA, "<a href="https://www.vara.ae/en/news/vara-defines-issuance-rules-to-be-the-global-standard-on-asset-reference-tokens/">VARA defines issuance rules to be the global standard on asset reference tokens</a>", 12 Oct 2023 — accessed 27 Oct 2026</li>
+        <li id="s16">Unlock Blockchain (KARM Legal), "<a href="https://www.unlock-bc.com/en/vara-arva-rulebook-tokenized-rwas-dubai">Inside VARA's ARVA Framework</a>", 30 May 2025 — accessed 27 Oct 2026</li>
+        <li id="s17">Neo Legal, "<a href="https://neolegal.ae/insights/tokenised-diamonds-gemstones-vara">Tokenised Diamonds &amp; High-Value Gemstones Under VARA Category 1</a>", 16 May 2026 (law-firm explainer) — accessed 27 Oct 2026</li>
+        <li id="s18">CMS, "<a href="https://cms.law/en/are/legal-updates/the-new-cbuae-payment-token-services-regulation-10-things-you-need-to-know">The new CBUAE Payment Token Services Regulation: 10 things you need to know</a>", 8 Aug 2024 — accessed 27 Oct 2026</li>
+        <li id="s19">G. Cornelli, "<a href="https://www.bis.org/publ/work1311.pdf">When bricks meet bytes: does tokenisation fill gaps in traditional real estate markets?</a>", BIS Working Paper 1311, Nov 2025, rev. Jun 2026 — accessed 27 Oct 2026</li>
+        <li id="s20">CoinDesk via Yahoo Finance, "<a href="https://it.finance.yahoo.com/news/investors-flock-tokenized-diamond-crypto-165503570.html">Investors flock to tokenized diamond as crypto banking crisis props hard assets</a>", 16 Mar 2023 — accessed 27 Oct 2026</li>
+      </ol>
+    </section>
+
+    <div class="note"><b>Compiled 27 Oct 2026.</b> First publication. Methodology v2.0. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+</body>
+</html>
