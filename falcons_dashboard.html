@@ -300,6 +300,22 @@ td.n+td,th.n+th{padding-left:16px}
 .regime-k>span:first-child{display:inline-block}
 .facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
 @media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
+
+/* related + definitions */
+.related{margin-top:40px;padding-top:36px;border-top:1px solid var(--line)}
+.related .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.rel a{display:flex;flex-direction:column;gap:6px;background:var(--surface);padding:16px 18px;min-height:44px}
+.rel a:hover{background:var(--paper)}
+.rel .nm{font-family:var(--display);font-size:19px;line-height:1.15}
+.rel .rwhy{font-size:13px;color:var(--mute);line-height:1.45}
+.related .all{display:inline-block;margin-top:16px;font-size:13.5px;color:var(--mute);border-bottom:1px solid var(--line)}
+.related .all:hover{color:var(--ink);border-color:var(--bronze)}
+.def{position:relative;cursor:help;border-bottom:1px dotted var(--bronze);outline:none}
+.def::after{content:attr(data-def);position:absolute;left:0;bottom:calc(100% + 8px);z-index:40;width:min(280px,70vw);background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;font-size:12.5px;line-height:1.45;letter-spacing:0;text-transform:none;padding:10px 12px;opacity:0;pointer-events:none;transition:opacity .12s;text-wrap:pretty}
+.def:hover::after,.def:focus-visible::after{opacity:1}
+.grade .def{border-bottom:0}
+.grade .def::after{left:auto;right:0}
 </style>
 </head>
 <body>
@@ -315,14 +331,14 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Cellar &amp; Collectibles</a></div>
   <div class="brief-head">
     <h1>Falcons</h1>
-    <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Living asset · CITES · 20 Oct 2026</div></div>
+    <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Restricted: no regular pricing; exit through a closed or occasional route. Not a view on return.">Σ4</span><span class="n">Restricted</span><div class="m">Living asset · CITES · 20 Oct 2026</div></div>
   </div>
   <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
   <p class="regime">A single bird made SR1.4 m in Riyadh this month and the season's auction grew sales by a quarter, in a market with one region of buyers, a CITES permit on every transfer and an asset that is worth most on the day it is sold.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Captive-bred and legally wild-taken falcons sold for falconry and racing in the Gulf: gyrfalcons and gyr hybrids, sakers, peregrines and their crosses. Breeding farms are covered as the supply side. Wild trapping outside legal quota is not an asset and is not covered.</div>
     <div><div class="k">Principal markets</div>Malham, north of Riyadh (Saudi Falcons Club: International Falcon Breeders Auction, Aug–Sep; Saudi International Falcons and Hunting Exhibition, Oct) · Abu Dhabi (ADIHEX, Sep) · Doha · Breeding farms in Canada, the US, the UK, Germany, Spain and the Gulf</div>
-    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium; c. 70 farms in 20+ countries sell into one region</span><span>Liquidity</span><span>Low; one auction season, one buyer base</span><span>Scarcity</span><span>Engineered; white gyr colour morphs</span><span>Provenance risk</span><span>Medium; CITES paperwork, ring, DNA</span></div></div>
+    <div><div class="k">Structure</div><div class="s"><span class="def" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Supply concentration</span><span>Medium; c. 70 farms in 20+ countries sell into one region</span><span class="def" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span>Low; one auction season, one buyer base</span><span class="def" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span>Engineered; white gyr colour morphs</span><span class="def" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span>Medium; CITES paperwork, ring, DNA</span></div></div>
   </div>
   <div class="hx">
     <div>
@@ -445,6 +461,7 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The auction record</a><a href="#s-ii"><span>II</span>What is being bought</a><a href="#s-iii"><span>III</span>Permits, passports and the farms</a><a href="#s-iv"><span>IV</span>How a bird loses value</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/breeding-stallions-dashboard"><span class="nm">Breeding Stallions</span><span class="rwhy">Living asset, pedigree</span></a><a href="/racehorses-dashboard"><span class="nm">Racehorses</span><span class="rwhy">Auction and training cost</span></a><a href="/oud-dashboard"><span class="nm">Oud</span><span class="rwhy">Gulf demand</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>

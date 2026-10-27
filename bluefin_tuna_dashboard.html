@@ -281,6 +281,22 @@ td.n+td,th.n+th{padding-left:16px}
 .regime-k>span:first-child{display:inline-block}
 .facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
 @media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
+
+/* related + definitions */
+.related{margin-top:40px;padding-top:36px;border-top:1px solid var(--line)}
+.related .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.rel a{display:flex;flex-direction:column;gap:6px;background:var(--surface);padding:16px 18px;min-height:44px}
+.rel a:hover{background:var(--paper)}
+.rel .nm{font-family:var(--display);font-size:19px;line-height:1.15}
+.rel .rwhy{font-size:13px;color:var(--mute);line-height:1.45}
+.related .all{display:inline-block;margin-top:16px;font-size:13.5px;color:var(--mute);border-bottom:1px solid var(--line)}
+.related .all:hover{color:var(--ink);border-color:var(--bronze)}
+.def{position:relative;cursor:help;border-bottom:1px dotted var(--bronze);outline:none}
+.def::after{content:attr(data-def);position:absolute;left:0;bottom:calc(100% + 8px);z-index:40;width:min(280px,70vw);background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;font-size:12.5px;line-height:1.45;letter-spacing:0;text-transform:none;padding:10px 12px;opacity:0;pointer-events:none;transition:opacity .12s;text-wrap:pretty}
+.def:hover::after,.def:focus-visible::after{opacity:1}
+.grade .def{border-bottom:0}
+.grade .def::after{left:auto;right:0}
 </style>
 </head>
 <body>
@@ -296,14 +312,14 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Rare Foods</a></div>
   <div class="brief-head">
     <h1>Bluefin Tuna</h1>
-    <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Route: ranching and seafood groups · 5 Oct 2026</div></div>
+    <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Restricted: no regular pricing; exit through a closed or occasional route. Not a view on return.">Σ4</span><span class="n">Restricted</span><div class="m">Route: ranching and seafood groups · 5 Oct 2026</div></div>
   </div>
   <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
   <p class="regime">Toyosu first-auction records for Ōma bluefin, against a commercial price that has not followed.<sup class="r"><a href="#s5">5</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Ōma and Japanese coastal fisheries · Mediterranean ranching · Pacific and Southern stocks</div>
     <div><div class="k">Principal markets</div>Japan · United States · European Union · Hong Kong</div>
-    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Medium</span><span>Liquidity</span><span>Medium</span><span>Scarcity</span><span>High (wild Ōma)</span><span>Provenance risk</span><span>Medium</span></div></div>
+    <div><div class="k">Structure</div><div class="s"><span class="def" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Supply concentration</span><span>Medium</span><span class="def" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span>Medium</span><span class="def" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span>High (wild Ōma)</span><span class="def" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span>Medium</span></div></div>
   </div>
   <div class="hx">
     <div>
@@ -402,6 +418,7 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The first auction</a><a href="#s-ii"><span>II</span>Stock and quota</a><a href="#s-v"><span>III</span>Brand economics compared</a><a href="#s-vi"><span>IV</span>Indicators to monitor</a><a href="#sources"><span>V</span>Sources</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/caviar-dashboard"><span class="nm">Caviar</span><span class="rwhy">Perishable, auction-priced</span></a><a href="/wagyu-dashboard"><span class="nm">Wagyu</span><span class="rwhy">Japanese grading and export</span></a><a href="/truffles-dashboard"><span class="nm">Truffles</span><span class="rwhy">Season sets the price</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>

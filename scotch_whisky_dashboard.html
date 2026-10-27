@@ -302,6 +302,22 @@ td.n+td,th.n+th{padding-left:16px}
 .regime-k>span:first-child{display:inline-block}
 .facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
 @media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
+
+/* related + definitions */
+.related{margin-top:40px;padding-top:36px;border-top:1px solid var(--line)}
+.related .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.rel a{display:flex;flex-direction:column;gap:6px;background:var(--surface);padding:16px 18px;min-height:44px}
+.rel a:hover{background:var(--paper)}
+.rel .nm{font-family:var(--display);font-size:19px;line-height:1.15}
+.rel .rwhy{font-size:13px;color:var(--mute);line-height:1.45}
+.related .all{display:inline-block;margin-top:16px;font-size:13.5px;color:var(--mute);border-bottom:1px solid var(--line)}
+.related .all:hover{color:var(--ink);border-color:var(--bronze)}
+.def{position:relative;cursor:help;border-bottom:1px dotted var(--bronze);outline:none}
+.def::after{content:attr(data-def);position:absolute;left:0;bottom:calc(100% + 8px);z-index:40;width:min(280px,70vw);background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;font-size:12.5px;line-height:1.45;letter-spacing:0;text-transform:none;padding:10px 12px;opacity:0;pointer-events:none;transition:opacity .12s;text-wrap:pretty}
+.def:hover::after,.def:focus-visible::after{opacity:1}
+.grade .def{border-bottom:0}
+.grade .def::after{left:auto;right:0}
 </style>
 </head>
 <body>
@@ -317,14 +333,14 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Cellar &amp; Collectibles</a></div>
   <div class="brief-head">
     <h1>Scotch Whisky</h1>
-    <div class="grade"><span class="g">Σ3</span><span class="n">Specialist</span><div class="m">Bottles · 5 Oct 2026</div></div>
+    <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Specialist: expert appraisal, exit over months through auction or dealers. Not a view on return.">Σ3</span><span class="n">Specialist</span><div class="m">Bottles · 5 Oct 2026</div></div>
   </div>
   <div class="regime-k"><span>Price regime</span><span>As of 5 Oct 2026</span></div>
   <p class="regime">Collector bottle market correcting, not collapsing; exports flat in value and down in volume.<sup class="r"><a href="#s15">15</a></sup><span class="c c-m">Med</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>Scotland (Speyside · Islay · Highlands · Lowlands · Campbeltown)</div>
     <div><div class="k">Principal markets</div>United States · France · Singapore · India · Taiwan</div>
-    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>High</span><span>Liquidity</span><span>Medium (bottles); Low (casks)</span><span>Scarcity</span><span>Medium; closed distilleries High</span><span>Provenance risk</span><span>High (casks)</span></div></div>
+    <div><div class="k">Structure</div><div class="s"><span class="def" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Supply concentration</span><span>High</span><span class="def" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span>Medium (bottles); Low (casks)</span><span class="def" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span>Medium; closed distilleries High</span><span class="def" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span>High (casks)</span></div></div>
   </div>
   <div class="hx">
     <div>
@@ -503,6 +519,7 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The product and its law</a><a href="#s-ii"><span>II</span>History of the trade</a><a href="#s-iii"><span>III</span>Who owns the industry</a><a href="#s-iv"><span>IV</span>Exports, 2025</a><a href="#s-v"><span>V</span>The collector market</a><a href="#s-vi"><span>VI</span>The cask problem</a><a href="#s-vii"><span>VII</span>Indicators to monitor</a><a href="#s-viii"><span>VIII</span>Sources</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/japanese-whisky-dashboard"><span class="nm">Japanese Whisky</span><span class="rwhy">Age and allocation</span></a><a href="/rare-whisky-casks-dashboard"><span class="nm">Rare Whisky Casks</span><span class="rwhy">Cask ownership risk</span></a><a href="/champagne-dashboard"><span class="nm">Champagne</span><span class="rwhy">Brand-owner pricing</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>

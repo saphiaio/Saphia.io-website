@@ -300,6 +300,22 @@ td.n+td,th.n+th{padding-left:16px}
 .regime-k>span:first-child{display:inline-block}
 .facts .k,.hx .k,.regime-k>span:first-child{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
 @media(max-width:900px){.hx{grid-template-columns:1fr;gap:24px}}
+
+/* related + definitions */
+.related{margin-top:40px;padding-top:36px;border-top:1px solid var(--line)}
+.related .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.rel a{display:flex;flex-direction:column;gap:6px;background:var(--surface);padding:16px 18px;min-height:44px}
+.rel a:hover{background:var(--paper)}
+.rel .nm{font-family:var(--display);font-size:19px;line-height:1.15}
+.rel .rwhy{font-size:13px;color:var(--mute);line-height:1.45}
+.related .all{display:inline-block;margin-top:16px;font-size:13.5px;color:var(--mute);border-bottom:1px solid var(--line)}
+.related .all:hover{color:var(--ink);border-color:var(--bronze)}
+.def{position:relative;cursor:help;border-bottom:1px dotted var(--bronze);outline:none}
+.def::after{content:attr(data-def);position:absolute;left:0;bottom:calc(100% + 8px);z-index:40;width:min(280px,70vw);background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;font-size:12.5px;line-height:1.45;letter-spacing:0;text-transform:none;padding:10px 12px;opacity:0;pointer-events:none;transition:opacity .12s;text-wrap:pretty}
+.def:hover::after,.def:focus-visible::after{opacity:1}
+.grade .def{border-bottom:0}
+.grade .def::after{left:auto;right:0}
 </style>
 </head>
 <body>
@@ -315,14 +331,14 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Crops</a></div>
   <div class="brief-head">
     <h1>Maple Syrup</h1>
-    <div class="grade"><span class="g">Σ4</span><span class="n">Restricted</span><div class="m">Commodity · administered · 20 Oct 2026</div></div>
+    <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Restricted: no regular pricing; exit through a closed or occasional route. Not a view on return.">Σ4</span><span class="n">Restricted</span><div class="m">Commodity · administered · 20 Oct 2026</div></div>
   </div>
   <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
   <p class="regime">The world's only agricultural cartel with a strategic reserve has just run it to zero: two record harvests, tariff front-running and a 16% export surge emptied 133 million pounds of capacity, and the price is still set by the Federation, not the market.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Bulk maple syrup produced in Québec and sold through the Québec Maple Syrup Producers (PPAQ) joint plan, the Global Strategic Maple Syrup Reserve, and production quota (taps). US and other-province production is covered as context. Retail bottled syrup is not an asset and is not covered.</div>
     <div><div class="k">Principal markets</div>Québec (Centre-du-Québec, Chaudière-Appalaches, Bas-Saint-Laurent) · Laurierville, Plessisville and Saint-Antoine-de-Tilly reserve warehouses · Vermont, New York, Maine · export to 69 countries, 65% of it to the United States</div>
-    <div><div class="k">Structure</div><div class="s"><span>Supply concentration</span><span>Very high; Québec 72% of world output under one seller</span><span>Liquidity</span><span>None outside the plan; administered price</span><span>Scarcity</span><span>Weather-driven year to year; none structurally</span><span>Provenance risk</span><span>Low; graded and inspected on delivery</span></div></div>
+    <div><div class="k">Structure</div><div class="s"><span class="def" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Supply concentration</span><span>Very high; Québec 72% of world output under one seller</span><span class="def" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span>None outside the plan; administered price</span><span class="def" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span>Weather-driven year to year; none structurally</span><span class="def" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span>Low; graded and inspected on delivery</span></div></div>
   </div>
   <div class="hx">
     <div>
@@ -443,6 +459,7 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The joint plan</a><a href="#s-ii"><span>II</span>The reserve, and why it is empty</a><a href="#s-iii"><span>III</span>Harvest and taps</a><a href="#s-iv"><span>IV</span>Risks in a managed market</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Grade standards, cooperative</span></a><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Weather and crop</span></a><a href="/parmigiano-dashboard"><span class="nm">Parmigiano Reggiano</span><span class="rwhy">Quota and reserve</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
