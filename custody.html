@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storage, Custody and Insurance, ΣΟΦΙΑ</title>
+<meta name="description" content="What a holder must do and pay to keep each of 51 scarce assets saleable: five kinds of keeping, a market-by-market register, the carry figures the briefs give, and where the keeper owns the market. Every figure cited.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .k{font-family:var(--display);font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bronze);display:block}
+.cards .k b{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-lo);display:block;margin-bottom:6px;font-weight:500}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes" aria-current="page">Themes</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/themes">Themes</a> · Cross-sector</div>
+  <h1>Storage, custody and insurance</h1>
+  <p class="lede">A scarce asset costs money every day it is held, and in most of the 51 markets that cost is not a fee line but a condition: a humidity, a temperature, a bonded shed, a trainer, a vault. This page reads the Custody and Cost lines together: what has to be done to keep the asset what it is, who does it, what it costs, and where the holding itself is the risk.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Touches all 51 market briefs; worked examples from <a href="/racehorses-dashboard" style="border-bottom:1px solid var(--line)">Racehorses</a>, <a href="/rare-whisky-casks-dashboard" style="border-bottom:1px solid var(--line)">Rare Whisky Casks</a>, <a href="/fine-wine-dashboard" style="border-bottom:1px solid var(--line)">Fine Wine</a>, <a href="/parmigiano-dashboard" style="border-bottom:1px solid var(--line)">Parmigiano Reggiano</a>, <a href="/art-dashboard" style="border-bottom:1px solid var(--line)">Art</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>The carry</a></li><li><a href="#s2"><span>II</span>Five kinds of keeping</a></li><li><a href="#s3"><span>III</span>The register, market by market</a></li><li><a href="#s4"><span>IV</span>What it costs</a></li><li><a href="#s5"><span>V</span>Where the keeper owns the market</a></li><li><a href="#s6"><span>VI</span>Three patterns in the record</a></li><li><a href="#s7"><span>VII</span>Indicators to monitor</a></li><li><a href="#s8"><span>VIII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">What a holder must do, and pay, to keep each of the 51 assets saleable between purchase and exit</div></div>
+      <div><div class="l" style="margin-bottom:4px">Cheapest to keep</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">A futures position, an ETF, a slabbed coin, a sealed bottle: a fee of basis points or a shelf</div></div>
+      <div><div class="l" style="margin-bottom:4px">Dearest to keep</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">A racehorse in training, a stallion, a sturgeon farm, a dinosaur: the asset is alive or enormous and the keeping is the business</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">29 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; the Custody judgement and Cost line on each sector page remain the record. Where this page quotes a figure, the sector page is the source.</p>
+
+    <section id="s1"><div class="sechead"><h2><em>I</em>The carry</h2></div>
+      <div class="prose">
+        <p>In a financial market the cost of holding is called carry and is a number: a management fee, a funding rate, a roll. In the markets covered here it is usually a set of conditions and a bill for meeting them. A case of Bordeaux must stay in a bonded warehouse at a steady temperature or lose its provenance; a box of Cohibas must sit at 65–70% humidity or lose its value; a cask loses about 2% of its contents a year to evaporation and, below 40% abv, its right to be called Scotch; a wheel of Parmigiano must be turned and inspected; a racehorse eats, trains and sees a vet whether or not it ever wins. <sup class="r"><a href="#s20">20</a> <a href="#s21">21</a> <a href="#s22">22</a> <a href="#s23">23</a> <a href="#s24">24</a></sup></p>
+        <p>Three things follow. First, the carry sets a floor under the holding horizon: the sector pages for art, cars, watches and whisky bottles all cite five to ten years as the shortest hold that pays, because fees and keeping must be recovered before any gain. Second, custody is often where provenance lives: a bottle out of bond or a bag without its box is the same object with a different price. Third, in a surprising number of markets the keeper is also the market: the bonded warehouse, the Consorzio, the stud, the freeport and the Federation decide what can be sold and in what state.</p>
+        <p>The register in Section III sorts the 51 markets by what kind of keeping they need. The pattern is that the cheapest custody is where the unit is standard and inert, and the dearest is where the asset is alive, perishable or large enough to need a building of its own.</p>
+      </div>
+    </section>
+
+    <section id="s2"><div class="sechead"><h2><em>II</em>Five kinds of keeping</h2><p class="sub">Every Custody judgement on the market pages describes one of five regimes. The names are this page's; the descriptions are drawn from the sector pages.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Regime</th><th>What is held</th><th>What it needs</th><th>Typical cost</th><th>Markets</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Regime">Paper</td><td data-label="What">A contract, a fund unit or a share; the physical asset is someone else's problem</td><td data-label="Needs">A broker and margin; nothing physical</td><td data-label="Cost">Basis points a year (gold ETFs 0.10–0.40%; the uranium trust 0.71%) plus the roll on futures <sup class="r"><a href="#s25">25</a> <a href="#s26">26</a></sup></td><td data-label="Markets">Gold, Silver, PGMs, Copper, Oil &amp; Gas, Cocoa, Coffee, Uranium, Manuka Honey (Comvita), Tea (plantation equity), Bluefin and Wagyu (producer equity)</td></tr>
+          <tr><td data-label="Regime">Vault or bond</td><td data-label="What">A standard physical unit in an accredited third-party store whose record is the provenance</td><td data-label="Needs">Allocated vault, bonded warehouse, licensed converter; insurance included or charged on value</td><td data-label="Cost">A few pounds a case a year for wine and champagne in bond; vaulting charged on weight for metals; warehouse rent, insurance and regauge for casks <sup class="r"><a href="#s27">27</a> <a href="#s28">28</a> <a href="#s22">22</a></sup></td><td data-label="Markets">Gold and Silver (allocated), Fine Wine, Champagne, Port, Rare Whisky Casks, Rough Diamonds (in transit), Art (freeport)</td></tr>
+          <tr><td data-label="Regime">Shelf</td><td data-label="What">A sealed, inert object the holder can keep at home or in a safe, with insurance at agreed value</td><td data-label="Needs">Upright, dark, steady temperature; a safe; a box and papers</td><td data-label="Cost">Low; specialist storage a few pounds a bottle a year; insurance on value <sup class="r"><a href="#s29">29</a></sup></td><td data-label="Markets">Scotch and Japanese Whisky (bottles), Coins, Stamps, Rare Books, Watches, Handbags, Signed Jewellery, Polished Diamonds, Coloured Gemstones, Pearls, Jade, Lab-Grown Diamonds</td></tr>
+          <tr><td data-label="Regime">Conditioned</td><td data-label="What">An object whose value depends on continuous environmental control or maintenance</td><td data-label="Needs">Humidor, dry store, climate-controlled garage, regular playing, turning and inspection</td><td data-label="Cost">Humidor storage and insurance throughout; several per cent a year for a car; warehouse rent and turning for a wheel; decades of correct storage for pu-erh <sup class="r"><a href="#s21">21</a> <a href="#s30">30</a> <a href="#s23">23</a> <a href="#s31">31</a></sup></td><td data-label="Markets">Cigars, Pu-erh Tea, Classic Cars, Vintage Guitars, Parmigiano Reggiano, Oud (oil), Old Masters (conservation), Fossils (mounting and crating)</td></tr>
+          <tr><td data-label="Regime">Living or perishable</td><td data-label="What">An animal, a crop, a tree or a product that degrades; the holding is the farm or the season</td><td data-label="Needs">Feed, training, veterinary care, land, water, a cold chain; the product itself cannot be held</td><td data-label="Cost">Training tens of thousands a year for a horse; keep and insurance for a stallion; feed over two to three years for tuna and 20 months for wagyu; a decade of farm costs before a sturgeon yields <sup class="r"><a href="#s24">24</a> <a href="#s32">32</a> <a href="#s33">33</a> <a href="#s34">34</a></sup></td><td data-label="Markets">Racehorses, Breeding Stallions, Falcons, Caviar, Bluefin, Wagyu, Dates, Truffles, Olive Oil, Vanilla, Saffron, Frankincense, Maple Syrup, Cocoa and Coffee (physical), Rare Earths (oxide lots)</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="s3"><div class="sechead"><h2><em>III</em>The register, market by market</h2><p class="sub">What is kept, where, what it costs as the sector page states it, and what the keeping can fail on. Each row links to its page, which carries the sources.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Market</th><th>Regime</th><th>What is kept, and where</th><th>Running cost (sector page)</th><th>What custody fails on</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Market"><a href="/gold-dashboard">Gold</a></td><td data-label="Regime">Paper / Vault</td><td data-label="Where">ETF shares; allocated bars in LBMA vaults</td><td data-label="Cost">ETFs 0.10–0.40% a year, spreads near 0.01%; dealer spreads wider on physical</td><td data-label="Fails">Unallocated metal is a claim on the bank, not a bar</td></tr>
+          <tr><td data-label="Market"><a href="/silver-dashboard">Silver</a></td><td data-label="Regime">Paper / Vault</td><td data-label="Where">ETF shares; 1,000 oz bars in vault</td><td data-label="Cost">Vaulting charged on weight; storage and insurance cost more per dollar than gold</td><td data-label="Fails">Bulk; retail bar and coin premiums materially wider</td></tr>
+          <tr><td data-label="Market"><a href="/pgm-dashboard">Platinum group metals</a></td><td data-label="Regime">Paper / Vault</td><td data-label="Where">ETF shares; sponge and ingot</td><td data-label="Cost">ETF fees above gold equivalents; dealer spreads widen with size</td><td data-label="Fails">Sponge and ingot price differently; rhodium has no benchmark</td></tr>
+          <tr><td data-label="Market"><a href="/copper-dashboard">Copper</a></td><td data-label="Regime">Paper</td><td data-label="Where">Futures; ETF units; cathode by warrant only</td><td data-label="Cost">Exchange fees, margin, and the roll on every prompt in contango</td><td data-label="Fails">Physical cathode impractical for portfolios</td></tr>
+          <tr><td data-label="Market"><a href="/oil-gas-dashboard">Oil &amp; Gas</a></td><td data-label="Regime">Paper</td><td data-label="Where">Futures; futures-based ETFs</td><td data-label="Cost">The monthly roll in contango is the dominant cost</td><td data-label="Fails">No physical route; ETFs not built for multi-year holds</td></tr>
+          <tr><td data-label="Market"><a href="/uranium-dashboard">Uranium</a></td><td data-label="Regime">Paper (trust)</td><td data-label="Where">U3O8 in licensed converter storage, held by the trust</td><td data-label="Cost">0.71% a year; the unit's discount to metal (12.95% on 16 Oct 2026)</td><td data-label="Fails">The trust does not redeem for metal; export control on the material</td></tr>
+          <tr><td data-label="Market"><a href="/cocoa-dashboard">Cocoa</a></td><td data-label="Regime">Paper</td><td data-label="Where">Futures; beans only in exchange-licensed warehouses</td><td data-label="Cost">Initial margin about $9,500 a lot (a fifth of value); the roll each delivery month</td><td data-label="Fails">Physical is a trade-house business</td></tr>
+          <tr><td data-label="Market"><a href="/coffee-dashboard">Coffee</a></td><td data-label="Regime">Paper</td><td data-label="Where">Futures; green coffee through trade houses</td><td data-label="Cost">Exchange fees and margin; steep backwardation pays a long roll</td><td data-label="Fails">Delivery-month squeezes when certified stocks are thin</td></tr>
+          <tr><td data-label="Market"><a href="/rare-earths-dashboard">Rare Earths</a></td><td data-label="Regime">Living / perishable (lots)</td><td data-label="Where">Oxide or metal lots with a dealer; equities as proxy</td><td data-label="Cost">The dealer-tier premium on entry and discount on exit</td><td data-label="Fails">Chinese export licensing since April 2025 governs whether material moves at all</td></tr>
+          <tr><td data-label="Market"><a href="/fine-wine-dashboard">Fine Wine</a></td><td data-label="Regime">Vault or bond</td><td data-label="Where">Cases in a UK bonded warehouse, duty suspended</td><td data-label="Cost">Storage a few pounds a case a year; exchange fees per unit, not published</td><td data-label="Fails">Wine that leaves bond loses verifiable provenance and resells at a discount</td></tr>
+          <tr><td data-label="Market"><a href="/champagne-dashboard">Champagne</a></td><td data-label="Regime">Vault or bond</td><td data-label="Where">Cases in bond</td><td data-label="Cost">A few pounds a case a year in bond; merchant commission 10%+ on sale</td><td data-label="Fails">Bottles out of bond repriced on condition</td></tr>
+          <tr><td data-label="Market"><a href="/port-dashboard">Port</a></td><td data-label="Regime">Vault or bond</td><td data-label="Where">Cases in bond for 15–30 years</td><td data-label="Cost">A few pounds a case a year; merchant commission 10%+</td><td data-label="Fails">Out of bond loses duty-suspended status and part of its provenance</td></tr>
+          <tr><td data-label="Market"><a href="/scotch-whisky-dashboard">Scotch Whisky</a></td><td data-label="Regime">Shelf (bottles)</td><td data-label="Where">Sealed bottles at home or in specialist storage</td><td data-label="Cost">Low; insured shipping to the auctioneer; buyer pays duty and freight abroad</td><td data-label="Fails">Fill level and seal; a sealed bottle does not improve with time</td></tr>
+          <tr><td data-label="Market"><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a></td><td data-label="Regime">Vault or bond</td><td data-label="Where">A cask in a Scottish bonded warehouse, in the warehouse keeper's records</td><td data-label="Cost">Annual rent and insurance, regauge and sample fees; about 2% a year evaporates; duty at full rate on bottling</td><td data-label="Fails">Below 40% abv it can no longer be bottled as Scotch; title depends on the warehouse keeper's records, not the broker's certificate</td></tr>
+          <tr><td data-label="Market"><a href="/japanese-whisky-dashboard">Japanese Whisky</a></td><td data-label="Regime">Shelf</td><td data-label="Where">Sealed bottle, upright, out of light</td><td data-label="Cost">A few pounds a bottle a year in specialist storage; the easiest factor on the page</td><td data-label="Fails">Refills; cross-border duty and freight narrow the buyer pool</td></tr>
+          <tr><td data-label="Market"><a href="/cigars-dashboard">Cigars</a></td><td data-label="Regime">Conditioned</td><td data-label="Where">Boxes in a humidor at 65–70% humidity</td><td data-label="Cost">Humidor storage and insurance throughout</td><td data-label="Fails">Boxes without intact seals, bands and codes sell at a steep discount or not at all</td></tr>
+          <tr><td data-label="Market"><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a></td><td data-label="Regime">Conditioned</td><td data-label="Where">Dry-stored cakes, tongs and jian, for 10–30 years</td><td data-label="Cost">Storage for decades is the hidden cost</td><td data-label="Fails">Wet or careless storage, and a rejected cake is unsaleable</td></tr>
+          <tr><td data-label="Market"><a href="/tea-dashboard">Tea</a></td><td data-label="Regime">Paper (equity); perishable (leaf)</td><td data-label="Where">Plantation shares; tencha milled within months</td><td data-label="Cost">Brokerage; auction commission on leaf</td><td data-label="Fails">The scarce tier cannot be held</td></tr>
+          <tr><td data-label="Market"><a href="/parmigiano-dashboard">Parmigiano Reggiano</a></td><td data-label="Regime">Conditioned</td><td data-label="Where">Wheels in an ageing warehouse, including bank-owned warehouses at Reggio Emilia and Modena</td><td data-label="Cost">Warehouse rent and turning, insurance and the Consorzio's inspection; bank finance at commercial rates plus storage</td><td data-label="Fails">A wheel that fails at twelve months is downgraded or scored; 2026 heat waves are the live concern</td></tr>
+          <tr><td data-label="Market"><a href="/olive-oil-dashboard">Olive Oil</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">The grove; oil sold within the campaign</td><td data-label="Cost">Storage losses if oil is held; grove valuation on yield, water and planting system</td><td data-label="Fails">Oil oxidises; quality downgrades trade €0.20–0.30/kg below extra virgin</td></tr>
+          <tr><td data-label="Market"><a href="/saffron-dashboard">Saffron</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">Threads with a trader, for a season or two</td><td data-label="Cost">The grade the buyer's laboratory assigns</td><td data-label="Fails">Colouring strength falls from the day it is dried; a holding depreciates</td></tr>
+          <tr><td data-label="Market"><a href="/vanilla-dashboard">Vanilla</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">Cured beans under vacuum, one to two seasons</td><td data-label="Cost">Exporter and importer margins; grading disputes fall on the seller</td><td data-label="Fails">Vanillin is lost after a year or two</td></tr>
+          <tr><td data-label="Market"><a href="/frankincense-dashboard">Frankincense</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">Resin held by traders for weeks; trees on communal or state land</td><td data-label="Cost">Each of four or five hands takes a margin</td><td data-label="Fails">There is no way to own the trees</td></tr>
+          <tr><td data-label="Market"><a href="/oud-dashboard">Oud</a></td><td data-label="Regime">Conditioned (oil); Shelf (chips)</td><td data-label="Where">Oil in bottle, which matures; wild chips, which hold</td><td data-label="Cost">Dealer spread and the authentication gap; CITES permits on every cross-border move</td><td data-label="Fails">Plantation trees take 10–25 years; wild material often lacks legal provenance</td></tr>
+          <tr><td data-label="Market"><a href="/manuka-honey-dashboard">Manuka Honey</a></td><td data-label="Regime">Paper (equity)</td><td data-label="Where">Comvita shares; drums in warehouses since the 2020 stockpile</td><td data-label="Cost">Brokerage and price impact on a small cap; UMF/MGO testing on drums</td><td data-label="Fails">15–30,000 t in storage against about 10,000 t of annual sales</td></tr>
+          <tr><td data-label="Market"><a href="/maple-syrup-dashboard">Maple Syrup</a></td><td data-label="Regime">Living / perishable (the sugar bush)</td><td data-label="Where">Bulk syrup goes to the Federation; the Federation holds the reserve</td><td data-label="Cost">Levies of about 14¢/lb plus promotion and reserve charges</td><td data-label="Fails">Producers who sell outside the system have faced seizure and fines</td></tr>
+          <tr><td data-label="Market"><a href="/dates-dashboard">Dates</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">The farm; fruit cold-stored for a year at most</td><td data-label="Cost">Cold storage if held past season; grading losses</td><td data-label="Fails">Foreign ownership of Saudi farmland restricted</td></tr>
+          <tr><td data-label="Market"><a href="/truffles-dashboard">Truffles</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">The orchard; the truffle perishes in days</td><td data-label="Cost">Grading and spoilage losses fall on the seller; a decade before cash flow</td><td data-label="Fails">Nothing but the orchard can be held</td></tr>
+          <tr><td data-label="Market"><a href="/caviar-dashboard">Caviar</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">The sturgeon farm; tins sold within months under cold chain</td><td data-label="Cost">Eight to ten years of farm costs before first yield; cold-chain freight and CITES paperwork</td><td data-label="Fails">Biomass valued at a falling price; the product is perishable</td></tr>
+          <tr><td data-label="Market"><a href="/bluefin-tuna-dashboard">Bluefin Tuna</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">Fish in pens for two to three years; or listed equity</td><td data-label="Cost">Feed and mortality over the ranching period</td><td data-label="Fails">Grading on the day by cut and fat can halve the price</td></tr>
+          <tr><td data-label="Market"><a href="/wagyu-dashboard">Wagyu</a></td><td data-label="Regime">Living / perishable</td><td data-label="Where">The animal for 28–30 months; herds and land for decades</td><td data-label="Cost">Feed over 20 months of finishing; processing ¥250–550/kg</td><td data-label="Fails">Graded once, after slaughter; an A4 result cuts the price by a quarter</td></tr>
+          <tr><td data-label="Market"><a href="/racehorses-dashboard">Racehorses</a></td><td data-label="Regime">Living</td><td data-label="Where">In training, with a trainer</td><td data-label="Cost">Training alone tens of thousands a year; the heaviest carry on the site</td><td data-label="Fails">Most horses never earn it back; the horizon is set by results</td></tr>
+          <tr><td data-label="Market"><a href="/breeding-stallions-dashboard">Breeding Stallions</a></td><td data-label="Regime">Living</td><td data-label="Where">At stud, for 10–15 years</td><td data-label="Cost">Annual keep and a share of insurance against fee income</td><td data-label="Fails">Fertility insurance is limited; mortality cover priced per horse</td></tr>
+          <tr><td data-label="Market"><a href="/falcons-dashboard">Falcons</a></td><td data-label="Regime">Living</td><td data-label="Where">A mews, with a falconer</td><td data-label="Cost">The falconer, food, hospital care, transport in the heat; insurance limited</td><td data-label="Fails">Value falls after the first moult; a bird without matching ring, certificate and passport cannot travel or be resold</td></tr>
+          <tr><td data-label="Market"><a href="/rough-diamonds-dashboard">Rough Diamonds</a></td><td data-label="Regime">Vault (in transit)</td><td data-label="Where">Sight box or tender parcel, cut within months</td><td data-label="Cost">Kimberley certification, insurance and transport</td><td data-label="Fails">Nobody holds it; custody is simple and short</td></tr>
+          <tr><td data-label="Market"><a href="/polished-diamonds-dashboard">Polished Diamonds</a></td><td data-label="Regime">Shelf</td><td data-label="Where">A stone with its certificate, in a safe</td><td data-label="Cost">Insurance; custody is simple and the certificate supports title</td><td data-label="Fails">The spread, not the keeping</td></tr>
+          <tr><td data-label="Market"><a href="/lab-grown-diamonds-dashboard">Lab-Grown Diamonds</a></td><td data-label="Regime">Shelf</td><td data-label="Where">A stone; or grower and retailer equity</td><td data-label="Cost">A grading report costs more than the stone is worth at resale</td><td data-label="Fails">The holding has no horizon at which it pays</td></tr>
+          <tr><td data-label="Market"><a href="/coloured-gemstones-dashboard">Coloured Gemstones</a></td><td data-label="Regime">Shelf</td><td data-label="Where">A stone, in a safe, with its last report</td><td data-label="Cost">A fresh laboratory report at $500–3,000 at each sale</td><td data-label="Fails">The new report may differ from the old on origin or treatment</td></tr>
+          <tr><td data-label="Market"><a href="/pearls-dashboard">Pearls</a></td><td data-label="Regime">Shelf</td><td data-label="Where">A strand, restrung periodically</td><td data-label="Cost">A GIA or SSEF report before consignment</td><td data-label="Fails">Nacre wears; cosmetics and heat damage</td></tr>
+          <tr><td data-label="Market"><a href="/jade-dashboard">Jade</a></td><td data-label="Regime">Shelf</td><td data-label="Where">Jewellery, in a safe</td><td data-label="Cost">A laboratory report before consignment</td><td data-label="Fails">A treated (Type B or C) piece is unsaleable</td></tr>
+          <tr><td data-label="Market"><a href="/signed-jewellery-dashboard">Signed Jewellery</a></td><td data-label="Regime">Shelf</td><td data-label="Where">In a safe, with the archive letter</td><td data-label="Cost">Insurance; authentication and a gem report for older pieces</td><td data-label="Fails">Portable and anonymous once stones are unset; insurance registers are the control</td></tr>
+          <tr><td data-label="Market"><a href="/watches-dashboard">Watches</a></td><td data-label="Regime">Shelf</td><td data-label="Where">In a safe, with box and papers</td><td data-label="Cost">Servicing; insurance</td><td data-label="Fails">Service history and box-and-papers move the price by more than any fee</td></tr>
+          <tr><td data-label="Market"><a href="/handbags-dashboard">Handbags</a></td><td data-label="Regime">Shelf</td><td data-label="Where">In its box and dust bag, unused</td><td data-label="Cost">Nothing but restraint</td><td data-label="Fails">The premium decays with use; missing box, receipt or dust bag costs more than any fee</td></tr>
+          <tr><td data-label="Market"><a href="/coins-dashboard">Coins</a></td><td data-label="Regime">Shelf</td><td data-label="Where">Slabbed, in a safe or bank box</td><td data-label="Cost">Grading fees and CAC stickers; insurance</td><td data-label="Fails">Raw coins carry the authentication risk the slab removes</td></tr>
+          <tr><td data-label="Market"><a href="/stamps-dashboard">Stamps</a></td><td data-label="Regime">Shelf</td><td data-label="Where">Albums and stockbooks, dry and dark</td><td data-label="Cost">Expertising certificates for anything valuable</td><td data-label="Fails">Humidity, light, gum damage; a dealer's vault scheme is the fractional precedent</td></tr>
+          <tr><td data-label="Market"><a href="/rare-books-dashboard">Rare Books</a></td><td data-label="Regime">Shelf</td><td data-label="Where">A library, dry, dark and stable</td><td data-label="Cost">Collation and condition reports before consignment; insurance</td><td data-label="Fails">Damp, light and handling; completeness</td></tr>
+          <tr><td data-label="Market"><a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a></td><td data-label="Regime">Conditioned</td><td data-label="Where">Humidity-controlled; bowed instruments played and maintained</td><td data-label="Cost">Humidity control, insurance, maintenance; insured shipping of a fragile instrument</td><td data-label="Fails">Every non-original part is a permanent discount; CITES on Brazilian rosewood and tortoiseshell</td></tr>
+          <tr><td data-label="Market"><a href="/classic-cars-dashboard">Classic Cars</a></td><td data-label="Regime">Conditioned</td><td data-label="Where">A climate-controlled garage; driven or exercised</td><td data-label="Cost">Storage, insurance and maintenance, several per cent a year</td><td data-label="Fails">Anything under five years a losing hold unless the model is re-rated</td></tr>
+          <tr><td data-label="Market"><a href="/art-dashboard">Art</a></td><td data-label="Regime">Vault (freeport) or Shelf (the wall)</td><td data-label="Where">On the wall, insured; or in a freeport, duty and VAT suspended</td><td data-label="Cost">Insurance, climate control, shipping; freeport space from about $1,000 a month for a painting <sup class="r"><a href="#s2">2</a></sup></td><td data-label="Fails">Condition; title and provenance, the largest risk of any market here</td></tr>
+          <tr><td data-label="Market"><a href="/old-masters-dashboard">Old Masters</a></td><td data-label="Regime">Conditioned</td><td data-label="Where">Climate-controlled, with a conservator</td><td data-label="Cost">Conservation, insurance, shipping and export licences</td><td data-label="Fails">Condition and attribution move the price more than the cycle</td></tr>
+          <tr><td data-label="Market"><a href="/fossils-dashboard">Fossils &amp; Meteorites</a></td><td data-label="Regime">Conditioned</td><td data-label="Where">A mounted skeleton needs a building; a meteorite a shelf</td><td data-label="Cost">Excavation, preparation and mounting run to years and seven figures; crating and transport of a 38 ft skeleton</td><td data-label="Fails">Size; title and export documentation</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Fifty-one rows, one per market brief. The Running cost column paraphrases the Cost line of each page as at 29 Oct 2026. Where a sector page is updated, it governs.</p>
+    </section>
+
+    <section id="s4"><div class="sechead"><h2><em>IV</em>What it costs</h2><p class="sub">The figures the sector pages give, side by side. Most are conditions rather than prices; where a number exists it is shown.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Market</th><th>Cost of keeping</th><th>Figure</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Gold (ETF)</td><td>Annual expense ratio of the largest US funds</td><td class="n">0.10–0.40% a year<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s25">25</a></sup></td></tr>
+          <tr><td>Uranium (trust)</td><td>Management expense ratio; plus the unit's discount to metal</td><td class="n">0.71% a year; 12.95% discount on 16 Oct 2026<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s26">26</a></sup></td></tr>
+          <tr><td>Cocoa (futures)</td><td>Initial margin on the New York contract, October 2026</td><td class="n">c. $9,500 a lot, a fifth of value<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s35">35</a></sup></td></tr>
+          <tr><td>Fine Wine, Champagne, Port</td><td>Bonded storage</td><td class="n">A few pounds a case a year<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s27">27</a> <a href="#s28">28</a></sup></td></tr>
+          <tr><td>Rare Whisky Casks</td><td>Evaporation; plus rent, insurance, regauge</td><td class="n">c. 2% of contents a year<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s22">22</a></sup></td></tr>
+          <tr><td>Japanese Whisky (bottles)</td><td>Specialist storage</td><td class="n">A few pounds a bottle a year<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s29">29</a></sup></td></tr>
+          <tr><td>Classic Cars</td><td>Storage, insurance and maintenance</td><td class="n">Several per cent a year<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s30">30</a></sup></td></tr>
+          <tr><td>Maple Syrup</td><td>Federation levy on all bulk syrup graded</td><td class="n">c. 14¢/lb<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s36">36</a></sup></td></tr>
+          <tr><td>Racehorses</td><td>Training, from the day of purchase</td><td class="n">Tens of thousands a year<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s24">24</a></sup></td></tr>
+          <tr><td>Coloured Gemstones</td><td>A fresh laboratory report at each sale</td><td class="n">$500–3,000 a stone<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s37">37</a></sup></td></tr>
+          <tr><td>Art (freeport)</td><td>Space for a medium-sized painting; a small room</td><td class="n">c. $1,000 a month; $5,000–12,000<span class="t">Reported</span></td><td><span class="c c-l">Low</span></td><td class="n"><sup class="r"><a href="#s2">2</a></sup></td></tr>
+          <tr><td>Fossils</td><td>Excavation, preparation and mounting before sale</td><td class="n">Years and seven figures<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s38">38</a></sup></td></tr>
+        </tbody>
+      </table></div>
+      <div class="note"><span class="k">Derived observation</span><p>The paper and vault regimes cost basis points; the shelf regime costs almost nothing but discipline; the conditioned and living regimes cost a percentage of value a year or an operating business. The sector pages' Σ grades run in roughly the same order, not because keeping is graded but because an asset that is expensive to keep is sold by people who must sell, and that shows up in the Liquidity line. <span class="c c-x">Hyp</span></p></div>
+    </section>
+
+    <section id="s5"><div class="sechead"><h2><em>V</em>Where the keeper owns the market</h2><p class="sub">In several markets the place the asset is kept is also the place its price, provenance or title is decided.</p></div>
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+        <div><span class="k"><b>The bonded warehouse</b>Wine, champagne, port, casks</span><p>Bond is where duty is suspended, provenance is recorded and, for casks, title lives: the warehouse keeper's records, not the broker's certificate, say who owns what. When cask firms failed in 2025 the first call was to the warehouse. <sup class="r"><a href="#s22">22</a> <a href="#s39">39</a></sup></p></div>
+        <div><span class="k"><b>The Consorzio and the bank</b>Parmigiano Reggiano</span><p>The Consorzio inspects every wheel at twelve months and fire-brands the ones that pass; Credito Emiliano has lent against wheels in its own warehouses since 1953 and sells them through its warehouse subsidiary if the loan is not repaid. The keeper grades, finances and, if needed, liquidates. <sup class="r"><a href="#s23">23</a></sup></p></div>
+        <div><span class="k"><b>The Federation</b>Maple syrup</span><p>Québec producers must deliver bulk syrup to the Federation in the season it is made; it grades, pays an administered price and decides what ships and what goes to the Global Strategic Maple Syrup Reserve. The keeper is the only buyer. <sup class="r"><a href="#s36">36</a></sup></p></div>
+        <div><span class="k"><b>The freeport</b>Art, and increasingly everything</span><p>Geneva's freeport, operating since 1888, is estimated to hold about $100bn of goods, some 40% of it art, with wine, diamonds, cars and gold alongside; works can be stored, traded and restored inside without VAT or duty, and the transactions are not reported. The keeper is also a market that publishes no prices. <span class="c c-m">Med</span> <sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p></div>
+      </div>
+    </section>
+
+    <section id="s6"><div class="sechead"><h2><em>VI</em>Three patterns in the record</h2></div>
+      <div class="cards">
+        <div><span class="k"><b>Pattern 1</b>Floor</span><h3>Carry sets the minimum hold</h3><p>Every sector page that cites a five-to-ten-year horizon does so because fees and keeping must be recovered first. Where carry is a percentage of value a year (cars, horses, farms) the horizon is longer or the asset is a business; where it is basis points (paper, vault) the horizon is a choice.</p><p class="open">Watch: bonded storage and insurance rates; training fees; freeport rents</p></div>
+        <div><span class="k"><b>Pattern 2</b>Proof</span><h3>Custody is where provenance lives</h3><p>Wine out of bond, a bag out of its box, a cigar box without its seal, a cask outside the warehouse's records, a stone without a fresh report: the object is unchanged and the price is not. The <a href="/provenance">Provenance</a> page found that the Low-risk markets are those where the unit never leaves an accredited chain; this page finds the same markets are the cheapest to keep.</p><p class="open">Watch: any market adopting bonded or accredited storage as a condition of sale</p></div>
+        <div><span class="k"><b>Pattern 3</b>Counterparty</span><h3>The keeper can fail</h3><p>A bonded warehouse, a trust, a freeport, a trainer and a cask broker are all counterparties. The <a href="/exit-depth">Exit depth</a> page found that the buyer of last resort is often the party that sold the asset; this page finds that the keeper often is too. The casks page records what happens when that party is insolvent: the asset is intact and the holder's position is not.</p><p class="open">Watch: insolvencies among storage and brokerage firms; the uranium trust's discount as the price of custody it will not redeem</p></div>
+      </div>
+    </section>
+
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>Insolvencies or title disputes at bonded warehouses and cask brokers, and how the warehouse keeper's records are treated by administrators.</li>
+        <li>Regulation of freeports: the EU's anti-money-laundering rules apply to transactions over €10,000 but do not mandate inventories <span class="c c-m">Med</span> <sup class="r"><a href="#s3">3</a></sup>; any inventory requirement would change what a freeport is.</li>
+        <li>The Sprott uranium trust's discount to metal, as the clearest live price of custody without redemption <sup class="r"><a href="#s26">26</a></sup>.</li>
+        <li>Heat and humidity events at ageing warehouses: the 2026 heat waves are the Parmigiano page's live concern <sup class="r"><a href="#s23">23</a></sup>.</li>
+        <li>Insurance availability for living assets: fertility and mortality cover for stallions, and whether racing and breeding insurers tighten terms.</li>
+        <li>Specialist storage pricing for wine and whisky bottles, which sets the floor under the shelf regime.</li>
+      </ul>
+    </section>
+
+    <section id="s8"><div class="sechead"><h2><em>VIII</em>Sources</h2></div>
+      <ol class="src">
+        <li id="s1">Masterworks, "<a href="https://www.masterworks.com/academy/posts/art-freeports-explained-why-billions-in-art-sit-in-tax-free-warehouses">Art Freeports Explained</a>", Jul 2026 (secondary; a fractional-art platform) — accessed 29 Oct 2026</li>
+        <li id="s2">Wikipedia, "<a href="https://en.wikipedia.org/wiki/Geneva_Freeport">Geneva Freeport</a>" (secondary; storage prices and the $100bn estimate are as reported there) — accessed 29 Oct 2026</li>
+        <li id="s3">Fieldfisher, "<a href="https://www.fieldfisher.com/en/insights/hidden-in-transit-how-freeports-enable-and-could-p">Freeports and the Trade in Looted Art</a>", Jul 2026 (law-firm note) — accessed 29 Oct 2026</li>
+        <li id="s20">ΣΟΦΙΑ, <a href="/fine-wine-dashboard">Fine Wine</a>, market brief, Cost and How it is judged, snapshot 5 Oct 2026</li>
+        <li id="s21">ΣΟΦΙΑ, <a href="/cigars-dashboard">Cigars</a>, market brief, Holding horizon and Cost, snapshot 5 Oct 2026</li>
+        <li id="s22">ΣΟΦΙΑ, <a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a>, market brief, Holding horizon and Cost, snapshot 20 Oct 2026</li>
+        <li id="s23">ΣΟΦΙΑ, <a href="/parmigiano-dashboard">Parmigiano Reggiano</a>, market brief, Holding horizon, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s24">ΣΟΦΙΑ, <a href="/racehorses-dashboard">Racehorses</a>, market brief, Cost and How it is judged, snapshot 20 Oct 2026</li>
+        <li id="s25">ΣΟΦΙΑ, <a href="/gold-dashboard">Gold</a>, market brief, Cost, snapshot Oct 2026</li>
+        <li id="s26">ΣΟΦΙΑ, <a href="/uranium-dashboard">Uranium</a>, market brief, Cost and Why Σ2, snapshot 19 Oct 2026</li>
+        <li id="s27">ΣΟΦΙΑ, <a href="/champagne-dashboard">Champagne</a>, market brief, Cost, snapshot 20 Oct 2026</li>
+        <li id="s28">ΣΟΦΙΑ, <a href="/port-dashboard">Port</a>, market brief, Cost, snapshot Oct 2026</li>
+        <li id="s29">ΣΟΦΙΑ, <a href="/japanese-whisky-dashboard">Japanese Whisky</a>, market brief, How it is judged, snapshot 20 Oct 2026</li>
+        <li id="s30">ΣΟΦΙΑ, <a href="/classic-cars-dashboard">Classic Cars</a>, market brief, Holding horizon and How it is judged, snapshot Oct 2026</li>
+        <li id="s31">ΣΟΦΙΑ, <a href="/pu-erh-tea-dashboard">Pu-erh Tea</a>, market brief, Holding horizon and Cost, snapshot 20 Oct 2026</li>
+        <li id="s32">ΣΟΦΙΑ, <a href="/breeding-stallions-dashboard">Breeding Stallions</a>, market brief, Cost, snapshot 20 Oct 2026</li>
+        <li id="s33">ΣΟΦΙΑ, <a href="/bluefin-tuna-dashboard">Bluefin Tuna</a> and <a href="/wagyu-dashboard">Wagyu</a>, market briefs, Holding horizon and Cost, snapshot Oct 2026</li>
+        <li id="s34">ΣΟΦΙΑ, <a href="/caviar-dashboard">Caviar</a>, market brief, Holding horizon and Cost, snapshot Oct 2026</li>
+        <li id="s35">ΣΟΦΙΑ, <a href="/cocoa-dashboard">Cocoa</a>, market brief, Cost, snapshot Oct 2026</li>
+        <li id="s36">ΣΟΦΙΑ, <a href="/maple-syrup-dashboard">Maple Syrup</a>, market brief, Holding horizon, Exit depth and Cost, snapshot 20 Oct 2026</li>
+        <li id="s37">ΣΟΦΙΑ, <a href="/coloured-gemstones-dashboard">Coloured Gemstones</a>, market brief, Cost, snapshot 19 Oct 2026</li>
+        <li id="s38">ΣΟΦΙΑ, <a href="/fossils-dashboard">Fossils &amp; Meteorites</a>, market brief, Cost, snapshot Oct 2026</li>
+        <li id="s39">ΣΟΦΙΑ, <a href="/advisers">For advisers and institutions</a>, "An executor and a cellar"</li>
+      </ol>
+      <p class="fn" style="margin-top:14px">Rows in the register (Section III) not separately numbered here are drawn from the Cost line and Custody judgement of the linked market brief; each brief carries its own numbered sources.</p>
+    </section>
+
+    <div class="note"><b>Compiled 29 Oct 2026.</b> First publication. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+
+</body>
+</html>

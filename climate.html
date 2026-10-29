@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Climate and Supply Shock, ΣΟΦΙΑ</title>
+<meta name="description" content="Weather, disease and biological supply risk across 27 scarce-asset markets: which a bad season can reprice, the cocoa cycle of 2023–26, how fast supply answers, and who absorbs the shock between field and price. Every figure cited.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .k{font-family:var(--display);font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bronze);display:block}
+.cards .k b{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-lo);display:block;margin-bottom:6px;font-weight:500}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes" aria-current="page">Themes</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/themes">Themes</a> · Cross-sector</div>
+  <h1>Climate and supply shock</h1>
+  <p class="lede">Half the markets covered are grown, fished, tapped or bred, and their supply is set each year by weather, disease and water before any human decision. This page reads the harvest risk recorded on the market pages together: which markets a bad season can reprice, by how much, how fast supply can answer, and why the same shock does opposite things to an agricultural commodity and to a mined one.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Touches 27 market briefs; worked examples from <a href="/cocoa-dashboard" style="border-bottom:1px solid var(--line)">Cocoa</a>, <a href="/vanilla-dashboard" style="border-bottom:1px solid var(--line)">Vanilla</a>, <a href="/saffron-dashboard" style="border-bottom:1px solid var(--line)">Saffron</a>, <a href="/maple-syrup-dashboard" style="border-bottom:1px solid var(--line)">Maple Syrup</a>, <a href="/tea-dashboard" style="border-bottom:1px solid var(--line)">Tea</a>, <a href="/olive-oil-dashboard" style="border-bottom:1px solid var(--line)">Olive Oil</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>What a season can do</a></li><li><a href="#s2"><span>II</span>The register: exposed markets</a></li><li><a href="#s3"><span>III</span>Case: cocoa, 2023–26</a></li><li><a href="#s4"><span>IV</span>How fast supply answers</a></li><li><a href="#s5"><span>V</span>Who absorbs the shock</a></li><li><a href="#s6"><span>VI</span>Three patterns in the record</a></li><li><a href="#s7"><span>VII</span>Indicators to monitor</a></li><li><a href="#s8"><span>VIII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Weather, disease, water and biological supply risk in the markets whose asset is grown, fished, tapped or bred</div></div>
+      <div><div class="l" style="margin-bottom:4px">Largest recorded move</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Vanilla $35–65/kg to $500–800 on cyclones and hoarding, then back to $50; cocoa to $12,565/t on a West African crop failure</div></div>
+      <div><div class="l" style="margin-bottom:4px">Slowest supply answer</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Sturgeon 8–10 years, agarwood 10–25, a tencha field 5, a vintage port 20–40 to drink</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">29 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; the Scarcity line and supply sections of each sector page remain the record. Mined and manufactured markets are included only where weather reaches them.</p>
+
+    <section id="s1"><div class="sechead"><h2><em>I</em>What a season can do</h2></div>
+      <div class="prose">
+        <p>For a mined asset supply is a decision: a mine opens, a sight is held, a cartel meets. For a grown one it is a result: rain in Minas Gerais, a cyclone off Madagascar, a dry winter in Khorasan, the number of frost nights in a Québec March. The market pages for the agricultural and living assets all carry a sentence that says so, and this page collects them.</p>
+        <p>The shock runs in two directions and the sector pages record both. A short crop lifts the price of what exists and, where the asset is held rather than consumed, the holder gains: arabica to a record in October 2025 after drought in Brazil; Uji tencha up 116% in a year; Iranian saffron output down 36% in 2022 on drought. <sup class="r"><a href="#s20">20</a> <a href="#s21">21</a> <a href="#s22">22</a></sup> A good year does the reverse, and the speculative holder who bought the shortage takes the round trip: vanilla from $600 a kilo to $50; cocoa from $12,565 a tonne to $3,000–4,000 inside two years. <sup class="r"><a href="#s23">23</a> <a href="#s3">3</a></sup></p>
+        <p>What decides whether a holder can profit from a shock is not the shock but three things the pages also record: whether the asset can be stored through it (beans and bullion can; truffles, oil and fish cannot), how long supply takes to answer (a vine, a tree, a fish, a herd), and whether anyone stands between the producer and the price (a marketing board, a Federation, a futures market). Sections IV and V take those in turn.</p>
+      </div>
+    </section>
+
+    <section id="s2"><div class="sechead"><h2><em>II</em>The register: exposed markets</h2><p class="sub">Every market page that records a weather, disease, water or biological supply risk bearing on price, with the most recent event the page cites. Markets not listed are named at the foot.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Market</th><th>What sets the season</th><th>Recent event (sector page)</th><th>Can the asset be stored through it?</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Market"><a href="/cocoa-dashboard">Cocoa</a></td><td data-label="Driver">West African rainfall, El Niño, swollen-shoot virus, black pod, tree age</td><td data-label="Event">2023/24 deficit of 489–492 kt, the crisis year; a 2024/25 surplus published at four different figures; the El Niño emerging Sept 2026 "likely among the strongest in 75 years" <sup class="r"><a href="#s24">24</a> <a href="#s1">1</a></sup></td><td data-label="Storable">Beans yes, in exchange warehouses; a holder is in futures and pays the roll</td></tr>
+          <tr><td data-label="Market"><a href="/coffee-dashboard">Coffee</a></td><td data-label="Driver">Brazilian drought and heat; frost; Vietnamese rainfall for robusta</td><td data-label="Event">Arabica to an all-time record Oct 2025, then −38%; Brazil arabica down 6m bags on drought and heat in Minas Gerais and São Paulo; five years of falling stocks <sup class="r"><a href="#s20">20</a></sup></td><td data-label="Storable">Green coffee yes, through trade houses; futures for a portfolio</td></tr>
+          <tr><td data-label="Market"><a href="/vanilla-dashboard">Vanilla</a></td><td data-label="Driver">Cyclones over Madagascar's SAVA region; a single-origin crop</td><td data-label="Event">$35–65/kg before 2014; $500–800 in 2016–19 on cyclone losses, hoarding and early harvesting; $250 floor 2020–23; $50 minimum now not always respected <sup class="r"><a href="#s23">23</a></sup></td><td data-label="Storable">A year or two under vacuum, then vanillin is lost; the 2018–23 holders took the round trip</td></tr>
+          <tr><td data-label="Market"><a href="/saffron-dashboard">Saffron</a></td><td data-label="Driver">Winter rain and drought in Khorasan; a one-country crop</td><td data-label="Event">Record c. 422 t in 2021 to c. 272 t in 2022 under prolonged drought, −36%, recovering toward 300 t <sup class="r"><a href="#s22">22</a></sup></td><td data-label="Storable">No: colouring strength falls from the day it is dried</td></tr>
+          <tr><td data-label="Market"><a href="/maple-syrup-dashboard">Maple Syrup</a></td><td data-label="Driver">Freeze–thaw nights in a six-week spring window</td><td data-label="Event">The Global Strategic Reserve is empty after short seasons; the Federation decides what ships and what is held <sup class="r"><a href="#s25">25</a></sup></td><td data-label="Storable">Yes, for years, but only the Federation holds it</td></tr>
+          <tr><td data-label="Market"><a href="/olive-oil-dashboard">Olive Oil</a></td><td data-label="Driver">Spanish drought and heat at flowering; alternate bearing</td><td data-label="Event">Spanish stocks 70,000 t below the long-term average at end-Sept 2025; 70% of the 2025/26 crop sold within seven months; a c. 37% flowering-fertility decline reported for 2026/27 <sup class="r"><a href="#s26">26</a></sup></td><td data-label="Storable">Oil oxidises and is sold within the campaign; only the grove is held</td></tr>
+          <tr><td data-label="Market"><a href="/tea-dashboard">Tea</a></td><td data-label="Driver">Spring frost and shading in Uji; a five-year lag on new fields</td><td data-label="Event">Kyoto tencha auction average ¥5,402/kg (2024) to ¥14,541 (2025), +169%; one of the strongest harvests in decades "and prices do not fall" <sup class="r"><a href="#s21">21</a></sup></td><td data-label="Storable">Tencha is milled within months; the holding is plantation equity</td></tr>
+          <tr><td data-label="Market"><a href="/champagne-dashboard">Champagne</a></td><td data-label="Driver">Frost, hail and mildew; yield fixed annually by the Comité before harvest</td><td data-label="Event">The marketable yield is a regulated response to the season; release prices fell a sixth in the 2022–25 correction <sup class="r"><a href="#s27">27</a></sup></td><td data-label="Storable">Yes, in bond; prestige cuvées improve for years</td></tr>
+          <tr><td data-label="Market"><a href="/port-dashboard">Port</a></td><td data-label="Driver">Douro heat and drought; vintage declared three years in ten</td><td data-label="Event">A €12m Douro support scheme for unharvested grapes opened Sept 2026; the benefício system "in open crisis" <sup class="r"><a href="#s28">28</a></sup></td><td data-label="Storable">Yes, for decades; a declared vintage is the stored shock</td></tr>
+          <tr><td data-label="Market"><a href="/fine-wine-dashboard">Fine Wine</a></td><td data-label="Driver">Vintage weather in Bordeaux and Burgundy; frost and hail</td><td data-label="Event">Vintage quality is the first price variable; the 2022–25 correction ran back to 2015 levels regardless <sup class="r"><a href="#s29">29</a></sup></td><td data-label="Storable">Yes, in bond, for the life of the wine</td></tr>
+          <tr><td data-label="Market"><a href="/parmigiano-dashboard">Parmigiano Reggiano</a></td><td data-label="Driver">Heat in the ageing warehouses; feed rules; animal disease</td><td data-label="Event">The 2026 heat waves are the live concern for the cheese banks; supply responds within two years <sup class="r"><a href="#s30">30</a></sup></td><td data-label="Storable">Yes, 12–36 months, turned and inspected</td></tr>
+          <tr><td data-label="Market"><a href="/manuka-honey-dashboard">Manuka Honey</a></td><td data-label="Driver">Weather in a narrow flowering window; land access; hive numbers</td><td data-label="Event">Hive numbers down 42% since 2019; 15–30,000 t in storage against c. 10,000 t annual sales after the 2020 harvest of 27,000 t <sup class="r"><a href="#s31">31</a></sup></td><td data-label="Storable">Yes, for years, which is the problem: the glut is stored</td></tr>
+          <tr><td data-label="Market"><a href="/dates-dashboard">Dates</a></td><td data-label="Driver">Water scarcity and heat; a palm takes 5–10 years to full yield</td><td data-label="Event">Water scarcity and climate named as the binding constraints on c. 37m Saudi palms <sup class="r"><a href="#s32">32</a></sup></td><td data-label="Storable">Fruit cold-stored for a year; the farm is the holding</td></tr>
+          <tr><td data-label="Market"><a href="/truffles-dashboard">Truffles</a></td><td data-label="Driver">Summer rain and autumn temperature; white truffle not cultivable</td><td data-label="Event">White truffle cultivation has produced only small experimental harvests, first recorded in 2019 <sup class="r"><a href="#s33">33</a></sup></td><td data-label="Storable">No: the truffle perishes in days; only the orchard is held</td></tr>
+          <tr><td data-label="Market"><a href="/frankincense-dashboard">Frankincense</a></td><td data-label="Driver">Over-tapping and drought on communal land; tree mortality</td><td data-label="Event">Boswellia listed on CITES Appendix II from 2025; harvesters receive $2–5/kg for resin sold on at $60–100 <sup class="r"><a href="#s34">34</a></sup></td><td data-label="Storable">Resin keeps for years; nobody holds it</td></tr>
+          <tr><td data-label="Market"><a href="/oud-dashboard">Oud</a></td><td data-label="Driver">Wild tree loss; 10–25 years for plantation resin</td><td data-label="Event">c. 70% of trade from wild-harvested threatened species 2010–20; most harvesting destroys the whole tree <sup class="r"><a href="#s35">35</a></sup></td><td data-label="Storable">Oil improves in bottle; wood holds</td></tr>
+          <tr><td data-label="Market"><a href="/cigars-dashboard">Cigars</a></td><td data-label="Driver">Cuban hurricanes and rain; wrapper leaf shortage</td><td data-label="Event">2025–26 planting target of 12,152 ha missed, cut in September for rain; record revenue on lower volume <sup class="r"><a href="#s36">36</a></sup></td><td data-label="Storable">Yes, in a humidor, for decades</td></tr>
+          <tr><td data-label="Market"><a href="/caviar-dashboard">Caviar</a></td><td data-label="Driver">Water quality and temperature on farms; 8–10 years to first yield</td><td data-label="Event">Biomass valued at a falling price; the product clears within weeks of harvest <sup class="r"><a href="#s37">37</a></sup></td><td data-label="Storable">No; the farm is the holding</td></tr>
+          <tr><td data-label="Market"><a href="/bluefin-tuna-dashboard">Bluefin Tuna</a></td><td data-label="Driver">Stock recovery under quota; ocean temperature; ranching mortality</td><td data-label="Event">Pacific catch limits raised 60% for 2025–26 by the IATTC–WCPFC joint group <sup class="r"><a href="#s38">38</a></sup></td><td data-label="Storable">No; equity in the ranching groups is the holding</td></tr>
+          <tr><td data-label="Market"><a href="/wagyu-dashboard">Wagyu</a></td><td data-label="Driver">Feed prices; calf supply; disease</td><td data-label="Event">Three-quarters of the Japanese market now A5; growth is in export <sup class="r"><a href="#s39">39</a></sup></td><td data-label="Storable">No; herds and land are the holding</td></tr>
+          <tr><td data-label="Market"><a href="/pearls-dashboard">Pearls</a></td><td data-label="Driver">Warming, disease and red tide on open-water farms</td><td data-label="Event">Supply "can be wiped out in a season"; a red tide destroyed Mikimoto's stock in 1892 <sup class="r"><a href="#s40">40</a></sup></td><td data-label="Storable">Yes; a strand lasts generations</td></tr>
+          <tr><td data-label="Market"><a href="/racehorses-dashboard">Racehorses</a>, <a href="/breeding-stallions-dashboard">Stallions</a>, <a href="/falcons-dashboard">Falcons</a></td><td data-label="Driver">Fertility, injury and disease; a living asset</td><td data-label="Event">Fertility insurance limited, mortality cover priced per horse; a falcon's value falls after the first moult <sup class="r"><a href="#s41">41</a></sup></td><td data-label="Storable">No; the asset is alive</td></tr>
+          <tr><td data-label="Market"><a href="/uranium-dashboard">Uranium</a></td><td data-label="Driver">Flooding at Saskatchewan mines</td><td data-label="Event">Cameco H1 2026 production −5% on Saskatchewan flooding <sup class="r"><a href="#s42">42</a></sup></td><td data-label="Storable">Yes, indefinitely, in licensed custody</td></tr>
+          <tr><td data-label="Market"><a href="/rough-diamonds-dashboard">Rough Diamonds</a></td><td data-label="Driver">Flooding in alluvial ground</td><td data-label="Event">Lucapa entered administration May 2025, hit by falling prices, flooding in higher-grade ground and a blockade <sup class="r"><a href="#s43">43</a></sup></td><td data-label="Storable">Yes; but rough is cut within months</td></tr>
+          <tr><td data-label="Market"><a href="/vintage-guitars-dashboard">Vintage Guitars</a></td><td data-label="Driver">Humidity swings on the instrument itself</td><td data-label="Event">Cracks, lifted bridges and finish checking from humidity swings <sup class="r"><a href="#s44">44</a></sup></td><td data-label="Storable">Yes, under humidity control</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Twenty-five rows covering 27 market briefs. The remaining 24 (Gold, Silver, PGMs, Copper, Oil &amp; Gas, Rare Earths, Scotch and Japanese Whisky, Rare Whisky Casks, Pu-erh Tea, Polished and Lab-Grown Diamonds, Coloured Gemstones, Jade, Signed Jewellery, Watches, Handbags, Coins, Stamps, Rare Books, Art, Old Masters, Classic Cars, Fossils) record no weather or biological supply risk bearing on price. Copper and PGMs note that mine supply "cannot flex", which is geology and capital, not weather; whisky's angels' share is evaporation, treated under <a href="/custody">Custody</a>.</p>
+    </section>
+
+    <section id="s3"><div class="sechead"><h2><em>III</em>Case: cocoa, 2023–26</h2><p class="sub">The largest and best-documented supply shock in the register, and a complete cycle: shortage, record, surplus, and a new El Niño.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Date</th><th>Event</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>2023</td><td>Excessive rain in May–June 2023 under El Niño; black pod and swollen-shoot virus spread; about a quarter of Ivorian trees over 30 years old</td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s2">2</a> <a href="#s4">4</a></sup></td></tr>
+          <tr><td>2023/24 season</td><td>Côte d'Ivoire main crop c. 1.76m t from 2.28m t; Ghana below 430,000 t against a 750,000 t plan; ICCO world output down 10.9% to 4.45m t</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></td></tr>
+          <tr><td>19 Apr 2024</td><td>New York futures print an intraday all-time high of $12,565/t, having crossed $5,000 in February; London Dec-24 contract £8,218 against £2,741 in Oct 2023</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s3">3</a> <a href="#s6">6</a></sup></td></tr>
+          <tr><td>2024/25</td><td>Third consecutive deficit season by ICCO's Feb 2026 bulletin (4.84m t production against 4.94m t grindings); the sector page logs the 2024/25 balance published as 142 kt, 49 kt, c. 60 kt and 75 kt by successive sources</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s3">3</a> <a href="#s24">24</a></sup></td></tr>
+          <tr><td>2026</td><td>Prices fall to $3,000–4,000/t on improved harvest expectations; the 2023/24 deficit revised to 492 kt in ICCO's May 2026 statistics</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s7">7</a> <a href="#s6">6</a></sup></td></tr>
+          <tr><td>Jul–Sep 2026</td><td>Six-month high of $6,094/t in London on El Niño; StoneX cuts its 2026/27 surplus estimate 83%; NOAA says the El Niño emerging in September is likely among the strongest in 75 years</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s7">7</a> <a href="#s24">24</a></sup></td></tr>
+        </tbody>
+      </table></div>
+      <div class="cards">
+        <div class="note"><span class="k">Who gained</span><p>Holders of futures through the run, and anyone with beans in an exchange warehouse. Not the farmer: marketing boards in Côte d'Ivoire and Ghana set farm-gate prices and sell forward, so growers received a fraction of the exchange price while it ran. <sup class="r"><a href="#s6">6</a> <a href="#s45">45</a></sup></p></div>
+        <div class="note"><span class="k">Who paid</span><p>Grinders and chocolate makers, who sought beans in Asia and Latin America and raised retail prices; and anyone who bought the shortage in 2024 and held into the 2026 fall. The roll, not the crop, sets the return on any hold beyond one contract. <sup class="r"><a href="#s8">8</a> <a href="#s24">24</a></sup></p></div>
+        <div class="note"><span class="k">What it built</span><p>A funding case for cocoa-free chocolate (see <a href="/substitutes">Substitutes</a>) and a reason to read the ICCO balance with its revisions attached: the sector page records four published figures for one season's surplus, which is the normal state of agricultural data after a shock.</p></div>
+      </div>
+    </section>
+
+    <section id="s4"><div class="sechead"><h2><em>IV</em>How fast supply answers</h2><p class="sub">The length of time between a high price and the new supply it calls forth, as the sector pages state it. This is what decides whether a shock is a spike or a regime.</p></div>
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+        <div><span class="k"><b>Within a season</b>Annuals and quota</span><p>Saffron corms, vanilla (two harvests a year in Uganda), maple taps, bluefin quota decisions. A high price is answered the next year; the shock is a spike. <sup class="r"><a href="#s22">22</a> <a href="#s23">23</a> <a href="#s38">38</a></sup></p></div>
+        <div><span class="k"><b>Two to five years</b>Herds, wheels, bushes</span><p>Parmigiano supply responds within two years; wagyu is finished at 28–30 months; a tencha field needs about five years before its leaf is matcha-grade, which is why Uji's price tripling has no quick supply answer. <sup class="r"><a href="#s30">30</a> <a href="#s39">39</a> <a href="#s21">21</a></sup></p></div>
+        <div><span class="k"><b>Five to ten years</b>Trees and fish</span><p>Olive groves yield from year five to seven; date palms from five to seven and fully from ten; black truffle orchards from five to eight; a female sturgeon from eight to ten; a cocoa tree a few years, but a quarter of Côte d'Ivoire's are past their best. <sup class="r"><a href="#s26">26</a> <a href="#s32">32</a> <a href="#s33">33</a> <a href="#s37">37</a> <a href="#s4">4</a></sup></p></div>
+        <div><span class="k"><b>A decade or more</b>Resin and the wild</span><p>Plantation agarwood takes 10–15 years to sinking grade and 15–25 for the premium tier; wild Boswellia and wild sturgeon do not come back on any investable horizon; white truffle has no orchard at all. <sup class="r"><a href="#s35">35</a> <a href="#s34">34</a> <a href="#s33">33</a></sup></p></div>
+        <div><span class="k"><b>Never</b>The vintage</span><p>A declared port vintage, a champagne year, a Bordeaux harvest: the season is fixed in the bottle and nothing can add to it. Here the shock is the asset, and a bad year for the region is scarcity for the holder. <sup class="r"><a href="#s28">28</a> <a href="#s27">27</a></sup></p></div>
+      </div>
+    </section>
+
+    <section id="s5"><div class="sechead"><h2><em>V</em>Who absorbs the shock</h2><p class="sub">Between the field and the holder there is usually an institution, and it decides how much of the season reaches the price.</p></div>
+      <div class="ledger">
+        <div><span class="k">The futures market</span><p style="margin:0;font-size:15px">Cocoa and coffee pass the shock straight through to anyone holding a contract, in both directions, and charge the roll for the privilege. The price is honest and the holder is fully exposed. <sup class="r"><a href="#s24">24</a> <a href="#s20">20</a></sup></p></div>
+        <div><span class="k">The marketing board</span><p style="margin:0;font-size:15px">Côte d'Ivoire and Ghana sell forward and set farm-gate prices, so the grower sees a damped version of the shock and the board carries the difference, which in Ghana meant arrears when it could not fund purchases. <sup class="r"><a href="#s45">45</a> <a href="#s6">6</a></sup></p></div>
+        <div><span class="k">The Federation and the reserve</span><p style="margin:0;font-size:15px">Québec's reserve was built to smooth short seasons; it is now empty, and the administered price has to do the work the warehouse was meant to. The nearest thing in agriculture to OPEC, with a warehouse that has run dry. <sup class="r"><a href="#s25">25</a></sup></p></div>
+        <div><span class="k">The appellation</span><p style="margin:0;font-size:15px">The Comité Champagne fixes the marketable yield before each harvest and the Douro's benefício allocates production rights; both convert a season into a regulated quantity, and both are under strain, Port's "in open crisis". <sup class="r"><a href="#s27">27</a> <a href="#s28">28</a></sup></p></div>
+        <div><span class="k">Nobody</span><p style="margin:0;font-size:15px">Saffron, vanilla, frankincense and truffles pass the season to the grower and the trader with no buffer; the price can move by multiples and the people who grew it see the least of it. <sup class="r"><a href="#s22">22</a> <a href="#s23">23</a> <a href="#s34">34</a></sup></p></div>
+        <div><span class="k">The vintage itself</span><p style="margin:0;font-size:15px">Wine, champagne and port store the season in the bottle, and the holder of a good year owns the shock permanently. Here the absorber is the cellar, and the <a href="/custody">Custody</a> page is the relevant one. <sup class="r"><a href="#s29">29</a></sup></p></div>
+      </div>
+    </section>
+
+    <section id="s6"><div class="sechead"><h2><em>VI</em>Three patterns in the record</h2></div>
+      <div class="cards">
+        <div><span class="k"><b>Pattern 1</b>Round trip</span><h3>A grown shortage reverses; a mined one persists</h3><p>Vanilla, cocoa and saffron all went up by multiples and came back within two to four years, because the plant answered. The <a href="/rough-diamonds-dashboard">rough diamond</a> page records the lowest output since 1987 with no major new mines, and copper's refining constraint runs to 2029: when the constraint is geology or capital, the high price stays. The holder of an agricultural shock is holding a spike unless the asset is a vintage.</p><p class="open">Watch: replanting and new-field data (cocoa tree age, Uji plantings, olive super-high-density area)</p></div>
+        <div><span class="k"><b>Pattern 2</b>Perishability</span><h3>If it cannot be stored, the holder cannot own the shock</h3><p>Saffron, truffles, olive oil, fish, fresh dates and vanilla all lose quality within a season or two. The only way to hold the shock is to hold the farm, the orchard or the producer's equity, which converts a commodity exposure into an operating business with weather risk. The sector pages rate these routes Σ4 and Σ5 for exactly this reason.</p><p class="open">Watch: listed-producer results in the season after a shock (Comvita, Deoleo, Ito En, the seafood groups)</p></div>
+        <div><span class="k"><b>Pattern 3</b>Buffer</span><h3>The institution between field and price is wearing thin</h3><p>Québec's reserve is empty; Ghana's board ran arrears; the Douro needs a state scheme for unharvested grapes; Champagne's yield mechanism met a 35% index fall anyway. The buffers that made agricultural prices administrable were built for the variance of the twentieth century. If seasons become more variable the shock reaches the holder faster, and the <a href="/price-setters">administered-price</a> markets become discovered-price ones.</p><p class="open">Watch: reserve levels, board finances and appellation yield decisions</p></div>
+      </div>
+    </section>
+
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>NOAA's El Niño status and the 2026/27 West African main crop, against StoneX's and ICCO's revised balances <sup class="r"><a href="#s7">7</a> <a href="#s24">24</a></sup>.</li>
+        <li>Brazil's 2027 arabica flowering and ICE certified stocks before each expiry <sup class="r"><a href="#s20">20</a></sup>.</li>
+        <li>Spanish olive flowering fertility for 2026/27, reported at c. 37% down, against end-of-campaign stocks <sup class="r"><a href="#s26">26</a></sup>.</li>
+        <li>The Québec reserve level after the 2027 season and any change to the administered price <sup class="r"><a href="#s25">25</a></sup>.</li>
+        <li>Kyoto and Kagoshima tencha auction prices in May 2027 against the five-year planting lag <sup class="r"><a href="#s21">21</a></sup>.</li>
+        <li>Iranian saffron harvest estimates after each winter's rainfall <sup class="r"><a href="#s22">22</a></sup>.</li>
+        <li>Warehouse temperature events at Parmigiano ageing houses and any Consorzio response <sup class="r"><a href="#s30">30</a></sup>.</li>
+      </ul>
+    </section>
+
+    <section id="s8"><div class="sechead"><h2><em>VIII</em>Sources</h2></div>
+      <ol class="src">
+        <li id="s1">Ecofin Agency, "<a href="https://www.ecofinagency.com/news-agriculture/1007-57272-el-nino-pushes-cocoa-prices-higher-as-west-africa-supply-risks-return">El Niño Pushes Cocoa Prices Higher as West Africa Supply Risks Return</a>", Jul 2026 — accessed 29 Oct 2026</li>
+        <li id="s2">USDA FAS, "<a href="https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Cote+d%27Ivoire+-+Cocoa+Sector+Overview+-+2025_Accra_Cote+d%27Ivoire_IV2025-0001.pdf">Côte d'Ivoire: Cocoa Sector Overview 2025</a>" — accessed 29 Oct 2026</li>
+        <li id="s3">Deluair Consultancy, "<a href="https://deluair.com/consultancy/insights/cocoa-price-crisis-2026">Cocoa 2024 to 2026: West African Collapse, Price Shock, and the EUDR Reset</a>", 2026 (secondary; cites ICCO Feb 2026 bulletin) — accessed 29 Oct 2026</li>
+        <li id="s4">ICCO, "<a href="https://www.icco.org/wp-content/uploads/Cocoa-Market-Report-June-2024.pdf">Cocoa Market Report, June 2024</a>" — accessed 29 Oct 2026</li>
+        <li id="s5">African Business, "<a href="https://african.business/2024/04/resources/cocoa-prices-hit-records-as-west-african-yields-decline">Cocoa prices hit records as West African yields decline</a>", 18 Apr 2024 — accessed 29 Oct 2026</li>
+        <li id="s6">Jay Arr Chocolate, "<a href="https://jayarrchocolate.com/blog/cocoa-price-crisis-explained/">Cocoa Price Crisis: Why Chocolate Got So Expensive</a>", Sept 2026 (secondary; cites ICCO reports by date) — accessed 29 Oct 2026</li>
+        <li id="s7">Ecofin Agency, as source 1: the $12,906/t peak quoted there for Dec 2024 differs from the $12,565 intraday high of Apr 2024 in source 3; both are shown as reported</li>
+        <li id="s8">IFPRI, "<a href="https://www.ifpri.org/blog/global-cocoa-market-sees-steep-price-rise-amid-supply-shortfall/">Global cocoa market sees steep price rise amid supply shortfall</a>", 1 Apr 2024 — accessed 29 Oct 2026</li>
+        <li id="s20">ΣΟΦΙΑ, <a href="/coffee-dashboard">Coffee</a>, market brief, Price regime and Supply, snapshot Oct 2026</li>
+        <li id="s21">ΣΟΦΙΑ, <a href="/tea-dashboard">Tea</a>, market brief, key figures and Holding horizon, snapshot Oct 2026</li>
+        <li id="s22">ΣΟΦΙΑ, <a href="/saffron-dashboard">Saffron</a>, market brief, Supply, snapshot Oct 2026</li>
+        <li id="s23">ΣΟΦΙΑ, <a href="/vanilla-dashboard">Vanilla</a>, market brief, Price regimes table and Holding horizon, snapshot Oct 2026</li>
+        <li id="s24">ΣΟΦΙΑ, <a href="/cocoa-dashboard">Cocoa</a>, market brief, Supply balance, Holding horizon and Indicators, snapshot Oct 2026</li>
+        <li id="s25">ΣΟΦΙΑ, <a href="/maple-syrup-dashboard">Maple Syrup</a>, market brief, Sections I–II, snapshot 20 Oct 2026</li>
+        <li id="s26">ΣΟΦΙΑ, <a href="/olive-oil-dashboard">Olive Oil</a>, market brief, Supply and Holding horizon, snapshot Oct 2026</li>
+        <li id="s27">ΣΟΦΙΑ, <a href="/champagne-dashboard">Champagne</a>, market brief, Price regime and Structure, snapshot 20 Oct 2026</li>
+        <li id="s28">ΣΟΦΙΑ, <a href="/port-dashboard">Port</a>, market brief, Since last update and overview, snapshot Oct 2026</li>
+        <li id="s29">ΣΟΦΙΑ, <a href="/fine-wine-dashboard">Fine Wine</a>, market brief, Price regime, snapshot 5 Oct 2026</li>
+        <li id="s30">ΣΟΦΙΑ, <a href="/parmigiano-dashboard">Parmigiano Reggiano</a>, market brief, Structure and risks, snapshot Oct 2026</li>
+        <li id="s31">ΣΟΦΙΑ, <a href="/manuka-honey-dashboard">Manuka Honey</a>, market brief, Supply, snapshot Oct 2026</li>
+        <li id="s32">ΣΟΦΙΑ, <a href="/dates-dashboard">Dates</a>, market brief, Supply and Holding horizon, snapshot Oct 2026</li>
+        <li id="s33">ΣΟΦΙΑ, <a href="/truffles-dashboard">Truffles</a>, market brief, Holding horizon and cultivation, snapshot Oct 2026</li>
+        <li id="s34">ΣΟΦΙΑ, <a href="/frankincense-dashboard">Frankincense</a>, market brief, Supply and Cost, snapshot Oct 2026</li>
+        <li id="s35">ΣΟΦΙΑ, <a href="/oud-dashboard">Oud</a>, market brief, key figures and Holding horizon, snapshot Oct 2026</li>
+        <li id="s36">ΣΟΦΙΑ, <a href="/cigars-dashboard">Cigars</a>, market brief, Supply table, snapshot 5 Oct 2026</li>
+        <li id="s37">ΣΟΦΙΑ, <a href="/caviar-dashboard">Caviar</a>, market brief, Holding horizon and Cost, snapshot Oct 2026</li>
+        <li id="s38">ΣΟΦΙΑ, <a href="/bluefin-tuna-dashboard">Bluefin Tuna</a>, market brief, key figures, snapshot Oct 2026</li>
+        <li id="s39">ΣΟΦΙΑ, <a href="/wagyu-dashboard">Wagyu</a>, market brief, overview and Holding horizon, snapshot Oct 2026</li>
+        <li id="s40">ΣΟΦΙΑ, <a href="/pearls-dashboard">Pearls</a>, market brief, Supply, snapshot 5 Oct 2026</li>
+        <li id="s41">ΣΟΦΙΑ, <a href="/breeding-stallions-dashboard">Breeding Stallions</a> and <a href="/falcons-dashboard">Falcons</a>, market briefs, Cost and Holding horizon, snapshot Oct 2026</li>
+        <li id="s42">ΣΟΦΙΑ, <a href="/uranium-dashboard">Uranium</a>, market brief, Supply, snapshot 19 Oct 2026</li>
+        <li id="s43">ΣΟΦΙΑ, <a href="/rough-diamonds-dashboard">Rough Diamonds</a>, market brief, mine register, snapshot 20 Oct 2026</li>
+        <li id="s44">ΣΟΦΙΑ, <a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a>, market brief, How it is judged, snapshot 20 Oct 2026</li>
+        <li id="s45">ΣΟΦΙΑ, "<a href="/price-setters#s4">Who sets the price</a>", Section IV, on the cocoa marketing boards</li>
+      </ol>
+    </section>
+
+    <div class="note"><b>Compiled 29 Oct 2026.</b> First publication. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+
+</body>
+</html>

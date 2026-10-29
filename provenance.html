@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provenance and Verification, ΣΟΦΙΑ</title>
+<meta name="description" content="Whether a holding is what it is sold as, and who checks it, across 51 scarce-asset markets: four kinds of claim, five kinds of verifier, and three cases where checking failed at scale. Every figure cited.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .k{font-family:var(--display);font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bronze);display:block}
+.cards .k b{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-lo);display:block;margin-bottom:6px;font-weight:500}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes" aria-current="page">Themes</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/themes">Themes</a> · Cross-sector</div>
+  <h1>Provenance and verification</h1>
+  <p class="lede">Every market page carries a Provenance risk line: whether the thing is what the label says, and who verifies it. This page reads the 51 lines together. It sorts what can go wrong into four kinds of claim, sets out who does the checking in each market and with what, and takes three cases where the checking failed at scale.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Touches all 51 market briefs; cases from <a href="/scotch-whisky-dashboard" style="border-bottom:1px solid var(--line)">Scotch Whisky</a>, <a href="/fine-wine-dashboard" style="border-bottom:1px solid var(--line)">Fine Wine</a>, <a href="/coloured-gemstones-dashboard" style="border-bottom:1px solid var(--line)">Coloured Gemstones</a>, <a href="/rare-whisky-casks-dashboard" style="border-bottom:1px solid var(--line)">Rare Whisky Casks</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>What provenance risk measures</a></li><li><a href="#s2"><span>II</span>Four kinds of claim</a></li><li><a href="#s3"><span>III</span>The register, market by market</a></li><li><a href="#s4"><span>IV</span>Who verifies, and with what</a></li><li><a href="#s5"><span>V</span>Three cases</a></li><li><a href="#s6"><span>VI</span>Four patterns in the record</a></li><li><a href="#s7"><span>VII</span>Indicators to monitor</a></li><li><a href="#s8"><span>VIII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Whether a holding is what it is sold as, and how that is established, in each of the 51 markets</div></div>
+      <div><div class="l" style="margin-bottom:4px">Lowest risk</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Metals in accredited vaults, futures, racehorses, slabbed coins: a registry or an assay settles it</div></div>
+      <div><div class="l" style="margin-bottom:4px">Highest risk</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Whisky casks, pu-erh, oud, saffron, Japanese whisky: the claim is a document or a nose, and the verifier may be the seller</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">29 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; the Provenance risk line on each sector page remains the record and is quoted here verbatim. Substitutes sold as what they are belong on <a href="/substitutes">Synthetic and substitute pressure</a>; this page is about claims that are false or unprovable.</p>
+
+    <section id="s1"><div class="sechead"><h2><em>I</em>What provenance risk measures</h2></div>
+      <div class="prose">
+        <p>The line on each market page is a risk, not a certainty: <b>High</b> means the claim is easy to misrepresent and weakly checked; <b>Low</b> means it is hard to fake and well verified. Gold is Medium not because bars are often fake but because the origin of doré entering the refining chain cannot be proven after the fact. <sup class="r"><a href="#s20">20</a></sup> A racehorse is Low because the stud book is old, the registries are reliable and the animal is DNA-typed. <sup class="r"><a href="#s21">21</a></sup></p>
+        <p>What the line is judging is the gap between a claim and a test. Every scarce asset is sold with a claim: natural, Burmese, 1926, unheated, Type A, original finish, in bond since release, this cask and no other. In some markets the claim can be tested by anyone with the fee; in others it rests on a document issued by an interested party; in a few it rests on an expert's senses and nothing else. The register in Section III sorts the 51 markets by which of these applies.</p>
+        <p>The cost of the gap is paid at exit, not at entry. The <a href="/saffron-dashboard">saffron</a> page puts it plainly: the spread between the grade you were sold and the grade the buyer's laboratory assigns is the exit cost, and it can be the whole premium. <sup class="r"><a href="#s22">22</a></sup> The same sentence could be written for oud, for pu-erh, for a cask and for a pre-2021 bottle of Japanese whisky.</p>
+      </div>
+    </section>
+
+    <section id="s2"><div class="sechead"><h2><em>II</em>Four kinds of claim</h2><p class="sub">Provenance is one word for four different questions. A market can be safe on one and exposed on another; the register notes which.</p></div>
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+        <div><span class="k"><b>Identity</b>Is it what it says it is?</span><p>Natural or laboratory-grown; Type A jadeite or treated; the species of sturgeon; whether the liquid in a 1926 bottle was distilled in 1926. Usually testable in a laboratory, at a price.</p><p class="open">Exposed: diamonds, jade, whisky, caviar, manuka honey, saffron</p></div>
+        <div><span class="k"><b>Origin</b>Where did it come from?</span><p>Burmese ruby, Kashmir sapphire, Iranian saffron, Uji tencha, Russian rough, Cuban tobacco. Often an expert opinion from inclusions or chemistry, not a measurement, and reports can disagree. <sup class="r"><a href="#s3">3</a></sup></p><p class="open">Exposed: coloured gemstones, gold doré, rough diamonds, saffron, olive oil, tea</p></div>
+        <div><span class="k"><b>Integrity</b>Is it still what it was?</span><p>Refilled bottles, re-finished guitars, re-wrapped tea cakes, a watch with replaced parts, wine that left bond, a stone heated since its last report. The object is genuine; its condition is the claim.</p><p class="open">Exposed: whisky bottles, vintage guitars, pu-erh, watches, wine and champagne out of bond, cigars</p></div>
+        <div><span class="k"><b>Title</b>Do you own it, and can you export it?</span><p>A cask certificate against a delivery order; a fossil against an export law; a falcon against a CITES permit; a painting against a restitution claim. The asset may be perfect and still not be yours to sell.</p><p class="open">Exposed: whisky casks, fossils, falcons, ancients and raw coins, Old Masters, jade of Myanmar origin</p></div>
+      </div>
+    </section>
+
+    <section id="s3"><div class="sechead"><h2><em>III</em>The register, market by market</h2><p class="sub">The Provenance risk line as each sector page states it, the claim most at risk, and who checks it. Each row links to its page, which carries the sources.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Market</th><th>Provenance risk (sector page)</th><th>Claim most at risk</th><th>Who verifies, and how</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Market"><a href="/gold-dashboard">Gold</a></td><td data-label="Risk">Medium (doré origin)</td><td data-label="Claim">Origin of doré entering refining</td><td data-label="Verifier">LBMA Good Delivery refiners assay the bar; origin rests on refiner due diligence</td></tr>
+          <tr><td data-label="Market"><a href="/silver-dashboard">Silver</a></td><td data-label="Risk">Low</td><td data-label="Claim">—</td><td data-label="Verifier">Assay; accredited vault chain</td></tr>
+          <tr><td data-label="Market"><a href="/pgm-dashboard">Platinum group metals</a></td><td data-label="Risk">Low</td><td data-label="Claim">—</td><td data-label="Verifier">Assay; LBMA/LPPM accredited bars</td></tr>
+          <tr><td data-label="Market"><a href="/copper-dashboard">Copper</a></td><td data-label="Risk">Low</td><td data-label="Claim">—</td><td data-label="Verifier">Exchange warrant and registered brand</td></tr>
+          <tr><td data-label="Market"><a href="/oil-gas-dashboard">Oil &amp; Gas</a></td><td data-label="Risk">Low</td><td data-label="Claim">Sanctioned origin in physical cargoes</td><td data-label="Verifier">Exchange-cleared contracts; no physical claim for a portfolio</td></tr>
+          <tr><td data-label="Market"><a href="/uranium-dashboard">Uranium</a></td><td data-label="Risk">Low; licensed custody and material accounting</td><td data-label="Claim">Russian-origin material under sanction</td><td data-label="Verifier">Licensed converters; state material accounting</td></tr>
+          <tr><td data-label="Market"><a href="/cocoa-dashboard">Cocoa</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Origin and deforestation status of beans</td><td data-label="Verifier">Exchange-licensed warehouses grade deliverable beans; origin traceability is the trade's</td></tr>
+          <tr><td data-label="Market"><a href="/coffee-dashboard">Coffee</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Origin and grade of specialty lots</td><td data-label="Verifier">Exchange grading for deliverable coffee; cupping and farm records for specialty</td></tr>
+          <tr><td data-label="Market"><a href="/rare-earths-dashboard">Rare Earths</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Purity and origin of oxide lots</td><td data-label="Verifier">Buyer's own assay; no accredited chain outside China</td></tr>
+          <tr><td data-label="Market"><a href="/fine-wine-dashboard">Fine Wine</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Integrity once out of bond; counterfeit rarities</td><td data-label="Verifier">Bonded warehouse custody record; merchant inspection; wine that leaves bond resells at a discount</td></tr>
+          <tr><td data-label="Market"><a href="/champagne-dashboard">Champagne</a></td><td data-label="Risk">Low in bond; medium for older bottles</td><td data-label="Claim">Storage history of bottles out of bond</td><td data-label="Verifier">Bond record; merchant inspection on repricing</td></tr>
+          <tr><td data-label="Market"><a href="/port-dashboard">Port</a></td><td data-label="Risk">Low</td><td data-label="Claim">Shipper-bottled status</td><td data-label="Verifier">Shipper and merchant records; the channel wants shipper-bottled stock</td></tr>
+          <tr><td data-label="Market"><a href="/scotch-whisky-dashboard">Scotch Whisky</a></td><td data-label="Risk">High (casks)</td><td data-label="Claim">Bottles: refills and fakes. Casks: title and existence</td><td data-label="Verifier">Auction-house inspection on receipt; radiocarbon dating at SSEF-grade laboratories for age; warehouse delivery order for casks</td></tr>
+          <tr><td data-label="Market"><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a></td><td data-label="Risk">Very high; title, duplication, existence</td><td data-label="Claim">Title: a certificate is a claim against the seller, a delivery order is ownership</td><td data-label="Verifier">The bonded warehouse, directly; the broker's paperwork is not verification</td></tr>
+          <tr><td data-label="Market"><a href="/japanese-whisky-dashboard">Japanese Whisky</a></td><td data-label="Risk">High; refills and counterfeits</td><td data-label="Claim">Identity of pre-2021 "Japanese" whisky; refills of age statements</td><td data-label="Verifier">The 2021 labelling standard, going forward; auction inspection; nothing for older labels</td></tr>
+          <tr><td data-label="Market"><a href="/cigars-dashboard">Cigars</a></td><td data-label="Risk">High</td><td data-label="Claim">Counterfeit boxes; storage history</td><td data-label="Verifier">Habanos seals and box codes; specialist auction inspection</td></tr>
+          <tr><td data-label="Market"><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a></td><td data-label="Risk">Very high; wrappers, storage, forgery</td><td data-label="Claim">Identity and age of the cake; storage</td><td data-label="Verifier">Dealer expertise on wrapper, leaf and taste; no laboratory standard; the most counterfeited tea in the world</td></tr>
+          <tr><td data-label="Market"><a href="/tea-dashboard">Tea</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Uji origin of ceremonial matcha</td><td data-label="Verifier">Prefectural auction records; price itself is the signal (below about US$100/kg is a counterfeit flag)</td></tr>
+          <tr><td data-label="Market"><a href="/parmigiano-dashboard">Parmigiano Reggiano</a></td><td data-label="Risk">Low for whole wheels; High for grated</td><td data-label="Claim">Identity of grated product</td><td data-label="Verifier">Consorzio inspection and fire-brand on every whole wheel; nothing follows the cheese once grated</td></tr>
+          <tr><td data-label="Market"><a href="/olive-oil-dashboard">Olive Oil</a></td><td data-label="Risk">High</td><td data-label="Claim">Grade (extra virgin) and origin</td><td data-label="Verifier">Chemical and panel tests at the mill; downgrades trade €0.20–0.30/kg below</td></tr>
+          <tr><td data-label="Market"><a href="/saffron-dashboard">Saffron</a></td><td data-label="Risk">High</td><td data-label="Claim">Grade, adulteration, Iranian origin relabelled</td><td data-label="Verifier">Buyer's laboratory under ISO 3632, which cannot detect common adulterants at low levels</td></tr>
+          <tr><td data-label="Market"><a href="/vanilla-dashboard">Vanilla</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Grade and moisture; vanillin content</td><td data-label="Verifier">Importer's inspection and assay</td></tr>
+          <tr><td data-label="Market"><a href="/frankincense-dashboard">Frankincense</a></td><td data-label="Risk">High</td><td data-label="Claim">Species and grade</td><td data-label="Verifier">Grading by eye at the point of sale; four or five hands between tree and distiller</td></tr>
+          <tr><td data-label="Market"><a href="/oud-dashboard">Oud</a></td><td data-label="Risk">High</td><td data-label="Claim">Wild or plantation; species; dilution of oil</td><td data-label="Verifier">Nose and the water test; no laboratory standard; Gulf and East Asian buyers discount everything they cannot verify</td></tr>
+          <tr><td data-label="Market"><a href="/manuka-honey-dashboard">Manuka Honey</a></td><td data-label="Risk">Medium; High outside NZ</td><td data-label="Claim">Identity and MGO grade</td><td data-label="Verifier">New Zealand's science definition and export testing; nothing comparable abroad</td></tr>
+          <tr><td data-label="Market"><a href="/maple-syrup-dashboard">Maple Syrup</a></td><td data-label="Risk">Low; graded and inspected on delivery</td><td data-label="Claim">—</td><td data-label="Verifier">Federation grading on delivery</td></tr>
+          <tr><td data-label="Market"><a href="/dates-dashboard">Dates</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Variety (Ajwa) and origin</td><td data-label="Verifier">Packer and market inspection</td></tr>
+          <tr><td data-label="Market"><a href="/truffles-dashboard">Truffles</a></td><td data-label="Risk">High</td><td data-label="Claim">Species (Alba white vs lookalikes); origin</td><td data-label="Verifier">Market inspectors at Alba and Richerenches; dealer expertise</td></tr>
+          <tr><td data-label="Market"><a href="/caviar-dashboard">Caviar</a></td><td data-label="Risk">High</td><td data-label="Claim">Species, wild or farmed, origin</td><td data-label="Verifier">CITES labelling on every tin; DNA testing where disputed</td></tr>
+          <tr><td data-label="Market"><a href="/bluefin-tuna-dashboard">Bluefin Tuna</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Wild Ōma vs ranched; species</td><td data-label="Verifier">Toyosu market and quota documentation; licensed buyers</td></tr>
+          <tr><td data-label="Market"><a href="/wagyu-dashboard">Wagyu</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Breed and brand (Kobe); grade</td><td data-label="Verifier">JMGA grading of every carcass; individual cattle ID; Kobe certification</td></tr>
+          <tr><td data-label="Market"><a href="/racehorses-dashboard">Racehorses</a></td><td data-label="Risk">Low</td><td data-label="Claim">—</td><td data-label="Verifier">Stud book, DNA typing, microchip; title is clean and the registries are old and reliable</td></tr>
+          <tr><td data-label="Market"><a href="/breeding-stallions-dashboard">Breeding Stallions</a></td><td data-label="Risk">Low</td><td data-label="Claim">—</td><td data-label="Verifier">Stud book and syndicate agreement</td></tr>
+          <tr><td data-label="Market"><a href="/falcons-dashboard">Falcons</a></td><td data-label="Risk">Medium; CITES paperwork, ring, DNA</td><td data-label="Claim">Captive-bred status; title to export</td><td data-label="Verifier">Closed ring, CITES certificate, DNA on file; every transfer needs a permit</td></tr>
+          <tr><td data-label="Market"><a href="/rough-diamonds-dashboard">Rough Diamonds</a></td><td data-label="Risk">Medium; KP certificate, G7 sanctions on Russian origin</td><td data-label="Claim">Origin, once mixed in Antwerp, Dubai or Surat</td><td data-label="Verifier">Kimberley Process certificate per export (conflict status, not mine); De Beers Tracr for its own goods</td></tr>
+          <tr><td data-label="Market"><a href="/polished-diamonds-dashboard">Polished Diamonds</a></td><td data-label="Risk">Medium; certificate, undisclosed LGD, country of cutting</td><td data-label="Claim">Identity (undisclosed lab-grown); the grade on the certificate</td><td data-label="Verifier">GIA and other laboratories; the same laboratories grade both natural and lab-grown</td></tr>
+          <tr><td data-label="Market"><a href="/lab-grown-diamonds-dashboard">Lab-Grown Diamonds</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Disclosure when resold</td><td data-label="Verifier">Laboratory inscription; detection equipment at the trade level</td></tr>
+          <tr><td data-label="Market"><a href="/coloured-gemstones-dashboard">Coloured Gemstones</a></td><td data-label="Risk">High</td><td data-label="Claim">Origin and treatment, both expert opinions</td><td data-label="Verifier">SSEF, Gübelin, GRS, GIA at $500–3,000 a report; a fresh report expected at each sale; reports can disagree</td></tr>
+          <tr><td data-label="Market"><a href="/pearls-dashboard">Pearls</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Natural vs cultured</td><td data-label="Verifier">X-ray and radiocarbon at GIA or SSEF; a report confirming natural origin is required at auction</td></tr>
+          <tr><td data-label="Market"><a href="/jade-dashboard">Jade</a></td><td data-label="Risk">High</td><td data-label="Claim">Type A (untreated); Myanmar origin under sanction</td><td data-label="Verifier">Hong Kong Jade &amp; Stone Laboratory or GIA report; no route at all for recent Myanmar material</td></tr>
+          <tr><td data-label="Market"><a href="/signed-jewellery-dashboard">Signed Jewellery</a></td><td data-label="Risk">High</td><td data-label="Claim">Signature and period; replaced stones</td><td data-label="Verifier">The maker's archive letter or certificate (Cartier, Van Cleef), expected before consignment; the archive number makes pieces trackable</td></tr>
+          <tr><td data-label="Market"><a href="/watches-dashboard">Watches</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Originality of parts and dial; service history</td><td data-label="Verifier">Brand archive extracts where offered; dealer and platform inspection</td></tr>
+          <tr><td data-label="Market"><a href="/handbags-dashboard">Handbags</a></td><td data-label="Risk">High</td><td data-label="Claim">Identity ("superfakes")</td><td data-label="Verifier">Resale platforms' own authentication; the house does not authenticate for third parties</td></tr>
+          <tr><td data-label="Market"><a href="/coins-dashboard">Coins</a></td><td data-label="Risk">Low for slabbed; Medium for raw and ancients</td><td data-label="Claim">Raw coins: authenticity and grade. Ancients: export law</td><td data-label="Verifier">PCGS and NGC slabbing, with population reports; nothing comparable for raw coins</td></tr>
+          <tr><td data-label="Market"><a href="/stamps-dashboard">Stamps</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Regumming, repairs, forged overprints</td><td data-label="Verifier">Expertising certificates (Philatelic Foundation, RPSL, BPA) required for rarities</td></tr>
+          <tr><td data-label="Market"><a href="/rare-books-dashboard">Rare Books</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Completeness and state; manuscript provenance</td><td data-label="Verifier">Collation and condition reports before consignment; provenance research for manuscripts</td></tr>
+          <tr><td data-label="Market"><a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a></td><td data-label="Risk">High; originality, refinishing, celebrity attribution</td><td data-label="Claim">Original parts and finish; attribution</td><td data-label="Verifier">Serial-number registries and specialist dealers; every non-original part is a permanent discount</td></tr>
+          <tr><td data-label="Market"><a href="/art-dashboard">Art</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Title, provenance and attribution, the largest risk of any market covered</td><td data-label="Verifier">Catalogue raisonné and artist foundations; auction-house due diligence; restitution databases</td></tr>
+          <tr><td data-label="Market"><a href="/old-masters-dashboard">Old Masters</a></td><td data-label="Risk">High</td><td data-label="Claim">Attribution, which can move a price from €1.5m to £8m or back</td><td data-label="Verifier">Scholarly opinion and technical analysis; a fresh condition report before consignment</td></tr>
+          <tr><td data-label="Market"><a href="/classic-cars-dashboard">Classic Cars</a></td><td data-label="Risk">Medium</td><td data-label="Claim">Matching numbers; continuous history; rebodied cars</td><td data-label="Verifier">Factory build records, marque registries, specialist inspection</td></tr>
+          <tr><td data-label="Market"><a href="/fossils-dashboard">Fossils &amp; Meteorites</a></td><td data-label="Risk">High</td><td data-label="Claim">Title and legal export; composite specimens</td><td data-label="Verifier">Excavation and export documentation; the saleroom's own due diligence</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Fifty-one rows, one per market brief. The second column is copied verbatim from the Structure line of each page as at 29 Oct 2026; the third and fourth paraphrase its text. Where a sector page is updated, it governs.</p>
+    </section>
+
+    <section id="s4"><div class="sechead"><h2><em>IV</em>Who verifies, and with what</h2><p class="sub">Five kinds of verifier recur across the register. The order below is roughly the order of reliability, and it is also the order in which the Provenance risk lines fall.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Verifier</th><th>What it does</th><th>Limit</th><th>Markets</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Verifier">Assay or registry</td><td data-label="What">A physical test or a closed register of every unit: assay and Good Delivery lists for metals, stud books and DNA for horses, exchange warrants, Consorzio fire-brands, slabbing with population reports</td><td data-label="Limit">Says nothing about what happened before the unit entered the register (gold doré); stops at the edge of the register (grated cheese, raw coins)</td><td data-label="Markets">Gold, Silver, PGMs, Copper, Uranium, Racehorses, Stallions, Parmigiano, Coins (slabbed), Maple Syrup, Wagyu</td></tr>
+          <tr><td data-label="Verifier">Laboratory</td><td data-label="What">An independent examination of the object: gemmological reports, X-ray and radiocarbon for pearls, radiocarbon for spirits, DNA for caviar</td><td data-label="Limit">Origin and treatment are expert opinions, not measurements, and reports disagree <sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup>; the same laboratories grade natural and lab-grown; a report costs $500–3,000 and must be renewed at each sale</td><td data-label="Markets">Coloured Gemstones, Pearls, Polished Diamonds, Jade, Caviar, Scotch and Japanese Whisky (bottles), Olive Oil, Saffron, Manuka</td></tr>
+          <tr><td data-label="Verifier">Archive</td><td data-label="What">The maker's or the trade's own records: Cartier and Van Cleef archive letters, factory build sheets, serial-number registries, catalogues raisonnés, expertising certificates, Habanos box codes</td><td data-label="Limit">Issued by an interested party or a small committee; can be withdrawn; does not follow condition</td><td data-label="Markets">Signed Jewellery, Watches, Classic Cars, Vintage Guitars, Art, Old Masters, Stamps, Rare Books, Cigars</td></tr>
+          <tr><td data-label="Verifier">Custody</td><td data-label="What">An unbroken record of where the thing has been: bonded warehouses for wine, champagne and casks; CITES permits for falcons and caviar; Kimberley Process certificates for rough; Tracr for De Beers goods</td><td data-label="Limit">Verifies the chain, not the contents; breaks the moment the asset leaves (wine out of bond); a certificate from the chain is not title to it (casks)</td><td data-label="Markets">Fine Wine, Champagne, Port, Rare Whisky Casks, Falcons, Rough Diamonds, Fossils</td></tr>
+          <tr><td data-label="Verifier">Expert's senses</td><td data-label="What">Nose, eye, palate and experience: oud by the water test, pu-erh by wrapper and leaf, frankincense graded by eye, truffles by the market inspector</td><td data-label="Limit">Not reproducible, not transferable, and usually the buyer's; the holder cannot prove the claim in advance, so every buyer discounts for the doubt</td><td data-label="Markets">Oud, Pu-erh Tea, Frankincense, Truffles, Dates, Tea, Vanilla, Handbags</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="s5"><div class="sechead"><h2><em>V</em>Three cases</h2><p class="sub">Where the checking failed at scale, and what the market did afterwards.</p></div>
+      <div class="cards">
+        <div><span class="k"><b>Case 1</b>Scotch whisky bottles</span><h3>21 of 55</h3><p>In 2018 a broker bought 55 bottles of rare Scotch at random from auction houses, retailers and private owners and had the liquid radiocarbon-dated at SUERC. Twenty-one were fakes or not distilled in the year on the label; every bottle claiming to be from 1900 or earlier was fake. <span class="c c-h">High</span> <sup class="r"><a href="#s1">1</a></sup> The broker estimated £41m of fake whisky in circulation, more than the UK auction market that year. <span class="c c-m">Med</span> <sup class="r"><a href="#s1">1</a></sup></p><p class="open">Afterwards: radiocarbon dating became available commercially; auction houses tightened inspection; the sector page still rates bottle provenance risk High</p></div>
+        <div><span class="k"><b>Case 2</b>Fine wine</span><h3>19,000 labels</h3><p>Rudy Kurniawan blended cheap Burgundy and Napa wine in his kitchen, bottled it under counterfeit labels of the rarest wines and sold it at auction from 2004 to 2012; one 2006 sale made $24.7m, a record for a single consignor. Investigators found 19,000 counterfeit labels for 27 wines. He was convicted in 2013 and sentenced to ten years. <span class="c c-h">High</span> <sup class="r"><a href="#s2">2</a> <a href="#s5">5</a></sup> As many as 10,000 of his bottles may still sit in private cellars. <span class="c c-l">Low</span> <sup class="r"><a href="#s6">6</a></sup></p><p class="open">Afterwards: the trade's answer was custody, not testing: wine held in bond since release carries a verifiable history and wine that has left bond resells at a discount <sup class="r"><a href="#s23">23</a></sup></p></div>
+        <div><span class="k"><b>Case 3</b>Coloured gemstones</span><h3>Two reports, two answers</h3><p>Origin is an opinion formed by comparing a stone's inclusions and chemistry with a laboratory's reference collection. Send one ruby to two respected laboratories and one may say Burma and "pigeon's blood" while the other declines to name an origin; neither is wrong. SSEF's own guidance says different laboratories may come to different results, "very similar to fields such as paintings". <span class="c c-h">High</span> <sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></p><p class="open">Afterwards: the auction standard for important stones is two reports, and the sector page notes each costs $500–3,000 and may come back with a different finding than the last <sup class="r"><a href="#s24">24</a></sup></p></div>
+      </div>
+    </section>
+
+    <section id="s6"><div class="sechead"><h2><em>VI</em>Four patterns in the record</h2></div>
+      <div class="ledger">
+        <div><span class="k">The riskiest claim is a document</span><p style="margin:0;font-size:15px">The three markets rated Very high (casks, pu-erh, Japanese whisky pre-2021) and most of those rated High are markets where the proof is a piece of paper or a label issued by someone with an interest in the sale: a cask certificate from the broker, a wrapper from the factory, a label from before the standard. A test is expensive but transferable; a document is cheap and is only as good as its issuer. The <a href="/rare-whisky-casks-dashboard">casks</a> page draws the line exactly: a certificate is a claim against the seller, a delivery order is ownership. <sup class="r"><a href="#s25">25</a></sup></p></div>
+        <div><span class="k">The verifier is often the price-setter</span><p style="margin:0;font-size:15px">The laboratories that grade natural diamonds grade lab-grown ones; the house that makes the handbag declines to authenticate it for resale; De Beers runs the provenance ledger for its own rough; the maker's archive decides what is a signed piece. Verification and supply sit with the same party in a surprising number of markets, which is why <a href="/price-setters">Who sets the price</a> and this page overlap. <span class="c c-x">Hyp</span></p></div>
+        <div><span class="k">The discount widens as the market learns</span><p style="margin:0;font-size:15px">Japanese whisky labelled before the 2021 standard carries a provenance discount that widens as buyers learn to read the label; wine out of bond is repriced on condition; a guitar's non-original part is a permanent deduction; a gemstone's second report can cost it an origin. Provenance risk is not static on a holding: it is re-marked every time the market's ability to test improves, and the holder who bought on the old standard pays. <sup class="r"><a href="#s26">26</a> <a href="#s23">23</a></sup></p></div>
+        <div><span class="k">Custody is the cheapest insurance</span><p style="margin:0;font-size:15px">Across the register, the Low lines are where a unit never leaves an accredited chain: a bar in an LBMA vault, a case in bond, a wheel in the Consorzio's warehouse, a coin in a slab. The <a href="/exit-depth">Exit depth</a> page finds the same markets have the deepest doors. Provenance and liquidity are the same property seen twice: a thing that can be verified cheaply can be sold quickly. <span class="c c-x">Hyp</span></p></div>
+      </div>
+    </section>
+
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>Any gemmological laboratory adopting a common nomenclature for origin confidence, which would narrow the "two reports, two answers" gap.</li>
+        <li>Take-up of radiocarbon dating by whisky auction houses as a condition of sale for pre-1960 bottles, and the share of lots withdrawn.</li>
+        <li>Cask-broker insolvencies and the resulting title disputes between certificate holders and warehouses.</li>
+        <li>Whether De Beers' Tracr ledger, with GIA's stake agreed in May 2026, becomes a condition of sale for polished stones rather than a marketing claim <sup class="r"><a href="#s27">27</a></sup>.</li>
+        <li>Extension of New Zealand's manuka science definition to importing markets, which would move the "High outside NZ" line.</li>
+        <li>The provenance discount on pre-2021 Japanese whisky at auction, as the clearest live measure of a market re-marking old claims.</li>
+      </ul>
+    </section>
+
+    <section id="s8"><div class="sechead"><h2><em>VIII</em>Sources</h2></div>
+      <ol class="src">
+        <li id="s1">University of Glasgow, "<a href="https://www.gla.ac.uk/news/archiveofnews/2018/december/headline_627779_en.html">£635,000 of fake whisky exposed</a>", 20 Dec 2018 (SUERC tests commissioned by Rare Whisky 101; the £41m estimate is the broker's) — accessed 29 Oct 2026</li>
+        <li id="s2">US Attorney's Office, SDNY, "<a href="https://www.justice.gov/usao-sdny/pr/prominent-wine-dealer-rudy-kurniawan-sentenced-manhattan-federal-court-10-years-prison">Prominent Wine Dealer Rudy Kurniawan Sentenced to 10 Years in Prison</a>", Aug 2014 — accessed 29 Oct 2026</li>
+        <li id="s3">SSEF, "<a href="https://www.ssef.ch/wp-content/uploads/2018/03/SSEF_GemGeneva_2019.pdf">Origin determination and traceability</a>", GemGenève 2019 — accessed 29 Oct 2026</li>
+        <li id="s4">Gemplore, "<a href="https://gemplore.com/en/blog/gia-vs-grs-vs-agl-do-certification-labs-agree">GIA vs GRS vs AGL: Do Certification Labs Agree?</a>", 2026 (dealer; secondary) — accessed 29 Oct 2026</li>
+        <li id="s5">Fortune (AP), "<a href="https://fortune.com/2021/04/14/wine-fraudster-who-rebottled-booze-in-his-kitchen-deported-to-indonesia">Wine fraudster who rebottled booze in his kitchen deported to Indonesia</a>", 14 Apr 2021 — accessed 29 Oct 2026</li>
+        <li id="s6">Wine Enthusiast, "<a href="https://www.wineenthusiast.com/culture/podcasts/rudy-kurniawan-counterfeit-wine/">Vinfamous: Rudy Kurniawan's Counterfeits May Still Be in Private Collections</a>", 2023 (podcast; estimate not independently confirmed) — accessed 29 Oct 2026</li>
+        <li id="s20">ΣΟΦΙΑ, <a href="/gold-dashboard">Gold</a>, market brief, Structure, snapshot Oct 2026</li>
+        <li id="s21">ΣΟΦΙΑ, <a href="/racehorses-dashboard">Racehorses</a>, market brief, Structure and How it is judged, snapshot 20 Oct 2026</li>
+        <li id="s22">ΣΟΦΙΑ, <a href="/saffron-dashboard">Saffron</a>, market brief, Exit depth, snapshot Oct 2026</li>
+        <li id="s23">ΣΟΦΙΑ, <a href="/fine-wine-dashboard">Fine Wine</a> and <a href="/champagne-dashboard">Champagne</a>, market briefs, How it is judged, snapshot Oct 2026</li>
+        <li id="s24">ΣΟΦΙΑ, <a href="/coloured-gemstones-dashboard">Coloured Gemstones</a>, market brief, Exit depth, snapshot Oct 2026</li>
+        <li id="s25">ΣΟΦΙΑ, <a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a>, market brief, and <a href="/advisers">For advisers and institutions</a>, "An executor and a cellar", snapshot 20 Oct 2026</li>
+        <li id="s26">ΣΟΦΙΑ, <a href="/japanese-whisky-dashboard">Japanese Whisky</a>, market brief, Holding horizon, snapshot 20 Oct 2026</li>
+        <li id="s27">ΣΟΦΙΑ, "<a href="/tokenisation#s4">Tokenising scarce assets</a>", Section IV, citing GIA, 29 May 2026</li>
+      </ol>
+      <p class="fn" style="margin-top:14px">Rows in the register (Section III) not separately numbered here are drawn from the Structure line and text of the linked market brief; each brief carries its own numbered sources.</p>
+    </section>
+
+    <div class="note"><b>Compiled 29 Oct 2026.</b> First publication. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+
+</body>
+</html>

@@ -2,7 +2,7 @@ repo: saphiaio/Saphia.io-website
 branch: main
 
 ## Last sync
-date: 2026-10-20T12:40:00Z
+date: 2026-10-20T15:05:00Z
 commit: (pending upload of upload-2026-10-20-pm/ — 15 files; delete natural_diamonds_dashboard.html)
 
 ### Updated in this project
@@ -10,6 +10,7 @@ commit: (pending upload of upload-2026-10-20-pm/ — 15 files; delete natural_di
 - Advisers page: use-case tiles retained, five granular scenarios added
 - Fine Wine Champagne section moved into the Champagne brief; both source lists renumbered
 - Glossary 58 → 63 terms
+- Markets: Compare tab (Supply · Liquidity · Scarcity · Provenance, 1–5 per market)
 
 ## Sync history
 - 2026-10-20T06:25Z: nine new markets (41 → 50), glossary 27 → 58, home/wine refinements

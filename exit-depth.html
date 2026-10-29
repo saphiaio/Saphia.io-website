@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exit Depth, ΣΟΦΙΑ</title>
+<meta name="description" content="How a holding in each of 51 scarce-asset markets is sold: route, calendar, round-trip cost and buyer of last resort. Every figure cited and confidence-tagged.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .k{font-family:var(--display);font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bronze);display:block}
+.cards .k b{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-lo);display:block;margin-bottom:6px;font-weight:500}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes" aria-current="page">Themes</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · Themes · Cross-sector</div>
+  <h1>Exit depth: who buys when you sell</h1>
+  <p class="lede">Every market page carries a Liquidity line and an Exit depth block. This page reads them together: by what route a holding is sold, how often that route is open, what a round trip costs, and who is on the other side when nobody else is. Fifty-one markets, five kinds of door.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Touches all 51 market briefs; worked examples from <a href="/gold-dashboard" style="border-bottom:1px solid var(--line)">Gold</a>, <a href="/fine-wine-dashboard" style="border-bottom:1px solid var(--line)">Fine Wine</a>, <a href="/art-dashboard" style="border-bottom:1px solid var(--line)">Art</a>, <a href="/polished-diamonds-dashboard" style="border-bottom:1px solid var(--line)">Polished Diamonds</a>, <a href="/rare-whisky-casks-dashboard" style="border-bottom:1px solid var(--line)">Rare Whisky Casks</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>What exit depth measures</a></li><li><a href="#s2"><span>II</span>Five kinds of door</a></li><li><a href="#s3"><span>III</span>The register, market by market</a></li><li><a href="#s4"><span>IV</span>What a round trip costs</a></li><li><a href="#s5"><span>V</span>How often the door opens</a></li><li><a href="#s6"><span>VI</span>The buyer of last resort</a></li><li><a href="#s7"><span>VII</span>Indicators to monitor</a></li><li><a href="#s8"><span>VIII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">The route out of each of the 51 markets covered, as described on its page</div></div>
+      <div><div class="l" style="margin-bottom:4px">Deepest</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Gold, silver, oil, copper, cocoa, coffee: a published price and a counterparty every trading day</div></div>
+      <div><div class="l" style="margin-bottom:4px">Shallowest</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Frankincense, saffron, Québec maple syrup, a lab-grown stone: no route, or one buyer at its own price</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">29 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; the Liquidity line and Exit depth block on each sector page remain the record. Where this page quotes one, the sector page is the source.</p>
+
+    <section id="s1"><div class="sechead"><h2><em>I</em>What exit depth measures</h2></div>
+      <div class="prose">
+        <p>Liquidity, on the market pages, answers one question: whether a holding can be sold, to whom, at a knowable price. Exit depth breaks that into parts. The <b>route</b> is the mechanism a seller actually uses. The <b>calendar</b> is how often that mechanism is open. The <b>spread</b> is the gap between what a buyer pays on the way in and what a seller receives on the way out, including every fee between. The <b>counterparty</b> is who is bidding when the seller needs to sell, not when the seller would like to.</p>
+        <p>The four move together but not in step. Fine wine has a price every day and a spread that is small, but the venue trades only between professionals, so a private holder exits through a merchant. <sup class="r"><a href="#s13">13</a></sup> A natural pearl strand has a counterparty with very deep pockets and a route that opens perhaps once a decade. <sup class="r"><a href="#s23">23</a></sup> A whisky cask has a broker's quote whenever the broker answers the phone, and the broker is often the firm that sold the cask. <sup class="r"><a href="#s18">18</a></sup></p>
+        <p>The pattern that recurs across the register is that depth is a property of the <i>unit</i>, not the sector. A fine troy ounce, a case of a named vintage in bond, a numbered Parmigiano wheel and a slabbed coin against a published bid all have a buyer at a price; a stone, a painting, a share in a stallion and a cask of new-make do not until a buyer appears. Where a market has a standard unit the door is open most days; where every holding is its own unit the door opens when the calendar or the counterparty says so.</p>
+      </div>
+    </section>
+
+    <section id="s2"><div class="sechead"><h2><em>II</em>Five kinds of door</h2><p class="sub">Every Exit depth block on the market pages describes one of five routes. The names below are this page's; the descriptions are drawn from the sector pages.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Door</th><th>How it works</th><th>Who is on the other side</th><th>Open</th><th>Markets</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Door">Benchmark</td><td data-label="How it works">A published price set by trades or a regulated auction; a dealer, exchange or ETF stands ready at or near it</td><td data-label="Other side">Bullion bank, clearing member, fund market-maker</td><td data-label="Open">Every trading day</td><td data-label="Markets">Gold, Silver, PGMs, Copper, Oil &amp; Gas, Cocoa, Coffee, Uranium (trust units)</td></tr>
+          <tr><td data-label="Door">Price list</td><td data-label="How it works">A trade platform or published bid sheet gives a price; access is through a member, merchant or licensed buyer</td><td data-label="Other side">Merchant, dealer, wholesaler quoting against the list</td><td data-label="Open">Daily to weekly, through an intermediary</td><td data-label="Markets">Fine Wine, Champagne, Port, Coins, Parmigiano Reggiano, Olive Oil, Polished Diamonds (asking prices only), Rough Diamonds (trade only)</td></tr>
+          <tr><td data-label="Door">Calendar auction</td><td data-label="How it works">Consignment to a sale held on fixed dates; the price is discovered on the day by whoever attends</td><td data-label="Other side">The one or two underbidders present; sometimes a guarantor</td><td data-label="Open">Monthly to twice a year; once a year for the rarest</td><td data-label="Markets">Art, Old Masters, Classic Cars, Coloured Gemstones, Signed Jewellery, Pearls, Jade, Rare Books, Stamps, Fossils, Scotch and Japanese Whisky (bottles), Cigars, Vintage Guitars, Handbags, Watches, Racehorses, Falcons, Bluefin Tuna, Wagyu, Tea</td></tr>
+          <tr><td data-label="Door">Counterparty</td><td data-label="How it works">Private sale to a dealer, broker, operator or syndicate, usually the one who sold the asset; price is their quote</td><td data-label="Other side">The originating seller, a trade buyer, or a listed company by proxy</td><td data-label="Open">On request, at the counterparty's price</td><td data-label="Markets">Rare Whisky Casks, Breeding Stallions, Rare Earths, Oud, Pu-erh Tea, Caviar, Dates, Truffles, Vanilla, Manuka Honey, Lab-Grown Diamonds (equity only)</td></tr>
+          <tr><td data-label="Door">None</td><td data-label="How it works">No vehicle and no holding; the product is turned over within a season, or sold to an administered buyer</td><td data-label="Other side">An exporter, a marketing board, nobody</td><td data-label="Open">Not applicable</td><td data-label="Markets">Frankincense, Saffron, Maple Syrup (Québec bulk), a lab-grown stone held as a stone</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Several markets have two doors. Scotch whisky bottles sell at monthly auction, casks through a broker; polished diamonds have a trade network listing 1.7 m stones at asking prices and an auction route for stones over a threshold; wagyu, bluefin and tea have an auction for the product and listed equity for the capital. The register in Section III lists the route a private holder would most plausibly use.</p>
+    </section>
+
+    <section id="s3"><div class="sechead"><h2><em>III</em>The register, market by market</h2><p class="sub">Route, calendar and the Liquidity line as each sector page states them. Liquidity is quoted, not re-rated. Each row links to its page, which carries the sources.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Market</th><th>Door</th><th>Route a private holder uses</th><th>Open</th><th>Liquidity (sector page)</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Market"><a href="/gold-dashboard">Gold</a></td><td data-label="Door">Benchmark</td><td data-label="Route">Bullion bank or dealer at the LBMA Gold Price; ETF shares; COMEX</td><td data-label="Open">Daily</td><td data-label="Liquidity">High</td></tr>
+          <tr><td data-label="Market"><a href="/silver-dashboard">Silver</a></td><td data-label="Door">Benchmark</td><td data-label="Route">Dealer at the LBMA Silver Price; ETFs; COMEX</td><td data-label="Open">Daily</td><td data-label="Liquidity">High</td></tr>
+          <tr><td data-label="Market"><a href="/pgm-dashboard">Platinum group metals</a></td><td data-label="Door">Benchmark</td><td data-label="Route">Dealer at the LBMA Platinum or Palladium Price; NYMEX; ETFs. Rhodium: dealers only, no benchmark</td><td data-label="Open">Daily</td><td data-label="Liquidity">High</td></tr>
+          <tr><td data-label="Market"><a href="/copper-dashboard">Copper</a></td><td data-label="Door">Benchmark</td><td data-label="Route">Close or roll LME or COMEX; ETF units</td><td data-label="Open">Daily</td><td data-label="Liquidity">High</td></tr>
+          <tr><td data-label="Market"><a href="/oil-gas-dashboard">Oil &amp; Gas</a></td><td data-label="Door">Benchmark</td><td data-label="Route">ICE Brent, NYMEX WTI, Henry Hub futures; futures-based ETFs</td><td data-label="Open">Daily</td><td data-label="Liquidity">High</td></tr>
+          <tr><td data-label="Market"><a href="/cocoa-dashboard">Cocoa</a></td><td data-label="Door">Benchmark</td><td data-label="Route">Close or roll ICE New York or London futures; a few ETCs</td><td data-label="Open">Daily</td><td data-label="Liquidity">High</td></tr>
+          <tr><td data-label="Market"><a href="/coffee-dashboard">Coffee</a></td><td data-label="Door">Benchmark</td><td data-label="Route">Close or roll ICE arabica or robusta futures; a few ETCs</td><td data-label="Open">Daily</td><td data-label="Liquidity">High</td></tr>
+          <tr><td data-label="Market"><a href="/uranium-dashboard">Uranium</a></td><td data-label="Door">Benchmark</td><td data-label="Route">Sell Sprott Physical Uranium Trust units on the TSX; Yellow Cake in London. The trust does not redeem for metal</td><td data-label="Open">Daily, at a discount or premium to metal</td><td data-label="Liquidity">Medium; spot thin, term deep</td></tr>
+          <tr><td data-label="Market"><a href="/fine-wine-dashboard">Fine Wine</a></td><td data-label="Door">Price list</td><td data-label="Route">Merchant onto Liv-ex (professionals only); auction; private sale</td><td data-label="Open">Daily, through a merchant</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/champagne-dashboard">Champagne</a></td><td data-label="Door">Price list</td><td data-label="Route">Merchant onto Liv-ex; merchant buy-back; auction; iDealwine for grower labels</td><td data-label="Open">Daily, through a merchant</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/port-dashboard">Port</a></td><td data-label="Door">Price list</td><td data-label="Route">Specialist merchants and brokers for cases in bond; Liv-ex via a member; auction inside mixed wine sales</td><td data-label="Open">Daily, through a merchant</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/coins-dashboard">Coins</a></td><td data-label="Door">Price list</td><td data-label="Route">Heritage (weekly online, 200,000+ lots a year), Stack's Bowers, GreatCollections; dealers bidding on the CDN Greysheet</td><td data-label="Open">Weekly; sight-unseen for certified coins</td><td data-label="Liquidity">Medium; common certified coins High</td></tr>
+          <tr><td data-label="Market"><a href="/parmigiano-dashboard">Parmigiano Reggiano</a></td><td data-label="Door">Price list</td><td data-label="Route">Wholesaler, ageing house or packer at the Parma Borsa Merci price for the maturity; a bank's warehouse subsidiary if pledged</td><td data-label="Open">Weekly price; trade buyers only</td><td data-label="Liquidity">Medium, trade only</td></tr>
+          <tr><td data-label="Market"><a href="/olive-oil-dashboard">Olive Oil</a></td><td data-label="Door">Price list</td><td data-label="Route">Bulk to a bottler or cooperative at the weekly origin price; grove as farmland; Deoleo equity</td><td data-label="Open">Weekly price; oil within the campaign</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/polished-diamonds-dashboard">Polished Diamonds</a></td><td data-label="Door">Price list</td><td data-label="Route">Dealers and RapNet (asking prices, trade members); consignment to a jeweller; online buyers; auction above a threshold</td><td data-label="Open">On request; dealer bid well below list</td><td data-label="Liquidity">Medium; wide spread</td></tr>
+          <tr><td data-label="Market"><a href="/rough-diamonds-dashboard">Rough Diamonds</a></td><td data-label="Door">Price list</td><td data-label="Route">Secondary rough market in Antwerp, Dubai or Surat; tenders open to Kimberley Process registrants only</td><td data-label="Open">Ten sights a year; tenders on a calendar</td><td data-label="Liquidity">Low; trade buyers only</td></tr>
+          <tr><td data-label="Market"><a href="/art-dashboard">Art</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Consignment to Christie's, Sotheby's, Phillips, Bonhams or a regional house; private sale; back to the originating gallery</td><td data-label="Open">Two main seasons a year</td><td data-label="Liquidity">Medium (auction); Low (private)</td></tr>
+          <tr><td data-label="Market"><a href="/old-masters-dashboard">Old Masters</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Old Masters sales: London July and December, New York January and May, Paris June; Dorotheum; dealers</td><td data-label="Open">Five or six sale weeks a year</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/classic-cars-dashboard">Classic Cars</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Live auction on a fixed calendar (RM Sotheby's, Gooding, Bonhams, Broad Arrow); online auction below about $500k; dealer or sealed bid</td><td data-label="Open">Monterey, Scottsdale, Paris, Goodwood; online weekly</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/coloured-gemstones-dashboard">Coloured Gemstones</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Geneva, Hong Kong and New York jewellery sales for stones over about $50,000, each with a fresh laboratory report; dealers below</td><td data-label="Open">Twice a year per city</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/signed-jewellery-dashboard">Signed Jewellery</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Magnificent Jewels in Geneva (May, November), Hong Kong, New York; the houses themselves buy</td><td data-label="Open">Two seasons a year</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/pearls-dashboard">Pearls</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Natural: Geneva, Hong Kong, New York jewellery sales with a report confirming natural origin. Cultured: wholesale sealed-bid sales, trade only</td><td data-label="Open">Natural strands surface once a decade or less</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/jade-dashboard">Jade</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Hong Kong sales with a Hong Kong Jade &amp; Stone Laboratory or GIA report; Hong Kong and Guangzhou dealers for the rest</td><td data-label="Open">A few times a year, Hong Kong only</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/rare-books-dashboard">Rare Books</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Books and manuscripts departments for lots over about $10,000; specialist houses; dealers</td><td data-label="Open">Several sales a year per house</td><td data-label="Liquidity">Medium; top manuscripts Low</td></tr>
+          <tr><td data-label="Market"><a href="/stamps-dashboard">Stamps</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Specialist houses (Siegel, Spink, Stanley Gibbons, Corinphila, Feldman) with expertising certificates; dealers</td><td data-label="Open">Rarities once a decade; the 1c Magenta sold in 1970, 1980, 2014 and 2021</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/fossils-dashboard">Fossils &amp; Meteorites</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Sotheby's New York natural-history sale each July; private sale to a museum</td><td data-label="Open">Once a year</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/scotch-whisky-dashboard">Scotch Whisky</a> (bottles)</td><td data-label="Door">Calendar auction</td><td data-label="Route">Monthly online auctions; specialist retailers who buy or consign; Sotheby's and Bonhams for the rarest</td><td data-label="Open">Monthly</td><td data-label="Liquidity">Medium (bottles); Low (casks)</td></tr>
+          <tr><td data-label="Market"><a href="/japanese-whisky-dashboard">Japanese Whisky</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">The same monthly online auctions; Hong Kong sales for trophy lots; specialist retailers</td><td data-label="Open">Monthly; thin at the top</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/cigars-dashboard">Cigars</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Specialist auctions (C.Gars, Online Cigar Auctions); dealers who buy outright. No route for US sellers of Cuban product</td><td data-label="Open">Several sales a year</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Specialist dealers who buy or consign; Reverb; Heritage, Christie's and Julien's for celebrity provenance</td><td data-label="Open">Dealers on request; auctions a few times a year</td><td data-label="Liquidity">Medium; fine strings Low</td></tr>
+          <tr><td data-label="Market"><a href="/handbags-dashboard">Handbags</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Sotheby's Marketplace at a fixed price or online auction; Christie's and Heritage for rare pieces; direct buyers (Rebag, Privé Porter)</td><td data-label="Open">Continuous for store-fresh; auctions seasonal</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/watches-dashboard">Watches</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Dealer for an immediate offer; consignment; Chrono24 (500,000+ listings); Phillips, Sotheby's, Christie's, Antiquorum for rare references</td><td data-label="Open">Dealer any day; auctions Geneva May and November</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/racehorses-dashboard">Racehorses</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Keeneland (September, November), Tattersalls (October, December); horses-in-training sales; claiming races; private sale</td><td data-label="Open">Fixed sale weeks</td><td data-label="Liquidity">Medium, calendar-bound</td></tr>
+          <tr><td data-label="Market"><a href="/falcons-dashboard">Falcons</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Riyadh breeders' auction (August), Saudi Falcons and Hunting Exhibition auctions (October), ADIHEX; private sale with a CITES permit</td><td data-label="Open">One season; value highest on sale day</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/bluefin-tuna-dashboard">Bluefin Tuna</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Fish: Toyosu and regional wholesale markets, licensed buyers only. Capital: listed seafood groups</td><td data-label="Open">Daily auction, closed to private holders; equity daily</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/wagyu-dashboard">Wagyu</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">About 170 licensed carcass auctions in Japan after JMGA grading; calf markets; herds privately; a handful of listed producers</td><td data-label="Open">Regular, trade buyers only</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/tea-dashboard">Tea</a></td><td data-label="Door">Calendar auction</td><td data-label="Route">Leaf through prefectural auctions (Kyoto, Kagoshima) or Mombasa and Kolkata; capital through listed plantation groups</td><td data-label="Open">Tencha once a year in May; equity daily</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Broker, usually the one that sold the cask; independent bottler or blender at a bulk price; a few cask auctions; bottling at own cost</td><td data-label="Open">On request, at the broker's quote</td><td data-label="Liquidity">Very low; no market, no price list</td></tr>
+          <tr><td data-label="Market"><a href="/breeding-stallions-dashboard">Breeding Stallions</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Private sale of the share to another member or a buyer the syndicate manager approves; a public auction is rare</td><td data-label="Open">On request, subject to approval</td><td data-label="Liquidity">Low; shares rarely trade</td></tr>
+          <tr><td data-label="Market"><a href="/rare-earths-dashboard">Rare Earths</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Sale to a separator, metal maker or magnet producer, almost all in China; dealer buy-back at the dealer's own quote</td><td data-label="Open">On request</td><td data-label="Liquidity">Medium</td></tr>
+          <tr><td data-label="Market"><a href="/oud-dashboard">Oud</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Attar dealers in the Gulf, Mumbai and Singapore, who also buy back; kōdō houses for the finest wood</td><td data-label="Open">On request; no benchmark</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Fangcun wholesale market and the Donghe quotation platform for modern Dayi; a handful of dealers for antique cakes</td><td data-label="Open">Daily for current Dayi; rarely above</td><td data-label="Liquidity">Medium for current Dayi; very low above</td></tr>
+          <tr><td data-label="Market"><a href="/caviar-dashboard">Caviar</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Sale of the farm or a stake to a trade buyer or private equity; fish stock to another farm. The tin itself is perishable</td><td data-label="Open">On request; no listed pure play</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/dates-dashboard">Dates</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Farm: private sale of land and trees to a local operator. Fruit: packers and the Buraidah and Madinah markets</td><td data-label="Open">On request; foreign ownership restricted</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/truffles-dashboard">Truffles</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Orchard sold as farmland with trees; produce weekly through Richerenches, Carpentras, Alba in season</td><td data-label="Open">Orchard on request; produce weekly, November to March</td><td data-label="Liquidity">Low (white); Medium (black)</td></tr>
+          <tr><td data-label="Market"><a href="/vanilla-dashboard">Vanilla</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Exporter in Madagascar at or above the official minimum; importer or flavour house abroad; diversified flavour-group equity</td><td data-label="Open">Within the season</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/manuka-honey-dashboard">Manuka Honey</a></td><td data-label="Door">Counterparty</td><td data-label="Route">Comvita shares on the NZX; drums to a packer at the MGO-graded price; an apiary business privately</td><td data-label="Open">Equity daily; honey on request</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/lab-grown-diamonds-dashboard">Lab-Grown Diamonds</a></td><td data-label="Door">Counterparty / None</td><td data-label="Route">For a stone: almost none; trade-in credit at 15–20% of price from a few sellers. For capital: listed growers and retailers</td><td data-label="Open">Equity daily; the stone, effectively never</td><td data-label="Liquidity">Medium (equity)</td></tr>
+          <tr><td data-label="Market"><a href="/maple-syrup-dashboard">Maple Syrup</a></td><td data-label="Door">None</td><td data-label="Route">Québec bulk: only to a PPAQ-authorised buyer at the Federation price. Outside Québec: US bulk buyers at their own price</td><td data-label="Open">Delivery in the season made</td><td data-label="Liquidity">None outside the plan; administered price</td></tr>
+          <tr><td data-label="Market"><a href="/frankincense-dashboard">Frankincense</a></td><td data-label="Door">None</td><td data-label="Route">Exporter in Berbera, Bosaso or Salalah; ingredient houses and distillers. No exchange, no benchmark, no fund</td><td data-label="Open">Within the season</td><td data-label="Liquidity">Low</td></tr>
+          <tr><td data-label="Market"><a href="/saffron-dashboard">Saffron</a></td><td data-label="Door">None</td><td data-label="Route">Spice trader, packer or re-exporter at the grade the buyer's own test assigns. No exchange, no fund, no listed producer of scale</td><td data-label="Open">Within a season or two</td><td data-label="Liquidity">Low</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Fifty-one rows, one per market brief. "Open" paraphrases the sector page's Holding horizon and Exit depth text. The Liquidity column is copied verbatim from the Structure line of each page as at 29 Oct 2026; if a sector page is updated, it governs.</p>
+    </section>
+
+    <section id="s4"><div class="sechead"><h2><em>IV</em>What a round trip costs</h2><p class="sub">The spread between buying and selling is the cost of the door. On a benchmark it is a dealer's margin; at auction it is two fees and a wait; through a counterparty it is whatever the counterparty decides.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Door</th><th>Cost of entry and exit</th><th>Figure</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Benchmark (gold)</td><td>Dealer spread around a twice-daily regulated price; no premium on either side</td><td class="n">Small; not quantified here<span class="t">Derived</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s11">11</a></sup></td></tr>
+          <tr><td>Calendar auction, major houses</td><td>Buyer's premium: 27% of hammer up to $1.5m, 22% to $8m, 15% above (Christie's from Sept 2025; Sotheby's reverted to 27 / 22 / 15 from Feb 2025)</td><td class="n">15–27% on the buy side<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
+          <tr><td>Calendar auction, major houses</td><td>Seller's commission: negotiated; 10–15% on everyday material, reduced or waived to win large consignments; the house's gross take on a mid-market lot runs 25–35% of hammer</td><td class="n">0–15% on the sell side<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></td></tr>
+          <tr><td>Art</td><td>Auction houses and advisers cite a decade as the minimum hold for round-trip costs to be absorbed</td><td class="n">30–40% round trip<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s14">14</a></sup></td></tr>
+          <tr><td>Classic Cars</td><td>Transaction costs round trip plus running costs of several per cent a year; anything under five years a losing hold unless the model is re-rated</td><td class="n">20%+ round trip<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s15">15</a></sup></td></tr>
+          <tr><td>Polished Diamonds</td><td>A stone bought at retail starts a third or more under water, because the dealer bid sits far below the asking price</td><td class="n">≥33% on entry<span class="t">Derived</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s16">16</a></sup></td></tr>
+          <tr><td>Lab-Grown Diamonds</td><td>Sellers themselves put resale at 10–20% of purchase price; the main online buyers decline the category</td><td class="n">80–90% lost on exit<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s17">17</a></sup></td></tr>
+          <tr><td>Rare Whisky Casks</td><td>Broker quote on exit, from the firm that sold the cask; evaporation of about 2% a year meanwhile; the firms that sold a ten-year horizon in 2021–22 were insolvent by 2025</td><td class="n">Not quantifiable; counterparty risk<span class="t">Derived</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s18">18</a></sup></td></tr>
+          <tr><td>Gemstone tokens (for comparison)</td><td>Redemption spread cited by one law firm</td><td class="n">8–15%<span class="t">Reported</span></td><td><span class="c c-l">Low</span></td><td class="n"><sup class="r"><a href="#s5">5</a></sup></td></tr>
+          <tr><td>Handbags</td><td>The premium is highest the day the bag leaves the boutique and decays with use; the spread runs the other way for a store-fresh quota piece</td><td class="n">Negative on day one<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s19">19</a></sup></td></tr>
+        </tbody>
+      </table></div>
+      <div class="note"><span class="k">Derived observation</span><p>Auction fees are published on the buy side and negotiated on the sell side, so a private holder who both buys and sells at auction pays the full published premium once and an unknown commission once. On a lot that hammers under $1.5m at a major house that is at least 27% before the seller's side is counted, which is why the sector pages for art, cars, watches and whisky bottles all cite five to ten years as the shortest hold that pays. <span class="c c-x">Hyp</span></p></div>
+    </section>
+
+    <section id="s5"><div class="sechead"><h2><em>V</em>How often the door opens</h2><p class="sub">A route that exists is not the same as a route that is open today. The sector pages give the calendar; this is the same information sorted by frequency.</p></div>
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+        <div><span class="k"><b>Every trading day</b>Benchmark</span><p>Gold, silver, PGMs, copper, oil, cocoa, coffee; uranium trust units; wine and champagne through a merchant; current Dayi pu-erh in Guangzhou; a dealer's offer on a watch or a handbag.</p></div>
+        <div><span class="k"><b>Weekly to monthly</b>List and online auction</span><p>Heritage coin sales weekly; Parma and Jaén price lists weekly; truffle markets weekly in season; whisky bottles at monthly online auctions; classic cars online.</p></div>
+        <div><span class="k"><b>Twice a year</b>The seasons</span><p>Geneva jewels in May and November; Old Masters in London in July and December; Keeneland September and November, Tattersalls October and December; art evening sales in spring and autumn.</p></div>
+        <div><span class="k"><b>Once a year</b>One department</span><p>Sotheby's natural-history sale each July for a mounted dinosaur; the Riyadh falcon auction in August; Uji tencha in May; the annual Habanos festival auction.</p></div>
+        <div><span class="k"><b>Once a decade or less</b>The counterparty's appetite</span><p>A natural pearl strand; a great stamp rarity; an imperial-jade necklace; a Flightline-grade stallion share at public auction. Between appearances there is no price.</p></div>
+      </div>
+      <p class="fn">The right-hand columns are where the Scarcity line on a sector page is highest and the Liquidity line lowest. The two are the same fact seen from different sides: an asset that is rarely sold has no running price, and an asset with no running price is held until a buyer appears.</p>
+    </section>
+
+    <section id="s6"><div class="sechead"><h2><em>VI</em>The buyer of last resort</h2><p class="sub">The question that decides a forced sale. Four answers recur across the register, and one of them is nobody.</p></div>
+      <div class="ledger">
+        <div><span class="k">The benchmark dealer</span><p style="margin:0;font-size:15px">A bullion bank at the LBMA price, a clearing member on the LME, a fund's authorised participant. The price may be bad on the day, but there is a price and a counterparty obliged by their business model to quote it. Gold, silver, PGMs, copper, oil, cocoa, coffee. <sup class="r"><a href="#s11">11</a> <a href="#s12">12</a></sup></p></div>
+        <div><span class="k">The trade, through an intermediary</span><p style="margin:0;font-size:15px">Liv-ex merchants, Greysheet dealers, Parma wholesalers, Antwerp rough traders. A professional market with firm bids, which a private holder reaches only through a member who takes a margin. Wine, champagne, port, coins, cheese, rough and polished diamonds. <sup class="r"><a href="#s13">13</a></sup></p></div>
+        <div><span class="k">The one who sold it to you</span><p style="margin:0;font-size:15px">The cask broker, the attar dealer, the rare-earth dealer offering buy-back at his own quote, the syndicate manager who must approve the buyer, the originating gallery expected to take a living artist's work back. The counterparty exists, sets the price, and may not be solvent when needed. Casks, oud, rare earths, stallion shares, primary-market art. <sup class="r"><a href="#s18">18</a> <a href="#s20">20</a> <a href="#s21">21</a> <a href="#s14">14</a></sup></p></div>
+        <div><span class="k">An administered buyer, or nobody</span><p style="margin:0;font-size:15px">The Québec Federation, which takes delivery at its price and decides whether the syrup ships or goes to reserve; the exporter in Berbera who buys resin for weeks, not years; no one at all for a lab-grown stone. Where the sector page says "Σ5 because there is nothing to hold", this is why. <sup class="r"><a href="#s22">22</a> <a href="#s24">24</a> <a href="#s25">25</a> <a href="#s17">17</a></sup></p></div>
+      </div>
+      <div class="note"><span class="k">Derived observation</span><p>Auction-house guarantees and irrevocable bids put a buyer of last resort under the best lots in a sale, but only those lots, only at the house's discretion, and only in the two seasons when the sale is held. For the holder of an ordinary lot the last-resort buyer at auction is the underbidder, and the sector pages for stamps, fossils and natural pearls each note that this is one or two people. <span class="c c-x">Hyp</span></p></div>
+    </section>
+
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>Buyer's-premium changes at the major houses; a further rise reported for September 2026 is not yet confirmed from the houses' own schedules. <span class="c c-l">Low</span> <sup class="r"><a href="#s4">4</a></sup></li>
+        <li>Whether Liv-ex, or any platform, opens direct access to private holders; that would move wine and champagne from the price-list door to the benchmark door.</li>
+        <li>Insolvencies among cask brokers and other buy-back counterparties, which convert a Counterparty door into None for their clients without notice.</li>
+        <li>Any secondary market for lab-grown stones; the online buyers that currently decline the category are the test.</li>
+        <li>The gap between RapNet asking prices and realised dealer bids for polished diamonds, which is the entry cost on that page.</li>
+        <li>The discount of the Sprott uranium trust to its metal, which is what the benchmark door costs when the trust does not redeem.</li>
+      </ul>
+    </section>
+
+    <section id="s8"><div class="sechead"><h2><em>VIII</em>Sources</h2></div>
+      <ol class="src">
+        <li id="s1">The Art Newspaper, "<a href="https://www.theartnewspaper.com/2026/02/17/sothebys-adjusts-buyers-premiums-fee-structures-securitisation">Sotheby's hikes buyer's premiums as auction houses test new fee structures</a>", 17 Feb 2026 — accessed 29 Oct 2026</li>
+        <li id="s2">The Art Newspaper, "<a href="https://www.theartnewspaper.com/2024/12/19/sothebys-u-turn-on-new-fees-structure">Sotheby's does a U-turn on new fees structure</a>", 19 Dec 2024 — accessed 29 Oct 2026</li>
+        <li id="s3">Masterworks, "<a href="https://www.masterworks.com/academy/posts/auction-house-economics-how-christies-sothebys-and-phillips-make-money">Auction House Economics</a>", Jul 2026 (secondary; a fractional-art platform) — accessed 29 Oct 2026</li>
+        <li id="s4">Estimonia, "<a href="https://estimonia.com/auction-house-fees">Auction House Fees Compared</a>", Sept 2026 (aggregator; the September 2026 rise is not confirmed from the houses) — accessed 29 Oct 2026</li>
+        <li id="s5">ΣΟΦΙΑ, "<a href="/tokenisation#s4">Tokenising scarce assets</a>", Section IV, citing Neo Legal, 16 May 2026</li>
+        <li id="s11">ΣΟΦΙΑ, <a href="/gold-dashboard">Gold</a>, market brief, Exit depth, snapshot Oct 2026</li>
+        <li id="s12">ΣΟΦΙΑ, <a href="/copper-dashboard">Copper</a> and <a href="/cocoa-dashboard">Cocoa</a>, market briefs, Exit depth, snapshot Oct 2026</li>
+        <li id="s13">ΣΟΦΙΑ, <a href="/fine-wine-dashboard">Fine Wine</a>, market brief, Exit depth, snapshot Oct 2026</li>
+        <li id="s14">ΣΟΦΙΑ, <a href="/art-dashboard">Art</a>, market brief, Holding horizon and Exit depth, snapshot Oct 2026</li>
+        <li id="s15">ΣΟΦΙΑ, <a href="/classic-cars-dashboard">Classic Cars</a>, market brief, Holding horizon, snapshot Oct 2026</li>
+        <li id="s16">ΣΟΦΙΑ, <a href="/polished-diamonds-dashboard">Polished Diamonds</a>, market brief, Holding horizon, snapshot 20 Oct 2026</li>
+        <li id="s17">ΣΟΦΙΑ, <a href="/lab-grown-diamonds-dashboard">Lab-Grown Diamonds</a>, market brief, Holding horizon and Exit depth, snapshot 20 Oct 2026</li>
+        <li id="s18">ΣΟΦΙΑ, <a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a>, market brief, Holding horizon and Exit depth, snapshot 20 Oct 2026</li>
+        <li id="s19">ΣΟΦΙΑ, <a href="/handbags-dashboard">Handbags</a>, market brief, Holding horizon, snapshot Oct 2026</li>
+        <li id="s20">ΣΟΦΙΑ, <a href="/rare-earths-dashboard">Rare Earths</a>, market brief, Exit depth, snapshot Oct 2026</li>
+        <li id="s21">ΣΟΦΙΑ, <a href="/breeding-stallions-dashboard">Breeding Stallions</a>, market brief, Exit depth, snapshot 20 Oct 2026</li>
+        <li id="s22">ΣΟΦΙΑ, <a href="/maple-syrup-dashboard">Maple Syrup</a>, market brief, Holding horizon and Exit depth, snapshot 20 Oct 2026</li>
+        <li id="s23">ΣΟΦΙΑ, <a href="/pearls-dashboard">Pearls</a>, market brief, Holding horizon, snapshot Oct 2026</li>
+        <li id="s24">ΣΟΦΙΑ, <a href="/frankincense-dashboard">Frankincense</a>, market brief, Holding horizon and Exit depth, snapshot Oct 2026</li>
+        <li id="s25">ΣΟΦΙΑ, <a href="/saffron-dashboard">Saffron</a>, market brief, Holding horizon and Exit depth, snapshot Oct 2026</li>
+      </ol>
+      <p class="fn" style="margin-top:14px">Rows in the register (Section III) not separately numbered here are drawn from the Exit depth block of the linked market brief; each brief carries its own numbered sources.</p>
+    </section>
+
+    <div class="note"><b>Compiled 29 Oct 2026.</b> First publication. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+
+</body>
+</html>

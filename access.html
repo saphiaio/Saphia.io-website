@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fractional and Fund Access, ΣΟΦΙΑ</title>
+<meta name="description" content="The wrappers through which a holder reaches each of 51 scarce-asset markets: funds, trusts, listed producers, syndicates, fractional securities and tokens. What each owns, what it costs, how it exits, and which have failed. Every figure cited.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .k{font-family:var(--display);font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bronze);display:block}
+.cards .k b{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-lo);display:block;margin-bottom:6px;font-weight:500}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes" aria-current="page">Themes</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/themes">Themes</a> · Cross-sector</div>
+  <h1>Fractional and fund access</h1>
+  <p class="lede">Most scarce assets cannot be bought in a brokerage account. Between the holder and the asset sits a wrapper: a fund, a trust, a listed producer, a syndicate, a platform share or a token. This page reads the wrappers recorded on the market pages together: what each actually owns, what it costs, how it exits, and which of them have failed.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Touches all 51 market briefs; worked examples from <a href="/gold-dashboard" style="border-bottom:1px solid var(--line)">Gold</a>, <a href="/uranium-dashboard" style="border-bottom:1px solid var(--line)">Uranium</a>, <a href="/breeding-stallions-dashboard" style="border-bottom:1px solid var(--line)">Breeding Stallions</a>, <a href="/rare-whisky-casks-dashboard" style="border-bottom:1px solid var(--line)">Rare Whisky Casks</a>, <a href="/art-dashboard" style="border-bottom:1px solid var(--line)">Art</a>, <a href="/manuka-honey-dashboard" style="border-bottom:1px solid var(--line)">Manuka Honey</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>What a wrapper changes</a></li><li><a href="#s2"><span>II</span>Six wrappers</a></li><li><a href="#s3"><span>III</span>The register, market by market</a></li><li><a href="#s4"><span>IV</span>The failures</a></li><li><a href="#s5"><span>V</span>What the wrapper costs</a></li><li><a href="#s6"><span>VI</span>Three patterns in the record</a></li><li><a href="#s7"><span>VII</span>Indicators to monitor</a></li><li><a href="#s8"><span>VIII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Pooled, listed and divided vehicles through which a holder reaches each of the 51 markets without holding the thing</div></div>
+      <div><div class="l" style="margin-bottom:4px">Works</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Physically backed ETFs on a benchmark price: gold, silver, platinum. A standard unit, a daily price, redemption</div></div>
+      <div><div class="l" style="margin-bottom:4px">Has failed</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Fractional collectibles platforms; cask-investment firms; a flat tokenised-asset market. No standard unit, no price, no exit</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">29 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; the route named on each sector page remains the record. Tokens specifically are treated on <a href="/tokenisation">Tokenising scarce assets</a>; this page covers the whole family of wrappers.</p>
+
+    <section id="s1"><div class="sechead"><h2><em>I</em>What a wrapper changes</h2></div>
+      <div class="prose">
+        <p>A wrapper does three things for a holder. It <b>divides</b> an asset too large or too lumpy to own alone: a stallion into forty shares, a painting into Reg A securities, a trust's uranium into units. It <b>delegates</b> custody, insurance and sale to a manager who is paid for it. And it <b>substitutes</b> a market in the wrapper for a market in the asset: the holder sells units, not metal; shares, not a horse.</p>
+        <p>The third is where the record on the sector pages is decisive. Where the asset has a benchmark price and a standard unit, the market in the wrapper tracks the market in the asset and the wrapper adds liquidity: a gold ETF trades at a spread near 0.01% to a price set twice a day. <sup class="r"><a href="#s20">20</a></sup> Where it does not, the wrapper acquires a price of its own that can sit far from the asset: the uranium trust at a 13% discount to its metal, a Comvita share that moved between 43c and 82c in a year while the honey sat in a warehouse, a fractional sports card "50–70% below purchase price" with "zero secondary market liquidity". <sup class="r"><a href="#s21">21</a> <a href="#s22">22</a> <a href="#s2">2</a></sup></p>
+        <p>The <a href="/tokenisation">Tokenisation</a> page found that a token cannot create a price, a buyer or an exit. The same is true of every wrapper on this page. What a wrapper can do is pool, delegate and list; what it cannot do is make a non-standard asset standard. The register in Section III sorts the markets by which wrappers exist and what they own.</p>
+      </div>
+    </section>
+
+    <section id="s2"><div class="sechead"><h2><em>II</em>Six wrappers</h2><p class="sub">Every pooled or divided route on the market pages is one of these. The names are this page's; the examples are drawn from the sector pages.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Wrapper</th><th>What the holder owns</th><th>How it exits</th><th>Where it works, and where not</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Wrapper">Physically backed fund</td><td data-label="Owns">A share in a pool of a standard unit held in accredited custody, redeemable in size</td><td data-label="Exit">On exchange, daily, at or near the asset price</td><td data-label="Where">Works where a benchmark exists: gold, silver, PGMs, copper. The uranium trust is the limit case: physical, listed, but no redemption and a persistent discount <sup class="r"><a href="#s21">21</a></sup></td></tr>
+          <tr><td data-label="Wrapper">Futures-based fund</td><td data-label="Owns">A rolling position in exchange contracts, not the commodity</td><td data-label="Exit">On exchange, daily</td><td data-label="Where">Cocoa, coffee, oil ETCs. The roll, not the crop, sets the return; long-only oil ETFs "not built for multi-year holds" <sup class="r"><a href="#s23">23</a> <a href="#s24">24</a></sup></td></tr>
+          <tr><td data-label="Wrapper">Listed producer</td><td data-label="Owns">Equity in a company that grows, farms, mines or sells the asset; exposure to management, debt and everything else it does</td><td data-label="Exit">On exchange, daily, at the equity's own price</td><td data-label="Where">The only route in tea, manuka, bluefin, wagyu, pearls, olive oil, caviar and vanilla; a proxy in rare earths and rough diamonds. Comvita, Atlas Pearls and Deoleo are near-pure plays; Symrise and Maruha Nichiro are not <sup class="r"><a href="#s22">22</a> <a href="#s25">25</a></sup></td></tr>
+          <tr><td data-label="Wrapper">Fund or syndicate</td><td data-label="Owns">A share in a private pool of specific assets run by a manager: a wine fund, a racehorse syndicate, a stallion share (one of forty), a cask portfolio</td><td data-label="Exit">On the manager's terms: redemption windows, approved transfer, or the sale of the underlying</td><td data-label="Where">Stallion shares are the oldest working example and trade rarely; cask-investment firms raised £80m and were insolvent by 2025 <sup class="r"><a href="#s26">26</a> <a href="#s27">27</a></sup></td></tr>
+          <tr><td data-label="Wrapper">Fractional security</td><td data-label="Owns">A regulated security in a single asset: Masterworks' Reg A shares in one painting, Rally's series in one car or card, a dealer's share scheme in one stamp</td><td data-label="Exit">A platform secondary market, usually thin, or the sale of the whole asset</td><td data-label="Where">Masterworks reports 32 exits on more than $1.2bn raised; the collectibles platforms have largely wound down (Section IV) <sup class="r"><a href="#s28">28</a> <a href="#s1">1</a></sup></td></tr>
+          <tr><td data-label="Wrapper">Token</td><td data-label="Owns">A ledger entry representing a claim on an asset in custody</td><td data-label="Exit">Redemption to the issuer or a closed pool; a live market only for gold</td><td data-label="Where">Tokenised gold above $5.4bn; gemstones, wine and art "not established" <sup class="r"><a href="#s29">29</a></sup></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="s3"><div class="sechead"><h2><em>III</em>The register, market by market</h2><p class="sub">Whether the asset itself can be held, which wrappers the sector page names, and what the wrapper actually owns. Each row links to its page, which carries the sources.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Market</th><th>Direct holding</th><th>Wrappers named on the sector page</th><th>What the wrapper owns</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Market"><a href="/gold-dashboard">Gold</a></td><td data-label="Direct">Yes: allocated bars</td><td data-label="Wrappers">Physically backed ETFs; COMEX futures; tokens (PAXG, XAUT)</td><td data-label="Owns">Allocated metal in LBMA vaults; a daily benchmark</td></tr>
+          <tr><td data-label="Market"><a href="/silver-dashboard">Silver</a></td><td data-label="Direct">Yes: bars and coins</td><td data-label="Wrappers">Physically backed ETFs (largest held 491 Moz); COMEX</td><td data-label="Owns">Allocated metal</td></tr>
+          <tr><td data-label="Market"><a href="/pgm-dashboard">Platinum group metals</a></td><td data-label="Direct">Yes: bars and sponge</td><td data-label="Wrappers">Physically backed ETFs; NYMEX</td><td data-label="Owns">Allocated metal; ETF flows are the swing factor in the balance</td></tr>
+          <tr><td data-label="Market"><a href="/copper-dashboard">Copper</a></td><td data-label="Direct">Impractical</td><td data-label="Wrappers">Futures; ETFs</td><td data-label="Owns">Contracts or warranted cathode</td></tr>
+          <tr><td data-label="Market"><a href="/oil-gas-dashboard">Oil &amp; Gas</a></td><td data-label="Direct">No</td><td data-label="Wrappers">Futures; futures-based ETFs; producer equity</td><td data-label="Owns">A rolling contract position</td></tr>
+          <tr><td data-label="Market"><a href="/uranium-dashboard">Uranium</a></td><td data-label="Direct">No: licensed custody only</td><td data-label="Wrappers">Sprott Physical Uranium Trust; Yellow Cake plc; miners</td><td data-label="Owns">U3O8 in converter storage; units trade 10–15% from the metal and are not redeemed</td></tr>
+          <tr><td data-label="Market"><a href="/cocoa-dashboard">Cocoa</a></td><td data-label="Direct">No</td><td data-label="Wrappers">Futures; a handful of ETFs and ETCs</td><td data-label="Owns">Contracts; the roll sets the return</td></tr>
+          <tr><td data-label="Market"><a href="/coffee-dashboard">Coffee</a></td><td data-label="Direct">No</td><td data-label="Wrappers">Futures; a small number of ETCs</td><td data-label="Owns">Contracts; futures do not track specialty lots</td></tr>
+          <tr><td data-label="Market"><a href="/rare-earths-dashboard">Rare Earths</a></td><td data-label="Direct">Small dealer lots</td><td data-label="Wrappers">Equities as the practical proxy; no listed physical vehicle</td><td data-label="Owns">Miners and separators, mostly outside China</td></tr>
+          <tr><td data-label="Market"><a href="/fine-wine-dashboard">Fine Wine</a></td><td data-label="Direct">Yes: cases in bond</td><td data-label="Wrappers">Wine funds ("fund terms where held through a fund"); platforms building on 4–5 year models</td><td data-label="Owns">Cases in bond, selected and sold by the manager</td></tr>
+          <tr><td data-label="Market"><a href="/champagne-dashboard">Champagne</a></td><td data-label="Direct">Yes: in bond</td><td data-label="Wrappers">As for wine; LVMH equity as a diluted proxy</td><td data-label="Owns">Bottles in bond</td></tr>
+          <tr><td data-label="Market"><a href="/port-dashboard">Port</a></td><td data-label="Direct">Yes: in bond</td><td data-label="Wrappers">None specific; shipper equity private</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/scotch-whisky-dashboard">Scotch Whisky</a></td><td data-label="Direct">Yes: bottles</td><td data-label="Wrappers">Diageo and Pernod equity as a diluted proxy</td><td data-label="Owns">Brands and maturing stock among much else</td></tr>
+          <tr><td data-label="Market"><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a></td><td data-label="Direct">Yes: a cask in bond</td><td data-label="Wrappers">Cask-investment firms selling casks and portfolios to retail</td><td data-label="Owns">A certificate from the firm; the firms raised £80m and were insolvent by 2025</td></tr>
+          <tr><td data-label="Market"><a href="/japanese-whisky-dashboard">Japanese Whisky</a></td><td data-label="Direct">Yes: bottles</td><td data-label="Wrappers">Suntory (private) and Asahi equity, heavily diluted</td><td data-label="Owns">Beverage groups</td></tr>
+          <tr><td data-label="Market"><a href="/cigars-dashboard">Cigars</a></td><td data-label="Direct">Yes: boxes</td><td data-label="Wrappers">Allied Cigar Fund holds 57.1% of one Habanos shareholder; private, and sanctioned</td><td data-label="Owns">A stake in the monopoly, not cigars</td></tr>
+          <tr><td data-label="Market"><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a></td><td data-label="Direct">Yes: cakes</td><td data-label="Wrappers">None</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/tea-dashboard">Tea</a></td><td data-label="Direct">No: leaf is milled within months</td><td data-label="Wrappers">Listed plantation groups (Ito En; Indian and Kenyan producers)</td><td data-label="Owns">Operating companies; Ito En is a beverage group</td></tr>
+          <tr><td data-label="Market"><a href="/parmigiano-dashboard">Parmigiano Reggiano</a></td><td data-label="Direct">Trade only</td><td data-label="Wrappers">Bank lending against wheels (Credem) is the only financial structure</td><td data-label="Owns">The bank owns a lien, not the holder a share</td></tr>
+          <tr><td data-label="Market"><a href="/olive-oil-dashboard">Olive Oil</a></td><td data-label="Direct">The grove</td><td data-label="Wrappers">Deoleo (Madrid), the largest bottler, object of a €470m takeover contest in 2026</td><td data-label="Owns">A bottling business</td></tr>
+          <tr><td data-label="Market"><a href="/saffron-dashboard">Saffron</a></td><td data-label="Direct">No</td><td data-label="Wrappers">None: no exchange, no fund, no listed producer of scale</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/vanilla-dashboard">Vanilla</a></td><td data-label="Direct">No</td><td data-label="Wrappers">Symrise, Givaudan, IFF equity, where vanilla is a fraction of revenue</td><td data-label="Owns">Diversified flavour groups</td></tr>
+          <tr><td data-label="Market"><a href="/frankincense-dashboard">Frankincense</a></td><td data-label="Direct">No</td><td data-label="Wrappers">None</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/oud-dashboard">Oud</a></td><td data-label="Direct">Yes: wood and oil</td><td data-label="Wrappers">None of scale</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/manuka-honey-dashboard">Manuka Honey</a></td><td data-label="Direct">Drums, at a discount</td><td data-label="Wrappers">Comvita (NZX: CVT), the only sizeable listed pure play</td><td data-label="Owns">A producer that failed an 80c takeover, raised at 65c and traded 43–82c in a year</td></tr>
+          <tr><td data-label="Market"><a href="/maple-syrup-dashboard">Maple Syrup</a></td><td data-label="Direct">No</td><td data-label="Wrappers">None; a sugar bush with quota</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/dates-dashboard">Dates</a></td><td data-label="Direct">The farm, locally</td><td data-label="Wrappers">None listed of scale; state programmes (PIF's Al Madinah Heritage) are not investable</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/truffles-dashboard">Truffles</a></td><td data-label="Direct">The orchard</td><td data-label="Wrappers">None</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/caviar-dashboard">Caviar</a></td><td data-label="Direct">The farm</td><td data-label="Wrappers">None listed; the largest producer, Kaluga Queen, is private; private equity buys stakes</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/bluefin-tuna-dashboard">Bluefin Tuna</a></td><td data-label="Direct">No</td><td data-label="Wrappers">Maruha Nichiro, Nissui, Kyokuyo equity; a ranching licence with quota</td><td data-label="Owns">Diversified seafood groups</td></tr>
+          <tr><td data-label="Market"><a href="/wagyu-dashboard">Wagyu</a></td><td data-label="Direct">The animal or herd</td><td data-label="Wrappers">A handful of listed producers and traders in Tokyo</td><td data-label="Owns">Operating producers</td></tr>
+          <tr><td data-label="Market"><a href="/racehorses-dashboard">Racehorses</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">Syndication of shares; racing clubs</td><td data-label="Owns">A share in one horse, its training bill and its results</td></tr>
+          <tr><td data-label="Market"><a href="/breeding-stallions-dashboard">Breeding Stallions</a></td><td data-label="Direct">Rarely: a share is the unit</td><td data-label="Wrappers">The syndicate share, conventionally one of forty; annual nominations as the retail instrument</td><td data-label="Owns">A right to one cover a season and a share of fee income; transfers need the manager's approval</td></tr>
+          <tr><td data-label="Market"><a href="/falcons-dashboard">Falcons</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">None available to a holder</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/rough-diamonds-dashboard">Rough Diamonds</a></td><td data-label="Direct">Trade only</td><td data-label="Wrappers">Mining equity (De Beers via Anglo, Petra, Lucara); a sightholder's business</td><td data-label="Owns">Miners, three of which have failed or been written down since 2023</td></tr>
+          <tr><td data-label="Market"><a href="/polished-diamonds-dashboard">Polished Diamonds</a></td><td data-label="Direct">Yes: a stone</td><td data-label="Wrappers">Diamond Standard coins and tokens; proposals in Dubai (see <a href="/tokenisation#s4">Tokenisation</a>)</td><td data-label="Owns">A pooled or single stone priced by the issuer</td></tr>
+          <tr><td data-label="Market"><a href="/lab-grown-diamonds-dashboard">Lab-Grown Diamonds</a></td><td data-label="Direct">Yes, but it depreciates</td><td data-label="Wrappers">Grower and retailer equity, few listed or liquid</td><td data-label="Owns">Operating companies in a falling-price industry</td></tr>
+          <tr><td data-label="Market"><a href="/coloured-gemstones-dashboard">Coloured Gemstones</a></td><td data-label="Direct">Yes: a stone</td><td data-label="Wrappers">Gemfields equity (the rough miner, short of cash); tokens proposed, not launched</td><td data-label="Owns">A miner's balance sheet</td></tr>
+          <tr><td data-label="Market"><a href="/pearls-dashboard">Pearls</a></td><td data-label="Direct">Yes: a strand</td><td data-label="Wrappers">Atlas Pearls (ASX), the sole listed pure play</td><td data-label="Owns">A cultured-pearl farmer</td></tr>
+          <tr><td data-label="Market"><a href="/jade-dashboard">Jade</a></td><td data-label="Direct">Yes: jewellery</td><td data-label="Wrappers">None</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/signed-jewellery-dashboard">Signed Jewellery</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">Richemont and LVMH equity, heavily diluted</td><td data-label="Owns">The houses, not the pieces</td></tr>
+          <tr><td data-label="Market"><a href="/watches-dashboard">Watches</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">Swatch, Richemont equity; platforms are marketplaces, not funds</td><td data-label="Owns">Manufacturers</td></tr>
+          <tr><td data-label="Market"><a href="/handbags-dashboard">Handbags</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">Hermès equity, which owns the allocation, not the bags</td><td data-label="Owns">The house</td></tr>
+          <tr><td data-label="Market"><a href="/coins-dashboard">Coins</a></td><td data-label="Direct">Yes: slabbed</td><td data-label="Wrappers">Funds exist and cite five-to-ten-year holds; bullion coins track metal ETFs</td><td data-label="Owns">A manager's selection of certified coins</td></tr>
+          <tr><td data-label="Market"><a href="/stamps-dashboard">Stamps</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">A dealer's share scheme in one $8.6m stamp (Stanley Gibbons, £8m total, 2021)</td><td data-label="Owns">A share in one stamp, the dealer bearing vault and insurance</td></tr>
+          <tr><td data-label="Market"><a href="/rare-books-dashboard">Rare Books</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">None of scale</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">None of scale; instrument-lending foundations for fine strings</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/art-dashboard">Art</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">Masterworks Reg A shares (&gt;$1.2bn raised, 32 exits, trading venue since Jan 2025); art funds; "fractional platforms exist but are not an exit for a work"</td><td data-label="Owns">A security in one painting; exit is the sale of the whole work</td></tr>
+          <tr><td data-label="Market"><a href="/old-masters-dashboard">Old Masters</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">None of scale</td><td data-label="Owns">—</td></tr>
+          <tr><td data-label="Market"><a href="/classic-cars-dashboard">Classic Cars</a></td><td data-label="Direct">Yes</td><td data-label="Wrappers">Fractional platforms (Rally began with cars); winding down in 2026 (Section IV)</td><td data-label="Owns">A series in one car</td></tr>
+          <tr><td data-label="Market"><a href="/fossils-dashboard">Fossils &amp; Meteorites</a></td><td data-label="Direct">Yes, with a building</td><td data-label="Wrappers">None</td><td data-label="Owns">—</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Fifty-one rows, one per market brief. "Direct holding" paraphrases the route named on each page; "Wrappers named" is limited to what the sector page records, so a wrapper that exists but is not mentioned there is not listed here. Where a sector page is updated, it governs.</p>
+    </section>
+
+    <section id="s4"><div class="sechead"><h2><em>IV</em>The failures</h2><p class="sub">Three wrapper families built for non-standard assets, and what happened to them. The pattern is the same each time: the wrapper had a price only while the platform made one.</p></div>
+      <div class="cards">
+        <div><span class="k"><b>Fractional collectibles</b>2018–2026</span><h3>Dozens of thin order books is not liquidity</h3><p>Otis was acquired by Public.com in March 2022 and its single-asset series wound down, one selling two NFTs for $1,039 against $6,400 raised. Collectable has not run an offering since 2022 and is in Delaware Chancery litigation with secondary trading halted. Rally, the last operating platform, carried a going-concern qualification in its parent's 2025 audit, reported a 1.20x median exit across 111 closed positions, and in July 2026 began winding down its fractional model to launch a listed collectibles fund. <span class="c c-m">Med</span> <sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a> <a href="#s4">4</a></sup></p><p class="open">Most sports-card series trade 50–70% below purchase with no secondary liquidity <span class="c c-l">Low</span> <sup class="r"><a href="#s5">5</a></sup></p></div>
+        <div><span class="k"><b>Cask investment</b>2019–2025</span><h3>A certificate is a claim against the seller</h3><p>Firms selling casks and cask portfolios to retail raised about £80m before Cask 88, Braeburn Whisky and Whisky Merchants Trading entered insolvency in April–May 2025. The holder's position was a certificate from the firm; ownership was whatever the bonded warehouse's records said. The sector page rates provenance risk Very high for title, duplication and existence. <sup class="r"><a href="#s27">27</a> <a href="#s30">30</a></sup></p><p class="open">Watch: administrators' treatment of certificate holders against warehouse records</p></div>
+        <div><span class="k"><b>Tokenised collectibles</b>2015–2026</span><h3>No price to redeem at</h3><p>Everledger raised $51.7m for diamond provenance and entered administration in 2023; on-chain tokenised assets show "minimal secondary trading" outside gold; gemstone-token redemption spreads of 8–15% are cited by one law firm. The <a href="/tokenisation">Tokenisation</a> page records that the markets without a transaction-based price have no working token, and the ones with one (gold) did not need it for liquidity. <sup class="r"><a href="#s29">29</a></sup></p><p class="open">Watch: VARA approvals and any secondary volume in issued gemstone tokens</p></div>
+      </div>
+      <div class="note"><span class="k">Derived observation</span><p>Masterworks is the exception that proves the rule and the sector page states why: its shares are securities in a single work, and its exit is still the sale of the whole painting. It has survived because it is a fund manager that sells paintings, not a market in fractions. Rally's 2026 pivot to a listed fund is the same conclusion reached the hard way. <span class="c c-x">Hyp</span> <sup class="r"><a href="#s28">28</a> <a href="#s3">3</a></sup></p></div>
+    </section>
+
+    <section id="s5"><div class="sechead"><h2><em>V</em>What the wrapper costs</h2><p class="sub">Fees and the gap between the wrapper's price and the asset's, as the sector pages and the cited sources give them.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Wrapper</th><th>Cost</th><th>Figure</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Gold ETFs</td><td>Expense ratio; quoted spread</td><td class="n">0.10–0.40% a year; c. 0.01%<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s20">20</a></sup></td></tr>
+          <tr><td>Uranium trust</td><td>Expense ratio; discount to metal</td><td class="n">0.71%; 12.95% on 16 Oct 2026, c. $14/lb<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s21">21</a></sup></td></tr>
+          <tr><td>Oil and soft-commodity ETCs</td><td>The roll in contango, paid each delivery month</td><td class="n">Variable; dominant for a long holder<span class="t">Derived</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s23">23</a> <a href="#s24">24</a></sup></td></tr>
+          <tr><td>Listed producer (Comvita)</td><td>Price impact on a thin small cap; the gap between share and honey</td><td class="n">43c–82c range in a year<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s22">22</a></sup></td></tr>
+          <tr><td>Stallion share</td><td>Transfer terms and legal cost; share of keep and insurance; manager's approval of the buyer</td><td class="n">Not published<span class="t">Derived</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s26">26</a></sup></td></tr>
+          <tr><td>Racehorse at auction (the exit for a syndicate)</td><td>Vendor's commission plus entry fee</td><td class="n">5% of hammer; Keeneland $1,000 entry<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s31">31</a></sup></td></tr>
+          <tr><td>Fractional collectibles (Rally)</td><td>Realised exit multiple, median, across 111 closed positions</td><td class="n">1.20x; 6.8% median IRR; 18 losses<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s4">4</a></sup></td></tr>
+          <tr><td>Gemstone tokens</td><td>Redemption spread cited by one law firm</td><td class="n">8–15%<span class="t">Reported</span></td><td><span class="c c-l">Low</span></td><td class="n"><sup class="r"><a href="#s29">29</a></sup></td></tr>
+          <tr><td>Cask firms</td><td>Broker commission on sale, often undisclosed; plus the firm's solvency</td><td class="n">10% and up<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s27">27</a></sup></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="s6"><div class="sechead"><h2><em>VI</em>Three patterns in the record</h2></div>
+      <div class="cards">
+        <div><span class="k"><b>Pattern 1</b>Benchmark</span><h3>A wrapper is as liquid as the price beneath it</h3><p>Gold, silver and platinum funds trade at a hair from the metal because the metal has a price. The uranium trust holds real metal and still trades 13% away, because the spot price is a consultants' estimate from a thin market. Every wrapper on this page inherits the liquidity of its underlying and adds nothing to it; the <a href="/price-setters">price regime</a> decides the wrapper's fate before it launches.</p><p class="open">Watch: the uranium discount; any transaction-based index in diamonds or wine that would make a fund trackable</p></div>
+        <div><span class="k"><b>Pattern 2</b>Dilution</span><h3>The listed producer is a company, not the asset</h3><p>In a dozen markets the only wrapper is a company that also does other things: Ito En is a beverage group, Symrise a flavour house, Maruha Nichiro a seafood conglomerate, Anglo American a diversified miner. The holder gets management, debt, currency and every other product line alongside the exposure sought. Comvita shows the pure-play alternative: a stock that moved 90% in a year on corporate events while the honey price did not.</p><p class="open">Watch: Deoleo's ownership, Comvita's recapitalisation, De Beers' sale</p></div>
+        <div><span class="k"><b>Pattern 3</b>Platform</span><h3>Where the platform makes the market, the platform is the risk</h3><p>Fractional series, cask certificates and gemstone tokens all had a price only on the platform that issued them, and the <a href="/exit-depth">Exit depth</a> page found the same party is usually the buyer of last resort. When Otis, Collectable and the cask firms stopped, the assets were intact and the holders' positions were not. The <a href="/custody">Custody</a> page reaches the same conclusion about keepers; this page reaches it about wrappers.</p><p class="open">Watch: going-concern language in platform audits; Rally's fund NAV at conversion</p></div>
+      </div>
+    </section>
+
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>The terms on which Rally rolls legacy series into its listed fund, and whether the fund trades at a discount to its holdings <sup class="r"><a href="#s3">3</a></sup>.</li>
+        <li>Masterworks' exit count and realised returns against its own reported figures, which are marked by the company as pending confirmation <sup class="r"><a href="#s28">28</a></sup>.</li>
+        <li>Administrators' reports on the 2025 cask-firm insolvencies: recoveries to certificate holders <sup class="r"><a href="#s27">27</a></sup>.</li>
+        <li>Growth of tokenised gold relative to gold ETFs, the test of whether a new wrapper adds liquidity where a benchmark exists <sup class="r"><a href="#s29">29</a></sup>.</li>
+        <li>Any wine or coin fund publishing audited realised returns rather than index performance.</li>
+        <li>Whether stallion shares or racing syndicates acquire a secondary venue; the Flightline share at Keeneland in 2022 was a public auction of a syndicate interest, and rare <sup class="r"><a href="#s26">26</a></sup>.</li>
+      </ul>
+    </section>
+
+    <section id="s8"><div class="sechead"><h2><em>VIII</em>Sources</h2></div>
+      <ol class="src">
+        <li id="s1">Angel Investors Network, "<a href="https://angelinvestorsnetwork.com/alternative-investments/fractional-collectibles-investing-platforms-compared-2026">Fractional Collectibles Investing Platforms Compared</a>", Sept 2026 (secondary; cites SEC filings) — accessed 29 Oct 2026</li>
+        <li id="s2">Akta, "<a href="https://akta.pro/company-profiles/0000i3r/rally">Rally company profile</a>", citing Hallofcards, Dec 2025 (secondary) — accessed 29 Oct 2026</li>
+        <li id="s3">Alts.co, "<a href="https://alts.co/rally-rd-ditches-direct-ownership/">Rally Rd ditches direct ownership</a>" and "<a href="https://alts.co/lets-mourn-rally/">Let's mourn Rally</a>", Jul 2026 (newsletter; secondary) — accessed 29 Oct 2026</li>
+        <li id="s4">AltStreet, "<a href="https://altstreet.investments/platforms/reviews/rallyrd">Rally Review 2026</a>" (review site; exit data stated as EDGAR-sourced) — accessed 29 Oct 2026</li>
+        <li id="s5">Sports Illustrated, "<a href="https://www.si.com/collectibles/news/fractional-investing-in-sports-cards-has-been-a-failure">Fractional Investing in Sports Cards Has Been A Failure</a>", 2024 — accessed 29 Oct 2026</li>
+        <li id="s20">ΣΟΦΙΑ, <a href="/gold-dashboard">Gold</a>, market brief, Cost and Why Σ1, snapshot Oct 2026</li>
+        <li id="s21">ΣΟΦΙΑ, <a href="/uranium-dashboard">Uranium</a>, market brief, Cost, Exit depth and Why Σ2, snapshot 19 Oct 2026</li>
+        <li id="s22">ΣΟΦΙΑ, <a href="/manuka-honey-dashboard">Manuka Honey</a>, market brief, Holding horizon, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s23">ΣΟΦΙΑ, <a href="/cocoa-dashboard">Cocoa</a>, market brief, Holding horizon, snapshot Oct 2026</li>
+        <li id="s24">ΣΟΦΙΑ, <a href="/oil-gas-dashboard">Oil &amp; Gas</a>, market brief, Holding horizon, snapshot 19 Oct 2026</li>
+        <li id="s25">ΣΟΦΙΑ, <a href="/tea-dashboard">Tea</a>, <a href="/bluefin-tuna-dashboard">Bluefin Tuna</a>, <a href="/pearls-dashboard">Pearls</a>, <a href="/olive-oil-dashboard">Olive Oil</a> and <a href="/vanilla-dashboard">Vanilla</a>, market briefs, Exit depth, snapshot Oct 2026</li>
+        <li id="s26">ΣΟΦΙΑ, <a href="/breeding-stallions-dashboard">Breeding Stallions</a>, market brief, Instruments, Exit depth and Cost, snapshot 20 Oct 2026</li>
+        <li id="s27">ΣΟΦΙΑ, <a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a>, market brief, key figures, Cost and Holding horizon, snapshot 20 Oct 2026</li>
+        <li id="s28">ΣΟΦΙΑ, "<a href="/tokenisation#s3">Tokenising scarce assets</a>", Section III, citing Masterworks, Jul 2026; and <a href="/art-dashboard">Art</a>, market brief, Exit depth</li>
+        <li id="s29">ΣΟΦΙΑ, "<a href="/tokenisation">Tokenising scarce assets</a>", Sections II and IV</li>
+        <li id="s30">ΣΟΦΙΑ, <a href="/advisers">For advisers and institutions</a>, "An executor and a cellar"</li>
+        <li id="s31">ΣΟΦΙΑ, <a href="/racehorses-dashboard">Racehorses</a>, market brief, Cost, snapshot 20 Oct 2026</li>
+      </ol>
+      <p class="fn" style="margin-top:14px">Rows in the register (Section III) not separately numbered here are drawn from the Exit depth block and text of the linked market brief; each brief carries its own numbered sources.</p>
+    </section>
+
+    <div class="note"><b>Compiled 29 Oct 2026.</b> First publication. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+
+</body>
+</html>

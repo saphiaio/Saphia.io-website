@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auction or Dealer, ΣΟΦΙΑ</title>
+<meta name="description" content="Who the seller faces in each of 51 scarce-asset markets: an auction house acting as agent on a fixed calendar, or a dealer acting as principal with a bid today. Which markets are auction-led, which dealer-led, where the threshold sits, what each costs, and what the unsold lot does to the price. Every figure cited.">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .k{font-family:var(--display);font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bronze);display:block}
+.cards .k b{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-lo);display:block;margin-bottom:6px;font-weight:500}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes" aria-current="page">Themes</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/themes">Themes</a> · Cross-sector</div>
+  <h1>Auction or dealer</h1>
+  <p class="lede">When a holder sells, the counterparty is one of two kinds. An auction house is an agent: it takes the thing on consignment, sells it on a day it has fixed, in public, to the highest of whoever turns up, and charges both sides. A dealer is a principal: it names a price today, in private, and takes the thing onto its own book to sell later at a spread. Every one of the 51 market pages names a route that is one, the other, both with a threshold between them, or neither. This page reads them together.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Touches all 51 market briefs; worked examples from <a href="/watches-dashboard" style="border-bottom:1px solid var(--line)">Watches</a>, <a href="/old-masters-dashboard" style="border-bottom:1px solid var(--line)">Old Masters</a>, <a href="/polished-diamonds-dashboard" style="border-bottom:1px solid var(--line)">Polished Diamonds</a>, <a href="/racehorses-dashboard" style="border-bottom:1px solid var(--line)">Racehorses</a>, <a href="/scotch-whisky-dashboard" style="border-bottom:1px solid var(--line)">Scotch Whisky</a>, <a href="/handbags-dashboard" style="border-bottom:1px solid var(--line)">Handbags</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>Agent or principal</a></li><li><a href="#s2"><span>II</span>Five configurations</a></li><li><a href="#s3"><span>III</span>The register, market by market</a></li><li><a href="#s4"><span>IV</span>What each side charges</a></li><li><a href="#s5"><span>V</span>Three cases</a></li><li><a href="#s6"><span>VI</span>Three patterns in the record</a></li><li><a href="#s7"><span>VII</span>Indicators to monitor</a></li><li><a href="#s8"><span>VIII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">The counterparty named as the exit on each of the 51 market pages: auction house, dealer, both with a threshold, exchange, or an administered buyer</div></div>
+      <div><div class="l" style="margin-bottom:4px">Count</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">9 markets auction-led, 9 dealer-led, 12 both with a stated threshold, 10 exchange or benchmark, 11 administered or trade-only</div></div>
+      <div><div class="l" style="margin-bottom:4px">Decisive</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">The buyer's premium caps the hammer; the dealer's spread is the same money paid in private. The difference is who bears the risk of the unsold lot</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">29 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; the route named on each sector page remains the record. The <a href="/exit-depth">Exit depth</a> page asked how often the door opens and who is behind it; this page asks what kind of door it is.</p>
+
+    <section id="s1"><div class="sechead"><h2><em>I</em>Agent or principal</h2></div>
+      <div class="prose">
+        <p>The distinction is legal before it is commercial. An auction house never owns the lot. It acts for the consignor, charges the consignor a seller's commission on the hammer, charges the buyer a premium on top of the hammer, and if the lot fails to reach its reserve it goes back to the consignor, publicly unsold. A dealer owns what it sells. It buys from the holder at a price it names, holds the stock at its own risk and cost, and sells at a price it names later; the holder never sees the second price. <sup class="r"><a href="#s20">20</a> <a href="#s21">21</a></sup></p>
+        <p>The sector pages give the two prices where they can. A watch sold to a dealer realises a discount of 15–30% to retail at once; the same watch on a marketplace takes two to eight weeks at a 6.5% commission; at auction it waits for the next sale and pays a buyer's premium that caps the bid. <sup class="r"><a href="#s22">22</a></sup> A polished diamond sold privately realises "perhaps 40–60% of retail" through dealers, and goes to auction only if exceptional. <sup class="r"><a href="#s23">23</a></sup> A yearling has no dealer route at all: the calendar at Keeneland and Tattersalls is the market, and a horse bought back by its vendor pays 2.5% for the privilege of not selling. <sup class="r"><a href="#s24">24</a></sup></p>
+        <p>Three findings follow. The auction-led markets are the ones where the thing is unique and the price unknown until the room sets it: art, Old Masters, jewels, racehorses, cars, falcons, fossils. The dealer-led markets are the ones where a reference price exists and the dealer's job is to sit a spread around it: watches, polished diamonds, bullion, coins below the rarity line, oud, pu-erh. Between them, a dozen markets name a threshold in money below which the dealer takes it and above which the auction house does, and that threshold is where the holder's choice actually lies. The register sorts the 51 markets by these.</p>
+      </div>
+    </section>
+
+    <section id="s2"><div class="sechead"><h2><em>II</em>Five configurations</h2><p class="sub">How the two counterparties are arranged in each market. The names are this page's; the examples are drawn from the Exit depth blocks of the sector pages.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Configuration</th><th>How the seller exits</th><th>Markets</th><th>What it does to price</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Configuration">Auction-led</td><td data-label="How">Consignment to a house on a fixed calendar; dealers exist but buy at auction or broker private sales through the house</td><td data-label="Markets">Art, Old Masters, Signed Jewellery, Racehorses, Classic Cars, Falcons, Fossils, Jade, Stamps</td><td data-label="Price">Public, dated, with the unsold lot visible. Price exists only on sale day; between sales the last hammer is the reference <sup class="r"><a href="#s25">25</a></sup></td></tr>
+          <tr><td data-label="Configuration">Dealer-led</td><td data-label="How">Sale to a dealer who buys outright, or consignment to one; auction for exceptional pieces only</td><td data-label="Markets">Watches, Polished Diamonds, Vintage Guitars, Oud, Pu-erh Tea, Saffron, Frankincense, Rare Earths (lots), Lab-Grown Diamonds</td><td data-label="Price">Private, quoted, continuous. A list or asking price exists (Rapaport, Chrono24, Donghe) and the dealer bids below it <sup class="r"><a href="#s22">22</a> <a href="#s23">23</a></sup></td></tr>
+          <tr><td data-label="Configuration">Both, with a threshold</td><td data-label="How">Dealer below a value, auction above it; the threshold is stated on the sector page</td><td data-label="Markets">Coloured Gemstones (~$50,000), Rare Books (~$10,000), Scotch and Japanese Whisky (standard releases online, trophies at Sotheby's), Cigars, Handbags, Pearls, Fine Wine, Champagne, Port, Rare Whisky Casks, Coins (ordinary)</td><td data-label="Price">Two prices: a dealer bid for the ordinary and a hammer for the rare, which do not always meet <sup class="r"><a href="#s26">26</a></sup></td></tr>
+          <tr><td data-label="Configuration">Exchange or benchmark</td><td data-label="How">Sale at or near a published price through any dealer or broker; the dealer is a conduit, not a price-maker</td><td data-label="Markets">Gold, Silver, PGMs, Copper, Oil &amp; Gas, Cocoa, Coffee, Uranium (trust), Manuka (equity), Tea (equity)</td><td data-label="Price">Continuous and public; the dealer's spread is the whole cost, and it is measured in basis points for gold and in percentage points for rhodium <sup class="r"><a href="#s27">27</a></sup></td></tr>
+          <tr><td data-label="Configuration">Administered or trade-only</td><td data-label="How">Sale to a licensed or sole buyer at a price the buyer or a body sets; no auction, and the "dealer" is the market</td><td data-label="Markets">Maple Syrup, Parmigiano Reggiano, Rough Diamonds, Bluefin Tuna, Wagyu, Olive Oil, Vanilla, Dates, Caviar, Truffles, Breeding Stallions (private transfer)</td><td data-label="Price">Set by the Federation, the Borsa Merci, the sight, the morning market; the holder is a price-taker (see <a href="/price-setters">Who sets the price</a>) <sup class="r"><a href="#s28">28</a></sup></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="s3"><div class="sechead"><h2><em>III</em>The register, market by market</h2><p class="sub">The counterparty each sector page names, the threshold where both exist, and the round-trip cost as the page gives it. Each row links to its page, which carries the sources.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Market</th><th>Configuration</th><th>Who the seller faces</th><th>Cost as the page gives it</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Market"><a href="/gold-dashboard">Gold</a></td><td data-label="Config">Exchange</td><td data-label="Faces">Bullion bank or dealer at the LBMA price; ETF on exchange</td><td data-label="Cost">ETF spread near 0.01%; dealer spreads wider by size and form</td></tr>
+          <tr><td data-label="Market"><a href="/silver-dashboard">Silver</a></td><td data-label="Config">Exchange</td><td data-label="Faces">Dealer or bullion bank at the LBMA Silver Price</td><td data-label="Cost">Narrow on 1,000 oz bars; retail coin premiums materially wider</td></tr>
+          <tr><td data-label="Market"><a href="/pgm-dashboard">Platinum group metals</a></td><td data-label="Config">Exchange</td><td data-label="Faces">Dealer at the LBMA price; rhodium dealer-only with no benchmark</td><td data-label="Cost">Spreads widen with size; rhodium a dealer's market</td></tr>
+          <tr><td data-label="Market"><a href="/copper-dashboard">Copper</a></td><td data-label="Config">Exchange</td><td data-label="Faces">LME or COMEX through a broker</td><td data-label="Cost">Fees, commission, the roll</td></tr>
+          <tr><td data-label="Market"><a href="/oil-gas-dashboard">Oil &amp; Gas</a></td><td data-label="Config">Exchange</td><td data-label="Faces">Futures broker; fund on exchange</td><td data-label="Cost">The roll</td></tr>
+          <tr><td data-label="Market"><a href="/uranium-dashboard">Uranium</a></td><td data-label="Config">Exchange (wrapper)</td><td data-label="Faces">Any broker for trust units; the metal itself trades by private bilateral deal, a handful a week</td><td data-label="Cost">0.71% a year; a 13% discount to the metal</td></tr>
+          <tr><td data-label="Market"><a href="/cocoa-dashboard">Cocoa</a></td><td data-label="Config">Exchange</td><td data-label="Faces">ICE through a broker</td><td data-label="Cost">Fees, margin, the roll</td></tr>
+          <tr><td data-label="Market"><a href="/coffee-dashboard">Coffee</a></td><td data-label="Config">Exchange</td><td data-label="Faces">ICE through a broker; physical lots to exporters</td><td data-label="Cost">Fees, margin; specialty lots do not track the contract</td></tr>
+          <tr><td data-label="Market"><a href="/rare-earths-dashboard">Rare Earths</a></td><td data-label="Config">Dealer-led (lots); exchange (equity)</td><td data-label="Faces">Specialist metal dealers for small lots; brokers for shares</td><td data-label="Cost">Dealer spread on oxides; no public bid</td></tr>
+          <tr><td data-label="Market"><a href="/fine-wine-dashboard">Fine Wine</a></td><td data-label="Config">Both</td><td data-label="Faces">A merchant onto Liv-ex (professionals only) for the ordinary case; Sotheby's, Christie's, Zachys for cellars and rarities</td><td data-label="Cost">Merchant commission 10%+; exchange fee per unit unpublished; auction around 10% plus premium</td></tr>
+          <tr><td data-label="Market"><a href="/champagne-dashboard">Champagne</a></td><td data-label="Config">Both</td><td data-label="Faces">Merchant onto Liv-ex; merchant buy-back; auction; iDealwine for grower labels</td><td data-label="Cost">Merchant 10%+; exchange fee per unit</td></tr>
+          <tr><td data-label="Market"><a href="/port-dashboard">Port</a></td><td data-label="Config">Both</td><td data-label="Faces">Specialist merchants and brokers (Farr, BBR, Justerini); auction for old vintages</td><td data-label="Cost">Merchant 10%+; auction around 10% plus premium</td></tr>
+          <tr><td data-label="Market"><a href="/scotch-whisky-dashboard">Scotch Whisky</a></td><td data-label="Config">Both: online auction standard, Sotheby's and Bonhams for trophies</td><td data-label="Faces">Whisky Auctioneer and peers monthly (4,486–5,766 lots a month); specialist retailers who buy or consign</td><td data-label="Cost">Seller 5% plus VAT to 10%; buyer 12.5–15% caps the hammer; £6 listing, £10 reserve</td></tr>
+          <tr><td data-label="Market"><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a></td><td data-label="Config">Both: broker-led, a few cask auctions</td><td data-label="Faces">Usually the broker that sold the cask; a bottler or blender at bulk; a handful of cask auctions</td><td data-label="Cost">Broker 10% and up, often undisclosed</td></tr>
+          <tr><td data-label="Market"><a href="/japanese-whisky-dashboard">Japanese Whisky</a></td><td data-label="Config">Both</td><td data-label="Faces">The same online auctions as Scotch; Bonhams and Sotheby's Hong Kong for trophies</td><td data-label="Cost">Seller 5–10% plus VAT; buyer 12.5–15%</td></tr>
+          <tr><td data-label="Market"><a href="/cigars-dashboard">Cigars</a></td><td data-label="Config">Both</td><td data-label="Faces">C.Gars and Online Cigar Auctions; the same dealers buy outright</td><td data-label="Cost">Seller 10–15%, buyer 15–25%; dealer buy-in at a discount to retail</td></tr>
+          <tr><td data-label="Market"><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a></td><td data-label="Config">Dealer-led; auction for antique cakes</td><td data-label="Faces">Fangcun wholesale market and the Donghe quotation platform; Hong Kong auction for pre-1970s tea</td><td data-label="Cost">Dealer spread on the quote; auction 20–25% buyer, 10–15% seller</td></tr>
+          <tr><td data-label="Market"><a href="/tea-dashboard">Tea</a></td><td data-label="Config">Exchange (equity); auction (leaf, trade only)</td><td data-label="Faces">Broker for shares; the prefectural tea auction for leaf, licensed buyers only</td><td data-label="Cost">Brokerage; auction commission on leaf</td></tr>
+          <tr><td data-label="Market"><a href="/parmigiano-dashboard">Parmigiano Reggiano</a></td><td data-label="Config">Administered</td><td data-label="Faces">Wholesaler or ageing house at the Borsa Merci price for the maturity</td><td data-label="Cost">Wholesaler margin; inspection; downgrades</td></tr>
+          <tr><td data-label="Market"><a href="/olive-oil-dashboard">Olive Oil</a></td><td data-label="Config">Administered</td><td data-label="Faces">Bottler or cooperative at the weekly Poolred or Infaoliva price</td><td data-label="Cost">Mill and bottler margins; quality downgrades €0.20–0.30/kg</td></tr>
+          <tr><td data-label="Market"><a href="/saffron-dashboard">Saffron</a></td><td data-label="Config">Dealer-led</td><td data-label="Faces">Spice trader, packer or re-exporter at the grade the buyer's own test assigns</td><td data-label="Cost">The grade gap, which can be the whole premium</td></tr>
+          <tr><td data-label="Market"><a href="/vanilla-dashboard">Vanilla</a></td><td data-label="Config">Administered</td><td data-label="Faces">Exporters and the flavour houses on contract</td><td data-label="Cost">Exporter margin; curing and grading risk</td></tr>
+          <tr><td data-label="Market"><a href="/frankincense-dashboard">Frankincense</a></td><td data-label="Config">Dealer-led</td><td data-label="Faces">Exporters in Berbera, Bosaso or Salalah; ingredient houses</td><td data-label="Cost">Four or five hands between tree and distiller, each a margin</td></tr>
+          <tr><td data-label="Market"><a href="/oud-dashboard">Oud</a></td><td data-label="Config">Dealer-led</td><td data-label="Faces">Attar dealers in the Gulf, Mumbai and Singapore, who also buy back; kōdō houses for the finest wood</td><td data-label="Cost">Dealer spread and the authentication gap</td></tr>
+          <tr><td data-label="Market"><a href="/manuka-honey-dashboard">Manuka Honey</a></td><td data-label="Config">Exchange (equity); administered (drums)</td><td data-label="Faces">NZX broker; packer or exporter at the MGO-graded price</td><td data-label="Cost">Price impact on a thin small cap; drums at a discount</td></tr>
+          <tr><td data-label="Market"><a href="/maple-syrup-dashboard">Maple Syrup</a></td><td data-label="Config">Administered</td><td data-label="Faces">A PPAQ-authorised buyer at the Federation price, the only lawful bulk buyer in Québec</td><td data-label="Cost">Levies of about 14¢/lb; reserve and promotion charges</td></tr>
+          <tr><td data-label="Market"><a href="/dates-dashboard">Dates</a></td><td data-label="Config">Administered</td><td data-label="Faces">Wholesale markets and state programmes; the farm sells locally</td><td data-label="Cost">Wholesale margin</td></tr>
+          <tr><td data-label="Market"><a href="/truffles-dashboard">Truffles</a></td><td data-label="Config">Administered; a charity auction for show</td><td data-label="Faces">Wholesalers and restaurant buyers at weekly market prices; the Alba auction sets headlines, not the price</td><td data-label="Cost">Wholesaler margin; the perishability clock</td></tr>
+          <tr><td data-label="Market"><a href="/caviar-dashboard">Caviar</a></td><td data-label="Config">Administered</td><td data-label="Faces">Importers, brands and restaurants under contract; private equity for the farm</td><td data-label="Cost">Cold-chain freight, CITES paperwork, distributor margins</td></tr>
+          <tr><td data-label="Market"><a href="/bluefin-tuna-dashboard">Bluefin Tuna</a></td><td data-label="Config">Administered auction (trade only)</td><td data-label="Faces">The Toyosu morning auction, licensed buyers only; the New Year sale is a publicity price</td><td data-label="Cost">Market commission; grading on the day can halve the price</td></tr>
+          <tr><td data-label="Market"><a href="/wagyu-dashboard">Wagyu</a></td><td data-label="Config">Administered auction (trade only)</td><td data-label="Faces">Regional carcass and calf markets in Japan; listed producers for capital</td><td data-label="Cost">Market commission; grade sets the price</td></tr>
+          <tr><td data-label="Market"><a href="/racehorses-dashboard">Racehorses</a></td><td data-label="Config">Auction-led</td><td data-label="Faces">Keeneland and Tattersalls on a fixed calendar; private sale between trainers in between</td><td data-label="Cost">Vendor 5% of hammer plus entry fee; 2.5% on a buy-back</td></tr>
+          <tr><td data-label="Market"><a href="/breeding-stallions-dashboard">Breeding Stallions</a></td><td data-label="Config">Private transfer; public auction rare</td><td data-label="Faces">Another member or a buyer the syndicate manager approves; the Flightline share at Keeneland 2022 was news</td><td data-label="Cost">Syndicate transfer terms and legal cost; 5% plus entry at public auction</td></tr>
+          <tr><td data-label="Market"><a href="/falcons-dashboard">Falcons</a></td><td data-label="Config">Auction-led</td><td data-label="Faces">The International Falcon Breeders Auction in Riyadh (1,103 birds, 21 nights in 2025); private sale between breeders</td><td data-label="Cost">Commission not published; transport, veterinary and permit fees on the seller</td></tr>
+          <tr><td data-label="Market"><a href="/rough-diamonds-dashboard">Rough Diamonds</a></td><td data-label="Config">Administered (sight) and tender</td><td data-label="Faces">De Beers sights and producer tenders on the way in; the secondary rough market in Antwerp, Dubai and Surat on the way out</td><td data-label="Cost">The secondary premium or discount to the box price, 5–50% by category</td></tr>
+          <tr><td data-label="Market"><a href="/polished-diamonds-dashboard">Polished Diamonds</a></td><td data-label="Config">Dealer-led; auction for exceptional stones</td><td data-label="Faces">RapNet dealers (1.7 m stones listed); consignment to a jeweller; Worthy and myGemma online; auction above a few carats of fine colour</td><td data-label="Cost">A private seller realises perhaps 40–60% of retail</td></tr>
+          <tr><td data-label="Market"><a href="/lab-grown-diamonds-dashboard">Lab-Grown Diamonds</a></td><td data-label="Config">Dealer-led, and the dealers decline</td><td data-label="Faces">Worthy and myGemma do not buy; a few sellers offer trade-in credit at 15–20% of price</td><td data-label="Cost">Wholesale near $80–90 on a $700–1,100 retail stone</td></tr>
+          <tr><td data-label="Market"><a href="/coloured-gemstones-dashboard">Coloured Gemstones</a></td><td data-label="Config">Both: threshold about $50,000</td><td data-label="Faces">Christie's, Sotheby's and Phillips above it, each with a fresh lab report; specialist dealers below</td><td data-label="Cost">Seller around 10%; buyer 28% on the first $2 m; lab report $500–3,000</td></tr>
+          <tr><td data-label="Market"><a href="/pearls-dashboard">Pearls</a></td><td data-label="Config">Both: natural at auction, cultured to dealers</td><td data-label="Faces">Geneva, Hong Kong and New York jewels sales for natural pearls with a report; wholesalers and jewellers for cultured strands</td><td data-label="Cost">Seller around 10%; buyer above 25%; cultured strands resell at a steep discount</td></tr>
+          <tr><td data-label="Market"><a href="/jade-dashboard">Jade</a></td><td data-label="Config">Auction-led for the top; dealers below</td><td data-label="Faces">Christie's, Sotheby's, Poly and Tiancheng in Hong Kong with a lab report; Hong Kong and Guangzhou dealers for the rest</td><td data-label="Cost">Seller around 10%; buyer 25%+</td></tr>
+          <tr><td data-label="Market"><a href="/signed-jewellery-dashboard">Signed Jewellery</a></td><td data-label="Config">Auction-led</td><td data-label="Faces">Magnificent Jewels in Geneva, Hong Kong and New York; period-jewellery dealers; the houses' own buy-back for recent pieces</td><td data-label="Cost">Seller 10%, negotiable above $500,000; buyer 28% on the first $2 m</td></tr>
+          <tr><td data-label="Market"><a href="/watches-dashboard">Watches</a></td><td data-label="Config">Dealer-led; auction for rarities</td><td data-label="Faces">A dealer for an immediate offer; consignment; Chrono24 (500,000+ listings); Phillips, Christie's, Sotheby's for the rare</td><td data-label="Cost">Dealer buy-in 15–30% below retail; marketplace 6.5%; consignment 13–19%</td></tr>
+          <tr><td data-label="Market"><a href="/handbags-dashboard">Handbags</a></td><td data-label="Config">Both: fixed-price marketplace and auction under one roof</td><td data-label="Faces">Sotheby's Marketplace at a fixed price or Sotheby's online auction; Christie's and Heritage for the rare; resale platforms</td><td data-label="Cost">Marketplace pays the seller 80%; auction premium 20–26%; consignment 20–30%</td></tr>
+          <tr><td data-label="Market"><a href="/coins-dashboard">Coins</a></td><td data-label="Config">Both: auction for certified rarities, dealers for the rest</td><td data-label="Faces">Heritage (200,000+ lots a year), Stack's Bowers, GreatCollections; dealer networks buying at bid</td><td data-label="Cost">Buyer 22% at Heritage from Jan 2026; seller 10% on ordinary coins, negotiable above</td></tr>
+          <tr><td data-label="Market"><a href="/stamps-dashboard">Stamps</a></td><td data-label="Config">Auction-led</td><td data-label="Faces">Siegel, Spink, Stanley Gibbons, Corinphila, Feldman with expertising certificates; dealers buy at a fraction</td><td data-label="Cost">Seller 10–15%; buyer 20–25%; dealer buy-in far below</td></tr>
+          <tr><td data-label="Market"><a href="/rare-books-dashboard">Rare Books</a></td><td data-label="Config">Both: threshold about $10,000</td><td data-label="Faces">Christie's and Sotheby's above it; Bonhams, Swann, Forum, Dominic Winter; ABA and ILAB dealers for the rest</td><td data-label="Cost">Seller 10%; buyer 28% to $2 m</td></tr>
+          <tr><td data-label="Market"><a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a></td><td data-label="Config">Dealer-led; auction for provenance pieces</td><td data-label="Faces">Gruhn, Carter, Norman's, Vintage 'n' Rare buying or consigning; Reverb; Heritage, Christie's, Julien's for celebrity instruments</td><td data-label="Cost">Consignment 15–25% or buy-in a third below retail; Reverb 5%</td></tr>
+          <tr><td data-label="Market"><a href="/art-dashboard">Art</a></td><td data-label="Config">Auction-led; private sale through the same houses</td><td data-label="Faces">Christie's, Sotheby's, Phillips, Bonhams and regional houses; a dealer or the originating gallery for private sale</td><td data-label="Cost">Seller 10%, waived for trophies; buyer 28% to $2 m, 22% to $8 m</td></tr>
+          <tr><td data-label="Market"><a href="/old-masters-dashboard">Old Masters</a></td><td data-label="Config">Auction-led</td><td data-label="Faces">Christie's and Sotheby's evening sales (London July and December, New York January, Paris June); Bonhams, Dorotheum; specialist dealers at TEFAF</td><td data-label="Cost">Seller around 10%; buyer 28% / 22% / 15% by band</td></tr>
+          <tr><td data-label="Market"><a href="/classic-cars-dashboard">Classic Cars</a></td><td data-label="Config">Auction-led; online auction below $500k</td><td data-label="Faces">RM Sotheby's, Gooding, Bonhams, Broad Arrow on the calendar; Bring a Trailer and Collecting Cars online; dealers for consignment</td><td data-label="Cost">Seller 10%; buyer 12% to $250,000 in the US, 15% plus VAT in Europe</td></tr>
+          <tr><td data-label="Market"><a href="/fossils-dashboard">Fossils &amp; Meteorites</a></td><td data-label="Config">Auction-led</td><td data-label="Faces">Sotheby's natural-history sale each July; museums and collectors through the same specialists; dealers at Tucson for the rest</td><td data-label="Cost">Buyer 28% / 22% / 15%; seller negotiable</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Fifty-one rows, one per market brief. "Configuration" classifies the route the sector page names; "Who the seller faces" paraphrases its Exit depth block; "Cost" repeats the page's figure without re-sourcing it. Where a sector page is updated, it governs.</p>
+    </section>
+
+    <section id="s4"><div class="sechead"><h2><em>IV</em>What each side charges</h2><p class="sub">Published terms at the snapshot date, read across the sector pages. The buyer's premium is paid by the buyer but comes out of the hammer the seller receives, because bidders bid net of it.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Counterparty</th><th>Terms</th><th>Figure</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Sotheby's, Christie's (art, jewels, books, fossils)</td><td>Seller's commission; buyer's premium by band</td><td class="n">10% / 28%, 22%, 15% by band<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s20">20</a> <a href="#s25">25</a></sup></td></tr>
+          <tr><td>RM Sotheby's (cars)</td><td>Seller; buyer, US and Europe</td><td class="n">10% / 12% US; 15% / 12.5% + VAT Europe<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s29">29</a></sup></td></tr>
+          <tr><td>Keeneland, Tattersalls (horses)</td><td>Vendor only; entry fee; buy-back</td><td class="n">5% of hammer; $1,000 entry; 2.5% on a buy-back<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s24">24</a></sup></td></tr>
+          <tr><td>Heritage, Stack's Bowers (coins)</td><td>Buyer's premium raised in 2026; seller on ordinary lots</td><td class="n">22% (min $29) / 10%<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s30">30</a></sup></td></tr>
+          <tr><td>Whisky Auctioneer and peers (bottles)</td><td>Seller plus VAT; buyer; listing and reserve fees</td><td class="n">5–10% / 12.5–15%; £6 and £10<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s26">26</a></sup></td></tr>
+          <tr><td>Sotheby's Marketplace (handbags)</td><td>Fixed-price sale; seller receives</td><td class="n">80% of price<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s31">31</a></sup></td></tr>
+          <tr><td>Watch dealer; Chrono24; consignment</td><td>Buy-in discount to retail; marketplace commission; consignment</td><td class="n">15–30% / 6.5% / 13–19%<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s22">22</a></sup></td></tr>
+          <tr><td>Guitar dealer; Reverb</td><td>Consignment or buy-in; marketplace</td><td class="n">15–25% or a third off / 5%<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s32">32</a></sup></td></tr>
+          <tr><td>Diamond dealer (RapNet)</td><td>What a private seller realises against retail</td><td class="n">40–60%<span class="t">Estimate</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s23">23</a></sup></td></tr>
+          <tr><td>Wine merchant; cask broker</td><td>Commission on a brokered sale</td><td class="n">10% and up, often undisclosed<span class="t">Reported</span></td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s33">33</a></sup></td></tr>
+          <tr><td>Gold dealer or ETF</td><td>Spread to the LBMA price</td><td class="n">c. 0.01% on the ETF; wider on bars<span class="t">Reported</span></td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s27">27</a></sup></td></tr>
+        </tbody>
+      </table></div>
+      <div class="note"><span class="k">Derived observation</span><p>Add the two sides and the round trip through a major house on an ordinary lot is near 38% of hammer: 10% to the consignor's side and 28% to the buyer's, which the buyer deducts from the bid. A watch dealer's 15–30% discount is the same money paid once, at once, without a sale day. The auction is not cheaper than the dealer; it is a different allocation of the same spread, with the unsold-lot risk left with the seller. <span class="c c-x">Hyp</span> <sup class="r"><a href="#s20">20</a> <a href="#s22">22</a></sup></p></div>
+    </section>
+
+    <section id="s5"><div class="sechead"><h2><em>V</em>Three cases</h2><p class="sub">Where the choice of counterparty, not the asset, set the outcome.</p></div>
+      <div class="cards">
+        <div><span class="k"><b>The unsold lot</b>Old Masters, London, July 2026</span><h3>The auction publishes the failure</h3><p>Christie's evening sale made £38.9 m at 90% sold by lot, its highest sell-through in the category; Sotheby's the same week made £37.8 m at 78%, with ten lots unsold. An unsold Old Master is "burned": the trade saw the estimate, saw no bid, and will discount it for years. A dealer's unsold stock is invisible. This is the real price of the public price: the auction tells everyone what the thing is worth, including when the answer is nothing. <sup class="r"><a href="#s25">25</a></sup></p><p class="open">Watch: the share of lots withdrawn before sale, which houses use to keep the published rate up</p></div>
+        <div><span class="k"><b>The threshold</b>Watches</span><h3>Three doors, three prices, one watch</h3><p>The sector page gives the whole ladder. Sell to a dealer today: 15–30% below retail, cash now. List on Chrono24: 6.5% commission, two to eight weeks, buyers in 150 countries. Consign to a platform: 13–19%. Send to Phillips: wait for the Geneva or New York sale, pay a negotiable seller's commission, and let a 25%+ buyer's premium cap the bid. The holder of a steel Daytona takes door one or two; the holder of a Paul Newman takes door four. The reference price (dealer asking) exists continuously; the auction price exists twice a year and is the one that gets reported. <sup class="r"><a href="#s22">22</a></sup></p><p class="open">Watch: Chrono24's listing count and time-to-sale as the instant-offer market grows</p></div>
+        <div><span class="k"><b>Convergence</b>Sotheby's Marketplace, Rally, BaT</span><h3>The houses become dealers, the dealers become auctions</h3><p>Sotheby's now sells Birkins at a fixed price on a marketplace, paying the seller 80%, next to its own online auctions; it also brokers private sales in art that the sector page records as a growing share. In the other direction, Bring a Trailer and Collecting Cars turned the dealer's car into an online auction below $500,000, Reverb did the same for guitars, and Whisky Auctioneer runs 5,000 lots a month where a retailer once bought bottles over the counter. The two configurations in Section II are converging on a third: a continuous online auction with a fixed-price option, run by whoever has the audience. <span class="c c-x">Hyp</span> <sup class="r"><a href="#s31">31</a> <a href="#s29">29</a> <a href="#s26">26</a></sup></p><p class="open">Watch: Christie's and Sotheby's private-sale totals against auction totals in their annual statements</p></div>
+      </div>
+    </section>
+
+    <section id="s6"><div class="sechead"><h2><em>VI</em>Three patterns in the record</h2></div>
+      <div class="cards">
+        <div><span class="k"><b>Pattern 1</b>Uniqueness</span><h3>Auction where the price is unknown, dealer where it is quoted</h3><p>Every auction-led market in the register sells things with no two alike and no list price: paintings, yearlings, falcons, a T. rex. Every dealer-led market has a reference (Rapaport, Chrono24, Donghe, the LBMA price) and the dealer's business is the spread around it. The <a href="/price-setters">Who sets the price</a> page found the same split from the other end: the calendar auction is a price regime, not just a venue.</p><p class="open">Watch: any transaction-based index in a dealer-led market (diamonds, watches) that would let a house estimate without a room</p></div>
+        <div><span class="k"><b>Pattern 2</b>Time against certainty</span><h3>The dealer sells time; the auction sells the chance of a better price</h3><p>Across the register the dealer's offer is immediate and the auction's is dated: Keeneland in September and November, Sotheby's fossils in July, Old Masters in July and December, the Riyadh falcon auction for three weeks in August. The holder who needs money this month has a dealer or nothing in roughly half the markets, and the <a href="/exit-depth">Exit depth</a> page records what that costs when the dealer is also the one who sold it.</p><p class="open">Watch: auction-house advances and guarantees, which convert the dated price into an immediate one for a fee</p></div>
+        <div><span class="k"><b>Pattern 3</b>Who bears the unsold</span><h3>The seller at auction, the dealer in stock, the house never</h3><p>An auction house carries no inventory risk unless it guarantees; it earns on both sides whether the lot makes high estimate or scrapes the reserve. A dealer's capital is tied up in whatever it bought and did not sell. The holder choosing between them is choosing who will be left holding the thing if the market turns between today and the sale day: at auction, themselves; with a dealer, the dealer, at a price that reflects it.</p><p class="open">Watch: guarantee and third-party irrevocable-bid volumes at the major houses, where the house or a backer takes the dealer's risk for a share</p></div>
+      </div>
+    </section>
+
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>Sell-through rates by lot at the London and New York evening sales, and the withdrawal rate before sale <sup class="r"><a href="#s25">25</a></sup>.</li>
+        <li>Buyer's-premium schedules at Sotheby's, Christie's and Heritage, which moved in February 2026 and January 2026 respectively <sup class="r"><a href="#s20">20</a> <a href="#s30">30</a></sup>.</li>
+        <li>Private-sale totals against auction totals in the houses' annual statements, the measure of the house becoming a dealer <sup class="r"><a href="#s34">34</a></sup>.</li>
+        <li>Online-auction share below the threshold in cars and whisky: Bring a Trailer's and Whisky Auctioneer's monthly lot counts <sup class="r"><a href="#s26">26</a> <a href="#s29">29</a></sup>.</li>
+        <li>Dealer buy-in discounts in watches and the Chrono24 time-to-sale, the live spread in a dealer-led market <sup class="r"><a href="#s22">22</a></sup>.</li>
+        <li>Keeneland and Tattersalls buy-back rates, the auction-led market's own measure of the unsold lot <sup class="r"><a href="#s24">24</a></sup>.</li>
+      </ul>
+    </section>
+
+    <section id="s8"><div class="sechead"><h2><em>VIII</em>Sources</h2></div>
+      <ol class="src" start="20">
+        <li id="s20">ΣΟΦΙΑ, <a href="/art-dashboard">Art</a>, market brief, Exit depth and Cost (Sotheby's seller's commission and buyer's premium bands from February 2026), snapshot Oct 2026</li>
+        <li id="s21">Sotheby's, "<a href="https://www.sothebys.com/en/buy-sell/sell">Conditions of business for sellers</a>" and Christie's, "<a href="https://www.christies.com/en/help/buying-guide/conditions-of-sale">Conditions of sale</a>" (agency; buyer's premium; unsold lots) — accessed 29 Oct 2026</li>
+        <li id="s22">ΣΟΦΙΑ, <a href="/watches-dashboard">Watches</a>, market brief, Exit depth, Activity and Cost, snapshot Oct 2026</li>
+        <li id="s23">ΣΟΦΙΑ, <a href="/polished-diamonds-dashboard">Polished Diamonds</a>, market brief, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s24">ΣΟΦΙΑ, <a href="/racehorses-dashboard">Racehorses</a>, market brief, Exit depth and Cost, snapshot 20 Oct 2026</li>
+        <li id="s25">ΣΟΦΙΑ, <a href="/old-masters-dashboard">Old Masters</a>, market brief, Exit depth and Activity (London, July 2026), snapshot Oct 2026</li>
+        <li id="s26">ΣΟΦΙΑ, <a href="/scotch-whisky-dashboard">Scotch Whisky</a> and <a href="/japanese-whisky-dashboard">Japanese Whisky</a>, market briefs, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s27">ΣΟΦΙΑ, <a href="/gold-dashboard">Gold</a>, <a href="/silver-dashboard">Silver</a> and <a href="/pgm-dashboard">Platinum group metals</a>, market briefs, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s28">ΣΟΦΙΑ, "<a href="/price-setters">Who sets the price</a>", Sections II and III</li>
+        <li id="s29">ΣΟΦΙΑ, <a href="/classic-cars-dashboard">Classic Cars</a>, market brief, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s30">ΣΟΦΙΑ, <a href="/coins-dashboard">Coins</a>, market brief, Exit depth and Cost (Heritage buyer's premium from 1 January 2026), snapshot Oct 2026</li>
+        <li id="s31">ΣΟΦΙΑ, <a href="/handbags-dashboard">Handbags</a>, market brief, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s32">ΣΟΦΙΑ, <a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a>, market brief, Exit depth and Cost, snapshot Oct 2026</li>
+        <li id="s33">ΣΟΦΙΑ, <a href="/fine-wine-dashboard">Fine Wine</a>, <a href="/port-dashboard">Port</a> and <a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a>, market briefs, Cost, snapshot Oct 2026</li>
+        <li id="s34">Sotheby's and Christie's annual sales announcements, 2025 (private-sale and auction totals) (secondary) — accessed 29 Oct 2026 <span class="c c-m">Med</span></li>
+      </ol>
+      <p class="fn" style="margin-top:14px">Rows in the register (Section III) not separately numbered here are drawn from the Exit depth block of the linked market brief; each brief carries its own numbered sources. Sources 21 and 34 are external; the rest are market briefs on this site.</p>
+    </section>
+
+    <div class="note"><b>Compiled 29 Oct 2026.</b> First publication. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+
+</body>
+</html>

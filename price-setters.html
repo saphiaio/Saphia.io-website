@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Sets the Price, ΣΟΦΙΑ</title>
+<meta name="description" content="How the reference price in each of 51 scarce-asset markets is made and by whom: exchange, benchmark, trade platform, asking list, calendar auction or administered. The concentrated sellers named. Every figure cited.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--ink:#141412;--mute:#6f6a62;--line:#dcd4c6;--rule:#e6dfd2;--bronze:#a8825a;--bronze-lo:#7d5f3f;--surface:#faf7f0;--high:#3f6b47;--med:#8a6a1c;--low:#9b4a22;--hyp:#5a4b8a;--display:'EB Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--bronze-lo)}
+.page{max-width:var(--maxw);margin:0 auto;padding:0 32px 96px}
+.page>*{min-width:0}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.005em}
+p{max-width:74ch;margin:0 0 16px;text-wrap:pretty}
+.mast{position:sticky;top:0;z-index:20;background:rgba(244,239,230,.94);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.mast .in{max-width:var(--maxw);margin:0 auto;padding:16px 32px;display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.mark{font-family:var(--display);font-size:24px;letter-spacing:.14em;white-space:nowrap}
+.mast ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px}
+.mast ul a{color:var(--mute)}
+.mast ul a:hover,.mast ul a[aria-current]{color:var(--ink)}
+.mast ul a[aria-current]{border-bottom:1px solid var(--bronze);padding-bottom:2px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.brief{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.crumb{font-size:13px;color:var(--mute)}
+.crumb a{color:var(--mute)} .crumb a:hover{color:var(--ink)}
+.brief h1{font-size:clamp(44px,6vw,76px);line-height:1;margin:16px 0 20px;max-width:16ch;text-wrap:balance}
+.brief .lede{font-family:var(--display);font-size:clamp(19px,2.2vw,23px);line-height:1.45;color:var(--ink);max-width:62ch}
+.brief .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:22px;font-size:12.5px;color:var(--mute)}
+.contents{padding:20px 0 16px;border-bottom:1px solid var(--line)}
+.contents ol{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 28px}
+.contents li a{display:grid;grid-template-columns:30px 1fr;font-size:15px;padding:4px 0}
+.contents li a span{font-family:var(--sans);font-size:11px;color:var(--bronze)}
+section{padding:56px 0 10px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+section h2{font-size:38px;margin:0}
+section h2 em{font-style:normal;font-family:var(--sans);font-size:12px;color:var(--bronze);margin-right:16px;letter-spacing:.14em;vertical-align:middle}
+.sechead{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.sechead .sub{margin:14px 0 0;color:var(--mute);font-size:15.5px;line-height:1.55;max-width:74ch;border-left:2px solid var(--bronze);background:var(--surface);padding:12px 18px}
+section .sub{color:var(--mute);margin:0 0 20px;font-size:15.5px;max-width:74ch}
+h3{font-size:22px;margin:34px 0 10px}
+.prose p{max-width:70ch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw table{min-width:560px}
+table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
+th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.n,th.n{font-family:var(--sans);text-align:right;white-space:nowrap;padding-right:0}
+td.n{color:var(--bronze-lo)}
+td.n .t{margin-left:8px}
+.matrix td{min-width:160px} .matrix td:first-child{min-width:120px;font-family:var(--display);font-size:18px}
+.state{font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;margin-right:6px}
+.state.met{color:var(--ink)} .state.part{color:var(--bronze-lo)} .state.no{color:var(--mute)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;border:1px solid currentColor}
+.met .dot{background:currentColor} .part .dot{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.ledger,.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:18px 0 28px}
+.cards{grid-template-columns:repeat(3,1fr)}
+.ledger>div,.cards>div{background:var(--surface);padding:18px 20px;font-size:15px;line-height:1.5}
+.ledger .k,.cards .k,.note .k{font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px}
+.cards h3{font-size:20px;margin:0 0 8px}
+.cards .l{font-size:13.5px;color:var(--mute);line-height:1.45}
+.cards p{margin:0 0 8px;font-size:15px}
+.cards .open{font-size:13px;color:var(--mute);margin:10px 0 0;padding-top:8px;border-top:1px dotted var(--line)}
+.cards .note{margin:0;border:0;padding:0;background:transparent}
+.cards .k{font-family:var(--display);font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bronze);display:block}
+.cards .k b{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze-lo);display:block;margin-bottom:6px;font-weight:500}
+.cards .note p{margin:0}
+.note{border-left:2px solid var(--bronze);background:var(--surface);padding:14px 20px;margin:22px 0;max-width:74ch;font-size:15.5px}
+.note p{margin:0}
+ul.dash{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;max-width:74ch;font-size:15.5px}
+ul.dash li{padding-left:22px;position:relative}
+ul.dash li::before{content:"";position:absolute;left:0;top:.75em;width:10px;height:1px;background:var(--bronze)}
+.fn{font-size:14px;color:var(--mute);max-width:74ch}
+ol.src{margin:0;padding:0 0 0 2.4em;font-size:14.5px;color:var(--ink);max-width:90ch;line-height:1.5}
+ol.src li{margin:0 0 8px;padding-left:4px}
+ol.src a{border-bottom:1px solid var(--line)} ol.src a:hover{border-bottom-color:var(--bronze)}
+.c{font-family:var(--sans);font-size:10.5px;padding:1px 6px;margin-left:6px;vertical-align:middle;font-weight:500;letter-spacing:.04em;border:1px solid currentColor;white-space:nowrap}
+.c-h{color:var(--high)} .c-m{color:var(--med)} .c-l{color:var(--low)} .c-x{color:var(--hyp)}
+.t{font-family:var(--sans);font-size:10.5px;color:var(--mute);border:1px solid var(--line);background:var(--surface);padding:1px 6px;margin-left:6px;vertical-align:middle;letter-spacing:.04em;white-space:nowrap}
+sup.r{font-family:var(--sans);font-size:10.5px;margin-left:2px;line-height:0}
+sup.r a{color:var(--bronze)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:12px;color:var(--mute);padding-top:28px;border-top:1px solid var(--line);margin-top:48px}
+.foot .fm{font-family:var(--display);font-size:20px;letter-spacing:.14em;color:var(--ink)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.page{padding:0 20px 64px}.mast .in{padding:14px 20px}.mast ul{gap:18px;font-size:13px}.ledger,.cards{grid-template-columns:1fr}.contents ol{grid-template-columns:1fr}section h2{font-size:30px}
+.matrix thead{display:none}.matrix,.matrix tbody,.matrix tr,.matrix td{display:block;width:100%;min-width:0}.matrix tr{padding:14px 0;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:4px 0}.matrix td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="mast"><div class="in"><a class="mark" href="/home">ΣΟΦΙΑ</a><ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes" aria-current="page">Themes</a></li></ul></div></header>
+<div class="page">
+<div class="brief">
+  <div class="crumb"><a href="/markets">Markets</a> · <a href="/themes">Themes</a> · Cross-sector</div>
+  <h1>Who sets the price</h1>
+  <p class="lede">Every market page carries a Supply concentration line: where along the chain the power to set price sits. This page reads the 51 lines together. In some markets the price is made by trades anyone can see; in others it is set by one seller, one board or one room the holder is not in. The difference decides what a quoted price is worth.</p>
+  <div class="meta"><span>Theme · Cross-sector</span><span>Touches all 51 market briefs; worked examples from <a href="/rough-diamonds-dashboard" style="border-bottom:1px solid var(--line)">Rough Diamonds</a>, <a href="/maple-syrup-dashboard" style="border-bottom:1px solid var(--line)">Maple Syrup</a>, <a href="/handbags-dashboard" style="border-bottom:1px solid var(--line)">Handbags</a>, <a href="/gold-dashboard" style="border-bottom:1px solid var(--line)">Gold</a>, <a href="/polished-diamonds-dashboard" style="border-bottom:1px solid var(--line)">Polished Diamonds</a></span></div>
+</div>
+<nav class="contents" aria-label="Contents"><span class="eyebrow">Contents</span><ol>
+<li><a href="#s1"><span>I</span>Discovered or administered</a></li><li><a href="#s2"><span>II</span>Six price regimes</a></li><li><a href="#s3"><span>III</span>The register, market by market</a></li><li><a href="#s4"><span>IV</span>The concentrated sellers</a></li><li><a href="#s5"><span>V</span>Rooms the holder is not in</a></li><li><a href="#s6"><span>VI</span>Three patterns in the record</a></li><li><a href="#s7"><span>VII</span>Indicators to monitor</a></li><li><a href="#s8"><span>VIII</span>Sources</a></li></ol></nav>
+<main style="padding-top:24px">
+<div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div><div class="l" style="margin-bottom:4px">Scope</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">How the reference price in each of the 51 markets is made, and by whom</div></div>
+      <div><div class="l" style="margin-bottom:4px">Most open</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Gold, silver, copper, oil, cocoa, coffee: set by trades on a regulated venue, visible to all</div></div>
+      <div><div class="l" style="margin-bottom:4px">Most administered</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">Québec maple syrup, De Beers rough, Hermès quota bags: one seller decides the price and who may buy</div></div>
+      <div><div class="l" style="margin-bottom:4px">Data as of</div><div class="v" style="font-size:16px;font-weight:400;color:var(--ink);line-height:1.45">29 October 2026</div></div>
+    </div><p class="fn" style="margin:-14px 0 0">This is a thematic page. It carries no Market Snapshot ratings; the Supply concentration line on each sector page remains the record and is quoted here verbatim.</p>
+
+    <section id="s1"><div class="sechead"><h2><em>I</em>Discovered or administered</h2></div>
+      <div class="prose">
+        <p>A price is <b>discovered</b> when it is the result of trades between many buyers and sellers who can each walk away, and <b>administered</b> when one party decides it and the others decide only whether to deal. Most of the 51 markets sit between the two: a price list that is really a seller's asking price, an auction where one hammer sets the comparable for a decade, a benchmark that is set in a room open to members only.</p>
+        <p>The Supply concentration line on each page records where the power sits. It is a structural rating, not a judgement of conduct: the Québec Federation administers the maple price under provincial law and publishes it; De Beers sells about a third of the world's rough to a fixed list of buyers at prices it sets <sup class="r"><a href="#s1">1</a> <a href="#s20">20</a></sup>; Hermès allocates Birkins by client and the resale premium is the gap between its price and the market's. <sup class="r"><a href="#s21">21</a></sup> None of this is hidden. What it means for a holder is that the quoted price is a decision, and decisions change.</p>
+        <p>The register in Section III sorts the markets by regime. The pattern that emerges is that the power to set price rarely sits at the mine, the vineyard or the farm. It sits one or two steps up the chain, at the refiner, the separator, the marketing board, the house or the saleroom, and the sector pages' concentration lines say so: gold is "Medium, refining (mine Low)"; copper "High, refining (mine Medium)"; rare earths "High, separation (mining lower)". <sup class="r"><a href="#s20">20</a> <a href="#s22">22</a> <a href="#s23">23</a></sup></p>
+      </div>
+    </section>
+
+    <section id="s2"><div class="sechead"><h2><em>II</em>Six price regimes</h2><p class="sub">Every reference price on the market pages is made in one of six ways. The names are this page's; the descriptions are drawn from the sector pages.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Regime</th><th>How the price is made</th><th>Who can see it</th><th>What it is worth to a holder</th><th>Markets</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Regime">Exchange</td><td data-label="How">Continuous trading of a standard contract on a regulated venue; the price is the last trade</td><td data-label="Who sees">Everyone, in real time</td><td data-label="Worth">A price at which a dealer must deal, less a spread</td><td data-label="Markets">Copper, Oil &amp; Gas, Cocoa, Coffee; Uranium trust units; gold, silver and PGM futures</td></tr>
+          <tr><td data-label="Regime">Benchmark auction</td><td data-label="How">A regulated auction among members, once or twice a day, administered by an independent body</td><td data-label="Who sees">Everyone, after the fact</td><td data-label="Worth">The dealer's reference; physical trades settle at or near it</td><td data-label="Markets">Gold, Silver, Platinum, Palladium (LBMA prices, IBA-administered)</td></tr>
+          <tr><td data-label="Regime">Trade platform</td><td data-label="How">Firm bids and offers between professionals; the mid-price is published and drives an index</td><td data-label="Who sees">Members; the public sees the index</td><td data-label="Worth">A price a merchant can realise, less commission</td><td data-label="Markets">Fine Wine, Champagne, Port (Liv-ex); Coins (Greysheet bid); Parmigiano (Borsa Merci); Olive Oil (Poolred); Pu-erh (Donghe)</td></tr>
+          <tr><td data-label="Regime">Asking list</td><td data-label="How">A published schedule of sellers' asking prices, compiled by a trade body or publisher; not a record of transactions</td><td data-label="Who sees">Subscribers</td><td data-label="Worth">A ceiling: trade prices run 20–40% below the Rapaport list and a dealer bid sits below that <sup class="r"><a href="#s24">24</a></sup></td><td data-label="Markets">Polished Diamonds (Rapaport, RapNet); dealer price ladders for Oud, Rare Earths, Saffron</td></tr>
+          <tr><td data-label="Regime">Calendar auction</td><td data-label="How">One hammer, on one day, among those present; it becomes the comparable until the next appearance</td><td data-label="Who sees">Everyone, for that lot; nothing between sales</td><td data-label="Worth">A data point, possibly years old, set by the one or two underbidders in the room</td><td data-label="Markets">Art, Old Masters, Classic Cars, Gemstones, Jewellery, Pearls, Jade, Books, Stamps, Fossils, Whisky bottles, Cigars, Guitars, Handbags, Watches, Racehorses, Falcons, Bluefin, Wagyu, Tea</td></tr>
+          <tr><td data-label="Regime">Administered</td><td data-label="How">One seller, board or house sets the price and often the buyer list; the market's only choice is to accept or not</td><td data-label="Who sees">The buyers it chooses</td><td data-label="Worth">Stable while it holds; a two-tier market forms outside it (secondary sight boxes, the Birkin resale premium, the maple reserve)</td><td data-label="Markets">Rough Diamonds (sights), Maple Syrup (PPAQ), Handbags (allocation), Vanilla (minimum export price), Cocoa farm-gate (marketing boards), Champagne yield, Port benefício, Japanese whisky allocation</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="s3"><div class="sechead"><h2><em>III</em>The register, market by market</h2><p class="sub">The Supply concentration line as each page states it, the regime, and who sets the reference price. Concentration is quoted, not re-rated.</p></div>
+      <div class="tw"><table class="matrix">
+        <thead><tr><th>Market</th><th>Supply concentration (sector page)</th><th>Regime</th><th>Who sets the reference price</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Market"><a href="/gold-dashboard">Gold</a></td><td data-label="Concentration">Medium, refining (mine Low)</td><td data-label="Regime">Benchmark auction</td><td data-label="Who">LBMA Gold Price, IBA auction twice daily; COMEX</td></tr>
+          <tr><td data-label="Market"><a href="/silver-dashboard">Silver</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Benchmark auction</td><td data-label="Who">LBMA Silver Price; COMEX</td></tr>
+          <tr><td data-label="Market"><a href="/pgm-dashboard">Platinum group metals</a></td><td data-label="Concentration">High</td><td data-label="Regime">Benchmark auction</td><td data-label="Who">LBMA Platinum and Palladium Prices; rhodium by dealer quote, no benchmark</td></tr>
+          <tr><td data-label="Market"><a href="/copper-dashboard">Copper</a></td><td data-label="Concentration">High, refining (mine Medium)</td><td data-label="Regime">Exchange</td><td data-label="Who">LME, COMEX, SHFE trades</td></tr>
+          <tr><td data-label="Market"><a href="/oil-gas-dashboard">Oil &amp; Gas</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Exchange</td><td data-label="Who">ICE Brent, NYMEX WTI and Henry Hub trades; OPEC+ output decisions behind them</td></tr>
+          <tr><td data-label="Market"><a href="/uranium-dashboard">Uranium</a></td><td data-label="Concentration">High; Kazatomprom and Cameco; Russia in enrichment</td><td data-label="Regime">Exchange (units); consultants' estimate (metal)</td><td data-label="Who">The published spot price is a consultants' estimate from a thin market; term contracts are bilateral</td></tr>
+          <tr><td data-label="Market"><a href="/rare-earths-dashboard">Rare Earths</a></td><td data-label="Concentration">High, separation (mining lower)</td><td data-label="Regime">Asking list</td><td data-label="Who">Chinese price reporters (SMM) and the two state groups; ex-China dealers quote at a premium and buy back at a discount</td></tr>
+          <tr><td data-label="Market"><a href="/cocoa-dashboard">Cocoa</a></td><td data-label="Concentration">High, marketing boards</td><td data-label="Regime">Exchange (world); Administered (farm gate)</td><td data-label="Who">ICE New York and London; the Conseil Café-Cacao and Cocobod set the farm-gate price for the two largest origins</td></tr>
+          <tr><td data-label="Market"><a href="/coffee-dashboard">Coffee</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Exchange</td><td data-label="Who">ICE arabica and robusta; specialty lots priced by cupping score and direct contract</td></tr>
+          <tr><td data-label="Market"><a href="/fine-wine-dashboard">Fine Wine</a></td><td data-label="Concentration">Low</td><td data-label="Regime">Trade platform</td><td data-label="Who">Liv-ex mid-price among 620+ merchants; release prices set by the château and the Bordeaux négoce</td></tr>
+          <tr><td data-label="Market"><a href="/champagne-dashboard">Champagne</a></td><td data-label="Concentration">High; LVMH houses, a regulated appellation, yield set annually</td><td data-label="Regime">Trade platform; Administered (yield)</td><td data-label="Who">Liv-ex Champagne 50; the Comité Champagne sets the annual yield, the houses set release</td></tr>
+          <tr><td data-label="Market"><a href="/port-dashboard">Port</a></td><td data-label="Concentration">High, benefício and two family groups</td><td data-label="Regime">Trade platform; Administered (benefício)</td><td data-label="Who">Liv-ex Port 50 via merchants; the IVDP sets the benefício, the shippers declare vintages</td></tr>
+          <tr><td data-label="Market"><a href="/scotch-whisky-dashboard">Scotch Whisky</a></td><td data-label="Concentration">High</td><td data-label="Regime">Calendar auction (bottles); Dealer quote (casks)</td><td data-label="Who">Monthly online auctions; distillers' release prices; cask brokers' own quotes</td></tr>
+          <tr><td data-label="Market"><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a></td><td data-label="Concentration">Low at the cask level; high in the trade (Diageo, Pernod, Edrington)</td><td data-label="Regime">Dealer quote</td><td data-label="Who">The broker, usually the one that sold the cask; no market, no price list</td></tr>
+          <tr><td data-label="Market"><a href="/japanese-whisky-dashboard">Japanese Whisky</a></td><td data-label="Concentration">Very high; two companies, two closed stills</td><td data-label="Regime">Administered (release); Calendar auction (secondary)</td><td data-label="Who">Suntory and Nikka set release price and allocate by ballot; the secondary premium is the gap</td></tr>
+          <tr><td data-label="Market"><a href="/cigars-dashboard">Cigars</a></td><td data-label="Concentration">High</td><td data-label="Regime">Administered (release); Calendar auction</td><td data-label="Who">Habanos S.A. sets release and allocation; specialist auctions for aged boxes</td></tr>
+          <tr><td data-label="Market"><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a></td><td data-label="Concentration">High for factory tea (Dayi); dispersed for mountain tea</td><td data-label="Regime">Trade platform (Dayi); Dealer quote (antique)</td><td data-label="Who">Donghe quotation platform and Fangcun dealers for Dayi; a handful of dealers for antique cakes</td></tr>
+          <tr><td data-label="Market"><a href="/tea-dashboard">Tea</a></td><td data-label="Concentration">High</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Prefectural auctions (Kyoto, Kagoshima) for tencha; Mombasa and Kolkata for bulk</td></tr>
+          <tr><td data-label="Market"><a href="/parmigiano-dashboard">Parmigiano Reggiano</a></td><td data-label="Concentration">Medium; one consortium sets output and grades every wheel</td><td data-label="Regime">Trade platform; Administered (output)</td><td data-label="Who">Parma Borsa Merci weekly list by maturity; the Consorzio sets production quotas</td></tr>
+          <tr><td data-label="Market"><a href="/olive-oil-dashboard">Olive Oil</a></td><td data-label="Concentration">High</td><td data-label="Regime">Trade platform</td><td data-label="Who">Poolred and Infaoliva in Jaén, ISMEA in Italy, weekly origin prices; Deoleo as the largest bottler</td></tr>
+          <tr><td data-label="Market"><a href="/saffron-dashboard">Saffron</a></td><td data-label="Concentration">High</td><td data-label="Regime">Asking list</td><td data-label="Who">Iranian exporters' quotes and an exchange-linked dashboard; the buyer's laboratory sets the grade, and so the price</td></tr>
+          <tr><td data-label="Market"><a href="/vanilla-dashboard">Vanilla</a></td><td data-label="Concentration">High</td><td data-label="Regime">Administered (floor); Dealer quote</td><td data-label="Who">Madagascar's official minimum export prices; importers' and flavour houses' bids above them</td></tr>
+          <tr><td data-label="Market"><a href="/frankincense-dashboard">Frankincense</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Dealer quote</td><td data-label="Who">Exporters in Berbera, Bosaso and Salalah; no exchange, no benchmark</td></tr>
+          <tr><td data-label="Market"><a href="/oud-dashboard">Oud</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Asking list</td><td data-label="Who">Dealer price ladders (wild US$800–15,000+/kg, plantation US$30–400); no benchmark</td></tr>
+          <tr><td data-label="Market"><a href="/manuka-honey-dashboard">Manuka Honey</a></td><td data-label="Concentration">High</td><td data-label="Regime">Exchange (equity); Dealer quote (honey)</td><td data-label="Who">NZX for Comvita; packers' MGO-graded bids for drums</td></tr>
+          <tr><td data-label="Market"><a href="/maple-syrup-dashboard">Maple Syrup</a></td><td data-label="Concentration">Very high; Québec 72% of world output under one seller</td><td data-label="Regime">Administered</td><td data-label="Who">The Fédération des producteurs acéricoles du Québec sets the bulk price, grades on delivery and decides what ships or goes to reserve</td></tr>
+          <tr><td data-label="Market"><a href="/dates-dashboard">Dates</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Calendar auction; Dealer quote</td><td data-label="Who">Buraidah and Madinah wholesale markets in season; packers under contract</td></tr>
+          <tr><td data-label="Market"><a href="/truffles-dashboard">Truffles</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Weekly wholesale markets (Richerenches, Carpentras, Alba) in season</td></tr>
+          <tr><td data-label="Market"><a href="/caviar-dashboard">Caviar</a></td><td data-label="Concentration">Medium–High</td><td data-label="Regime">Dealer quote</td><td data-label="Who">Farm-to-importer contracts; Kaluga Queen as the largest producer, private</td></tr>
+          <tr><td data-label="Market"><a href="/bluefin-tuna-dashboard">Bluefin Tuna</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Toyosu daily auction among licensed buyers; the New Year fish is a ceremony, not a price</td></tr>
+          <tr><td data-label="Market"><a href="/wagyu-dashboard">Wagyu</a></td><td data-label="Concentration">High</td><td data-label="Regime">Calendar auction</td><td data-label="Who">About 170 licensed carcass auctions after JMGA grading; an A4 result cuts the price by a quarter</td></tr>
+          <tr><td data-label="Market"><a href="/racehorses-dashboard">Racehorses</a></td><td data-label="Concentration">Medium; Kentucky, two stallion fees</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Keeneland and Tattersalls hammer; every yearling price is a derivative of a stallion fee</td></tr>
+          <tr><td data-label="Market"><a href="/breeding-stallions-dashboard">Breeding Stallions</a></td><td data-label="Concentration">High; three studs, two countries</td><td data-label="Regime">Administered (fee); Dealer quote (shares)</td><td data-label="Who">The stud sets the covering fee each season; shares trade privately with the syndicate's approval</td></tr>
+          <tr><td data-label="Market"><a href="/falcons-dashboard">Falcons</a></td><td data-label="Concentration">Medium; c. 70 farms in 20+ countries sell into one region</td><td data-label="Regime">Calendar auction</td><td data-label="Who">The Riyadh breeders' auction and the Saudi exhibition sales; 2026 rules tie racing eligibility to auction purchase</td></tr>
+          <tr><td data-label="Market"><a href="/rough-diamonds-dashboard">Rough Diamonds</a></td><td data-label="Concentration">High; De Beers and Alrosa half of world value, rough distribution administered</td><td data-label="Regime">Administered (sights); Calendar auction (tenders)</td><td data-label="Who">De Beers prices and allocates ten sights a year to 45–50 sightholders; other miners by sealed tender; a secondary box market trades at a premium or discount to the sight price</td></tr>
+          <tr><td data-label="Market"><a href="/polished-diamonds-dashboard">Polished Diamonds</a></td><td data-label="Concentration">Medium; ~90% cut in India, retail fragmented</td><td data-label="Regime">Asking list</td><td data-label="Who">The Rapaport list, sellers' asking prices; trade prices 20–40% below, dealer bids below that</td></tr>
+          <tr><td data-label="Market"><a href="/lab-grown-diamonds-dashboard">Lab-Grown Diamonds</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Asking list</td><td data-label="Who">Growers' wholesale quotes in Surat and Henan; retail asking prices tracked by aggregators; no floor but marginal cost</td></tr>
+          <tr><td data-label="Market"><a href="/coloured-gemstones-dashboard">Coloured Gemstones</a></td><td data-label="Concentration">Medium–High, by stone</td><td data-label="Regime">Calendar auction (polished); Administered (rough)</td><td data-label="Who">Geneva and Hong Kong hammers for the top; Gemfields' sealed-bid rough auctions, open to licensed cutters only</td></tr>
+          <tr><td data-label="Market"><a href="/pearls-dashboard">Pearls</a></td><td data-label="Concentration">Medium</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Natural: Geneva and Hong Kong hammers. Cultured: Paspaley's and others' sealed-bid wholesale sales, trade only</td></tr>
+          <tr><td data-label="Market"><a href="/jade-dashboard">Jade</a></td><td data-label="Concentration">High; one country, one state enterprise</td><td data-label="Regime">Administered (rough); Calendar auction (jewellery)</td><td data-label="Who">Myanmar Gems Enterprise emporia for rough; Hong Kong hammers for imperial grade; livestream sellers for mid-grade</td></tr>
+          <tr><td data-label="Market"><a href="/signed-jewellery-dashboard">Signed Jewellery</a></td><td data-label="Concentration">Medium; the houses control new supply</td><td data-label="Regime">Administered (new); Calendar auction (secondary)</td><td data-label="Who">The houses set retail and production; Geneva, Hong Kong and New York hammers set the secondary comparable</td></tr>
+          <tr><td data-label="Market"><a href="/watches-dashboard">Watches</a></td><td data-label="Concentration">High</td><td data-label="Regime">Administered (retail); Trade platform (secondary)</td><td data-label="Who">Four brands hold 49% of industry sales and allocate references; Chrono24 and dealers set the secondary price</td></tr>
+          <tr><td data-label="Market"><a href="/handbags-dashboard">Handbags</a></td><td data-label="Concentration">High; one house controls new supply by allocation</td><td data-label="Regime">Administered (retail); Calendar auction (secondary)</td><td data-label="Who">Hermès sets retail and allocates two quota bags a client a year; Sotheby's and direct buyers set the resale premium</td></tr>
+          <tr><td data-label="Market"><a href="/coins-dashboard">Coins</a></td><td data-label="Concentration">Low</td><td data-label="Regime">Trade platform</td><td data-label="Who">CDN Greysheet dealer bids for certified coins; Heritage hammers for rarities; the metal price for bullion grades</td></tr>
+          <tr><td data-label="Market"><a href="/stamps-dashboard">Stamps</a></td><td data-label="Concentration">Low</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Specialist house hammers; Stanley Gibbons catalogue as an asking list</td></tr>
+          <tr><td data-label="Market"><a href="/rare-books-dashboard">Rare Books</a></td><td data-label="Concentration">Low</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Auction hammers, sixteen million of them on record; dealer asking prices above</td></tr>
+          <tr><td data-label="Market"><a href="/vintage-guitars-dashboard">Vintage Guitars &amp; Instruments</a></td><td data-label="Concentration">Low; fixed stock dispersed among private owners</td><td data-label="Regime">Dealer quote; Calendar auction</td><td data-label="Who">A handful of specialist dealers' asking prices; Heritage and Christie's hammers for records</td></tr>
+          <tr><td data-label="Market"><a href="/art-dashboard">Art</a></td><td data-label="Concentration">Low</td><td data-label="Regime">Administered (primary); Calendar auction (secondary)</td><td data-label="Who">The gallery sets the primary price and chooses the buyer; Christie's, Sotheby's and Phillips hammers set the secondary comparable</td></tr>
+          <tr><td data-label="Market"><a href="/old-masters-dashboard">Old Masters</a></td><td data-label="Concentration">Low (fixed, dispersed)</td><td data-label="Regime">Calendar auction</td><td data-label="Who">London, New York and Paris hammers; attribution, not supply, moves the price</td></tr>
+          <tr><td data-label="Market"><a href="/classic-cars-dashboard">Classic Cars</a></td><td data-label="Concentration">Low</td><td data-label="Regime">Calendar auction</td><td data-label="Who">Monterey, Scottsdale and Paris hammers; online auctions below about $500k</td></tr>
+          <tr><td data-label="Market"><a href="/fossils-dashboard">Fossils &amp; Meteorites</a></td><td data-label="Concentration">Low; dispersed finders, one dominant saleroom</td><td data-label="Regime">Calendar auction</td><td data-label="Who">One Sotheby's department, one sale a year; three records since 2020, each by a different specimen</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">Fifty-one rows, one per market brief. The second column is copied verbatim from the Structure line of each page as at 29 Oct 2026; the third and fourth paraphrase its text. Where a sector page is updated, it governs.</p>
+    </section>
+
+    <section id="s4"><div class="sechead"><h2><em>IV</em>The concentrated sellers</h2><p class="sub">Where the sector pages name a single party or a small group with the power to set price, this is who they are and how much they hold.</p></div>
+      <div class="tw"><table>
+        <thead><tr><th>Market</th><th>Who</th><th>How much</th><th>Confidence</th><th class="n">Source</th></tr></thead>
+        <tbody>
+          <tr><td>Maple Syrup</td><td>Fédération des producteurs acéricoles du Québec</td><td>Québec is 72% of world output, sold through one seller at an administered price</td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s25">25</a></sup></td></tr>
+          <tr><td>Rough Diamonds</td><td>De Beers; Alrosa</td><td>De Beers "around a third" of world rough by its own account; the two together about half of world value; De Beers sells c. 90% of its output to 45–50 sightholders at ten sights a year</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s26">26</a></sup></td></tr>
+          <tr><td>Japanese Whisky</td><td>Suntory; Nikka (Asahi)</td><td>Two companies; the age-statement stock comes from two closed stills and is allocated by ballot</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s27">27</a></sup></td></tr>
+          <tr><td>Handbags</td><td>Hermès</td><td>One house; allocation of two Birkin, Kelly or Constance bags a client a year; resale premium about 2× retail for store-fresh</td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s21">21</a></sup></td></tr>
+          <tr><td>Watches</td><td>Rolex, Patek Philippe, Audemars Piguet, Richard Mille</td><td>49.1% of industry sales between four brands, each allocating its scarce references</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s28">28</a></sup></td></tr>
+          <tr><td>Jade</td><td>Myanmar Gems Enterprise</td><td>One country, one state enterprise, under sanction</td><td><span class="c c-h">High</span></td><td class="n"><sup class="r"><a href="#s29">29</a></sup></td></tr>
+          <tr><td>Uranium</td><td>Kazatomprom; Cameco; Rosatom (enrichment)</td><td>Two miners dominate primary supply; Russia holds the enrichment step</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s30">30</a></sup></td></tr>
+          <tr><td>Breeding Stallions</td><td>Three studs</td><td>Three studs in two countries, as the sector page states, set the fees that every yearling price derives from</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s31">31</a></sup></td></tr>
+          <tr><td>Cocoa</td><td>Conseil Café-Cacao (Côte d'Ivoire); Cocobod (Ghana)</td><td>Two marketing boards set the farm-gate price for the two largest origins, about 60% of world beans; the world price is ICE's</td><td><span class="c c-x">Hyp</span></td><td class="n"><sup class="r"><a href="#s32">32</a></sup></td></tr>
+          <tr><td>Champagne</td><td>Comité Champagne; LVMH houses</td><td>Yield set annually for the appellation; the largest houses set release price for prestige cuvées</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s33">33</a></sup></td></tr>
+          <tr><td>Scotch Whisky</td><td>Diageo, Pernod Ricard, Edrington</td><td>High concentration in the trade; brand owners set release and control most maturing stock</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s34">34</a></sup></td></tr>
+          <tr><td>Fossils</td><td>One Sotheby's department</td><td>Dispersed finders, one dominant saleroom; three records since 2020 set in its July sale</td><td><span class="c c-m">Med</span></td><td class="n"><sup class="r"><a href="#s35">35</a></sup></td></tr>
+        </tbody>
+      </table></div>
+      <p class="fn">De Beers' share has fallen from about 85% at its peak to a third or less; one analyst put it at 35% by value in 2021, after the end of its Alrosa purchases. <span class="c c-m">Med</span> <sup class="r"><a href="#s2">2</a> <a href="#s3">3</a></sup> Its parent has written the business down by $6.8bn over 2023–25. <span class="c c-m">Med</span> <sup class="r"><a href="#s3">3</a></sup></p>
+    </section>
+
+    <section id="s5"><div class="sechead"><h2><em>V</em>Rooms the holder is not in</h2><p class="sub">In many markets the price is discovered honestly, but among a closed set of participants. The private holder sees the result and pays an intermediary to reach it.</p></div>
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+        <div><span class="k"><b>Members only</b>Trade platforms</span><p>Liv-ex trades only between professionals; a private holder sells through a merchant who takes 10% or more. Greysheet bids are dealer-to-dealer. The Parma Borsa Merci lists prices for trade buyers. The price is real; the access is not. <sup class="r"><a href="#s36">36</a></sup></p></div>
+        <div><span class="k"><b>Licensed buyers</b>Primary auctions</span><p>Toyosu, the Japanese carcass auctions, Gemfields' rough tenders, the Kimberley-registered diamond tenders, Paspaley's pearl sales and the prefectural tencha auctions are open to licensed trade buyers. The holder of a fish, a stone or a leaf does not bid; the holder of equity in the buyer does, by proxy.</p></div>
+        <div><span class="k"><b>The chosen list</b>Sights and allocations</span><p>De Beers chooses its sightholders and what goes in their boxes; Hermès chooses who may buy a Birkin; Suntory allocates by ballot; the gallery chooses the collector. A secondary market forms immediately outside the door, and its premium or discount to the administered price is the only free price in the market. <sup class="r"><a href="#s26">26</a> <a href="#s21">21</a></sup></p></div>
+        <div><span class="k"><b>The list is not the price</b>Asking schedules</span><p>The Rapaport list is sellers' asking prices and "isn't a record of actual transaction prices"; the sector page puts trade prices 20–40% below it and a private seller's realisation at 40–60% of retail. Dealer price ladders for oud, rare earths and saffron work the same way: the quote is the dealer's, in both directions. <sup class="r"><a href="#s24">24</a> <a href="#s37">37</a></sup></p></div>
+      </div>
+    </section>
+
+    <section id="s6"><div class="sechead"><h2><em>VI</em>Three patterns in the record</h2></div>
+      <div class="cards">
+        <div><span class="k"><b>Pattern 1</b>Chain</span><h3>Power sits one step above the source</h3><p>Mines, vineyards, farms and finders are dispersed in almost every market here. Concentration appears at the refiner, the separator, the marketing board, the house or the saleroom. The sector pages that split the line ("refining (mine Low)") are the ones to read for where a holder's price is actually made.</p><p class="open">Watch: Chinese separation share in rare earths; refinery consolidation in copper and gold</p></div>
+        <div><span class="k"><b>Pattern 2</b>Two tiers</span><h3>An administered price breeds a free one next to it</h3><p>Wherever one party sets the price and chooses the buyer, a second market forms outside the door: secondary sight boxes, the Birkin resale premium, the Japanese whisky ballot premium, the maple reserve stock, art flipped from gallery to auction. The gap between the two prices is the measure of how far the administered price is from what the market would pay.</p><p class="open">Watch: the secondary box premium to De Beers' sight price; the Birkin resale ratio; ballot-to-auction gaps</p></div>
+        <div><span class="k"><b>Pattern 3</b>Grip</span><h3>When the administrator loses control, the fall is fastest</h3><p>De Beers held roughly 85% of rough and now holds a third; its parent wrote down $6.8bn in three years and lab-grown took the engagement ring. The cask firms that quoted their own prices were insolvent by 2025. An administered price is stable until it is not, and the sector pages for diamonds and casks record what the transition cost holders. <sup class="r"><a href="#s3">3</a> <a href="#s38">38</a></sup></p><p class="open">Watch: Botswana's stake in De Beers and the sight system's future; maple reserve drawdowns</p></div>
+      </div>
+      <div class="note"><span class="k">Derived observation</span><p>The Liquidity line on the sector pages is highest where the price is discovered on an exchange or benchmark, and lowest where it is administered or set by dealer quote. A holder cannot change who sets the price, but can read the regime before buying and know, for a cask or a polished stone, that the number quoted at entry is the seller's and the number at exit will be the buyer's. <span class="c c-x">Hyp</span></p></div>
+    </section>
+
+    <section id="s7"><div class="sechead"><h2><em>VII</em>Indicators to monitor</h2></div>
+      <ul class="dash">
+        <li>Any change of ownership at De Beers and whether the sight system survives it; Botswana holds 15% with pre-emptive rights <span class="c c-m">Med</span> <sup class="r"><a href="#s3">3</a></sup>.</li>
+        <li>The Québec Federation's reserve level and any revision of the administered bulk price after a short season.</li>
+        <li>Publication of any transaction-based diamond price index, which would move polished diamonds from Asking list to Trade platform.</li>
+        <li>Hermès' and the watch brands' allocation policies, and the resale premium that measures them.</li>
+        <li>Whether Liv-ex or any trade platform opens to private holders.</li>
+        <li>Chinese export controls on rare-earth separation and the ex-China dealer premium.</li>
+      </ul>
+    </section>
+
+    <section id="s8"><div class="sechead"><h2><em>VIII</em>Sources</h2></div>
+      <ol class="src">
+        <li id="s1">De Beers Group, "<a href="https://www.debeersgroup.com/">The World's Leading Diamond Company</a>": "around a third of the global supply of rough diamonds" — accessed 29 Oct 2026</li>
+        <li id="s2">Edahn Golan Diamond Research, "<a href="https://www.edahngolan.com/de-beers-timeline/">De Beers Timeline</a>", Oct 2026: 35% by value and 28% by volume in 2021 — accessed 29 Oct 2026</li>
+        <li id="s3">European Business Magazine, "<a href="https://europeanbusinessmagazine.com/de-beers-diamond-collapse/">A Diamond Isn't Forever: How De Beers Lost Its Grip</a>", 20 Oct 2026 (secondary; write-down figures attributed to Anglo American results) — accessed 29 Oct 2026</li>
+        <li id="s20">ΣΟΦΙΑ, <a href="/gold-dashboard">Gold</a>, market brief, Structure, snapshot Oct 2026</li>
+        <li id="s21">ΣΟΦΙΑ, <a href="/handbags-dashboard">Handbags</a>, market brief, Structure and Holding horizon, snapshot Oct 2026</li>
+        <li id="s22">ΣΟΦΙΑ, <a href="/copper-dashboard">Copper</a>, market brief, Structure, snapshot Oct 2026</li>
+        <li id="s23">ΣΟΦΙΑ, <a href="/rare-earths-dashboard">Rare Earths</a>, market brief, Structure and Exit depth, snapshot Oct 2026</li>
+        <li id="s24">ΣΟΦΙΑ, <a href="/polished-diamonds-dashboard">Polished Diamonds</a>, market brief, Holding horizon and Cost, snapshot 20 Oct 2026</li>
+        <li id="s25">ΣΟΦΙΑ, <a href="/maple-syrup-dashboard">Maple Syrup</a>, market brief, Structure and Exit depth, snapshot 20 Oct 2026</li>
+        <li id="s26">ΣΟΦΙΑ, <a href="/rough-diamonds-dashboard">Rough Diamonds</a>, market brief, Structure, Holding horizon and Exit depth, snapshot 20 Oct 2026</li>
+        <li id="s27">ΣΟΦΙΑ, <a href="/japanese-whisky-dashboard">Japanese Whisky</a>, market brief, Structure and Holding horizon, snapshot 20 Oct 2026</li>
+        <li id="s28">ΣΟΦΙΑ, <a href="/watches-dashboard">Watches</a>, market brief, key figures, snapshot Oct 2026</li>
+        <li id="s29">ΣΟΦΙΑ, <a href="/jade-dashboard">Jade</a>, market brief, Structure and Price regime, snapshot 19 Oct 2026</li>
+        <li id="s30">ΣΟΦΙΑ, <a href="/uranium-dashboard">Uranium</a>, market brief, Structure, snapshot Oct 2026</li>
+        <li id="s31">ΣΟΦΙΑ, <a href="/breeding-stallions-dashboard">Breeding Stallions</a>, market brief, Structure, snapshot 20 Oct 2026</li>
+        <li id="s32">ΣΟΦΙΑ, <a href="/cocoa-dashboard">Cocoa</a>, market brief, Structure and Origins, snapshot Oct 2026</li>
+        <li id="s33">ΣΟΦΙΑ, <a href="/champagne-dashboard">Champagne</a>, market brief, Structure, snapshot 20 Oct 2026</li>
+        <li id="s34">ΣΟΦΙΑ, <a href="/scotch-whisky-dashboard">Scotch Whisky</a> and <a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a>, market briefs, Structure, snapshot Oct 2026</li>
+        <li id="s35">ΣΟΦΙΑ, <a href="/fossils-dashboard">Fossils &amp; Meteorites</a>, market brief, Structure and Holding horizon, snapshot Oct 2026</li>
+        <li id="s36">ΣΟΦΙΑ, <a href="/fine-wine-dashboard">Fine Wine</a>, <a href="/coins-dashboard">Coins</a> and <a href="/parmigiano-dashboard">Parmigiano Reggiano</a>, market briefs, Exit depth, snapshot Oct 2026</li>
+        <li id="s37">ΣΟΦΙΑ, "<a href="/tokenisation#s3">Tokenising scarce assets</a>", Section III, citing Rapaport</li>
+        <li id="s38">ΣΟΦΙΑ, <a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a>, market brief, Holding horizon, snapshot 20 Oct 2026</li>
+      </ol>
+      <p class="fn" style="margin-top:14px">Rows in the register (Section III) not separately numbered here are drawn from the Structure line and text of the linked market brief; each brief carries its own numbered sources. The cocoa marketing-board share (about 60% of world beans) is an inference from the Origins line of the sector page and was not re-verified for this page. <span class="c c-x">Hyp</span></p>
+    </section>
+
+    <div class="note"><b>Compiled 29 Oct 2026.</b> First publication. Corrections: none recorded.</div>
+</main>
+<footer class="foot"><span class="fm">ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+
+</body>
+</html>
