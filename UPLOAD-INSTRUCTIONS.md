@@ -10,6 +10,8 @@ Files: all of saphia-site/ (upload the folder contents to the repo root, replaci
 - Maple Syrup and Vanilla: repaired malformed citation links in the Exit depth block (maple's missing source 12 removed)
 - Earlier in this batch: Climate, Access, Custody, Sanctions, Provenance, Who sets the price, Exit depth, Substitutes; /about and /themes pages; nav is About / Methodology / Markets / Themes everywhere; Method renamed Methodology; Markets "Recently updated" row
 
+- New /report page (report.html): report builder — reads any brief and its themes client-side, prints to PDF. Linked from every brief and from Markets.
+
 ## Verify once deployed
 - saphia.io/themes → three groups, eleven themes; "Which themes cover a market" opens to a 51-row grid
 - saphia.io/tax and saphia.io/auction-vs-dealer → load, 8 sections each, 51-row registers; auction page sources numbered 20–34
@@ -97,6 +99,7 @@ Then DELETE natural_diamonds_dashboard.html from the repo (its URL redirects to 
 - any dashboard → nav reads About / Methodology / Markets / Themes
 - saphia.io/lab-grown-diamonds-dashboard → two part banners; contents list shows Part A / Part B
 - saphia.io/                        → headline, one-line description, three entry links (Markets / Themes / Method)
+- saphia.io/report?market=falcons → Falcons brief parts listed, preview renders, Save as PDF opens print
 - saphia.io/sitemap.xml and /robots.txt → resolve as plain text
 - any dashboard → "Themes that cover this market" block above the footer; on a phone, tables show "Scroll for more →"
 - saphia.io/markets                 → 51 tiles in each view; Rough under Σ4, Polished under Σ3

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build a report — Saphia (ΣΟΦΙΑ)</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Build a report — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="Assemble a printable report from any Saphia market brief: choose the sections, keep the sources, save as PDF."><meta property="og:url" content="https://saphia.io/report"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
+<meta name="description" content="Assemble a printable report from any Saphia market brief: choose the sections, keep the sources, save as PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{background:#f4efe6;scroll-behavior:smooth}
+body{margin:0;background:#f4efe6;color:#141412;font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#141412;text-decoration:none}
+a:hover{color:#7d5f3f}
+button{font-family:'Inter',system-ui,sans-serif}
+.hv-ink:hover{color:#141412}.hv-br:hover{color:#7d5f3f}.hv-bg:hover{background:#f4efe6 !important}.hv-bd:hover{border-color:#a8825a !important}.hv-ink-br:hover{color:#141412;border-color:#a8825a !important}
+.wrap{font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:16px;line-height:1.6;color:#141412;max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 64px}
+nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px}
+nav.top .mark{font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em}
+nav.top .links{display:flex;flex-wrap:wrap;gap:28px}nav.top .links a{color:#6f6a62}nav.top .links a:hover{color:#141412}nav.top .links a.cur{color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px}
+footer.ft{margin-top:48px;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+footer.ft a{color:#6f6a62;border-bottom:1px solid #dcd4c6}footer.ft a:hover{color:#141412;border-color:#a8825a}
+.serif{font-family:'EB Garamond',Georgia,serif;font-weight:400}
+h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400}
+.two{display:grid;grid-template-columns:200px minmax(0,1fr);gap:12px 32px;padding:28px 0;border-top:1px solid #dcd4c6}
+.row2{display:grid;grid-template-columns:180px 1fr;gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:15.5px;line-height:1.5}
+.row3{display:grid;grid-template-columns:24px 150px 1fr;gap:4px 20px;padding:12px 0;border-bottom:1px solid #e6dfd2;font-size:15px;line-height:1.5}
+.exp{margin-top:6px;background:none;border:0;padding:8px 0;min-height:44px;cursor:pointer;font-size:14.5px;color:#7d5f3f;display:inline-flex;align-items:center;gap:8px}
+.exp:hover{color:#141412}.exp span{border-bottom:1px solid #a8825a;padding-bottom:1px}
+.mute{color:#6f6a62}.ink{color:#141412}.body{color:#45423c}
+.tile{display:block;background:#faf7f0;border:1px solid #dcd4c6;padding:16px 16px 14px;min-height:44px}.tile:hover{border-color:#a8825a}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.vbtn{padding:8px 14px;min-height:40px;border:1px solid #dcd4c6;background:transparent;color:#6f6a62;cursor:pointer;font-size:14px}.vbtn.on{border-color:#141412;background:#141412;color:#f4efe6}
+.ctl{position:fixed;right:20px;bottom:20px;z-index:30;display:flex;flex-direction:column;gap:6px;opacity:0;pointer-events:none;transition:opacity .2s}.ctl.on{opacity:1;pointer-events:auto}
+.ctl button{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid #dcd4c6;background:#faf7f0;color:#7d5f3f;font-size:15px;line-height:1;cursor:pointer;padding:0}.ctl button:hover:not(:disabled){border-color:#a8825a;color:#141412}.ctl button:disabled{opacity:.32;cursor:default}
+section{scroll-margin-top:24px}
+.vbtn:focus-visible,.exp:focus-visible,.axbtn:focus-visible,.ctl button:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #a8825a;outline-offset:2px}
+
+.axdefs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px 28px;padding:24px 0 26px;border-top:1px solid #dcd4c6}
+.chead,.crow{display:grid;grid-template-columns:minmax(0,1fr) 44px repeat(4,88px);gap:8px 14px}
+.chead{align-items:end;padding:0 0 10px;border-bottom:1px solid #141412}
+.axbtn{background:none;border:0;padding:0 0 2px;margin:0;cursor:pointer;color:#6f6a62;border-bottom:1px solid transparent;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;text-align:left;min-height:40px;display:flex;align-items:flex-end;justify-self:start}.axbtn:hover{color:#141412}.axbtn.on{color:#141412;border-bottom-color:#a8825a}
+.axbtn .abbr{display:none}
+.cghead{display:flex;align-items:baseline;gap:12px;padding:26px 0 8px}.cgnote{margin:-4px 0 10px;font-size:14px;line-height:1.5;max-width:64ch;text-wrap:pretty}.cghead .sub{font-size:13.5px;color:#6f6a62}
+.crow{align-items:center;padding:9px 0;border-top:1px solid #e6dfd2;min-height:44px;color:#141412}.crow:hover{background:#faf7f0;color:#141412}
+.cname{min-width:0}.cname .serif{font-size:17px;line-height:1.2}.cg{font-size:15px;color:#7d5f3f}.chead .sg{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#6f6a62;padding-bottom:3px}
+.dots{display:flex;gap:5px}.dots i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid #cfc6b6;box-sizing:border-box}.dots i.on{background:#a8825a;border-color:#a8825a}
+@media(max-width:720px){.chead,.crow{grid-template-columns:minmax(0,1fr) 28px repeat(4,46px)}.dots{gap:3px}.dots i{width:7px;height:7px}.axbtn .full{display:none}.axbtn .abbr{display:inline}}
+
+@media(max-width:760px){.two{grid-template-columns:1fr}.row2{grid-template-columns:1fr}.row3{grid-template-columns:24px 1fr}.row3 .d{grid-column:1/-1}.indent{padding-left:0 !important}.ctl{right:14px;bottom:14px}.gcols{grid-template-columns:48px minmax(0,1fr) !important}.gcols .sp{grid-column:1/-1}.fcols,.bands{grid-template-columns:1fr !important}.excols{grid-template-columns:minmax(72px,auto) minmax(0,1fr) minmax(0,1fr) !important}}
+
+.sel{width:100%;min-height:44px;padding:10px 14px;border:1px solid #dcd4c6;background:#faf7f0;color:#141412;font:400 16px 'Inter',system-ui,sans-serif;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237d5f3f' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.chk{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #e6dfd2;min-height:44px;cursor:pointer;font-size:15.5px;line-height:1.45}
+.chk input{appearance:none;-webkit-appearance:none;width:16px;height:16px;flex:none;margin-top:4px;border:1px solid #a8825a;background:#faf7f0;cursor:pointer;position:relative}
+.chk input:checked{background:#141412;border-color:#141412}.chk input:checked::after{content:"";position:absolute;left:5px;top:2px;width:4px;height:8px;border:solid #f4efe6;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.chk .n{color:#a8825a;font-size:12px;letter-spacing:.1em;width:28px;flex:none;margin-top:2px}
+.chk .m{color:#6f6a62;font-size:13.5px;display:block}
+.btn{min-height:44px;padding:10px 18px;border:1px solid #141412;background:#141412;color:#f4efe6;cursor:pointer;font:400 15px 'Inter',system-ui,sans-serif}.btn:hover{background:#2b2924}.btn:disabled{opacity:.4;cursor:default}
+.btn.ghost{background:transparent;color:#141412}.btn.ghost:hover{background:#faf7f0}
+.prev{width:100%;height:min(78vh,900px);border:1px solid #dcd4c6;background:#fff;display:block}
+.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:40px;align-items:start}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/about">About</a><a href="/method">Methodology</a><a href="/markets">Markets</a><a href="/themes">Themes</a></div></nav>
+<h1 style="font-size:clamp(34px,4.6vw,44px);line-height:1.1;margin:clamp(44px,8vw,72px) 0 16px;letter-spacing:-.01em">Build a report</h1>
+<p class="serif" style="font-size:clamp(19px,2.4vw,22px);line-height:1.4;margin:0 0 12px;max-width:44ch;text-wrap:pretty">Choose a market and the parts of its brief you need. The report keeps every citation, tag and date; nothing is added.</p>
+<p class="mute" style="margin:0 0 36px;max-width:60ch;font-size:15.5px;text-wrap:pretty">Assembled from the brief as published, with its "Data as of" date on the cover. Save it as a PDF from the print dialog.</p>
+
+<div class="layout">
+  <div>
+    <label class="mute" for="market" style="display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px">Market</label>
+    <select id="market" class="sel" aria-label="Market"></select>
+    <div id="status" class="mute" style="font-size:13.5px;margin-top:10px;min-height:20px"></div>
+    <div id="parts" style="margin-top:24px" hidden>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span class="mute" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase">Include</span><span style="display:flex;gap:14px;font-size:13px"><button type="button" class="exp" id="all" style="min-height:32px;padding:0;margin:0"><span>All</span></button><button type="button" class="exp" id="none" style="min-height:32px;padding:0;margin:0"><span>None</span></button></span></div>
+      <div id="chks" style="border-top:1px solid #141412;margin-top:8px"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px"><button type="button" class="btn" id="pdf">Save as PDF</button><a id="open" class="btn ghost" style="display:inline-flex;align-items:center" href="#" target="_blank" rel="noopener">Open in a tab</a></div>
+      <p class="mute" style="font-size:13.5px;margin:16px 0 0;max-width:38ch;text-wrap:pretty">Nothing on this site is a recommendation to buy, sell or hold anything. <a href="/method#not" style="border-bottom:1px solid #dcd4c6">What ΣΟΦΙΑ is not →</a></p>
+    </div>
+  </div>
+  <div>
+    <div class="mute" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px">Preview</div>
+    <iframe id="prev" class="prev" title="Report preview"></iframe>
+  </div>
+</div>
+<footer class="ft"><span>ΣΟΦΙΑ</span><span>Scarce assets. One perspective.</span><a href="/advisers">For advisers and institutions</a></footer>
+</div>
+<script>
+(function(){
+  var M=[{"slug":"art","name":"Art","file":"art_dashboard.html"},{"slug":"bluefin-tuna","name":"Bluefin Tuna","file":"bluefin_tuna_dashboard.html"},{"slug":"breeding-stallions","name":"Breeding Stallions","file":"breeding_stallions_dashboard.html"},{"slug":"caviar","name":"Caviar","file":"caviar_dashboard.html"},{"slug":"champagne","name":"Champagne","file":"champagne_dashboard.html"},{"slug":"cigars","name":"Cigars","file":"cigars_dashboard.html"},{"slug":"classic-cars","name":"Classic Cars","file":"classic_cars_dashboard.html"},{"slug":"cocoa","name":"Cocoa","file":"cocoa_dashboard.html"},{"slug":"coffee","name":"Coffee","file":"coffee_dashboard.html"},{"slug":"coins","name":"Coins","file":"coins_dashboard.html"},{"slug":"coloured-gemstones","name":"Coloured Gemstones","file":"coloured_gemstones_dashboard.html"},{"slug":"copper","name":"Copper","file":"copper_dashboard.html"},{"slug":"dates","name":"Dates","file":"dates_dashboard.html"},{"slug":"falcons","name":"Falcons","file":"falcons_dashboard.html"},{"slug":"fine-wine","name":"Fine Wine","file":"fine_wine_dashboard.html"},{"slug":"fossils","name":"Fossils & Meteorites","file":"fossils_dashboard.html"},{"slug":"frankincense","name":"Frankincense","file":"frankincense_dashboard.html"},{"slug":"gold","name":"Gold","file":"gold_dashboard.html"},{"slug":"handbags","name":"Handbags","file":"handbags_dashboard.html"},{"slug":"jade","name":"Jade","file":"jade_dashboard.html"},{"slug":"japanese-whisky","name":"Japanese Whisky","file":"japanese_whisky_dashboard.html"},{"slug":"lab-grown-diamonds","name":"Lab-Grown Diamonds","file":"lab_grown_diamonds_dashboard.html"},{"slug":"manuka-honey","name":"Mānuka Honey","file":"manuka_honey_dashboard.html"},{"slug":"maple-syrup","name":"Maple Syrup","file":"maple_syrup_dashboard.html"},{"slug":"oil-gas","name":"Oil & Gas","file":"oil_gas_dashboard.html"},{"slug":"old-masters","name":"Old Masters","file":"old_masters_dashboard.html"},{"slug":"olive-oil","name":"Olive Oil","file":"olive_oil_dashboard.html"},{"slug":"oud","name":"Oud","file":"oud_dashboard.html"},{"slug":"parmigiano","name":"Parmigiano Reggiano","file":"parmigiano_dashboard.html"},{"slug":"pearls","name":"Pearls","file":"pearls_dashboard.html"},{"slug":"pgm","name":"Platinum Group Metals","file":"pgm_dashboard.html"},{"slug":"port","name":"Port","file":"port_dashboard.html"},{"slug":"polished-diamonds","name":"Polished Diamonds","file":"polished_diamonds_dashboard.html"},{"slug":"pu-erh-tea","name":"Pu-erh Tea","file":"pu_erh_tea_dashboard.html"},{"slug":"racehorses","name":"Racehorses","file":"racehorses_dashboard.html"},{"slug":"rare-books","name":"Rare Books","file":"rare_books_dashboard.html"},{"slug":"rare-earths","name":"Rare Earths","file":"rare_earths_dashboard.html"},{"slug":"rare-whisky-casks","name":"Rare Whisky Casks","file":"rare_whisky_casks_dashboard.html"},{"slug":"rough-diamonds","name":"Rough Diamonds","file":"rough_diamonds_dashboard.html"},{"slug":"saffron","name":"Saffron","file":"saffron_dashboard.html"},{"slug":"scotch-whisky","name":"Scotch Whisky","file":"scotch_whisky_dashboard.html"},{"slug":"signed-jewellery","name":"Signed Jewellery","file":"signed_jewellery_dashboard.html"},{"slug":"silver","name":"Silver","file":"silver_dashboard.html"},{"slug":"stamps","name":"Stamps","file":"stamps_dashboard.html"},{"slug":"tea","name":"Tea","file":"tea_dashboard.html"},{"slug":"truffles","name":"Truffles","file":"truffles_dashboard.html"},{"slug":"uranium","name":"Uranium","file":"uranium_dashboard.html"},{"slug":"vanilla","name":"Vanilla","file":"vanilla_dashboard.html"},{"slug":"vintage-guitars","name":"Vintage Guitars & Instruments","file":"vintage_guitars_dashboard.html"},{"slug":"wagyu","name":"Wagyu","file":"wagyu_dashboard.html"},{"slug":"watches","name":"Watches","file":"watches_dashboard.html"}];
+  var sel=document.getElementById('market'), st=document.getElementById('status'), parts=document.getElementById('parts'), chks=document.getElementById('chks'), prev=document.getElementById('prev'), openA=document.getElementById('open');
+  M.forEach(function(m){ var o=document.createElement('option'); o.value=m.slug; o.textContent=m.name; sel.appendChild(o); });
+  var q=new URLSearchParams(location.search).get('market'); sel.value = M.some(function(m){return m.slug===q;}) ? q : 'fine-wine';
+  var doc=null, meta=null, blobUrl=null, themes=[];
+  function src(m){ return location.pathname.indexOf('.html')>0 ? m.file : '/'+m.slug+'-dashboard'; }
+  function txt(el){ return el ? el.textContent.replace(/\s+/g,' ').trim() : ''; }
+  function load(){
+    var m=M.filter(function(x){return x.slug===sel.value;})[0]; if(!m) return;
+    st.textContent='Reading the brief…'; parts.hidden=true; prev.removeAttribute('src'); prev.srcdoc='';
+    try{ history.replaceState(null,'','?market='+m.slug); }catch(e){}
+    fetch(src(m)).then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(h){
+      doc=new DOMParser().parseFromString(h,'text/html');
+      var brief=doc.querySelector('.brief'); if(!brief) throw new Error('no brief');
+      meta={name:m.name, grade:txt(brief.querySelector('.grade .g')), gl:txt(brief.querySelector('.grade .n')), asof:(txt(brief.querySelector('.grade .m')).split('·').pop()||'').trim(), crumb:txt(brief.querySelector('.crumb')).replace(/^Markets\s*·\s*/,'')};
+      var items=[];
+      items.push({id:'snap',n:'',t:'Snapshot',m:'Grade, price regime, structure, holding horizon and exit depth',on:true});
+      if(brief.querySelector('.since')) items.push({id:'since',n:'',t:'Since last update',m:'',on:true});
+      if(brief.querySelector('.why')) items.push({id:'why',n:'',t:'Why '+meta.grade,m:'Rationale and the six factors',on:true});
+      var secs=doc.querySelectorAll('details.report section[id]'); var srcSec=null;
+      secs.forEach(function(s){ var h=s.querySelector('h2'); if(!h) return; var em=h.querySelector('em'); var num=txt(em), title=txt(h).replace(num,'').trim(); var sub=txt(s.querySelector('.sechead .sub')); var isSrc=/^sources$/i.test(title)||s.querySelector('ol.src'); if(isSrc){ srcSec=s; return; } items.push({id:s.id,n:num,t:title,m:sub,on:true}); });
+      items.push({id:'sources',n:'',t:'Sources',m:srcSec?'Full numbered list; citations in the text link to it':'Not found on this brief',on:!!srcSec,dis:!srcSec, el:srcSec}); chks.dataset.srcId = srcSec ? srcSec.id : '';
+      var hasCh=Array.prototype.some.call(doc.querySelectorAll('.note b'),function(b){return /Changes in this refresh/.test(b.textContent);}); if(hasCh) items.push({id:'changes',n:'',t:'Changes note',m:'What moved at the last refresh',on:true});
+      themes=[]; var tl=Array.prototype.slice.call(doc.querySelectorAll('.themes-cover .tc a'));
+      return Promise.all(tl.map(function(a){ var href=a.getAttribute('href'); var f=location.pathname.indexOf('.html')>0 ? href.replace(/^\//,'')+'.html' : href; return fetch(f).then(function(r){return r.ok?r.text():'';}).then(function(h){ if(!h) return; var td=new DOMParser().parseFromString(h,'text/html'); var rows=[]; Array.prototype.forEach.call(td.querySelectorAll('table tr'),function(tr){ if(tr.querySelector('a[href="/'+m.slug+'-dashboard"]')) rows.push(tr); }); if(!rows.length) return; var th=td.querySelector('h1'); var date=txt(td.querySelector('.meta span:last-child')).match(/\d{1,2} \w{3} \d{4}/); var parts=rows.map(function(tr){ var tb=tr.closest('table'); var heads=Array.prototype.map.call(tb.querySelectorAll('thead th'),txt); var sec=tr.closest('section'); var sh=sec?txt(sec.querySelector('h2')).replace(/^[IVX]+/,'').trim():''; var cells=Array.prototype.map.call(tr.querySelectorAll('td'),function(c,i){ var cc=c.cloneNode(true); Array.prototype.forEach.call(cc.querySelectorAll('sup.r'),function(s){s.remove();}); return {k:c.getAttribute('data-label')||heads[i]||'',v:cc.innerHTML}; }).filter(function(c){return !/^market$/i.test(c.k);}); return {sh:sh,cells:cells}; }); themes.push({href:href,title:txt(th)||a.textContent,date:date?date[0]:'',parts:parts}); }).catch(function(){}); })).then(function(){
+        themes.sort(function(a,b){return tl.map(function(x){return x.getAttribute('href');}).indexOf(a.href)-tl.map(function(x){return x.getAttribute('href');}).indexOf(b.href);});
+        themes.forEach(function(t,i){ items.push({id:'theme-'+i,n:'',t:t.title,m:'From the theme register: how this market reads on '+t.title.toLowerCase().split(':')[0],on:true,theme:true}); });
+        return items;
+      });
+    }).then(function(items){ var brief=doc.querySelector('.brief'), secs=doc.querySelectorAll('details.report section[id]');
+      chks.innerHTML=''; var th0=false; items.forEach(function(it){ if(it.theme&&!th0){ th0=true; var hd=document.createElement('div'); hd.className='mute'; hd.style.cssText='font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:18px 0 6px'; hd.textContent='Themes covering this market'; chks.appendChild(hd); } var l=document.createElement('label'); l.className='chk'; l.innerHTML='<input type="checkbox" data-id="'+it.id+'"'+(it.on?' checked':'')+(it.dis?' disabled':'')+'><span class="n">'+it.n+'</span><span><span>'+it.t+'</span>'+(it.m?'<span class="m">'+it.m+'</span>':'')+'</span>'; chks.appendChild(l); });
+      st.textContent=meta.grade+' '+meta.gl+' · Data as of '+meta.asof+' · '+(secs.length)+' sections';
+      parts.hidden=false; build();
+    }).catch(function(e){ st.textContent='Could not read this brief ('+e.message+').'; });
+  }
+  function chosen(){ return Array.prototype.slice.call(chks.querySelectorAll('input:checked')).map(function(i){return i.getAttribute('data-id');}); }
+  function build(){
+    if(!doc) return; var ids=chosen(); var brief=doc.querySelector('.brief').cloneNode(true);
+    var styles=Array.prototype.map.call(doc.querySelectorAll('style'),function(s){return s.textContent;}).join('\n');
+    var fonts=Array.prototype.map.call(doc.querySelectorAll('link[href*="fonts.googleapis"]'),function(l){return l.outerHTML;}).join('');
+    var out=[];
+    var today=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+    out.push('<div class="rp-cover"><div class="rp-mark">ΣΟΦΙΑ</div><div class="rp-k">Market report</div><h1 class="rp-title">'+meta.name+'</h1><div class="rp-grade"><span>'+meta.grade+'</span> '+meta.gl+'</div><div class="rp-meta"><span>'+meta.crumb+'</span><span>Data as of '+meta.asof+'</span><span>Assembled '+today+' from saphia.io/'+sel.value+'-dashboard</span></div><p class="rp-dis">ΣΟΦΙΑ publishes market intelligence and data, not investment advice. Every figure in this report carries the source and confidence tag it carried on the brief; nothing has been added or updated for this copy. The Σ grade is ΣΟΦΙΑ\'s opinion of how practical the asset is to hold, not a view on return.</p></div>');
+    if(ids.indexOf('snap')>=0){ var b=brief.cloneNode(true); Array.prototype.forEach.call(b.querySelectorAll('.crumb, .brief-head, h2, .since, .why, .foot'),function(n){n.remove();}); var route=brief.querySelector('.grade .m'); out.push('<div class="brief rp-part">'+(route?'<div class="rp-route">'+route.textContent+'</div>':'')+b.innerHTML+'</div>'); }
+    if(ids.indexOf('since')>=0){ var s=brief.querySelector('.since'); if(s) out.push('<div class="brief rp-part"><h2>Since last update</h2>'+s.outerHTML+'</div>'); }
+    if(ids.indexOf('why')>=0){ var w=brief.querySelector('.why'); if(w) out.push('<div class="brief rp-part"><h2>Why '+meta.grade+'</h2>'+w.outerHTML+'</div>'); }
+    var secs=doc.querySelectorAll('details.report section[id]');
+    secs.forEach(function(s){ if(ids.indexOf(s.id)<0) return; var c=s.cloneNode(true); Array.prototype.forEach.call(c.querySelectorAll('.tw-hint'),function(n){n.remove();}); Array.prototype.forEach.call(c.querySelectorAll('details'),function(d){d.setAttribute('open','');}); out.push('<section class="rp-part" id="'+s.id+'">'+c.innerHTML+'</section>'); });
+    if(ids.indexOf('sources')>=0 && chks.dataset.srcId){ var ss=doc.getElementById(chks.dataset.srcId).cloneNode(true); Array.prototype.forEach.call(ss.querySelectorAll('details'),function(d){d.setAttribute('open','');}); Array.prototype.forEach.call(ss.querySelectorAll('summary'),function(d){d.remove();}); out.push('<section class="rp-part rp-src" id="'+chks.dataset.srcId+'">'+ss.innerHTML+'</section>'); }
+    if(ids.indexOf('changes')>=0){ var ch=null; Array.prototype.forEach.call(doc.querySelectorAll('.note'),function(n){ var b=n.querySelector('b'); if(b&&/Changes in this refresh/.test(b.textContent)) ch=n; }); if(ch) out.push('<div class="rp-part">'+ch.outerHTML+'</div>'); }
+    var tsel=themes.filter(function(t,i){return ids.indexOf('theme-'+i)>=0;});
+    if(tsel.length){ var tb='<section class="rp-part rp-themes"><div class="sechead tint"><h2><em>Themes</em>How '+meta.name+' reads across the themes</h2><p class="sub">Each entry is this market\'s row in the theme\'s register, as published. Citations and the full argument are on the theme page.</p></div>'; tsel.forEach(function(t){ tb+='<div class="rp-theme"><h3>'+t.title+'</h3><div class="rp-tmeta">saphia.io'+t.href+(t.date?' · '+t.date:'')+'</div>'; t.parts.forEach(function(p){ if(p.sh) tb+='<div class="rp-tsh">'+p.sh+'</div>'; tb+='<dl class="rp-dl">'+p.cells.map(function(c){return '<dt>'+c.k+'</dt><dd>'+c.v+'</dd>';}).join('')+'</dl>'; }); tb+='</div>'; }); tb+='</section>'; out.push(tb); }
+    out.push('<div class="rp-end">ΣΟΦΙΑ · Scarce assets. One perspective. · saphia.io · Method and evidence rules at saphia.io/method</div>');
+    var rp='\n.page{max-width:820px;padding:40px 32px 64px}.rp-cover{padding:48px 0 36px;border-bottom:1px solid var(--ink);margin-bottom:8px}.rp-mark{font-family:var(--display);font-size:26px;letter-spacing:.14em}.rp-k{font-family:var(--sans);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:40px}.rp-title{font-size:64px;line-height:1;margin:10px 0 18px}.rp-grade{font-family:var(--display);font-size:22px}.rp-grade span{color:var(--bronze-lo);font-size:30px;margin-right:6px}.rp-meta{display:flex;flex-wrap:wrap;gap:6px 24px;font-family:var(--sans);font-size:13px;color:var(--mute);margin-top:18px}.rp-dis{font-family:var(--sans);font-size:13px;color:var(--mute);max-width:66ch;margin:24px 0 0;line-height:1.55}.rp-theme{padding:22px 0;border-bottom:1px solid var(--line);break-inside:avoid}.rp-theme h3{font-size:22px;margin:0 0 2px}.rp-tmeta{font-family:var(--sans);font-size:12px;color:var(--mute);margin-bottom:12px}.rp-tsh{font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-lo);margin:10px 0 6px}.rp-dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:6px 20px;margin:0;font-size:14.5px;line-height:1.5}.rp-dl dt{font-family:var(--sans);font-size:12.5px;color:var(--mute);padding-top:2px}.rp-dl dd{margin:0}.rp-dl .c,.rp-dl .t{margin-left:6px}.rp-route{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}.rp-part table{min-width:0;width:100%}.rp-part{break-inside:auto}section.rp-part{padding:40px 0 10px;border-bottom:1px solid var(--line);break-before:page}section.rp-part:first-of-type{break-before:auto}.brief.rp-part{padding:28px 0 8px;border-bottom:1px solid var(--line)}.rp-src ol.src{display:block}.rp-end{font-family:var(--sans);font-size:12px;color:var(--mute);margin-top:48px;padding-top:16px;border-top:1px solid var(--line)}table,.note,.hx,.facts,.why,figure{break-inside:avoid}h2,h3{break-after:avoid}.contents,.ctl,.toc-lite,.related,.themes-cover,.mast,footer.foot{display:none !important}a{color:inherit}.tw{overflow:visible;mask-image:none;-webkit-mask-image:none}.tw table{min-width:0}@page{margin:16mm 14mm}@media print{html,body{background:#fff}.page{max-width:none;padding:0}.def{border-bottom:0}.def::after{display:none}}';
+    var html='<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>'+meta.name+' — ΣΟΦΙΑ market report</title>'+fonts+'<style>'+styles+rp+'</style></head><body><div class="page">'+out.join('')+'</div></body></html>';
+    prev.srcdoc=html;
+    if(blobUrl) URL.revokeObjectURL(blobUrl); blobUrl=URL.createObjectURL(new Blob([html],{type:'text/html'})); openA.href=blobUrl;
+  }
+  sel.addEventListener('change',load); chks.addEventListener('change',build);
+  document.getElementById('all').addEventListener('click',function(){ chks.querySelectorAll('input:not(:disabled)').forEach(function(i){i.checked=true;}); build(); });
+  document.getElementById('none').addEventListener('click',function(){ chks.querySelectorAll('input').forEach(function(i){i.checked=false;}); build(); });
+  document.getElementById('pdf').addEventListener('click',function(){ try{ prev.contentWindow.focus(); prev.contentWindow.print(); }catch(e){ window.open(openA.href,'_blank'); } });
+  load();
+})();
+</script>
+</body>
+</html>

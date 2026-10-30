@@ -1,6 +1,8 @@
 /  /home.html  200
 /home  /home.html  200
 /markets  /markets.html  200
+/report  /report.html  200
+/reports  /report  301
 /method  /method.html  200
 /contact  /contact.html  200
 /advisers  /advisers.html  200
