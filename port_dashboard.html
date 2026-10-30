@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Port, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Port, ΣΟΦΙΑ"><meta property="og:description" content="Port: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/port-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Port: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -318,6 +321,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -357,7 +367,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>A merchant offer within days for well-known declared vintages; weeks to list and sell through a broker or the exchange; three to six months through auction, paid 35–45 days after the sale.<sup class="r"><a href="#s31">31</a> <a href="#s33">33</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Applications for the €12m Douro support scheme for unharvested grapes opened 28 Sep and close 12 Oct; IVDP inspects plots before payment.<sup class="r"><a href="#s29">29</a></sup></p>
@@ -388,7 +398,7 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="sechead tint"><h2><em>I</em>What Port is</h2><p class="sub">A wine whose fermentation is stopped with grape spirit, then defined by how and how long it is aged.</p></div>
   
   <p>Port is made only in the Douro Demarcated Region from a permitted list of varieties, the five principal reds are Touriga Nacional, Touriga Franca, Tinta Roriz, Tinta Cão and Tinta Barroca, with over eighty others allowed in smaller proportions, and fortified during fermentation with grape spirit (aguardente) that today is sourced mainly from Spain or France, a fact Douro growers now contest.<sup class="r"><a href="#s3">3</a> <a href="#s7">7</a></sup> The Instituto dos Vinhos do Douro e do Porto (IVDP), founded in 1933, certifies every age statement and Vintage declaration and issues the numbered seal that must appear on each bottle.<sup class="r"><a href="#s3">3</a> <a href="#s16">16</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Style</th><th>Ageing</th><th>Character and role</th></tr>
     <tr><td>Ruby / Reserve Ruby</td><td>Short, in large vats or casks; blended across harvests</td><td>Volume tier; developed in the 20th century as a younger, fruit-forward expression; Graham's Six Grapes is blended from two or three harvests and bottled at five to six years<sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>Late Bottled Vintage (LBV)</td><td>Single year, four to six years in wood</td><td>The vintage-style wine for the mid-market</td></tr>
@@ -425,7 +435,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="card"><div class="v">38,000–43,000 ha</div><div class="l">Planted vineyard; sources differ, likely by whether all DOC vineyard is counted <span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a> <a href="#s7">7</a></sup></div></div>
     <div class="card"><div class="v">26 hl/ha</div><div class="l">Yields on Symington quintas in 2016, among the lowest anywhere <span class="c c-h">High</span><sup class="r"><a href="#s18">18</a></sup></div></div>
   </div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Sub-region</th><th class="n">Vineyard</th><th>Climate and role</th></tr>
     <tr><td>Baixo Corgo</td><td class="n">c.14,000 ha</td><td>Coolest and wettest (c.900 mm); volume and Ruby<sup class="r"><a href="#s3">3</a></sup></td></tr>
     <tr><td>Cima Corgo</td><td class="n">c.19,000 ha</td><td>The heartland of fine Port; Pinhão; the great quintas, Malvedos, Noval, Roêda<sup class="r"><a href="#s3">3</a> <a href="#s16">16</a></sup></td></tr>
@@ -446,7 +456,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="r"><span>2026</span><div class="bar"><i style="width:65.5%"></i></div><span class="v">76,000 · c.57 m kg grapes</span></div>
   </div>
   <p style="font-size:14px;color:#a8825a">Sources: The Drinks Business (2022, 2024), Macau Business and Vinetur (2023–25), Wine-Intelligence and Portugal Resident (2026).<sup class="r"><a href="#s6">6</a> <a href="#s10">10</a> <a href="#s11">11</a> <a href="#s13">13</a></sup> The 2025 figure was a compromise between growers seeking 90,000 and the trade seeking 68,000 on the grounds of sluggish sales and high stocks.<sup class="r"><a href="#s6">6</a></sup></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator of decline</th><th class="n">Value</th><th>Source & confidence</th></tr>
     <tr><td>Global Port sales by volume, 2021–2023</td><td class="n">−13%</td><td>The Drinks Business <span class="c c-h">High</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
     <tr><td>Case sales, 2013 → 2023</td><td class="n">8.7 m → 7.3 m</td><td>The Drinks Business via CB Insights <span class="c c-m">Med</span><sup class="r"><a href="#s12">12</a></sup></td></tr>
@@ -472,7 +482,7 @@ td.n+td,th.n+th{padding-left:16px}
   </div>
   <p>The academic series above deliberately stops before the pandemic; Decanter's rule of thumb is that France takes four bottles in ten, the UK about a million cases or a tenth of the total, and the Portuguese and Danes have the highest per-capita consumption.<sup class="r"><a href="#s21">21</a> <a href="#s14">14</a></sup> The five main markets form two partially integrated blocs, continental and Anglo-Saxon, with imperfect price transmission between them, which is why a shipper can hold different price ladders in Paris and London.<sup class="r"><a href="#s21">21</a></sup> <span class="c c-h">High</span> Global wine consumption fell for a seventh year in 2025 while Portugal's own consumption reached a record 5.6 m hl; the domestic and tourist market is the one bright spot the houses cite.<sup class="r"><a href="#s22">22</a> <a href="#s12">12</a></sup></p>
   <h3>Who owns the trade</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Group</th><th>Houses</th><th>Ownership</th><th class="n">Share (2013/14)</th></tr>
     <tr><td>La Martiniquaise (Gran Cruz)</td><td>Porto Cruz, the world's biggest-selling Port brand</td><td>French, family (Cayard)<sup class="r"><a href="#s25">25</a></sup></td><td class="n">c.20%</td></tr>
     <tr><td>Sogrape</td><td>Sandeman, Ferreira, Offley</td><td>Portuguese, Guedes family</td><td class="n">c.16%</td></tr>
@@ -487,7 +497,7 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="sechead tint"><h2><em>VI</em>Vintage Port as a collectible</h2><p class="sub">A self-restricting declaration code from the 1850s, and the smallest great wine in the world.</p></div>
   
   <p>Houses declare a Vintage only in years they judge exceptional, roughly two or three a decade, a code Rupert Symington traces to the 1850s, when the trade distinguished very good years from absolutely excellent ones.<sup class="r"><a href="#s19">19</a></sup> Declaration is voluntary per producer; there is no regulatory requirement for a "general" declaration, but the market treats years when most houses declare as the reference vintages.<sup class="r"><a href="#s17">17</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>General declarations, recent</th><th>Note</th></tr>
     <tr><td>2000 · 2003 · 2007 · 2011</td><td>Standard cadence<sup class="r"><a href="#s16">16</a> <a href="#s17">17</a></sup></td></tr>
     <tr><td>2016 · 2017</td><td>Consecutive; 2016 a late, cool-finish year picked into October at Symington; 2017 a hot drought year rated by critics with the great 20th-century vintages<sup class="r"><a href="#s18">18</a> <a href="#s27">27</a></sup></td></tr>
@@ -504,7 +514,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-viii">
   <div class="sechead narrative"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Benefício allocation</td><td>IVDP inter-professional council, July annually</td><td>The single number that sets grower income; direction of the trade's stock position</td></tr>
     <tr><td>Port sales by volume, value and category</td><td>IVDP statistics, monthly and annual</td><td>Whether premium Tawny and Vintage offset Ruby decline</td></tr>
@@ -556,7 +566,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>What Port is</a><a href="#s-ii"><span>II</span>History</a><a href="#s-iii"><span>III</span>The Douro</a><a href="#s-iv"><span>IV</span>The benefício and the grower crisis</a><a href="#s-v"><span>V</span>Markets and houses</a><a href="#s-vi"><span>VI</span>Vintage Port as a collectible</a><a href="#s-viii"><span>VII</span>Indicators to monitor</a><a href="#s-ix"><span>VIII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/fine-wine-dashboard"><span class="nm">Fine Wine</span><span class="rwhy">Same merchants</span></a><a href="/champagne-dashboard"><span class="nm">Champagne</span><span class="rwhy">House-declared vintage</span></a><a href="/scotch-whisky-dashboard"><span class="nm">Scotch Whisky</span><span class="rwhy">Aged, bonded</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/fine-wine-dashboard"><span class="nm">Fine Wine</span><span class="rwhy">Same merchants</span></a><a href="/champagne-dashboard"><span class="nm">Champagne</span><span class="rwhy">House-declared vintage</span></a><a href="/scotch-whisky-dashboard"><span class="nm">Scotch Whisky</span><span class="rwhy">Aged, bonded</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -629,5 +640,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

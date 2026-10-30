@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pearls, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Pearls, ΣΟΦΙΑ"><meta property="og:description" content="Pearls: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/pearls-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Pearls: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -328,6 +331,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -367,7 +377,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Natural pieces wait for a Geneva or Hong Kong sale date (May and November) and are paid 35–45 days after; lab testing adds weeks. Cultured: a dealer offer in days at the dealer's price. Shares: same day.<sup class="r"><a href="#s1">1</a> <a href="#s18">18</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/substitutes">Synthetic and substitute pressure</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no new auction, Paspaley or Japanese Akoya production data found since the last update; only retail price guides. Regime and ratings unchanged.</p>
@@ -437,7 +447,7 @@ td.n+td,th.n+th{padding-left:16px}
     <h3>Market Size by Definition</h3>
     <div class="sub"><span>Distinct value layers, do not interchange</span> <span class="c c-m">Med</span></div>
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <caption>Pearl value layers measure structurally different things</caption>
         <thead><tr><th>Value definition</th><th class="v">Estimate</th><th class="v">Year</th><th>Basis</th><th class="v">Conf.</th></tr></thead>
         <tbody>
@@ -602,7 +612,7 @@ td.n+td,th.n+th{padding-left:16px}
     <h3>The Four Types, Side by Side</h3>
     <div class="sub"><span>Like-for-like positioning</span> <span class="c c-m">Med</span></div>
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <caption>Type is set by the mollusc; value rises with oyster size and rarity</caption>
         <thead><tr><th>Type</th><th>Mollusc</th><th>Origin</th><th class="v">Size</th><th>Value position</th></tr></thead>
         <tbody>
@@ -630,7 +640,7 @@ td.n+td,th.n+th{padding-left:16px}
     <h3>Estimated Annual Production by Region</h3>
     <div class="sub"><span>Tonnages are estimates, definitions and sources vary</span> <span class="c c-m">Med</span></div>
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <caption>Volume concentrates in China; value concentrates in saltwater nations</caption>
         <thead><tr><th>Region</th><th>Type</th><th>Mollusc</th><th class="v">Output (approx.)</th><th>Position</th></tr></thead>
         <tbody>
@@ -690,7 +700,7 @@ td.n+td,th.n+th{padding-left:16px}
     <h3>The GIA 7 Pearl Value Factors</h3>
     <div class="sub"><span>The pearl analogue of the 4Cs</span> <span class="c c-m">Med</span></div>
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <caption>Seven factors, evaluated independently, lustre is first among equals</caption>
         <thead><tr><th>Factor</th><th>What it measures</th><th>What raises value</th></tr></thead>
         <tbody>
@@ -715,7 +725,7 @@ td.n+td,th.n+th{padding-left:16px}
       <p>As with heat in sapphire or oil in emerald, treatment is a major pricing variable for pearls, and the trade norm is that nearly every pearl is processed to <em>some</em> degree, from a simple clean-and-polish upward. The line that matters is between routine, accepted refinement and heavy enhancement that must be disclosed and is materially discounted.<sup><a href="#s13">13</a></sup></p>
     </div>
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <caption>Treatment status drives price, disclosure is the trade's obligation</caption>
         <thead><tr><th>Treatment</th><th>What it does</th><th>Trade status &amp; price effect</th></tr></thead>
         <tbody>
@@ -972,7 +982,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#sec-1"><span>I</span>The Volume–Value Paradox</a><a href="#sec-2"><span>II</span>The Defining Distinction</a><a href="#sec-3"><span>III</span>Akoya · South Sea · Tahitian · Freshwater</a><a href="#sec-4"><span>IV</span>Farms, Not Mines</a><a href="#sec-5"><span>V</span>The Seven Factors · Treatment · Certification</a><a href="#sec-6"><span>VI</span>The Growers, the Listed Pure-Play, and the Maison</a><a href="#sec-7"><span>VII</span>A Gem on the Front Line of the Ocean</a><a href="#sources"><span>VIII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Laboratory report as title</span></a><a href="/jade-dashboard"><span class="nm">Jade</span><span class="rwhy">Natural vs cultured</span></a><a href="/signed-jewellery-dashboard"><span class="nm">Signed Jewellery</span><span class="rwhy">Set stones</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Laboratory report as title</span></a><a href="/jade-dashboard"><span class="nm">Jade</span><span class="rwhy">Natural vs cultured</span></a><a href="/signed-jewellery-dashboard"><span class="nm">Signed Jewellery</span><span class="rwhy">Set stones</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -1045,5 +1056,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mānuka Honey, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Mānuka Honey, ΣΟΦΙΑ"><meta property="og:description" content="Mānuka Honey: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/manuka-honey-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Mānuka Honey: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -314,6 +317,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -353,7 +363,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Shares: same-day on exchange, settled T+2, but a large holding takes weeks to work. Drums: weeks to months to place with a packer in an oversupplied market; an apiary business, months.<sup class="r"><a href="#s9">9</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no new export statistics found since the last update. Ratings unchanged.</p>
@@ -383,7 +393,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>What the number means</h2><p class="sub">Three layers: a legal definition, a trademarked grade, and competing commercial scales.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Layer</th><th>Who sets it</th><th>What it tests</th><th>Status</th></tr>
     <tr><td>MPI mānuka honey definition</td><td>New Zealand Ministry for Primary Industries</td><td>Four chemical markers and a DNA marker from mānuka pollen; monofloral and multifloral thresholds</td><td>Mandatory for export labelled "mānuka" since 2018; a jar can legally leave New Zealand as mānuka without any UMF grade<sup class="r"><a href="#s4">4</a></sup></td></tr>
     <tr><td>UMF™ (Unique Mānuka Factor)</td><td>UMF Honey Association (UMFHA), licensed producers only</td><td>Methylglyoxal (MGO), leptosperin, DHA and HMF; grades 5+ to 30+</td><td>New Zealand trademark; restricted to NZ licensees; the reference grade for premium retail<sup class="r"><a href="#s4">4</a> <a href="#s3">3</a></sup></td></tr>
@@ -396,7 +406,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>Export economics</h2><p class="sub">A small volume, a large value, a declining unit price.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Metric</th><th class="n">Value</th><th>Note</th></tr>
     <tr><td>NZ honey production, 2022</td><td class="n">22,000 t</td><td>Half exported; NZ$455 m earned <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>Mānuka share of export volume / revenue</td><td class="n">76% / 88%</td><td>To 40 markets <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -428,7 +438,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>The naming war</h2><p class="sub">Eight years, a lost case, and a precedent for every geographic name.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Date</th><th>Event</th><th>Outcome</th></tr>
     <tr><td>2015 onward</td><td>New Zealand producers seek to trademark "Manuka Honey" in New Zealand, the UK, EU, US and China</td><td>Opposed by the Australian Manuka Honey Association with support from a UK retail chain<sup class="r"><a href="#s2">2</a> <a href="#s8">8</a></sup></td></tr>
     <tr><td>2020</td><td>Mānuka Charitable Trust established; files replacement applications</td><td>Continues the appeals; disputes a NZ$1.7 m government loan obligation<sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -441,7 +451,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>Integrity and counterfeits</h2><p class="sub">The premium invites the fraud.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Risk</th><th>Evidence</th><th>Control</th></tr>
     <tr><td>Inferior overseas honey passed off as mānuka</td><td>New Zealand research highlighting European "mānuka" in 2023<sup class="r"><a href="#s2">2</a></sup></td><td>MPI export definition; UMFHA licence verification<sup class="r"><a href="#s2">2</a> <a href="#s4">4</a></sup></td></tr>
     <tr><td>Grade inflation or fake UMF numbers</td><td>Multiple scales and voluntary bodies without enforcement<sup class="r"><a href="#s1">1</a></sup></td><td>Cross-check the UMFHA licence number on the jar against the association's register<sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -452,7 +462,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Honey export volume, value and unit price by variety</td><td>MPI / Stats NZ, monthly and annual</td><td>Whether the stockpile has cleared and unit prices have stabilised</td></tr>
     <tr><td>Registered hive numbers and harvest</td><td>MPI Apiculture Monitoring Programme, annual</td><td>Supply capacity after the exodus of small beekeepers</td></tr>
@@ -482,7 +492,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>What the number means</a><a href="#s-ii"><span>II</span>Export economics</a><a href="#s-iii"><span>III</span>The supply side</a><a href="#s-iv"><span>IV</span>The naming war</a><a href="#s-v"><span>V</span>Integrity and counterfeits</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/olive-oil-dashboard"><span class="nm">Olive Oil</span><span class="rwhy">Grade and adulteration</span></a><a href="/dates-dashboard"><span class="nm">Dates</span><span class="rwhy">Origin-protected food</span></a><a href="/tea-dashboard"><span class="nm">Tea</span><span class="rwhy">Premium agricultural product</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/olive-oil-dashboard"><span class="nm">Olive Oil</span><span class="rwhy">Grade and adulteration</span></a><a href="/dates-dashboard"><span class="nm">Dates</span><span class="rwhy">Origin-protected food</span></a><a href="/tea-dashboard"><span class="nm">Tea</span><span class="rwhy">Premium agricultural product</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -555,5 +566,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

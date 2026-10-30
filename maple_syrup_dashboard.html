@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maple Syrup, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Maple Syrup, ΣΟΦΙΑ"><meta property="og:description" content="Maple Syrup: the Québec joint plan, the strategic reserve, harvest, taps and risk. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/maple-syrup-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Maple Syrup: the Québec joint plan, the strategic reserve, harvest, taps and risk. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Delivery to the buyer within the season; payment on receipt from a cash buyer or spread over months from a credit buyer, with the Federation paying producers gradually as inventory sells. A sugar bush takes months to sell and the quota transfers with the land at the Federation's discretion.<sup class="r"><a href="#s2">2</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. PPAQ's president said on 19 October 2026 that the Strategic Reserve "has been reduced to zero" and remaining contracted syrup will be gone by end-February; 2026 production was 229.5 m lb on 58.6 m taps; exports rose 15.8% in 2025 ahead of US tariffs and 2.5% January–August 2026.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
@@ -382,7 +392,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>The joint plan</h2><p class="sub">One seller, a quota since 2004, a minimum price and a warehouse.</p></div>
   <p>The Québec Maple Syrup Producers (PPAQ; QMSP in English) represent some 8,400 enterprises and 13,000 producers under a joint plan created in 1990, with a strategic reserve since 2000 and production quotas since 2004. The plan sets minimum bulk prices by grade, allocates taps, inspects and grades every barrel delivered, and sells to authorised buyers; unsold syrup is pasteurised and stored in the Federation's warehouses. Québec produces 72% of the world's maple syrup, so the plan's price is the world price.<sup class="r"><a href="#s2">2</a> <a href="#s4">4</a> <a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Instrument</th><th>What it is</th><th>Who can hold it</th></tr>
     <tr><td>Tap quota</td><td>Right to operate a number of taps and sell the output through the plan; issued by PPAQ (7 m in 2025)</td><td>Québec producers; transferable with the sugar bush, subject to the plan</td></tr>
     <tr><td>Bulk syrup</td><td>Barrels graded on delivery and paid at the plan price, part on delivery and part when sold</td><td>Producers until delivery; then the plan</td></tr>
@@ -415,7 +425,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Risks in a managed market</h2><p class="sub">For the only holders there are, the producers.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Risk</th><th>Mechanism</th><th>Note</th></tr>
     <tr><td>Administered price</td><td>The plan sets the bulk price; producers receive part on delivery and the balance when sold</td><td>Deferred payment is the producer's exposure to the reserve's sell-through</td></tr>
     <tr><td>Quota</td><td>Expansion only when PPAQ issues taps; 2025's 7 m were the response to an empty reserve</td><td>Growth is a policy decision, not a business one</td></tr>
@@ -428,7 +438,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Strategic Reserve inventory</td><td>PPAQ, annual at 31 August; statements through the year</td><td>The buffer; zero means the next crop is the whole supply</td></tr>
     <tr><td>Québec production estimate</td><td>PPAQ / Groupe AGÉCO survey, June; Statistics Canada, December</td><td>The crop; yield per tap</td></tr>
@@ -459,7 +469,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The joint plan</a><a href="#s-ii"><span>II</span>The reserve, and why it is empty</a><a href="#s-iii"><span>III</span>Harvest and taps</a><a href="#s-iv"><span>IV</span>Risks in a managed market</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Grade standards, cooperative</span></a><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Weather and crop</span></a><a href="/parmigiano-dashboard"><span class="nm">Parmigiano Reggiano</span><span class="rwhy">Quota and reserve</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Grade standards, cooperative</span></a><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Weather and crop</span></a><a href="/parmigiano-dashboard"><span class="nm">Parmigiano Reggiano</span><span class="rwhy">Quota and reserve</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -532,5 +543,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

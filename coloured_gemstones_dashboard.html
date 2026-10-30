@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Coloured Gemstones, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Coloured Gemstones, ΣΟΦΙΑ"><meta property="og:description" content="Coloured Gemstones: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/coloured-gemstones-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Coloured Gemstones: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -369,6 +372,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -408,7 +418,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Two marquee seasons a year (May, November); consignment closes two to three months before and payment follows 35–45 days after. A dealer sale in days at the dealer's price. Lab testing two to six weeks.<sup class="r"><a href="#s38">38</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a> · <a href="/substitutes">Synthetic and substitute pressure</a> · <a href="/tokenisation">Tokenising scarce assets</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Gemfields' October mixed-quality ruby auction (5–16 Oct, results 19 Oct) made $52.0m: 90 of 99 lots and 92,153 of 102,099 carats sold at an average $564.54/ct, against 189,620 carats sold in February.<sup class="r"><a href="#s32">32</a></sup> The proceeds are described as needed to keep Montepuez operating through "significant operational and financial constraints": premium grades at Mugloto fell to 0.02 ct/t in early 2026 and $28.3m of VAT refunds are outstanding.<sup class="r"><a href="#s33">33</a></sup><sup class="r"><a href="#s34">34</a></sup> Gemfields' H1 2026 results (30 Sep) carried a $125.2m impairment and a material uncertainty over MRM as a going concern; CEO Sean Gilbertson is stepping down.<sup class="r"><a href="#s35">35</a></sup> Kagem's August–September emerald sale had set a record $9.72/ct.<sup class="r"><a href="#s31">31</a></sup></p>
@@ -471,7 +481,7 @@ td.n+td,th.n+th{padding-left:16px}
         <p>Note: USGS reports total gemstones (diamond + coloured). Diamond accounted for <strong>~79% of 2025 import value</strong> (down from the 2018–22 average of ~89%), suggesting coloured stones held up relatively better than diamonds, but the overall market still contracted sharply.<sup class="r"><a href="#s30">30</a></sup></p>
       </div>
 
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Year</th>
@@ -535,7 +545,7 @@ td.n+td,th.n+th{padding-left:16px}
         <h2>Market Size Definitions, Why Single Figures Mislead</h2>
         <div class="tag-line">Distinct value layers · do not interchange <span class="c c-h">High</span></div>
       </div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Value definition</th>
@@ -817,7 +827,7 @@ td.n+td,th.n+th{padding-left:16px}
         <h2>Where the Big Three Come From</h2>
         <div class="tag-line">Origin geography drives price</div>
       </div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Stone</th>
@@ -939,7 +949,7 @@ td.n+td,th.n+th{padding-left:16px}
         <h2>Cutting Centre Comparison</h2>
         <div class="tag-line">Like-for-like positioning across the four centres</div>
       </div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Centre</th>
@@ -1122,7 +1132,7 @@ td.n+td,th.n+th{padding-left:16px}
         <h2>Treatment Premiums &amp; Discounts</h2>
         <div class="tag-line">Standard industry practice · Lotus Gemology · GIA · AGTA</div>
       </div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Stone</th>
@@ -1339,7 +1349,7 @@ td.n+td,th.n+th{padding-left:16px}
       <div style="font-family:var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 4px;">Bulgari Aeterna 140th Anniversary Collection (2024)</div>
       <div style="font-family:var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--mute); margin-bottom: 14px;">Highest-jewellery showcase pieces</div>
 
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Piece</th>
@@ -1563,7 +1573,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#sec-1"><span>I</span>Market at a Glance</a><a href="#sec-2"><span>II</span>The Big Three</a><a href="#sec-3"><span>III</span>Supply Chain · Manufacturing &amp; Cutting Centres</a><a href="#sec-4"><span>IV</span>Stone Profiles · Beyond the Big Three</a><a href="#sec-5"><span>V</span>Pricing &amp; Treatment</a><a href="#sec-6"><span>VI</span>Retailers · Luxury Houses</a><a href="#sec-7"><span>VII</span>Outlook</a><a href="#sources"><span>VIII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/polished-diamonds-dashboard"><span class="nm">Polished Diamonds</span><span class="rwhy">Graded stones, dealer exit</span></a><a href="/jade-dashboard"><span class="nm">Jade</span><span class="rwhy">Origin and treatment disputes</span></a><a href="/signed-jewellery-dashboard"><span class="nm">Signed Jewellery</span><span class="rwhy">Where the stones end up</span></a><a href="/pearls-dashboard"><span class="nm">Pearls</span><span class="rwhy">Laboratory report as title</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/polished-diamonds-dashboard"><span class="nm">Polished Diamonds</span><span class="rwhy">Graded stones, dealer exit</span></a><a href="/jade-dashboard"><span class="nm">Jade</span><span class="rwhy">Origin and treatment disputes</span></a><a href="/signed-jewellery-dashboard"><span class="nm">Signed Jewellery</span><span class="rwhy">Where the stones end up</span></a><a href="/pearls-dashboard"><span class="nm">Pearls</span><span class="rwhy">Laboratory report as title</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/tokenisation">Tokenising scarce assets</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -1640,5 +1651,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

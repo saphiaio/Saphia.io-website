@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Coffee, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Coffee, ΣΟΦΙΑ"><meta property="og:description" content="Coffee: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/coffee-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Coffee: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -309,6 +312,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -348,7 +358,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Exit at the next trade during exchange hours; cleared the same day.<span class="t">Derived</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a> · <a href="/substitutes">Synthetic and substitute pressure</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Arabica settled $3.056/lb on 16 Oct, a one-month high, as ICE certified stocks sat at 238,976 bags against last month's 27-year low of 217,646 and dealers doubted Brazilian coffee would reach warehouses before the December expiry.<sup class="r"><a href="#s16">16</a></sup> Supply is the opposite story: Conab lifted Brazil's 2026 crop to 67.6 m bags with arabica 48.2 m (+35%), above USDA for the first time, and USDA sees a record 189.7 m-bag world crop in 2026/27.<sup class="r"><a href="#s17">17</a></sup><sup class="r"><a href="#s18">18</a></sup> The tariff row carried here since launch is corrected below: coffee was exempted from the 50% Brazil tariff on 20 Nov 2025.<sup class="r"><a href="#s22">22</a></sup></p>
@@ -378,7 +388,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>Supply</h2><p class="sub">Two species, two countries, one weather system.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>2025/26 (60-kg bags)</th><th class="n">Volume</th><th class="n">Change</th><th>Note</th></tr>
     <tr><td>World production</td><td class="n">178.8 m</td><td class="n">+2.0%</td><td>USDA December 2025; June forecast was 178.68 m <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
     <tr><td>of which arabica</td><td class="n">c.97.0 m</td><td class="n">−1.7%</td><td>USDA June 2025 split <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -398,7 +408,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="card"><div class="v">−37.8%</div><div class="l">Fall to $2.3885/lb on 9 June 2026 <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a></sup></div></div>
     <div class="card"><div class="v">c.3×</div><div class="l">Rise in the ICO composite indicator over the five years of stock drawdown <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
   </div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Date</th><th>Event</th><th>Price reaction reported</th></tr>
     <tr><td>Jan–Aug 2025</td><td>ICE certified stocks fall; Brazilian drought; frosts</td><td>Sustained rally through the year<sup class="r"><a href="#s5">5</a> <a href="#s6">6</a></sup></td></tr>
     <tr><td>6 Aug 2025</td><td>US imposes 50% tariff on Brazilian coffee</td><td>Arabica futures up over 30% through August; importers seek other origins; China increases Brazilian purchases<sup class="r"><a href="#s6">6</a></sup></td></tr>
@@ -415,7 +425,7 @@ td.n+td,th.n+th{padding-left:16px}
   
   <p>Fourteen companies, Caravela, ECOM, Export Trading Company, illycaffè, JDE Peet's, Louis Dreyfus, Neumann Kaffee Gruppe, ofi, Sucafina, Sucden Coffee, Taylors of Harrogate, Touton, UCC and Volcafe, described by one trade commentator as "the entire concentrated buy-side of the global green coffee market", signed a joint procurement framework in April 2026 with no minimum price or enforcement mechanism.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-m">Med</span>, single opinionated source; the list of signatories is factual, the characterisation is the author's.</p>
   <h3>Consolidation of roasting</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Event</th><th>Date</th><th>Detail</th></tr>
     <tr><td>Keurig Dr Pepper agrees to acquire JDE Peet's</td><td>25 Aug 2025</td><td>All-cash, €31.85 a share, 33% premium; c.$18 bn; JAB-affiliated Acorn Holdings (69% of votes) committed<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup></td></tr>
     <tr><td>Offer completes</td><td>1 Apr 2026</td><td>96.22% of shares acquired; delisting from Euronext Amsterdam 30 Apr 2026; JDE Peet's 2025 sales €9.9 bn, 21,000 staff<sup class="r"><a href="#s11">11</a></sup></td></tr>
@@ -426,7 +436,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>The specialty tier</h2><p class="sub">Where coffee behaves like a gemstone.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Best of Panama auction</th><th class="n">Price per kg (green)</th><th>Note</th></tr>
     <tr><td>2024 record</td><td class="n">c.$13,500</td><td>Previous world record<sup class="r"><a href="#s6">6</a></sup></td></tr>
     <tr><td>2025, Hacienda La Esmeralda, 98-point lot</td><td class="n">$30,204</td><td>World record; c.$600 per pound green<sup class="r"><a href="#s6">6</a></sup></td></tr>
@@ -437,7 +447,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>Policy and regulation</h2><p class="sub">Tariffs and traceability.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Measure</th><th>Status</th><th>Effect</th></tr>
     <tr><td>US 50% tariff on Brazilian coffee</td><td>6 Aug – 20 Nov 2025; coffee then exempted by executive order</td><td>Largest supplier to the largest consumer; c.30% futures spike while in force; trade diverted; Brazil supplies c.30% of US green imports <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a> <a href="#s22">22</a></sup></td></tr>
     <tr><td>US Section 301 duty on Brazil, 25%</td><td>Effective 22 Jul 2026; coffee, including unflavoured instant, exempted in USTR's 15 Jul final notice after a June proposal to tax soluble; a second 301 action (12.5%) also exempted coffee on 23 Jul</td><td>All Brazilian coffee enters the US duty-free; the exemption protects c.30% of US green imports <span class="c c-h">High</span><sup class="r"><a href="#s22">22</a> <a href="#s23">23</a></sup></td></tr>
@@ -451,7 +461,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>World supply, demand and stocks</td><td>USDA FAS Coffee: World Markets and Trade, June and December</td><td>The balance; whether stocks rebuild after five years of drawdown</td></tr>
     <tr><td>Brazil crop estimates</td><td>Conab (four times a year); Safras &amp; Mercado; USDA Brasília GAIN reports</td><td>The swing producer; arabica versus conilon split</td></tr>
@@ -499,7 +509,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Supply</a><a href="#s-ii"><span>II</span>Price history</a><a href="#s-iii"><span>III</span>Demand and trade structure</a><a href="#s-iv"><span>IV</span>The specialty tier</a><a href="#s-v"><span>V</span>Policy and regulation</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Futures, grade and origin</span></a><a href="/tea-dashboard"><span class="nm">Tea</span><span class="rwhy">Auction-priced leaf</span></a><a href="/vanilla-dashboard"><span class="nm">Vanilla</span><span class="rwhy">Specialty origin premium</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Futures, grade and origin</span></a><a href="/tea-dashboard"><span class="nm">Tea</span><span class="rwhy">Auction-priced leaf</span></a><a href="/vanilla-dashboard"><span class="nm">Vanilla</span><span class="rwhy">Specialty origin premium</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -572,5 +583,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

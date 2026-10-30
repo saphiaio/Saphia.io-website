@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Oil &amp; Gas, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Oil &amp; Gas, ΣΟΦΙΑ"><meta property="og:description" content="Oil &amp; Gas: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/oil-gas-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Oil &amp; Gas: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -514,6 +517,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -553,7 +563,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Exit at the next trade in a market open for most of each 24 hours; positions are cleared and marked the same day.<span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Brent closed $109.86 on 16 Oct, touching $110 intraday, +5% on the week and ~$9 above the last update; WTI $101.41.<sup class="r"><a href="#s19">19</a></sup> Kpler puts Hormuz crude exports at 9.4 mb/d for the week to 14 Oct, ~70% of pre-war, after topping pre-war levels in September.<sup class="r"><a href="#s19">19</a></sup> IEA's 14 Oct report: September supply +2.5 mb/d to 102.3; 2026 demand now −2.6 mb/d; 2027 still 0.6% below 2025.<sup class="r"><a href="#s18">18</a></sup> EIA's October STEO lifted 4Q26 Brent to $105 (+$14) and 2026 to $96.32.<sup class="r"><a href="#s20">20</a></sup> Gas cards (X) refreshed for the first time since July.</p>
@@ -1039,7 +1049,7 @@ td.n+td,th.n+th{padding-left:16px}
        where deep-water ports meet export ambition, India, the Gulf, South Korea and the US Gulf Coast:</p>
 
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr><th scope="col">Refinery</th><th scope="col">Location</th><th scope="col">Capacity</th><th scope="col">Note</th></tr>
         </thead>
@@ -1153,7 +1163,7 @@ td.n+td,th.n+th{padding-left:16px}
     
 
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th scope="col">Line</th>
@@ -1619,7 +1629,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Overview</a><a href="#s-ii"><span>II</span>How we got here</a><a href="#s-iii"><span>III</span>Who produces it</a><a href="#s-iv"><span>IV</span>Where it goes</a><a href="#s-v"><span>V</span>Who refines it</a><a href="#s-vi"><span>VI</span>The pipeline</a><a href="#s-vii"><span>VII</span>Pipelines around the strait</a><a href="#s-viii"><span>VIII</span>Transit corridors</a><a href="#s-ix"><span>IX</span>Oil price</a><a href="#s-x"><span>X</span>Gas price, three markets, not one</a><a href="#s-xi"><span>XI</span>Balance</a><a href="#s-xii"><span>XII</span>The buffer</a><a href="#s-xiii"><span>XIII</span>Demand, contested</a><a href="#s-xiv"><span>XIV</span>How it happened</a><a href="#sources"><span>XV</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/uranium-dashboard"><span class="nm">Uranium</span><span class="rwhy">Energy commodity, contracts</span></a><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Futures, inventories</span></a><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Macro hedge</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/uranium-dashboard"><span class="nm">Uranium</span><span class="rwhy">Energy commodity, contracts</span></a><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Futures, inventories</span></a><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Macro hedge</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -1704,5 +1715,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rare Books, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Rare Books, ΣΟΦΙΑ"><meta property="og:description" content="Rare Books: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/rare-books-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Rare Books: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Consignment closes two to three months before a sale; marquee sales in spring and autumn; payment within 45 days of the sale subject to the buyer settling. Dealer sale in days at a lower price.<sup class="r"><a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Rare Book Hub's 2025 tally put auction sales of books and collectible paper at $1.23 bn, up 8.2%, with 26 lots above $1 m against 12 in 2023. Sotheby's names books among the categories with "continued strength" in a record first half of 2026.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
@@ -381,7 +391,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>Size and cycle</h2><p class="sub">Auctions are the only part of the trade that is measured; dealers are larger and opaque.</p></div>
   <p>Rare Book Hub, which compiles results from the auction houses it covers, tracked $1.23 bn of book and collectible paper sales in 2025, up 8.2% from $1.14 bn, with buyer's premium included. The top end drove it: 26 lots sold above $1 m against 12 two years earlier, most of them early printed books and manuscripts. The dealer trade, organised through ILAB and its national associations (ABAA, ABA, SLAM), is believed to be larger but publishes no aggregate.<sup class="r"><a href="#s1">1</a></sup> <span class="c c-h">High</span> for the auction series; <span class="c c-l">Low</span> for any total that includes dealers.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Segment</th><th>What sells</th><th>Note</th></tr>
     <tr><td>Manuscripts and early printing</td><td>Codices, illuminated manuscripts, incunabula, Shakespeare folios</td><td>All the seven- and eight-figure results; institutional and philanthropic buyers dominate<sup class="r"><a href="#s3">3</a></sup></td></tr>
     <tr><td>Science, travel and natural history</td><td>Newton, Darwin, Audubon, atlases</td><td>Steady; colour-plate books priced partly as objects</td></tr>
@@ -393,7 +403,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>The record book</h2><p class="sub">The top prices are for manuscripts and documents, not printed books.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Item</th><th>Sale</th><th class="n">Price (with fees)</th><th>Significance</th></tr>
     <tr><td>United States Constitution, first printing (1787)</td><td>Sotheby's New York, Nov 2021</td><td class="n">$43.2 m</td><td>Record for any document; bought by Ken Griffin against a crypto collective<sup class="r"><a href="#s3">3</a></sup></td></tr>
     <tr><td>Codex Sassoon, Hebrew Bible (c. 900)</td><td>Sotheby's New York, May 2023</td><td class="n">$38.1 m</td><td>Record for any book or manuscript; hammer $33.5 m at the low end of a $30–50 m estimate; gifted to ANU Museum<sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s5">5</a></sup></td></tr>
@@ -406,7 +416,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Condition, completeness and forgery</h2><p class="sub">Two copies of the same edition can differ in price by an order of magnitude or more.</p></div>
   <p>Books are the market where "the same thing" is least the same. Price turns on completeness (every leaf, plate and map present, collated against a bibliography), binding (original or contemporary against later rebinding), condition, and for modern books the dust jacket. Provenance adds a premium when it is a named library or an association copy; it is also the defence against the two risks peculiar to the field.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Risk</th><th>Form</th><th>Control</th></tr>
     <tr><td>Theft from institutions</td><td>Leaves and maps razored from library copies; whole volumes with ownership marks removed</td><td>Dealer associations' stolen-book databases; auction-house provenance checks; the market's own memory</td></tr>
     <tr><td>Sophistication</td><td>Incomplete copies "made up" with leaves from other copies, facsimile leaves, washed and pressed paper</td><td>Collation leaf by leaf; paper and type examination; the catalogue must disclose it</td></tr>
@@ -417,7 +427,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Structure of the trade</h2><p class="sub">A dealer's market with an auction top.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Channel</th><th>Position</th><th>Note</th></tr>
     <tr><td>Sotheby's and Christie's</td><td>The eight-figure lots and major single-owner libraries</td><td>Books sit inside the houses' wider "books and manuscripts" or luxury reporting; no stand-alone category totals published<sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>Specialist auctioneers</td><td>Swann (New York), Forum (London), Bonhams, Dominic Winter, Gonnelli, Ketterer, Reiss &amp; Sohn</td><td>Supply the depth of the market below $100,000<sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -429,7 +439,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Annual auction total, lots above $1 m and $10,000</td><td>Rare Book Hub, January</td><td>The benchmark series; breadth below the top</td></tr>
     <tr><td>Single-owner libraries announced</td><td>Sotheby's, Christie's releases, pre-season</td><td>Fresh supply; the only thing that moves the top end</td></tr>
@@ -456,7 +466,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Size and cycle</a><a href="#s-ii"><span>II</span>The record book</a><a href="#s-iii"><span>III</span>Condition, completeness and forgery</a><a href="#s-iv"><span>IV</span>Structure of the trade</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/old-masters-dashboard"><span class="nm">Old Masters</span><span class="rwhy">Provenance and condition</span></a><a href="/stamps-dashboard"><span class="nm">Stamps</span><span class="rwhy">Catalogue-driven rarity</span></a><a href="/art-dashboard"><span class="nm">Art</span><span class="rwhy">Same auction calendar</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/old-masters-dashboard"><span class="nm">Old Masters</span><span class="rwhy">Provenance and condition</span></a><a href="/stamps-dashboard"><span class="nm">Stamps</span><span class="rwhy">Catalogue-driven rarity</span></a><a href="/art-dashboard"><span class="nm">Art</span><span class="rwhy">Same auction calendar</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -529,5 +540,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

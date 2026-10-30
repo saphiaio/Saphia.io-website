@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lab-Grown Diamonds, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Lab-Grown Diamonds, ΣΟΦΙΑ"><meta property="og:description" content="Lab-Grown Diamonds: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/lab-grown-diamonds-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Lab-Grown Diamonds: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -382,6 +385,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -421,7 +431,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Immediate, at a price close to zero; or never, since most buyers decline the category. Equity exits the same day.<sup class="r"><a href="#s35">35</a></sup><span class="t">Derived</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a> · <a href="/substitutes">Synthetic and substitute pressure</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Wholesale and retail have split: Edahn Golan has 1–3 ct round wholesale up ~2% in Q3 2026, the first rise after years of decline, while StoneAlgo's average 1 ct retail asking price fell ~20% in three months to $502 on 14 Oct (natural $3,820).<sup class="r"><a href="#s32">32</a></sup> StoneAlgo's 1 ct lab average has fallen 31% from $732 in December 2023; listings now run $245–1,273 against $805–9,850 for natural.<sup class="r"><a href="#s33">33</a></sup> India's polished lab-grown exports rose 40.7% to $151m in September and 17.1% to $685m for April–September on 26.5% more carats, while natural polished exports fell 5.4% and 7.0%.<sup class="r"><a href="#s34">34</a></sup></p>
@@ -492,7 +502,7 @@ td.n+td,th.n+th{padding-left:16px}
         <h2>LGD vs Natural · The Defining Differences</h2>
         <div class="tag-line">Same atoms, different economics</div>
       </div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Dimension</th>
@@ -587,7 +597,7 @@ td.n+td,th.n+th{padding-left:16px}
         <h2>Method Comparison · Like-for-Like</h2>
         <div class="tag-line">Where each method wins <span class="c c-h">High</span></div>
       </div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Attribute</th>
@@ -717,7 +727,7 @@ td.n+td,th.n+th{padding-left:16px}
         <h2>Production by Country &amp; Method (2023)</h2>
         <div class="tag-line">GJEPC / GIA Summer 2024 Gems &amp; Gemology <span class="c c-h">High</span></div>
       </div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Country</th>
@@ -774,7 +784,7 @@ td.n+td,th.n+th{padding-left:16px}
       </div>
 
       <div class="producer-map">
-        <div class="tw"><table>
+        <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
           <thead><tr><th>Production hub</th><th>Method</th><th class="n">Capacity</th><th></th><th>Consumer rank</th></tr></thead>
           <tbody>
             <tr><td><span class="country">China</span></td><td>HPHT</td><td class="n">~3M ct/yr</td><td style="width:140px"><div class="bar" style="height:9px;background:var(--line);position:relative"><i style="position:absolute;left:0;top:0;bottom:0;width:100%;background:#5a4b8a"></i></div></td><td>2nd-largest consumer</td></tr>
@@ -784,7 +794,7 @@ td.n+td,th.n+th{padding-left:16px}
           </tbody>
         </table></div>
 
-        <div class="tw"><table style="margin-top:8px">
+        <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table style="margin-top:8px">
           <thead><tr><th>Trading hub</th><th>Role</th><th>Fed by</th></tr></thead>
           <tbody>
             <tr><td><span class="country">Dubai (UAE)</span></td><td>Rough &amp; polished trading centre</td><td>India (Surat), on-shipped to Europe &amp; US</td></tr>
@@ -1250,7 +1260,7 @@ td.n+td,th.n+th{padding-left:16px}
         Because roughly 90% of the world&rsquo;s diamonds are cut and polished in India, and tariffs attach to where goods are <em>substantially transformed</em>, US trade policy toward India became a first-order variable for LGD pricing during 2025&ndash;26. The rate has moved repeatedly.<sup class="r"><a href="#s22">22</a></sup>
       </div>
 
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <thead>
           <tr>
             <th>Date</th>
@@ -1436,7 +1446,7 @@ td.n+td,th.n+th{padding-left:16px}
         <strong style="color: var(--mute);">Read this table as structure, not as a live quote.</strong> The wholesale column is a year old and the market has moved unevenly since: per the Q2 2026 list, 1-carat wholesale is up 1% year-on-year while 2-carat is down 20%, so the size ladder below has compressed. Independently, the StoneAlgo online index put May 2026 averages at roughly $564/ct for 1 ct and $1,265/ct for 2 ct, well below the retail figures here, because online marketplace pricing sits materially under bricks-and-mortar. Treat the <strong>markup ratios and the LGD-vs-natural discounts</strong> as the durable signal, and the absolute dollars as indicative.<sup class="r"><a href="#s4">4</a></sup><sup class="r"><a href="#s19">19</a></sup><sup class="r"><a href="#s20">20</a></sup>
       </div>
 
-      <div class="tw"><table class="price-tracker">
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table class="price-tracker">
         <thead>
           <tr>
             <th>Size</th>
@@ -1846,7 +1856,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#sec-1"><span>I</span>Market at a Glance</a><a href="#sec-2"><span>II</span>Production Methods · HPHT vs CVD</a><a href="#sec-3"><span>III</span>Production Geography &amp; Rough Prices</a><a href="#sec-4"><span>IV</span>The Major Producers</a><a href="#sec-5"><span>V</span>Outlook · Industrial &amp; Semiconductor Future</a><a href="#sec-6"><span>VI</span>Polished Prices · "The Great Correction"</a><a href="#sec-7"><span>VII</span>Retailers · Brands · The De Beers Endgame</a><a href="#sec-8"><span>VIII</span>Data Lab · Polished Prices, Spreads and Margins</a><a href="#sources"><span>IX</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/polished-diamonds-dashboard"><span class="nm">Polished Diamonds</span><span class="rwhy">The natural it competes with</span></a><a href="/rough-diamonds-dashboard"><span class="nm">Rough Diamonds</span><span class="rwhy">Mine supply it displaces</span></a><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Synthetic vs natural premium</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/polished-diamonds-dashboard"><span class="nm">Polished Diamonds</span><span class="rwhy">The natural it competes with</span></a><a href="/rough-diamonds-dashboard"><span class="nm">Rough Diamonds</span><span class="rwhy">Mine supply it displaces</span></a><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Synthetic vs natural premium</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -1920,5 +1931,6 @@ td.n+td,th.n+th{padding-left:16px}
   new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ links.forEach(function(a){a.classList.remove('cur');}); var i=secs.indexOf(x.target); if(i>-1) links[i].classList.add('cur'); } }); },{rootMargin:'-40% 0px -55% 0px'}).observe && secs.forEach(function(sec,i){ if(sec){ new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(a){a.classList.remove('cur');}); links[i].classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec);} });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

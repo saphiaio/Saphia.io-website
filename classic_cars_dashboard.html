@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Classic Cars, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Classic Cars, ΣΟΦΙΑ"><meta property="og:description" content="Classic Cars: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/classic-cars-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Classic Cars: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -318,6 +321,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -357,7 +367,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Consignment closes six to twelve weeks before the sale; sale proceeds are paid within about 30 business days of settlement. From decision to cash, three to six months at a major house; a dealer sale is faster at a wider discount.<sup class="r"><a href="#s14">14</a></sup><span class="t">Reported</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no major auction since Monterey Car Week, which is already recorded here. Ratings unchanged.</p>
@@ -387,7 +397,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>The record book</h2><p class="sub">Auction results are the only public prices in a market that trades mostly in private.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Car</th><th>Sale</th><th class="n">Price</th><th>Significance</th></tr>
     <tr><td>1955 Mercedes-Benz 300 SLR Uhlenhaut Coupé</td><td>RM Sotheby's, Mercedes-Benz Museum, Stuttgart, 5 May 2022 (invitation only)</td><td class="n">€135 m (c.$142–143 m)</td><td>One of two built; doubled the prior record; proceeds to a Mercedes-Benz scholarship fund<sup class="r"><a href="#s2">2</a> <a href="#s6">6</a></sup></td></tr>
     <tr><td>1954 Mercedes-Benz W 196 R Stromlinienwagen</td><td>RM Sotheby's, Stuttgart, 1 Feb 2025</td><td class="n">€51.2 m (c.$53.9 m)</td><td>Second-highest ever<sup class="r"><a href="#s7">7</a> <a href="#s8">8</a></sup></td></tr>
@@ -422,7 +432,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>The generational rotation</h2><p class="sub">"Boomer cars" down, supercars parabolic.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Segment</th><th>Signal, 2025–26</th><th>Source</th></tr>
     <tr><td>Modern Ferrari halo cars (288 GTO, F40, F50, Enzo)</td><td>Records of $11.6 m, $8.4 m and $14.6 m at Monterey 2026; F50 record was $5.5 m at the start of 2025; allocation strategy for future models adds "strategic demand"</td><td>Hagerty; Motorious<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a></sup></td></tr>
     <tr><td>Hypercars (Bugatti, Koenigsegg, Pagani, McLaren)</td><td>A 2008 Koenigsegg CCXR bought for $825k in 2015 sold for $3.2 m in 2025; Bonhams' Monterey sales +288% on supercars; McLaren F1 GTR $34.7 m</td><td>Hagerty; Classic Motorsports<sup class="r"><a href="#s10">10</a> <a href="#s13">13</a> <a href="#s1">1</a></sup></td></tr>
@@ -436,7 +446,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Indices and auction houses</h2><p class="sub">Who measures the market, and who runs it.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Instrument</th><th>Publisher</th><th>What it measures</th></tr>
     <tr><td>Hagerty Market Rating; Blue Chip, Supercar, Ferrari and other indices; Price Guide</td><td>Hagerty (insurer and media group)</td><td>Index families built from auction and private-sale data; the Price Guide gives condition-graded values<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></td></tr>
     <tr><td>HAGI Top Index</td><td>Historic Automobile Group International</td><td>Rare-classic index used by Knight Frank's Luxury Investment Index; not reproduced here</td></tr>
@@ -452,7 +462,7 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="sechead tint"><h2><em>V</em>Provenance economics</h2><p class="sub">The car is the chassis number; the price is the file.</p></div>
   
   <p>The Uhlenhaut Coupé sold for €135 m because it is one of two, was owned by its maker since 1955, and carries an engineer's name and a Nürburgring anecdote; the 250 GT SWB that sold below guide in 2026 was the same model family as cars that make eight figures, minus its original engine and a race history.<sup class="r"><a href="#s2">2</a> <a href="#s4">4</a></sup> Matching numbers, continuous ownership, competition record and factory documentation are the four variables that separate a $1 m car from a $50 m one of the same type, and none can be verified by looking at the car. <span class="c c-m">Med</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Provenance element</th><th>Effect</th><th>Verification</th></tr>
     <tr><td>Matching numbers (chassis, engine, gearbox, body)</td><td>Missing original engine sent a 250 GT SWB below fair-condition guide value<sup class="r"><a href="#s4">4</a></sup></td><td>Factory build sheets; marque registries (Ferrari Classiche certification)</td></tr>
     <tr><td>Competition history</td><td>The 250 GTO and Daytona Coupé premiums rest on it<sup class="r"><a href="#s7">7</a></sup></td><td>Period entry lists, photographs, chassis-specific histories</td></tr>
@@ -464,7 +474,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Monterey, Scottsdale, Amelia Island and Paris/Rétromobile totals and sell-through</td><td>Hagerty running tallies; house releases, January, March, August, February</td><td>The auction cycle; whether flat volume persists</td></tr>
     <tr><td>Hagerty Market Rating and segment indices</td><td>Hagerty, monthly</td><td>Blue-chip versus supercar rotation; not carried here</td></tr>
@@ -497,7 +507,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The record book</a><a href="#s-ii"><span>II</span>Monterey Car Week</a><a href="#s-iii"><span>III</span>The generational rotation</a><a href="#s-iv"><span>IV</span>Indices and auction houses</a><a href="#s-v"><span>V</span>Provenance economics</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/watches-dashboard"><span class="nm">Watches</span><span class="rwhy">Condition, originality, auction</span></a><a href="/vintage-guitars-dashboard"><span class="nm">Vintage Guitars &amp; Instruments</span><span class="rwhy">Original parts set the value</span></a><a href="/art-dashboard"><span class="nm">Art</span><span class="rwhy">Same auction houses</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/watches-dashboard"><span class="nm">Watches</span><span class="rwhy">Condition, originality, auction</span></a><a href="/vintage-guitars-dashboard"><span class="nm">Vintage Guitars &amp; Instruments</span><span class="rwhy">Original parts set the value</span></a><a href="/art-dashboard"><span class="nm">Art</span><span class="rwhy">Same auction houses</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -570,5 +581,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

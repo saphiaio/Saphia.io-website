@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Signed Jewellery, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Signed Jewellery, ΣΟΦΙΑ"><meta property="og:description" content="Signed Jewellery: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/signed-jewellery-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Signed Jewellery: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Consignment closes two to three months before a sale; marquee sales twice a year; payment within 45 days of the sale, subject to the buyer settling. Four to eight months from decision to cash; a dealer sale in days at a lower price.<sup class="r"><a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Christie's Geneva Magnificent Jewels on 13 May 2026 made $66.5 m with 99% of lots sold and 84% above high estimate; Cartier's 1920 tiara made nearly three times its low estimate and a Tutti Frutti clip $1.35 m. Sotheby's reports luxury sales up 22% to $2.7 bn for 2025.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
@@ -381,7 +391,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>What "signed" means</h2><p class="sub">A maker's mark, a serial number and, ideally, a line in the archive.</p></div>
   <p>A signed jewel carries the house name and usually a serial or inventory number engraved on the mount, with French assay and maker's marks where the piece was made in Paris. The number is the key: Cartier, Van Cleef &amp; Arpels and Boucheron hold archives that can confirm a piece's date, original design and first client, and issue a certificate for a fee. Pieces by houses without a working archive, or whose records were lost, trade on the signature and the expert's eye alone.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Tier</th><th>Makers</th><th>Market position</th></tr>
     <tr><td>The Paris houses, period pieces</td><td>Cartier (Art Deco, Tutti Frutti, panthers), Van Cleef &amp; Arpels (Mystery Set, Zip, ballerinas), Boucheron, Chaumet, Mauboussin</td><td>The deepest demand; 1920s–1960s pieces with archive confirmation are the blue chip<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s4">4</a></sup></td></tr>
     <tr><td>Rome and New York</td><td>Bulgari (Serpenti, 1970s), Tiffany (Schlumberger), Harry Winston, David Webb, Verdura</td><td>Strong, period-specific; Bulgari 1970s and Schlumberger are current fashions<sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -402,7 +412,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>The record book</h2><p class="sub">Signed results, as distinct from stone records.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Piece</th><th>Sale</th><th class="n">Price (with fees)</th><th>Significance</th></tr>
     <tr><td>Van Cleef &amp; Arpels Art Deco diamond "tie" necklace, 1929</td><td>Sotheby's New York, 2024</td><td class="n">$3.6 m</td><td>Triple estimate; the kind of archive-confirmed period piece the market pays most for<sup class="r"><a href="#s6">6</a></sup></td></tr>
     <tr><td>Chaumet Kashmir sapphire ring</td><td>Christie's Geneva, 13 May 2026</td><td class="n">$3.51 m</td><td>Stone and signature together<sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -416,7 +426,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Authentication and the archive</h2><p class="sub">The signature is the easiest part to fake and the archive is the only check.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Risk</th><th>Form</th><th>Control</th></tr>
     <tr><td>Added signature</td><td>A genuine period piece engraved later with a house name; or a name struck on a modern copy</td><td>House archive confirmation by serial number; examination of engraving under magnification; French marks</td></tr>
     <tr><td>Replaced stones</td><td>Original diamonds or coloured stones swapped for lesser, or a synthetic, with the mount intact</td><td>Laboratory reports on principal stones; comparison with archive drawings and original weights</td></tr>
@@ -428,7 +438,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Geneva Magnificent Jewels results</td><td>Christie's, Sotheby's, May and November</td><td>Sell-through and multiples on signed lots; the signed premium in practice</td></tr>
     <tr><td>Single-owner jewellery collections announced</td><td>House releases, pre-season</td><td>Supply of archive-confirmed period pieces</td></tr>
@@ -456,7 +466,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>What "signed" means</a><a href="#s-ii"><span>II</span>Size and the 2025–26 cycle</a><a href="#s-iii"><span>III</span>The record book</a><a href="#s-iv"><span>IV</span>Authentication and the archive</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/polished-diamonds-dashboard"><span class="nm">Polished Diamonds</span><span class="rwhy">The stones inside</span></a><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Named stones</span></a><a href="/watches-dashboard"><span class="nm">Watches</span><span class="rwhy">Maison resale</span></a><a href="/handbags-dashboard"><span class="nm">Handbags</span><span class="rwhy">Brand premium</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/polished-diamonds-dashboard"><span class="nm">Polished Diamonds</span><span class="rwhy">The stones inside</span></a><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Named stones</span></a><a href="/watches-dashboard"><span class="nm">Watches</span><span class="rwhy">Maison resale</span></a><a href="/handbags-dashboard"><span class="nm">Handbags</span><span class="rwhy">Brand premium</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -529,5 +540,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

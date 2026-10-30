@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Racehorses, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Racehorses, ΣΟΦΙΑ"><meta property="og:description" content="Racehorses: thoroughbred bloodstock supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/racehorses-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Racehorses: thoroughbred bloodstock supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Entries close two to three months before a sale; Tattersalls pays the vendor on the 35th day after the lot is sold, provided the buyer has paid. From decision to cash, three to five months if the horse sells at the next suitable sale.<sup class="r"><a href="#s17">17</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Keeneland September 2026 closed on 3 October with records for gross, average and median and seventy yearlings at $1 m or more; Tattersalls October Books 1–4 closed on 16 October past 210 m guineas for the first time, with a European record 4.6 m guineas for a yearling colt.<sup class="r"><a href="#s3">3</a> <a href="#s5">5</a></sup></p>
@@ -394,7 +404,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>The 2026 season</h2><p class="sub">Records on both sides of the Atlantic, carried by a small number of buyers.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Sale</th><th>Dates</th><th class="n">Turnover</th><th>Note</th></tr>
     <tr><td>Keeneland September Yearling Sale</td><td>Lexington, Sep–3 Oct 2026</td><td class="n">Record</td><td>Average $187,933 (+6.9%), median up 6.3%, both records for a sixth and third year; 70 yearlings at $1 m or more against 56 in 2025; Gun Runner leading sire; a four-stable partnership the leading buyer at $16.2 m for 20<sup class="r"><a href="#s3">3</a></sup></td></tr>
     <tr><td>Tattersalls October, Book 1</td><td>Newmarket, 6–8 Oct 2026</td><td class="n">126,516,000 gns</td><td>1% below 2025 on 11% fewer sold (360); average 359,420 gns (+12%), median 230,000 gns (+10%), 85% clearance; Godolphin spent 26.9 m gns on 25 lots, 21% of the sale<sup class="r"><a href="#s4">4</a> <a href="#s6">6</a></sup></td></tr>
@@ -413,7 +423,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>The stallion economy</h2><p class="sub">The fee a sire commands is the discount rate for the whole market.</p></div>
   <p>A stallion is the only form of the asset that produces income rather than consuming it: a covering fee per mare, 100 to 250 mares a year, for ten to twenty seasons. For 2026 Dubawi (24) and Frankel (18) stand at £350,000, Sea The Stars at €300,000, Night Of Thunder at €200,000; in Kentucky Into Mischief, Gun Runner and Not This Time at $250,000. Yearlings by Frankel averaged 965,313 gns at Book 1 2026; Gun Runner's averaged near $1 m at Keeneland 2025 with seventeen at $1 m or more.<sup class="r"><a href="#s4">4</a> <a href="#s9">9</a> <a href="#s11">11</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Stallion</th><th>Stud</th><th class="n">2026 fee</th><th>Note</th></tr>
     <tr><td>Dubawi</td><td>Darley, Newmarket</td><td class="n">£350,000</td><td>Fourth season at a career high, aged 24<sup class="r"><a href="#s9">9</a></sup></td></tr>
     <tr><td>Frankel</td><td>Juddmonte, Newmarket</td><td class="n">£350,000</td><td>Unchanged; leading Book 1 2026 sires by average<sup class="r"><a href="#s4">4</a> <a href="#s9">9</a></sup></td></tr>
@@ -427,7 +437,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>The cost of holding</h2><p class="sub">A living asset with a daily bill and a four-year useful life.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Item</th><th>Order of cost</th><th>Note</th></tr>
     <tr><td>Training, Britain</td><td>£30,000–70,000 a year</td><td>Day rates £50–80 at most yards, more at the top; the ROA's last survey (2015) put the all-in average at £22,595 for a flat horse<sup class="r"><a href="#s13">13</a> <a href="#s14">14</a></sup></td></tr>
     <tr><td>Training, United States</td><td>c. $75,000 a year</td><td>Industry estimate for a horse at a major track; total North American training spend put at about $3.4 bn against purses of under half that<sup class="r"><a href="#s15">15</a></sup></td></tr>
@@ -436,7 +446,7 @@ td.n+td,th.n+th{padding-left:16px}
     <tr><td>Breeding stock, keep</td><td>Lower; a broodmare boards for a fraction of a horse in training</td><td>Plus the covering fee, payable on a live foal, typically the October after</td></tr>
   </table></div>
   <p>The ownership economics are not in dispute. Roughly 8% of horses in training in North America earn enough in a year to cover their keep; owners collectively recoup around 40% of running costs from prize money, before the purchase price. In Britain the Racehorse Owners Association's own guidance is that a share should be treated as leisure spend. Returns, where they come, come from the residual: a colt that becomes a stallion, a filly that becomes a broodmare, or a horse sold on at the right moment.<sup class="r"><a href="#s13">13</a> <a href="#s15">15</a></sup> <span class="c c-m">Med</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Exit route</th><th>Timing</th><th>Note</th></tr>
     <tr><td>Yearling and breeze-up sales</td><td>Fixed calendar: Keeneland Sep, Tattersalls Oct, Arqana Aug; breeze-ups Apr–May</td><td>Pin-hooking (buying a foal or yearling to resell) is the market's shortest holding period, roughly a year</td></tr>
     <tr><td>Horses-in-training sales</td><td>Tattersalls Autumn HIT (Oct), Keeneland November, Goffs</td><td>The ordinary exit for a horse that has raced; value set by its form figures and rating</td></tr>
@@ -448,7 +458,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Foal crop estimate and Report of Mares Bred</td><td>The Jockey Club, October annually; Weatherbys Return of Mares, Britain and Ireland</td><td>Supply three years out; stallion concentration (mares per sire)</td></tr>
     <tr><td>Keeneland September gross, average, median, seven-figure count</td><td>Keeneland, September</td><td>Depth of the American market; the median is the breeder's indicator, the average the buyer's</td></tr>
@@ -485,7 +495,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Supply and the sales</a><a href="#s-ii"><span>II</span>The 2026 season</a><a href="#s-iii"><span>III</span>The stallion economy</a><a href="#s-iv"><span>IV</span>The cost of holding</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/breeding-stallions-dashboard"><span class="nm">Breeding Stallions</span><span class="rwhy">Where value ends up</span></a><a href="/falcons-dashboard"><span class="nm">Falcons</span><span class="rwhy">Living asset</span></a><a href="/classic-cars-dashboard"><span class="nm">Classic Cars</span><span class="rwhy">Auction, upkeep cost</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/breeding-stallions-dashboard"><span class="nm">Breeding Stallions</span><span class="rwhy">Where value ends up</span></a><a href="/falcons-dashboard"><span class="nm">Falcons</span><span class="rwhy">Living asset</span></a><a href="/classic-cars-dashboard"><span class="nm">Classic Cars</span><span class="rwhy">Auction, upkeep cost</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -558,5 +569,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

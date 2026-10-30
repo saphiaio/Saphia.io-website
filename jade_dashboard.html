@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jade, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Jade, ΣΟΦΙΑ"><meta property="og:description" content="Jade: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/jade-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Jade: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Two Hong Kong seasons a year, spring and autumn; consignment months ahead, payment 30–45 days after. A dealer offer in days at the dealer's price. Nothing faster exists.<sup class="r"><a href="#s2">2</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Myanmar's military held its first Gems Emporium outside the country, in Ruili, China, on 22 July 2026, offering 500 tonnes of rough; the 61st domestic Emporium ran to 17 October. The Christie's Hong Kong record necklace in May (HK$200.2 m) and falling mid-tier prices define the year.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -381,7 +391,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>Two stones, one word</h2><p class="sub">Jadeite is the market; nephrite is the history.</p></div>
   <p>"Jade" covers two minerals. Nephrite, the softer stone of Chinese antiquity, is worked in Hetian white and spinach green and prized in archaic and imperial carvings, where value is archaeological and art-historical. Jadeite, harder and capable of vivid translucent green, reached China from Burma only in the late eighteenth century and is the stone of the modern jewellery market: bangles, bead necklaces, cabochons and carvings. This page rates jadeite jewellery; antique nephrite belongs with Chinese works of art.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Grade (trade usage)</th><th>Character</th><th>Indicative range, 2026</th></tr>
     <tr><td>Imperial</td><td>Saturated even emerald green, high translucency, fine texture</td><td>$100,000 to several million per piece; six and seven figures at auction<sup class="r"><a href="#s6">6</a></sup><sup class="r"><a href="#s7">7</a></sup></td></tr>
     <tr><td>Icy / glass ("bing")</td><td>Near-colourless, water-like clarity</td><td>$1,500–15,000 retail<sup class="r"><a href="#s6">6</a></sup></td></tr>
@@ -395,7 +405,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>Supply: Hpakant and the Emporium</h2><p class="sub">One valley, one enterprise, two routes to China.</p></div>
   <p>Gem jadeite comes from the Hpakant mines in Kachin State, northern Myanmar. Licensing, royalties and formal sales run through Myanma Gems Enterprise (MGE), a state body under the Ministry of Natural Resources, which holds the annual Gems Emporium in Naypyitaw where rough is sold by sealed tender to licensed merchants. The UN fact-finding mission of 2019 found two military conglomerates, MEHL and MEC, dominant in the sector; MGE, MEHL and MEC have all been sanctioned by the US, UK and EU since 2021.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s5">5</a></sup><sup class="r"><a href="#s9">9</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Channel</th><th>Volume and value</th><th>Note</th></tr>
     <tr><td>Official: Gems Emporium, Naypyitaw</td><td>$346–417 m a year, 2014–17; 61st Emporium Oct 2026 sold 463 lots on one day</td><td>Formal route; proceeds to the state<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s3">3</a></sup></td></tr>
     <tr><td>Official: Gems Emporium, Ruili (China)</td><td>First held 22 Jul 2026; 500 t of rough; 4,600+ dealer registrations</td><td>Under a Myanmar–Yunnan memorandum; moves the sale to the buyer and beyond Western reach<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s10">10</a></sup></td></tr>
@@ -406,7 +416,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Price and the record book</h2><p class="sub">Hong Kong auction results are the only public prices, and they move on a few lots a year.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Piece</th><th>Sale</th><th class="n">Price (with fees)</th><th>Significance</th></tr>
     <tr><td>Hutton-Mdivani necklace, 27 beads, Cartier clasp</td><td>Sotheby's Hong Kong, Apr 2014</td><td class="n">HK$214 m (US$27.4 m)</td><td>Record for any jadeite; bought by Cartier for its collection</td></tr>
     <tr><td>The Ethereal Jadeite Necklace, 61 beads</td><td>Christie's Hong Kong, 26 May 2026</td><td class="n">HK$200.2 m (US$25.5 m)</td><td>Hammer HK$170 m against HK$110–200 m estimate; HK Jade &amp; Stone Lab report, Burma, natural colour, no resin; top lot in Asia, spring 2026<sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -419,7 +429,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Treatment, grading and sanctions</h2><p class="sub">Three questions a Western holder cannot answer alone.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Question</th><th>Problem</th><th>Control</th></tr>
     <tr><td>Is it treated?</td><td>Acid bleaching and polymer impregnation (Type B) or dye (Type C) make poor jadeite look fine; the difference in price is 5× to 100×; detection by eye is unreliable</td><td>Laboratory report: Hong Kong Jade &amp; Stone Laboratory, NGTC (China), GIA; infrared spectroscopy identifies polymer<sup class="r"><a href="#s4">4</a></sup><sup class="r"><a href="#s7">7</a></sup></td></tr>
     <tr><td>What grade is it?</td><td>No agreed grading scale; "imperial", "icy", "old mine" are trade terms with no definitions; colour, texture and translucency judged by eye in Cantonese and Mandarin vocabularies</td><td>Comparables from Hong Kong auctions; a specialist dealer; the HKJSL "Fei Cui" standard describes species and treatment, not quality</td></tr>
@@ -430,7 +440,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Hong Kong Magnificent Jewels results</td><td>Christie's, Sotheby's, Poly, Phillips; spring and autumn</td><td>The only public top-end prices; sell-through on jadeite lots</td></tr>
     <tr><td>Myanmar Gems Emporium: lots, totals, location</td><td>Global New Light of Myanmar; The Irrawaddy; Myanmar Now; annual and now Ruili</td><td>Official supply and the regime's reliance on it</td></tr>
@@ -459,7 +469,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Two stones, one word</a><a href="#s-ii"><span>II</span>Supply: Hpakant and the Emporium</a><a href="#s-iii"><span>III</span>Price and the record book</a><a href="#s-iv"><span>IV</span>Treatment, grading and sanctions</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Treatment and origin</span></a><a href="/pu-erh-tea-dashboard"><span class="nm">Pu-erh Tea</span><span class="rwhy">Chinese collector market</span></a><a href="/pearls-dashboard"><span class="nm">Pearls</span><span class="rwhy">No grading standard</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Treatment and origin</span></a><a href="/pu-erh-tea-dashboard"><span class="nm">Pu-erh Tea</span><span class="rwhy">Chinese collector market</span></a><a href="/pearls-dashboard"><span class="nm">Pearls</span><span class="rwhy">No grading standard</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -532,5 +543,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

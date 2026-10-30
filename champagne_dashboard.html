@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Champagne, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Champagne, ΣΟΦΙΑ"><meta property="og:description" content="Champagne: shipments, the yield lever, the 2022–25 correction, structure and holding costs. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/champagne-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Champagne: shipments, the yield lever, the 2022–25 correction, structure and holding costs. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Wine already in the exchange's bonded warehouse changes hands without moving and title passes at once; from a private cellar, weeks to receive, inspect and list. Payment terms follow the merchant.<sup class="r"><a href="#s23">23</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. The Comité Champagne capped the 2026 marketable yield at 8,800 kg/ha, about 250 m bottles, the lowest since 2020; first-half 2026 shipments were 107.1 m bottles, up 1.2%; the Liv-ex Champagne 50 is up 1.7% from its August 2025 low after falling 4.2% in 2025.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
@@ -394,7 +404,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>The correction</h2><p class="sub">From the 2022 peak to 2025: release prices, the index and the individual names.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Cuvée</th><th>Latest release vs previous</th><th>Note</th></tr>
     <tr><td>Salon</td><td class="n">−39%</td><td>The 2012 released 2021 at £5,800 a case, traded to £13,300, now £7,000–8,000<sup class="r"><a href="#s1">1</a> <a href="#s6">6</a></sup></td></tr>
     <tr><td>Louis Roederer Cristal</td><td class="n">−23.8%</td><td>2014 among the names leading the recovery<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></td></tr>
@@ -411,7 +421,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Structure of the trade</h2><p class="sub">Houses, growers, an exchange and a dozen names that matter.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Tier</th><th>Position</th><th>Note</th></tr>
     <tr><td>Grandes marques (négociant-manipulant)</td><td>LVMH (Dom Pérignon, Krug, Ruinart, Veuve Clicquot), Roederer (Cristal), Laurent-Perrier (Salon), Bollinger, Pol Roger, Taittinger</td><td>Set release prices and allocations; most of the Champagne 50 by weight</td></tr>
     <tr><td>Growers (récoltant-manipulant)</td><td>Selosse, Egly-Ouriet, Larmandier-Bernier, Ulysse Collin and others</td><td>Tiny production, dealer-led price discovery; the Burgundy-like corner of the market <span class="c c-m">Med</span></td></tr>
@@ -427,7 +437,7 @@ td.n+td,th.n+th{padding-left:16px}
   <p>Champagne is organised around three producer types: the houses (négociant-manipulant), which buy grapes across the appellation and blend; the growers (récoltant-manipulant), who make wine from their own vines; and the co-operatives. Of the 266.1 million bottles shipped in 2025, almost 192 million came from houses and nearly 152 million went abroad.<sup class="r"><a href="#s10">10</a></sup> The appellation's harvest yields cap annual output at roughly 300 million bottles, so growth in the category comes from price, not volume, which is why every house with ambition has pushed into prestige cuvées.<sup class="r"><a href="#s11">11</a> <a href="#s12">12</a></sup> <span class="c c-h">High</span></p>
   <p>The 2024 fall was the sharp one: 271.4 m bottles, −9.2%, with France at 118.2 m (−7.2%) and exports 153.2 m (−10.8%), after producers cut the harvest in July when first-half sales fell more than 15%. In 2025 the top export markets were the United States (26.5 m bottles), the United Kingdom (22.7 m) and Japan (13.3 m).<sup class="r"><a href="#s13">13</a> <a href="#s14">14</a></sup> <span class="c c-h">High</span></p>
   <h3>Principal houses</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>House</th><th>Founded</th><th>Ownership</th><th>Prestige cuvée</th></tr>
     <tr><td>Ruinart</td><td>1729 (1 Sep)</td><td>LVMH<sup class="r"><a href="#s19">19</a></sup></td><td>Dom Ruinart<sup class="r"><a href="#s12">12</a></sup></td></tr>
     <tr><td>Taittinger</td><td>Origins 1734; Taittinger family from 1932</td><td>Family<sup class="r"><a href="#s20">20</a></sup></td><td>Comtes de Champagne<sup class="r"><a href="#s12">12</a></sup></td></tr>
@@ -447,7 +457,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>The economics of holding</h2><p class="sub">Low custody, material friction, a product that is drunk.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Item</th><th>Order of cost</th><th>Note</th></tr>
     <tr><td>Storage in bond</td><td>£10–20 a case a year</td><td>Includes insurance at replacement value in most merchants' schemes <span class="c c-m">Med</span></td></tr>
     <tr><td>Merchant margin on sale</td><td>10–15% of value</td><td>Or the exchange spread plus the merchant's fee</td></tr>
@@ -459,7 +469,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Liv-ex Champagne 50</td><td>Liv-ex; monthly, daily to members</td><td>The benchmark; watch components up versus down</td></tr>
     <tr><td>Comité Champagne shipments</td><td>Monthly; annual review in January</td><td>Demand; prestige cuvée share separately</td></tr>
@@ -503,7 +513,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Shipments and the yield lever</a><a href="#s-ii"><span>II</span>The correction</a><a href="#s-iii"><span>III</span>Structure of the trade</a><a href="#s-iv"><span>IV</span>Houses and the appellation</a><a href="#s-v"><span>V</span>The economics of holding</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/fine-wine-dashboard"><span class="nm">Fine Wine</span><span class="rwhy">Shares the Liv-ex route</span></a><a href="/port-dashboard"><span class="nm">Port</span><span class="rwhy">House and appellation</span></a><a href="/scotch-whisky-dashboard"><span class="nm">Scotch Whisky</span><span class="rwhy">Brand-owner pricing</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/fine-wine-dashboard"><span class="nm">Fine Wine</span><span class="rwhy">Shares the Liv-ex route</span></a><a href="/port-dashboard"><span class="nm">Port</span><span class="rwhy">House and appellation</span></a><a href="/scotch-whisky-dashboard"><span class="nm">Scotch Whisky</span><span class="rwhy">Brand-owner pricing</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -576,5 +587,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

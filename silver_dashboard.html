@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Silver, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Silver, ΣΟΦΙΑ"><meta property="og:description" content="Silver: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/silver-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Silver: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -322,6 +325,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -361,7 +371,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Loco London spot settles two business days after trade; ETF shares on the exchange cycle.<sup class="r"><a href="#s28">28</a></sup><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Silver $57.26 on 18 Oct, from $61.4 at the last update; −9% on the month, +7% on the year as the October 2025 squeeze drops into the base.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup> LBMA's Q3 report puts the quarter at +4.3% inside a $55–70 range and the gold:silver ratio at 69.<sup class="r"><a href="#s13">13</a></sup> COMEX registered stock has rebuilt to 103 Moz; London vaults hold 28,985 t, up 3.2% on the quarter.<sup class="r"><a href="#s20">20</a></sup><sup class="r"><a href="#s13">13</a></sup> Two inventory figures carried since launch are corrected below.</p>
@@ -402,7 +412,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>Supply–demand balance</h2><p class="sub">World Silver Survey 2026 (Silver Institute / Metals Focus, 15 April 2026).</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Line</th><th class="n">2025 (Moz)</th><th class="n">2026F (Moz)</th><th>Note</th></tr>
     <tr><td>Mine production</td><td class="n">846.6</td><td class="n">844.1</td><td>+3% in 2025; −0.3% forecast for 2026 as Mexican gains are offset elsewhere <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a> <a href="#s13">13</a></sup></td></tr>
     <tr><td>Recycling</td><td class="n">197.6</td><td class="n">,</td><td>12-year high in 2025 <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -426,7 +436,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="pool"><h4>INVESTMENT</h4><div class="big">+14%<small>coin & net bar, 2025</small></div><p style="margin:8px 0 0;font-size:14px">Silver ETPs recorded estimated inflows of 68.3 Moz in 2025; retail demand surged into 2026 and produced liquidity squeezes in physical product.<sup class="r"><a href="#s6">6</a> <a href="#s1">1</a></sup> <span class="c c-m">Med</span> ETF flows are now two-way: SLV lost $29m in the week to 8 September while gold funds took $2bn, then took in $219m in the week to 16 October even as it fell 6%.<sup class="r"><a href="#s22">22</a> <a href="#s21">21</a></sup> <span class="c c-m">Med</span></p></div>
   </div>
   <h3>Solar: the thrifting problem</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Year</th><th class="n">PV silver demand (Moz)</th><th>Change</th><th>Driver</th></tr>
     <tr><td>2025</td><td class="n">186.6</td><td>,</td><td>Record solar installations <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
     <tr><td>2026F</td><td class="n">c.151</td><td>−19%</td><td>Largest single-year cut on record; thinner paste, better printing, copper metallisation <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -438,7 +448,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Visible inventories</h2><p class="sub">Where six years of deficit have been paid from.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Stock</th><th>Reference</th><th class="n">Latest</th><th>Note</th></tr>
     <tr><td>COMEX registered</td><td>97.2 Moz, 16 Sep 2026</td><td class="n">103.1 Moz</td><td>16 Oct 2026; +6.1% in 30 days. CME warehouse report via metalcharts <span class="c c-h">High</span><sup class="r"><a href="#s20">20</a></sup></td></tr>
     <tr><td>COMEX eligible</td><td>,</td><td class="n">230.6 Moz</td><td>Total 333.8 Moz; eligible is stored, not deliverable <span class="c c-h">High</span><sup class="r"><a href="#s20">20</a></sup></td></tr>
@@ -451,7 +461,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Market balance and solar demand</td><td>Silver Institute World Silver Survey (April) and Interim Review (November)</td><td>Whether the deficit is widening and how much thrifting has actually occurred</td></tr>
     <tr><td>Visible inventories</td><td>LBMA vault report and CME warehouse stocks, monthly</td><td>The only tightness gauge in a market with no official-sector buyer</td></tr>
@@ -499,7 +509,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Price</a><a href="#s-ii"><span>II</span>Supply–demand balance</a><a href="#s-iii"><span>III</span>Two demand pools</a><a href="#s-iv"><span>IV</span>Visible inventories</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Monetary metal, same fix</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="rwhy">Industrial demand</span></a><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Exchange-traded</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Monetary metal, same fix</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="rwhy">Industrial demand</span></a><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Exchange-traded</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -572,5 +583,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

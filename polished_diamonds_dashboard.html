@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Polished Diamonds, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Polished Diamonds, ΣΟΦΙΑ"><meta property="og:description" content="Polished Diamonds: retail and dealer pricing by carat tier, the lab-grown discount, tariffs by country of cutting, retailers and demand outlook to 2033. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/polished-diamonds-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Polished Diamonds: retail and dealer pricing by carat tier, the lab-grown discount, tariffs by country of cutting, retailers and demand outlook to 2033. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -465,6 +468,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -504,7 +514,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>A dealer or online buyer quotes in days and pays on receipt; consignment and auction take two to four months. The grading report is the passport, and a stone without one must be re-graded first (two to four weeks).<sup class="r"><a href="#s50">50</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a> · <a href="/substitutes">Synthetic and substitute pressure</a> · <a href="/tokenisation">Tokenising scarce assets</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Rebuilt as a separate brief from Natural Diamonds, 20 Oct 2026. US duty on natural polished has applied by country of cutting since 24 July 2026 under Section 301: India 10%, South Africa and Russia 12.5% (Russian origin barred regardless), EU and the southern African producers exempt. Signet reported lab-grown at 40% of bridal-band sales and 15% of fashion in Q3 FY26; De Beers put LGD wholesale at about $100/ct in June 2026, down 93% since 2020.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
@@ -1143,7 +1153,7 @@ td.n+td,th.n+th{padding-left:16px}
           <div style="font-family:var(--mono); font-size:14px; font-weight:500; letter-spacing:0.02em; text-transform:uppercase; margin-bottom: 4px;">Specialist &amp; Digital-First Retailers</div>
           <div style="font-family:var(--mono); font-size: 11px; text-transform:uppercase; letter-spacing:0.18em; color:#a8825a; margin-bottom:14px;">Online · Provenance-led · LGD-focused</div>
 
-          <div class="tw"><table>
+          <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
             <thead>
               <tr>
                 <th>Retailer</th>
@@ -1305,7 +1315,7 @@ td.n+td,th.n+th{padding-left:16px}
       </div>
     </div></div></section>
 <section id="sec-5"><div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Polished price lists and indices</td><td>Rapaport (weekly); IDEX, StoneAlgo (continuous)</td><td>The dealer benchmark; the only valuation reference for a loose stone</td></tr>
     <tr><td>Natural vs lab-grown retail prices by carat tier</td><td>BriteCo, Tenoris, Edahn Golan; quarterly</td><td>The discount, and where the LGD consumer ceiling sits</td></tr>
@@ -1323,7 +1333,8 @@ td.n+td,th.n+th{padding-left:16px}
 <div class="note"><b>Changes in this refresh, 20 Oct 2026.</b> Natural Diamonds split into two briefs. This one carries Sections III–V unchanged from 19 October and the demand half of the outlook (Structural Dynamics; the De Beers ownership panel moved to Rough Diamonds), with a new regime line, "Since last update", and an indicators table. Sources renumbered in order of first citation; no figures changed.</div></section>
 </details>
 <div class="toc-lite"><a href="#sec-1"><span>I</span>The Diamond Value Chain</a><a href="#sec-2"><span>II</span>B2B &amp; Retail Pricing</a><a href="#sec-3"><span>III</span>Retailers · Key Players by Market</a><a href="#sec-4"><span>IV</span>Outlook · Demand to 2033</a><a href="#sec-5"><span>V</span>Indicators to monitor</a><a href="#sources"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/rough-diamonds-dashboard"><span class="nm">Rough Diamonds</span><span class="rwhy">Upstream supply and pricing</span></a><a href="/lab-grown-diamonds-dashboard"><span class="nm">Lab-Grown Diamonds</span><span class="rwhy">Competing supply</span></a><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Specialist graded stones</span></a><a href="/signed-jewellery-dashboard"><span class="nm">Signed Jewellery</span><span class="rwhy">Where the stones sell</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/rough-diamonds-dashboard"><span class="nm">Rough Diamonds</span><span class="rwhy">Upstream supply and pricing</span></a><a href="/lab-grown-diamonds-dashboard"><span class="nm">Lab-Grown Diamonds</span><span class="rwhy">Competing supply</span></a><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Specialist graded stones</span></a><a href="/signed-jewellery-dashboard"><span class="nm">Signed Jewellery</span><span class="rwhy">Where the stones sell</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/tokenisation">Tokenising scarce assets</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -1505,5 +1516,6 @@ window.addEventListener('load', () => {
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vanilla, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Vanilla, ΣΟΦΙΑ"><meta property="og:description" content="Vanilla: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/vanilla-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Vanilla: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -313,6 +316,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -352,7 +362,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Beans move within weeks of curing when an exporter will take them; in an oversupplied year a seller waits a season or discounts. Equity exposure exits on exchange the same day.<sup class="r"><a href="#s16">16</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/substitutes">Synthetic and substitute pressure</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">In late June 2026 Madagascar set a green-vanilla floor of 10,000 Ariary/kg (~$2.34) for pods over 13 cm. Trade reference prices: $15 cuts, $25 long, $50 gourmet. A 3,000–3,500 t crop is projected for 2026.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup></p>
@@ -406,7 +416,7 @@ td.n+td,th.n+th{padding-left:16px}
   </div>
   <div class="mn">
     <div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <tr><th>Regime</th><th>Period</th><th class="n">Price, $/kg cured</th><th>Mechanism</th></tr>
         <tr><td>Pre-boom</td><td>2014</td><td class="n">35–65</td><td>Balanced market <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
         <tr><td>Squeeze</td><td>2016–2019</td><td class="n">500–800</td><td>Cyclone losses, speculative hoarding, early "vacuum-packed" harvesting <span class="c c-m">Med</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -423,7 +433,7 @@ td.n+td,th.n+th{padding-left:16px}
   
   <div class="mn">
     <div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <tr><th>Origin</th><th class="n">2023 raw output (t)</th><th class="n">Share</th><th>Character</th></tr>
         <tr><td>Madagascar</td><td class="n">3,113</td><td class="n">41.9%</td><td>Bourbon; SAVA "Vanilla Triangle" (Sambava, Antalaha, Vohémar, Andapa) <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
         <tr><td>Indonesia</td><td class="n">c.1,836</td><td class="n">24.7%</td><td>Woody, smoky; processed-product grades; cheapest tracked origin <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a> <a href="#s9">9</a></sup></td></tr>
@@ -441,7 +451,7 @@ td.n+td,th.n+th{padding-left:16px}
   
   <div class="mn">
     <div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <tr><th>Reference point</th><th class="n">Value</th><th>Note</th></tr>
         <tr><td>Green vanilla floor, June 2026</td><td class="n">10,000 Ariary/kg</td><td>Council of Ministers; pods &gt;13 cm; c.US$2.34/kg <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
         <tr><td>Previous green floor</td><td class="n">75,000 Ariary/kg</td><td>c.US$18, the floor has fallen 87% in Ariary terms <span class="t">Derived</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -458,7 +468,7 @@ td.n+td,th.n+th{padding-left:16px}
   
   <div class="mn">
     <div>
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <tr><th>Route</th><th>Description</th><th>Position</th></tr>
         <tr><td>Natural bean extract</td><td>c.1% of global vanilla flavour volume; extraction yields 0.2–0.3% vanillin per kg of beans</td><td>Premium; clean-label claims <span class="c c-m">Med</span><sup class="r"><a href="#s5">5</a> <a href="#s11">11</a></sup></td></tr>
         <tr><td>Synthetic vanillin (guaiacol, lignin)</td><td>Bulk of the market; consistent chemistry</td><td>Commodity <span class="c c-h">High</span><sup class="r"><a href="#s12">12</a></sup></td></tr>
@@ -473,7 +483,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Campaign opening decree and floor prices</td><td>Madagascar Council of Ministers, annually May–July</td><td>Whether the state is defending farm-gate incomes or liberalising further</td></tr>
     <tr><td>Crop-size projections</td><td>Aust &amp; Hachmann and other trade-house reports, semi-annual</td><td>Tests competing tonnage estimates; flowering reports give a one-year lead</td></tr>
@@ -510,7 +520,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The cycle</a><a href="#s-ii"><span>II</span>Origin concentration</a><a href="#s-iii"><span>III</span>Cost of production & the farm-gate</a><a href="#s-iv"><span>IV</span>Substitution & the synthetic ceiling</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/saffron-dashboard"><span class="nm">Saffron</span><span class="rwhy">Hand-pollinated spice</span></a><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Tropical crop, futures contrast</span></a><a href="/frankincense-dashboard"><span class="nm">Frankincense</span><span class="rwhy">Cured natural product</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/saffron-dashboard"><span class="nm">Saffron</span><span class="rwhy">Hand-pollinated spice</span></a><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Tropical crop, futures contrast</span></a><a href="/frankincense-dashboard"><span class="nm">Frankincense</span><span class="rwhy">Cured natural product</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -583,5 +594,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

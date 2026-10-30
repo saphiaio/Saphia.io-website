@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rare Earths, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Rare Earths, ΣΟΦΙΑ"><meta property="og:description" content="Rare Earths: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/rare-earths-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Rare Earths: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Weeks to months to find an industrial counterparty for a non-standard lot; dealer buy-backs settle faster at a wider spread. Offtake deliveries are scheduled by contract, not by the holder.<span class="t">Derived</span><span class="c c-l">Low</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Benchmark assesses ex-China NdPr oxide at $95/kg CIF Europe and North America, below the Chinese domestic price (~$107.5) for the first time in the series, as new Western separation output meets thin demand; the 63% ex-China premium carried here since March is withdrawn.<sup class="r"><a href="#s22">22</a></sup> SMM Pr-Nd oxide $97.30/kg on 30 Sep, a third cycle under the floor; the CRIA index rose to 263.6 on 9 Oct.<sup class="r"><a href="#s23">23</a></sup><sup class="r"><a href="#s24">24</a></sup> As of 11 Oct, Beijing has not extended the suspension of the October 2025 controls past 10 Nov; MOFCOM's 28 Sep statement extended US trade arrangements to 10 Jan 2027 without mentioning rare earths.<sup class="r"><a href="#s19">19</a></sup></p>
@@ -392,7 +402,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="r"><span>Separated Dy / Tb (heavy)</span><div class="bar"><i style="width:98%"></i></div><span class="v">98–99%</span></div>
     <div class="r"><span>Sintered NdFeB magnets</span><div class="bar"><i style="width:87%"></i></div><span class="v">85–90%</span></div>
   </div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Stage</th><th class="n">China share</th><th>Basis</th><th>Confidence</th></tr>
     <tr><td>Mine production</td><td class="n">69% of 390,000 t</td><td>USGS MCS 2025 (2024 data); 2025 China output 270,000 t per MCS 2026</td><td><span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s7">7</a></sup></td></tr>
     <tr><td>Processing</td><td class="n">&gt;85%</td><td>USGS, cited by trade press</td><td><span class="c c-h">High</span><sup class="r"><a href="#s3">3</a></sup></td></tr>
@@ -420,7 +430,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Export controls</h2><p class="sub">Licensing as leverage.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Measure</th><th>Effect reported</th><th>Confidence</th></tr>
     <tr><td>Chinese export licensing on rare earths, tungsten, antimony (2025–26)</td><td>Price spikes of up to sixfold in affected products; licence approval rates for European firms reported below 25%</td><td><span class="c c-l">Low</span> single secondary source<sup class="r"><a href="#s6">6</a></sup></td></tr>
     <tr><td>Antimony</td><td>+144% in 2025 amid Chinese controls (USGS MCS 2026 commentary)</td><td><span class="c c-h">High</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
@@ -436,7 +446,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>The ex-China build-out</h2><p class="sub">Real progress in 2026; still a system under construction.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Company</th><th>Milestone</th><th>Scale</th><th>Confidence</th></tr>
     <tr><td>MP Materials (US)</td><td>First US-made magnets shipped, March 2026 (Fort Worth "Independence" plant); Dy/Tb separation at Mountain Pass: commissioning under way by Q3 2026, no volumes disclosed yet; gadolinium offtake signed with a US defence customer<sup class="r"><a href="#s18">18</a></sup></td><td>c.2,600 tpa separated NdPr actual; Q1 2026 record 917 t, Q2 840 t (+41% y/y) with Q3 guided above 1,000 t; Q2 REO 11,072 t; 650 t NdPr inventory at 30 Jun; DoD equity stake and floor; Apple offtake</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a> <a href="#s8">8</a> <a href="#s9">9</a> <a href="#s26">26</a></sup></td></tr>
     <tr><td>Lynas (Australia/Malaysia)</td><td>First contracted heavy-rare-earth (Dy/Tb) shipments, 2026; Kalgoorlie and Seadrift, Texas under construction; also covered by a $110/kg DoD floor arrangement</td><td>c.7 ktpa NdPr-equivalent, targeting 10–12 ktpa</td><td><span class="c c-m">Med</span><sup class="r"><a href="#s3">3</a> <a href="#s5">5</a> <a href="#s22">22</a></sup></td></tr>
@@ -457,7 +467,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Mine production and reserves</td><td>USGS Mineral Commodity Summaries, February annually</td><td>Replaces the 270,000 t / 390,000 t anchors used here</td></tr>
     <tr><td>Ex-China separation and magnet output</td><td>MP Materials and Lynas quarterly reports</td><td>Whether allied capacity is closing the 3,500–4,500 tpa gap; share of revenue from price protection</td></tr>
@@ -507,7 +517,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Concentration</a><a href="#s-ii"><span>II</span>Price structure</a><a href="#s-iii"><span>III</span>Export controls</a><a href="#s-iv"><span>IV</span>The ex-China build-out</a><a href="#s-v"><span>V</span>Gulf angle</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Energy-transition metal</span></a><a href="/uranium-dashboard"><span class="nm">Uranium</span><span class="rwhy">Strategic, state-shaped</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="rwhy">Catalyst demand</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Energy-transition metal</span></a><a href="/uranium-dashboard"><span class="nm">Uranium</span><span class="rwhy">Strategic, state-shaped</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="rwhy">Catalyst demand</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -580,5 +591,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

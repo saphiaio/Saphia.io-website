@@ -96,7 +96,9 @@ Then DELETE natural_diamonds_dashboard.html from the repo (its URL redirects to 
 - saphia.io/about → loads with four sections; saphia.io/themes → three themes
 - any dashboard → nav reads About / Methodology / Markets / Themes
 - saphia.io/lab-grown-diamonds-dashboard → two part banners; contents list shows Part A / Part B
-- saphia.io/                        → "Fifty-one markets →"
+- saphia.io/                        → headline, one-line description, three entry links (Markets / Themes / Method)
+- saphia.io/sitemap.xml and /robots.txt → resolve as plain text
+- any dashboard → "Themes that cover this market" block above the footer; on a phone, tables show "Scroll for more →"
 - saphia.io/markets                 → 51 tiles in each view; Rough under Σ4, Polished under Σ3
 - saphia.io/markets?view=compare    → four-column dot table, 51 rows; clicking "Liquidity" ranks Gold/Silver/PGM/Copper/Oil & Gas/Coffee/Cocoa at five marks
 - saphia.io/method                  → Σ4 count 20; glossary "63 terms"

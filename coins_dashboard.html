@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Coins, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Coins, ΣΟΦΙΑ"><meta property="og:description" content="Coins: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/coins-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Coins: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Dealer sale: same day at bid. Heritage weekly online sales close within days of consignment; Signature sales are scheduled monthly; settlement 45–60 days after the sale at Heritage, 60–90 at Stack's Bowers.<sup class="r"><a href="#s9">9</a> <a href="#s10">10</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. Stack's Bowers sold the James A. Stack 1804 dollar for $6 m in December 2025 and a 1794 Flowing Hair dollar for $4.5 m in November; A-Mark Precious Metals completed its acquisition of Stack's Bowers in 2025, putting the second-largest numismatic auctioneer inside a bullion dealer. All eleven government-held 1933 Double Eagles were shown together at the ANA in Pittsburgh in 2026.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -381,7 +391,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>Size and cycle</h2><p class="sub">Measured better than any collectible, and tied to the gold price.</p></div>
   <p>Heritage and Stack's Bowers together sell well over $1 bn of coins a year at auction, and Heritage publishes totals by category; the dealer market through the shows and the two grading companies' population reports give the trade a transparency no other collecting field has. The cycle follows two things: the gold and silver price, which sets the floor under every coin of precious metal and drives new money into the field when it rises, as in 2024–26; and the appearance of named cabinets, Eliasberg, Pogue, Norweb, Bruun, Stack, which produce the records.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s6">6</a></sup> <span class="c c-h">High</span> for auction totals; <span class="c c-m">Med</span> for the whole market.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Segment</th><th>What it is</th><th>Character</th></tr>
     <tr><td>US federal rarities</td><td>1804 dollars, 1794 dollars, 1913 nickels, 1933 and early double eagles, pattern coins</td><td>All the seven- and eight-figure results; pedigree outranks grade at this level<sup class="r"><a href="#s3">3</a></sup><sup class="r"><a href="#s5">5</a></sup></td></tr>
     <tr><td>US type and key dates, certified</td><td>MS-63 to MS-67 coins in PCGS or NGC holders</td><td>The liquid core; price guides and population reports; sight-unseen trading</td></tr>
@@ -393,7 +403,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>The record book</h2><p class="sub">US coins dominate; two non-US coins have passed $6 m.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Coin</th><th>Sale</th><th class="n">Price (with fees)</th><th>Note</th></tr>
     <tr><td>1933 Saint-Gaudens double eagle, MS-65</td><td>Sotheby's New York, 8 Jun 2021</td><td class="n">$18,872,250</td><td>Record; sold with the Mint's "Certificate of Monetization"; $7.59 m in 2002<sup class="r"><a href="#s4">4</a></sup></td></tr>
     <tr><td>1794 Flowing Hair dollar, SP-66 CAC</td><td>Stack's Bowers, Jan 2013</td><td class="n">$10,016,875</td><td>Possibly the first silver dollar struck<sup class="r"><a href="#s5">5</a></sup></td></tr>
@@ -409,7 +419,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Grading: the slab and the sticker</h2><p class="sub">The institution that made coins tradeable, and its limits.</p></div>
   <p>Since 1986 PCGS and since 1987 NGC have graded coins on the 70-point Sheldon scale, sealed them in tamper-evident holders with a serial number, and published population reports counting how many of each coin they have graded at each level. CAC, founded 2007, adds a sticker to coins it judges solid for the grade and since 2023 grades in its own holders. The system makes a certified common coin close to fungible: dealers buy and sell by grade from price guides without seeing the coin.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Limit</th><th>Problem</th><th>Effect for a holder</th></tr>
     <tr><td>Grade is an opinion</td><td>The same coin can grade differently on resubmission; "crack-outs" and gradeflation are documented trade practices</td><td>A one-point difference at the top can double the price; the holder bears re-grade risk</td></tr>
     <tr><td>Population reports count submissions, not coins</td><td>Resubmitted coins inflate counts; the services do not reconcile</td><td>Rarity at a grade is approximate</td></tr>
@@ -421,7 +431,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Structure of the trade</h2><p class="sub">Two houses, two graders, a show calendar and a bullion industry behind it.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Channel</th><th>Position</th><th>Note</th></tr>
     <tr><td>Heritage Auctions</td><td>The largest numismatic auctioneer by volume; official auctioneer at FUN and the ANA World's Fair of Money</td><td>Deepest bidder pool; publishes results and archives<sup class="r"><a href="#s3">3</a></sup></td></tr>
     <tr><td>Stack's Bowers Galleries</td><td>The landmark cabinets (Pogue, Bruun, Stack); acquired by A-Mark Precious Metals, 2025</td><td>Now inside a bullion wholesaler; the metal and the collectible trade converge<sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></td></tr>
@@ -433,7 +443,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Gold and silver spot</td><td>LBMA, daily</td><td>The floor under every precious-metal coin; see Gold</td></tr>
     <tr><td>Heritage and Stack's Bowers sale totals; FUN and ANA results</td><td>House releases; January and August</td><td>Top-end and mid-market depth</td></tr>
@@ -462,7 +472,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Size and cycle</a><a href="#s-ii"><span>II</span>The record book</a><a href="#s-iii"><span>III</span>Grading: the slab and the sticker</a><a href="#s-iv"><span>IV</span>Structure of the trade</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/stamps-dashboard"><span class="nm">Stamps</span><span class="rwhy">Graded, slabbed, catalogued</span></a><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Bullion value floor</span></a><a href="/rare-books-dashboard"><span class="nm">Rare Books</span><span class="rwhy">Rarity by census</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/stamps-dashboard"><span class="nm">Stamps</span><span class="rwhy">Graded, slabbed, catalogued</span></a><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Bullion value floor</span></a><a href="/rare-books-dashboard"><span class="nm">Rare Books</span><span class="rwhy">Rarity by census</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -535,5 +546,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

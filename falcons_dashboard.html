@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Falcons, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Falcons, ΣΟΦΙΑ"><meta property="og:description" content="Falcons: the Gulf falconry market, auction record, CITES and passports, breeding farms and risk. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/falcons-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Falcons: the Gulf falconry market, auction record, CITES and passports, breeding farms and risk. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>A bird consigned to the August auction sells on a scheduled night and changes hands at once; outside the season a private sale can take months and a border crossing adds CITES processing of weeks.<sup class="r"><a href="#s9">9</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. The 2026 International Falcon Breeders Auction's top lot was a Canadian-bred three-quarter gyr Super White at SR1.3 m ($346,000), the second-highest in the auction's history; a wild-taken Mongolian falcon then set a record of SR1.4 m at the Saudi International Falcons and Hunting Exhibition in October. The all-time auction record remains SR1.75 m ($467,000), 2021.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></p>
@@ -381,7 +391,7 @@ td.n+td,th.n+th{padding-left:16px}
 
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>The auction record</h2><p class="sub">Three seasons of the Saudi Falcons Club's auction, and the exhibition that follows it.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Season</th><th class="n">Sales</th><th class="n">Birds sold</th><th>Top lot</th></tr>
     <tr><td>2024 (20 days)</td><td class="n">&gt;SR10 m</td><td class="n">866</td><td>Ultra White gyr hybrid, Pacific Northwest Falcons (US), SR400,000; 56 farms, 19 countries<sup class="r"><a href="#s5">5</a></sup></td></tr>
     <tr><td>2025 (21 days)</td><td class="n">&gt;SR13 m (+23%)</td><td class="n">1,103 (+27%)</td><td>Super White pure gyr chick, RX farm (US), SR1.2 m ($320,000); 67 farms, 23 countries<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></td></tr>
@@ -393,7 +403,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>What is being bought</h2><p class="sub">Species, cross, colour, sex, age and the season ahead.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Variable</th><th>What it means</th><th>Price effect</th></tr>
     <tr><td>Species and cross</td><td>Pure gyrfalcon (largest, Arctic); gyr × peregrine ("shaheen") and gyr × saker hybrids at half, three-quarter, seven-eighths gyr</td><td>Pure and high-fraction gyr highest; hybrids bred for heat tolerance and racing speed</td></tr>
     <tr><td>Colour morph</td><td>White, Super White, Ultra White gyr plumage; dark and silver below</td><td>The record lots are all white morphs; the premium is aesthetic and cultural, not sporting<sup class="r"><a href="#s1">1</a> <a href="#s5">5</a></sup></td></tr>
@@ -407,7 +417,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Permits, passports and the farms</h2><p class="sub">Why a falcon can be sold at all.</p></div>
   <p>All falcons are listed under CITES: peregrine and gyrfalcon on Appendix I, saker on Appendix II. A captive-bred bird from a registered breeder may be traded internationally with a CITES certificate of captive breeding and a closed leg ring fitted as a chick; wild-taken birds may move only under national export quota. The UAE introduced a falcon passport in 2002, since adopted across the GCC, which records the bird, its ring and microchip and its owner and permits travel with the falconer; Saudi Arabia's National Center for Falcons and the Saudi Falcons Club (2017) regulate the domestic market, the auctions and the breeding-farm licences.<sup class="r"><a href="#s3">3</a> <a href="#s6">6</a></sup> <span class="c c-m">Med</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Participant</th><th>Role</th><th>Note</th></tr>
     <tr><td>Breeding farms</td><td>c. 67 at the 2025 auction from 23 countries; Canada, US, UK, Germany, Spain and Gulf farms</td><td>Hybrids by artificial insemination; white gyr lines are proprietary<sup class="r"><a href="#s1">1</a> <a href="#s3">3</a></sup></td></tr>
     <tr><td>Saudi Falcons Club</td><td>Organises the Breeders Auction, the exhibition, the King Abdulaziz Falconry Festival and a 122-day season</td><td>The market's exchange and regulator in one<sup class="r"><a href="#s3">3</a></sup></td></tr>
@@ -418,7 +428,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>How a bird loses value</h2><p class="sub">Most of it, in the ordinary course.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Risk</th><th>Mechanism</th><th>Mitigation</th></tr>
     <tr><td>Depreciation</td><td>A chick's premium is gone after the first season; an intermewed bird is valued on performance</td><td>None; this is the asset's nature</td></tr>
     <tr><td>Mortality and injury</td><td>Aspergillosis, bumblefoot, collisions, heat; a hunting bird lost on a flight</td><td>Telemetry; falcon hospitals in Abu Dhabi, Dubai, Doha, Riyadh; insurance limited</td></tr>
@@ -431,7 +441,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>International Falcon Breeders Auction results</td><td>Saudi Falcons Club; Aug–Sep, nightly, broadcast</td><td>Volume, farms, countries, top lots; the only price series</td></tr>
     <tr><td>Saudi International Falcons and Hunting Exhibition; ADIHEX</td><td>Oct; Sep</td><td>Wild-taken and dealer sales; the exhibition record</td></tr>
@@ -461,7 +471,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The auction record</a><a href="#s-ii"><span>II</span>What is being bought</a><a href="#s-iii"><span>III</span>Permits, passports and the farms</a><a href="#s-iv"><span>IV</span>How a bird loses value</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/breeding-stallions-dashboard"><span class="nm">Breeding Stallions</span><span class="rwhy">Living asset, pedigree</span></a><a href="/racehorses-dashboard"><span class="nm">Racehorses</span><span class="rwhy">Auction and training cost</span></a><a href="/oud-dashboard"><span class="nm">Oud</span><span class="rwhy">Gulf demand</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/breeding-stallions-dashboard"><span class="nm">Breeding Stallions</span><span class="rwhy">Living asset, pedigree</span></a><a href="/racehorses-dashboard"><span class="nm">Racehorses</span><span class="rwhy">Auction and training cost</span></a><a href="/oud-dashboard"><span class="nm">Oud</span><span class="rwhy">Gulf demand</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -534,5 +545,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

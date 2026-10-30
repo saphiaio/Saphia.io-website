@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cigars, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Cigars, ΣΟΦΙΑ"><meta property="og:description" content="Cigars: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/cigars-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Cigars: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -319,6 +322,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -358,7 +368,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Auctions run quarterly; consignment deadlines fall weeks ahead and payment follows the sale by about a month. A dealer purchase can settle in days at a lower price. Three to four months from decision to cash through auction.<sup class="r"><a href="#s38">38</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no new Habanos sales or price data since the last update. Ratings unchanged.</p>
@@ -389,7 +399,7 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="sechead tint"><h2><em>I</em>Structure of the trade</h2><p class="sub">Two industries that share a product and almost nothing else.</p></div>
   
   <p>The premium cigar world is split by the US embargo. On one side, Cuba: a state monopoly on growing, rolling and export, sold worldwide except in the United States through a 50/50 joint venture, Habanos S.A. On the other, the "Big Three", Nicaragua, the Dominican Republic and Honduras, which between them roll nearly 98% of the handmade cigars imported into the US, the world's largest market.<sup class="r"><a href="#s12">12</a></sup> Nearly all handmade cigars sold in the US are rolled abroad; more than 99% by one industry estimate.<sup class="r"><a href="#s13">13</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Origin</th><th>Growing regions</th><th>Commercial model</th><th>Scale indicator</th></tr>
     <tr><td>Cuba</td><td>Pinar del Río (Vuelta Abajo) supplies 60–70% of export leaf; the province's share of national cigar tobacco is put at 70–80%<sup class="r"><a href="#s7">7</a> <a href="#s10">10</a></sup></td><td>State-owned Tabacuba grows and rolls; Habanos S.A. markets and exports; La Casa del Habano franchise retail</td><td>50 m cigars exported 2024; 4,705 specialist points of sale<sup class="r"><a href="#s6">6</a> <a href="#s3">3</a></sup></td></tr>
     <tr><td>Nicaragua</td><td>Estelí, Jalapa, Condega</td><td>Private factories (Plasencia, AJ Fernandez, Drew Estate and others); largest exporter by volume</td><td>258.4 m to the US in 2025; c.280–310 m total exports (estimate)<sup class="r"><a href="#s11">11</a> <a href="#s14">14</a></sup></td></tr>
@@ -401,7 +411,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>Cuba and Habanos S.A.</h2><p class="sub">Record revenue on half the volume.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Year</th><th class="n">Habanos revenue ($ m)</th><th class="n">Change</th><th>Note</th></tr>
     <tr><td>2023</td><td class="n">721</td><td class="n">+31%</td><td>Record at the time<sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>2024</td><td class="n">827</td><td class="n">+14.7% / +16%</td><td>Company states 16%; the arithmetic from $721 m gives 14.7%, discrepancy logged, likely a restated 2023 base <span class="c c-m">Med</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
@@ -409,7 +419,7 @@ td.n+td,th.n+th{padding-left:16px}
   </table></div>
   <p>Top markets by value in 2024 were China, Spain, Switzerland, the United Kingdom and Germany; Europe took 54% of sales.<sup class="r"><a href="#s3">3</a></sup> China has been the largest market since 2020, and the 2022 price unification used Hong Kong prices as the benchmark.<sup class="r"><a href="#s19">19</a></sup> The retail network stood at 4,705 specialist points of sale at end-2024, including 168 La Casa del Habano franchises and 21 licensed Cohiba Atmosphere lounges.<sup class="r"><a href="#s3">3</a></sup> <span class="c c-h">High</span></p>
   <h3>Repricing, 2022–2026</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Vitola</th><th class="n">Early 2022</th><th class="n">Early 2026</th><th class="n">Change</th><th>Source</th></tr>
     <tr><td>Cohiba Behike BHK 52 (per stick)</td><td class="n">c.€55</td><td class="n">c.€230</td><td class="n">c.4×</td><td>Cigar Journal <span class="c c-m">Med</span><sup class="r"><a href="#s7">7</a></sup></td></tr>
     <tr><td>Cohiba Siglo VI, Spain (per stick)</td><td class="n">c.€38</td><td class="n">c.€105</td><td class="n">+178%</td><td>Cigar Rights of America <span class="c c-m">Med</span><sup class="r"><a href="#s9">9</a></sup></td></tr>
@@ -422,7 +432,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="card"><div class="v">c.90%</div><div class="l">Pinar del Río curing barns destroyed by Hurricane Ian, Sep 2022, over 10,000 structures <span class="c c-h">High</span><sup class="r"><a href="#s8">8</a></sup></div></div>
     <div class="card"><div class="v">50%</div><div class="l">Pinar del Río tobacco fields on electrified irrigation, idle during grid collapses <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a> <a href="#s10">10</a></sup></div></div>
   </div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Season</th><th class="n">Planted / harvested</th><th>Note</th></tr>
     <tr><td>2022–23</td><td class="n">5,150 ha vs 11,000 planned</td><td>Post-Ian; wrapper shortage prioritised<sup class="r"><a href="#s8">8</a></sup></td></tr>
     <tr><td>2024–25</td><td class="n">c.10,378–10,500 ha (Pinar del Río)</td><td>National harvest c.15,000 ha, c.17,000 t leaf; target 20,000 ha next season<sup class="r"><a href="#s10">10</a> <a href="#s21">21</a></sup></td></tr>
@@ -456,7 +466,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>The Big Three and the US market</h2><p class="sub">A boom that levelled rather than crashed, now absorbing tariffs.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Year</th><th class="n">US premium handmade imports (m)</th><th>Note</th></tr>
     <tr><td>2019</td><td class="n">338</td><td>Pre-pandemic benchmark; 300 m once counted as a good year<sup class="r"><a href="#s12">12</a></sup></td></tr>
     <tr><td>2021–2024</td><td class="n">&gt;400 each year</td><td>Pandemic-era boom<sup class="r"><a href="#s12">12</a></sup></td></tr>
@@ -473,7 +483,7 @@ td.n+td,th.n+th{padding-left:16px}
   <h3>Tariffs</h3>
   <p>Since April 2025 a shifting US tariff regime has targeted exactly the three countries that roll America's cigars. Industry estimates put the cost at $0.50–$2.10 per cigar, or $12.50–$52.50 on a box of 25, in a zero-tobacco-tax state.<sup class="r"><a href="#s13">13</a></sup> Cigars were exempted from increased tariffs on Nicaraguan goods announced in December 2025.<sup class="r"><a href="#s19">19</a></sup> The volume data suggest the market has proven resilient but not unscathed. <span class="c c-m">Med</span></p>
   <h3>Principal non-Cuban operators named in the sources</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Company</th><th>Base</th><th>Position</th></tr>
     <tr><td>Tabacalera USA (Altadis U.S.A., JR Cigar, Casa de Montecristo)</td><td>US; majority Turmeric Capital since 2025</td><td>Non-Cuban Montecristo, Romeo y Julieta, H. Upmann, Trinidad; JR believed the second-largest online seller<sup class="r"><a href="#s19">19</a></sup></td></tr>
     <tr><td>Tabacalera de García</td><td>La Romana, Dominican Republic (Tabacalera S.L.U.)</td><td>Claims 40 m handmade a year, purpose-built for Altadis U.S.A.; lost that client in Nov 2025<sup class="r"><a href="#s19">19</a></sup></td></tr>
@@ -485,7 +495,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>Regulation</h2><p class="sub">The US premium exemption, settled after a decade; excise and bans elsewhere.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Date</th><th>Event</th><th>Effect</th></tr>
     <tr><td>May 2016</td><td>FDA "Deeming Rule" extends tobacco authority to all cigars<sup class="r"><a href="#s29">29</a></sup></td><td>Warning labels, product review and user fees threatened for handmade cigars</td></tr>
     <tr><td>9 Aug 2023</td><td>US District Court (DC) vacates the rule "insofar as it applies to premium cigars" as arbitrary and capricious<sup class="r"><a href="#s30">30</a></sup></td><td>First exemption; court adopts an eight-part definition</td></tr>
@@ -497,7 +507,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead tint"><h2><em>VI</em>Gulf angle</h2><p class="sub">Consumer, distributor and, since 2025, owner.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Layer</th><th>Detail</th><th>Confidence</th></tr>
     <tr><td>Distribution</td><td>Phoenicia Trading T.A.A. (Cyprus), based in Limassol, is Habanos' exclusive distributor for the Middle East, Africa (excluding Algeria, Morocco and South Africa) and several European territories, covering the UAE, Saudi Arabia, Qatar, Kuwait, Bahrain, Oman, Jordan, Lebanon and Iraq<sup class="r"><a href="#s34">34</a></sup></td><td><span class="c c-h">High</span></td></tr>
     <tr><td>Retail</td><td>La Casa del Habano first opened in the UAE in 1988 under the Baqer Mohebi group; outlets in Abu Dhabi Mall, Dubai (JBR, City Walk), Dubai Duty Free Terminal 1 and a Habanos Specialist at Terminal 3<sup class="r"><a href="#s35">35</a> <a href="#s36">36</a></sup></td><td><span class="c c-h">High</span></td></tr>
@@ -510,7 +520,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vii">
   <div class="sechead narrative"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Habanos S.A. revenue and market ranking</td><td>Festival del Habano press conference, February (when held)</td><td>Whether value growth survives the volume collapse; whether 2025 is ever published</td></tr>
     <tr><td>Tabacuba export volumes and planted hectares</td><td>Cuban state media (Granma, Guerrillero); harvest season Oct–Mar</td><td>Physical supply; the 18-month reserve</td></tr>
@@ -570,7 +580,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Structure of the trade</a><a href="#s-ii"><span>II</span>Cuba and Habanos S.A.</a><a href="#s-iii"><span>III</span>Ownership and sanctions</a><a href="#s-iv"><span>IV</span>The Big Three and the US market</a><a href="#s-v"><span>V</span>Regulation</a><a href="#s-vi"><span>VI</span>Gulf angle</a><a href="#s-vii"><span>VII</span>Indicators to monitor</a><a href="#s-viii"><span>VIII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/scotch-whisky-dashboard"><span class="nm">Scotch Whisky</span><span class="rwhy">Monopoly supply, ageing</span></a><a href="/pu-erh-tea-dashboard"><span class="nm">Pu-erh Tea</span><span class="rwhy">Aged, vintage-dated</span></a><a href="/fine-wine-dashboard"><span class="nm">Fine Wine</span><span class="rwhy">Collector cellars</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/scotch-whisky-dashboard"><span class="nm">Scotch Whisky</span><span class="rwhy">Monopoly supply, ageing</span></a><a href="/pu-erh-tea-dashboard"><span class="nm">Pu-erh Tea</span><span class="rwhy">Aged, vintage-dated</span></a><a href="/fine-wine-dashboard"><span class="nm">Fine Wine</span><span class="rwhy">Collector cellars</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -643,5 +654,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Olive Oil, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Olive Oil, ΣΟΦΙΑ"><meta property="og:description" content="Olive Oil: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/olive-oil-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Olive Oil: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -314,6 +317,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -353,7 +363,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Bulk oil sells in days at the weekly price; a grove takes months; listed shares exit the same day. The campaign calendar (harvest October–January) sets when sellers have oil to sell.<sup class="r"><a href="#s12">12</a> <a href="#s13">13</a></sup><span class="t">Derived</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Spanish 2026/27 crop estimates have been cut from up to 1.8 Mt to 1.4–1.5 Mt after a hot, dry summer (42–44°C in Andalusia). Spanish EVOO at origin averaged €4.65/kg on 28 Sep, up 18% in ten days, reversing the summer low near €3.40. October rain now decides the harvest.<sup class="r"><a href="#s9">9</a></sup><sup class="r"><a href="#s10">10</a></sup><sup class="r"><a href="#s11">11</a></sup></p>
@@ -383,7 +393,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>The crop-year balance</h2><p class="sub">International Olive Council figures; crop years run October to September.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Crop year</th><th class="n">World production (kt)</th><th class="n">Change</th><th class="n">Consumption (kt)</th><th>Note</th></tr>
     <tr><td>2022/23</td><td class="n">c.2,760</td><td class="n">,</td><td class="n">,</td><td>Derived from 2023/24 = 2,564 kt at −7% <span class="t">Derived</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
     <tr><td>2023/24</td><td class="n">2,564 → 2,589</td><td class="n">−7%</td><td class="n">2,780 → 2,788</td><td>Second consecutive drought year; consumption −3% <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
@@ -396,7 +406,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>Price at origin</h2><p class="sub">Jaén, Bari and Chania producer prices as dated observations.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Reference</th><th>Date</th><th class="n">Extra virgin, €/100 kg</th><th>Note</th></tr>
     <tr><td>Global EVOO peak</td><td>2024</td><td class="n">c.$11.19/kg</td><td>Peak from which prices later fell 32% <span class="c c-m">Med</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
     <tr><td>Jaén (Spain)</td><td>Late Nov 2024</td><td class="n">530</td><td>−28.9% year on year as the record crop came in <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -421,7 +431,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="r"><span>Türkiye</span><div class="bar"><i class="g" style="width:20%"></i></div><span class="v">variable; +53% table olives</span></div>
   </div>
   <p style="font-size:14px;color:var(--mute)">2025/26 estimates from the European Commission and IOC via Infoodspro; Tunisia from Certified Origins; Greece 220 kt (Infoodspro) versus c.250 kt (Artisan Olive Oil Co.), both provisional.<sup class="r"><a href="#s8">8</a> <a href="#s6">6</a> <a href="#s7">7</a></sup> <span class="c c-m">Med</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Spain, campaign to 30 Sep 2025</th><th class="n">Volume</th><th>Note</th></tr>
     <tr><td>Production 2024/25</td><td class="n">1,419,128 t</td><td>+66% on the drought year <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a></sup></td></tr>
     <tr><td>Total sales</td><td class="n">1,526,100 t</td><td>+32%; exports 1,025,000 t (+38%); domestic 501,000 t (+22%) <span class="c c-h">High</span><sup class="r"><a href="#s6">6</a></sup></td></tr>
@@ -443,7 +453,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>Grades and integrity</h2><p class="sub">A product defined by chemistry and taste panels, and one of the most adulterated foods in trade.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Grade (IOC standard)</th><th>Definition</th><th>Market role</th></tr>
     <tr><td>Extra virgin</td><td>Mechanical extraction only; free acidity ≤0.8%; no sensory defects on panel</td><td>The reference grade for every producer-price series above</td></tr>
     <tr><td>Virgin</td><td>Acidity ≤2%; minor defects permitted</td><td>Mid-tier</td></tr>
@@ -457,7 +467,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>World production, consumption and trade by crop year</td><td>International Olive Council newsletter, monthly; forecasts in autumn</td><td>The balance and its revisions</td></tr>
     <tr><td>Spanish production, sales and stocks</td><td>AICA (Agencia de Información y Control Alimentarios), monthly</td><td>The swing producer's inventory position</td></tr>
@@ -491,7 +501,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The crop-year balance</a><a href="#s-ii"><span>II</span>Price at origin</a><a href="#s-iii"><span>III</span>Geography of supply</a><a href="#s-iv"><span>IV</span>The consumption shift</a><a href="#s-v"><span>V</span>Grades and integrity</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Adulteration risk</span></a><a href="/dates-dashboard"><span class="nm">Dates</span><span class="rwhy">Mediterranean and Gulf crop</span></a><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Weather-driven price</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Adulteration risk</span></a><a href="/dates-dashboard"><span class="nm">Dates</span><span class="rwhy">Mediterranean and Gulf crop</span></a><a href="/cocoa-dashboard"><span class="nm">Cocoa</span><span class="rwhy">Weather-driven price</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -564,5 +575,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

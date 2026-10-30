@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Copper, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Copper, ΣΟΦΙΑ"><meta property="og:description" content="Copper: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/copper-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Copper: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -315,6 +318,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -354,7 +364,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Exit at the next trade in a continuous market; LME cash settles on a prompt two business days forward.<sup class="r"><a href="#s34">34</a></sup><span class="t">Derived</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">ICSG's 14 October forecast puts 2026 in a 104 kt surplus and 2027 at 368 kt; its April revision to surplus was missed at launch and the −150 kt headline carried here is corrected below.<sup class="r"><a href="#s19">19</a></sup> LME three-month $14,407.50 on 16 Oct and COMEX $6.56/lb, +32% on the year and ~5% below the 9 Sep record.<sup class="r"><a href="#s23">23</a></sup><sup class="r"><a href="#s22">22</a></sup> The US refined-cathode tariff decision lapsed on 28 Sep with no announcement; the COMEX premium has collapsed from over $3,000/t to ~$310 while US warehouses hold ~70% of visible exchange stock.<sup class="r"><a href="#s28">28</a></sup><sup class="r"><a href="#s29">29</a></sup> Grasberg's mill is at 67%; full capacity is now early 2028.<sup class="r"><a href="#s26">26</a></sup><sup class="r"><a href="#s25">25</a></sup></p>
@@ -384,7 +394,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>The balance</h2><p class="sub">Surplus to deficit to surplus in eighteen months of forecasts.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Forecaster</th><th>Date</th><th class="n">2026 refined balance</th><th>Note</th></tr>
     <tr><td>ICSG</td><td>Apr 2025</td><td class="n">small surplus</td><td>Softer ex-China demand; improved availability<sup class="r"><a href="#s11">11</a></sup></td></tr>
     <tr><td>Benchmark Mineral Intelligence</td><td>pre-Sep 2025</td><td class="n">−72 kt</td><td>"Relatively balanced"<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
@@ -442,7 +452,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>The corporate map</h2><p class="sub">Consolidation toward copper.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Event</th><th>Date</th><th>Detail</th></tr>
     <tr><td>BHP's approach for Anglo American fails</td><td>2024</td><td>Anglo pivots to copper, premium iron ore and crop nutrients; demerges platinum, puts De Beers up for sale<sup class="r"><a href="#s14">14</a></sup></td></tr>
     <tr><td>Anglo American – Teck merger of equals announced</td><td>9 Sep 2025</td><td>To create a top-five global copper producer as Anglo Teck plc; shareholders of both approve 9 Dec 2025; Investment Canada approval 15 Dec 2025; final regulatory approval (China SAMR the long pole) and completion expected Sep 2026–Mar 2027; $800m annual synergies; $4.5bn Anglo special dividend on completion<sup class="r"><a href="#s14">14</a> <a href="#s32">32</a></sup></td></tr>
@@ -456,7 +466,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>Policy: tariffs and critical-mineral status</h2><p class="sub">The United States taxes its semi-finished imports and leaves cathode undecided.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Measure</th><th>Detail</th><th>Confidence</th></tr>
     <tr><td>Section 232 copper tariff, 50%</td><td>Proclamation "Adjusting Imports of Copper into the United States", effective 1 Aug 2025, on semi-finished and derivative products (pipe, wire, rod, sheet); refined cathode exempt; stacks on Section 122 and 301 surcharges; FTAs do not exempt it beyond narrow carve-outs<sup class="r"><a href="#s12">12</a> <a href="#s15">15</a> <a href="#s28">28</a></sup></td><td><span class="c c-h">High</span></td></tr>
     <tr><td>Refined-cathode tariff, phased</td><td>April 2026 proclamation set 15% from Jan 2027 and 30% from Jan 2028, subject to a presidential decision after Commerce's 30 June update; the implied 28 Sep window passed with no announcement; White House said 10 Sep no decision made. Market treating it as a soft no<sup class="r"><a href="#s28">28</a> <a href="#s29">29</a></sup></td><td><span class="c c-m">Med</span></td></tr>
@@ -471,7 +481,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Refined market balance</td><td>ICSG monthly bulletin and April/October forecasts (latest 14 Oct 2026)</td><td>Deficit or surplus size; concentrate-versus-smelter gap</td></tr>
     <tr><td>Grasberg restart and PTFI guidance</td><td>Freeport-McMoRan quarterlies (Q3 2026 due late Oct)</td><td>The single largest swing in 2026–27 supply; 65% H2 2026 target</td></tr>
@@ -529,7 +539,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The balance</a><a href="#s-ii"><span>II</span>The 2025 disruption ledger</a><a href="#s-iii"><span>III</span>Supply and refining</a><a href="#s-iv"><span>IV</span>The corporate map</a><a href="#s-v"><span>V</span>Policy: tariffs and critical-mineral status</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Exchange-traded metal</span></a><a href="/rare-earths-dashboard"><span class="nm">Rare Earths</span><span class="rwhy">Energy-transition metal</span></a><a href="/uranium-dashboard"><span class="nm">Uranium</span><span class="rwhy">Mine supply and contracts</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/gold-dashboard"><span class="nm">Gold</span><span class="rwhy">Exchange-traded metal</span></a><a href="/rare-earths-dashboard"><span class="nm">Rare Earths</span><span class="rwhy">Energy-transition metal</span></a><a href="/uranium-dashboard"><span class="nm">Uranium</span><span class="rwhy">Mine supply and contracts</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -602,5 +613,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

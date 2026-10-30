@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dates, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Dates, ΣΟΦΙΑ"><meta property="og:description" content="Dates: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/dates-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Dates: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -313,6 +316,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -352,7 +362,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Fruit: sold within weeks of harvest in September–October or on Ramadan demand. Farm: months to a year to find a buyer; valuation rests on yield records and water rights.<span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">The 2026/27 season is opening with a ~3% larger global table-date crop (1.67 Mt, INC). Tunisia is up 14% and Israel down 21%. Saudi exports are forecast above 220,000 t. Commodity and mid-tier Medjool face price pressure from expanding Egyptian supply, while Super Jumbo grades stay firm; Israeli Medjool was €4.39/kg EXW Poland in late July.<sup class="r"><a href="#s16">16</a></sup><sup class="r"><a href="#s17">17</a></sup></p>
@@ -393,7 +403,7 @@ td.n+td,th.n+th{padding-left:16px}
   </div>
   <p style="font-size:15px;color:var(--mute)">FAO data via Statista (2023) and Al Jazeera (2022); the top eight producers are all in the Middle East and North Africa.<sup class="r"><a href="#s1">1</a> <a href="#s5">5</a></sup> <span class="c c-h">High</span></p>
   <div class="note warn">Discrepancy logged: for 2024, one FAOSTAT-based compilation ranks Saudi Arabia first at 1.93 m t and Egypt second at 1.75 m t; the Saudi National Center for Palms and Dates reports Saudi production "exceeding 1.9 m t" in both 2024 and 2025; Statista's 2023 FAO figures rank Egypt first at 1.87 m t. The two countries are within revision range of each other, and the ranking should be stated as "Egypt and Saudi Arabia, in either order, at c.1.6–1.9 m t each".<sup class="r"><a href="#s6">6</a> <a href="#s7">7</a> <a href="#s1">1</a></sup> <span class="c c-m">Med</span></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Country</th><th class="n">Share of world (2023–28 model)</th><th>Note</th></tr>
     <tr><td>Egypt</td><td class="n">17.5%</td><td>Nile Valley and Delta; Zaghloul, Hayany, Siwi; consumes most of its crop<sup class="r"><a href="#s8">8</a> <a href="#s3">3</a></sup></td></tr>
     <tr><td>Saudi Arabia</td><td class="n">15.6%</td><td>Qassim, Medina, Al-Ahsa, Riyadh; c.160,000 ha; Ajwa, Sukkari, Khalas<sup class="r"><a href="#s8">8</a> <a href="#s9">9</a></sup></td></tr>
@@ -411,7 +421,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="note"><div class="v">SAR 1.695 bn</div><div class="l">Saudi exports 2024, +15.9%, to 133 countries; +192.5% since 2016 <span class="c c-h">High</span><sup class="r"><a href="#s7">7</a></sup></div></div>
     <div class="note"><div class="v">c.8%</div><div class="l">Share of Saudi production exported; domestic consumption absorbs the rest <span class="c c-m">Med</span><sup class="r"><a href="#s9">9</a></sup></div></div>
   </div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Exporter</th><th>Position</th><th>Note</th></tr>
     <tr><td>Iran</td><td>Largest by volume per its national committee; soft dark varieties for Asian and Middle Eastern markets</td><td>Exports rose from 13 kt (1989) to 120 kt (1994) as Iraq's collapsed under embargo<sup class="r"><a href="#s3">3</a> <a href="#s10">10</a></sup> <span class="c c-m">Med</span></td></tr>
     <tr><td>Saudi Arabia</td><td>Largest by value in one trade source (over $340 m a year); state-led export programme</td><td>Public Investment Fund's Al Madinah Heritage Company (July 2023) to scale Ajwa<sup class="r"><a href="#s3">3</a> <a href="#s4">4</a></sup></td></tr>
@@ -424,7 +434,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Varieties and the premium</h2><p class="sub">A commodity at the bottom, a religious and gift product at the top.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Variety</th><th>Origin</th><th>Market position</th></tr>
     <tr><td>Ajwa</td><td>Medina, Saudi Arabia</td><td>Premium; religious significance drives demand regardless of volume; PIF-backed expansion<sup class="r"><a href="#s9">9</a> <a href="#s4">4</a></sup></td></tr>
     <tr><td>Medjool</td><td>Morocco, US (California), Israel, Jordan, South Africa; also Saudi Arabia</td><td>"King of dates" in Western retail; largest share of the Saudi market by one vendor report<sup class="r"><a href="#s13">13</a> <a href="#s14">14</a></sup> <span class="c c-l">Low</span> for the share claim</td></tr>
@@ -440,7 +450,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Industry structure</h2><p class="sub">State institutions, sovereign capital and a fragmented grower base.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Actor</th><th>Role</th><th>Note</th></tr>
     <tr><td>National Center for Palms and Dates (Saudi Arabia)</td><td>Statistics, export promotion, the Saudi dates export initiative</td><td>Reports to the Minister of Environment, Water and Agriculture<sup class="r"><a href="#s2">2</a> <a href="#s7">7</a></sup></td></tr>
     <tr><td>Al Madinah Heritage Company (PIF)</td><td>Ajwa production capacity and global marketing</td><td>Established July 2023<sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -459,7 +469,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Production by country</td><td>FAOSTAT, annual (with revisions)</td><td>Resolves the Egypt–Saudi ranking; regional concentration</td></tr>
     <tr><td>Saudi export value and destinations</td><td>NCPD / GASTAT, annual (April)</td><td>Vision 2030 export programme; Ajwa scaling</td></tr>
@@ -499,7 +509,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Production and concentration</a><a href="#s-ii"><span>II</span>The export trade</a><a href="#s-iii"><span>III</span>Varieties and the premium</a><a href="#s-iv"><span>IV</span>Industry structure</a><a href="#s-v"><span>V</span>Integrity</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/saffron-dashboard"><span class="nm">Saffron</span><span class="rwhy">Gulf and Middle East trade</span></a><a href="/olive-oil-dashboard"><span class="nm">Olive Oil</span><span class="rwhy">Harvest and grade</span></a><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Origin-certified food</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/saffron-dashboard"><span class="nm">Saffron</span><span class="rwhy">Gulf and Middle East trade</span></a><a href="/olive-oil-dashboard"><span class="nm">Olive Oil</span><span class="rwhy">Harvest and grade</span></a><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Origin-certified food</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -572,5 +583,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cocoa, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Cocoa, ΣΟΦΙΑ"><meta property="og:description" content="Cocoa: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/cocoa-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Cocoa: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -312,6 +315,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -351,7 +361,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Exit at the next trade during exchange hours; the position is marked and cleared the same day.<span class="t">Derived</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/substitutes">Synthetic and substitute pressure</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Q3 grindings (15 Oct): Europe +3.2%, the first year-on-year gain in any quarter since 2024; Asia +29% to a record 233,767 t; Ivorian exporters +40%.<sup class="r"><a href="#s12">12</a></sup><sup class="r"><a href="#s13">13</a></sup> New York December closed $5,645 on 16 Oct, −4% on the year but 98% above the April low; ICE certified stocks at a 2.25-year high of 3.54 m bags cap rallies.<sup class="r"><a href="#s11">11</a></sup><sup class="r"><a href="#s18">18</a></sup> Ghana opened its season on 25 Sep at 42,400 cedis/t (~$3.65/kg), 75% above Ivory Coast's 1,200 CFA, breaking the June harmonisation pledge, and sold its first cocoa bills since default at 11%.<sup class="r"><a href="#s15">15</a></sup><sup class="r"><a href="#s17">17</a></sup></p>
@@ -381,7 +391,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>The balance</h2><p class="sub">International Cocoa Organization data, with the revisions that matter.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Season (Oct–Sep)</th><th class="n">Production (Mt)</th><th class="n">Grindings (Mt)</th><th class="n">Balance (kt)</th><th>Note</th></tr>
     <tr><td>2023/24</td><td class="n">,</td><td class="n">,</td><td class="n">−489</td><td>Severe deficit after multiple deficit years; stocks critically low <span class="c c-m">Med</span><sup class="r"><a href="#s7">7</a> <a href="#s2">2</a></sup></td></tr>
     <tr><td>2024/25 (ICCO, Nov 2025)</td><td class="n">4.69</td><td class="n">,</td><td class="n">+49</td><td>Cut from +142 kt; production cut from 4.84 Mt <span class="c c-h">High</span><sup class="r"><a href="#s8">8</a></sup></td></tr>
@@ -411,7 +421,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>The duopoly and the farmgate</h2><p class="sub">Two countries, two marketing boards, one exchange price.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Country</th><th class="n">Output</th><th>2025–27 developments</th></tr>
     <tr><td>Côte d'Ivoire</td><td class="n">c.2.2 Mt (2025/26, arrivals 2.09 Mt to 12 Jul, +21%); c.1.8 Mt surveyed for 2026/27</td><td>Unsold stocks at ports from November 2025; strategic buyback launched 29 Jan 2026; 2026/27 main crop opened 1 Sep at 1,200 CFA/kg (~$2.07–2.12), held because &gt;1.1 Mt was forward-sold at spring prices; heavy October rain cut roads and bridges, slowing port deliveries<sup class="r"><a href="#s4">4</a> <a href="#s20">20</a> <a href="#s9">9</a> <a href="#s10">10</a> <a href="#s18">18</a></sup></td></tr>
     <tr><td>Ghana</td><td class="n">&gt;750 kt delivered 2025/26; 650 kt targeted 2026/27 vs 800–900 kt historically</td><td>Season opened 25 Sep at 42,400 cedis/t (~$3.65/kg, 71.18% of FOB under the 2026 Cocoa Board Act's 70% floor), +2.4% and c.75% above Ivory Coast, so the June harmonisation pledge is unmet and smuggling flows reverse direction; COCOBOD owes licensed buyers c.GHS 4bn and has replaced the offshore syndicated loan with a 16.3bn-cedi domestic bill programme, first tranche 3.39bn at 11% on 8 Oct<sup class="r"><a href="#s14">14</a> <a href="#s15">15</a> <a href="#s16">16</a> <a href="#s17">17</a></sup></td></tr>
@@ -433,7 +443,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>Policy and provenance</h2><p class="sub">Deforestation rules, living-income differentials and the traceability problem.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Measure</th><th>Status</th><th>Effect</th></tr>
     <tr><td>Regulated farmgate prices (Côte d'Ivoire CCC; Ghana COCOBOD)</td><td>Set each October; Ghana cut c.29% in 2026</td><td>Decouples grower income from the exchange in both directions <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
     <tr><td>Ivorian strategic buyback</td><td>Launched 29 Jan 2026</td><td>State absorbs unsold beans to defend the farmgate <span class="c c-m">Med</span><sup class="r"><a href="#s6">6</a></sup></td></tr>
@@ -445,7 +455,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>World balance, production, grindings, stocks</td><td>ICCO Quarterly Bulletin of Cocoa Statistics (Feb, May, Aug, Nov)</td><td>The balance and its revisions</td></tr>
     <tr><td>Ivorian port arrivals</td><td>Government data, weekly from October</td><td>Real-time read on the main crop</td></tr>
@@ -491,7 +501,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The balance</a><a href="#s-ii"><span>II</span>Price history</a><a href="#s-iii"><span>III</span>The duopoly and the farmgate</a><a href="#s-iv"><span>IV</span>Demand destruction</a><a href="#s-v"><span>V</span>Policy and provenance</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coffee-dashboard"><span class="nm">Coffee</span><span class="rwhy">Futures, origin premium</span></a><a href="/vanilla-dashboard"><span class="nm">Vanilla</span><span class="rwhy">Tropical crop, farmgate</span></a><a href="/olive-oil-dashboard"><span class="nm">Olive Oil</span><span class="rwhy">Weather-driven supply</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coffee-dashboard"><span class="nm">Coffee</span><span class="rwhy">Futures, origin premium</span></a><a href="/vanilla-dashboard"><span class="nm">Vanilla</span><span class="rwhy">Tropical crop, farmgate</span></a><a href="/olive-oil-dashboard"><span class="nm">Olive Oil</span><span class="rwhy">Weather-driven supply</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -564,5 +575,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

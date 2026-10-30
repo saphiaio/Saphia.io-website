@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wagyu, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Wagyu, ΣΟΦΙΑ"><meta property="og:description" content="Wagyu: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/wagyu-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Wagyu: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -297,6 +300,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -336,7 +346,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>A finished animal sells at the next weekly auction and is paid within days; a calf the same at its monthly market. A herd or farm takes months to place with an operating buyer, since the asset must be fed in the meantime.<sup class="r"><a href="#s10">10</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Re-checked 5 Oct 2026: no new export or price data found since the last update. Ratings unchanged.</p>
@@ -367,7 +377,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>I</em>Breed, grade and brand</h2><p class="sub">A carcass grading system that became a luxury label.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Layer</th><th>Definition</th><th>Note</th></tr>
     <tr><td>Breed</td><td>Japanese Black, Japanese Brown (Akaushi), Japanese Shorthorn, Japanese Polled, the only cattle that may be sold as wagyu in Japan; crossbreds excluded</td><td>Registry established 1944; Tajima strain of Japanese Black underlies Kobe and most premium brands<sup class="r"><a href="#s4">4</a> <a href="#s2">2</a></sup></td></tr>
     <tr><td>Yield grade</td><td>A / B / C, usable meat from the carcass</td><td>Nearly all export-quality wagyu is A<sup class="r"><a href="#s5">5</a></sup></td></tr>
@@ -396,7 +406,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section><section id="s-v">
   <div class="sechead tint"><h2><em>III</em>Brand economics compared</h2><p class="sub">What the two markets share, and where they diverge.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Dimension</th><th>Bluefin tuna</th><th>Wagyu</th></tr>
     <tr><td>Supply control</td><td>International quotas (ICCAT, WCPFC, CCSBT); wild stock plus ranching</td><td>Breed registry and prefectural cooperatives; farmed</td></tr>
     <tr><td>Grading</td><td>Buyer inspection at auction, colour, texture, fat, tail cut</td><td>JMGA carcass grade; BMS 1–12; brand councils</td></tr>
@@ -409,7 +419,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section><section id="s-vi">
   <div class="sechead narrative"><h2><em>IV</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     
     
@@ -426,7 +436,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-iii"><span>I</span>Breed, grade and brand</a><a href="#s-iv"><span>II</span>Production and export</a><a href="#s-v"><span>III</span>Brand economics compared</a><a href="#s-vi"><span>IV</span>Indicators to monitor</a><a href="#sources"><span>V</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/bluefin-tuna-dashboard"><span class="nm">Bluefin Tuna</span><span class="rwhy">Japanese grading and export</span></a><a href="/parmigiano-dashboard"><span class="nm">Parmigiano Reggiano</span><span class="rwhy">Protected designation</span></a><a href="/caviar-dashboard"><span class="nm">Caviar</span><span class="rwhy">Farmed luxury food</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/bluefin-tuna-dashboard"><span class="nm">Bluefin Tuna</span><span class="rwhy">Japanese grading and export</span></a><a href="/parmigiano-dashboard"><span class="nm">Parmigiano Reggiano</span><span class="rwhy">Protected designation</span></a><a href="/caviar-dashboard"><span class="nm">Caviar</span><span class="rwhy">Farmed luxury food</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -498,5 +509,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

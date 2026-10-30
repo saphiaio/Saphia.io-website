@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saffron, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Saffron, ΣΟΦΙΑ"><meta property="og:description" content="Saffron: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/saffron-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Saffron: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -330,6 +333,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -369,7 +379,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Days to weeks to a trader, at the trader's price; the product cannot wait, since colour strength falls with time. No mechanism exists for a private holder to exit at a published price.<span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Iranian Super Negin wholesale is quoted around $3,700–3,800/kg in mid-September, little changed year on year (single vendor). In Kashmir, GI-tagged saffron reached Rs 350–400/g by June against Rs 200–250 a year earlier, on Iran-related disruption and a poor local crop. The 2026 harvest begins in late October.<sup><a href="#c31">31</a></sup><sup><a href="#c32">32</a></sup></p>
@@ -426,7 +436,7 @@ td.n+td,th.n+th{padding-left:16px}
     </div>
 
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <caption>Market size, the same year, wildly different answers (2025)</caption>
         <thead>
           <tr><th>Source</th><th class="v">2025 value</th><th class="v">Fwd CAGR</th><th class="v">Conf.</th></tr>
@@ -445,7 +455,7 @@ td.n+td,th.n+th{padding-left:16px}
     <p class="note">A ~3× spread for a single year, before forecasting even begins. Regional-share claims contradict each other just as badly, the same year is variously said to be led by Middle East &amp; Africa, Asia-Pacific or Europe.<sup><a href="#c4">4</a></sup><sup><a href="#c7">7</a></sup> One widely-indexed report states the 2025 market at "$489 billion," a thousand-fold error that has propagated across aggregators, a caution on citing spice market reports uncritically.</p>
 
     <div class="tbl-wrap">
-      <div class="tw"><table>
+      <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
         <caption>Iranian wholesale price ladder by grade, indicative, Sept 2026</caption>
         <thead>
           <tr><th>Grade</th><th>Character</th><th class="v">Per kg (USD)</th><th class="v">Conf.</th></tr>
@@ -647,7 +657,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s1"><span>I</span>The value paradox</a><a href="#s2"><span>II</span>Why it costs more than gold</a><a href="#s3"><span>III</span>Where it grows, and what that means</a><a href="#s4"><span>IV</span>The re-export machine</a><a href="#s5"><span>V</span>ISO 3632, and its blind spot</a><a href="#s6"><span>VI</span>From kitchen to capsule</a><a href="#s7"><span>VII</span>Climate stress meets the fermentation tank</a><a href="#sources"><span>VIII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/vanilla-dashboard"><span class="nm">Vanilla</span><span class="rwhy">Hand-harvested spice</span></a><a href="/frankincense-dashboard"><span class="nm">Frankincense</span><span class="rwhy">Smallholder resin</span></a><a href="/oud-dashboard"><span class="nm">Oud</span><span class="rwhy">No reference price</span></a><a href="/dates-dashboard"><span class="nm">Dates</span><span class="rwhy">Iranian and Gulf trade</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/vanilla-dashboard"><span class="nm">Vanilla</span><span class="rwhy">Hand-harvested spice</span></a><a href="/frankincense-dashboard"><span class="nm">Frankincense</span><span class="rwhy">Smallholder resin</span></a><a href="/oud-dashboard"><span class="nm">Oud</span><span class="rwhy">No reference price</span></a><a href="/dates-dashboard"><span class="nm">Dates</span><span class="rwhy">Iranian and Gulf trade</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -720,5 +731,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gold, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Gold, ΣΟΦΙΑ"><meta property="og:description" content="Gold: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/gold-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Gold: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -328,6 +331,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -367,7 +377,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Loco London spot settles two business days after trade; ETF shares settle on the exchange cycle.<sup class="r"><a href="#s37">37</a></sup><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/tokenisation">Tokenising scarce assets</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Spot ~$4,171 on 19 Oct, up about 1% since 5 Oct and within a $4,080–4,200 range for the month. The hot September CPI print on 14 Oct knocked gold to ~$4,080 intraday; it recovered to ~$4,183 the next day as Treasury yields retreated from their highest level since 2002.<sup class="r"><a href="#s25">25</a></sup><sup class="r"><a href="#s26">26</a></sup> Markets now price roughly an 85% chance the Fed holds at 3.75–4.00% on 28 Oct, with a hike pushed to December; the "possible October hike" of early October has faded.<sup class="r"><a href="#s27">27</a></sup> The PBoC added 23 t in September per the World Gold Council (21 t per Wind Info), its largest month since October 2023 and 103 t year to date; a secondary report puts global central-bank buying in September near 63 t, unconfirmed by the WGC at this update.<sup class="r"><a href="#s28">28</a></sup></p>
@@ -408,7 +418,7 @@ td.n+td,th.n+th{padding-left:16px}
   <p><b>October to date, recorded 19 October.</b> The metal has held a $4,080&ndash;4,200 range. A hot September CPI on 14 October produced a one-day fall to about $4,080 and a full recovery the next day; markets now price a Fed hold on 28 October with a hike deferred to December.<sup class="r"><a href="#s25">25</a></sup><sup class="r"><a href="#s26">26</a></sup><sup class="r"><a href="#s27">27</a></sup> That ETF buying continued through the September sell-off (Section IV) while futures positions were liquidated is the notable divergence: the holders of physical-backed vehicles did not sell into the yield shock. <span class="c c-m">Med</span></p>
   <p>The short-run driver is monetary: non-yielding bullion is mechanically penalised when real yields rise and rewarded when they fall. The structural driver is the official sector (Section III), which has continued to buy through both halves of the cycle. Reading the two apart is the core analytical task for this market.</p>
   <h3>Sell-side forecasts made in early 2026 <span class="t">Forecast</span></h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>House</th><th class="n">End-2026 target ($/oz)</th><th>Note</th></tr>
     <tr><td>J.P. Morgan</td><td class="n">6,300</td><td>Also forecast &gt;800 t central-bank purchases<sup class="r"><a href="#s9">9</a></sup></td></tr>
     <tr><td>UBS</td><td class="n">6,200</td><td rowspan="3">Reported February 2026<sup class="r"><a href="#s9">9</a></sup></td></tr>
@@ -421,7 +431,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>Supply</h2><p class="sub">Record total supply, but mine output barely responds to price.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Component 2025</th><th class="n">Tonnes</th><th class="n">Share</th><th>Note</th></tr>
     <tr><td>Mine production</td><td class="n">3,672</td><td class="n">73%</td><td>+1% y/y; marginally above the 2018 record of 3,663 t, subject to revision <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
     <tr><td>Recycled gold</td><td class="n">1,404</td><td class="n">28%</td><td>+3% despite a 44% rise in average price <span class="c c-m">Med</span><sup class="r"><a href="#s1">1</a> <a href="#s14">14</a></sup></td></tr>
@@ -442,7 +452,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Official sector</h2><p class="sub">Central banks have become the marginal buyer that does not sell into strength.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Period</th><th class="n">Net purchases (t)</th><th>Detail</th></tr>
     <tr><td>2022–2024</td><td class="n">&gt;1,000 each yr</td><td>Three consecutive years above 1,000 t <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>2025</td><td class="n">863</td><td>Poland largest buyer for second year (102 t, reserves to 550 t); Q4 230 t <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -472,7 +482,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead tint"><h2><em>V</em>Dubai as a hub</h2><p class="sub">Second only to Switzerland by trade value, and the destination for most West African doré.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Metric</th><th class="n">Value</th><th>Source & confidence</th></tr>
     <tr><td>UAE total gold trade</td><td class="n">&gt;$120 bn</td><td>DMCC chairman at DPMC; +36% y/y; overtook the UK for second place. Year of the figure not stated in the secondary report. <span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
     <tr><td>Share via DMCC / DGCX</td><td class="n">c.45%</td><td>Same address <span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
@@ -488,7 +498,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Central-bank net purchases</td><td>WGC Gold Demand Trends, quarterly; WGC monthly reported statistics</td><td>Whether the structural buyer is still absorbing supply; resolves reported-vs-estimated discrepancies</td></tr>
     <tr><td>Gold ETF flows by region</td><td>WGC ETF flows, monthly</td><td>Western investment sentiment; US outflows have offset official buying in 2026</td></tr>
@@ -545,7 +555,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Price regime</a><a href="#s-ii"><span>II</span>Supply</a><a href="#s-iii"><span>III</span>Official sector</a><a href="#s-iv"><span>IV</span>Private demand</a><a href="#s-v"><span>V</span>Dubai as a hub</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/silver-dashboard"><span class="nm">Silver</span><span class="rwhy">Monetary metal, same fix</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="rwhy">Precious, industrial demand</span></a><a href="/coins-dashboard"><span class="nm">Coins</span><span class="rwhy">Bullion value in collectibles</span></a><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Exchange-traded base metal</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/silver-dashboard"><span class="nm">Silver</span><span class="rwhy">Monetary metal, same fix</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="rwhy">Precious, industrial demand</span></a><a href="/coins-dashboard"><span class="nm">Coins</span><span class="rwhy">Bullion value in collectibles</span></a><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Exchange-traded base metal</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/tokenisation">Tokenising scarce assets</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -618,5 +629,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

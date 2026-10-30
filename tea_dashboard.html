@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tea, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Tea, ΣΟΦΙΑ"><meta property="og:description" content="Tea: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/tea-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Tea: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -320,6 +323,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -359,7 +369,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Shares exit the same day. Tencha is sold at a dated spring auction and allocated for the year; heritage makers have moved to allocation-only sales, so a buyer outside the trade waits a season or pays the dealer tier.<sup class="r"><a href="#s18">18</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Kyoto’s Uji tea market closed its 2026 season on 31 July with machine-harvested tencha averaging a record ¥17,250/kg, highest since records began in 1996 and above the ¥13,972 opening. Fields shifted to tencha pushed sencha, gyokuro and bancha prices up ~30% to more than double: the matcha squeeze has become a wider Japanese tea squeeze.<sup class="r"><a href="#s14">14</a></sup><sup class="r"><a href="#s15">15</a></sup></p>
@@ -398,7 +408,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="r"><span>Japan</span><div class="bar"><i style="width:2%"></i></div><span class="v">74 kt</span></div>
   </div>
   <p style="font-size:14px;color:var(--mute)">2024 data; Kenya's tonnage is derived from its 8.5% share, and the Sri Lankan figure is FAO 2022. <span class="t">Derived</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Metric</th><th class="n">2006</th><th class="n">2024</th><th>Note</th></tr>
     <tr><td>World production</td><td class="n">3.66 m t</td><td class="n">7.05 m t</td><td>+6.8% in 2024 alone (from 6.6 m t); China +12% <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
     <tr><td>China + India share</td><td class="n">58%</td><td class="n">78%</td><td>Concentration has intensified as China expands every year <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -411,7 +421,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>Categories and where value sits</h2><p class="sub">One plant, six processing routes, three orders of magnitude in price.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Category</th><th>Processing</th><th>Benchmark origins</th><th>Market position</th></tr>
     <tr><td>Black (CTC and orthodox)</td><td>Full oxidation; CTC (cut-tear-curl) for teabags, orthodox whole leaf</td><td>Kenya, Assam, Sri Lanka, Türkiye</td><td>Bulk of exports; auction-priced; Mombasa handles &gt;500 kt a year<sup class="r"><a href="#s5">5</a></sup></td></tr>
     <tr><td>Green</td><td>Unoxidised; steamed (Japan) or pan-fired (China)</td><td>China (Longjing), Japan (Sencha), Vietnam</td><td>20% of exports; China 309 kt and Vietnam 61 kt of 386 kt in 2023<sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -425,7 +435,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Trade and the auction system</h2><p class="sub">Exporters need the world; the world's largest producer barely exports.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Flow</th><th class="n">Volume</th><th>Note</th></tr>
     <tr><td>World exports 2024</td><td class="n">1.94 m t</td><td>Kenya, China, India, Sri Lanka, Vietnam the top five <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
     <tr><td>Kenya exports 2024</td><td class="n">594.5 kt</td><td>KSh 181 bn (c.US$1.35 bn); largest exporter <span class="c c-h">High</span><sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -458,7 +468,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>World production and trade</td><td>FAO Intergovernmental Group on Tea; International Tea Committee annual bulletin</td><td>Concentration; export share of crop</td></tr>
     <tr><td>Mombasa and Kolkata auction averages and unsold percentages</td><td>East African Tea Trade Association; Tea Board of India, weekly</td><td>Commodity-tier health; glut signals</td></tr>
@@ -495,7 +505,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Production and concentration</a><a href="#s-ii"><span>II</span>Categories and where value sits</a><a href="#s-iii"><span>III</span>Trade and the auction system</a><a href="#s-iv"><span>IV</span>The matcha shortage</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/pu-erh-tea-dashboard"><span class="nm">Pu-erh Tea</span><span class="rwhy">Aged collector tea</span></a><a href="/coffee-dashboard"><span class="nm">Coffee</span><span class="rwhy">Auction-priced crop</span></a><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Premium origin</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/pu-erh-tea-dashboard"><span class="nm">Pu-erh Tea</span><span class="rwhy">Aged collector tea</span></a><a href="/coffee-dashboard"><span class="nm">Coffee</span><span class="rwhy">Auction-priced crop</span></a><a href="/manuka-honey-dashboard"><span class="nm">Mānuka Honey</span><span class="rwhy">Premium origin</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -568,5 +579,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

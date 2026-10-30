@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stamps, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Stamps, ΣΟΦΙΑ"><meta property="og:description" content="Stamps: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/stamps-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Stamps: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Dealer sale in days at the dealer's price; specialist auctions run on a seasonal calendar with consignment two to four months ahead and payment 30–45 days after. Rarities are timed to the one sale a year that will draw the two or three bidders who matter.<sup class="r"><a href="#s11">11</a></sup><span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. The British Guiana 1c Magenta, bought by Stanley Gibbons for $8.3 m in June 2021 and fractionalised into 80,000 "Pieces" at £100, remains on loan to the Smithsonian National Postal Museum; no sale above $5 m has occurred since. Chinese classic material continues to set the running in Hong Kong.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></p>
@@ -381,7 +391,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>Size and cycle</h2><p class="sub">No reliable total exists; the direction is clearer than the size.</p></div>
   <p>Trade estimates of the global philatelic market range from $5 bn to $10 bn a year, figures that originate with dealers and are repeated without a method; ΣΟΦΙΑ carries none of them. What can be observed: the number of collectors in Western countries has fallen for thirty years as the hobby's post-war generation dies; auction houses report rising totals on fewer, better lots; and Chinese material, from the 1878 Large Dragons to the 1968 "Whole Country is Red" error, has been the one area of sustained price growth, driven by mainland buyers through Hong Kong.<sup class="r"><a href="#s4">4</a></sup> <span class="c c-l">Low</span> for any total; <span class="c c-m">Med</span> for the direction.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Segment</th><th>What it is</th><th>Trend</th></tr>
     <tr><td>Great rarities</td><td>Unique or near-unique items: the 1c Magenta, Treskilling Yellow, Inverted Jenny plate block, Mauritius "Post Office"</td><td>Stable to rising; each sale is an event, with one or two buyers</td></tr>
     <tr><td>Classic issues, fine condition</td><td>Pre-1900 Britain, Empire, US, German states; the Penny Black in superb used condition</td><td>Holding at the top grade; falling below it</td></tr>
@@ -393,7 +403,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>The record book</h2><p class="sub">Five items account for most of the eight-figure history.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Item</th><th>Sale</th><th class="n">Price (with fees)</th><th>Significance</th></tr>
     <tr><td>British Guiana 1c Magenta (1856), unique</td><td>Sotheby's New York, 17 Jun 2014</td><td class="n">$9.48 m</td><td>Record for any stamp; buyer Stuart Weitzman; hammer $7.9 m<sup class="r"><a href="#s1">1</a></sup></td></tr>
     <tr><td>British Guiana 1c Magenta</td><td>Sotheby's New York, 8 Jun 2021</td><td class="n">$8.31 m</td><td>Bought by Stanley Gibbons against a $10–15 m estimate; the only time it has fallen; earlier sales $280,000 (1970), $935,000 (1980)<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s3">3</a></sup></td></tr>
@@ -406,7 +416,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Condition, expertising and forgery</h2><p class="sub">Two copies of the same stamp can differ in price by an order of magnitude or more; the certificate decides which.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Factor</th><th>What it means</th><th>Effect</th></tr>
     <tr><td>Centring and margins</td><td>How evenly the design sits; imperforate stamps need four clear margins</td><td>The main driver of price within an issue; "superb" trades at multiples of "fine"</td></tr>
     <tr><td>Gum</td><td>Mint never hinged, hinged, regummed, no gum</td><td>Regumming is fraud in effect; the certificate checks it</td></tr>
@@ -418,7 +428,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Structure of the trade</h2><p class="sub">Specialist houses and dealers; the general auction houses have largely left.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Channel</th><th>Position</th><th>Note</th></tr>
     <tr><td>Specialist auctioneers</td><td>Spink (London, Hong Kong, New York), Robert A. Siegel (New York), David Feldman (Geneva), Heinrich Köhler and Christoph Gärtner (Germany), Interasia (Hong Kong), Corinphila (Zürich)</td><td>Hold the great collections and the rarities; Sotheby's handles only exceptional single items<sup class="r"><a href="#s5">5</a></sup></td></tr>
     <tr><td>Stanley Gibbons</td><td>Dealer, catalogue publisher, owner of the 1c Magenta; listed, loss-making for years</td><td>Its catalogue is the British price reference; the company's own history is a warning about dealer inventories<sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -429,7 +439,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Named-collection sales and rarity appearances</td><td>Spink, Siegel, Feldman, Köhler calendars</td><td>Top-end depth; whether buyers are collectors or trade</td></tr>
     <tr><td>Hong Kong sales of Chinese classics</td><td>Interasia, Spink, Zurich Asia; January and June</td><td>The growth segment</td></tr>
@@ -457,7 +467,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Size and cycle</a><a href="#s-ii"><span>II</span>The record book</a><a href="#s-iii"><span>III</span>Condition, expertising and forgery</a><a href="#s-iv"><span>IV</span>Structure of the trade</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coins-dashboard"><span class="nm">Coins</span><span class="rwhy">Graded and catalogued</span></a><a href="/rare-books-dashboard"><span class="nm">Rare Books</span><span class="rwhy">Census-based rarity</span></a><a href="/fossils-dashboard"><span class="nm">Fossils &amp; Meteorites</span><span class="rwhy">Specialist auctions</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/coins-dashboard"><span class="nm">Coins</span><span class="rwhy">Graded and catalogued</span></a><a href="/rare-books-dashboard"><span class="nm">Rare Books</span><span class="rwhy">Census-based rarity</span></a><a href="/fossils-dashboard"><span class="nm">Fossils &amp; Meteorites</span><span class="rwhy">Specialist auctions</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -530,5 +541,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fossils & Meteorites, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Fossils & Meteorites, ΣΟΦΙΑ"><meta property="og:description" content="Fossils & Meteorites: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/fossils-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Fossils & Meteorites: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -316,6 +319,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -355,7 +365,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>One sale a year in July; consignment many months ahead to allow preparation and promotion; payment within 45 days of the sale subject to the buyer settling. A specimen that fails to sell waits a year or goes private.<sup class="r"><a href="#s1">1</a> <a href="#s11">11</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">First entry. "Gus", a Tyrannosaurus rex from South Dakota, made $50.1 m at Sotheby's New York on 14 July 2026 against a $20–30 m estimate, seven bidders over ten minutes, beating "Apex" the Stegosaurus ($44.6 m, 2024). The largest Martian meteorite on Earth, NWA 16788, made $5.3 m in the same department's July 2025 sale.<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s3">3</a></sup></p>
@@ -380,7 +390,7 @@ td.n+td,th.n+th{padding-left:16px}
 
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>Two markets, one saleroom</h2><p class="sub">Dinosaurs are a trophy market; meteorites are a specimen market with a classification system.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th></th><th>Fossils (dinosaurs and large vertebrates)</th><th>Meteorites</th></tr>
     <tr><td>Unit</td><td>A mounted skeleton, assembled from one or several individuals, with missing bones cast or sculpted</td><td>A stone or iron, whole or sliced; weight in grams</td></tr>
     <tr><td>Supply</td><td>Commercial excavation on private US ranch land, under contract with the landowner; Morocco for marine reptiles and trilobites</td><td>Finders in the Sahara and elsewhere; witnessed falls; dealer networks; Antarctica reserved for science</td></tr>
@@ -393,7 +403,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-ii">
   <div class="sechead tint"><h2><em>II</em>The record book</h2><p class="sub">Four dinosaurs in thirty years; the estimates were wrong every time.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Specimen</th><th>Sale</th><th class="n">Price (with fees)</th><th>Estimate and buyer</th></tr>
     <tr><td>"Gus", T. rex, 183 elements, c. 61–63% complete, South Dakota</td><td>Sotheby's New York, 14 Jul 2026</td><td class="n">$50.1 m</td><td>$20–30 m; seven bidders, ten minutes; buyer undisclosed<sup class="r"><a href="#s1">1</a></sup><sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>"Apex", Stegosaurus, 254 of c. 318 bones, Colorado</td><td>Sotheby's New York, 17 Jul 2024</td><td class="n">$44.6 m</td><td>$4–6 m; seven bidders; Ken Griffin; on loan to the American Museum of Natural History<sup class="r"><a href="#s2">2</a></sup><sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -407,7 +417,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Title: whose land, whose law</h2><p class="sub">The question that decides whether a specimen exists as an asset at all.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Jurisdiction</th><th>Rule</th><th>Consequence</th></tr>
     <tr><td>United States, private land</td><td>Fossils belong to the landowner; may be excavated under contract and sold freely</td><td>Why every record dinosaur is American; "Sue" settled the point in 1995–97 only after seizure and trial<sup class="r"><a href="#s4">4</a></sup></td></tr>
     <tr><td>United States, federal and tribal land</td><td>Paleontological Resources Preservation Act 2009; vertebrate fossils cannot be collected commercially</td><td>A specimen from the wrong side of a fence is contraband; provenance to the parcel is required</td></tr>
@@ -419,7 +429,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Authenticity, completeness and restoration</h2><p class="sub">A mounted skeleton is part fossil, part sculpture; a meteorite is a laboratory result.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Question</th><th>Fossils</th><th>Meteorites</th></tr>
     <tr><td>Is it one animal?</td><td>Composites of several individuals are common and must be disclosed; "Gus" is 183 elements from one skeleton, which is the selling point<sup class="r"><a href="#s1">1</a></sup></td><td>Not applicable; paired stones from one fall are catalogued together</td></tr>
     <tr><td>How much is real?</td><td>Completeness "by bone count" and "by bone mass" differ (63% v. 75–80% for Gus); missing bones cast, 3D-printed or sculpted; the mount is modern steel<sup class="r"><a href="#s2">2</a></sup></td><td>Whole; slicing reduces mass and may raise per-gram price</td></tr>
@@ -431,7 +441,7 @@ td.n+td,th.n+th{padding-left:16px}
 </section>
 <section id="s-v">
   <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source &amp; cadence</th><th>What it tells you</th></tr>
     <tr><td>Sotheby's and Christie's natural-history sales</td><td>July, New York; occasional Paris and Hong Kong</td><td>The only public prices; bidder counts</td></tr>
     <tr><td>Repatriation cases and export-law changes</td><td>US DOJ/ICE; Mongolian, Brazilian, Moroccan ministries; SVP statements</td><td>Title risk; which supply is saleable</td></tr>
@@ -459,7 +469,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Two markets, one saleroom</a><a href="#s-ii"><span>II</span>The record book</a><a href="#s-iii"><span>III</span>Title: whose land, whose law</a><a href="#s-iv"><span>IV</span>Authenticity, completeness and restoration</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/old-masters-dashboard"><span class="nm">Old Masters</span><span class="rwhy">Export licence and title</span></a><a href="/rare-books-dashboard"><span class="nm">Rare Books</span><span class="rwhy">Specialist auctions</span></a><a href="/coins-dashboard"><span class="nm">Coins</span><span class="rwhy">Authentication and census</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/old-masters-dashboard"><span class="nm">Old Masters</span><span class="rwhy">Export licence and title</span></a><a href="/rare-books-dashboard"><span class="nm">Rare Books</span><span class="rwhy">Specialist auctions</span></a><a href="/coins-dashboard"><span class="nm">Coins</span><span class="rwhy">Authentication and census</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -532,5 +543,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

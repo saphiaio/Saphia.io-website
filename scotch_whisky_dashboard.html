@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scotch Whisky, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Scotch Whisky, ΣΟΦΙΑ"><meta property="og:description" content="Scotch Whisky: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/scotch-whisky-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Scotch Whisky: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -318,6 +321,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -357,7 +367,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Bottles are received, authenticated and photographed, then listed in the next monthly sale (ten days live); payment within 21 working days of close. From decision to cash, six to ten weeks if the first auction clears the reserve.<sup class="r"><a href="#s17">17</a> <a href="#s19">19</a></sup><span class="t">Reported</span><span class="c c-h">High</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Tariff-free US access for Scotch was restored on 24 July 2026, ending the 10% levy in place since April 2025 (and the threatened 25% on single malts). The SWA put the cost at close to £20m a month; no post-tariff export data has been published yet.<sup class="r"><a href="#s15">15</a></sup><sup class="r"><a href="#s16">16</a></sup></p>
@@ -388,7 +398,7 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="sechead tint"><h2><em>I</em>The product and its law</h2><p class="sub">A geographical indication with a statutory definition.</p></div>
   
   <p>"Scotch Whisky" is a protected term: the spirit must be distilled and matured in Scotland in oak casks for at least three years and bottled at not less than 40% ABV, with the categories, labelling and age-statement rules set by the Scotch Whisky Regulations 2009 and enforced by the Scotch Whisky Association through litigation worldwide.<sup class="r"><a href="#s9">9</a></sup> <span class="c c-m">Med</span>, the regulatory summary is drawn from a law-firm guide; the statutory text should be read directly for any compliance use.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Category</th><th>Definition</th><th>Commercial role</th></tr>
     <tr><td>Single malt</td><td>Malted barley only, pot stills, one distillery</td><td>The collectible and premium tier; Glenfiddich, Glenlivet, Macallan the largest by volume<sup class="r"><a href="#s10">10</a></sup></td></tr>
     <tr><td>Single grain</td><td>One distillery, column stills, other cereals permitted</td><td>Mostly blending stock; North British (Diageo/Edrington JV) a major supplier<sup class="r"><a href="#s11">11</a></sup></td></tr>
@@ -422,7 +432,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iii">
   <div class="sechead tint"><h2><em>III</em>Who owns the industry</h2><p class="sub">A duopoly in blends; a wider field in single malt.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Group</th><th>Scotch distilleries and brands</th><th>Position</th></tr>
     <tr><td>Diageo</td><td>31 distilleries by its own count (29 malt in one compilation); Johnnie Walker, Talisker, Lagavulin, Singleton, Brora, Port Ellen</td><td>Largest owner; c.27% of malt capacity; c.40% of all Scotch produced per Wikipedia<sup class="r"><a href="#s13">13</a> <a href="#s10">10</a> <a href="#s14">14</a></sup></td></tr>
     <tr><td>Pernod Ricard (Chivas Brothers)</td><td>13 distilleries; Glenlivet (21 m litre capacity), Aberlour, Chivas Regal, Ballantine's; sold Tormore to Elixir 2022</td><td>c.20% of malt capacity; with Diageo c.63% of world sales<sup class="r"><a href="#s10">10</a> <a href="#s13">13</a> <a href="#s7">7</a></sup></td></tr>
@@ -440,7 +450,7 @@ td.n+td,th.n+th{padding-left:16px}
     <div class="card"><div class="v">104.2 m</div><div class="l">Nine-litre cases, −4.3% <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></div></div>
     <div class="card"><div class="v">−15% / −7%</div><div class="l">US volume / value, May–Dec 2025, after the 10% tariff <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></div></div>
   </div>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Market</th><th class="n">Value 2025</th><th class="n">Change</th><th>Note</th></tr>
     <tr><td>United States</td><td class="n">£933 m</td><td class="n">−4%</td><td>Largest by value; 120 m bottles (−9%); 10% tariff from April 2025<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td></tr>
     <tr><td>EU (region)</td><td class="n">£1.5 bn</td><td class="n">−1.8%</td><td>Largest region by value and volume; 444 m bottles (−9%)<sup class="r"><a href="#s2">2</a></sup></td></tr>
@@ -457,7 +467,7 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="sechead tint"><h2><em>V</em>The collector market</h2><p class="sub">Correction, not collapse; provenance is the new premium.</p></div>
   
   <p>Secondary prices for rare bottles rose strongly through the late 2010s into the early 2020s and have since corrected; in 2026 buyers are questioning release prices, auction estimates and cask-ownership claims, and value has concentrated in bottles with clear provenance, limited supply and recognised distillery identity.<sup class="r"><a href="#s6">6</a></sup> Retail sources report fewer unsold auction lots and more selective buying in 2025–26 and cite individual bottles, a 1961 Bowmore 50-year-old, moving from c.$78,000 to c.$101,000 between May 2024 and May 2025.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-m">Med</span>, dealer and investment-platform sources; no independent index is reproduced here.</p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Record or reference point</th><th>Date</th><th>Note</th></tr>
     <tr><td>Macallan 1926, Valerio Adami label</td><td>Nov 2023</td><td>£2.1 m (c.$2.7 m) at Sotheby's; most expensive bottle of wine or spirit ever sold<sup class="r"><a href="#s9">9</a> <a href="#s8">8</a></sup></td></tr>
     <tr><td>Exports top £6 bn</td><td>2022</td><td>Peak of the primary market<sup class="r"><a href="#s4">4</a></sup></td></tr>
@@ -469,7 +479,7 @@ td.n+td,th.n+th{padding-left:16px}
   <div class="sechead tint"><h2><em>VI</em>The cask problem</h2><p class="sub">An unregulated asset sold as an investment.</p></div>
   
   <p>A BBC investigation in March 2025 exposed cask-investment fraud: companies selling casks that did not exist, were overvalued, or were sold to multiple buyers. The trade's own response noted that cask ownership and fraud prevention fall outside the Scotch Whisky Association's remit, that the Financial Conduct Authority does not regulate cask sales because casks are not financial products, and that virtually no cask brokers are authorised to give regulated investment advice. Fraudulent firms have partnered with reputable brands, distilleries and writers to add legitimacy.<sup class="r"><a href="#s8">8</a></sup> <span class="c c-h">High</span></p>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Control point</th><th>What exists</th><th>Gap</th></tr>
     <tr><td>Title to the cask</td><td>Delivery order or warehouse receipt from a bonded warehousekeeper; HMRC-approved warehouses<sup class="r"><a href="#s9">9</a></sup></td><td>Buyer rarely verifies directly with the warehouse</td></tr>
     <tr><td>Valuation</td><td>Broker quotes</td><td>No public benchmark; some brokers sell at multiples of distillery filling prices</td></tr>
@@ -481,7 +491,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vii">
   <div class="sechead narrative"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Export value and volume by market</td><td>Scotch Whisky Association, February (full year) and August (half year)</td><td>Demand; tariff effects in the US and India</td></tr>
     <tr><td>UK spirits duty and packaging levies</td><td>HM Treasury budgets; Extended Producer Responsibility notices</td><td>Domestic cost base cited by producers</td></tr>
@@ -519,7 +529,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>The product and its law</a><a href="#s-ii"><span>II</span>History of the trade</a><a href="#s-iii"><span>III</span>Who owns the industry</a><a href="#s-iv"><span>IV</span>Exports, 2025</a><a href="#s-v"><span>V</span>The collector market</a><a href="#s-vi"><span>VI</span>The cask problem</a><a href="#s-vii"><span>VII</span>Indicators to monitor</a><a href="#s-viii"><span>VIII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/japanese-whisky-dashboard"><span class="nm">Japanese Whisky</span><span class="rwhy">Age and allocation</span></a><a href="/rare-whisky-casks-dashboard"><span class="nm">Rare Whisky Casks</span><span class="rwhy">Cask ownership risk</span></a><a href="/champagne-dashboard"><span class="nm">Champagne</span><span class="rwhy">Brand-owner pricing</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/japanese-whisky-dashboard"><span class="nm">Japanese Whisky</span><span class="rwhy">Age and allocation</span></a><a href="/rare-whisky-casks-dashboard"><span class="nm">Rare Whisky Casks</span><span class="rwhy">Cask ownership risk</span></a><a href="/champagne-dashboard"><span class="nm">Champagne</span><span class="rwhy">Brand-owner pricing</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -592,5 +603,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>

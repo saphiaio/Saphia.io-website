@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Caviar, ΣΟΦΙΑ</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Caviar, ΣΟΦΙΑ"><meta property="og:description" content="Caviar: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/caviar-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
 <meta name="description" content="Caviar: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +91,9 @@ section .sub{color:var(--mute);margin:0 0 26px;font-size:16.5px;max-width:74ch}
 h3{font-size:22px;margin:34px 0 10px}
 
 /* tables */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
+@media(max-width:640px){.tw{mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 36px),transparent)}.tw.end{mask-image:none;-webkit-mask-image:none}.tw-hint{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 -8px}}
+.tw-hint{display:none}
 .tw table{min-width:560px}
 table{border-collapse:collapse;width:100%;font-size:15px;margin:14px 0 26px}
 th{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--mute);text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--bronze)}
@@ -318,6 +321,13 @@ td.n+td,th.n+th{padding-left:16px}
 .def:hover::after,.def:focus-visible::after{opacity:1}
 .grade .def{border-bottom:0}
 .grade .def::after{left:auto;right:0}
+
+.themes-cover{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.themes-cover .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.themes-cover .tc{display:flex;flex-wrap:wrap;gap:8px}
+.themes-cover .tc a{display:inline-flex;align-items:center;min-height:40px;padding:6px 14px;border:1px solid var(--line);background:var(--surface);font-size:14px;color:var(--ink)}
+.themes-cover .tc a:hover{border-color:var(--bronze);color:var(--bronze-lo)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -357,7 +367,7 @@ td.n+td,th.n+th{padding-left:16px}
         <span>Time</span><span>Product clears within weeks of harvest; a farm or stake takes months to sell and the buyer universe is a handful of operators. Fish stock cannot be liquidated quickly without destroying its value.<span class="t">Derived</span><span class="c c-m">Med</span></span>
       </div>
     </div>
-    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Read across markets in: <a href="/exit-depth">Exit depth</a> · <a href="/provenance">Provenance and verification</a> · <a href="/price-setters">Who sets the price</a> · <a href="/custody">Storage, custody and insurance</a> · <a href="/climate">Climate and supply shock</a> · <a href="/access">Fractional and fund access</a> · <a href="/tax">Tax and legal wrappers</a> · <a href="/auction-vs-dealer">Auction or dealer</a> · <a href="/sanctions">Sanctions, tariffs and origin</a> · <a href="/substitutes">Synthetic and substitute pressure</a></p>
+    <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
   <p class="since">Chinese industry data put China at ~60% of global caviar output; a single Hubei farm ships 10,000+ tins a day, and supermarket tins now sell for under ¥200. The price-deflation regime holds; no new US tariff change since the last update.<sup class="r"><a href="#s23">23</a></sup></p>
@@ -387,7 +397,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-i">
   <div class="sechead tint"><h2><em>I</em>Species and product</h2><p class="sub">Caviar is sturgeon roe; everything else is "caviar substitute" by law in the EU and elsewhere.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Trade name</th><th>Species</th><th>Origin / status</th><th>Note</th></tr>
     <tr><td>Beluga</td><td><i>Huso huso</i></td><td>Caspian, Black Sea, Danube; wild trade effectively closed</td><td>The most prized; up to twenty years to mature; US wild-import ban since 2005<sup class="r"><a href="#s1">1</a> <a href="#s16">16</a></sup></td></tr>
     <tr><td>Kaluga</td><td><i>Huso dauricus</i></td><td>Amur basin; farmed in China, often as Kaluga–Amur hybrid</td><td>Beluga-like large grain; the basis of China's premium tier<sup class="r"><a href="#s1">1</a> <a href="#s7">7</a></sup></td></tr>
@@ -435,7 +445,7 @@ td.n+td,th.n+th{padding-left:16px}
   </div>
   <p>Most Chinese sturgeon is eaten as meat; caviar is a by-product of a meat industry rather than the reverse. China nonetheless supplies at least a third of world caviar volume and is the main supplier to the EU.<sup class="r"><a href="#s1">1</a> <a href="#s4">4</a></sup> <span class="c c-h">High</span></p>
   <h3>Caviar output</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Producer</th><th class="n">Tonnes</th><th>Year</th><th>Source & confidence</th></tr>
     <tr><td>World</td><td class="n">380</td><td>2018</td><td>EUMOFA estimate <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
     <tr><td>EU-27 (Italy, France, Poland, Germany = 84%)</td><td class="n">164</td><td>2018</td><td>FEAP; +12% on 145.8 t in 2017 <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -451,7 +461,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-iv">
   <div class="sechead tint"><h2><em>IV</em>Trade and demand</h2><p class="sub">A small market by volume, France at its centre, prices drifting down.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Metric</th><th class="n">Value</th><th>Note</th></tr>
     <tr><td>France apparent consumption</td><td class="n">57.9 t</td><td>Largest in the EU; Germany 25.7 t, Spain 9.3 t <span class="c c-h">High</span><sup class="r"><a href="#s2">2</a></sup></td></tr>
     <tr><td>Intra-EU trade</td><td class="n">37.4 → 61.6 → 48.4 t</td><td>2014 → 2018 → 2020 <span class="c c-h">High</span><sup class="r"><a href="#s1">1</a></sup></td></tr>
@@ -467,7 +477,7 @@ td.n+td,th.n+th{padding-left:16px}
   <h3>The CITES label</h3>
   <p>Every primary container of caviar in international trade must carry a non-reusable label with a standard species code, the source code (W wild, C captive-bred, F born in captivity to wild parents), the ISO country code of origin, the harvest year, the processing-plant registration code and the lot number; repackaging adds the plant code of the repackager and the re-export certificate number.<sup class="r"><a href="#s14">14</a> <a href="#s18">18</a></sup> Roe from non-listed fish is outside the system, and in the EU the word "caviar" is legally restricted to sturgeon and paddlefish.<sup class="r"><a href="#s14">14</a></sup> <span class="c c-h">High</span></p>
   <h3>What genetic testing found</h3>
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Study</th><th class="n">Samples</th><th>Finding</th></tr>
     <tr><td>Lower Danube (Bulgaria, Romania, Serbia, Ukraine), <i>Current Biology</i> 2023</td><td class="n">149</td><td>21% of illegal wild-caught origin; 11.4% sold in violation of CITES and EU rules (four without labels, eleven mislabelled by species or country); 32% consumer deception; higher-value species declared in 24 cases; one "sterlet" was a Chinese <i>schrenckii × dauricus</i> hybrid; three "sturgeon soups" were Nile perch and catfish<sup class="r"><a href="#s10">10</a> <a href="#s11">11</a></sup> <span class="c c-h">High</span></td></tr>
     <tr><td>Bulgaria and Romania, <i>J. Applied Ichthyology</i> 2015</td><td class="n">27</td><td>High share mislabelled or unlabelled; sold as wild Danube; at least one "upgraded" to a pricier species<sup class="r"><a href="#s12">12</a></sup> <span class="c c-h">High</span></td></tr>
@@ -478,7 +488,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vi">
   <div class="sechead tint"><h2><em>VI</em>Gulf angle</h2><p class="sub">Consumer market, and one of the world's largest indoor farms, built in Abu Dhabi.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Item</th><th>Detail</th><th>Confidence</th></tr>
     <tr><td>Emirates AquaTech, Mussafah, Abu Dhabi</td><td>56,000 m² indoor recirculating farm; operations from 2013; formerly The Royal Caviar Company; total project cost reported at $115 m; capacity 35 t caviar and 500–700 t sturgeon meat a year; Siberian sturgeon; Yasa brand launched at Emirates Palace under the patronage of Sheikh Hamed bin Zayed; first UAE-hatched sturgeon eggs in late 2013<sup class="r"><a href="#s19">19</a> <a href="#s20">20</a> <a href="#s21">21</a> <a href="#s22">22</a></sup></td><td><span class="c c-h">High</span> for the facts as reported 2013–2019</td></tr>
     <tr><td>Scale in context</td><td>At 35 t the stated capacity would have been c.9% of 2018 world output and larger than the entire US industry (18 t)<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></td><td><span class="t">Derived</span></td></tr>
@@ -490,7 +500,7 @@ td.n+td,th.n+th{padding-left:16px}
 <section id="s-vii">
   <div class="sechead narrative"><h2><em>VII</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
-  <div class="tw"><table>
+  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
     <tr><td>Farmed sturgeon and caviar production by country</td><td>FAO FishStat, annual; EUMOFA caviar reports, periodic</td><td>Replaces the 2018–2021 anchors; resolves the China-share discrepancy</td></tr>
     <tr><td>EU caviar import and intra-EU trade volumes and unit values</td><td>Eurostat COMEXT, monthly</td><td>Price erosion and Chinese share of EU supply</td></tr>
@@ -535,7 +545,8 @@ td.n+td,th.n+th{padding-left:16px}
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Species and product</a><a href="#s-ii"><span>II</span>From wild fishery to aquaculture</a><a href="#s-iii"><span>III</span>Production by country</a><a href="#s-iv"><span>IV</span>Trade and demand</a><a href="#s-v"><span>V</span>Integrity: labelling and fraud</a><a href="#s-vi"><span>VI</span>Gulf angle</a><a href="#s-vii"><span>VII</span>Indicators to monitor</a><a href="#s-viii"><span>VIII</span>Sources</a></div>
-<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/bluefin-tuna-dashboard"><span class="nm">Bluefin Tuna</span><span class="rwhy">Perishable, CITES-adjacent</span></a><a href="/truffles-dashboard"><span class="nm">Truffles</span><span class="rwhy">Grade-driven, short shelf</span></a><a href="/wagyu-dashboard"><span class="nm">Wagyu</span><span class="rwhy">Farmed scarcity</span></a></div><a class="all" href="/markets">All fifty-one markets →</a></div>
+<div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/bluefin-tuna-dashboard"><span class="nm">Bluefin Tuna</span><span class="rwhy">Perishable, CITES-adjacent</span></a><a href="/truffles-dashboard"><span class="nm">Truffles</span><span class="rwhy">Grade-driven, short shelf</span></a><a href="/wagyu-dashboard"><span class="nm">Wagyu</span><span class="rwhy">Farmed scarcity</span></a></div><a class="all" href="/markets">All markets →</a></div>
+<div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
 <footer class="foot">
   <span class="fm">ΣΟΦΙΑ</span>
   <span>Scarce assets. One perspective.</span>
@@ -608,5 +619,6 @@ td.n+td,th.n+th{padding-left:16px}
     new IntersectionObserver(function(x){ if(x[0].isIntersecting){ links.forEach(function(b){b.classList.remove('cur');}); a.classList.add('cur'); } },{rootMargin:'-40% 0px -55% 0px'}).observe(sec); });
 })();
 </script>
+<script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
 </body>
 </html>
