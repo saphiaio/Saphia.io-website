@@ -63,7 +63,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
 </head>
 <body>
 <div class="wrap">
-<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/tools">Tools</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
 <h1 class="pg" style="font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin-top:clamp(36px,6vw,56px);letter-spacing:-.01em">Grade the holding, not just the market.</h1>
 <p class="pg mute" style="margin:12px 0 0;max-width:58ch;font-size:16px;text-wrap:pretty">Five answers turn the market brief into a one-page note on a specific holding. Adjustments follow the <a href="/method#holding" style="border-bottom:1px solid #dcd4c6">published rule table</a>, nothing else. Nothing you enter leaves this device.</p>
 
@@ -79,7 +79,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
   <div class="note" id="note"></div>
 </div>
 
-<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/advisers">For advisers and institutions</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
 </div>
 <script>
 (function(){
@@ -122,12 +122,12 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
     $('note').innerHTML=h;$('a-brief').href=r.url;document.title='Holding note · '+r.name+' — Saphia (ΣΟΦΙΑ)';
     try{history.replaceState(null,'','?m='+r.slug);}catch(e){}
   }
-  var src=location.pathname.indexOf('.html')>0?'data/markets.json':'/data/markets.json';
-  fetch(src).then(function(x){return x.json();}).then(function(j){D=j;var sel=$('m');Object.keys(D.markets).map(function(k){return D.markets[k];}).sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(r){var o=document.createElement('option');o.value=r.slug;o.textContent=r.name;sel.appendChild(o);});
+  function loadData(cb,err){var tries=['data/markets.json','/data/markets.json','./data/markets.json'];(function next(i){if(i>=tries.length){err&&err();return;}fetch(tries[i],{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(cb).catch(function(){next(i+1);});})(0);}
+  loadData(function(j){D=j;var sel=$('m');Object.keys(D.markets).map(function(k){return D.markets[k];}).sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(r){var o=document.createElement('option');o.value=r.slug;o.textContent=r.name;sel.appendChild(o);});
     var q=new URLSearchParams(location.search).get('m');sel.value=D.markets[q]?q:'gold';
     function setup(){var r=D.markets[sel.value];opts('form',Q.form,val('form'),r);opts('doc',Q.doc,val('doc'));opts('size',Q.size,val('size'));opts('where',Q.where,val('where'));render();}
     sel.addEventListener('change',setup);$('f').addEventListener('change',function(e){if(e.target.type==='radio')render();});setup();
-  }).catch(function(){$('note').innerHTML='<p class="mute">The market data could not be loaded.</p>';});
+  },function(){$('note').innerHTML='<p class="mute">The market record (/data/markets.json) could not be loaded. Check that the data folder is deployed alongside the pages.</p>';});
 })();
 </script>
 </body>

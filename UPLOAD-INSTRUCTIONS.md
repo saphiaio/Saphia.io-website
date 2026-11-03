@@ -99,7 +99,7 @@ Then DELETE natural_diamonds_dashboard.html from the repo (its URL redirects to 
 - any dashboard → nav reads About / Methodology / Markets / Themes
 - saphia.io/lab-grown-diamonds-dashboard → two part banners; contents list shows Part A / Part B
 - saphia.io/                        → headline, one-line description, three entry links (Markets / Themes / Method)
-- saphia.io/report?market=falcons → Falcons brief parts listed, preview renders, Save as PDF opens print
+- saphia.io/report?market=gold → Gold brief parts listed, preview renders, Save as PDF opens print
 - saphia.io/sitemap.xml and /robots.txt → resolve as plain text
 - any dashboard → "Themes that cover this market" block above the footer; on a phone, tables show "Scroll for more →"
 - saphia.io/markets                 → 51 tiles in each view; Rough under Σ4, Polished under Σ3
@@ -108,3 +108,17 @@ Then DELETE natural_diamonds_dashboard.html from the repo (its URL redirects to 
 - saphia.io/rough-diamonds-dashboard, /polished-diamonds-dashboard → load
 - saphia.io/natural-diamonds-dashboard → 301 to Polished
 - saphia.io/champagne-dashboard → 7 sections, 21 sources; /fine-wine-dashboard → §IV pointer, 61 sources
+
+
+## 3 Nov 2026 — Phases 0–3
+- Falcons removed; 50 markets. /falcons-dashboard 301s to /markets
+- New pages: /decide (Start here), /holding, /tools, /collection, /diligence, /claims, /watch, /search, /standard, /data, /estate, /conflicts, /ratings-history, /corrections, /reviewers, /calibration, /outcomes
+- New folder: data/ (markets.json, search.json, grades.csv) — MUST be deployed; the tools fail without it
+- Share images: og-home.png, og-market.png, og-theme.png, og-method.png
+- Nav on every page: Start here · Markets · Themes · Tools · Methodology · For institutions; footer carries About, Conflicts, Ratings history, Corrections, Terms, Privacy, Contact
+
+### Verify once deployed
+- saphia.io/data/markets.json returns JSON; saphia.io/decide loads the four situations
+- saphia.io/collection: paste two lines, click Read; a table appears
+- saphia.io/standard prints to PDF cleanly
+- Placeholders still to fill: About [JURISDICTION AND REGISTRATION NUMBER], [REGISTERED ADDRESS]; Terms [JURISDICTION]; Privacy [HOST]

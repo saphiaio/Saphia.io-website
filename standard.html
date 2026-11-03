@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The ΣΟΦΙΑ Standard — Saphia (ΣΟΦΙΑ)</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="The ΣΟΦΙΑ Standard — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="A citable, versioned statement of the ΣΟΦΙΑ method: the seven-step sequence, four structural scales with thresholds, six Σ factors, grade definitions and holding-level rules."><meta property="og:url" content="https://saphia.io/standard"><meta property="og:image" content="https://saphia.io/og-method.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="A citable, versioned statement of the ΣΟΦΙΑ method: the seven-step sequence, four structural scales with thresholds, six Σ factors, grade definitions and holding-level rules.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{background:#f4efe6}
+body{margin:0;background:#f4efe6;color:#141412;font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#141412;text-decoration:none}a:hover{color:#7d5f3f}
+button,input,select,textarea{font-family:'Inter',system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 64px}
+nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px}
+nav.top .mark{font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em}
+nav.top .links{display:flex;flex-wrap:wrap;gap:28px}nav.top .links a{color:#6f6a62}nav.top .links a:hover{color:#141412}nav.top .links a.cur{color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px}
+footer.ft{margin-top:64px;padding-top:20px;border-top:1px solid #e6dfd3;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 40px}footer.ft .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer.ft .fl .mark{font-family:'EB Garamond',Georgia,serif;font-size:15px;letter-spacing:.14em;color:#141412}footer.ft .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
+footer.ft a{color:#6f6a62;border-bottom:1px solid #dcd4c6}footer.ft a:hover{color:#141412;border-color:#a8825a}
+.serif{font-family:'EB Garamond',Georgia,serif;font-weight:400}
+h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
+h1.pg{font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin-top:clamp(36px,6vw,56px);letter-spacing:-.01em}
+p.lede{margin:12px 0 0;max-width:58ch;font-size:16px;color:#6f6a62;text-wrap:pretty}
+.mute{color:#6f6a62}.ink{color:#141412}
+.k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62}
+.btn{min-height:44px;padding:10px 18px;border:1px solid #141412;background:#141412;color:#f4efe6;cursor:pointer;font-size:15px;display:inline-flex;align-items:center;gap:8px}.btn:hover{background:#2b2924;color:#f4efe6}
+.btn.ghost{background:transparent;color:#141412}.btn.ghost:hover{background:#faf7f0;color:#141412}
+.sel{min-height:44px;padding:10px 14px;border:1px solid #dcd4c6;background:#faf7f0;color:#141412;font-size:15.5px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237d5f3f' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.inp{min-height:44px;padding:10px 14px;border:1px solid #dcd4c6;background:#faf7f0;color:#141412;font-size:16px;width:100%}
+.inp:focus,.sel:focus{outline:2px solid #a8825a;outline-offset:2px}
+.row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:8px 24px;padding:16px 0;border-bottom:1px solid #e6dfd2;font-size:15.5px;line-height:1.5}
+.row .k{padding-top:4px}
+.entry{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 24px;padding:18px 0;border-bottom:1px solid #e6dfd2;font-size:15.5px;line-height:1.55}
+.entry .d{font-size:13.5px;color:#6f6a62;padding-top:3px}
+.entry h3{font-size:19px;line-height:1.25;margin-bottom:4px}
+.entry p{margin:0 0 6px;text-wrap:pretty;max-width:64ch}
+.entry a.ref{color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px}
+.card{background:#faf7f0;border:1px solid #dcd4c6;padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;min-height:44px;color:#141412}.card:hover{border-color:#a8825a;color:#141412}
+.card .t{font-family:'EB Garamond',Georgia,serif;font-size:21px;line-height:1.2}.card .m{font-size:13.5px;color:#6f6a62;line-height:1.45}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:24px}
+.tag{display:inline-block;font-size:11px;padding:1px 6px;border:1px solid #dcd4c6;color:#6f6a62;margin-left:6px;vertical-align:middle;letter-spacing:.02em}
+.tag.be{border-color:#9b4a22;color:#9b4a22}
+.stamp{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:26px;padding-top:16px;border-top:1px solid #dcd4c6;font-size:13px;color:#6f6a62}
+.stamp a{color:#6f6a62;border-bottom:1px solid #dcd4c6}
+.dots{display:inline-flex;gap:5px;vertical-align:middle}.dots i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid #cfc6b6}.dots i.on{background:#a8825a;border-color:#a8825a}
+@media(max-width:760px){.row,.entry{grid-template-columns:1fr;gap:4px}}
+@media print{nav.top,footer.ft,.noprint{display:none !important}body{background:#fff}.wrap{max-width:none;padding:0}}
+.doc h2{font-size:26px;margin:40px 0 12px;padding-top:28px;border-top:1px solid #141412}.doc h3{font-size:19px;margin:22px 0 8px}.doc p{max-width:66ch;text-wrap:pretty;margin:0 0 12px;font-size:15.5px;line-height:1.6}
+.tbl{display:flex;flex-direction:column;border-top:1px solid #dcd4c6;margin:10px 0 6px;font-size:14.5px;line-height:1.5}.tr{display:grid;gap:6px 20px;padding:10px 0;border-bottom:1px solid #e6dfd2}.tr>span:first-child{font-weight:500}.th>span{font-weight:400 !important;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6f6a62}
+.c3{grid-template-columns:150px minmax(0,1fr) minmax(0,1fr)}.c4{grid-template-columns:70px 130px minmax(0,1fr) 90px}.c2{grid-template-columns:150px minmax(0,1fr)}
+.cite{background:#faf7f0;border:1px solid #dcd4c6;padding:16px 18px;font-size:14px;line-height:1.55;margin-top:14px}.cite code{font-family:ui-monospace,monospace;font-size:13px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:14px;font-size:13.5px;color:#6f6a62}
+@media(max-width:700px){.c3,.c4,.c2{grid-template-columns:1fr}.th{display:none}}
+@media print{.doc h2{break-after:avoid}.tr{break-inside:avoid}h1.pg{font-size:28px;margin-top:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/tools">Tools</a><a href="/method" class="cur">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+<span class="k" style="display:block;margin-top:clamp(36px,6vw,56px)">Standard · version v1.2 · 3 Nov 2026</span>
+<h1 class="pg" style="margin-top:8px">The ΣΟΦΙΑ Standard</h1>
+<p class="lede">One analytical standard for markets that lack one. This page is the citable statement of the method as applied to every brief: what is measured, on what scale, at what thresholds, and how the Σ grade is formed. It changes only by version, and every version is logged.</p>
+<div class="meta"><span>Supersedes v1.1 (2 Nov 2026) and v1.0 (Oct 2026)</span><a href="/method#changes" style="border-bottom:1px solid #dcd4c6">Change log</a><button class="btn ghost noprint" onclick="window.print()" style="min-height:36px;padding:6px 14px;font-size:13.5px">Save as PDF</button></div>
+<div class="doc">
+<h2>1. Scope</h2>
+<p>The Standard applies to physical scarce assets in six families: Gems &amp; Jewellery; Metals, Energy &amp; Strategic Materials; Cellar &amp; Collectibles; Aromatics; Crops; Rare Foods. 50 markets are rated at this version. A market is rated on the form a holder can actually own, named on the brief (for example "physical metal", "a case in bond", "a share in a stallion"). Where the good cannot be held, the brief says so and rates the most direct route to exposure.</p>
+<h2>2. The sequence</h2>
+<p>Every market is read in the same seven steps, in the same order: supply, demand, concentration, liquidity, scarcity, provenance, price formation. Steps 3 to 6 produce the four structural scales below. Steps 1, 2 and 7 are described in the brief and are not scored, because they cannot be put on one scale across unrelated markets.</p>
+<h2>3. Four structural scales</h2>
+<p>Each is scored 1 to 5 and always shown with its band word: 1–2 Low, 3 Medium, 4–5 High. Scores read in the brief's natural direction and are never combined into a composite: high concentration is a risk to a buyer, high liquidity a comfort to a seller. Thresholds are published so a score can be checked against the evidence on the brief.</p>
+<div class="tbl"><div class="tr th c3"><span>Scale</span><span>Scores 5 (High) when</span><span>Scores 1 (Low) when</span></div>
+<div class="tr c3"><span>Concentration</span><span>The top three controllers of the price-setting stage hold three-quarters or more of it, or one holds half. Rated at the stage of the chain where the power to set price sits, named on the brief.</span><span>Dispersed; the top three hold under half.</span></div>
+<div class="tr c3"><span>Liquidity</span><span>An exchange or daily reference price exists and the standard unit clears daily.</span><span>Private, irregular or ceremonial sales; no reference price.</span></div>
+<div class="tr c3"><span>Scarcity</span><span>Supply is fixed or falling and cannot expand within five years. Rated on the apex tier where one exists.</span><span>Supply responds within a year or two, or a substitute exists at scale.</span></div>
+<div class="tr c3"><span>Provenance risk</span><span>Mislabelling above a fifth in published studies, or no independent check exists.</span><span>Mandatory, independent, forensic control at the point of trade.</span></div></div>
+<p>Score 3 (Medium) sits between: concentration where the top three hold half to three-quarters; liquidity where discovery is by auction, index or dealer within weeks; scarcity where supply responds with a three- to five-year lag; provenance where certification exists but is voluntary or cannot detect substitution. Scores 2 and 4 are used where the evidence sits clearly between bands.</p>
+<h2>4. The Σ grade</h2>
+<p>ΣΟΦΙΑ's opinion of how practical the asset is to hold and to exit. Not a view on return, value or merit. Σ5 is the most practical, Σ1 the least. It is a judgement across six factors, each scored 1 to 5 (5 = least burden), and is not their average: one factor at 1 can hold a grade down on its own, and the brief says which.</p>
+<div class="tbl"><div class="tr th c4"><span>Grade</span><span>Label</span><span>Definition</span><span>At v1.2</span></div>
+<div class="tr c4"><span>Σ5</span><span>Institutional</span><span>Independent daily valuation, exit within days at low cost, standard custody, established institutional vehicles</span><span>3 markets</span></div><div class="tr c4"><span>Σ4</span><span>Accessible</span><span>Regular price discovery and an established route to exposure, with one material limit on custody, cost or access</span><span>7 markets</span></div><div class="tr c4"><span>Σ3</span><span>Specialist</span><span>Valued by expert appraisal, exit over months through auction or dealers, material transaction and custody costs</span><span>19 markets</span></div><div class="tr c4"><span>Σ2</span><span>Restricted</span><span>Valuation contested, exit uncertain, heavy authentication, title or transfer burdens</span><span>19 markets</span></div><div class="tr c4"><span>Σ1</span><span>No route</span><span>The good cannot be held and no practical route to exposure has been identified</span><span>2 markets</span></div></div>
+<h3>Six factors</h3>
+<div class="tbl"><div class="tr th c3"><span>Factor</span><span>What it measures</span><span>Scores 5 when</span></div>
+<div class="tr c3"><span>Valuation</span><span>How independently and how often the asset is priced</span><span>an independent benchmark is set at least daily</span></div><div class="tr c3"><span>Exit</span><span>How quickly, and at what cost, a holder can sell</span><span>a standard unit sells within days at a small spread</span></div><div class="tr c3"><span>Custody</span><span>What storing and insuring the asset requires</span><span>standard vaulting or account custody; no decay</span></div><div class="tr c3"><span>Title and transfer</span><span>How cleanly ownership is proven and passed on</span><span>ownership is registered or standardised and moves without re-authentication</span></div><div class="tr c3"><span>Access</span><span>Whether an investor can buy at all, and through which route</span><span>open to any investor through regulated vehicles, without sanctions, licences or allocation</span></div><div class="tr c3"><span>Intangible premium</span><span>How much of the price rests on brand, story, provenance or rarity narrative</span><span>the price is almost entirely the physical good, set by industrial or monetary demand</span></div></div>
+<h2>5. Holding-level rules</h2>
+<p>A holding note moves a factor down one point where a specific holding departs from the rated form. Only the rules below apply; nothing is judged case by case. One or two factors moved: market Σ less one. Three or more: less two. Never below Σ1.</p>
+<div class="tbl"><div class="tr th c3"><span>Answer</span><span>Factor moved</span><span>Why</span></div>
+<div class="tr c3"><span>Non-standard form</span><span>Exit −1 · Valuation −1</span><span>No reference unit to price against; sells through a retail or specialist channel.</span></div><div class="tr c3"><span>Paper or wrapper</span><span>None</span><span>The wrapper is rated on its own terms.</span></div><div class="tr c3"><span>Documentation partial</span><span>Title and transfer −1</span><span>The paper the buyer asks for first is missing.</span></div><div class="tr c3"><span>Documentation none</span><span>Title and transfer −1 · Exit −1</span><span>Route narrows to channels that re-certify.</span></div><div class="tr c3"><span>Below the usual lot</span><span>Exit −1</span><span>Retail channel, wider spread.</span></div><div class="tr c3"><span>Above the usual lot</span><span>Exit −1 where Liquidity is 1–2</span><span>A single buyer cannot absorb the position.</span></div><div class="tr c3"><span>With the holder</span><span>Custody −1 unless regime is Shelf or Paper</span><span>Vault, conditioned or living regimes need professional custody.</span></div><div class="tr c3"><span>Unknown or abroad</span><span>Custody −1 · Title and transfer −1</span><span>Location, condition and control unconfirmed.</span></div></div>
+<h2>6. Evidence rules</h2>
+<p>Every figure is cited and dated, or absent. No live prices or index levels. Discrepancies between credible sources are shown, not reconciled silently. Inference is tagged as inference; confidence is tagged High, Medium or Low on each figure. Forecasts are recorded as a named house's view on the date made and are never updated. Corrections are new entries, never silent edits.</p>
+<h2>7. Versioning and records</h2>
+<p>A change to a definition, a scale, a threshold or the direction of a grade is a new version with a date. Every grade or scale change is entered in the <a href="/ratings-history" style="border-bottom:1px solid #dcd4c6">ratings history</a> with its rationale and the version under which it was made. Each brief and each tool output carries the as-of date and the method version it was produced under.</p>
+<h2>8. Licence and citation</h2>
+<p>The Standard (this document: scales, thresholds, factor definitions and holding rules) is intended to be published under an open licence so that others can apply it; the licence is <span class="tag">to be confirmed</span>, with CC BY 4.0 proposed. The grades, scale scores and briefs remain ΣΟΦΙΑ's and are licensed separately (see <a href="/data" style="border-bottom:1px solid #dcd4c6">Σ as data</a>).</p>
+<div class="cite">Cite as: <code>Saphia Intelligence (2026). The ΣΟΦΙΑ Standard, version v1.2, 3 Nov 2026. saphia.io/standard</code><br>Cite a grade as: <code>ΣΟΦΙΑ Σ-grade, [market], [as-of date], method v1.2. saphia.io/[market]-dashboard</code></div>
+</div>
+<p class="stamp"><span>Version v1.2 · 3 Nov 2026</span><span>Market intelligence and data, not investment advice. The Standard describes how markets are read; it makes no buy, sell or hold call.</span></p>
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
+</div>
+
+</body>
+</html>

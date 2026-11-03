@@ -69,7 +69,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
 </head>
 <body>
 <div class="wrap">
-<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide" class="cur">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide" class="cur">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/tools">Tools</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
 
 <div class="steps" id="steps"></div>
 
@@ -94,7 +94,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
   <p class="stamp" id="stamp"></p>
 </div>
 
-<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/advisers">For advisers and institutions</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
 </div>
 <script>
 (function(){
@@ -136,8 +136,8 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
   $('back1').addEventListener('click',function(e){e.preventDefault();state.s=null;state.m=null;go();});
   $('back2').addEventListener('click',function(e){e.preventDefault();state.m=null;go();});
   $('q').addEventListener('input',function(){renderMkts(this.value);});
-  var src=location.pathname.indexOf('.html')>0?'data/markets.json':'/data/markets.json';
-  fetch(src).then(function(r){return r.json();}).then(function(j){D=j;var u=new URLSearchParams(location.search);var s=u.get('s'),m=u.get('m');if(SIT[s])state.s=s;if(m&&D.markets[m])state.m=m;renderSits();go();}).catch(function(){$('sits').innerHTML='<p class="mute">The market data could not be loaded.</p>';});
+  function loadData(cb,err){var tries=['data/markets.json','/data/markets.json','./data/markets.json'];(function next(i){if(i>=tries.length){err&&err();return;}fetch(tries[i],{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(cb).catch(function(){next(i+1);});})(0);}
+  loadData(function(j){D=j;var u=new URLSearchParams(location.search);var s=u.get('s'),m=u.get('m');if(SIT[s])state.s=s;if(m&&D.markets[m])state.m=m;renderSits();go();},function(){$('sits').innerHTML='<p class="mute">The market record (/data/markets.json) could not be loaded. Check that the data folder is deployed alongside the pages.</p>';});
 })();
 </script>
 </body>

@@ -352,15 +352,27 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 .expiry .t{margin-left:0}
 .expiry.expired .t{color:var(--low);border-color:var(--low)}
 .past{color:var(--mute)}
+.axrow{position:relative}.axrow .def::after{left:0;right:auto;width:min(260px,calc(100vw - 48px))}.axrow:nth-child(n+4) .def::after{left:auto;right:0}.page{overflow-x:clip}
 @media(max-width:900px){.axes{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:1fr}}
 @media(max-width:480px){.axes{grid-template-columns:1fr}}
+
+/* ===== Phase 2: alternatives, watch ===== */
+.alt{margin-top:40px;padding-top:36px;border-top:1px solid var(--line)}
+.alt .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.alt .q{font-family:var(--display);font-size:24px;margin:0 0 14px}
+.alt .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.alt .grid a{display:flex;flex-direction:column;gap:6px;background:var(--surface);padding:16px 18px;min-height:44px}
+.alt .grid a:hover{background:var(--paper)}
+.alt .nm{font-family:var(--display);font-size:19px;line-height:1.15}.alt .gr{font-family:var(--sans);font-size:13px;color:var(--bronze-lo);font-weight:500}.alt .rw{font-size:13px;color:var(--mute);line-height:1.45}
+.alt .none{font-size:14.5px;color:var(--mute);margin:0}
+.alt .foot{display:flex;flex-wrap:wrap;gap:4px 24px;margin-top:14px;font-size:13.5px;color:var(--mute)}.alt .foot a{color:var(--mute);border-bottom:1px solid var(--line)}
 </style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ</a>
-    <ul><li><a href="/decide">Start here</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li><li><a href="/method">Methodology</a></li><li><a href="/advisers">For institutions</a></li></ul>
+    <ul><li><a href="/decide">Start here</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li><li><a href="/tools">Tools</a></li><li><a href="/method">Methodology</a></li><li><a href="/advisers">For institutions</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -607,10 +619,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 
 </details>
 <div class="toc-lite"><a href="#s-i"><span>I</span>Structure of the trade</a><a href="#s-ii"><span>II</span>Cuba and Habanos S.A.</a><a href="#s-iii"><span>III</span>Ownership and sanctions</a><a href="#s-iv"><span>IV</span>The Big Three and the US market</a><a href="#s-v"><span>V</span>Regulation</a><a href="#s-vi"><span>VI</span>Gulf angle</a><a href="#s-vii"><span>VII</span>Indicators to monitor</a><a href="#s-viii"><span>VIII</span>Sources</a></div>
+<div class="alt" aria-label="If not this, then what?"><div class="k">If not this, then what?</div><p class="q">Markets with similar scarcity and a higher Σ, and the other routes the access register lists for this one.</p><div class="grid"><a href="/access"><span class="nm">Other routes in the access register</span><span class="gr">Not graded here</span><span class="rw">Allied Cigar Fund holds 57.1% of one Habanos shareholder; private, and sanctioned. What each owns: A stake in the monopoly, not cigars.</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="gr">Σ5 Institutional</span><span class="rw">Scarcity 3/5 against 3/5 here; liquidity 5/5 against 2/5.</span></a><a href="/silver-dashboard"><span class="nm">Silver</span><span class="gr">Σ5 Institutional</span><span class="rw">Scarcity 3/5 against 3/5 here; liquidity 5/5 against 2/5.</span></a><a href="/gold-dashboard"><span class="nm">Gold</span><span class="gr">Σ5 Institutional</span><span class="rw">Scarcity 2/5 against 3/5 here; liquidity 5/5 against 2/5.</span></a></div><div class="foot"><span>Computed from the published Σ and scale scores, method v1.2; the reason is the one line shown.</span><a href="/ratings-history">Grade history →</a></div></div>
 <div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/scotch-whisky-dashboard"><span class="nm">Scotch Whisky</span><span class="rwhy">Monopoly supply, ageing</span></a><a href="/pu-erh-tea-dashboard"><span class="nm">Pu-erh Tea</span><span class="rwhy">Aged, vintage-dated</span></a><a href="/fine-wine-dashboard"><span class="nm">Fine Wine</span><span class="rwhy">Collector cellars</span></a></div><a class="all" href="/markets">All markets →</a></div>
 <div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
-<div class="rp-link"><a href="/decide?m=cigars">Decision view →</a><a href="/holding?m=cigars">Grade a holding →</a><a href="/report?market=cigars">Committee paper →</a><span>Every output carries the as-of date, method version and the not-advice line.</span></div>
-<footer class="foot"><div class="fl"><span class="fm">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/advisers">For advisers and institutions</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
+<div class="rp-link"><a href="/watch?add=cigars">Watch this market →</a><a href="/diligence?m=cigars">Diligence questions →</a><a href="/decide?m=cigars">Decision view →</a><a href="/holding?m=cigars">Grade a holding →</a><a href="/report?market=cigars">Committee paper →</a><span>Every output carries the as-of date, method version and the not-advice line.</span></div>
+<footer class="foot"><div class="fl"><span class="fm">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
 </div>
 <div class="ctl" id="ctl">
   <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>

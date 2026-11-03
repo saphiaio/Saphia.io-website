@@ -32,7 +32,7 @@ h1{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:clamp(34px,
 p{max-width:62ch;margin:0 0 16px;color:#45423c;text-wrap:pretty}
 h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin:40px 0 12px}
 .uses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#dcd4c6;border:1px solid #dcd4c6;margin:8px 0 8px}
-.uses>div{background:#faf7f0;padding:18px 20px}
+.uses>div{background:#faf7f0;padding:18px 20px}.uses.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 .uses .k{font-family:'EB Garamond',Georgia,serif;font-size:19px;margin-bottom:6px}
 .uses p{font-size:15.5px;margin:0}
 .uses .k small{font-family:'Inter',system-ui,sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7d5f3f;margin-left:8px;vertical-align:middle}
@@ -47,44 +47,45 @@ h2{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:22px;margin
 .scen p{font-size:15px;line-height:1.55;margin:0 0 10px}
 .scen p:last-child{margin-bottom:0}
 .scen p b{font-weight:500;color:#141412}
-@media(max-width:640px){.scen>div{grid-template-columns:1fr;gap:6px}.uses{grid-template-columns:1fr}}
+@media(max-width:640px){.scen>div{grid-template-columns:1fr;gap:6px}.uses,.uses.three{grid-template-columns:1fr}}@media(min-width:641px) and (max-width:900px){.uses.three{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .addr{display:inline-block;font-family:'EB Garamond',Georgia,serif;font-size:26px;border-bottom:1px solid #a8825a;padding-bottom:2px;margin-top:8px}
 .fine{color:#6f6a62;font-size:14px;max-width:56ch;margin:40px 0 0;padding-top:20px;border-top:1px solid #dcd4c6}
 footer{margin-top:64px;padding-top:20px;border-top:1px solid #e6dfd3;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 40px}footer .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer .fl .mark{font-family:'EB Garamond',Georgia,serif;font-size:15px;letter-spacing:.14em;color:#141412}footer .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #a8825a;outline-offset:2px}
+.uses a{display:inline-flex;align-items:center;min-height:40px}
 </style>
 </head>
 <body>
 <div class="page">
 <nav>
   <a class="mark" href="/home">ΣΟΦΙΑ</a>
-  <ul><li><a href="/decide">Start here</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes">Themes</a></li><li><a href="/method">Methodology</a></li><li><a href="/advisers">For institutions</a></li></ul>
+  <ul><li><a href="/decide">Start here</a></li><li><a href="/markets">Markets</a></li><li><a href="/themes">Themes</a></li><li><a href="/tools">Tools</a></li><li><a href="/method">Methodology</a></li><li><a href="/advisers">For institutions</a></li></ul>
 </nav>
 <main>
   <p class="eyebrow">For advisers and institutions</p>
   <h1>A common language for markets that do not have one.</h1>
-  <p class="lede">Family offices, private banks and wealth advisers are increasingly asked to hold a view on assets that do not trade on a screen. Saphia gives them the same cited, dated briefing on each one, read in the same order every time.</p>
+  <p class="lede">Family offices, private banks, trustees and executors are asked to hold a view on assets that do not trade on a screen. Saphia gives them the same cited, dated reading of each one, graded on one scale, and the tools to apply it to a specific holding, collection or paper.</p>
 
-  <p>Specialist markets have specialists, and the specialist usually has an interest in the outcome. What is missing is an independent account a non-specialist can read before the meeting: who controls supply, where price is actually discovered, what provenance means in that market, how long an exit takes and what it costs. Markets from gold and copper to Old Masters and saffron are covered, each with a Σ grade for how practical the asset is to own and exit, stated separately from any view on return.</p>
+  <p>Specialist markets have specialists, and the specialist usually has an interest in the outcome. What is missing is an independent account a non-specialist can read before the meeting: who controls supply, where price is actually discovered, what provenance means in that market, how long an exit takes and what it costs. Fifty markets from gold and copper to Old Masters and saffron are covered, each with a Σ grade for how practical the asset is to own and exit, stated separately from any view on return.</p>
 
-  <h2>Where it is used</h2>
+  <h2>Four uses</h2>
   <div class="uses">
-    <div><div class="k">Due diligence</div><p>A structured first read of an unfamiliar market before engaging a dealer, auction house or valuer, with the questions already framed.</p></div>
-    <div><div class="k">Client collections</div><p>Inherited or long-held assets, cellars, jewellery, watches, art, that need to be understood before a keep-or-sell conversation.</p></div>
-    <div><div class="k">Allocation review</div><p>Comparing holding practicality across unrelated markets on one scale, Σ1 to Σ5, rather than on each specialist's own terms.</p></div>
-    <div><div class="k">Challenge</div><p>Independent, sourced evidence to test a valuation, an attribution claim or a liquidity assumption put forward by an interested party.</p></div>
+    <div><div class="k">Due diligence</div><p>A structured first read of an unfamiliar market before engaging a dealer, auction house or valuer, with the questions already framed.</p><a href="/diligence" style="color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px">Diligence questions →</a></div>
+    <div><div class="k">Client collections</div><p>Inherited or long-held assets, cellars, jewellery, watches, art, sorted by grade, time to cash and the paper that is missing, before anyone is instructed.</p><a href="/collection" style="color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px">Collection view →</a></div>
+    <div><div class="k">Allocation review</div><p>Comparing holding practicality across unrelated markets on one scale, Σ1 to Σ5, rather than on each specialist's own terms; a committee paper with a reference ID for the file.</p><a href="/report" style="color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px">Committee paper →</a></div>
+    <div><div class="k">Challenge</div><p>Independent, sourced evidence to test a valuation, an attribution claim or a liquidity assumption put forward by an interested party.</p><a href="/claims" style="color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px">Claim checker →</a></div>
   </div>
 
   <h2 style="margin-top:32px">In practice</h2>
-  <p>Five situations an adviser might meet this year, one or two for each use above, and what changes when the brief has been read first. The situations are illustrative; the markets, prices and mechanisms are the ones on the site.</p>
+  <p>Five situations an adviser might meet this year, and what changes when the brief has been read first. The situations are illustrative; the markets and mechanisms are the ones on the site. None is a view on whether to keep or sell.</p>
   <div class="scen">
     <div><div class="who"><div class="tag">Client collections</div>An executor and a cellar<small><a href="/fine-wine-dashboard">Fine Wine</a><a href="/champagne-dashboard">Champagne</a><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a></small></div><div><p><b>The situation.</b> A solicitor is winding up an estate that includes 300 cases of Bordeaux in bond, a dozen cases of prestige Champagne in the house, and a folder of certificates for six whisky casks bought from a firm that has since gone into administration.</p>
       <p><b>What Saphia gives.</b> Three briefs read in the same order. The wine and Champagne are Σ4: Liv-ex prices exist, the merchant can value and sell within weeks, and the Champagne that left bond will be repriced on condition. The casks are Σ2, and the brief says why the first question is not value but title: a certificate is a claim against the seller, a delivery order is ownership, and the warehouse should be contacted before any valuer.</p>
-      <p><b>What changes.</b> The executor instructs the merchant and the warehousekeeper the same week, in the right order, and tells the beneficiaries which part of the estate is an asset and which part is a creditor's claim.</p></div></div>
+      <p><b>What changes.</b> The executor instructs the merchant and the warehousekeeper the same week, in the right order, and tells the beneficiaries which part of the estate is an asset and which part is a creditor's claim. <a href="/estate">The estate pack →</a></p></div></div>
     <div><div class="who"><div class="tag">Due diligence</div>A family office and a stallion share<small><a href="/breeding-stallions-dashboard">Breeding Stallions</a><a href="/racehorses-dashboard">Racehorses</a></small></div><div><p><b>The situation.</b> A principal who races a few horses is offered one share in a newly retired champion at a price that implies a nine-figure valuation for the horse. The stud's agent has the first-season fee, the book and a projection; the family office has a week.</p>
       <p><b>What Saphia gives.</b> The Breeding Stallions brief: how a stallion is valued, who sets the fee, when the evidence arrives, and the record of one horse whose fee was cut three years running while his yearlings sold for six times it. The syndicate agreement terms to ask for, the right of first refusal, and what a share is worth if the runners disappoint.</p>
-      <p><b>What changes.</b> The office goes into the conversation knowing that the implied valuation is a scarcity price for one share, that income follows a fee the seller controls, and that the exit is a closed room. It may still buy; it will not be surprised.</p></div></div>
-    <div><div class="who"><div class="tag">Challenge</div>A private bank and a pitch deck<small><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a><a href="/scotch-whisky-dashboard">Scotch Whisky</a></small></div><div><p><b>The situation.</b> A relationship manager's client has been sent a brochure promising 8–12% tax-free annual returns from whisky casks, with a chart of the firm's own index. The client wants to know whether to put in £200,000.</p>
+      <p><b>What changes.</b> The office goes into the conversation knowing that the implied valuation is a scarcity price for one share, that income follows a fee the seller controls, and that the exit is a closed room. Whatever it decides, it will not be surprised.</p></div></div>
+    <div><div class="who"><div class="tag">Challenge</div>A private bank and a pitch deck<small><a href="/rare-whisky-casks-dashboard">Rare Whisky Casks</a><a href="/pu-erh-tea-dashboard">Pu-erh Tea</a><a href="/scotch-whisky-dashboard">Scotch Whisky</a></small></div><div><p><b>The situation.</b> A relationship manager's client has been sent a brochure promising 8–12% tax-free annual returns from whisky casks, with a chart of the firm's own index. The client wants to know what the claim rests on.</p>
       <p><b>What Saphia gives.</b> The Scotch Whisky Association's own statement that there is no regulated market, no price list and no mechanism for selling a cask; the 22 million casks in bond against falling exports; the £80 m collapse of 2025 and what separated the clients who recovered their casks from those who did not; and a note on where the tax exemption comes from and what it does and does not do.</p>
       <p><b>What changes.</b> The manager can answer in an hour with sources, rather than in a fortnight with an opinion, and can put the same questions to any brochure for any cask, tea cake or cellar that arrives next.</p></div></div>
     <div><div class="who"><div class="tag">Challenge</div>A lending team and a picture<small><a href="/old-masters-dashboard">Old Masters</a><a href="/art-dashboard">Art</a></small></div><div><p><b>The situation.</b> A credit committee is asked to lend against an Old Master catalogued as by a named artist, with a recent auction estimate as the valuation. Nobody on the committee has lent against a painting before.</p>
@@ -92,17 +93,25 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #a882
       <p><b>What changes.</b> The committee writes its own conditions, a second opinion on attribution, an export position, a haircut that reflects a months-long exit through two sales a year, instead of adopting the auction house's number.</p></div></div>
     <div><div class="who"><div class="tag">Allocation review</div>An allocation review across unrelated things<small><a href="/gold-dashboard">Gold</a><a href="/watches-dashboard">Watches</a><a href="/coloured-gemstones-dashboard">Coloured Gemstones</a><a href="/vintage-guitars-dashboard">Vintage Guitars</a></small></div><div><p><b>The situation.</b> A multi-family office is reviewing a client's "tangibles" line: bullion, a watch collection, a parcel of sapphires bought in Bangkok, and three guitars. Each came with its own specialist and its own vocabulary.</p>
       <p><b>What Saphia gives.</b> One scale. Gold is Σ5 and can be sold in days at a fraction of a per cent; watches are Σ3 with a deep but volatile secondary market; the sapphires are Σ2 unless the laboratory reports are from the right laboratories; the guitars are Σ3 and worth two different sums depending on which parts are original. The same four structural questions asked of each.</p>
-      <p><b>What changes.</b> The review can say which holdings are liquid, which are illiquid and which are unverified, in a sentence each, and the keep-or-sell conversation starts from the right place.</p></div></div>
+      <p><b>What changes.</b> The review can say which holdings are liquid, which are illiquid and which are unverified, in a sentence each, and the conversation with the client starts from the right place.</p></div></div>
   </div>
 
-  <h2>Working with Saphia</h2>
-  <p>All market briefs are published openly and will remain so. Saphia does not sell research, does not undertake commissioned briefs and does not accept payment for coverage; the choice of markets, the sources and the conclusions are its own. Advisers and institutions are welcome to suggest a market for coverage, and suggestions are weighed on the same terms as any other. Saphia does not act for buyers or sellers in any market it covers.</p>
+  <h2>Products</h2>
+  <div class="uses three">
+    <div><div class="k">The Standard</div><p>The method as a citable, versioned document: scales, thresholds, factor definitions, holding rules. Intended for an open licence so others can apply it.</p><a href="/standard" style="color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px">The ΣΟΦΙΑ Standard →</a></div>
+    <div><div class="k">Σ as data</div><p>Grades and the four scales for every market as CSV and JSON, with as-of date and method version, for client reporting and custody platforms. Licence to be agreed.</p><a href="/data" style="color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px">Σ as data →</a></div>
+    <div><div class="k">Estate pack</div><p>For executors and probate advisers: collection view, holding notes, diligence questions and a committee-style summary, run in that order.</p><a href="/estate" style="color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px">Estate pack →</a></div>
+  </div>
+
+  <h2>Commissioned work and independence</h2>
+  <p>All market briefs are published openly and will remain so. A client may commission research on a market or a holding; the output is labelled "Commissioned", with the client type and the date, and a commission cannot start, stop, delay or move a published grade or scale score. No market participant pays for coverage, and no advertising is carried. Saphia does not act for buyers or sellers in any market it covers. The full rules are on one page.</p>
+  <p><a href="/conflicts" style="border-bottom:1px solid #dcd4c6">Conflicts and independence →</a></p>
   <p>Write with the markets you care about, the questions a brief left open, or a correction.</p>
   <a class="addr" href="mailto:hello@saphia.io?subject=Advisers%20and%20institutions">hello@saphia.io</a>
 
   <p class="fine">Saphia (ΣΟΦΙΑ) publishes market intelligence and data. It does not publish investment advice, does not accept payment for coverage, and does not carry advertising.</p>
 </main>
-<footer><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
+<footer><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
 </div>
 </body>
 </html>
