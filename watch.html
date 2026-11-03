@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Watch list — Saphia (ΣΟΦΙΑ)</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Watch list — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="Follow markets and see what changed since your last visit: grade, scale scores, factor scores and as-of date, with the reason. Stored on this device only."><meta property="og:url" content="https://saphia.io/watch"><meta property="og:image" content="https://saphia.io/og-home.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Follow markets and see what changed since your last visit: grade, scale scores, factor scores and as-of date, with the reason. Stored on this device only.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{background:#f4efe6}
+body{margin:0;background:#f4efe6;color:#141412;font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#141412;text-decoration:none}a:hover{color:#7d5f3f}
+button,input,select,textarea{font-family:'Inter',system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 64px}
+nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px}
+nav.top .mark{font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em}
+nav.top .links{display:flex;flex-wrap:wrap;gap:28px}nav.top .links a{color:#6f6a62}nav.top .links a:hover{color:#141412}nav.top .links a.cur{color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px}
+footer.ft{margin-top:64px;padding-top:20px;border-top:1px solid #e6dfd3;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 40px}footer.ft .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer.ft .fl .mark{font-family:'EB Garamond',Georgia,serif;font-size:15px;letter-spacing:.14em;color:#141412}footer.ft .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
+footer.ft a{color:#6f6a62;border-bottom:1px solid #dcd4c6}footer.ft a:hover{color:#141412;border-color:#a8825a}
+.serif{font-family:'EB Garamond',Georgia,serif;font-weight:400}
+h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
+h1.pg{font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin-top:clamp(36px,6vw,56px);letter-spacing:-.01em}
+p.lede{margin:12px 0 0;max-width:58ch;font-size:16px;color:#6f6a62;text-wrap:pretty}
+.mute{color:#6f6a62}.ink{color:#141412}
+.k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62}
+.btn{min-height:44px;padding:10px 18px;border:1px solid #141412;background:#141412;color:#f4efe6;cursor:pointer;font-size:15px;display:inline-flex;align-items:center;gap:8px}.btn:hover{background:#2b2924;color:#f4efe6}
+.btn.ghost{background:transparent;color:#141412}.btn.ghost:hover{background:#faf7f0;color:#141412}
+.sel{min-height:44px;padding:10px 14px;border:1px solid #dcd4c6;background:#faf7f0;color:#141412;font-size:15.5px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237d5f3f' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.inp{min-height:44px;padding:10px 14px;border:1px solid #dcd4c6;background:#faf7f0;color:#141412;font-size:16px;width:100%}
+.inp:focus,.sel:focus{outline:2px solid #a8825a;outline-offset:2px}
+.row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:8px 24px;padding:16px 0;border-bottom:1px solid #e6dfd2;font-size:15.5px;line-height:1.5}
+.row .k{padding-top:4px}
+.entry{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 24px;padding:18px 0;border-bottom:1px solid #e6dfd2;font-size:15.5px;line-height:1.55}
+.entry .d{font-size:13.5px;color:#6f6a62;padding-top:3px}
+.entry h3{font-size:19px;line-height:1.25;margin-bottom:4px}
+.entry p{margin:0 0 6px;text-wrap:pretty;max-width:64ch}
+.entry a.ref{color:#7d5f3f;border-bottom:1px solid #dcd4c6;font-size:14px}
+.card{background:#faf7f0;border:1px solid #dcd4c6;padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;min-height:44px;color:#141412}.card:hover{border-color:#a8825a;color:#141412}
+.card .t{font-family:'EB Garamond',Georgia,serif;font-size:21px;line-height:1.2}.card .m{font-size:13.5px;color:#6f6a62;line-height:1.45}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:24px}
+.tag{display:inline-block;font-size:11px;padding:1px 6px;border:1px solid #dcd4c6;color:#6f6a62;margin-left:6px;vertical-align:middle;letter-spacing:.02em}
+.tag.be{border-color:#9b4a22;color:#9b4a22}
+.stamp{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:26px;padding-top:16px;border-top:1px solid #dcd4c6;font-size:13px;color:#6f6a62}
+.stamp a{color:#6f6a62;border-bottom:1px solid #dcd4c6}
+.dots{display:inline-flex;gap:5px;vertical-align:middle}.dots i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid #cfc6b6}.dots i.on{background:#a8825a;border-color:#a8825a}
+@media(max-width:760px){.row,.entry{grid-template-columns:1fr;gap:4px}}
+@media print{nav.top,footer.ft,.noprint{display:none !important}body{background:#fff}.wrap{max-width:none;padding:0}}
+.w{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;padding:18px 0;border-bottom:1px solid #e6dfd2;align-items:start}.w h2{font-size:22px}.w .ch{font-size:14.5px;margin-top:6px;line-height:1.5}.w .ch b{font-weight:500;color:#9b4a22}.w .same{font-size:13.5px;color:#6f6a62;margin-top:6px}
+.x{background:none;border:1px solid #dcd4c6;color:#6f6a62;min-height:40px;padding:6px 12px;cursor:pointer;font-size:13px}.x:hover{border-color:#a8825a;color:#141412}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/tools" class="cur">Tools</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+<h1 class="pg">Watch list</h1>
+<p class="lede">Markets you follow, and what has changed in the published record since you last looked. The list and the last-seen copy live in this browser only; clearing site data removes them. Email alerts would need a server and are <span class="tag be">backend required</span>.</p>
+<div id="list" style="margin-top:28px;border-top:1px solid #141412"></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px" class="noprint"><label class="k" for="m">Add a market</label><select id="m" class="sel" style="min-width:220px"></select><button class="btn ghost" id="add">Watch</button></div>
+<p class="stamp" id="stamp"></p>
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
+</div>
+<script>
+var $=function(id){return document.getElementById(id);};var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};var dots=function(n){var h='<span class="dots" role="img" aria-label="'+n+' of 5">';for(var i=1;i<=5;i++)h+='<i class="'+(i<=n?'on':'')+'"></i>';return h+'</span>';};var row=function(r,th){var t=r.themeRows&&r.themeRows[th];return t&&t.rows[0]?t.rows[0].cells:null;};function loadData(cb,err){var tries=['data/markets.json','/data/markets.json','./data/markets.json'];(function next(i){if(i>=tries.length){err&&err();return;}fetch(tries[i],{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(cb).catch(function(){next(i+1);});})(0);}var LABEL={1:'No route',2:'Restricted',3:'Specialist',4:'Accessible',5:'Institutional'};var KEY='sophia-watch';var D=null;
+function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){return {};}}function save(w){localStorage.setItem(KEY,JSON.stringify(w));}
+function snap(r){return {grade:r.grade,asof:r.asof,axes:{concentration:r.axes.concentration.s,liquidity:r.axes.liquidity.s,scarcity:r.axes.scarcity.s,provenance:r.axes.provenance.s},factors:r.factors,seen:new Date().toISOString().slice(0,10)};}
+function diff(old,r){var ch=[];if(old.grade!==r.grade)ch.push('Σ'+old.grade+' → Σ'+r.grade+' ('+LABEL[r.grade]+')');Object.keys(old.axes||{}).forEach(function(k){if(old.axes[k]!==r.axes[k].s)ch.push(k.charAt(0).toUpperCase()+k.slice(1)+' '+old.axes[k]+' → '+r.axes[k].s);});Object.keys(old.factors||{}).forEach(function(k){if(old.factors[k]!==r.factors[k])ch.push(k+' '+old.factors[k]+' → '+r.factors[k]);});if(old.asof!==r.asof)ch.push('Brief refreshed: '+old.asof+' → '+r.asof+'. Reason in "Changes in this refresh" on the brief.');return ch;}
+function render(){var w=load(),keys=Object.keys(w);var h='';if(!keys.length)h='<p class="mute" style="padding:18px 0;font-size:15px">Nothing watched yet. Add a market below, or use "Watch this market" on any brief.</p>';
+ keys.sort().forEach(function(k){var r=D.markets[k];if(!r){h+='<div class="w"><div><h2>'+esc(k)+'</h2><div class="ch"><b>No longer in the register.</b></div></div><button class="x" data-rm="'+k+'">Remove</button></div>';return;}var ch=diff(w[k],r);
+ h+='<div class="w"><div><h2><a href="'+r.url+'">'+esc(r.name)+'</a> <span class="mute" style="font-size:15px;margin-left:8px">Σ'+r.grade+' '+esc(r.label)+'</span></h2>'+(ch.length?'<div class="ch">Since '+esc(w[k].seen)+': '+ch.map(function(c){return '<b>'+esc(c)+'</b>';}).join('; ')+'.</div>':'<div class="same">No change since '+esc(w[k].seen)+'. Brief as of '+esc(r.asof)+'.</div>')+'</div><div style="display:flex;gap:8px;flex-wrap:wrap">'+(ch.length?'<button class="x" data-ack="'+k+'">Mark seen</button>':'')+'<button class="x" data-rm="'+k+'">Remove</button></div></div>';});
+ $('list').innerHTML=h;$('stamp').innerHTML='<span>Record as of '+esc(D.generated)+'</span><span>Method '+esc(D.method)+'</span><span>Market intelligence and data, not investment advice.</span>';}
+document.addEventListener('click',function(e){var a=e.target.closest('[data-ack]'),r=e.target.closest('[data-rm]');if(a){var w=load();w[a.getAttribute('data-ack')]=snap(D.markets[a.getAttribute('data-ack')]);save(w);render();}if(r){var w2=load();delete w2[r.getAttribute('data-rm')];save(w2);render();}});
+loadData(function(j){D=j;var sel=$('m');Object.keys(D.markets).map(function(k){return D.markets[k];}).sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(r){var o=document.createElement('option');o.value=r.slug;o.textContent=r.name;sel.appendChild(o);});
+ var add=new URLSearchParams(location.search).get('add');if(add&&D.markets[add]){var w=load();if(!w[add]){w[add]=snap(D.markets[add]);save(w);}try{history.replaceState(null,'',location.pathname);}catch(e){}}
+ $('add').addEventListener('click',function(){var w=load();if(!w[sel.value]){w[sel.value]=snap(D.markets[sel.value]);save(w);render();}});render();});
+</script>
+</body>
+</html>
