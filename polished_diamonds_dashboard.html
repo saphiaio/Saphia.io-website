@@ -7,8 +7,8 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Polished Diamonds, ΣΟΦΙΑ</title>
-<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Polished Diamonds, ΣΟΦΙΑ"><meta property="og:description" content="Polished Diamonds: retail and dealer pricing by carat tier, the lab-grown discount, tariffs by country of cutting, retailers and demand outlook to 2033. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/polished-diamonds-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
+<title>Polished Diamonds — Saphia (ΣΟΦΙΑ)</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Polished Diamonds — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="Polished Diamonds: retail and dealer pricing by carat tier, the lab-grown discount, tariffs by country of cutting, retailers and demand outlook to 2033. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/polished-diamonds-dashboard"><meta property="og:image" content="https://saphia.io/og-market.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Polished Diamonds: retail and dealer pricing by carat tier, the lab-grown discount, tariffs by country of cutting, retailers and demand outlook to 2033. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,7 +169,7 @@ ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-brea
 /* footer */
 footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
 footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
-footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}footer.foot{gap:12px 40px}footer.foot .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer.foot .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
 
 /* a bar fill is an inline span in several source pages, so its width never applies */
 [data-w]{display:block}
@@ -479,13 +479,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 .rp-link a{color:var(--bronze-lo);border-bottom:1px solid var(--line);display:inline-flex;align-items:center;min-height:40px}
 .rp-link a:hover{color:var(--ink);border-color:var(--bronze)}
 .rp-link span{color:var(--mute);font-size:13px}
+
+/* ===== Phase 0: axes, factor values, since/expiry ===== */
+.facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.axes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 32px;margin-top:0;padding:22px 0 24px;border-bottom:1px solid var(--line)}
+.axes .k{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:0}
+.axes .k a{font-size:12.5px;font-weight:300;letter-spacing:0;text-transform:none;color:var(--mute);border-bottom:1px solid var(--line)}
+.axes .k a:hover{color:var(--ink);border-color:var(--bronze)}
+.axrow{min-width:0;display:flex;flex-direction:column;gap:8px}
+.axrow .axl{font-size:13.5px;color:var(--ink)}
+.dots{display:flex;gap:5px}.dots i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid #cfc6b6;box-sizing:border-box}.dots i.on{background:var(--bronze);border-color:var(--bronze)}
+.axrow .axv{font-family:var(--sans);font-size:13.5px;color:var(--bronze-lo);font-weight:500}
+.axrow .axq{font-size:13px;color:var(--mute);line-height:1.45}
+.factors>div{grid-template-columns:1fr 70px 30px}
+.factors .fv{display:block;font-family:var(--sans);font-size:12px;color:var(--bronze-lo);text-align:right}
+.brief .regime-k{margin-top:18px}
+.expiry{display:flex;flex-wrap:wrap;gap:4px 14px;margin:14px 0 0;font-size:12.5px;color:var(--mute)}
+.expiry .t{margin-left:0}
+.expiry.expired .t{color:var(--low);border-color:var(--low)}
+.past{color:var(--mute)}
+@media(max-width:900px){.axes{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:1fr}}
+@media(max-width:480px){.axes{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ</a>
-    <ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li></ul>
+    <ul><li><a href="/decide">Start here</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li><li><a href="/method">Methodology</a></li><li><a href="/advisers">For institutions</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -496,13 +517,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
     <h1>Polished Diamonds</h1>
     <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Specialist: expert appraisal, exit over months through auction or dealers. Not a view on return.">Σ3</span><span class="n">Specialist</span><div class="m">Polished stones · certified · 20 Oct 2026</div></div>
   </div>
-  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
-  <p class="regime">A 1 ct natural retails at about $4,200 against $1,000 or less for lab-grown; the US now taxes a polished stone by where it was cut, not mined; and the houses have stayed natural while the mass market went lab-grown. The natural premium is the asset.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Cut and polished natural diamonds, loose or set, with a grading certificate; the retail and dealer markets that price them; lab-grown as the competing product. Mine supply, sights and tenders under <a href="/rough-diamonds-dashboard" style="border-bottom:1px solid var(--bronze)">Rough Diamonds →</a></div>
     <div><div class="k">Principal markets</div>India (Surat, Mumbai) · Antwerp · Dubai · New York (47th Street) · Hong Kong · United States, China and India (retail)</div>
-    <div><div class="k">Structure</div><div class="s"><span class="def" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Supply concentration</span><span>Medium; ~90% cut in India, retail fragmented</span><span class="def" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span>Medium; dealer network and auction, wide spread</span><span class="def" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span>Medium; large and coloured stones High</span><span class="def" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span>Medium; certificate, undisclosed LGD, country of cutting</span></div></div>
+    
   </div>
+  <div class="axes"><div class="k">Structure <a href="/method#snapshot">Four scales, 1–5 →</a></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Concentration</span><span class="dots" role="img" aria-label="Concentration 3 of 5, Medium"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="axv">3/5 · Medium</span><span class="axq">~90% cut in India, retail fragmented</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span class="dots" role="img" aria-label="Liquidity 3 of 5, Medium"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="axv">3/5 · Medium</span><span class="axq">dealer network and auction, wide spread</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span class="dots" role="img" aria-label="Scarcity 3 of 5, Medium"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="axv">3/5 · Medium</span><span class="axq">large and coloured stones High</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span class="dots" role="img" aria-label="Provenance risk 3 of 5, Medium"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="axv">3/5 · Medium</span><span class="axq">certificate, undisclosed LGD, country of cutting</span></div></div>
   <div class="hx">
     <div>
       <div class="k">Holding horizon</div>
@@ -521,11 +541,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
     <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">A 1 ct natural retails at about $4,200 against $1,000 or less for lab-grown; the US now taxes a polished stone by where it was cut, not mined; and the houses have stayed natural while the mass market went lab-grown. The natural premium is the asset.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup><span class="c c-h">High</span></p>
   <p class="since">Rebuilt as a separate brief from Natural Diamonds, 20 Oct 2026. US duty on natural polished has applied by country of cutting since 24 July 2026 under Section 301: India 10%, South Africa and Russia 12.5% (Russian origin barred regardless), EU and the southern African producers exempt. Signet reported lab-grown at 40% of bridal-band sales and 15% of fashion in Q3 FY26; De Beers put LGD wholesale at about $100/ct in June 2026, down 93% since 2020.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a></sup></p>
+  <p class="expiry" data-expires="2026-11-19"><span class="t">Review due</span><span class="ex-s">Commentary as of 20 Oct 2026; review due 19 Nov 2026. Past-dated events are not updated.</span></p>
   <h2>Why Σ3</h2>
   <div class="why">
     <div><p>Polished stones are valued stone by stone against dealer price lists, with no independent daily price; a certificate fixes the grade, not the value. Exit runs through dealers or auction over months at a spread that can exceed a third of retail. Custody is simple and grading certificates support title. Access is wide, from a jeweller to a dealer to an auction room. The specific risk is the natural premium: lab-grown is physically identical, retails at a fifth of the price or less, and demand for natural now rests on branding, disclosure rules and buyers who care about the difference.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
-    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span role="img" aria-label="Valuation 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="fv">2/5</span></div><div><span class="fl">Exit</span><span role="img" aria-label="Exit 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="fv">2/5</span></div><div><span class="fl">Custody</span><span role="img" aria-label="Custody 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="fv">4/5</span></div><div><span class="fl">Title and transfer</span><span role="img" aria-label="Title and transfer 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="fv">3/5</span></div><div><span class="fl">Access</span><span role="img" aria-label="Access 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="fv">3/5</span></div><div><span class="fl">Intangible premium</span><span role="img" aria-label="Intangible premium 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="fv">2/5</span></div></div>
   </div>
 </div>
 <details class="report" id="report">
@@ -1339,12 +1362,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 <div class="toc-lite"><a href="#sec-1"><span>I</span>The Diamond Value Chain</a><a href="#sec-2"><span>II</span>B2B &amp; Retail Pricing</a><a href="#sec-3"><span>III</span>Retailers · Key Players by Market</a><a href="#sec-4"><span>IV</span>Outlook · Demand to 2033</a><a href="#sec-5"><span>V</span>Indicators to monitor</a><a href="#sources"><span>VI</span>Sources</a></div>
 <div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/rough-diamonds-dashboard"><span class="nm">Rough Diamonds</span><span class="rwhy">Upstream supply and pricing</span></a><a href="/lab-grown-diamonds-dashboard"><span class="nm">Lab-Grown Diamonds</span><span class="rwhy">Competing supply</span></a><a href="/coloured-gemstones-dashboard"><span class="nm">Coloured Gemstones</span><span class="rwhy">Specialist graded stones</span></a><a href="/signed-jewellery-dashboard"><span class="nm">Signed Jewellery</span><span class="rwhy">Where the stones sell</span></a></div><a class="all" href="/markets">All markets →</a></div>
 <div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/substitutes">Synthetic and substitute pressure</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/tokenisation">Tokenising scarce assets</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
-<div class="rp-link"><a href="/report?market=polished-diamonds">Build a printable report from this brief →</a><span>Choose the sections, keep the sources, save as PDF.</span></div>
-<footer class="foot">
-  <span class="fm">ΣΟΦΙΑ</span>
-  <span>Scarce assets. One perspective.</span>
-  <a href="/advisers">For advisers and institutions</a>
-</footer>
+<div class="rp-link"><a href="/decide?m=polished-diamonds">Decision view →</a><a href="/holding?m=polished-diamonds">Grade a holding →</a><a href="/report?market=polished-diamonds">Committee paper →</a><span>Every output carries the as-of date, method version and the not-advice line.</span></div>
+<footer class="foot"><div class="fl"><span class="fm">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/advisers">For advisers and institutions</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
 </div>
 <div class="ctl" id="ctl">
   <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
@@ -1522,5 +1541,6 @@ window.addEventListener('load', () => {
 })();
 </script>
 <script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
+<script>(function(){var e=document.querySelector('.expiry');if(!e)return;var d=new Date(e.getAttribute('data-expires'));if(isNaN(d))return;if(Date.now()>d.getTime()){e.classList.add('expired');var t=e.querySelector('.t');if(t)t.textContent='Expired';var s=e.querySelector('.ex-s');if(s)s.textContent='Review date passed; commentary stands as published and has not been updated.';}})();</script>
 </body>
 </html>

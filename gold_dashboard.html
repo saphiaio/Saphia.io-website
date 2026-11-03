@@ -7,8 +7,8 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gold, ΣΟΦΙΑ</title>
-<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Gold, ΣΟΦΙΑ"><meta property="og:description" content="Gold: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/gold-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
+<title>Gold — Saphia (ΣΟΦΙΑ)</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Gold — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="Gold: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/gold-dashboard"><meta property="og:image" content="https://saphia.io/og-market.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Gold: supply, demand, concentration, liquidity, scarcity and provenance. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,7 +169,7 @@ ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-brea
 /* footer */
 footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
 footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
-footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}footer.foot{gap:12px 40px}footer.foot .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer.foot .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
 
 /* a bar fill is an inline span in several source pages, so its width never applies */
 [data-w]{display:block}
@@ -342,13 +342,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 .rp-link a{color:var(--bronze-lo);border-bottom:1px solid var(--line);display:inline-flex;align-items:center;min-height:40px}
 .rp-link a:hover{color:var(--ink);border-color:var(--bronze)}
 .rp-link span{color:var(--mute);font-size:13px}
+
+/* ===== Phase 0: axes, factor values, since/expiry ===== */
+.facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.axes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 32px;margin-top:0;padding:22px 0 24px;border-bottom:1px solid var(--line)}
+.axes .k{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:0}
+.axes .k a{font-size:12.5px;font-weight:300;letter-spacing:0;text-transform:none;color:var(--mute);border-bottom:1px solid var(--line)}
+.axes .k a:hover{color:var(--ink);border-color:var(--bronze)}
+.axrow{min-width:0;display:flex;flex-direction:column;gap:8px}
+.axrow .axl{font-size:13.5px;color:var(--ink)}
+.dots{display:flex;gap:5px}.dots i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid #cfc6b6;box-sizing:border-box}.dots i.on{background:var(--bronze);border-color:var(--bronze)}
+.axrow .axv{font-family:var(--sans);font-size:13.5px;color:var(--bronze-lo);font-weight:500}
+.axrow .axq{font-size:13px;color:var(--mute);line-height:1.45}
+.factors>div{grid-template-columns:1fr 70px 30px}
+.factors .fv{display:block;font-family:var(--sans);font-size:12px;color:var(--bronze-lo);text-align:right}
+.brief .regime-k{margin-top:18px}
+.expiry{display:flex;flex-wrap:wrap;gap:4px 14px;margin:14px 0 0;font-size:12.5px;color:var(--mute)}
+.expiry .t{margin-left:0}
+.expiry.expired .t{color:var(--low);border-color:var(--low)}
+.past{color:var(--mute)}
+@media(max-width:900px){.axes{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:1fr}}
+@media(max-width:480px){.axes{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ</a>
-    <ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li></ul>
+    <ul><li><a href="/decide">Start here</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li><li><a href="/method">Methodology</a></li><li><a href="/advisers">For institutions</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -357,15 +378,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
   <div class="crumb"><a href="/markets">Markets</a> · <a href="/markets?view=family">Metals, Energy &amp; Strategic Materials</a></div>
   <div class="brief-head">
     <h1>Gold</h1>
-    <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Institutional: daily valuation, exit in days, standard custody. Not a view on return.">Σ1</span><span class="n">Institutional</span><div class="m">Physical metal · 19 Oct 2026</div></div>
+    <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Institutional: daily valuation, exit in days, standard custody. Not a view on return.">Σ5</span><span class="n">Institutional</span><div class="m">Physical metal · 19 Oct 2026</div></div>
   </div>
-  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
-  <p class="regime">Correction stabilising: ~$4,170 in mid-October, about 25% below the January record. A hot September CPI was absorbed within a day; October hike odds have faded and official-sector buying is accelerating.<sup class="r"><a href="#s25">25</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">Origins</div>China · Russia · Australia · Canada · Ghana. Numismatic coins are covered under <a href="/coins-dashboard" style="border-bottom:1px solid var(--bronze)">Coins →</a></div>
-    <div><div class="k">Principal markets</div>China · India · Switzerland (refining) · Dubai · London</div>
-    <div><div class="k">Structure</div><div class="s"><span class="def" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Supply concentration</span><span>Medium, refining (mine Low)</span><span class="def" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span>High</span><span class="def" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span>Low</span><span class="def" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span>Medium (doré origin)</span></div></div>
+    <div><div class="k">Principal markets</div>China · India · Switzerland (refining) · Dubai · London. Dubai is the second hub after Switzerland by trade value (UAE gold trade above $120 bn, about 45% via DMCC/DGCX) and the destination for most West African doré; 32 refineries were suspended Jul–Oct 2024 for AML breaches and no UAE refiner is on the LBMA Good Delivery list at this update.<sup class="r"><a href="#s10">10</a> <a href="#s32">32</a></sup><span class="c c-m">Med</span></div>
+    
   </div>
+  <div class="axes"><div class="k">Structure <a href="/method#snapshot">Four scales, 1–5 →</a></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Concentration</span><span class="dots" role="img" aria-label="Concentration 3 of 5, Medium"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="axv">3/5 · Medium</span><span class="axq">refining (mine Low)</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span class="dots" role="img" aria-label="Liquidity 5 of 5, High"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="axv">5/5 · High</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span class="dots" role="img" aria-label="Scarcity 2 of 5, Low"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="axv">2/5 · Low</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span class="dots" role="img" aria-label="Provenance risk 3 of 5, Medium"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="axv">3/5 · Medium</span><span class="axq">doré origin</span></div></div>
   <div class="hx">
     <div>
       <div class="k">Holding horizon</div>
@@ -384,17 +404,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
     <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
-  <p class="since">Spot ~$4,171 on 19 Oct, up about 1% since 5 Oct and within a $4,080–4,200 range for the month. The hot September CPI print on 14 Oct knocked gold to ~$4,080 intraday; it recovered to ~$4,183 the next day as Treasury yields retreated from their highest level since 2002.<sup class="r"><a href="#s25">25</a></sup><sup class="r"><a href="#s26">26</a></sup> Markets now price roughly an 85% chance the Fed holds at 3.75–4.00% on 28 Oct, with a hike pushed to December; the "possible October hike" of early October has faded.<sup class="r"><a href="#s27">27</a></sup> The PBoC added 23 t in September per the World Gold Council (21 t per Wind Info), its largest month since October 2023 and 103 t year to date; a secondary report puts global central-bank buying in September near 63 t, unconfirmed by the WGC at this update.<sup class="r"><a href="#s28">28</a></sup></p>
-  <h2>Why Σ1</h2>
+  <div class="regime-k"><span>Price regime</span><span>As of 19 Oct 2026</span></div>
+  <p class="regime">Correction stabilising: ~$4,170 in mid-October, about 25% below the January record. A hot September CPI was absorbed within a day; October hike odds have faded and official-sector buying is accelerating.<sup class="r"><a href="#s25">25</a></sup><span class="c c-h">High</span></p>
+  <p class="since">Spot ~$4,171 on 19 Oct, up about 1% since 5 Oct and within a $4,080–4,200 range for the month. The hot September CPI print on 14 Oct knocked gold to ~$4,080 intraday; it recovered to ~$4,183 the next day as Treasury yields retreated from their highest level since 2002.<sup class="r"><a href="#s25">25</a></sup><sup class="r"><a href="#s26">26</a></sup> <span class="past">Markets now price roughly an 85% chance the Fed holds at 3.75–4.00% on 28 Oct, with a hike pushed to December; the "possible October hike" of early October has faded.<sup class="r"><a href="#s27">27</a></sup><span class="t">Past event · 28 Oct</span></span> The PBoC added 23 t in September per the World Gold Council (21 t per Wind Info), its largest month since October 2023 and 103 t year to date; a secondary report puts global central-bank buying in September near 63 t, unconfirmed by the WGC at this update.<sup class="r"><a href="#s28">28</a></sup></p>
+  <p class="expiry" data-expires="2026-11-18"><span class="t">Review due</span><span class="ex-s">Commentary as of 19 Oct 2026; review due 18 Nov 2026. Past-dated events are not updated.</span></p>
+  <h2>Why Σ5</h2>
   <div class="why">
     <div><p>The LBMA Gold Price, set twice daily, deep spot and ETF markets, and allocated vault custody make gold the reference institutional holding. Exit takes days at low cost. Doré origin aside, title and transfer are standardised.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
-    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span role="img" aria-label="Valuation 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="fv">5/5</span></div><div><span class="fl">Exit</span><span role="img" aria-label="Exit 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="fv">5/5</span></div><div><span class="fl">Custody</span><span role="img" aria-label="Custody 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="fv">5/5</span></div><div><span class="fl">Title and transfer</span><span role="img" aria-label="Title and transfer 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="fv">5/5</span></div><div><span class="fl">Access</span><span role="img" aria-label="Access 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="fv">5/5</span></div><div><span class="fl">Intangible premium</span><span role="img" aria-label="Intangible premium 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="fv">4/5</span></div></div>
   </div>
 </div>
 
 <details class="report" id="report">
-  <summary>Full report <small>7 sections · 37 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
-  <p class="intro">The monetary metal in the year after its parabolic run: record official-sector buying, a peak near $5,600 in January 2026, and the first correction of the cycle. Dubai's position as the second hub after Switzerland is examined alongside its sourcing-integrity exposure.</p>
+  <summary>Full report <small>6 sections · 37 sources · <span class="op">open ↓</span><span class="cl">close ↑</span></small></summary>
+  <p class="intro">The monetary metal in the year after its parabolic run: record official-sector buying, a peak near $5,600 in January 2026, and the first correction of the cycle.</p>
   <div class="figures"><div><div class="v">3,672 t</div><div class="l">Mine production 2025, record subject to revision <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">$5,597–5,602</div><div class="l">All-time high, 28–29 Jan 2026 <span class="t">Reported</span><sup class="r"><a href="#s7">7</a></sup></div></div><div><div class="v">5,002 t</div><div class="l">Total supply 2025, record <span class="t">Reported</span><sup class="r"><a href="#s1">1</a></sup></div></div><div><div class="v">863 t</div><div class="l">Central-bank net buying 2025 <span class="t">Reported</span><sup class="r"><a href="#s2">2</a></sup></div></div></div>
 
 
@@ -405,7 +428,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 <nav class="contents" aria-label="Contents">
   <p class="eyebrow">Contents</p>
   <p class="sector-tag">GOLD</p>
-  <ol><li><a href="#s-i"><span>I</span>Price regime</a></li><li><a href="#s-ii"><span>II</span>Supply</a></li><li><a href="#s-iii"><span>III</span>Official sector</a></li><li><a href="#s-iv"><span>IV</span>Private demand</a></li><li><a href="#s-v"><span>V</span>Dubai as a hub</a></li><li><a href="#s-vi"><span>VI</span>Indicators to monitor</a></li><li><a href="#s-vii"><span>VII</span>Sources</a></li></ol>
+  <ol><li><a href="#s-i"><span>I</span>Price regime</a></li><li><a href="#s-ii"><span>II</span>Supply</a></li><li><a href="#s-iii"><span>III</span>Official sector</a></li><li><a href="#s-iv"><span>IV</span>Private demand</a></li><li><a href="#s-v"><span>V</span>Indicators to monitor</a></li><li><a href="#s-vi"><span>VI</span>Sources</a></li></ol>
 </nav>
 
 <section id="s-i">
@@ -449,7 +472,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
     <div class="row"><span>Russia</span><div class="bar"><i style="width:87%"></i></div><span class="val">330 t</span></div>
     <div class="row"><span>Australia</span><div class="bar"><i style="width:75%"></i></div><span class="val">284 t</span></div>
   </div>
-  <p>China is around 10% of global output per the World Gold Council.<sup class="r"><a href="#s13">13</a></sup> The country figures above are from a secondary compilation of WGC data and carry <span class="c c-m">Med</span> confidence.<sup class="r"><a href="#s14">14</a></sup> Africa as a region is reported at 1,010 t, led by Ghana, Mali and South Africa, the origin belt that feeds Dubai's refineries (Section V).<sup class="r"><a href="#s14">14</a></sup></p>
+  <p>China is around 10% of global output per the World Gold Council.<sup class="r"><a href="#s13">13</a></sup> The country figures above are from a secondary compilation of WGC data and carry <span class="c c-m">Med</span> confidence.<sup class="r"><a href="#s14">14</a></sup> Africa as a region is reported at 1,010 t, led by Ghana, Mali and South Africa, the origin belt that feeds Dubai's refineries.<sup class="r"><a href="#s14">14</a></sup></p>
   <h3>The recycling anomaly</h3>
   <p>Scrap normally responds to price. In 2025 it rose only 3% against a 44% price increase because behaviour diverged by region: developed markets (US, Europe, Japan) sold, while India, the Middle East and South-East Asia held back; among emerging markets only China increased recycling.<sup class="r"><a href="#s1">1</a></sup> Total above-ground stock is estimated at 219,891 t, the true reserve, since gold is not consumed.<sup class="r"><a href="#s13">13</a></sup></p>
 </section>
@@ -484,23 +507,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
   <p><b>August reversal.</b> Global gold ETFs took in US$18bn in August, the second-largest monthly inflow on record, led by Europe and North America; holdings rose 121 t to a record 4,189 t.<sup class="r"><a href="#s23">23</a></sup> US-listed funds alone added $7.9bn, erasing most of their March&ndash;June redemptions.<sup class="r"><a href="#s24">24</a></sup> <b>September held.</b> Despite the 8.5% price fall, global gold ETFs attracted a further US$10bn in September, taking Q3 inflows to a record US$31bn; holdings rose 67 t to a record 4,256 t while AUM fell 7% to US$574bn on price. All regions saw inflows; UK-listed funds had their strongest quarter on record (US$7.5bn) and overtook China as the largest country source year to date, and US-listed funds took in US$3.7bn during the sell-off.<sup class="r"><a href="#s29">29</a></sup><sup class="r"><a href="#s24">24</a></sup> Indian funds added US$496mn, nearly double August, as the Nifty fell.<sup class="r"><a href="#s29">29</a></sup> The pattern, ETF accumulation against futures liquidation, is the one to watch into Q4. <span class="c c-h">High</span></p>
 </section>
 <section id="s-v">
-  <div class="sechead tint"><h2><em>V</em>Dubai as a hub</h2><p class="sub">Second only to Switzerland by trade value, and the destination for most West African doré.</p></div>
-  
-  <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
-    <tr><th>Metric</th><th class="n">Value</th><th>Source & confidence</th></tr>
-    <tr><td>UAE total gold trade</td><td class="n">&gt;$120 bn</td><td>DMCC chairman at DPMC; +36% y/y; overtook the UK for second place. Year of the figure not stated in the secondary report. <span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
-    <tr><td>Share via DMCC / DGCX</td><td class="n">c.45%</td><td>Same address <span class="c c-m">Med</span><sup class="r"><a href="#s10">10</a></sup></td></tr>
-    <tr><td>DMCC precious metals, stones & diamonds members</td><td class="n">&gt;2,500</td><td>DMCC 2025 fact sheet <span class="c c-h">High</span><sup class="r"><a href="#s11">11</a></sup></td></tr>
-    <tr><td>Annual physical imports</td><td class="n">c.600–800 t</td><td>Trade estimate; exports of similar scale; storage undisclosed <span class="c c-l">Low</span><sup class="r"><a href="#s12">12</a></sup></td></tr>
-    <tr><td>Refineries suspended, 24 Jul&ndash;24 Oct 2024</td><td class="n">32</td><td>Ministry of Economy; 256 AML violations, about 5% of the sector. Corrected from "early 2025" on 19 Oct 2026 <span class="c c-h">High</span><sup class="r"><a href="#s32">32</a></sup></td></tr>
-    <tr><td>UAE refineries on the LBMA Good Delivery list</td><td class="n">0</td><td>Emirates Gold's UAE Good Delivery accreditation and LBMA affiliate membership were suspended in July 2023; accreditation later restored under new ownership. No UAE refiner on the LBMA gold list at this update <span class="c c-l">Low</span><sup class="r"><a href="#s32">32</a></sup></td></tr>
-  </table></div>
-  <h3>Sourcing integrity, the MLRO view</h3>
-  <p>The structural loophole is origin attribution: gold is treated as originating where it enters the international market, not where it was mined.<sup class="r"><a href="#s16">16</a></sup> Dubai refinery capacities of 50–350 t per plant give ample throughput for artisanal doré from Sudan, the Sahel and the Great Lakes, which is why the 2023 due-diligence rules and the 2024 suspensions matter reputationally.<sup class="r"><a href="#s16">16</a></sup> DMCC's responsible-sourcing rules align with OECD guidance and require enhanced declarations for conflict-affected and high-risk areas such as Mali.<sup class="r"><a href="#s17">17</a></sup> <span class="c c-m">Med</span></p>
-  <div class="note">Analytical parallel: the Kimberley Process has the same origin-laundering weakness, certification attaches to the parcel at first export, not to the mine. The gold trade's answer (LBMA Good Delivery plus refinery-level audits) is closer to what the diamond industry is attempting with source-verification programmes. Both regimes are only as good as the audit of the first-mile aggregator. <span class="c c-x">Hyp</span></div>
-</section>
-<section id="s-vi">
-  <div class="sechead narrative"><h2><em>VI</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
+  <div class="sechead narrative"><h2><em>V</em>Indicators to monitor</h2><p class="sub">Recurring data points that move this analysis. No live values are carried on this page.</p></div>
   
   <span class="tw-hint" aria-hidden="true">Scroll for more →</span><div class="tw"><table>
     <tr><th>Indicator</th><th>Source & cadence</th><th>What it tells you</th></tr>
@@ -512,8 +519,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
     <tr><td>UAE refinery enforcement</td><td>Ministry of Economy and DMCC notices; LBMA Good Delivery list</td><td>Dubai's standing with international counterparties</td></tr>
   </table></div>
 </section>
-<section id="s-vii">
-  <div class="sechead"><h2><em>VII</em>Sources</h2><p class="sub">Numbered in order of first citation. Primary sources preferred; secondary reports of primary data carry Med confidence unless the primary was checked. Sources 34–37 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
+<section id="s-vi">
+  <div class="sechead"><h2><em>VI</em>Sources</h2><p class="sub">Numbered in order of first citation. Primary sources preferred; secondary reports of primary data carry Med confidence unless the primary was checked. Sources 34–37 added 23 Oct 2026 for the holding-horizon and exit-depth fields.</p></div>
   
   <details><summary class="src-toggle">Show 37 sources</summary><ol class="src">
     <li id="s1"><b>World Gold Council</b>, Gold Demand Trends Full Year 2025, Supply, 29 Jan 2026. gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/supply</li>
@@ -554,19 +561,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 <li id="s36"><b>etf.com</b>, "GLD vs GLDM vs IAU: Which Gold ETF Should You Actually Buy?", Jul 2026, expense ratios 0.40% / 0.10% / 0.25%; spread figures from fund analytics pages, mid-2026. Secondary. <a href="https://www.etf.com/sections/news/gld-vs-gldm-vs-iau-which-gold-etf-should-you-actually-buy" target="_blank">etf.com</a> <span class="c c-m">Med</span></li>
 <li id="s37"><b>Wikipedia</b>, "London bullion market", accessed 23 Oct 2026, spot gold settles two business days after trade; allocated account definition. <a href="https://en.wikipedia.org/wiki/London_bullion_market" target="_blank">en.wikipedia.org</a> <span class="c c-m">Med</span></li>
 </ol></details>
-  <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Section I: September and October added; August close discrepancy logged. Section III: Q1 2026 corrected to 57 t and the earlier reconciliation withdrawn; August global and September PBoC rows added; the unconfirmed 63 t September global figure carried as Low. Section IV: September ETF flows added. Section V: refinery-suspension date corrected to 2024; LBMA Good Delivery status added. Sources 29&ndash;33 added; corrections noted on sources 4, 5 and 16. Previous snapshot date: 5 Oct 2026.</div>
+  <div class="note"><b>Changes in this refresh, 19 Oct 2026.</b> Section I: September and October added; August close discrepancy logged. Section III: Q1 2026 corrected to 57 t and the earlier reconciliation withdrawn; August global and September PBoC rows added; the unconfirmed 63 t September global figure carried as Low. Section IV: September ETF flows added. Dubai hub: refinery-suspension date corrected to 2024; LBMA Good Delivery status added; section folded into Principal markets on 3 Nov 2026. Sources 29&ndash;33 added; corrections noted on sources 4, 5 and 16. Previous snapshot date: 5 Oct 2026.</div>
 </section>
 
 </details>
-<div class="toc-lite"><a href="#s-i"><span>I</span>Price regime</a><a href="#s-ii"><span>II</span>Supply</a><a href="#s-iii"><span>III</span>Official sector</a><a href="#s-iv"><span>IV</span>Private demand</a><a href="#s-v"><span>V</span>Dubai as a hub</a><a href="#s-vi"><span>VI</span>Indicators to monitor</a><a href="#s-vii"><span>VII</span>Sources</a></div>
+<div class="toc-lite"><a href="#s-i"><span>I</span>Price regime</a><a href="#s-ii"><span>II</span>Supply</a><a href="#s-iii"><span>III</span>Official sector</a><a href="#s-iv"><span>IV</span>Private demand</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
 <div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/silver-dashboard"><span class="nm">Silver</span><span class="rwhy">Monetary metal, same fix</span></a><a href="/pgm-dashboard"><span class="nm">Platinum Group Metals</span><span class="rwhy">Precious, industrial demand</span></a><a href="/coins-dashboard"><span class="nm">Coins</span><span class="rwhy">Bullion value in collectibles</span></a><a href="/copper-dashboard"><span class="nm">Copper</span><span class="rwhy">Exchange-traded base metal</span></a></div><a class="all" href="/markets">All markets →</a></div>
 <div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/tokenisation">Tokenising scarce assets</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
-<div class="rp-link"><a href="/report?market=gold">Build a printable report from this brief →</a><span>Choose the sections, keep the sources, save as PDF.</span></div>
-<footer class="foot">
-  <span class="fm">ΣΟΦΙΑ</span>
-  <span>Scarce assets. One perspective.</span>
-  <a href="/advisers">For advisers and institutions</a>
-</footer>
+<div class="rp-link"><a href="/decide?m=gold">Decision view →</a><a href="/holding?m=gold">Grade a holding →</a><a href="/report?market=gold">Committee paper →</a><span>Every output carries the as-of date, method version and the not-advice line.</span></div>
+<footer class="foot"><div class="fl"><span class="fm">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/advisers">For advisers and institutions</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
 </div>
 <div class="ctl" id="ctl">
   <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
@@ -635,5 +638,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 })();
 </script>
 <script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
+<script>(function(){var e=document.querySelector('.expiry');if(!e)return;var d=new Date(e.getAttribute('data-expires'));if(isNaN(d))return;if(Date.now()>d.getTime()){e.classList.add('expired');var t=e.querySelector('.t');if(t)t.textContent='Expired';var s=e.querySelector('.ex-s');if(s)s.textContent='Review date passed; commentary stands as published and has not been updated.';}})();</script>
 </body>
 </html>

@@ -7,8 +7,8 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vintage Guitars &amp; Instruments, ΣΟΦΙΑ</title>
-<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Vintage Guitars &amp; Instruments, ΣΟΦΙΑ"><meta property="og:description" content="Vintage Guitars and Instruments: golden-era guitars and Cremonese violins; records, originality, trade and risk. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/vintage-guitars-dashboard"><meta property="og:image" content="https://saphia.io/favicon-512.png"><meta name="twitter:card" content="summary">
+<title>Vintage Guitars &amp; Instruments — Saphia (ΣΟΦΙΑ)</title>
+<meta property="og:type" content="article"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Vintage Guitars &amp; Instruments — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="Vintage Guitars and Instruments: golden-era guitars and Cremonese violins; records, originality, trade and risk. Every figure cited and confidence-tagged."><meta property="og:url" content="https://saphia.io/vintage-guitars-dashboard"><meta property="og:image" content="https://saphia.io/og-market.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Vintage Guitars and Instruments: golden-era guitars and Cremonese violins; records, originality, trade and risk. Every figure cited and confidence-tagged.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,7 +169,7 @@ ol.src li a{color:var(--bronze-lo);border-bottom:1px solid var(--line);word-brea
 /* footer */
 footer.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
 footer.foot .fm{font-family:var(--display);font-size:19px;letter-spacing:.14em;color:var(--ink);text-transform:none}
-footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}
+footer.foot a{color:var(--mute);border-bottom:1px solid var(--line)}footer.foot{gap:12px 40px}footer.foot .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer.foot .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
 
 /* a bar fill is an inline span in several source pages, so its width never applies */
 [data-w]{display:block}
@@ -330,13 +330,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 .rp-link a{color:var(--bronze-lo);border-bottom:1px solid var(--line);display:inline-flex;align-items:center;min-height:40px}
 .rp-link a:hover{color:var(--ink);border-color:var(--bronze)}
 .rp-link span{color:var(--mute);font-size:13px}
+
+/* ===== Phase 0: axes, factor values, since/expiry ===== */
+.facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.axes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 32px;margin-top:0;padding:22px 0 24px;border-bottom:1px solid var(--line)}
+.axes .k{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;margin-bottom:0}
+.axes .k a{font-size:12.5px;font-weight:300;letter-spacing:0;text-transform:none;color:var(--mute);border-bottom:1px solid var(--line)}
+.axes .k a:hover{color:var(--ink);border-color:var(--bronze)}
+.axrow{min-width:0;display:flex;flex-direction:column;gap:8px}
+.axrow .axl{font-size:13.5px;color:var(--ink)}
+.dots{display:flex;gap:5px}.dots i{display:block;width:9px;height:9px;border-radius:50%;border:1px solid #cfc6b6;box-sizing:border-box}.dots i.on{background:var(--bronze);border-color:var(--bronze)}
+.axrow .axv{font-family:var(--sans);font-size:13.5px;color:var(--bronze-lo);font-weight:500}
+.axrow .axq{font-size:13px;color:var(--mute);line-height:1.45}
+.factors>div{grid-template-columns:1fr 70px 30px}
+.factors .fv{display:block;font-family:var(--sans);font-size:12px;color:var(--bronze-lo);text-align:right}
+.brief .regime-k{margin-top:18px}
+.expiry{display:flex;flex-wrap:wrap;gap:4px 14px;margin:14px 0 0;font-size:12.5px;color:var(--mute)}
+.expiry .t{margin-left:0}
+.expiry.expired .t{color:var(--low);border-color:var(--low)}
+.past{color:var(--mute)}
+@media(max-width:900px){.axes{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:1fr}}
+@media(max-width:480px){.axes{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="mast">
   <div class="in">
     <a class="mark" href="/home">ΣΟΦΙΑ</a>
-    <ul><li><a href="/about">About</a></li><li><a href="/method">Methodology</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li></ul>
+    <ul><li><a href="/decide">Start here</a></li><li><a href="/markets" aria-current="page">Markets</a></li><li><a href="/themes">Themes</a></li><li><a href="/method">Methodology</a></li><li><a href="/advisers">For institutions</a></li></ul>
   </div>
 </header>
 <div class="page">
@@ -347,13 +368,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
     <h1>Vintage Guitars &amp; Instruments</h1>
     <div class="grade"><span class="g def" tabindex="0" data-def="Σ grade: ΣΟΦΙΑ's view of how practical this asset is to hold and exit. Specialist: expert appraisal, exit over months through auction or dealers. Not a view on return.">Σ3</span><span class="n">Specialist</span><div class="m">Physical · 20 Oct 2026</div></div>
   </div>
-  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
-  <p class="regime">A 1959 Les Paul with no famous owner set a record of $781,250 last week; a Stradivari made $11.25 m last year below its estimate. Two markets, one logic: originality is the asset, and every replaced part is a discount.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup><span class="c c-h">High</span></p>
   <div class="facts">
     <div><div class="k">What is covered</div>Golden-era American electric and acoustic guitars (Gibson 1952–64, Fender pre-CBS 1950–64, pre-war Martin), Cremonese and other old-master bowed instruments (Stradivari, Guarneri del Gesù, Amati, Guadagnini), and instruments whose value rests on a performer's ownership. Modern reissues and current production are not covered.</div>
     <div><div class="k">Principal markets</div>New York, Dallas and Los Angeles (Heritage, Christie's, Julien's, Bonhams) · London (Tarisio, Bonhams, Ingles &amp; Hayday) · Nashville, Los Angeles and Tokyo dealers (Carter Vintage, Gruhn, Norman's, Rumble Seat) · Reverb and the dealer network online</div>
-    <div><div class="k">Structure</div><div class="s"><span class="def" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Supply concentration</span><span>Low; fixed stock dispersed among private owners</span><span class="def" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span>Medium for guitars; low for fine strings</span><span class="def" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span>Very high at the top (643 Bursts shipped in 1959; c. 650 Stradivari extant)</span><span class="def" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span>High; originality, refinishing, celebrity attribution</span></div></div>
+    
   </div>
+  <div class="axes"><div class="k">Structure <a href="/method#snapshot">Four scales, 1–5 →</a></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Where along the chain the power to set price sits. Low, Medium or High.">Concentration</span><span class="dots" role="img" aria-label="Concentration 1 of 5, Low"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span><span class="axv">1/5 · Low</span><span class="axq">fixed stock dispersed among private owners</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether a standard unit can be sold, to whom, at a knowable price.">Liquidity</span><span class="dots" role="img" aria-label="Liquidity 3 of 5, Medium"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="axv">3/5 · Medium</span><span class="axq">for guitars; low for fine strings</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether supply can respond to price, and over what horizon.">Scarcity</span><span class="dots" role="img" aria-label="Scarcity 4 of 5, High"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="axv">4/5 · High</span><span class="axq">at the top (643 Bursts shipped in 1959; c. 650 Stradivari extant)</span></div><div class="axrow"><span class="def axl" tabindex="0" data-def="Whether the thing is what the label says, and who verifies it.">Provenance risk</span><span class="dots" role="img" aria-label="Provenance risk 4 of 5, High"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="axv">4/5 · High</span><span class="axq">originality, refinishing, celebrity attribution</span></div></div>
   <div class="hx">
     <div>
       <div class="k">Holding horizon</div>
@@ -372,11 +392,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
     <p class="foot">Context for Liquidity, not a rating. <a href="/method#snapshot">Definitions →</a> · Themes covering this market are listed at the end of the brief.</p>
   </div>
   <h2>Since last update</h2>
+  <div class="regime-k"><span>Price regime</span><span>As of 20 Oct 2026</span></div>
+  <p class="regime">A 1959 Les Paul with no famous owner set a record of $781,250 last week; a Stradivari made $11.25 m last year below its estimate. Two markets, one logic: originality is the asset, and every replaced part is a discount.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup><span class="c c-h">High</span></p>
   <p class="since">First entry. Heritage Auctions sold a 1959 Gibson Les Paul Standard from the Ichiro Kato collection for $781,250 on 15 October 2026, a record for a vintage guitar without celebrity provenance, in a $2.15 m sale with 848 bidders; the 1714 Joachim-Ma Stradivari made $11.25 m at Sotheby's New York in February 2025 against a $12–18 m estimate.<sup class="r"><a href="#s1">1</a> <a href="#s2">2</a></sup></p>
+  <p class="expiry" data-expires="2026-11-19"><span class="t">Review due</span><span class="ex-s">Commentary as of 20 Oct 2026; review due 19 Nov 2026. Past-dated events are not updated.</span></p>
   <h2>Why Σ3</h2>
   <div class="why">
     <div><p>Valuation is by expert appraisal against a thin but well-documented record: dealer price guides, the Burst serial registry, Tarisio's Cozio archive of every known Cremonese instrument. Exit for a guitar is through a handful of dealers and two or three auction houses with regular sales, in weeks to months; for a Stradivari it is a private placement through a London or New York dealer to a foundation or a patron, which can take a year. Custody is simple but not free: humidity control, insurance, and for bowed instruments regular playing and maintenance. The specific risk is originality: a refinish, a changed pickup or a re-graduated top can halve the price, and the market's certificate is a dealer's letter, not a laboratory report.</p><p class="note-r">The Σ grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold. Not a view on return. <a href="/method#sigma">How it is judged →</a></p></div>
-    <div class="factors"><div><span class="fl">Valuation</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Exit</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Custody</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div><div><span class="fl">Title and transfer</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Access</span><span><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div><div><span class="fl">Intangible premium</span><span><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div></div>
+    <div class="factors"><div><span class="fl">Valuation</span><span role="img" aria-label="Valuation 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="fv">3/5</span></div><div><span class="fl">Exit</span><span role="img" aria-label="Exit 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="fv">3/5</span></div><div><span class="fl">Custody</span><span role="img" aria-label="Custody 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="fv">4/5</span></div><div><span class="fl">Title and transfer</span><span role="img" aria-label="Title and transfer 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="fv">3/5</span></div><div><span class="fl">Access</span><span role="img" aria-label="Access 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="fv">3/5</span></div><div><span class="fl">Intangible premium</span><span role="img" aria-label="Intangible premium 2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="fv">2/5</span></div></div>
   </div>
 </div>
 
@@ -482,12 +505,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 <div class="toc-lite"><a href="#s-i"><span>I</span>Two record books</a><a href="#s-ii"><span>II</span>Originality: the valuation</a><a href="#s-iii"><span>III</span>Structure of the trade</a><a href="#s-iv"><span>IV</span>Risks and the holding</a><a href="#s-v"><span>V</span>Indicators to monitor</a><a href="#s-vi"><span>VI</span>Sources</a></div>
 <div class="related" aria-label="Related markets"><div class="k">Related markets</div><div class="rel"><a href="/classic-cars-dashboard"><span class="nm">Classic Cars</span><span class="rwhy">Originality sets value</span></a><a href="/watches-dashboard"><span class="nm">Watches</span><span class="rwhy">Dealer and auction</span></a><a href="/art-dashboard"><span class="nm">Art</span><span class="rwhy">Collector market</span></a></div><a class="all" href="/markets">All markets →</a></div>
 <div class="themes-cover" aria-label="Themes covering this market"><div class="k">Themes that cover this market</div><div class="tc"><a href="/provenance">Provenance and verification</a><a href="/climate">Climate and supply shock</a><a href="/sanctions">Sanctions, tariffs and origin</a><a href="/custody">Storage, custody and insurance</a><a href="/tax">Tax and legal wrappers</a><a href="/access">Fractional and fund access</a><a href="/exit-depth">Exit depth: who buys when you sell</a><a href="/auction-vs-dealer">Auction or dealer</a><a href="/price-setters">Who sets the price</a></div></div>
-<div class="rp-link"><a href="/report?market=vintage-guitars">Build a printable report from this brief →</a><span>Choose the sections, keep the sources, save as PDF.</span></div>
-<footer class="foot">
-  <span class="fm">ΣΟΦΙΑ</span>
-  <span>Scarce assets. One perspective.</span>
-  <a href="/advisers">For advisers and institutions</a>
-</footer>
+<div class="rp-link"><a href="/decide?m=vintage-guitars">Decision view →</a><a href="/holding?m=vintage-guitars">Grade a holding →</a><a href="/report?market=vintage-guitars">Committee paper →</a><span>Every output carries the as-of date, method version and the not-advice line.</span></div>
+<footer class="foot"><div class="fl"><span class="fm">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/advisers">For advisers and institutions</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
 </div>
 <div class="ctl" id="ctl">
   <button type="button" id="ctl-up" aria-label="Previous section">&uarr;</button>
@@ -556,5 +575,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--bronze);outline-off
 })();
 </script>
 <script>document.querySelectorAll(".tw").forEach(function(w){function u(){w.classList.toggle("end",w.scrollLeft+w.clientWidth>=w.scrollWidth-2);}w.addEventListener("scroll",u,{passive:true});u();});</script>
+<script>(function(){var e=document.querySelector('.expiry');if(!e)return;var d=new Date(e.getAttribute('data-expires'));if(isNaN(d))return;if(Date.now()>d.getTime()){e.classList.add('expired');var t=e.querySelector('.t');if(t)t.textContent='Expired';var s=e.querySelector('.ex-s');if(s)s.textContent='Review date passed; commentary stands as published and has not been updated.';}})();</script>
 </body>
 </html>

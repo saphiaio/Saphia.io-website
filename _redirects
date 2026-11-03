@@ -5,6 +5,8 @@
 /reports  /report  301
 /method  /method.html  200
 /contact  /contact.html  200
+/terms  /terms.html  200
+/privacy  /privacy.html  200
 /advisers  /advisers.html  200
 /tokenisation  /tokenisation.html  200
 /tokenization  /tokenisation  301

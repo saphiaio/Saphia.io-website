@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holding note — Saphia (ΣΟΦΙΑ)</title>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Holding note — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="Turn a market brief into a one-page note on a specific holding: route to exit, verification outstanding, custody, and a holding-level Σ beside the market Σ."><meta property="og:url" content="https://saphia.io/holding"><meta property="og:image" content="https://saphia.io/og-home.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Turn a market brief into a one-page note on a specific holding: route to exit, verification outstanding, custody, and a holding-level Σ beside the market Σ.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{background:#f4efe6}
+body{margin:0;background:#f4efe6;color:#141412;font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#141412;text-decoration:none}a:hover{color:#7d5f3f}
+button,select,input{font-family:'Inter',system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 64px}
+nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px}
+nav.top .mark{font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em}
+nav.top .links{display:flex;flex-wrap:wrap;gap:28px}nav.top .links a{color:#6f6a62}nav.top .links a:hover{color:#141412}nav.top .links a.cur{color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px}
+footer.ft{margin-top:64px;padding-top:20px;border-top:1px solid #e6dfd3;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 40px}footer.ft .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer.ft .fl .mark{font-family:'EB Garamond',Georgia,serif;font-size:15px;letter-spacing:.14em;color:#141412}footer.ft .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
+footer.ft a{color:#6f6a62;border-bottom:1px solid #dcd4c6}footer.ft a:hover{color:#141412;border-color:#a8825a}
+.serif{font-family:'EB Garamond',Georgia,serif;font-weight:400}
+h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
+.mute{color:#6f6a62}
+.k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62}
+.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:48px;align-items:start;margin-top:36px}
+.f{display:flex;flex-direction:column;gap:22px}
+.f label.k{display:block;margin-bottom:8px}
+.sel{width:100%;min-height:44px;padding:10px 14px;border:1px solid #dcd4c6;background:#faf7f0;color:#141412;font-size:15.5px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237d5f3f' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.opts{display:flex;flex-direction:column;border-top:1px solid #141412}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #e6dfd2;min-height:44px;cursor:pointer;font-size:15px;line-height:1.45}
+.opt input{appearance:none;-webkit-appearance:none;width:16px;height:16px;flex:none;margin-top:4px;border:1px solid #a8825a;border-radius:50%;background:#faf7f0;cursor:pointer;position:relative}
+.opt input:checked{border-color:#141412}.opt input:checked::after{content:"";position:absolute;inset:3px;border-radius:50%;background:#141412}
+.opt .m{color:#6f6a62;font-size:13px;display:block}
+.btn{min-height:44px;padding:10px 18px;border:1px solid #141412;background:#141412;color:#f4efe6;cursor:pointer;font-size:15px;display:inline-flex;align-items:center}.btn:hover{background:#2b2924;color:#f4efe6}
+.btn.ghost{background:transparent;color:#141412}.btn.ghost:hover{background:#faf7f0;color:#141412}
+.note{background:#faf7f0;border:1px solid #dcd4c6;padding:28px 30px 24px}
+.nh{display:flex;justify-content:space-between;align-items:flex-start;gap:16px 24px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid #141412}
+.nh .mark{font-family:'EB Garamond',Georgia,serif;font-size:20px;letter-spacing:.14em}
+.nh h2{font-size:30px;line-height:1.1;margin-top:6px}
+.nh .sub{font-size:13.5px;color:#6f6a62;margin-top:4px}
+.sig{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:20px 0;border-bottom:1px solid #dcd4c6}
+.sig .g{font-family:'EB Garamond',Georgia,serif;font-size:40px;line-height:1;color:#7d5f3f}
+.sig .gl{font-family:'EB Garamond',Georgia,serif;font-size:19px;margin-top:4px}
+.sig .k{margin-bottom:8px;display:block}
+.moved{font-size:13.5px;color:#6f6a62;margin-top:8px;line-height:1.5}
+.moved b{font-weight:500;color:#9b4a22}
+.ns{display:grid;grid-template-columns:140px minmax(0,1fr);gap:8px 20px;padding:16px 0;border-bottom:1px solid #e6dfd2;font-size:14.5px;line-height:1.5}
+.ns h3{font-size:18px;line-height:1.2}
+.ns ul{margin:0;padding-left:18px}.ns li{margin:0 0 4px;text-wrap:pretty}
+.ns p{margin:0 0 6px;text-wrap:pretty}
+.ns .sub{color:#6f6a62;font-size:12.5px}
+.flag{display:inline-block;font-size:11px;padding:1px 6px;border:1px solid #9b4a22;color:#9b4a22;margin-left:6px;vertical-align:middle;letter-spacing:.02em}
+.stamp{display:flex;flex-wrap:wrap;gap:4px 20px;padding-top:14px;font-size:12px;color:#6f6a62}
+.stamp a{color:#6f6a62;border-bottom:1px solid #dcd4c6}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+@media(max-width:860px){.layout{grid-template-columns:1fr;gap:32px}.sig{grid-template-columns:1fr}.ns{grid-template-columns:1fr;gap:4px}}
+@media print{@page{size:A4;margin:14mm}nav.top,footer.ft,.f,.acts,h1.pg,p.pg{display:none !important}body{background:#fff;font-size:12px}.wrap{max-width:none;padding:0}.layout{display:block;margin:0}.note{border:0;padding:0;background:#fff}.nh h2{font-size:24px}.sig{padding:12px 0}.sig .g{font-size:30px}.ns{padding:9px 0;font-size:11.5px;gap:4px 16px}.ns h3{font-size:14px}.moved,.ns .sub{font-size:11px}.stamp{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+<h1 class="pg" style="font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin-top:clamp(36px,6vw,56px);letter-spacing:-.01em">Grade the holding, not just the market.</h1>
+<p class="pg mute" style="margin:12px 0 0;max-width:58ch;font-size:16px;text-wrap:pretty">Five answers turn the market brief into a one-page note on a specific holding. Adjustments follow the <a href="/method#holding" style="border-bottom:1px solid #dcd4c6">published rule table</a>, nothing else. Nothing you enter leaves this device.</p>
+
+<div class="layout">
+  <form class="f" id="f" onsubmit="return false">
+    <div><label class="k" for="m">Market</label><select id="m" class="sel"></select></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">Form</span><div class="opts" id="form"></div></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">Documentation held</span><div class="opts" id="doc"></div></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">Size</span><div class="opts" id="size"></div></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">Where it is held</span><div class="opts" id="where"></div></div>
+    <div class="acts"><button type="button" class="btn" onclick="window.print()">Print the note (A4)</button><a class="btn ghost" id="a-brief" href="#">Full brief →</a></div>
+  </form>
+  <div class="note" id="note"></div>
+</div>
+
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/advisers">For advisers and institutions</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
+</div>
+<script>
+(function(){
+  var LABEL={1:'No route',2:'Restricted',3:'Specialist',4:'Accessible',5:'Institutional'};
+  var Q={
+    form:[['std','Standard unit, as rated','The form the brief grades: {rated}.'],['non','Non-standard form','Jewellery, loose stones, part cases, odd lots, fractions, altered or unsealed items.'],['paper','Paper or wrapper','ETF, fund, token or share. The wrapper\u2019s own terms govern; the note rates the wrapper.']],
+    doc:[['full','Full','Lab report, certificate, registry entry, assay or invoice chain, as the market expects.'],['part','Partial','Some papers, not the one the buyer will ask for first.'],['none','None','No independent document.']],
+    size:[['std','Standard lot','Within the range dealers and auction houses take as a matter of course.'],['small','Below the minimum','Smaller than the usual lot; sells through retail channels at a wider spread.'],['large','Above the usual lot','An estate or a position a single buyer would struggle to absorb.']],
+    where:[['pro','Professional custody','Vault, bonded warehouse, registry, regulated nominee.'],['self','With the holder','At home, in the office, on the premises.'],['unk','Unknown or abroad','Location, condition or control not confirmed.']]
+  };
+  var D=null,$=function(id){return document.getElementById(id);};
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+  var row=function(r,th){var t=r.themeRows&&r.themeRows[th];return t&&t.rows[0]?t.rows[0].cells:null;};
+  function opts(id,list,def,r){var h='';list.forEach(function(o,i){var m=o[2].replace('{rated}',r?r.rated.toLowerCase():'');h+='<label class="opt"><input type="radio" name="'+id+'" value="'+o[0]+'"'+((def||list[0][0])===o[0]?' checked':'')+'><span>'+o[1]+'<span class="m">'+esc(m)+'</span></span></label>';});$(id).innerHTML=h;}
+  function val(id){var i=document.querySelector('input[name="'+id+'"]:checked');return i?i.value:null;}
+  function render(){
+    var r=D.markets[$('m').value];if(!r)return;var f=val('form'),d=val('doc'),s=val('size'),w=val('where');
+    var fac=JSON.parse(JSON.stringify(r.factors)),hits={},why={},fired=0,todo=[];
+    var hit=function(k,w){fired++;(why[k]=why[k]||[]).push(w);if(fac[k]>1){fac[k]--;hits[k]=1;}};
+    var cust=row(r,'custody'),prov=row(r,'provenance'),ex=row(r,'exit-depth'),acc=row(r,'access');
+    if(f==='non'){hit('Exit','non-standard form');hit('Valuation','no reference unit');}
+    if(d==='part'){hit('Title and transfer','papers incomplete');todo.push('Obtain the document the buyer asks for first'+(prov&&prov.Verifier?': '+prov.Verifier:'')+'.');}
+    if(d==='none'){hit('Title and transfer','no independent document');hit('Exit','route narrows to channels that re-certify');todo.push('Independent verification before any sale'+(prov&&prov.Verifier?': '+prov.Verifier:'')+'.');if(prov&&prov.Claim&&prov.Claim!=='—')todo.push('Claim most at risk in this market: '+prov.Claim+'.');}
+    if(s==='small')hit('Exit','below the usual lot');
+    if(s==='large'&&r.axes.liquidity.s<=2)hit('Exit','large position in a thin market');
+    if(w==='self'&&cust&&!/^(Shelf|Paper)/i.test(cust.Regime||'')){hit('Custody','needs '+cust.Regime.toLowerCase()+' custody');todo.push('Move to '+(cust.Where||'professional custody')+', or document the conditions it is kept in.');}
+    if(w==='unk'){hit('Custody','location unconfirmed');hit('Title and transfer','control unconfirmed');todo.push('Confirm location, condition and who controls release before relying on the holding.');}
+    var moved=Object.keys(hits).map(function(k){return k+' '+r.factors[k]+'→'+fac[k]+' ('+why[k].join('; ')+')';});
+    var drop=Object.keys(hits).length,hs=Math.max(1,r.grade-(drop>=3?2:drop>=1?1:0));
+    if(f==='paper'){hs=r.grade;moved=[];fired=0;todo.push('Rate the wrapper on its own terms: '+(acc&&acc.Wrappers?acc.Wrappers:'see the access register')+'. What it owns: '+(acc&&acc.Owns?acc.Owns:'see the brief')+'.');}
+    var desc=[Q.form,Q.doc,Q.size,Q.where].map(function(l,i){var v=[f,d,s,w][i];return l.filter(function(o){return o[0]===v;})[0][1];});
+    var h='<div class="nh"><div><span class="mark">ΣΟΦΙΑ</span><h2>Holding note · '+esc(r.name)+'</h2><div class="sub">'+esc(desc.join(' · '))+'</div></div><div class="k" style="text-align:right">'+esc(r.family)+'<br>Brief as of '+esc(r.asof)+'</div></div>';
+    h+='<div class="sig"><div><span class="k">Market Σ</span><div class="g">Σ'+r.grade+'</div><div class="gl">'+esc(r.label)+'</div><div class="moved">'+esc(r.rated)+'. '+esc(r.why)+'</div></div><div><span class="k">This holding</span><div class="g">Σ'+hs+'</div><div class="gl">'+LABEL[hs]+'</div><div class="moved">'+(moved.length?'Moved by: '+moved.map(function(m){return '<b>'+esc(m)+'</b>';}).join('; ')+'.':f==='paper'?'The wrapper is rated, not the asset.':fired?'The answers depart from the rated form, but no factor can move lower than it already is.':'No adjustment: the holding matches the rated form.')+(r.grade===1?' The market has no practical route; the note rates the route to exposure.':'')+'</div></div></div>';
+    h+='<div class="ns"><h3>Route to exit</h3><div><p>'+esc(r.exit.routes||'')+'</p>'+(ex?'<p class="sub">Door: '+esc(ex.Door)+' · open '+esc(ex.Open).toLowerCase()+'</p>':'')+(f==='non'?'<p class="sub">Non-standard form: expect the retail or specialist channel rather than the route above.</p>':'')+(s==='small'?'<p class="sub">Below the usual lot: retail channel, wider spread.</p>':'')+'</div></div>';
+    h+='<div class="ns"><h3>Time and cost</h3><div><p><span class="sub">Time</span><br>'+esc(r.exit.time||'')+'</p><p><span class="sub">Cost</span><br>'+esc(r.exit.cost||'')+'</p></div></div>';
+    h+='<div class="ns"><h3>Verification outstanding'+(todo.length?'<span class="flag">Action</span>':'')+'</h3><div>'+(todo.length?'<ul>'+todo.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul>':'<p>None from the answers given. Provenance risk in this market is '+esc(r.axes.provenance.band.toLowerCase())+(prov&&prov.Verifier?'; verifier: '+esc(prov.Verifier):'')+'.</p>')+'</div></div>';
+    h+='<div class="ns"><h3>Custody and insurance</h3><div>'+(cust?'<p>'+esc(cust.Regime)+': '+esc(cust.Where)+'.</p><p class="sub">Running cost: '+esc(cust.Cost)+'</p><p class="sub">Fails on: '+esc(cust.Fails)+'</p>':'<p class="mute">No custody register entry.</p>')+'</div></div>';
+    h+='<div class="ns"><h3>Holding horizon</h3><div><p>'+esc(r.horizon.big||'')+'. '+esc(r.horizon.text||'')+'</p></div></div>';
+    h+='<p class="stamp"><span>Data as of '+esc(r.asof)+'</span><span>Method '+esc(D.method)+' · <a href="/method#holding">holding rules</a></span><span>saphia.io'+esc(r.url)+'</span><span>Market intelligence and data, not investment advice. The Σ grade is an opinion of how practical the holding is to keep and sell, not a view on value or return.</span></p>';
+    $('note').innerHTML=h;$('a-brief').href=r.url;document.title='Holding note · '+r.name+' — Saphia (ΣΟΦΙΑ)';
+    try{history.replaceState(null,'','?m='+r.slug);}catch(e){}
+  }
+  var src=location.pathname.indexOf('.html')>0?'data/markets.json':'/data/markets.json';
+  fetch(src).then(function(x){return x.json();}).then(function(j){D=j;var sel=$('m');Object.keys(D.markets).map(function(k){return D.markets[k];}).sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(r){var o=document.createElement('option');o.value=r.slug;o.textContent=r.name;sel.appendChild(o);});
+    var q=new URLSearchParams(location.search).get('m');sel.value=D.markets[q]?q:'gold';
+    function setup(){var r=D.markets[sel.value];opts('form',Q.form,val('form'),r);opts('doc',Q.doc,val('doc'));opts('size',Q.size,val('size'));opts('where',Q.where,val('where'));render();}
+    sel.addEventListener('change',setup);$('f').addEventListener('change',function(e){if(e.target.type==='radio')render();});setup();
+  }).catch(function(){$('note').innerHTML='<p class="mute">The market data could not be loaded.</p>';});
+})();
+</script>
+</body>
+</html>
