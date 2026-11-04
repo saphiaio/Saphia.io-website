@@ -122,7 +122,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
     $('note').innerHTML=h;$('a-brief').href=r.url;document.title='Holding note · '+r.name+' — Saphia (ΣΟΦΙΑ)';
     try{history.replaceState(null,'','?m='+r.slug);}catch(e){}
   }
-  function loadData(cb,err){var tries=['data/markets.json','/data/markets.json','./data/markets.json'];(function next(i){if(i>=tries.length){err&&err();return;}fetch(tries[i],{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(cb).catch(function(){next(i+1);});})(0);}
+  function loadData(cb,err){if(window.SAPHIA_MARKETS){cb(window.SAPHIA_MARKETS);return;}var tries=['markets-data.js','/markets-data.js'];(function next(i){if(i>=tries.length){var fj=['/data/markets.json','data/markets.json'];(function nj(k){if(k>=fj.length){err&&err();return;}fetch(fj[k],{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(cb).catch(function(){nj(k+1);});})(0);return;}var s=document.createElement('script');s.src=tries[i];s.onload=function(){if(window.SAPHIA_MARKETS)cb(window.SAPHIA_MARKETS);else next(i+1);};s.onerror=function(){next(i+1);};document.head.appendChild(s);})(0);}
   loadData(function(j){D=j;var sel=$('m');Object.keys(D.markets).map(function(k){return D.markets[k];}).sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(r){var o=document.createElement('option');o.value=r.slug;o.textContent=r.name;sel.appendChild(o);});
     var q=new URLSearchParams(location.search).get('m');sel.value=D.markets[q]?q:'gold';
     function setup(){var r=D.markets[sel.value];opts('form',Q.form,val('form'),r);opts('doc',Q.doc,val('doc'));opts('size',Q.size,val('size'));opts('where',Q.where,val('where'));render();}

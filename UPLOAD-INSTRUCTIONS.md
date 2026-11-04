@@ -122,3 +122,9 @@ Then DELETE natural_diamonds_dashboard.html from the repo (its URL redirects to 
 - saphia.io/collection: paste two lines, click Read; a table appears
 - saphia.io/standard prints to PDF cleanly
 - Placeholders still to fill: About [JURISDICTION AND REGISTRATION NUMBER], [REGISTERED ADDRESS]; Terms [JURISDICTION]; Privacy [HOST]
+
+
+## 4 Nov 2026 — data fix
+- The tools now read markets-data.js and search-data.js from the site ROOT (no folder needed). Upload both.
+- data/ folder is still used for the Σ as data downloads (grades.csv, markets.json) but the tools no longer depend on it.
+- Deleted pages: standard, conflicts, tools, reviewers, calibration, outcomes — remove from the repo.
