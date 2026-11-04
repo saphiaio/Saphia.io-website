@@ -16,7 +16,7 @@ html{background:#f4efe6}
 body{margin:0;background:#f4efe6;color:#141412;font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:#141412;text-decoration:none}a:hover{color:#7d5f3f}
 button,input{font-family:'Inter',system-ui,sans-serif}
-.wrap{max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 64px}
+.wrap{max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 48px;min-height:100svh;display:flex;flex-direction:column;box-sizing:border-box}.wrap>footer.ft{margin-top:auto;padding-top:20px}#v-sit,#v-mkt,#v-dec{padding-bottom:48px}
 nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px}
 nav.top .mark{font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em}
 nav.top .links{display:flex;flex-wrap:wrap;gap:28px}nav.top .links a{color:#6f6a62}nav.top .links a:hover{color:#141412}nav.top .links a.cur{color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px}
@@ -69,7 +69,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
 </head>
 <body>
 <div class="wrap">
-<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide" class="cur">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/tools">Tools</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide" class="cur">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
 
 <div class="steps" id="steps"></div>
 
@@ -94,14 +94,14 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
   <p class="stamp" id="stamp"></p>
 </div>
 
-<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
 </div>
 <script>
 (function(){
   var SIT={
     inherit:{q:"I've inherited…",m:"What it is, how it sells, what it costs to keep and what the tax position turns on.",verb:"Inherited",order:['exit','custody','tax','provenance']},
     buy:{q:"A client wants to buy…",m:"Is it what the seller says, who sets the price, and how it comes back out.",verb:"Buying",order:['provenance','price','exit','custody']},
-    collateral:{q:"We've been offered … as collateral",m:"Can it be valued, sold, and does the borrower actually hold title.",verb:"Offered as collateral,",order:['valuation','exit','title','custody']},
+    collateral:{q:"We've been offered as collateral…",m:"Can it be valued, sold, and does the borrower actually hold title.",verb:"Offered as collateral,",order:['valuation','exit','title','custody']},
     allocate:{q:"We're reviewing an allocation to…",m:"The grade, the four structural scales, the routes in and the routes out.",verb:"Allocating to",order:['sigma','axes','access','exit']}
   };
   var FAMS=["Gems & Jewellery","Metals, Energy & Strategic Materials","Cellar & Collectibles","Aromatics","Crops","Rare Foods"];

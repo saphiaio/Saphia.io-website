@@ -63,9 +63,9 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
 </head>
 <body>
 <div class="wrap">
-<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/tools">Tools</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
 <h1 class="pg" style="font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin-top:clamp(36px,6vw,56px);letter-spacing:-.01em">Grade the holding, not just the market.</h1>
-<p class="pg mute" style="margin:12px 0 0;max-width:58ch;font-size:16px;text-wrap:pretty">Five answers turn the market brief into a one-page note on a specific holding. Adjustments follow the <a href="/method#holding" style="border-bottom:1px solid #dcd4c6">published rule table</a>, nothing else. Nothing you enter leaves this device.</p>
+<p class="pg mute" style="margin:12px 0 0;max-width:58ch;font-size:16px;text-wrap:pretty">Five answers turn the market brief into a one-page note on a specific holding. Each answer that departs from the form the brief grades moves one factor down a point; the note says which moved and why. Nothing you enter leaves this device.</p>
 
 <div class="layout">
   <form class="f" id="f" onsubmit="return false">
@@ -79,7 +79,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
   <div class="note" id="note"></div>
 </div>
 
-<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/conflicts">Conflicts</a><a href="/ratings-history">Ratings history</a><a href="/corrections">Corrections</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div></footer>
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
 </div>
 <script>
 (function(){
@@ -118,7 +118,7 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
     h+='<div class="ns"><h3>Verification outstanding'+(todo.length?'<span class="flag">Action</span>':'')+'</h3><div>'+(todo.length?'<ul>'+todo.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul>':'<p>None from the answers given. Provenance risk in this market is '+esc(r.axes.provenance.band.toLowerCase())+(prov&&prov.Verifier?'; verifier: '+esc(prov.Verifier):'')+'.</p>')+'</div></div>';
     h+='<div class="ns"><h3>Custody and insurance</h3><div>'+(cust?'<p>'+esc(cust.Regime)+': '+esc(cust.Where)+'.</p><p class="sub">Running cost: '+esc(cust.Cost)+'</p><p class="sub">Fails on: '+esc(cust.Fails)+'</p>':'<p class="mute">No custody register entry.</p>')+'</div></div>';
     h+='<div class="ns"><h3>Holding horizon</h3><div><p>'+esc(r.horizon.big||'')+'. '+esc(r.horizon.text||'')+'</p></div></div>';
-    h+='<p class="stamp"><span>Data as of '+esc(r.asof)+'</span><span>Method '+esc(D.method)+' · <a href="/method#holding">holding rules</a></span><span>saphia.io'+esc(r.url)+'</span><span>Market intelligence and data, not investment advice. The Σ grade is an opinion of how practical the holding is to keep and sell, not a view on value or return.</span></p>';
+    h+='<p class="stamp"><span>Data as of '+esc(r.asof)+'</span><span>Method '+esc(D.method)+' · <a href="/method#sigma">how Σ is judged</a></span><span>saphia.io'+esc(r.url)+'</span><span>Market intelligence and data, not investment advice. The Σ grade is an opinion of how practical the holding is to keep and sell, not a view on value or return.</span></p>';
     $('note').innerHTML=h;$('a-brief').href=r.url;document.title='Holding note · '+r.name+' — Saphia (ΣΟΦΙΑ)';
     try{history.replaceState(null,'','?m='+r.slug);}catch(e){}
   }

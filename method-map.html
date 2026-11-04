@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The method on one page — Saphia (ΣΟΦΙΑ)</title>
+<meta name="description" content="How ΣΟΦΙΑ reads a market, as one diagram: seven questions, four scores, six factors, one grade.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{background:#f4efe6}
+body{margin:0;background:#f4efe6;color:#141412;font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:#141412;text-decoration:none}a:hover{color:#7d5f3f}
+.wrap{max-width:960px;margin:0 auto;padding:0 clamp(20px,4vw,32px) 64px}
+nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 24px;padding-top:28px;font-size:14px}
+nav.top .mark{font-family:'EB Garamond',Georgia,serif;font-size:26px;letter-spacing:.14em}
+nav.top .links{display:flex;flex-wrap:wrap;gap:28px}nav.top .links a{color:#6f6a62}nav.top .links a:hover{color:#141412}nav.top .links a.cur{color:#141412;border-bottom:1px solid #a8825a;padding-bottom:2px}
+footer.ft{margin-top:64px;padding-top:20px;border-top:1px solid #e6dfd3;font-size:12px;color:#6f6a62;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px 40px}footer.ft .fl{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}footer.ft .fl .mark{font-family:'EB Garamond',Georgia,serif;font-size:15px;letter-spacing:.14em;color:#141412}footer.ft .fr{display:flex;flex-wrap:wrap;gap:8px 28px}
+footer.ft a{color:#6f6a62;border-bottom:1px solid #dcd4c6}footer.ft a:hover{color:#141412;border-color:#a8825a}
+.serif{font-family:'EB Garamond',Georgia,serif;font-weight:400}
+h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
+.mute{color:#6f6a62}
+.k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6f6a62}
+.map{margin-top:36px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:0 28px}
+.stage{display:contents}
+.stage .lab{padding:22px 0 0;border-top:1px solid #141412}
+.stage .lab .n{display:block;color:#a8825a;font-size:11px;letter-spacing:.12em;margin-bottom:4px}
+.stage .lab h2{font-size:21px;line-height:1.15}
+.stage .lab p{margin:8px 0 0;font-size:13.5px;color:#6f6a62;line-height:1.45;text-wrap:pretty}
+.stage .body{padding:22px 0 26px;border-top:1px solid #141412}
+.arrow{grid-column:2;display:flex;justify-content:center;color:#a8825a;font-size:22px;line-height:1;padding:2px 0 10px;margin-top:-16px}
+.qs{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:6px}
+.q{background:#faf7f0;border:1px solid #dcd4c6;padding:12px 10px 10px;min-height:92px;display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.3}
+.q b{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:16px;overflow-wrap:anywhere;hyphens:auto}
+.q i{font-style:normal;color:#6f6a62;font-size:11px;letter-spacing:.06em}
+.q.on{border-color:#a8825a;background:#141412;color:#f4efe6}.q.on i{color:#cfc6b6}
+.scores{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.sc{background:#faf7f0;border:1px solid #dcd4c6;padding:14px 14px 12px;display:flex;flex-direction:column;gap:8px}
+.sc b{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:18px}
+.bar{display:flex;gap:3px}.bar i{display:block;flex:1;height:6px;background:#dcd4c6}.bar i.on{background:#a8825a}
+.sc .lo{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6f6a62}
+.sc small{font-size:12.5px;color:#6f6a62;line-height:1.4}
+.gradeRow{display:grid;grid-template-columns:minmax(0,1.3fr) 40px minmax(0,1fr);gap:0 10px;align-items:center}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.f{background:#faf7f0;border:1px solid #dcd4c6;padding:10px 12px;font-size:13.5px;display:flex;flex-direction:column;gap:2px}
+.f span{color:#6f6a62;font-size:12px}
+.sig{display:flex;flex-direction:column;border:1px solid #141412;background:#141412;color:#f4efe6;padding:16px 18px;gap:4px}
+.sig .g{font-family:'EB Garamond',Georgia,serif;font-size:36px;line-height:1;color:#e2c59a}
+.sig .row{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:5px 0;border-top:1px solid #3a3731}
+.sig .row b{font-weight:400;font-family:'EB Garamond',Georgia,serif;color:#e2c59a;font-size:15px;min-width:28px}
+.outs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.o{border:1px solid #dcd4c6;background:#faf7f0;padding:14px;display:flex;flex-direction:column;gap:4px;min-height:44px}
+.o b{font-family:'EB Garamond',Georgia,serif;font-weight:400;font-size:17px}.o span{font-size:12.5px;color:#6f6a62;line-height:1.4}
+.o a{color:#7d5f3f;font-size:13px;border-bottom:1px solid #dcd4c6;width:fit-content;margin-top:4px}
+.rules{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13.5px;padding-top:6px}
+.rules span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#a8825a;margin-right:8px;vertical-align:middle}
+@media(max-width:820px){.scores,.outs{grid-template-columns:1fr 1fr}.gradeRow{grid-template-columns:1fr;gap:10px}.gradeRow .mid{transform:rotate(90deg)}}
+@media(max-width:620px){.map{grid-template-columns:1fr;gap:0}.stage .lab{border-top:1px solid #141412;padding-top:20px}.stage .body{border-top:0;padding-top:14px}.arrow{grid-column:1}.qs{grid-template-columns:1fr 1fr}.q{min-height:0}}
+@media print{nav.top,footer.ft,.noprint{display:none !important}body{background:#fff;font-size:13px}.wrap{max-width:none;padding:0}.q.on,.sig{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method" class="cur">Methodology</a><a href="/advisers">For institutions</a></div></nav>
+
+<h1 style="font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin:clamp(40px,7vw,64px) 0 10px;letter-spacing:-.01em">The method on one page</h1>
+<p class="mute" style="margin:0 0 6px;max-width:60ch;font-size:16px;text-wrap:pretty">Every market is read the same way. Seven questions; four of them scored; six factors weighed into one grade; the result carried onto every brief and tool.</p>
+<p class="mute noprint" style="margin:0;font-size:13.5px"><a href="/method" style="border-bottom:1px solid #dcd4c6">Full methodology →</a> · <button type="button" onclick="window.print()" style="background:none;border:0;padding:0;font:inherit;color:#6f6a62;border-bottom:1px solid #dcd4c6;cursor:pointer">Save as PDF</button></p>
+
+<div class="map">
+  <div class="stage">
+    <div class="lab"><span class="n">1</span><h2>Seven questions</h2><p>Asked of every market, in this order. The dark four are scored.</p></div>
+    <div class="body"><div class="qs">
+      <div class="q"><i>1</i><b>Supply</b>What exists, who has it</div>
+      <div class="q"><i>2</i><b>Demand</b>Who buys, for what</div>
+      <div class="q on"><i>3</i><b>Concentration</b>Who sets the price</div>
+      <div class="q on"><i>4</i><b>Liquidity</b>Can a unit be sold</div>
+      <div class="q on"><i>5</i><b>Scarcity</b>Can supply respond</div>
+      <div class="q on"><i>6</i><b>Provenance</b>Is it what it says</div>
+      <div class="q"><i>7</i><b>Price formation</b>How it all combines</div>
+    </div></div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="stage">
+    <div class="lab"><span class="n">2</span><h2>Four scores</h2><p>Each 1 to 5 with a band word. Never added together.</p></div>
+    <div class="body"><div class="scores">
+      <div class="sc"><b>Concentration</b><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="lo"><span>1 Low</span><span>5 High</span></div><small>5 when the top three control three-quarters of the price-setting stage</small></div>
+      <div class="sc"><b>Liquidity</b><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="lo"><span>1 Low</span><span>5 High</span></div><small>5 when an exchange or daily reference price exists and clears daily</small></div>
+      <div class="sc"><b>Scarcity</b><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="lo"><span>1 Low</span><span>5 High</span></div><small>5 when supply is fixed or falling and cannot expand in five years</small></div>
+      <div class="sc"><b>Provenance risk</b><div class="bar"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="lo"><span>1 Low</span><span>5 High</span></div><small>5 when mislabelling exceeds a fifth, or no independent check exists</small></div>
+    </div></div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="stage">
+    <div class="lab"><span class="n">3</span><h2>One grade</h2><p>Six factors, each 1 to 5, weighed into ΣΟΦΙΑ's opinion of how practical the asset is to own and sell. Not a view on return.</p></div>
+    <div class="body"><div class="gradeRow">
+      <div class="facts">
+        <div class="f">Valuation<span>how independently priced</span></div>
+        <div class="f">Exit<span>how fast, at what cost</span></div>
+        <div class="f">Custody<span>what keeping it needs</span></div>
+        <div class="f">Title and transfer<span>how ownership moves</span></div>
+        <div class="f">Access<span>who can buy at all</span></div>
+        <div class="f">Intangible premium<span>how much is story</span></div>
+      </div>
+      <div class="mid" style="text-align:center;color:#a8825a;font-size:22px">→</div>
+      <div class="sig"><span class="g">Σ</span><span style="font-size:12px;color:#cfc6b6;margin-bottom:6px">A judgement across the six, not an average</span>
+        <div class="row"><b>Σ5</b><span>Institutional</span><span style="color:#cfc6b6">3</span></div>
+        <div class="row"><b>Σ4</b><span>Accessible</span><span style="color:#cfc6b6">7</span></div>
+        <div class="row"><b>Σ3</b><span>Specialist</span><span style="color:#cfc6b6">19</span></div>
+        <div class="row"><b>Σ2</b><span>Restricted</span><span style="color:#cfc6b6">19</span></div>
+        <div class="row"><b>Σ1</b><span>No route</span><span style="color:#cfc6b6">2</span></div>
+      </div>
+    </div></div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="stage">
+    <div class="lab"><span class="n">4</span><h2>Where it appears</h2><p>The same values, dated and versioned, everywhere they are used.</p></div>
+    <div class="body"><div class="outs">
+      <div class="o"><b>Market brief</b><span>Grade, four scores, six factors, horizon and exit, with sources</span><a href="/gold-dashboard">Gold, for example →</a></div>
+      <div class="o"><b>Compare</b><span>All 50 markets on the four scores</span><a href="/markets?view=compare">Compare →</a></div>
+      <div class="o"><b>Start here</b><span>The parts of a brief that bear on a decision</span><a href="/decide">Start here →</a></div>
+      <div class="o"><b>Committee paper</b><span>The brief re-set for the file, with a reference ID</span><a href="/report">Build one →</a></div>
+    </div></div>
+  </div>
+  <div class="stage">
+    <div class="lab"><span class="n">Throughout</span><h2>Rules of evidence</h2></div>
+    <div class="body"><div class="rules"><span>Every figure cited or absent</span><span>No live prices</span><span>Discrepancies shown, not reconciled</span><span>Inference marked</span><span>Confidence tagged High, Med, Low</span><span>Dated "Data as of"</span><span>Corrections logged, never removed</span><span>Versioned method</span></div></div>
+  </div>
+</div>
+
+<p class="mute" style="margin:28px 0 0;font-size:13px">Methodology v1.2 · 3 Nov 2026 · Market intelligence and data, not investment advice.</p>
+
+<footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
+</div>
+</body>
+</html>
