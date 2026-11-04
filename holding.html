@@ -64,17 +64,17 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
 <body>
 <div class="wrap">
 <nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
-<h1 class="pg" style="font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin-top:clamp(36px,6vw,56px);letter-spacing:-.01em">Grade the holding, not just the market.</h1>
-<p class="pg mute" style="margin:12px 0 0;max-width:58ch;font-size:16px;text-wrap:pretty">Five answers turn the market brief into a one-page note on a specific holding. Each answer that departs from the form the brief grades moves one factor down a point; the note says which moved and why. Nothing you enter leaves this device.</p>
+<h1 class="pg" style="font-size:clamp(32px,4.6vw,44px);line-height:1.1;margin-top:clamp(36px,6vw,56px);letter-spacing:-.01em">Grade what you actually hold.</h1>
+<p class="pg mute" style="margin:12px 0 0;max-width:58ch;font-size:16px;text-wrap:pretty">Answer five questions about your holding and get a one-page note: how to sell it, what it costs to keep, what paperwork is missing, and its own Σ grade next to the market's. Nothing you enter leaves this device.</p>
 
 <div class="layout">
   <form class="f" id="f" onsubmit="return false">
-    <div><label class="k" for="m">Market</label><select id="m" class="sel"></select></div>
-    <div><span class="k" style="display:block;margin-bottom:8px">Form</span><div class="opts" id="form"></div></div>
-    <div><span class="k" style="display:block;margin-bottom:8px">Documentation held</span><div class="opts" id="doc"></div></div>
-    <div><span class="k" style="display:block;margin-bottom:8px">Size</span><div class="opts" id="size"></div></div>
-    <div><span class="k" style="display:block;margin-bottom:8px">Where it is held</span><div class="opts" id="where"></div></div>
-    <div class="acts"><button type="button" class="btn" onclick="window.print()">Print the note (A4)</button><a class="btn ghost" id="a-brief" href="#">Full brief →</a></div>
+    <div><label class="k" for="m">What is it?</label><select id="m" class="sel"></select></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">What form is it in?</span><div class="opts" id="form"></div></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">What paperwork do you have?</span><div class="opts" id="doc"></div></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">How much is there?</span><div class="opts" id="size"></div></div>
+    <div><span class="k" style="display:block;margin-bottom:8px">Where is it kept?</span><div class="opts" id="where"></div></div>
+    <div class="acts"><button type="button" class="btn" onclick="window.print()">Print the note</button><a class="btn ghost" id="a-brief" href="#">Full brief →</a></div>
   </form>
   <div class="note" id="note"></div>
 </div>
@@ -85,10 +85,10 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
 (function(){
   var LABEL={1:'No route',2:'Restricted',3:'Specialist',4:'Accessible',5:'Institutional'};
   var Q={
-    form:[['std','Standard unit, as rated','The form the brief grades: {rated}.'],['non','Non-standard form','Jewellery, loose stones, part cases, odd lots, fractions, altered or unsealed items.'],['paper','Paper or wrapper','ETF, fund, token or share. The wrapper\u2019s own terms govern; the note rates the wrapper.']],
-    doc:[['full','Full','Lab report, certificate, registry entry, assay or invoice chain, as the market expects.'],['part','Partial','Some papers, not the one the buyer will ask for first.'],['none','None','No independent document.']],
-    size:[['std','Standard lot','Within the range dealers and auction houses take as a matter of course.'],['small','Below the minimum','Smaller than the usual lot; sells through retail channels at a wider spread.'],['large','Above the usual lot','An estate or a position a single buyer would struggle to absorb.']],
-    where:[['pro','Professional custody','Vault, bonded warehouse, registry, regulated nominee.'],['self','With the holder','At home, in the office, on the premises.'],['unk','Unknown or abroad','Location, condition or control not confirmed.']]
+    form:[['std','The usual form','What the brief rates: {rated}.'],['non','Something different','Jewellery, loose stones, part cases, odd lots, altered or opened items.'],['paper','A fund, ETF, token or share','You hold paper, not the thing. The note rates the paper.']],
+    doc:[['full','Complete','Certificate, lab report, registry entry or receipts, as buyers in this market expect.'],['part','Some','Some papers, but not the one a buyer asks for first.'],['none','None','No independent paperwork.']],
+    size:[['std','A normal amount','What dealers and auction houses handle routinely.'],['small','Smaller than usual','Sells through retail channels at a wider spread.'],['large','Larger than usual','More than one buyer could take at once.']],
+    where:[['pro','With a professional','Vault, bonded warehouse, registry or regulated custodian.'],['self','With you','At home, in the office, on your premises.'],['unk','Not sure, or abroad','You cannot confirm where it is, what state it is in, or who controls it.']]
   };
   var D=null,$=function(id){return document.getElementById(id);};
   var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
@@ -100,25 +100,25 @@ h1,h2,h3{font-family:'EB Garamond',Georgia,serif;font-weight:400;margin:0}
     var fac=JSON.parse(JSON.stringify(r.factors)),hits={},why={},fired=0,todo=[];
     var hit=function(k,w){fired++;(why[k]=why[k]||[]).push(w);if(fac[k]>1){fac[k]--;hits[k]=1;}};
     var cust=row(r,'custody'),prov=row(r,'provenance'),ex=row(r,'exit-depth'),acc=row(r,'access');
-    if(f==='non'){hit('Exit','non-standard form');hit('Valuation','no reference unit');}
-    if(d==='part'){hit('Title and transfer','papers incomplete');todo.push('Obtain the document the buyer asks for first'+(prov&&prov.Verifier?': '+prov.Verifier:'')+'.');}
-    if(d==='none'){hit('Title and transfer','no independent document');hit('Exit','route narrows to channels that re-certify');todo.push('Independent verification before any sale'+(prov&&prov.Verifier?': '+prov.Verifier:'')+'.');if(prov&&prov.Claim&&prov.Claim!=='—')todo.push('Claim most at risk in this market: '+prov.Claim+'.');}
-    if(s==='small')hit('Exit','below the usual lot');
-    if(s==='large'&&r.axes.liquidity.s<=2)hit('Exit','large position in a thin market');
-    if(w==='self'&&cust&&!/^(Shelf|Paper)/i.test(cust.Regime||'')){hit('Custody','needs '+cust.Regime.toLowerCase()+' custody');todo.push('Move to '+(cust.Where||'professional custody')+', or document the conditions it is kept in.');}
-    if(w==='unk'){hit('Custody','location unconfirmed');hit('Title and transfer','control unconfirmed');todo.push('Confirm location, condition and who controls release before relying on the holding.');}
+    if(f==='non'){hit('Exit','not the usual form');hit('Valuation','no reference price for this form');}
+    if(d==='part'){hit('Title and transfer','paperwork incomplete');todo.push('Get the document a buyer asks for first'+(prov&&prov.Verifier?': '+prov.Verifier:'')+'.');}
+    if(d==='none'){hit('Title and transfer','no paperwork');hit('Exit','only buyers who re-certify will take it');todo.push('Have it independently verified before any sale'+(prov&&prov.Verifier?': '+prov.Verifier:'')+'.');if(prov&&prov.Claim&&prov.Claim!=='—')todo.push('The claim most often wrong in this market: '+prov.Claim+'.');}
+    if(s==='small')hit('Exit','smaller than usual');
+    if(s==='large'&&r.axes.liquidity.s<=2)hit('Exit','too large for a thin market');
+    if(w==='self'&&cust&&!/^(Shelf|Paper)/i.test(cust.Regime||'')){hit('Custody','needs '+cust.Regime.toLowerCase()+' custody');todo.push('Move it to '+(cust.Where||'professional custody')+', or record the conditions it is kept in.');}
+    if(w==='unk'){hit('Custody','location not confirmed');hit('Title and transfer','control not confirmed');todo.push('Confirm where it is, what state it is in and who can release it.');}
     var moved=Object.keys(hits).map(function(k){return k+' '+r.factors[k]+'→'+fac[k]+' ('+why[k].join('; ')+')';});
     var drop=Object.keys(hits).length,hs=Math.max(1,r.grade-(drop>=3?2:drop>=1?1:0));
-    if(f==='paper'){hs=r.grade;moved=[];fired=0;todo.push('Rate the wrapper on its own terms: '+(acc&&acc.Wrappers?acc.Wrappers:'see the access register')+'. What it owns: '+(acc&&acc.Owns?acc.Owns:'see the brief')+'.');}
+    if(f==='paper'){hs=r.grade;moved=[];fired=0;todo.push('Check the paper\'s own terms: '+(acc&&acc.Wrappers?acc.Wrappers:'see the access register')+'. What it actually owns: '+(acc&&acc.Owns?acc.Owns:'see the brief')+'.');}
     var desc=[Q.form,Q.doc,Q.size,Q.where].map(function(l,i){var v=[f,d,s,w][i];return l.filter(function(o){return o[0]===v;})[0][1];});
     var h='<div class="nh"><div><span class="mark">ΣΟΦΙΑ</span><h2>Holding note · '+esc(r.name)+'</h2><div class="sub">'+esc(desc.join(' · '))+'</div></div><div class="k" style="text-align:right">'+esc(r.family)+'<br>Brief as of '+esc(r.asof)+'</div></div>';
-    h+='<div class="sig"><div><span class="k">Market Σ</span><div class="g">Σ'+r.grade+'</div><div class="gl">'+esc(r.label)+'</div><div class="moved">'+esc(r.rated)+'. '+esc(r.why)+'</div></div><div><span class="k">This holding</span><div class="g">Σ'+hs+'</div><div class="gl">'+LABEL[hs]+'</div><div class="moved">'+(moved.length?'Moved by: '+moved.map(function(m){return '<b>'+esc(m)+'</b>';}).join('; ')+'.':f==='paper'?'The wrapper is rated, not the asset.':fired?'The answers depart from the rated form, but no factor can move lower than it already is.':'No adjustment: the holding matches the rated form.')+(r.grade===1?' The market has no practical route; the note rates the route to exposure.':'')+'</div></div></div>';
-    h+='<div class="ns"><h3>Route to exit</h3><div><p>'+esc(r.exit.routes||'')+'</p>'+(ex?'<p class="sub">Door: '+esc(ex.Door)+' · open '+esc(ex.Open).toLowerCase()+'</p>':'')+(f==='non'?'<p class="sub">Non-standard form: expect the retail or specialist channel rather than the route above.</p>':'')+(s==='small'?'<p class="sub">Below the usual lot: retail channel, wider spread.</p>':'')+'</div></div>';
-    h+='<div class="ns"><h3>Time and cost</h3><div><p><span class="sub">Time</span><br>'+esc(r.exit.time||'')+'</p><p><span class="sub">Cost</span><br>'+esc(r.exit.cost||'')+'</p></div></div>';
-    h+='<div class="ns"><h3>Verification outstanding'+(todo.length?'<span class="flag">Action</span>':'')+'</h3><div>'+(todo.length?'<ul>'+todo.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul>':'<p>None from the answers given. Provenance risk in this market is '+esc(r.axes.provenance.band.toLowerCase())+(prov&&prov.Verifier?'; verifier: '+esc(prov.Verifier):'')+'.</p>')+'</div></div>';
-    h+='<div class="ns"><h3>Custody and insurance</h3><div>'+(cust?'<p>'+esc(cust.Regime)+': '+esc(cust.Where)+'.</p><p class="sub">Running cost: '+esc(cust.Cost)+'</p><p class="sub">Fails on: '+esc(cust.Fails)+'</p>':'<p class="mute">No custody register entry.</p>')+'</div></div>';
-    h+='<div class="ns"><h3>Holding horizon</h3><div><p>'+esc(r.horizon.big||'')+'. '+esc(r.horizon.text||'')+'</p></div></div>';
-    h+='<p class="stamp"><span>Data as of '+esc(r.asof)+'</span><span>Method '+esc(D.method)+' · <a href="/method#sigma">how Σ is judged</a></span><span>saphia.io'+esc(r.url)+'</span><span>Market intelligence and data, not investment advice. The Σ grade is an opinion of how practical the holding is to keep and sell, not a view on value or return.</span></p>';
+    h+='<div class="sig"><div><span class="k">Market Σ</span><div class="g">Σ'+r.grade+'</div><div class="gl">'+esc(r.label)+'</div><div class="moved">'+esc(r.rated)+'. '+esc(r.why)+'</div></div><div><span class="k">This holding</span><div class="g">Σ'+hs+'</div><div class="gl">'+LABEL[hs]+'</div><div class="moved">'+(moved.length?'Lowered because: '+moved.map(function(m){return '<b>'+esc(m)+'</b>';}).join('; ')+'.':f==='paper'?'This rates the paper you hold, not the asset behind it.':fired?'The answers depart from the rated form, but no factor can move lower than it already is.':'Same as the market: your holding is in the usual form.')+(r.grade===1?' There is no practical way to hold this asset; the note rates the nearest route to it.':'')+'</div></div></div>';
+    h+='<div class="ns"><h3>How you would sell</h3><div><p>'+esc(r.exit.routes||'')+'</p>'+(ex?'<p class="sub">Door: '+esc(ex.Door)+' · open '+esc(ex.Open).toLowerCase()+'</p>':'')+(f==='non'?'<p class="sub">Because it is not in the usual form, expect to sell through a retailer or specialist instead.</p>':'')+(s==='small'?'<p class="sub">Because the amount is small, expect a retail buyer and a wider spread.</p>':'')+'</div></div>';
+    h+='<div class="ns"><h3>How long, and what it costs</h3><div><p><span class="sub">Time</span><br>'+esc(r.exit.time||'')+'</p><p><span class="sub">Cost</span><br>'+esc(r.exit.cost||'')+'</p></div></div>';
+    h+='<div class="ns"><h3>What to check first'+(todo.length?'<span class="flag">Action</span>':'')+'</h3><div>'+(todo.length?'<ul>'+todo.map(function(t){return '<li>'+esc(t)+'</li>';}).join('')+'</ul>':'<p>Nothing from your answers. The risk of mislabelling in this market is '+esc(r.axes.provenance.band.toLowerCase())+(prov&&prov.Verifier?'; verifier: '+esc(prov.Verifier):'')+'.</p>')+'</div></div>';
+    h+='<div class="ns"><h3>Keeping it</h3><div>'+(cust?'<p>'+esc(cust.Regime)+': '+esc(cust.Where)+'.</p><p class="sub">Running cost: '+esc(cust.Cost)+'</p><p class="sub">What goes wrong: '+esc(cust.Fails)+'</p>':'<p class="mute">No custody register entry.</p>')+'</div></div>';
+    h+='<div class="ns"><h3>How long people usually hold it</h3><div><p>'+esc(r.horizon.big||'')+'. '+esc(r.horizon.text||'')+'</p></div></div>';
+    h+='<p class="stamp"><span>Data as of '+esc(r.asof)+'</span><span>Method '+esc(D.method)+' · <a href="/method#sigma">how Σ is judged</a></span><span>saphia.io'+esc(r.url)+'</span><span>Market intelligence and data, not investment advice. The Σ grade says how practical the holding is to keep and sell. It is not a view on what it is worth.</span></p>';
     $('note').innerHTML=h;$('a-brief').href=r.url;document.title='Holding note · '+r.name+' — Saphia (ΣΟΦΙΑ)';
     try{history.replaceState(null,'','?m='+r.slug);}catch(e){}
   }
