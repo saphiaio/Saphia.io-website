@@ -51,6 +51,10 @@ p.lede{margin:12px 0 0;max-width:58ch;font-size:16px;color:#6f6a62;text-wrap:pre
 @media(max-width:760px){.row,.entry{grid-template-columns:1fr;gap:4px}}
 @media print{nav.top,footer.ft,.noprint{display:none !important}body{background:#fff}.wrap{max-width:none;padding:0}}
 .drop{border:1px dashed #a8825a;background:#faf7f0;padding:22px;text-align:center;font-size:14.5px;color:#6f6a62}
+#grid td{padding:6px 8px 6px 0;border-bottom:1px solid #e6dfd2}#grid th{padding-right:8px}
+#grid input,#grid select{width:100%;box-sizing:border-box;font:inherit;font-size:14.5px;padding:9px 10px;border:1px solid #dcd4c6;background:#faf7f0;color:#141412;border-radius:0;min-height:44px}#grid input:focus,#grid select:focus{outline:none;border-color:#a8825a}
+#grid button.x{background:none;border:0;color:#6f6a62;font-size:18px;cursor:pointer;min-height:44px;min-width:28px;padding:0}#grid button.x:hover{color:#9b4a22}
+.drop:hover,.drop.over{border-color:#141412;color:#141412}
 textarea.inp{min-height:150px;font-family:ui-monospace,monospace;font-size:13.5px;line-height:1.5;resize:vertical}
 table{border-collapse:collapse;width:100%;font-size:14.5px;margin-top:18px}
 th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6f6a62;font-weight:500;padding:8px 12px 8px 0;border-bottom:1px solid #141412}
@@ -66,19 +70,30 @@ td.g{color:#7d5f3f;font-family:'EB Garamond',Georgia,serif;font-size:18px;white-
 <div class="wrap">
 <nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/method">Methodology</a><a href="/advisers">For institutions</a></div></nav>
 <h1 class="pg">Collection view</h1>
-<p class="lede">One line per holding. Columns: <b class="ink">market, description, documentation, quantity</b> (the last three optional). Documentation: full, partial or none. Matching is by market name; unmatched lines are listed, never dropped.</p>
-<div class="noprint" style="display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:28px;max-width:720px">
-  <textarea id="csv" class="inp" placeholder="market,description,documentation,quantity&#10;Gold,Two 1 kg bars in allocated storage,full,2&#10;Fine Wine,Six cases 2010 Bordeaux in bond,partial,6&#10;Watches,Steel sports model with box only,none,1"></textarea>
-  <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center"><button class="btn" id="run">Read the inventory</button><label class="btn ghost" style="cursor:pointer">Upload CSV<input type="file" id="file" accept=".csv,text/csv" style="display:none"></label><a class="btn ghost" id="tpl" href="#" download="saphia-inventory-template.csv">Template</a><button class="btn ghost" id="print" hidden onclick="window.print()">Print</button></div>
-  <p class="mute" style="margin:0;font-size:13px">Processed on this device only. Nothing is uploaded or stored.</p>
+<p class="lede">List what you hold and get one table back: which holdings can be sold in days, which in months, and what paperwork is missing. Everything stays on this device.</p>
+<div class="noprint" style="margin-top:28px;max-width:760px;display:grid;gap:22px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+    <label class="drop" id="dz" for="file" style="cursor:pointer;display:flex;flex-direction:column;gap:6px;justify-content:center;min-height:96px"><b class="ink" style="font-size:15.5px">Upload a spreadsheet</b><span>Excel (.xlsx) or CSV. Drop it here or click to choose.</span><input type="file" id="file" accept=".xlsx,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="display:none"></label>
+    <a class="drop" id="tpl" href="#" download="saphia-inventory-template.xlsx" style="display:flex;flex-direction:column;gap:6px;justify-content:center;min-height:96px;border-style:solid;color:#6f6a62"><b class="ink" style="font-size:15.5px">Start from the Excel template</b><span>Four columns, three example lines. Fill it in, then upload it.</span></a>
+  </div>
+  <div>
+    <p class="mute" style="margin:0 0 10px;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase">Or type it in</p>
+    <div class="tw"><table id="grid" style="margin-top:0"><thead><tr><th style="width:24%">What is it?</th><th>Description <span style="text-transform:none;letter-spacing:0">(optional)</span></th><th style="width:17%">Paperwork</th><th style="width:9%">How many</th><th style="width:28px"></th></tr></thead><tbody id="rows"></tbody></table></div>
+    <datalist id="mk"></datalist>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:14px"><button class="btn" id="run">Read the inventory</button><button class="btn ghost" id="add" type="button">+ Add a line</button><button class="btn ghost" id="clear" type="button">Clear</button><button class="btn ghost" id="print" hidden onclick="window.print()">Print</button><span class="mute" style="font-size:13px">Tip: paste rows straight from a spreadsheet into the first cell.</span></div>
+  </div>
+  <p class="mute" style="margin:0;font-size:13px">Processed on this device only. Nothing is uploaded or stored. Market names are matched to the 50 briefs; anything unrecognised is listed, never dropped.</p>
 </div>
 <div id="out"></div>
 <footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
 </div>
+<script src="xlsx-lite.js"></script>
 <script>
 var $=function(id){return document.getElementById(id);};var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};var dots=function(n){var h='<span class="dots" role="img" aria-label="'+n+' of 5">';for(var i=1;i<=5;i++)h+='<i class="'+(i<=n?'on':'')+'"></i>';return h+'</span>';};var row=function(r,th){var t=r.themeRows&&r.themeRows[th];return t&&t.rows[0]?t.rows[0].cells:null;};function loadData(cb,err){if(window.SAPHIA_MARKETS){cb(window.SAPHIA_MARKETS);return;}var tries=['markets-data.js','/markets-data.js'];(function next(i){if(i>=tries.length){var fj=['/data/markets.json','data/markets.json'];(function nj(k){if(k>=fj.length){err&&err();return;}fetch(fj[k],{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(cb).catch(function(){nj(k+1);});})(0);return;}var s=document.createElement('script');s.src=tries[i];s.onload=function(){if(window.SAPHIA_MARKETS)cb(window.SAPHIA_MARKETS);else next(i+1);};s.onerror=function(){next(i+1);};document.head.appendChild(s);})(0);}var LABEL={1:'No route',2:'Restricted',3:'Specialist',4:'Accessible',5:'Institutional'};var ladder=function(r){var l=r.axes.liquidity.s,ex=row(r,'exit-depth'),door=ex?ex.Door:'';if(/None/.test(door)||l<=1)return 'Uncertain';if(l>=5)return 'Days';if(l===4)return 'Weeks';if(l===3)return /Calendar/.test(door)?'Months':'Weeks';return /Counterparty/.test(door)?'Uncertain':'Months';};
-var D=null;loadData(function(j){D=j;});
-$('tpl').href='data:text/csv;charset=utf-8,'+encodeURIComponent('market,description,documentation,quantity\nGold,Two 1 kg bars in allocated storage,full,2\nFine Wine,Six cases 2010 Bordeaux in bond,partial,6\n');
+var D=null;
+var TPL=[['market','description','documentation','quantity'],['Gold','Two 1 kg bars in allocated storage','full',2],['Fine Wine','Six cases 2010 Bordeaux in bond','partial',6],['Watches','Steel sports model with box only','none',1]];
+if(window.XLSX_LITE){$('tpl').href=URL.createObjectURL(XLSX_LITE.write(TPL,[22,44,16,10]));}else{$('tpl').download='saphia-inventory-template.csv';$('tpl').querySelector('b').textContent='Start from the CSV template';$('tpl').href='data:text/csv;charset=utf-8,'+encodeURIComponent(TPL.map(function(r){return r.join(',');}).join('\n')+'\n');}
+var csvq=function(v){v=String(v==null?'':v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;};
 function parse(t){return t.split(/\r?\n/).map(function(l){return l.trim();}).filter(Boolean).map(function(l){var c=[],cur='',q=false;for(var i=0;i<l.length;i++){var ch=l[i];if(ch==='"'){q=!q;}else if(ch===','&&!q){c.push(cur);cur='';}else cur+=ch;}c.push(cur);return c.map(function(x){return x.trim();});});}
 var norm=function(s){return s.toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();};
 function match(name){var n=norm(name);if(!n)return null;var best=null;Object.keys(D.markets).forEach(function(k){var r=D.markets[k],rn=norm(r.name);if(rn===n||norm(k)===n){best=r;return;}if(!best&&(rn.indexOf(n)>=0||n.indexOf(rn)>=0))best=r;});if(!best){Object.keys(D.markets).forEach(function(k){var r=D.markets[k];var words=norm(r.name).split(' ');if(!best&&words.some(function(w){return w.length>3&&n.split(' ').indexOf(w)>=0;}))best=r;});}return best;}
@@ -96,8 +111,20 @@ function run(text){if(!D){setTimeout(function(){run(text);},200);return;}var t0=
  var as=items.map(function(i){return i.r.asof;}).filter(function(v,i,a){return a.indexOf(v)===i;});
  h+='<p class="stamp"><span>'+items.length+' holdings · '+un.length+' unmatched · read in '+Math.round(performance.now()-t0)+' ms on this device</span><span>Briefs as of '+esc(as.join(', '))+'</span><span>Method '+esc(D.method)+'</span><span>Market intelligence and data, not investment advice. Time to cash is read from the brief\'s liquidity scale and exit door, not from any quote.</span></p>';
  $('out').innerHTML=h;$('print').hidden=false;}
-$('run').addEventListener('click',function(){run($('csv').value);});
-$('file').addEventListener('change',function(){var f=this.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){$('csv').value=rd.result;run(rd.result);};rd.readAsText(f);});
+function addRow(v){v=v||[];var tr=document.createElement('tr');tr.innerHTML='<td><input list="mk" placeholder="e.g. Gold" autocomplete="off"></td><td><input placeholder="e.g. Two 1 kg bars in allocated storage"></td><td><select><option value="">Not sure</option><option value="full">Complete</option><option value="partial">Some</option><option value="none">None</option></select></td><td><input inputmode="numeric" placeholder="1"></td><td><button class="x" type="button" title="Remove line" aria-label="Remove line">×</button></td>';var f=tr.querySelectorAll('input,select');f[0].value=v[0]||'';f[1].value=v[1]||'';var d=(v[2]||'').toLowerCase();f[2].value=/full|complete|yes/.test(d)?'full':/part|some/.test(d)?'partial':/none|^no|missing/.test(d)?'none':'';f[3].value=v[3]||'';tr.querySelector('.x').onclick=function(){tr.remove();if(!$('rows').children.length)addRow();};$('rows').appendChild(tr);return tr;}
+function gridRows(){return Array.prototype.map.call($('rows').querySelectorAll('tr'),function(tr){var f=tr.querySelectorAll('input,select');return [f[0].value,f[1].value,f[2].value,f[3].value].map(function(x){return x.trim();});}).filter(function(r){return r[0];});}
+function fillGrid(rows){if(rows.length&&/^market$/i.test(rows[0][0]))rows.shift();$('rows').innerHTML='';rows.forEach(function(r){if(r.some(function(c){return String(c).trim();}))addRow(r);});if(!$('rows').children.length)addRow();}
+function go(){var rows=gridRows();if(!rows.length){$('out').innerHTML='<p class="mute">Add at least one line, or upload a spreadsheet.</p>';return;}var t=rows.map(function(r){return r.map(csvq).join(',');}).join('\n');run(t);var o=$('out');window.scrollTo({top:o.getBoundingClientRect().top+window.scrollY-24,behavior:'smooth'});}
+function readFile(f){if(!f)return;var rd=new FileReader();var done=function(rows){fillGrid(rows);go();};
+ if(/\.xlsx$/i.test(f.name)&&window.XLSX_LITE){rd.onload=function(){XLSX_LITE.read(rd.result).then(done).catch(function(){$('out').innerHTML='<p class="mute">That workbook could not be read on this device. Save it as CSV and upload again.</p>';});};rd.readAsArrayBuffer(f);}
+ else{rd.onload=function(){done(parse(rd.result));};rd.readAsText(f);}}
+$('run').addEventListener('click',go);$('add').addEventListener('click',function(){addRow().querySelector('input').focus();});$('clear').addEventListener('click',function(){$('rows').innerHTML='';addRow();addRow();addRow();$('out').innerHTML='';$('print').hidden=true;});
+$('file').addEventListener('change',function(){readFile(this.files[0]);this.value='';});
+var dz=$('dz');['dragenter','dragover'].forEach(function(e){dz.addEventListener(e,function(ev){ev.preventDefault();dz.classList.add('over');});});['dragleave','drop'].forEach(function(e){dz.addEventListener(e,function(ev){ev.preventDefault();dz.classList.remove('over');});});dz.addEventListener('drop',function(ev){readFile(ev.dataTransfer.files[0]);});
+$('rows').addEventListener('paste',function(ev){var t=(ev.clipboardData||window.clipboardData).getData('text');if(!/[\t\n]/.test(t))return;ev.preventDefault();var rows=t.split(/\r?\n/).filter(function(l){return l.trim();}).map(function(l){return l.indexOf('\t')>=0?l.split('\t'):parse(l)[0];});var cur=ev.target.closest('tr');var existing=gridRows();if(cur&&!cur.querySelector('input').value)cur.remove();rows.forEach(function(r){addRow(r);});});
+$('rows').addEventListener('keydown',function(ev){if(ev.key==='Enter'&&ev.target.tagName==='INPUT'){ev.preventDefault();var tr=ev.target.closest('tr');if(tr===$('rows').lastElementChild)addRow().querySelector('input').focus();else go();}});
+loadData(function(j){D=j;var dl=$('mk');Object.keys(D.markets).map(function(k){return D.markets[k].name;}).sort().forEach(function(n){var o=document.createElement('option');o.value=n;dl.appendChild(o);});});
+addRow();addRow();addRow();
 </script>
 </body>
 </html>
