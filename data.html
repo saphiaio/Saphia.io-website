@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Σ as data — Saphia (ΣΟΦΙΑ)</title>
-<meta property="og:type" content="website"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Σ as data — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="A grade feed for private banks, custodians and wealth-reporting platforms: market, Σ, four scales, as-of date, method version, as CSV and JSON."><meta property="og:url" content="https://saphia.io/data"><meta property="og:image" content="https://saphia.io/og-method.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="A grade feed for private banks, custodians and wealth-reporting platforms: market, Σ, four scales, as-of date, method version, as CSV and JSON.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Saphia (ΣΟΦΙΑ)"><meta property="og:title" content="Σ as data — Saphia (ΣΟΦΙΑ)"><meta property="og:description" content="The Σ grade and four structural scales for all 50 markets as CSV and JSON, dated and versioned, licensed to private banks, custodians, trustees and wealth-reporting platforms."><meta property="og:url" content="https://saphia.io/data"><meta property="og:image" content="https://saphia.io/og-method.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="The Σ grade and four structural scales for all 50 markets as CSV and JSON, dated and versioned, licensed to private banks, custodians, trustees and wealth-reporting platforms.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,29 +53,49 @@ p.lede{margin:12px 0 0;max-width:58ch;font-size:16px;color:#6f6a62;text-wrap:pre
 .flds{display:grid;grid-template-columns:200px minmax(0,1fr);gap:8px 20px;border-top:1px solid #141412;margin-top:12px;font-size:14.5px}.flds>span{padding:9px 0;border-bottom:1px solid #e6dfd2}.flds>span:nth-child(odd){font-family:ui-monospace,monospace;font-size:13px}
 pre{background:#faf7f0;border:1px solid #dcd4c6;padding:14px 16px;font-size:12.5px;line-height:1.5;overflow-x:auto;margin:14px 0 0}
 @media(max-width:700px){.flds{grid-template-columns:1fr}.flds>span:nth-child(odd){border-bottom:0;padding-bottom:0}}
+.fit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:#dcd4c6;border:1px solid #dcd4c6;margin-top:28px}.fit>div{background:#faf7f0;padding:20px 20px 18px}.fit h3{font-size:21px;line-height:1.2;margin-bottom:8px}.fit p{margin:0;font-size:14.5px;color:#45423c;line-height:1.5;text-wrap:pretty}
+.mock{margin-top:28px;border:1px solid #dcd4c6;background:#faf7f0;padding:18px 20px;overflow-x:auto}.mock .k{margin-bottom:10px;display:block}.mock table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}.mock th{text-align:left;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6f6a62;font-weight:500;padding:6px 14px 8px 0;border-bottom:1px solid #141412}.mock td{padding:9px 14px 9px 0;border-bottom:1px solid #e6dfd2;white-space:nowrap}.mock td.s{font-family:'EB Garamond',Georgia,serif;font-size:19px;color:#7d5f3f}.mock td.new{background:#f4efe6;border-left:2px solid #a8825a;padding-left:12px}.mock th.new{border-left:2px solid #a8825a;padding-left:12px}
+.cta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center;border:1px solid #141412;padding:26px 28px;margin-top:40px;background:#faf7f0}.cta h2{font-size:26px;line-height:1.15}.cta p{margin:8px 0 0;font-size:15px;color:#45423c;max-width:56ch;text-wrap:pretty}@media(max-width:700px){.cta{grid-template-columns:1fr}}@media(max-width:520px){.fit{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
+<body>
+<div class="wrap">
 <nav class="top"><a class="mark" href="/home">ΣΟΦΙΑ</a><div class="links"><a href="/decide">Start here</a><a href="/markets">Markets</a><a href="/themes">Themes</a><a href="/tools">Tools</a><a href="/method">Methodology</a><a href="/advisers" class="cur">For institutions</a></div></nav>
 <h1 class="pg">Σ as data</h1>
-<p class="lede">The grades and the four structural scales for every market, as a file. Built for private banks, custodians and wealth-reporting platforms that want a common field on holdings that have never had one. Licensing terms for institutional use are <span class="tag">to be agreed</span>.</p>
+<p class="lede">One field your reporting has never had: how practical each tangible holding is to keep and sell, on one scale from Σ1 to Σ5, for all 50 markets, dated and versioned. Delivered as CSV and JSON under licence to private banks, custodians, trustees and wealth-reporting platforms.</p>
+<div class="mock" aria-label="Example of the Σ grade in a client statement"><span class="k">What it looks like in a client statement</span>
+<table><thead><tr><th>Holding</th><th>Market value</th><th class="new">Σ</th><th class="new">Time to cash</th><th class="new">Rated form</th></tr></thead><tbody>
+<tr><td>Allocated gold, 2 × 1 kg</td><td>£168,400</td><td class="s new">Σ5</td><td class="new">Days</td><td class="new">Physical metal</td></tr>
+<tr><td>2010 Bordeaux, 6 cases in bond</td><td>£41,200</td><td class="s new">Σ4</td><td class="new">Weeks</td><td class="new">Bottles in bond</td></tr>
+<tr><td>Speyside casks × 3</td><td>£54,000 (vendor)</td><td class="s new">Σ2</td><td class="new">Uncertain</td><td class="new">Cask under bond</td></tr>
+<tr><td>Saffron, 40 kg</td><td>—</td><td class="s new">Σ1</td><td class="new">No route</td><td class="new">None identified</td></tr>
+</tbody></table></div>
+<div class="fit">
+<div><h3>Private banks</h3><p>A Σ column beside market value on every tangible line. Clients see which holdings are liquid before they ask; relationship managers stop guessing.</p></div>
+<div><h3>Custodians and platforms</h3><p>One join key per market. A holding that drops a grade raises a flag in your own system, not in a PDF someone has to read.</p></div>
+<div><h3>Trustees and executors</h3><p>Sort an estate by Σ and time to cash on day one. Instruct the merchant before the valuer, and tell beneficiaries what is an asset and what is a problem.</p></div>
+<div><h3>Investment committees</h3><p>Compare a cellar, a stallion share and a uranium position on the same four scales, from a cited source that is not the person selling.</p></div>
+</div>
+<h2 style="font-size:24px;margin-top:44px">What you receive</h2>
 <div class="cards" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
-<a class="card" href="/data/grades.csv" download><span class="t">grades.csv</span><span class="m">50 rows · one per market · the fields below. Regenerated with every refresh.</span></a>
-<a class="card" href="/data/markets.json"><span class="t">markets.json</span><span class="m">The full per-market record: grade, six factors, four scales, horizon, exit lines, theme-register rows, sources count.</span></a>
+<div class="card"><span class="t">grades.csv</span><span class="m">50 rows, one per market: Σ grade and label, the four scales, rated form, as-of date, method version, canonical URL. Opens in Excel.</span></div>
+<div class="card"><span class="t">markets.json</span><span class="m">The full per-market record for integration: grade, six factors, four scales, holding horizon, exit route, time and cost, theme-register rows.</span></div>
+<div class="card"><span class="t">Change notices</span><span class="m">Every grade reversal and method revision, with the reason, as it is published. Nothing moves silently.</span></div>
 </div>
 <h2 style="font-size:24px;margin-top:40px">Fields</h2>
-<div class="flds"><span>slug</span><span>Stable identifier; also the URL stem</span><span>market</span><span>Display name</span><span>family</span><span>One of six families</span><span>sigma</span><span>1–5; 5 most practical to hold</span><span>label</span><span>Institutional · Accessible · Specialist · Restricted · No route</span><span>concentration</span><span>1–5, brief direction (5 = most concentrated)</span><span>liquidity</span><span>1–5 (5 = daily reference price)</span><span>scarcity</span><span>1–5 (5 = fixed or falling supply)</span><span>provenance_risk</span><span>1–5 (5 = highest risk)</span><span>rated_form</span><span>The form the grade applies to</span><span>as_of</span><span>Date of the brief the values come from</span><span>method</span><span>Standard version the values were produced under</span><span>url</span><span>Canonical brief</span></div>
+<div class="flds"><span>slug</span><span>Stable identifier; also the URL stem</span><span>market</span><span>Display name</span><span>family</span><span>One of six families</span><span>sigma</span><span>1–5; 5 most practical to hold</span><span>label</span><span>Institutional · Accessible · Specialist · Restricted · No route</span><span>concentration</span><span>1–5 (5 = most concentrated)</span><span>liquidity</span><span>1–5 (5 = daily reference price)</span><span>scarcity</span><span>1–5 (5 = fixed or falling supply)</span><span>provenance_risk</span><span>1–5 (5 = highest risk)</span><span>rated_form</span><span>The form the grade applies to</span><span>as_of</span><span>Date of the brief the values come from</span><span>method</span><span>Method version the values were produced under</span><span>url</span><span>Canonical brief</span></div>
 <h2 style="font-size:24px;margin-top:40px">Sample</h2>
 <pre>slug,market,family,sigma,label,concentration,liquidity,scarcity,provenance_risk,rated_form,as_of,method,url
-fine-wine,Fine Wine,Cellar & Collectibles,4,Accessible,1,3,3,3,Bottles in bond,5 Oct 2026,v1.2,https://saphia.io/fine-wine-dashboard
-gold,Gold,"Metals, Energy & Strategic Materials",5,Institutional,3,5,2,3,Physical metal,19 Oct 2026,v1.2,https://saphia.io/gold-dashboard
+fine-wine,Fine Wine,Cellar &amp; Collectibles,4,Accessible,1,3,3,3,Bottles in bond,5 Oct 2026,v1.2,https://saphia.io/fine-wine-dashboard
+gold,Gold,"Metals, Energy &amp; Strategic Materials",5,Institutional,3,5,2,3,Physical metal,19 Oct 2026,v1.2,https://saphia.io/gold-dashboard
 saffron,Saffron,Aromatics,1,No route,5,1,3,4,Route: none identified,5 Oct 2026,v1.2,https://saphia.io/saffron-dashboard</pre>
-<h2 style="font-size:24px;margin-top:40px">Terms</h2>
-<p style="max-width:62ch;text-wrap:pretty;font-size:15.5px">Values carry the as-of date and method version of the brief they come from and should be displayed with both. A grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold; it is not a valuation, a risk rating of any issuer, or advice, and must not be presented as any of those. Attribution: "ΣΟΦΙΑ Σ-grade, saphia.io, method v1.2". Redistribution, embedding in client reporting and change notifications are matters for the licence. <a href="mailto:hello@saphia.io?subject=%CE%A3%20as%20data" style="border-bottom:1px solid #dcd4c6">hello@saphia.io</a></p>
+<div class="cta"><div><h2>Request access</h2><p>Tell us who you are and where the grade would sit: a client statement, a custody platform, a trust file, a committee pack. We reply with the full CSV for evaluation and a licence proposal. No automated download; every licensee is known to us.</p></div><a class="btn" href="mailto:hello@saphia.io?subject=%CE%A3%20as%20data%20%E2%80%94%20access%20request&amp;body=Organisation%3A%0ARole%3A%0AWhere%20the%20grade%20would%20appear%3A%0AMarkets%20of%20most%20interest%3A%0A" style="white-space:nowrap">Request access →</a></div>
+<h2 style="font-size:24px;margin-top:40px">Terms in brief</h2>
+<p style="max-width:62ch;text-wrap:pretty;font-size:15.5px">Values are displayed with their as-of date and method version. A grade is ΣΟΦΙΑ's opinion of how practical the asset is to hold; it is not a valuation, a risk rating of any issuer, or advice, and is not presented as any of those. Attribution: "ΣΟΦΙΑ Σ-grade, saphia.io, method v1.2". Redistribution, embedding in client reporting and change notifications are set by the licence.</p>
 <p class="stamp"><span>Record as of 2026-11-03</span><span>Method v1.2</span><span>Market intelligence and data, not investment advice.</span></p>
 <footer class="ft"><div class="fl"><span class="mark">ΣΟΦΙΑ</span><span>© 2026 Saphia Intelligence</span></div><div class="fr"><a href="/about">About</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a></div></footer>
 </div>
-
 </body>
 </html>
